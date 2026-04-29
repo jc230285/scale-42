@@ -482,3 +482,6 @@ img { max-width: 100%; display: block; }
 /* Site detail link in DC cards */
 .dc-link { color: var(--accent); font-weight: 600; font-size: 14px; margin-top: 4px; align-self: flex-start; }
 .dc-link:hover { text-decoration: underline; }
+
+/* Hide Leaflet attribution / zoom controls bottom strip */
+.leaflet-bottom { visibility: hidden; }

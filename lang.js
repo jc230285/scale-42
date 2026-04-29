@@ -10,11 +10,11 @@
   var EN_TO_NO = {
     '/':                 '/no/',
     '/index.html':       '/no/index.html',
-    '/datacenters.html': '/no/datacenters.html',
-    '/capabilities.html':'/no/capabilities.html',
-    '/careers.html':     '/no/careers.html',
-    '/press.html':       '/no/press.html',
-    '/brand.html':       '/no/brand.html'
+    '/datacenters/': '/no/datacenters/',
+    '/capabilities/':'/no/capabilities/',
+    '/careers/':     '/no/careers/',
+    '/press/':       '/no/press/',
+    '/brand/':       '/no/brand/'
   };
 
   // Click handlers on the EN/NO toggle: persist choice.
