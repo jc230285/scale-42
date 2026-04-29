@@ -13,19 +13,21 @@
   --accent-ink: #ffffff;
   --radius: 4px;
   --maxw: 1180px;
-  --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
-  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-sans: 'Commissioner', system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-display: 'Commissioner', system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
   font-family: var(--font-sans);
+  font-weight: 300;
   color: var(--ink);
   background: var(--bg);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
+strong, b { font-weight: 600; }
 
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
@@ -39,10 +41,10 @@ img { max-width: 100%; display: block; }
   backdrop-filter: saturate(150%) blur(10px);
   border-bottom: 1px solid var(--line);
 }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-.brand { display: flex; align-items: center; padding: 10px 0; }
-.brand-logo { height: 44px; width: auto; display: block; }
-.brand-logo-footer { height: 52px; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.brand { display: flex; align-items: center; padding: 6px 0; }
+.brand-logo { height: 56px; width: auto; display: block; }
+.brand-logo-footer { height: 56px; }
 .nav-links { display: flex; align-items: center; gap: 26px; }
 .nav-links a { color: var(--ink-2); font-size: 14.5px; font-weight: 500; }
 .nav-links a:hover { color: var(--ink); }
