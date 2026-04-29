@@ -79,7 +79,7 @@
       <a href="#platform" class="active">Platform</a>
       <a href="datacenters/">Data Centres</a>
       <a href="#founders">Team</a>
-      <a href="#news">News</a>
+      <a href="news/">News</a>
       <div class="lang-toggle">
         <a href="index.html" data-lang="en" class="active">EN</a>
         <a href="no/index.html" data-lang="no">NO</a>
@@ -90,13 +90,19 @@
 </header>
 
 <section id="top" class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true">
+    <picture>
+      <source media="(min-width: 900px)" srcset="assets/hero.webp" type="image/webp">
+      <source media="(min-width: 900px)" srcset="assets/hero.jpg">
+      <source srcset="assets/hero-900.webp" type="image/webp">
+      <img src="assets/hero-900.jpg" alt="" />
+    </picture>
+  </div>
   <div class="container hero-inner">
     <p class="eyebrow">Next-generation European digital infrastructure</p>
     <h1>Building large-scale AI data centres<br/>across the Nordics.</h1>
     <p class="lede">Scale42 develops and operates wholesale, AI-ready data centres in Norway, Finland, Sweden and Iceland — co-located with abundant renewable power, purpose-built for high-density compute.</p>
     <div class="hero-cta">
-      <a href="datacenters/" class="btn btn-primary">Explore data centres</a>
       <a href="#contact" class="btn btn-ghost">Get in touch →</a>
     </div>
     <div class="hero-deco" aria-hidden="true">
@@ -123,13 +129,7 @@
     <h2 class="section-title" style="margin-bottom: 8px;">Ten projects across four countries.</h2>
     <p class="section-lede" style="margin-bottom: 24px;">A 1.7 GW pipeline anchored on hydro, geothermal and other long-duration renewables.</p>
     <div id="home-map" class="home-map" aria-label="Map of Scale42 sites"></div>
-    <div class="home-map-foot">
-      <div class="legend">
-        <span class="live">Live / disclosed</span>
-        <span class="tbd">In development</span>
-      </div>
-      <a href="datacenters/">Explore all data centres →</a>
-    </div>
+    
   </div>
 </section>
 
@@ -400,39 +400,39 @@
     <h2 class="section-title">News & thought leadership.</h2>
     <div class="grid grid-3 posts">
       <article class="post">
-        <div class="post-img"><img src="assets/news/iceland.jpg" alt="Iceland 50MW data centre" /></div>
+        <div class="post-img"><img src="assets/news/bakki-iceland-50mw.jpg" alt="Bakki, Iceland - site for the GIG / Scale42 50 MW data centre" /></div>
         <p class="post-date">Sep 2, 2025</p>
         <h3>Scale42 and GIG plan 50 MW data centre in Iceland</h3>
         <p>Coverage in Data Centre Dynamics on the Bakki joint venture and its initial capacity.</p>
-        <a href="#">Read →</a>
+        <a href="news/bakki-iceland-50mw/">Read &rarr;</a>
       </article>
       <article class="post">
-        <div class="post-img"><img src="assets/news/gig.jpg" alt="GIG strategic partnership" /></div>
+        <div class="post-img"><img src="assets/news/gig.jpg" alt="GIG and Scale42 - strategic partnership announcement" /></div>
         <p class="post-date">Sep 2, 2025</p>
-        <h3>GIG forms strategic partnership with Scale42 via GIGA Holdings</h3>
+        <h3>GIG forms strategic partnership with Scale-42 through GIGA Holdings</h3>
         <p>Joint venture creating an integrated energy and digital infrastructure platform across the Nordics.</p>
-        <a href="#">Read →</a>
+        <a href="news/gig-strategic-partnership/">Read &rarr;</a>
       </article>
       <article class="post">
-        <div class="post-img"><img src="assets/news/partnership.jpg" alt="Public statement on partnership" /></div>
+        <div class="post-img"><img src="assets/news/partnership.jpg" alt="Scale42 and GIG public statement on strategic partnership" /></div>
         <p class="post-date">Apr 29, 2025</p>
         <h3>Public statement on strategic partnership</h3>
         <p>GIG Ltd and Scale42 announce advanced discussions for the creation of a joint venture focused on integrated infrastructure.</p>
-        <a href="#">Read →</a>
+        <a href="news/public-statement-partnership/">Read &rarr;</a>
       </article>
       <article class="post">
-        <div class="post-img"><img src="assets/news/varkaus.jpg" alt="Varkaus, Finland" /></div>
+        <div class="post-img"><img src="assets/news/varkaus-finland.avif" alt="Varkaus, Finland - Ranta-Luttila plot for the Scale42 data centre" /></div>
         <p class="post-date">Mar 27, 2025</p>
-        <h3>Norwegian company plans data centre in Varkaus</h3>
-        <p>Yle reports on Scale42's Finnish project — "confidence is high," says the mayor.</p>
-        <a href="#">Read →</a>
+        <h3>Norwegian company plans data centre in Varkaus - Mayor: "Confidence is high"</h3>
+        <p>Yle reports on Scale42's Finnish project - construction targeted for early 2026.</p>
+        <a href="news/varkaus-finland/">Read &rarr;</a>
       </article>
       <article class="post">
-        <div class="post-img"><img src="assets/news/deepseek.jpg" alt="DeepSeek thought piece" /></div>
+        <div class="post-img"><img src="assets/news/deepseek.jpg" alt="DeepSeek and the dispersion of AI compute demand" /></div>
         <p class="post-date">Jan 29, 2025</p>
-        <h3>Scale42 thought piece — DeepSeek</h3>
+        <h3>Scale42 thought piece - DeepSeek</h3>
         <p>Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand.</p>
-        <a href="#">Read →</a>
+        <a href="news/deepseek-thought-piece/">Read &rarr;</a>
       </article>
     </div>
   </div>
@@ -523,7 +523,7 @@
       L.marker([s.lat, s.lng], {
         icon: L.divIcon({
           className: '', iconSize: [16, 16], iconAnchor: [8, 8],
-          html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : ''}" title="${s.name}"></div>`
+          html: `<div class="dc-pin" title="${s.name}"></div>`
         }),
         interactive: false, keyboard: false
       }).addTo(map);

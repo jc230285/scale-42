@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Scale42 thought piece - DeepSeek &mdash; Scale42</title>
+<meta name="description" content="Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand." />
+<meta name="theme-color" content="#1c2e3f" />
+<link rel="canonical" href="https://www.scale-42.com/news/deepseek-thought-piece/" />
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon-192.png" />
+<link rel="apple-touch-icon" href="../../assets/favicon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Scale42 thought piece - DeepSeek" />
+<meta property="og:description" content="Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand." />
+<meta property="og:url" content="https://www.scale-42.com/news/deepseek-thought-piece/" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Scale42 thought piece - DeepSeek",
+  "datePublished": "2025-01-29",
+  "author": [{"@type":"Person","name":"Will Tasney"}, {"@type":"Person","name":"Thomas Beaton"}, {"@type":"Person","name":"Jamie Stewart"}],
+  "publisher": { "@type": "Organization", "name": "Scale42", "url": "https://www.scale-42.com/" },
+  "mainEntityOfPage": "https://www.scale-42.com/news/deepseek-thought-piece/",
+  "description": "Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand."
+}
+</script>
+<style>
+  .post-hero { padding: 64px 0 32px; border-bottom: 1px solid var(--line); }
+  .post-hero .meta { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 16px; }
+  .post-hero h1 { font-family: var(--font-display); font-size: clamp(34px, 4.4vw, 52px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 18px; font-weight: 600; }
+  .post-hero p.subtitle { font-size: 19px; color: var(--ink-2); max-width: 720px; margin: 0 0 24px; }
+  .post-hero .byline { color: var(--muted); font-size: 14px; }
+  .post-hero .byline strong { color: var(--ink); font-weight: 600; }
+  .post-hero .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .post-hero .tag { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; background: var(--bg-alt); color: var(--ink-2); font-weight: 600; }
+  .post-img { margin: 32px 0 0; }
+  .post-img img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); display: block; }
+  .post-body { padding: 56px 0 80px; }
+  .post-body .container { max-width: 760px; }
+  .post-body p { font-size: 17.5px; line-height: 1.65; color: var(--ink); margin: 0 0 18px; }
+  .post-body p.lead { font-size: 20px; color: var(--ink-2); }
+  .post-body p.meta-credit { font-size: 14px; color: var(--muted); margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .post-body h2 { font-family: var(--font-display); font-size: 26px; letter-spacing: -0.01em; margin: 40px 0 14px; font-weight: 600; }
+  .post-body h3 { font-family: var(--font-display); font-size: 20px; margin: 32px 0 12px; font-weight: 600; }
+  .post-body ul, .post-body ol { font-size: 17.5px; line-height: 1.65; padding-left: 22px; margin: 0 0 18px; }
+  .post-body li { margin: 8px 0; }
+  .post-body blockquote { margin: 24px 0; padding: 14px 22px; border-left: 3px solid var(--accent); background: var(--bg-alt); font-size: 17px; color: var(--ink-2); border-radius: 0 var(--radius) var(--radius) 0; font-style: italic; }
+  .post-foot { border-top: 1px solid var(--line); padding: 32px 0 64px; }
+  .post-foot a.back { font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../"><img src="../../assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <nav class="nav-links">
+      <a href="../../">Home</a>
+      <a href="../../capabilities/">Capabilities</a>
+      <a href="../../press/">Press</a>
+      <a href="../">News</a>
+      <a href="../../#contact" class="btn btn-sm">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="post-hero">
+  <div class="container" style="max-width: 920px;">
+    <p class="meta"><a href="../" style="color: var(--accent);">News</a> &middot; Jan 29, 2025</p>
+    <h1>Scale42 thought piece - DeepSeek</h1>
+    <p class="subtitle">Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand.</p>
+    <p class="byline">By <strong>Will Tasney, Thomas Beaton, Jamie Stewart</strong></p>
+    <div class="tags"><span class="tag">Thought leadership</span><span class="tag">AI</span><span class="tag">DeepSeek</span><span class="tag">Compute</span></div>
+    <div class="post-img"><img src="../../assets/news/deepseek.jpg" alt="DeepSeek and the dispersion of AI compute demand" loading="eager" /></div>
+  </div>
+</section>
+
+<section class="post-body">
+  <div class="container">
+    <h2>DeepSeek disruption - dispersion of AI compute demand</h2>
+<h3>Introduction</h3>
+<p>DeepSeek's innovative training approach has disrupted the AI market, though its efficiency and cost claims likely overstate reality. The company may have downplayed achievements to avoid US semiconductor sanctions scrutiny and maximise geopolitical impact against American AI dominance. This analysis examines the technology, implications, and market winners and losers, finding alignment with Scale42's sector outlook.</p>
+
+<h3>Summary</h3>
+<ul>
+  <li>DeepSeek's efficiency gains appear exaggerated.</li>
+  <li>The company achieved breakthroughs by using PTX programming instead of NVIDIA's standard CUDA.</li>
+  <li>This approach remains impractical for most AI companies.</li>
+  <li>Actual GPU resources may reach 60,000 units, contradicting DeepSeek's stated 2,048 figure.</li>
+  <li>Development took approximately two years, prioritising cost over speed.</li>
+  <li>More open-source AI intellectual property benefits mid-sized training facilities like Scale42.</li>
+</ul>
+
+<h3>What is DeepSeek?</h3>
+<p>DeepSeek represents an open-source AI Mixture-of-Experts language model containing 671 billion parameters, reportedly developed using 2,048 NVIDIA H800 GPUs in just two months. Industry estimates suggest the actual computing intensity was "10x higher than stated," indicating substantially greater efficiency than competitors.</p>
+<p>The company's key innovation involved abandoning CUDA in favour of PTX (Parallel Thread Execution) programming. While NVIDIA's CUDA dominance stems from becoming the industry standard - despite competitors like AMD offering comparable hardware - DeepSeek's PTX approach represents a significant technical achievement few possess capability to replicate.</p>
+<p>DeepSeek emerged as a spin-out from Chinese quantitative hedge fund High-Flyer, which reportedly purchased between 10,000 and 60,000 NVIDIA GPUs. Initial investment targeted AI trading programmes, but limited trading-algorithm success redirected efforts toward developing openly-released AI tools. US semiconductor sanctions may have fostered programming discipline comparable to Soviet-era resource constraints that produced exceptional computer scientists.</p>
+
+<h3>DeepSeek's atomic impact</h3>
+<p>The market reacted dramatically to DeepSeek's claimed $6 million development cost - dramatically less than the billions competitors invested - coupled with free intellectual property release. This undermined established players like OpenAI while challenging NVIDIA's dominance and electricity providers anticipating massive data centre consumption.</p>
+<p>However, the actual DeepSeek cost structure remains opaque. The $6 million figure potentially represents creative accounting. As a Chinese company, DeepSeek faced legal restrictions acquiring advanced NVIDIA chips since October 2022. While claiming 10,000 A100s, media reports suggest 50,000+ units. Under-reporting resources while over-reporting performance may constitute a sanctions-avoidance strategy.</p>
+<p>Independent analysis reveals significant cost gaps. An estimated 10,000 A100/H800 units cost approximately $300 million; 50,000 would exceed $1.5 billion. Additional expenses including energy, operations, AI engineering, and data acquisition further strain the $6 million narrative, though China's cost advantages do provide some savings versus American competitors.</p>
+<p>DeepSeek's announcement timing - days after the US announced its $500 billion <strong>Stargate</strong> programme - suggests deliberate geopolitical positioning, though open-source architecture likely eliminates spyware concerns.</p>
+
+<h3>Blast-radius casualty analysis</h3>
+<p>Subscription-based AI model providers face the greatest disruption - OpenAI's ChatGPT, Meta's Llama, Google's Gemini, and Anthropic / Amazon's Claude all experienced market pressure. Chipmakers suffered immediate consequences with stock declines exceeding 10 percent.</p>
+<p>However, efficiency improvements typically generate increased overall demand through the <strong>Jevons paradox</strong>. Stacy Ragson from Bernstein noted: "If we acknowledge that DeepSeek may have reduced costs by, say, 10x... we NEED innovations like this... improvements likely get absorbed due to usage and demand."</p>
+<p>Electricity utilities near proposed data centre locations experienced particularly severe sell-offs. Financial Times analyst Robert Armstrong observed that market sentiment may reflect expectations of "AI will be run on smaller data centres all over the place" rather than massive proprietary facilities. Unlike NVIDIA's sharp recovery, utilities like Constellation, Vistra, and NRG remained depressed.</p>
+<p>Scale42's perspective aligns with this assessment. Rather than pursuing mega-scale sites requiring hundreds of megawatts - creating diseconomies of scale - competitive advantage derives from smaller training clusters accessing affordable, renewable energy. Hyperscale data centres now define themselves at merely 10 MW thresholds.</p>
+
+<h3>DeepSeek supports Scale42's long-term view on incumbent disruption</h3>
+<p>Scale42's strategic framework predicted five disruption areas; DeepSeek validates multiple themes:</p>
+<ol>
+  <li><strong>Hardware competition.</strong> While DeepSeek used NVIDIA processors, abandoning CUDA opens pathways for competing hardware providers if programmers develop non-proprietary expertise.</li>
+  <li><strong>Customisation over generic tools.</strong> Open-source foundations enable enterprise-specific AI development without rent-seeking from established providers.</li>
+  <li><strong>Market proliferation.</strong> DeepSeek exemplifies expanding competitive landscapes, catalysing new providers building specialised solutions.</li>
+</ol>
+<p>Scale42's conclusions remain unchanged:</p>
+<ul>
+  <li>AI adoption will permeate global economic structures as enterprises leverage internal data for custom applications.</li>
+  <li>Enterprise deployment requires robust mid-sized infrastructure markets.</li>
+  <li>Computing technology will decentralise from NVIDIA dependency.</li>
+  <li>Open-source tools reduce costs while expanding infrastructure demand.</li>
+  <li>Scale42's positioning emphasises mid-scale assets, cost leadership, and chip-agnostic approaches.</li>
+</ul>
+  </div>
+</section>
+
+<section class="post-foot">
+  <div class="container" style="max-width: 760px;">
+    <a class="back" href="../">&larr; All news &amp; thought leadership</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <img src="../../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+    <p class="copyright">&copy; 2026 Scale42. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
