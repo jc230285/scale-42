@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Scale42 — Competitor research (internal)</title>
+<meta name="description" content="Internal competitor scan: 22 data centre / AI infrastructure peers, with what to borrow and what to avoid." />
+<meta name="theme-color" content="#1c2e3f" />
+<link rel="icon" type="image/svg+xml" href="assets/logo-square.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .crh { padding: 80px 0 32px; }
+  .crh h1 { font-family: var(--font-display); font-size: clamp(40px, 5vw, 56px); letter-spacing: -0.02em; line-height: 1.05; margin: 12px 0 16px; font-weight: 600; }
+  .crh .stamp { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .crh p.lede { font-size: 18px; color: var(--ink-2); max-width: 720px; margin: 0; }
+
+  .cr-section { padding: 56px 0; border-top: 1px solid var(--line); }
+  .cr-section h2 { font-family: var(--font-display); font-size: 26px; letter-spacing: -0.01em; margin: 0 0 8px; font-weight: 600; }
+  .cr-section .sub { color: var(--muted); margin: 0 0 28px; font-size: 15px; }
+
+  .takeaways { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .take {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 24px; background: #fff;
+  }
+  .take.steal { border-left: 3px solid var(--accent); }
+  .take.avoid { border-left: 3px solid #b04848; }
+  .take h3 {
+    font-family: var(--font-display); font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    margin: 0 0 14px; font-weight: 600;
+  }
+  .take.steal h3 { color: var(--accent); }
+  .take.avoid h3 { color: #b04848; }
+  .take ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: 14.5px; line-height: 1.55; }
+  .take li { margin: 8px 0; }
+  .take li strong { color: var(--ink); font-weight: 600; }
+
+  .grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 18px; margin-top: 8px;
+  }
+  .comp {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px; background: #fff;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .comp .head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .comp .name { font-family: var(--font-display); font-size: 18px; font-weight: 600; margin: 0; }
+  .comp .url { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--muted); }
+  .comp .url a { color: inherit; }
+  .comp .url a:hover { color: var(--accent); }
+  .comp .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: var(--font-display); font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+    padding: 3px 8px; border-radius: 3px; background: var(--bg-alt); color: var(--ink-2);
+  }
+  .tag.verdict-good { background: #e1efe6; color: #2d6a4a; }
+  .tag.verdict-mixed { background: #f3ebd6; color: #8a6a2a; }
+  .tag.verdict-poor { background: #f1dada; color: #8a3a3a; }
+  .comp .body { font-size: 14.5px; color: var(--ink-2); line-height: 1.55; margin: 0; }
+  .comp .pn { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 8px; border-top: 1px solid var(--line); }
+  .comp .pn h4 {
+    font-family: var(--font-display); font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 6px;
+  }
+  .comp .pn .like h4 { color: var(--accent); }
+  .comp .pn .dis h4 { color: #b04848; }
+  .comp .pn ul { margin: 0; padding-left: 16px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+  .comp .pn li { margin: 3px 0; }
+
+  @media (max-width: 900px) {
+    .grid, .takeaways { grid-template-columns: 1fr; }
+    .comp .pn { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="Scale42" class="brand-logo" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="datacenters.html">Data centres</a>
+      <a href="capabilities.html">Capabilities</a>
+      <a href="brand.html">Brand</a>
+      <a href="competitors.html" class="active">Competitors</a>
+      <a href="index.html#contact" class="btn btn-sm">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="crh">
+  <div class="container">
+    <p class="stamp">Internal · Brand &amp; positioning research</p>
+    <h1>Competitor scan.</h1>
+    <p class="lede">Twenty-two data centre, AI infrastructure and colocation peers reviewed for layout, branding, and content patterns. Captured to inform what we lean into, and what we deliberately avoid, on scale-42.com.</p>
+  </div>
+</section>
+
+<section class="cr-section">
+  <div class="container">
+    <h2>What we should steal &amp; what we should avoid</h2>
+    <p class="sub">Synthesised across all 22 sites — these are the patterns to lift, and the ones to leave on the floor.</p>
+
+    <div class="takeaways">
+      <div class="take steal">
+        <h3>Steal</h3>
+        <ul>
+          <li><strong>Stats above the fold.</strong> Greenscale and Sero1 lead with hard numbers (GW, MW, sites, countries). Reads serious immediately.</li>
+          <li><strong>Headline interactive map early on the home page.</strong> Polar DC and Stack do this well. Position a small-format map above the team / news.</li>
+          <li><strong>Be obvious.</strong> Cologix fails because you can't tell what they do. The headline should literally say "building large-scale AI data centres in the Nordics" — no jargon, no assumptions.</li>
+          <li><strong>Parallax + clean video banner.</strong> Polar DC and Greenscale use this well; Stack's intro animation is the gold standard. Avoid auto-play video that can't be skipped (QScale).</li>
+          <li><strong>Capital &amp; JV story is a unique differentiator.</strong> None of the 22 mention their capital sources or joint ventures. Scale42 does (GIG) — lean into that.</li>
+          <li><strong>Per-site detail pages with deep specs.</strong> Lefdal and Polar DC do this well. Already on our roadmap.</li>
+          <li><strong>Coherent two-colour brand throughout.</strong> Lefdal's green/blue palette is consistent across every page — discipline pays off.</li>
+          <li><strong>Team on a sub-page, not the home page.</strong> Polar DC moves team to "About". Frees the home page for the message.</li>
+        </ul>
+      </div>
+
+      <div class="take avoid">
+        <h3>Avoid</h3>
+        <ul>
+          <li><strong>Forced full-screen world map.</strong> EdgeConnect's interactive home-page map is too busy. If we put one on the home, keep it small / static.</li>
+          <li><strong>Burgundy &amp; scarlet palettes.</strong> K2 looks dated and aggressive — never go red-brown for infrastructure.</li>
+          <li><strong>Uneven gaps between sections.</strong> QScale's variable rhythm makes the page feel amateur. Lock the section spacing.</li>
+          <li><strong>Image-slide-in scroll effects where the page barely moves.</strong> Global Switch — feels broken, not premium.</li>
+          <li><strong>Hiding everything in sub-pages.</strong> Lefdal and Stack do it badly enough that you learn nothing about them on the home page.</li>
+          <li><strong>10-year-old blocky layouts.</strong> Vantage looks tired. Equinix coasts on scale; we can't.</li>
+          <li><strong>Video banner that fights the brand palette.</strong> EdgeConnect — banner colours unrelated to the rest of the site.</li>
+          <li><strong>Forms that get the site flagged.</strong> Gigafortitude was blocked by Google over a form. Use a clean Formspree integration only — or fall back to a plain email link.</li>
+          <li><strong>"Solutions" as a navigation item without context.</strong> Cologix, Global Switch, Aligned — meaningless to a first-time reader.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cr-section">
+  <div class="container">
+    <h2>The 22 sites</h2>
+    <p class="sub">Each peer with what worked and what didn't, captured during the live walk-through.</p>
+
+    <div class="grid">
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Polar DC</h3><span class="url"><a href="https://www.polardc.com/" target="_blank" rel="noopener">polardc.com</a></span></div>
+        <div class="tags"><span class="tag">Direct peer</span><span class="tag verdict-good">Strong reference</span></div>
+        <p class="body">Closest analogue to Scale42 — Nordic, AI/HPC focused, similar scale aspirations. Clean parallax, executive team called out, dedicated About page.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Video + parallax effect on landing</li><li>Executive team featured</li><li>Per-site deep info</li><li>Clear "Why Polar / Value add / About / Contact" structure</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Some sub-pages feel content-thin</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Stack Infrastructure</h3><span class="url"><a href="https://www.stackinfra.com/" target="_blank" rel="noopener">stackinfra.com</a></span></div>
+        <div class="tags"><span class="tag">Hyperscale colo</span><span class="tag verdict-good">Design ref</span></div>
+        <p class="body">Two-bit home page (intro animation + a single feature block), then everything in sub-pages. Crisp, deliberate, premium feel.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Starting animation sets the tone</li><li>Restraint on the home page</li><li>Strong typography hierarchy</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Hard to tell you're on the landing page</li><li>You learn nothing about the company without clicking</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Greenscale DCs</h3><span class="url"><a href="https://www.greenscaledc.com/" target="_blank" rel="noopener">greenscaledc.com</a></span></div>
+        <div class="tags"><span class="tag">Sustainability-led</span><span class="tag verdict-good">Strong reference</span></div>
+        <p class="body">Opens straight into hard numbers (1 GW, 400 MW, land area, countries) followed by four differentiators and a sustainability anchor. "PowerShell turnkey solutions", news, locations.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Stats up front — reads serious</li><li>Four differentiators with one sustainability anchor</li><li>Content-heavy but useful for municipalities</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Video banner makes them look like they own assets they don't</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Lefdal Mine Datacenter</h3><span class="url"><a href="https://www.lefdalmine.com/" target="_blank" rel="noopener">lefdalmine.com</a></span></div>
+        <div class="tags"><span class="tag">Norwegian peer</span><span class="tag verdict-good">Brand ref</span></div>
+        <p class="body">Nine years of website maturity. Coherent green / blue palette throughout. Detail-heavy back pages on each service and site.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Two-colour brand discipline</li><li>Per-site detail depth</li><li>Solid information architecture</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Slightly dated visual treatment</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Verne Global</h3><span class="url"><a href="https://verneglobal.com/" target="_blank" rel="noopener">verneglobal.com</a></span></div>
+        <div class="tags"><span class="tag">Iceland peer</span><span class="tag verdict-good">Acceptable</span></div>
+        <p class="body">Well-balanced layout, clear messaging, decent typography. Not surprising, but executes the basics cleanly.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Clean execution of standard layout</li><li>Clear positioning</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Lacks distinctive personality</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Sero1</h3><span class="url"><a href="https://www.sero1.com/" target="_blank" rel="noopener">sero1.com</a></span></div>
+        <div class="tags"><span class="tag">UK</span><span class="tag verdict-mixed">Mixed</span></div>
+        <p class="body">"Burning and affecting world class digital" tagline (a bit overcooked). Stats appear early, before the first scroll.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Stats appear before scroll</li><li>UK market positioning is clear</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Tagline tries too hard</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Etix Everywhere</h3><span class="url"><a href="https://www.etix-everywhere.com/" target="_blank" rel="noopener">etix-everywhere.com</a></span></div>
+        <div class="tags"><span class="tag">French</span><span class="tag verdict-poor">Weak</span></div>
+        <p class="body">Looks polished at first glance. On inspection: variable fonts, theoretically coherent palette, lots of small visual incoherence. Map graphic is poor.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Aspires to a designed feel</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Map graphic looks low-effort</li><li>Font system feels arbitrary</li><li>Coherence breaks under scrutiny</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Vantage Data Centers</h3><span class="url"><a href="https://www.vantage-dc.com/" target="_blank" rel="noopener">vantage-dc.com</a></span></div>
+        <div class="tags"><span class="tag">Hyperscale colo</span><span class="tag verdict-poor">Dated</span></div>
+        <p class="body">Looks like a 10-year-old design. Blocky, retail-bank energy. Mountain hero unrelated to what they actually sell.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Nothing notable</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Blocky, dated layout</li><li>Hero imagery doesn't match the business</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Equinix</h3><span class="url"><a href="https://www.equinix.com/" target="_blank" rel="noopener">equinix.com</a></span></div>
+        <div class="tags"><span class="tag">Hyperscale colo</span><span class="tag verdict-poor">Coasting</span></div>
+        <p class="body">"So big they don't need to care." Basic, boring, generic. Great evidence that distinctive design is a competitive moat for non-incumbents.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Brand recognition does the work</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Generic enterprise-software feel</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Green Mountain</h3><span class="url"><a href="https://greenmountain.no/" target="_blank" rel="noopener">greenmountain.no</a></span></div>
+        <div class="tags"><span class="tag">Norwegian peer</span><span class="tag verdict-poor">Dated</span></div>
+        <p class="body">Standard structure (video banner → advantages → sites → environmental → news) but the visual treatment "reminds you of iTunes" — old school.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Information architecture is sensible</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Dated visual style</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Nscale</h3><span class="url"><a href="https://www.nscale.com/" target="_blank" rel="noopener">nscale.com</a></span></div>
+        <div class="tags"><span class="tag">Cloud + DC</span><span class="tag verdict-mixed">Pivoting</span></div>
+        <p class="body">Hybrid AI cloud + DC operator. Site reads more cloud-led now; appears to be pulling back from data centre hosting messaging.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Modern, AI-native positioning</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Mixed message between cloud and DC</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">EdgeConnex</h3><span class="url"><a href="https://www.edgeconnex.com/" target="_blank" rel="noopener">edgeconnex.com</a></span></div>
+        <div class="tags"><span class="tag">Edge / hyperscale</span><span class="tag verdict-poor">Cluttered</span></div>
+        <p class="body">Forced full-world map on the home page is overwhelming. Video banner colours don't match the brand palette.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Sub-page detail is decent</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Map is too busy</li><li>Banner / brand mismatch</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Cologix</h3><span class="url"><a href="https://www.cologix.com/" target="_blank" rel="noopener">cologix.com</a></span></div>
+        <div class="tags"><span class="tag">Interconnect</span><span class="tag verdict-poor">Unclear</span></div>
+        <p class="body">Not obvious what they do. The headline assumes you already know.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Nothing notable</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Vague "solutions" language</li><li>No clear primary message</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Global Switch</h3><span class="url"><a href="https://www.globalswitch.com/" target="_blank" rel="noopener">globalswitch.com</a></span></div>
+        <div class="tags"><span class="tag">Hyperscale colo</span><span class="tag verdict-poor">Weak</span></div>
+        <p class="body">Scroll behaviour is wrong — images slide up rather than the page scrolling. Everything hidden in sub-pages.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Nothing notable</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Disorienting scroll</li><li>Empty home page</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">atNorth</h3><span class="url"><a href="https://www.atnorth.com/" target="_blank" rel="noopener">atnorth.com</a></span></div>
+        <div class="tags"><span class="tag">Nordic peer</span><span class="tag verdict-mixed">Acceptable</span></div>
+        <p class="body">Reminiscent of Skellefteå. Structure is acceptable; branding is unmemorable.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Clear page hierarchy</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Forgettable visual identity</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Bulk Infrastructure</h3><span class="url"><a href="https://www.bulkinfrastructure.com/" target="_blank" rel="noopener">bulkinfrastructure.com</a></span></div>
+        <div class="tags"><span class="tag">Norwegian peer</span><span class="tag verdict-mixed">Bland</span></div>
+        <p class="body">Southern Norway operator. Site does the basics, doesn't stand out.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Adequate execution</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>No distinctive moves to borrow</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">K2 Strategic</h3><span class="url"><a href="https://www.k2strategic.com/" target="_blank" rel="noopener">k2strategic.com</a></span></div>
+        <div class="tags"><span class="tag">Asia colo</span><span class="tag verdict-poor">Avoid</span></div>
+        <p class="body">Burgundy / scarlet palette feels heavy and dated.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Nothing notable</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Red-brown palette is wrong for infrastructure</li><li>Inconsistent graphics</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">QScale</h3><span class="url"><a href="https://qscale.com/" target="_blank" rel="noopener">qscale.com</a></span></div>
+        <div class="tags"><span class="tag">Quebec</span><span class="tag verdict-poor">Overcooked</span></div>
+        <p class="body">Auto-playing video that can't be skipped. Features animate in slowly. Section spacing is uneven, which makes the whole page feel amateur.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Right info — wrong order</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Forced video</li><li>Uneven section gaps</li><li>Slow reveal animations</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Aligned Data Centers</h3><span class="url"><a href="https://www.aligneddc.com/" target="_blank" rel="noopener">aligneddc.com</a></span></div>
+        <div class="tags"><span class="tag">US hyperscale</span><span class="tag verdict-mixed">Generic</span></div>
+        <p class="body">Standard hyperscale colo template — same patterns we've seen six times this list.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Familiar structure works</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Indistinguishable from peers</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">LayerNine</h3><span class="url"><a href="https://layerninedc.com/" target="_blank" rel="noopener">layerninedc.com</a></span></div>
+        <div class="tags"><span class="tag">Asia</span><span class="tag verdict-mixed">Bland</span></div>
+        <p class="body">Standard layout, nothing memorable.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Clean basics</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>No distinctive elements</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">AdLinks</h3><span class="url"><a href="https://www.adlinks.com/" target="_blank" rel="noopener">adlinks.com</a></span></div>
+        <div class="tags"><span class="tag">Brussels</span><span class="tag verdict-mixed">Mixed</span></div>
+        <p class="body">Stretches advantages over three blocks where one block would land harder. The "all three" rhythm is something to apply on our site too.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Tries to be clear about advantages</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Splitting one idea across three sections weakens it</li></ul></div>
+        </div>
+      </article>
+
+      <article class="comp">
+        <div class="head"><h3 class="name">Nebius</h3><span class="url"><a href="https://nebius.com/" target="_blank" rel="noopener">nebius.com</a></span></div>
+        <div class="tags"><span class="tag">AI cloud</span><span class="tag">Out of scope</span></div>
+        <p class="body">Skipped on the walk-through — primarily an AI cloud rather than a DC operator. Useful as a positioning reference for cloud-adjacent customers, but not a layout reference.</p>
+        <div class="pn">
+          <div class="like"><h4>Like</h4><ul><li>Confident AI-cloud positioning</li></ul></div>
+          <div class="dis"><h4>Avoid</h4><ul><li>Not a direct layout peer</li></ul></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="cr-section">
+  <div class="container">
+    <h2>Translating into our site</h2>
+    <p class="sub">Concrete moves that come out of this scan, mapped to where they go on scale-42.com.</p>
+
+    <div class="takeaways" style="grid-template-columns: 1fr;">
+      <div class="take steal">
+        <h3>To-do informed by competitor scan</h3>
+        <ul>
+          <li><strong>Move team off the home page</strong> into a sub-page (Polar DC pattern). Keeps the home laser-focused on what we do.</li>
+          <li><strong>Add a small static map snapshot</strong> directly under the hero on the home page (avoid EdgeConnex's full-screen world map).</li>
+          <li><strong>Reframe the hero</strong> to be unambiguous: "Building large-scale AI data centres in the Nordics." No assumptions.</li>
+          <li><strong>Lean into the JV / capital story</strong> — none of the 22 competitors do this. Add a short "Backed by" or "Joint venture" callout (GIG) above the partner strip.</li>
+          <li><strong>Lock section rhythm</strong> — equal vertical padding on every section (avoid the QScale problem).</li>
+          <li><strong>Tana-driven content pipeline</strong> for sites and news — already on the roadmap (PLAN.md) and reinforced by this scan: every peer has a stale "news" section because manual updates rot.</li>
+          <li><strong>Refresh the "differentiators" block</strong> to four points + a sustainability anchor (Greenscale pattern).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© Scale42 · Internal research · Not for public distribution.</p>
+    <p><a href="brand.html">Brand guidelines</a> · <a href="index.html">Home</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

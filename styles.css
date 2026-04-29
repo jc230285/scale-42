@@ -14,7 +14,7 @@
   --radius: 4px;
   --maxw: 1180px;
   --font-sans: 'Commissioner', system-ui, -apple-system, Segoe UI, sans-serif;
-  --font-display: 'Commissioner', system-ui, sans-serif;
+  --font-display: 'Lexend', 'Commissioner', system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -37,17 +37,17 @@ img { max-width: 100%; display: block; }
 /* Nav */
 .nav {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(255,255,255,0.85);
+  background: rgba(28, 46, 63, 0.92);
   backdrop-filter: saturate(150%) blur(10px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
 .brand { display: flex; align-items: center; padding: 8px 0; }
 .brand-logo { height: 52px; width: auto; display: block; }
 .brand-logo-footer { height: 56px; }
 .nav-links { display: flex; align-items: center; gap: 26px; }
-.nav-links a { color: var(--ink-2); font-size: 14.5px; font-weight: 500; }
-.nav-links a:hover { color: var(--ink); }
+.nav-links a { color: rgba(255,255,255,0.78); font-size: 14.5px; font-weight: 500; }
+.nav-links a:hover { color: #ffffff; }
 .lang {
   font-size: 12px; font-weight: 600;
   text-transform: uppercase; letter-spacing: 0.12em;
@@ -438,9 +438,9 @@ img { max-width: 100%; display: block; }
 }
 
 /* Active nav state */
-.nav-links a.active { color: var(--ink); }
+.nav-links a.active { color: #ffffff; }
 .nav-links a.active::after {
-  content: ''; display: block; height: 2px; background: var(--accent);
+  content: ''; display: block; height: 2px; background: var(--warm);
   margin-top: 4px;
 }
 
