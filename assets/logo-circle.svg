@@ -14,14 +14,14 @@
     <polygon points="256,256 512,256 256,512" fill="#db9340" fill-opacity="0.78"/>
     <polygon points="512,256 512,512 256,512" fill="#db9340" fill-opacity="0.32"/>
     <polygon points="256,0 512,256 256,256" fill="#db9340" fill-opacity="0.18"/>
-    <!-- Wordmark, centered -->
-    <text x="256" y="278"
+    <!-- Wordmark, centered, large -->
+    <text x="256" y="282"
           font-family="Commissioner, system-ui, sans-serif"
-          font-size="86"
+          font-size="104"
           font-weight="600"
           fill="#ffffff"
           text-anchor="middle"
           dominant-baseline="middle"
-          letter-spacing="-2">Scale42</text>
+          letter-spacing="-3">Scale42</text>
   </g>
 </svg>

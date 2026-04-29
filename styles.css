@@ -141,28 +141,28 @@ img { max-width: 100%; display: block; }
 
 /* Sections */
 .section { padding: 96px 0; border-top: 1px solid var(--line); }
-/* Decorative patterns — applied to section backgrounds */
+/* Decorative patterns — subtle. Surface base is #F4F6F7, alternating with white. */
 .bg-hex {
   background-color: var(--bg-alt);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='139' viewBox='0 0 80 139'><g fill='none' stroke='%231c2e3f' stroke-opacity='0.07' stroke-width='1'><polygon points='40,2 76,23 76,67 40,88 4,67 4,23'/><polygon points='40,72 76,93 76,137 40,158 4,137 4,93'/></g></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='139' viewBox='0 0 80 139'><g fill='none' stroke='%231c2e3f' stroke-opacity='0.04' stroke-width='1'><polygon points='40,2 76,23 76,67 40,88 4,67 4,23'/><polygon points='40,72 76,93 76,137 40,158 4,137 4,93'/></g></svg>");
 }
 .bg-topo {
   background-color: var(--bg);
   background-image:
-    radial-gradient(800px 400px at 100% 0%, rgba(47,102,117,0.08), transparent 60%),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'><g fill='none' stroke='%232f6675' stroke-opacity='0.06' stroke-width='1'><circle cx='300' cy='300' r='80'/><circle cx='300' cy='300' r='140'/><circle cx='300' cy='300' r='200'/><circle cx='300' cy='300' r='260'/></g></svg>");
+    radial-gradient(800px 400px at 100% 0%, rgba(47,102,117,0.05), transparent 60%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'><g fill='none' stroke='%232f6675' stroke-opacity='0.04' stroke-width='1'><circle cx='300' cy='300' r='80'/><circle cx='300' cy='300' r='140'/><circle cx='300' cy='300' r='200'/><circle cx='300' cy='300' r='260'/></g></svg>");
   background-position: right top, center;
 }
 .bg-grid {
   background-color: var(--bg-alt);
   background-image:
-    linear-gradient(rgba(28,46,63,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(28,46,63,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(28,46,63,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28,46,63,0.03) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 .bg-diagonal {
   background-color: var(--bg-alt);
-  background-image: repeating-linear-gradient(135deg, rgba(232,184,122,0.06) 0 2px, transparent 2px 24px);
+  background-image: repeating-linear-gradient(135deg, rgba(232,184,122,0.04) 0 2px, transparent 2px 28px);
 }
 .bg-fixed { background-attachment: fixed; }
 
