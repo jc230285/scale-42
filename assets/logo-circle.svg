@@ -5,6 +5,7 @@
     </clipPath>
   </defs>
   <g clip-path="url(#circle-clip)">
+    <circle cx="483" cy="483" r="483" fill="#1c2e3f"/>
     <g transform="translate(0 195.5)">
       <path fill="#487c89" fill-opacity="0.557" d="m575.2331 -0.0064929132l0 287.62204l-287.62204 -287.62204z" fill-rule="evenodd"/>
       <path fill="#db9340" fill-opacity="0.7089" d="m575.2349 575.2179l-287.62207 0l0 -287.55905l287.62207 0z" fill-rule="evenodd"/>
