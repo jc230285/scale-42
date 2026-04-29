@@ -81,6 +81,15 @@
       <a href="datacenters.html" class="btn btn-primary">Explore data centres</a>
       <a href="#contact" class="btn btn-ghost">Get in touch →</a>
     </div>
+    <div class="hero-deco" aria-hidden="true">
+      <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg" class="parallax" data-parallax="0.15">
+        <g fill="none" stroke="rgba(47,102,117,0.45)" stroke-width="1.2">
+          <polygon points="100,5 188,55 188,170 100,220 12,170 12,55"/>
+          <polygon points="100,30 165,67 165,158 100,195 35,158 35,67"/>
+          <polygon points="100,55 142,80 142,145 100,170 58,145 58,80"/>
+        </g>
+      </svg>
+    </div>
     <dl class="hero-stats">
       <div><dt>Active pipeline</dt><dd>1.7 GW</dd></div>
       <div><dt>Projects</dt><dd>10</dd></div>
@@ -90,7 +99,7 @@
   </div>
 </section>
 
-<section class="equation">
+<section class="equation bg-topo">
   <div class="container">
     <div class="eq-row">
       <div class="eq-item">
@@ -140,7 +149,7 @@
 </section>
 
 <!-- Sustainability strip — competitive parity with atNorth/Verne/Bulk -->
-<section id="sustainability" class="section section-alt">
+<section id="sustainability" class="section section-alt bg-hex bg-fixed">
   <div class="container">
     <p class="eyebrow">Sustainability</p>
     <h2 class="section-title">Built on the cleanest grids in Europe.</h2>
@@ -190,7 +199,7 @@
   </div>
 </section>
 
-<section id="shift" class="section section-alt">
+<section id="shift" class="section section-alt bg-grid">
   <div class="container">
     <p class="eyebrow">The shift</p>
     <h2 class="section-title">AI is changing digital infrastructure requirements.</h2>
@@ -265,7 +274,7 @@
   </div>
 </section>
 
-<section id="team" class="section section-alt">
+<section id="team" class="section section-alt bg-diagonal">
   <div class="container">
     <p class="eyebrow">The team</p>
     <h2 class="section-title">Engineers, operators and capital allocators.</h2>
@@ -327,6 +336,22 @@
         <p>16+ years operations and team management. Group financial management. Time management.</p>
         <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners" class="section">
+  <div class="container">
+    <p class="eyebrow">Partners & customers</p>
+    <h2 class="section-title">Working with the operators powering Europe's compute.</h2>
+    <p class="section-lede">Joint venture and commercial partnerships across the Nordic energy and digital infrastructure ecosystem.</p>
+    <div class="partners">
+      <div class="partner">GIG</div>
+      <div class="partner">Tier-1 AI lab</div>
+      <div class="partner">Hyperscaler</div>
+      <div class="partner">EPC partner</div>
+      <div class="partner">PPA partner</div>
+      <div class="partner">More TBA</div>
     </div>
   </div>
 </section>
@@ -405,8 +430,10 @@
     <div class="footer-links">
       <a href="index.html#platform">Platform</a>
       <a href="datacenters.html">Data Centres</a>
+      <a href="capabilities.html">Capabilities</a>
       <a href="index.html#founders">Team</a>
-      <a href="index.html#news">News</a>
+      <a href="careers.html">Careers</a>
+      <a href="press.html">Press</a>
       <a href="brand.html">Brand</a>
       <a href="index.html#contact">Contact</a>
     </div>
@@ -436,6 +463,23 @@
   document.querySelectorAll('.section, .equation, .hero').forEach(el => {
     el.classList.add('reveal'); reveal.observe(el);
   });
+
+  // Parallax: simple translateY based on scroll position
+  const parallaxItems = document.querySelectorAll('[data-parallax]');
+  if (parallaxItems.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY;
+      parallaxItems.forEach(el => {
+        const rate = parseFloat(el.dataset.parallax) || 0.2;
+        el.style.transform = `translateY(${y * rate}px)`;
+      });
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+  }
 </script>
 
 </body>
