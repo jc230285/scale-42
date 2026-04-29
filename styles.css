@@ -39,12 +39,10 @@ img { max-width: 100%; display: block; }
   backdrop-filter: saturate(150%) blur(10px);
   border-bottom: 1px solid var(--line);
 }
-.nav .container.nav-inner,
-.nav-inner { display: flex; align-items: stretch; justify-content: space-between; height: 68px; max-width: none; padding: 0; }
-.brand { display: flex; align-items: stretch; height: 100%; }
-.brand-logo { height: 100%; width: auto; display: block; }
-.brand-logo-footer { height: 56px; }
-.nav-links { padding-right: 24px; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.brand { display: flex; align-items: center; padding: 10px 0; }
+.brand-logo { height: 44px; width: auto; display: block; }
+.brand-logo-footer { height: 52px; }
 .nav-links { display: flex; align-items: center; gap: 26px; }
 .nav-links a { color: var(--ink-2); font-size: 14.5px; font-weight: 500; }
 .nav-links a:hover { color: var(--ink); }
