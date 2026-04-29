@@ -1,7 +1,4 @@
 <svg version="1.1" viewBox="0 0 966 966" xmlns="http://www.w3.org/2000/svg">
-  <!-- White base so transparent tiles read identically to the primary logo -->
-  <rect width="966" height="966" fill="#ffffff"/>
-  <!-- Original primary-logo content, vertically centered in the square -->
   <g transform="translate(0 195.5)">
     <path fill="#487c89" fill-opacity="0.557" d="m575.2331 -0.0064929132l0 287.62204l-287.62204 -287.62204z" fill-rule="evenodd"/>
     <path fill="#db9340" fill-opacity="0.7089" d="m575.2349 575.2179l-287.62207 0l0 -287.55905l287.62207 0z" fill-rule="evenodd"/>
