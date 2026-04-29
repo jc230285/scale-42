@@ -80,6 +80,74 @@
   .voice-block h4 { font-family: var(--font-display); font-size: 15px; margin: 0 0 8px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
   .voice-block p { margin: 0; color: var(--ink-2); font-size: 15px; }
 
+  /* Pattern showcase */
+  .patterns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .pattern-tile {
+    aspect-ratio: 4/3; border: 1px solid var(--line);
+    border-radius: var(--radius); position: relative; overflow: hidden;
+  }
+  .pattern-tile .label {
+    position: absolute; bottom: 12px; left: 12px;
+    background: rgba(255,255,255,0.92); padding: 4px 10px;
+    border-radius: 4px; font-family: var(--font-display);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Iconography */
+  .icons { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .icon-tile {
+    aspect-ratio: 1/1; border: 1px solid var(--line);
+    border-radius: var(--radius); display: grid; place-items: center;
+    background: #fff; font-size: 28px; color: var(--accent);
+    position: relative; padding-bottom: 18px;
+  }
+  .icon-tile span { position: absolute; bottom: 8px; font-size: 11px; color: var(--muted); font-family: var(--font-display); }
+
+  /* Photography */
+  .photo-mood { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .photo-tile {
+    aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden;
+    background: linear-gradient(135deg, #1c2e3f, #2f6675);
+    display: grid; place-items: center;
+    color: rgba(255,255,255,0.5); font-family: var(--font-display);
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .photo-tile.warm { background: linear-gradient(135deg, #2c3a48, #c47a4a); }
+  .photo-tile.cool { background: linear-gradient(135deg, #406b6e, #a3bcc4); }
+  .photo-tile.deep { background: linear-gradient(135deg, #1c2e3f, #0b1410); }
+
+  /* Logo downloads */
+  .downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .download {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 20px; background: #fff;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+  }
+  .download .meta { font-family: var(--font-display); font-weight: 600; font-size: 14px; }
+  .download .meta span { display: block; font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+  .download a { font-size: 13px; font-weight: 600; color: var(--accent); }
+
+  /* Application mock */
+  .applications { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .app-card {
+    aspect-ratio: 5/3; border-radius: var(--radius);
+    display: grid; place-items: center; padding: 28px;
+    border: 1px solid var(--line);
+  }
+  .app-card.light { background: #fff; }
+  .app-card.dark { background: var(--ink); border-color: var(--ink); }
+  .app-card.warm { background: var(--warm); border-color: var(--warm); }
+  .app-card img { max-width: 70%; max-height: 70%; }
+
+  @media (max-width: 900px) {
+    .patterns { grid-template-columns: 1fr 1fr; }
+    .icons { grid-template-columns: repeat(3, 1fr); }
+    .photo-mood, .applications, .downloads { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 900px) {
     .logo-display, .palette, .components, .rules, .voice, .type-row { grid-template-columns: 1fr 1fr; }
     .palette { grid-template-columns: repeat(3, 1fr); }
@@ -97,11 +165,13 @@
       <img src="assets/logo.png" alt="Scale42" class="brand-logo" />
     </a>
     <nav class="nav-links">
-      <a href="index.html#platform">Platform</a>
-      <a href="datacenters.html">Data Centres</a>
-      <a href="index.html#founders">Team</a>
-      <a href="index.html#news">News</a>
-      <a href="brand.html" class="active">Brand</a>
+      <a href="#logo">Logo</a>
+      <a href="#palette">Palette</a>
+      <a href="#patterns">Patterns</a>
+      <a href="#typography">Typography</a>
+      <a href="#iconography">Icons</a>
+      <a href="#photography">Photography</a>
+      <a href="#voice">Voice</a>
       <div class="lang-toggle">
         <a href="brand.html" data-lang="en" class="active">EN</a>
         <a href="no/index.html" data-lang="no">NO</a>
@@ -115,7 +185,17 @@
   <div class="container">
     <p class="type-eyebrow">Brand guidelines</p>
     <h1>The Scale42 design system.</h1>
-    <p>A reference for the logo, colour palette, typography, components and tone of voice that define the Scale42 brand across every surface.</p>
+    <p>A reference for the logo, palette, typography, patterns, photography, voice and motion that define the Scale42 brand across every surface — site, decks, signage, and operating environments.</p>
+  </div>
+</section>
+
+<section class="brand-section">
+  <div class="container">
+    <h2>Brand position</h2>
+    <p class="sub">Who we are, in a paragraph.</p>
+    <p style="font-size: 19px; color: var(--ink-2); max-width: 760px; margin: 0;">
+      Scale42 is an energy-first developer and operator of next-generation AI data centres across the Nordics. We build the calmest, most credible wholesale infrastructure for hyperscalers, AI labs and HPC operators — co-located with abundant clean power, scaled in standardised 12.5 MW modules. We earn trust through specificity: megawatts, locations, dates, partners.
+    </p>
   </div>
 </section>
 
@@ -144,6 +224,31 @@
       <div class="logo-tile warm">
         <img src="assets/logo.png" alt="Scale42 on sand" />
       </div>
+    </div>
+
+    <h2 style="margin-top: 56px;">Logo downloads</h2>
+    <p class="sub">Direct downloads. SVG and dark/light variants will be added as masters land — for now use the PNG.</p>
+    <div class="downloads">
+      <div class="download">
+        <p class="meta">Primary logo<span>PNG · transparent</span></p>
+        <a href="assets/logo.png" download>Download →</a>
+      </div>
+      <div class="download">
+        <p class="meta">Press kit<span>Logos, palette, bios</span></p>
+        <a href="press.html">View press →</a>
+      </div>
+      <div class="download">
+        <p class="meta">SVG master<span>Coming soon</span></p>
+        <a href="mailto:press@scale-42.com">Request →</a>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 56px;">Application examples</h2>
+    <p class="sub">The logo across the brand's three primary surface treatments.</p>
+    <div class="applications">
+      <div class="app-card light"><img src="assets/logo.png" alt="On white" /></div>
+      <div class="app-card dark"><img src="assets/logo.png" alt="On navy" /></div>
+      <div class="app-card warm"><img src="assets/logo.png" alt="On sand" /></div>
     </div>
   </div>
 </section>
@@ -230,6 +335,20 @@
   </div>
 </section>
 
+<section id="patterns" class="brand-section">
+  <div class="container">
+    <h2>Background patterns</h2>
+    <p class="sub">Decorative section backgrounds. Use sparingly to add texture without overwhelming the content.</p>
+    <div class="patterns">
+      <div class="pattern-tile bg-hex"><span class="label">Hex</span></div>
+      <div class="pattern-tile bg-grid"><span class="label">Grid</span></div>
+      <div class="pattern-tile bg-diagonal"><span class="label">Diagonal</span></div>
+      <div class="pattern-tile bg-topo"><span class="label">Topo</span></div>
+    </div>
+    <p class="sub" style="margin-top: 20px;">CSS classes: <code>.bg-hex</code>, <code>.bg-grid</code>, <code>.bg-diagonal</code>, <code>.bg-topo</code>. Combine with <code>.bg-fixed</code> for a subtle parallax effect on scroll.</p>
+  </div>
+</section>
+
 <section id="typography" class="brand-section">
   <div class="container">
     <h2>Typography</h2>
@@ -254,6 +373,59 @@
     <div class="type-row">
       <div class="meta"><strong>Eyebrow</strong>Commissioner · 600 · 12px · uppercase · 0.14em tracking</div>
       <p class="type-eyebrow">Pan-Nordic development portfolio</p>
+    </div>
+  </div>
+</section>
+
+<section id="iconography" class="brand-section">
+  <div class="container">
+    <h2>Iconography</h2>
+    <p class="sub">We use simple geometric Unicode glyphs as iconography — calm, neutral, and infinitely scalable. No custom icon font required.</p>
+    <div class="icons">
+      <div class="icon-tile">⚡<span>Power</span></div>
+      <div class="icon-tile">▦<span>Compute</span></div>
+      <div class="icon-tile">◇<span>Module</span></div>
+      <div class="icon-tile">⛰<span>Energy</span></div>
+      <div class="icon-tile">≋<span>Liquid</span></div>
+      <div class="icon-tile">⌗<span>Network</span></div>
+      <div class="icon-tile">▢<span>Site</span></div>
+      <div class="icon-tile">◆<span>Featured</span></div>
+      <div class="icon-tile">▣<span>Density</span></div>
+      <div class="icon-tile">○<span>Cycle</span></div>
+      <div class="icon-tile">◐<span>Phase</span></div>
+      <div class="icon-tile">⬡<span>Hex</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="photography" class="brand-section">
+  <div class="container">
+    <h2>Photography & imagery</h2>
+    <p class="sub">Calm, low-saturation, dramatic light. Cold ambient palettes for site shots — warm sand tones reserved for human moments.</p>
+    <div class="photo-mood">
+      <div>
+        <h3 style="font-family: var(--font-display); font-weight: 600; font-size: 18px; margin: 0 0 12px;">Mood</h3>
+        <ul style="padding-left: 18px; margin: 0; color: var(--ink-2); font-size: 15px;">
+          <li>Wide, atmospheric Nordic landscapes</li>
+          <li>Industrial heritage and infrastructure detail</li>
+          <li>Hard, natural light — no studio fill</li>
+          <li>Low-saturation editing; navy / teal / mist</li>
+          <li>People shown working — not posing</li>
+        </ul>
+        <h3 style="font-family: var(--font-display); font-weight: 600; font-size: 18px; margin: 24px 0 12px;">Avoid</h3>
+        <ul style="padding-left: 18px; margin: 0; color: var(--ink-2); font-size: 15px;">
+          <li>Generic stock data-centre rack shots</li>
+          <li>Glossy CGI server-room renders</li>
+          <li>Saturated sunsets, lens flares, cliché tech</li>
+          <li>Over-edited HDR or heavy filters</li>
+        </ul>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-tile">[ Fjord wide ]</div>
+        <div class="photo-tile cool">[ Hydropower ]</div>
+        <div class="photo-tile warm">[ Geothermal ]</div>
+        <div class="photo-tile deep">[ Industrial detail ]</div>
+      </div>
     </div>
   </div>
 </section>
@@ -283,6 +455,39 @@
         <h3>Form input</h3>
         <input type="email" placeholder="you@company.com" style="width: 100%; padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--line); font: inherit; font-size: 15px;" />
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="motion" class="brand-section">
+  <div class="container">
+    <h2>Motion</h2>
+    <p class="sub">Quiet, purposeful, never decorative. Motion confirms — it does not entertain.</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3 style="font-family: var(--font-display); margin: 0 0 8px;">Reveal on scroll</h3>
+        <p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">Sections fade in with a 16px upward translate as they enter the viewport. 600ms ease, once-only.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family: var(--font-display); margin: 0 0 8px;">Parallax</h3>
+        <p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">Hero decoration moves at 0.15× scroll rate. Background patterns use <code>background-attachment: fixed</code> for a subtle parallax effect.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family: var(--font-display); margin: 0 0 8px;">Reduced motion</h3>
+        <p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">All motion respects <code>prefers-reduced-motion</code>. No surprise animations — ever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="accessibility" class="brand-section">
+  <div class="container">
+    <h2>Accessibility</h2>
+    <p class="sub">Contrast, focus, navigability — non-negotiable.</p>
+    <div class="grid grid-3">
+      <div class="card"><h3 style="font-family: var(--font-display); margin: 0 0 8px;">Contrast</h3><p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">All body and headline copy meets WCAG AA against its background. Test before shipping new pairings.</p></div>
+      <div class="card"><h3 style="font-family: var(--font-display); margin: 0 0 8px;">Focus</h3><p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">Visible focus rings on every interactive element. 2px teal outline at 3px offset.</p></div>
+      <div class="card"><h3 style="font-family: var(--font-display); margin: 0 0 8px;">Skip links</h3><p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">Every page exposes a keyboard-only skip-to-content link as the first focusable element.</p></div>
     </div>
   </div>
 </section>
