@@ -350,8 +350,9 @@ img { max-width: 100%; display: block; }
   aspect-ratio: 4/3;
   background: linear-gradient(135deg, #1c2e3f 0%, #2f6675 60%, #e8b87a 100%);
   border-radius: var(--radius); display: grid; place-items: center;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.6); overflow: hidden;
 }
+.site-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .site-hero-img.bakki { background: linear-gradient(135deg, #2c3a48 0%, #5a4030 60%, #c47a4a 100%); }
 .site-hero-img.varkaus { background: linear-gradient(135deg, #1c2e3f 0%, #406b6e 60%, #8aa9a8 100%); }
 
