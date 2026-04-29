@@ -2,18 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.scale-42.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <changefreq>weekly</changefreq><priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/" />
     <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/" />
   </url>
   <url><loc>https://www.scale-42.com/no/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.scale-42.com/datacenters.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters.html</loc>
+    <changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters.html" />
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters.html" />
+  </url>
+  <url><loc>https://www.scale-42.com/no/datacenters.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.scale-42.com/datacenters/glomfjord.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.scale-42.com/datacenters/bakki.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.scale-42.com/datacenters/varkaus.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.scale-42.com/capabilities.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.scale-42.com/careers.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.scale-42.com/press.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url>
+    <loc>https://www.scale-42.com/capabilities.html</loc>
+    <changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/capabilities.html" />
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/capabilities.html" />
+  </url>
+  <url><loc>https://www.scale-42.com/no/capabilities.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url>
+    <loc>https://www.scale-42.com/careers.html</loc>
+    <changefreq>weekly</changefreq><priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/careers.html" />
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/careers.html" />
+  </url>
+  <url><loc>https://www.scale-42.com/no/careers.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url>
+    <loc>https://www.scale-42.com/press.html</loc>
+    <changefreq>weekly</changefreq><priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/press.html" />
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/press.html" />
+  </url>
+  <url><loc>https://www.scale-42.com/no/press.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.scale-42.com/brand.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

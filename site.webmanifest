@@ -1,0 +1,13 @@
+{
+  "name": "Scale42",
+  "short_name": "Scale42",
+  "description": "Next-generation European digital infrastructure.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1c2e3f",
+  "icons": [
+    { "src": "/assets/logo.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/logo.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

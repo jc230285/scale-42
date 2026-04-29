@@ -4,9 +4,20 @@
 (function () {
   var KEY = 's42-lang';
   var path = location.pathname;
-  var onNo = path.indexOf('/no/') === 0 || path === '/no' || path.indexOf('/no/') !== -1;
+  var onNo = path.indexOf('/no/') === 0 || path.indexOf('/no/') !== -1;
 
-  // Click handlers on EN/NO toggle: persist choice.
+  // Map every EN page to its NO counterpart.
+  var EN_TO_NO = {
+    '/':                 '/no/',
+    '/index.html':       '/no/index.html',
+    '/datacenters.html': '/no/datacenters.html',
+    '/capabilities.html':'/no/capabilities.html',
+    '/careers.html':     '/no/careers.html',
+    '/press.html':       '/no/press.html',
+    '/brand.html':       '/brand.html'  // not yet translated; fall back to EN
+  };
+
+  // Click handlers on the EN/NO toggle: persist choice.
   document.addEventListener('click', function (e) {
     var t = e.target.closest('[data-lang]');
     if (!t) return;
@@ -22,12 +33,9 @@
   var prefersNo = /^(nb|nn|no)\b/.test(lang);
 
   if (prefersNo && !onNo) {
-    // Redirect to /no/ equivalent.
-    var target = '/no/';
-    if (path.indexOf('datacenters.html') !== -1) target = '/datacenters.html'; // kept EN until /no/datacenters.html exists
-    if (path.indexOf('brand.html') !== -1)        target = '/brand.html';
-    location.replace(target + (location.hash || ''));
-  } else if (!prefersNo && onNo) {
-    // Norwegian path but English-preferring browser — leave it; user came here intentionally.
+    var target = EN_TO_NO[path];
+    if (target && target !== path) {
+      location.replace(target + (location.hash || ''));
+    }
   }
 })();

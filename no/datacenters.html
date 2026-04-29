@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Datasentre — Scale42</title>
+<meta name="description" content="Scale42s pan-nordiske portefølje av AI-klare datasentre i Norge, Finland, Sverige og Island." />
+<meta name="theme-color" content="#1c2e3f" />
+<link rel="icon" type="image/png" href="../assets/logo.png" />
+<link rel="canonical" href="https://www.scale-42.com/no/datacenters.html" />
+<link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters.html" />
+<link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<style>
+  .dc-hero { padding: 80px 0 40px; position: relative; overflow: hidden; }
+  .dc-hero::before {
+    content: ''; position: absolute; inset: 0; z-index: -1;
+    background:
+      radial-gradient(900px 400px at 90% -10%, rgba(232,184,122,0.18), transparent 60%),
+      radial-gradient(800px 400px at 0% 0%, rgba(47,102,117,0.14), transparent 70%),
+      linear-gradient(180deg, #f8fafb 0%, #ffffff 100%);
+  }
+  .dc-hero h1 { font-family: var(--font-display); font-size: clamp(40px, 5.5vw, 64px); letter-spacing: -0.02em; line-height: 1.05; margin: 12px 0 18px; font-weight: 600; }
+  .dc-hero .lede { font-size: 18px; color: var(--ink-2); max-width: 720px; margin: 0; }
+  .dc-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 40px 0 0; padding: 28px 0 0; border-top: 1px solid var(--line); }
+  .dc-summary .item dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
+  .dc-summary .item dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; }
+  .dc-list { padding: 64px 0; border-top: 1px solid var(--line); }
+  .dc-toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 32px; align-items: center; }
+  .dc-filter { padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-size: 13.5px; font-weight: 500; color: var(--ink-2); cursor: pointer; transition: 0.15s ease; }
+  .dc-filter.active, .dc-filter:hover { border-color: var(--ink); color: var(--ink); background: var(--bg-alt); }
+  .dc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .dc-card { border: 1px solid var(--line); border-radius: var(--radius); background: #fff; overflow: hidden; display: flex; flex-direction: column; transition: 0.2s ease; }
+  .dc-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .dc-card .img { aspect-ratio: 16/9; background: linear-gradient(135deg, #1c2e3f 0%, #2f6675 55%, #e8b87a 100%); display: grid; place-items: center; color: rgba(255,255,255,0.5); position: relative; }
+  .dc-card .img.bakki { background: linear-gradient(135deg, #2c3a48 0%, #5a4030 60%, #c47a4a 100%); }
+  .dc-card .img.varkaus { background: linear-gradient(135deg, #1c2e3f 0%, #406b6e 60%, #8aa9a8 100%); }
+  .dc-card .img.tbd { background: linear-gradient(135deg, #d6dde2 0%, #a3bcc4 100%); color: rgba(28,46,63,0.5); }
+  .dc-card .country-flag { position: absolute; top: 16px; left: 16px; background: rgba(255,255,255,0.92); color: var(--ink); padding: 4px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+  .dc-card .status { position: absolute; top: 16px; right: 16px; background: rgba(28,46,63,0.85); color: #fff; padding: 4px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+  .dc-card .status.live { background: var(--accent); }
+  .dc-card .status.tbd { background: var(--muted); }
+  .dc-card .body { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .dc-card h3 { font-family: var(--font-display); font-size: 22px; margin: 0; font-weight: 600; }
+  .dc-card .loc { font-size: 13px; color: var(--muted); margin: 0; text-transform: uppercase; letter-spacing: 0.08em; }
+  .dc-card p.desc { font-size: 14.5px; color: var(--ink-2); margin: 0; }
+  .dc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 16px 0 0; border-top: 1px solid var(--line); margin-top: 4px; }
+  .dc-stats .stat dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; }
+  .dc-stats .stat dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 16px; }
+  .dc-cta { background: var(--bg-dark); color: #e8ece9; padding: 64px 0; text-align: center; }
+  .dc-cta h2 { font-family: var(--font-display); font-size: clamp(28px, 3vw, 38px); margin: 0 0 12px; font-weight: 600; letter-spacing: -0.02em; color: #fff; }
+  .dc-cta p { color: #b9c2bd; margin: 0 0 24px; font-size: 17px; }
+  .dc-map-section { padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .dc-map { height: 540px; width: 100%; background: #eaf0f3; }
+  .dc-map-legend { position: absolute; bottom: 16px; left: 16px; background: rgba(255,255,255,0.95); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; font-size: 12px; color: var(--ink-2); z-index: 500; }
+  .dc-map-legend strong { font-weight: 600; color: var(--ink); display: block; margin-bottom: 6px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .dc-map-legend .row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+  .dc-map-legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .dc-map-legend .dot.live { background: var(--accent); }
+  .dc-map-legend .dot.tbd { background: var(--muted); }
+  .dc-map-wrap { position: relative; }
+  .dc-pin { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); border: 3px solid #fff; box-shadow: 0 4px 12px rgba(28,46,63,0.35); transform: translate(-50%,-50%); }
+  .dc-pin.tbd { background: var(--muted); }
+  @media (max-width: 900px) { .dc-grid { grid-template-columns: 1fr; } .dc-summary { grid-template-columns: 1fr 1fr; } .dc-map { height: 420px; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#dc-list">Hopp til innhold</a>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img src="../assets/logo.png" alt="Scale42" class="brand-logo" /></a>
+    <nav class="nav-links">
+      <a href="index.html#platform">Plattform</a>
+      <a href="datacenters.html" class="active">Datasentre</a>
+      <a href="index.html#founders">Team</a>
+      <a href="index.html#news">Nyheter</a>
+      <a href="../brand.html">Profil</a>
+      <div class="lang-toggle">
+        <a href="../datacenters.html" data-lang="en">EN</a>
+        <a href="datacenters.html" data-lang="no" class="active">NO</a>
+      </div>
+      <a href="index.html#contact" class="btn btn-sm">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section class="dc-hero">
+  <div class="container">
+    <p class="eyebrow">Datasentre</p>
+    <h1>1,7 GW nordisk AI-klar kapasitet.</h1>
+    <p class="lede">Ti prosjekter i Norge, Finland, Sverige og Island — samlokalisert med rimelig fornybar kraft, spesialbygd for databehandling med høy tetthet. Skalering fra 50 MW campus til 500 MW+ flaggskipsanlegg.</p>
+    <dl class="dc-summary">
+      <div class="item"><dt>Aktiv pipeline</dt><dd>1,7 GW</dd></div>
+      <div class="item"><dt>Prosjekter</dt><dd>10</dd></div>
+      <div class="item"><dt>Land</dt><dd>4</dd></div>
+      <div class="item"><dt>Modulstørrelse</dt><dd>12,5 MW</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="dc-map-section">
+  <div class="dc-map-wrap">
+    <div id="dc-map" class="dc-map"></div>
+    <div class="dc-map-legend">
+      <strong>Pipelinestatus</strong>
+      <div class="row"><span class="dot live"></span> Under utvikling / annonsert</div>
+      <div class="row"><span class="dot tbd"></span> Under planlegging</div>
+    </div>
+  </div>
+</section>
+
+<section id="dc-list" class="dc-list">
+  <div class="container">
+    <div class="dc-toolbar">
+      <button class="dc-filter active" data-filter="all">Alle</button>
+      <button class="dc-filter" data-filter="norway">Norge</button>
+      <button class="dc-filter" data-filter="finland">Finland</button>
+      <button class="dc-filter" data-filter="sweden">Sverige</button>
+      <button class="dc-filter" data-filter="iceland">Island</button>
+    </div>
+    <div class="dc-grid">
+      <article class="dc-card" data-country="norway"><div class="img"><span class="country-flag">Norge</span><span class="status live">Under utvikling</span></div><div class="body"><p class="loc">Nordland · Norge</p><h3>Glomfjord</h3><p class="desc">Vannkraftrik kystlokasjon med dyp nettkapasitet. Fasevis utrulling av 12,5 MW moduler til 50 MW+ campus.</p><dl class="dc-stats"><div class="stat"><dt>Initial</dt><dd>12,5 MW</dd></div><div class="stat"><dt>Mål</dt><dd>50 MW+</dd></div><div class="stat"><dt>Kraft</dt><dd>Vann</dd></div></dl><a href="../datacenters/glomfjord.html" class="dc-link">Se sitedetaljer →</a></div></article>
+      <article class="dc-card" data-country="iceland"><div class="img bakki"><span class="country-flag">Island</span><span class="status live">JV annonsert</span></div><div class="body"><p class="loc">Nord-Island · Island</p><h3>Bakki</h3><p class="desc">Rimelig geotermisk baselast, robust nettintegrasjon og industriklart anlegg. I drift fra 2027 med 50 MW initial kapasitet, skalerer til 200 MW.</p><dl class="dc-stats"><div class="stat"><dt>Initial</dt><dd>50 MW</dd></div><div class="stat"><dt>Mål</dt><dd>200 MW</dd></div><div class="stat"><dt>Kraft</dt><dd>Geotermisk</dd></div></dl><a href="../datacenters/bakki.html" class="dc-link">Se sitedetaljer →</a></div></article>
+      <article class="dc-card" data-country="finland"><div class="img varkaus"><span class="country-flag">Finland</span><span class="status live">Tillatelser</span></div><div class="body"><p class="loc">Nord-Savo · Finland</p><h3>Varkaus</h3><p class="desc">Industriklar finsk lokasjon med sterk kommunal støtte og eksisterende nettinfrastruktur. Ordføreren: "tilliten er stor".</p><dl class="dc-stats"><div class="stat"><dt>Initial</dt><dd>TBD</dd></div><div class="stat"><dt>Mål</dt><dd>50 MW+</dd></div><div class="stat"><dt>Kraft</dt><dd>Blandet fornybar</dd></div></dl><a href="../datacenters/varkaus.html" class="dc-link">Se sitedetaljer →</a></div></article>
+      <article class="dc-card" data-country="sweden"><div class="img tbd"><span class="country-flag">Sverige</span><span class="status tbd">Planlegging</span></div><div class="body"><p class="loc">Sverige</p><h3>Project Aurora</h3><p class="desc">Strategisk svensk lokasjon med sterk fiber-tilkobling og langsiktige PPA-muligheter. Detaljer kommer.</p><dl class="dc-stats"><div class="stat"><dt>Initial</dt><dd>—</dd></div><div class="stat"><dt>Mål</dt><dd>100 MW+</dd></div><div class="stat"><dt>Kraft</dt><dd>Vann / vind</dd></div></dl></div></article>
+      <article class="dc-card" data-country="norway"><div class="img tbd"><span class="country-flag">Norge</span><span class="status tbd">Planlegging</span></div><div class="body"><p class="loc">Norge</p><h3>Project Fjord II</h3><p class="desc">Andre norske campus med flaggskipskala, ved siden av langvarig vannkraft.</p><dl class="dc-stats"><div class="stat"><dt>Initial</dt><dd>—</dd></div><div class="stat"><dt>Mål</dt><dd>500 MW+</dd></div><div class="stat"><dt>Kraft</dt><dd>Vann</dd></div></dl></div></article>
+      <article class="dc-card" data-country="finland"><div class="img tbd"><span class="country-flag">Finland</span><span class="status tbd">Planlegging</span></div><div class="body"><p class="loc">Finland</p><h3>Project Boreal</h3><p class="desc">Nord-finsk industrikorridor — ytterligere pipeline-anlegg under utvikling.</p><dl class="dc-stats"><div class="stat"><dt>Initial</dt><dd>—</dd></div><div class="stat"><dt>Mål</dt><dd>100 MW+</dd></div><div class="stat"><dt>Kraft</dt><dd>Blandet fornybar</dd></div></dl></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="dc-cta">
+  <div class="container">
+    <h2>Ser du etter kapasitet?</h2>
+    <p>Hyperscaler-aktører, AI-laboratorier og HPC-operatører — vi snakker gjerne med deg.</p>
+    <a href="index.html#contact" class="btn btn-primary" style="background:#fff;color:var(--ink);">Ta kontakt →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div><img src="../assets/logo.png" alt="Scale42" class="brand-logo brand-logo-footer" /><p>Neste generasjons europeisk digital infrastruktur.</p></div>
+    <div class="footer-links">
+      <a href="index.html">Hjem</a><a href="datacenters.html">Datasentre</a><a href="capabilities.html">Kapabiliteter</a><a href="careers.html">Karriere</a><a href="press.html">Presse</a><a href="../brand.html">Profil</a><a href="index.html#contact">Kontakt</a>
+    </div>
+    <p class="copyright">© 2026 Scale42. Alle rettigheter reservert.</p>
+  </div>
+</footer>
+
+<script src="../lang.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  const sites = [
+    { name: 'Glomfjord', country: 'Norge', status: 'live', lat: 66.8167, lng: 13.9667, power: 'Vann', target: '50 MW+', desc: 'Vannkraftrik kystlokasjon, 12,5 MW moduler til 50 MW+ campus.' },
+    { name: 'Bakki', country: 'Island', status: 'live', lat: 66.05, lng: -17.35, power: 'Geotermisk', target: '200 MW', desc: 'Geotermisk baselast, 50 MW initial 2027, skalerer til 200 MW.' },
+    { name: 'Varkaus', country: 'Finland', status: 'live', lat: 62.3167, lng: 27.8833, power: 'Blandet', target: '50 MW+', desc: 'Industriklar finsk lokasjon med sterk kommunal støtte.' },
+    { name: 'Project Aurora', country: 'Sverige', status: 'tbd', lat: 63.0, lng: 16.0, power: 'Vann / vind', target: '100 MW+', desc: 'Strategisk svensk lokasjon. Detaljer kommer.' },
+    { name: 'Project Fjord II', country: 'Norge', status: 'tbd', lat: 67.2, lng: 14.5, power: 'Vann', target: '500 MW+', desc: 'Andre norske campus, flaggskipskala.' },
+    { name: 'Project Boreal', country: 'Finland', status: 'tbd', lat: 65.5, lng: 27.0, power: 'Blandet', target: '100 MW+', desc: 'Nord-finsk industrikorridor.' },
+  ];
+  const map = L.map('dc-map', { center: [65, 17], zoom: 4, scrollWheelZoom: false });
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { subdomains: 'abcd', attribution: '© OpenStreetMap, © CARTO' }).addTo(map);
+  sites.forEach(s => {
+    const icon = L.divIcon({ className: '', iconSize: [28,28], iconAnchor: [14,14], html: `<div class="dc-pin ${s.status==='tbd'?'tbd':''}"></div>` });
+    L.marker([s.lat, s.lng], { icon }).addTo(map).bindPopup(`<strong>${s.name}</strong><br/>${s.country} · ${s.power}<br/>${s.desc}<br/><strong>Mål:</strong> ${s.target}`);
+  });
+  map.on('click', () => map.scrollWheelZoom.enable());
+  document.querySelectorAll('.dc-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.dc-filter').forEach(b => b.classList.toggle('active', b===btn));
+      document.querySelectorAll('.dc-card').forEach(c => c.style.display = (f==='all' || c.dataset.country===f) ? '' : 'none');
+    });
+  });
+</script>
+</body>
+</html>
