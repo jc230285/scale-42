@@ -494,3 +494,9 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.85) 60%, #ffffff 100%);
 }
 .hero-bg { background: none; }
+
+/* Lang toggle styled for dark navy nav */
+.nav .lang-toggle { border-color: rgba(255,255,255,0.18); }
+.nav .lang-toggle a { color: rgba(255,255,255,0.6); border-right-color: rgba(255,255,255,0.12); }
+.nav .lang-toggle a.active { background: rgba(255,255,255,0.12); color: #fff; }
+.nav .lang-toggle a:not(.active):hover { color: #fff; background: rgba(255,255,255,0.05); }
