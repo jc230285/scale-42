@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <style>
   .dc-hero { padding: 80px 0 40px; position: relative; overflow: hidden; }
   .dc-hero::before {
@@ -97,9 +98,43 @@
   .dc-cta h2 { font-family: var(--font-display); font-size: clamp(28px, 3vw, 38px); margin: 0 0 12px; font-weight: 600; letter-spacing: -0.02em; color: #fff; }
   .dc-cta p { color: #b9c2bd; margin: 0 0 24px; font-size: 17px; }
 
+  /* Map */
+  .dc-map-section { padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .dc-map { height: 540px; width: 100%; background: #eaf0f3; }
+  .dc-map .leaflet-container { background: #eaf0f3; font-family: var(--font-sans); }
+  .dc-map-legend {
+    position: absolute; bottom: 16px; left: 16px;
+    background: rgba(255,255,255,0.95); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 12px 14px;
+    font-size: 12px; color: var(--ink-2); z-index: 500;
+    backdrop-filter: blur(6px);
+  }
+  .dc-map-legend strong { font-weight: 600; color: var(--ink); display: block; margin-bottom: 6px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .dc-map-legend .row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+  .dc-map-legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .dc-map-legend .dot.live { background: var(--accent); }
+  .dc-map-legend .dot.tbd { background: var(--muted); }
+  .dc-map-wrap { position: relative; }
+
+  /* Custom Leaflet pin */
+  .dc-pin {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent); border: 3px solid #fff;
+    box-shadow: 0 4px 12px rgba(28,46,63,0.35);
+    display: grid; place-items: center;
+    color: #fff; font-weight: 600; font-size: 11px;
+    transform: translate(-50%, -50%);
+  }
+  .dc-pin.tbd { background: var(--muted); }
+  .leaflet-popup-content { font-family: var(--font-sans); font-size: 14px; line-height: 1.4; margin: 12px 14px; }
+  .leaflet-popup-content h4 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
+  .leaflet-popup-content .meta { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px; }
+  .leaflet-popup-content a { color: var(--accent); font-weight: 600; font-size: 13px; }
+
   @media (max-width: 900px) {
     .dc-grid { grid-template-columns: 1fr; }
     .dc-summary { grid-template-columns: 1fr 1fr; }
+    .dc-map { height: 420px; }
   }
 </style>
 </head>
@@ -143,6 +178,17 @@
   </div>
 </section>
 
+<section class="dc-map-section">
+  <div class="dc-map-wrap">
+    <div id="dc-map" class="dc-map" aria-label="Map of Scale42 Nordic data centre sites"></div>
+    <div class="dc-map-legend">
+      <strong>Pipeline status</strong>
+      <div class="row"><span class="dot live"></span> In development / announced</div>
+      <div class="row"><span class="dot tbd"></span> In planning</div>
+    </div>
+  </div>
+</section>
+
 <section id="dc-list" class="dc-list">
   <div class="container">
     <div class="dc-toolbar">
@@ -155,7 +201,7 @@
 
     <div class="dc-grid">
 
-      <article class="dc-card" data-country="norway">
+      <article class="dc-card" id="glomfjord" data-country="norway">
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status live">In development</span>
@@ -173,7 +219,7 @@
         </div>
       </article>
 
-      <article class="dc-card" data-country="iceland">
+      <article class="dc-card" id="bakki" data-country="iceland">
         <div class="img bakki">
           <span class="country-flag">Iceland</span>
           <span class="status live">JV announced</span>
@@ -191,7 +237,7 @@
         </div>
       </article>
 
-      <article class="dc-card" data-country="finland">
+      <article class="dc-card" id="varkaus" data-country="finland">
         <div class="img varkaus">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -209,7 +255,7 @@
         </div>
       </article>
 
-      <article class="dc-card" data-country="sweden">
+      <article class="dc-card" id="project-aurora" data-country="sweden">
         <div class="img tbd">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -227,7 +273,7 @@
         </div>
       </article>
 
-      <article class="dc-card" data-country="norway">
+      <article class="dc-card" id="project-fjord-ii" data-country="norway">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -245,7 +291,7 @@
         </div>
       </article>
 
-      <article class="dc-card" data-country="finland">
+      <article class="dc-card" id="project-boreal" data-country="finland">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -292,7 +338,47 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
+  // Map: Nordic data centre sites
+  const sites = [
+    { name: 'Glomfjord',     country: 'Norway',  status: 'live', lat: 66.8167, lng: 13.9667,  power: 'Hydro',         target: '50 MW+',  desc: 'Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus.' },
+    { name: 'Bakki',         country: 'Iceland', status: 'live', lat: 66.0500, lng: -17.3500, power: 'Geothermal',    target: '200 MW',  desc: 'Geothermal baseload, 50 MW initial 2027, scaling to 200 MW.' },
+    { name: 'Varkaus',       country: 'Finland', status: 'live', lat: 62.3167, lng: 27.8833,  power: 'Mixed renewable', target: '50 MW+', desc: 'Industrial-ready Finnish site with strong municipal backing.' },
+    { name: 'Project Aurora',   country: 'Sweden',  status: 'tbd',  lat: 63.0000, lng: 16.0000,  power: 'Hydro / wind',  target: '100 MW+', desc: 'Strategic Swedish site. Details to be announced.' },
+    { name: 'Project Fjord II', country: 'Norway',  status: 'tbd',  lat: 67.2000, lng: 14.5000,  power: 'Hydro',         target: '500 MW+', desc: 'Second Norwegian campus, flagship-scale capacity.' },
+    { name: 'Project Boreal',   country: 'Finland', status: 'tbd',  lat: 65.5000, lng: 27.0000,  power: 'Mixed renewable', target: '100 MW+', desc: 'Northern Finland industrial corridor.' },
+  ];
+
+  const map = L.map('dc-map', {
+    center: [65.0, 17.0], zoom: 4, zoomControl: true,
+    scrollWheelZoom: false, attributionControl: true
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap, © CARTO',
+    subdomains: 'abcd', maxZoom: 19
+  }).addTo(map);
+
+  sites.forEach(s => {
+    const icon = L.divIcon({
+      className: '', iconSize: [28, 28], iconAnchor: [14, 14],
+      html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : ''}" title="${s.name}"></div>`
+    });
+    const popup = `
+      <h4>${s.name}</h4>
+      <p class="meta">${s.country} · ${s.power}</p>
+      <p style="margin:0 0 8px">${s.desc}</p>
+      <p style="margin:0 0 4px"><strong>Target:</strong> ${s.target}</p>
+      <a href="#${s.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}">View details ↓</a>
+    `;
+    L.marker([s.lat, s.lng], { icon }).addTo(map).bindPopup(popup);
+  });
+
+  // Re-enable scroll-zoom only after user clicks the map
+  map.once('focus', () => map.scrollWheelZoom.enable());
+  map.on('click', () => map.scrollWheelZoom.enable());
+
   // Country filter
   document.querySelectorAll('.dc-filter').forEach(btn => {
     btn.addEventListener('click', () => {
