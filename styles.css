@@ -487,8 +487,8 @@ img { max-width: 100%; display: block; }
 /* Hide Leaflet attribution / zoom controls bottom strip */
 .leaflet-bottom { visibility: hidden; }
 
-/* Hero photographic background */
-.hero-bg picture, .hero-bg picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Hero photographic background — building is bottom-right, anchor there so cropping eats top/left */
+.hero-bg picture, .hero-bg picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: bottom right; display: block; }
 .hero-bg::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.85) 60%, #ffffff 100%);
