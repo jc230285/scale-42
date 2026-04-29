@@ -15,20 +15,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css" />
 <style>
-  .news-hero {{ padding: 80px 0 32px; }}
-  .news-hero h1 {{ font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); letter-spacing: -0.02em; line-height: 1.05; margin: 12px 0 16px; font-weight: 600; }}
-  .news-hero p.lede {{ font-size: 19px; color: var(--ink-2); max-width: 720px; margin: 0; }}
-  .news-grid {{ padding: 32px 0 96px; }}
-  .news-grid .grid {{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }}
-  .news-card {{ display: block; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; overflow: hidden; transition: 0.18s ease; color: inherit; }}
-  .news-card:hover {{ transform: translateY(-2px); border-color: var(--ink); }}
-  .news-card .img {{ aspect-ratio: 16/9; background: var(--bg-alt); overflow: hidden; }}
-  .news-card .img img {{ width: 100%; height: 100%; object-fit: cover; display: block; }}
-  .news-card .body {{ padding: 22px 24px 24px; }}
-  .news-card .meta {{ font-family: var(--font-display); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 10px; }}
-  .news-card h2 {{ font-family: var(--font-display); font-size: 20px; line-height: 1.3; margin: 0 0 10px; font-weight: 600; }}
-  .news-card p {{ color: var(--ink-2); font-size: 15px; line-height: 1.55; margin: 0; }}
-  @media (max-width: 760px) {{ .news-grid .grid {{ grid-template-columns: 1fr; }} }}
+  .news-hero { padding: 96px 0 48px; background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); }
+  .news-hero .eyebrow { color: var(--accent); margin-bottom: 16px; }
+  .news-hero h1 { font-family: var(--font-display); font-size: clamp(40px, 5.4vw, 64px); letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 18px; font-weight: 600; max-width: 920px; }
+  .news-hero p.lede { font-size: 19px; color: var(--ink-2); max-width: 720px; margin: 0; }
+
+  .news-grid { padding: 48px 0 96px; }
+  .news-feature { display: grid; grid-template-columns: 1.15fr 1fr; gap: 36px; align-items: center; padding: 0 0 56px; border-bottom: 1px solid var(--line); margin-bottom: 56px; }
+  .news-feature .img { aspect-ratio: 16/10; border-radius: var(--radius); overflow: hidden; background: var(--bg-alt); }
+  .news-feature .img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .news-feature .meta { font-family: var(--font-display); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 14px; }
+  .news-feature h2 { font-family: var(--font-display); font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 16px; font-weight: 600; }
+  .news-feature h2 a { color: var(--ink); }
+  .news-feature h2 a:hover { color: var(--accent); }
+  .news-feature p { color: var(--ink-2); font-size: 17px; line-height: 1.6; margin: 0 0 18px; }
+  .news-feature .read-more { font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 14.5px; }
+  .news-feature .read-more:hover { color: var(--ink); }
+
+  .news-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .news-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; overflow: hidden; transition: 0.2s ease; color: inherit; }
+  .news-card:hover { transform: translateY(-3px); border-color: var(--ink); box-shadow: 0 8px 24px rgba(28,46,63,0.06); }
+  .news-card .img { aspect-ratio: 16/9; background: var(--bg-alt); overflow: hidden; }
+  .news-card .img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: 0.4s ease; }
+  .news-card:hover .img img { transform: scale(1.03); }
+  .news-card .body { padding: 22px 24px 24px; flex: 1; display: flex; flex-direction: column; }
+  .news-card .meta { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 12px; display: flex; gap: 12px; align-items: center; }
+  .news-card .meta .dot { color: var(--line); }
+  .news-card h3 { font-family: var(--font-display); font-size: 19px; line-height: 1.3; margin: 0 0 10px; font-weight: 600; }
+  .news-card p { color: var(--ink-2); font-size: 14.5px; line-height: 1.55; margin: 0 0 16px; flex: 1; }
+  .news-card .read-more { font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 13.5px; }
+  @media (max-width: 760px) { .news-feature { grid-template-columns: 1fr; gap: 20px; } .news-list { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -39,7 +55,7 @@
       <a href="../">Home</a>
       <a href="../capabilities/">Capabilities</a>
       <a href="../press/">Press</a>
-      <a href="." class="active">News</a>
+      <a href=".">News</a>
       <a href="../#contact" class="btn btn-sm">Contact</a>
     </nav>
   </div>
@@ -55,45 +71,53 @@
 
 <section class="news-grid">
   <div class="container">
-    <div class="grid">
-      <a class="news-card" href="bakki-iceland-50mw/">
-        <div class="img"><img src="../assets/news/bakki-iceland-50mw.jpg" alt="Bakki, Iceland - site for the GIG / Scale42 50 MW data centre" loading="lazy" /></div>
-        <div class="body">
-          <p class="meta">Sep 2, 2025</p>
-          <h2>Scale42 and GIG plan 50 MW data centre in Iceland</h2>
-          <p>Coverage in Data Centre Dynamics on the Bakki joint venture and its initial capacity.</p>
-        </div>
+    
+    <article class="news-feature">
+      <a class="img" href="bakki-iceland-50mw/" aria-label="Scale42 and GIG plan 50 MW data centre in Iceland">
+        <img src="../assets/news/bakki-iceland-50mw.jpg" alt="Bakki, Iceland - site for the GIG / Scale42 50 MW data centre" />
       </a>
+      <div>
+        <p class="meta">Press coverage &middot; Sep 2, 2025 &middot; 3 min read</p>
+        <h2><a href="bakki-iceland-50mw/">Scale42 and GIG plan 50 MW data centre in Iceland</a></h2>
+        <p>Coverage in Data Centre Dynamics on the Bakki joint venture and its initial capacity.</p>
+        <a class="read-more" href="bakki-iceland-50mw/">Read the article &rarr;</a>
+      </div>
+    </article>
+    <div class="news-list">
       <a class="news-card" href="gig-strategic-partnership/">
-        <div class="img"><img src="../assets/news/gig.jpg" alt="GIG and Scale42 - strategic partnership announcement" loading="lazy" /></div>
+        <div class="img"><img src="../assets/news/gig.jpg" alt="GIG and Scale42 strategic partnership announcement" loading="lazy" /></div>
         <div class="body">
-          <p class="meta">Sep 2, 2025</p>
-          <h2>GIG forms strategic partnership with Scale-42 through GIGA Holdings</h2>
+          <p class="meta"><span>Announcement</span><span class="dot">&bull;</span><span>Sep 2, 2025</span></p>
+          <h3>GIG forms strategic partnership with Scale-42 through GIGA Holdings</h3>
           <p>Joint venture creating an integrated energy and digital infrastructure platform across the Nordics.</p>
+          <span class="read-more">Read &rarr;</span>
         </div>
       </a>
       <a class="news-card" href="public-statement-partnership/">
         <div class="img"><img src="../assets/news/partnership.jpg" alt="Scale42 and GIG public statement on strategic partnership" loading="lazy" /></div>
         <div class="body">
-          <p class="meta">Apr 29, 2025</p>
-          <h2>Public statement on strategic partnership</h2>
-          <p>GIG Ltd and Scale42 announce advanced discussions for the creation of a joint venture focused on integrated infrastructure.</p>
+          <p class="meta"><span>Announcement</span><span class="dot">&bull;</span><span>Apr 29, 2025</span></p>
+          <h3>Public statement on strategic partnership</h3>
+          <p>GIG Ltd and Scale42 announce advanced discussions for a joint venture focused on integrated infrastructure.</p>
+          <span class="read-more">Read &rarr;</span>
         </div>
       </a>
       <a class="news-card" href="varkaus-finland/">
         <div class="img"><img src="../assets/news/varkaus-finland.avif" alt="Varkaus, Finland - Ranta-Luttila plot for the Scale42 data centre" loading="lazy" /></div>
         <div class="body">
-          <p class="meta">Mar 27, 2025</p>
-          <h2>Norwegian company plans data centre in Varkaus - Mayor: "Confidence is high"</h2>
-          <p>Yle reports on Scale42's Finnish project - construction targeted for early 2026.</p>
+          <p class="meta"><span>Press coverage</span><span class="dot">&bull;</span><span>Mar 27, 2025</span></p>
+          <h3>Norwegian company plans data centre in Varkaus &mdash; Mayor: "Confidence is high"</h3>
+          <p>Yle reports on Scale42's Finnish project; construction targeted for early 2026.</p>
+          <span class="read-more">Read &rarr;</span>
         </div>
       </a>
       <a class="news-card" href="deepseek-thought-piece/">
         <div class="img"><img src="../assets/news/deepseek.jpg" alt="DeepSeek and the dispersion of AI compute demand" loading="lazy" /></div>
         <div class="body">
-          <p class="meta">Jan 29, 2025</p>
-          <h2>Scale42 thought piece - DeepSeek</h2>
-          <p>Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand.</p>
+          <p class="meta"><span>Thought leadership</span><span class="dot">&bull;</span><span>Jan 29, 2025</span></p>
+          <h3>DeepSeek and the dispersion of AI compute demand</h3>
+          <p>What algorithmic efficiency means for mid-scale data centre infrastructure.</p>
+          <span class="read-more">Read &rarr;</span>
         </div>
       </a>
     </div>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Scale42 thought piece - DeepSeek &mdash; Scale42</title>
-<meta name="description" content="Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand." />
+<title>DeepSeek and the dispersion of AI compute demand &mdash; Scale42</title>
+<meta name="description" content="What algorithmic efficiency means for mid-scale data centre infrastructure." />
 <meta name="theme-color" content="#1c2e3f" />
 <link rel="canonical" href="https://www.scale-42.com/news/deepseek-thought-piece/" />
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
@@ -16,44 +16,92 @@
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles.css" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Scale42 thought piece - DeepSeek" />
-<meta property="og:description" content="Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand." />
+<meta property="og:title" content="DeepSeek and the dispersion of AI compute demand" />
+<meta property="og:description" content="What algorithmic efficiency means for mid-scale data centre infrastructure." />
 <meta property="og:url" content="https://www.scale-42.com/news/deepseek-thought-piece/" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "NewsArticle",
-  "headline": "Scale42 thought piece - DeepSeek",
+  "headline": "DeepSeek and the dispersion of AI compute demand",
   "datePublished": "2025-01-29",
   "author": [{"@type":"Person","name":"Will Tasney"}, {"@type":"Person","name":"Thomas Beaton"}, {"@type":"Person","name":"Jamie Stewart"}],
   "publisher": { "@type": "Organization", "name": "Scale42", "url": "https://www.scale-42.com/" },
   "mainEntityOfPage": "https://www.scale-42.com/news/deepseek-thought-piece/",
-  "description": "Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand."
+  "description": "What algorithmic efficiency means for mid-scale data centre infrastructure."
 }
 </script>
 <style>
-  .post-hero { padding: 64px 0 32px; border-bottom: 1px solid var(--line); }
-  .post-hero .meta { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 16px; }
-  .post-hero h1 { font-family: var(--font-display); font-size: clamp(34px, 4.4vw, 52px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 18px; font-weight: 600; }
-  .post-hero p.subtitle { font-size: 19px; color: var(--ink-2); max-width: 720px; margin: 0 0 24px; }
-  .post-hero .byline { color: var(--muted); font-size: 14px; }
-  .post-hero .byline strong { color: var(--ink); font-weight: 600; }
-  .post-hero .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
-  .post-hero .tag { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; background: var(--bg-alt); color: var(--ink-2); font-weight: 600; }
-  .post-img { margin: 32px 0 0; }
-  .post-img img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); display: block; }
-  .post-body { padding: 56px 0 80px; }
-  .post-body .container { max-width: 760px; }
-  .post-body p { font-size: 17.5px; line-height: 1.65; color: var(--ink); margin: 0 0 18px; }
-  .post-body p.lead { font-size: 20px; color: var(--ink-2); }
-  .post-body p.meta-credit { font-size: 14px; color: var(--muted); margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--line); }
-  .post-body h2 { font-family: var(--font-display); font-size: 26px; letter-spacing: -0.01em; margin: 40px 0 14px; font-weight: 600; }
-  .post-body h3 { font-family: var(--font-display); font-size: 20px; margin: 32px 0 12px; font-weight: 600; }
-  .post-body ul, .post-body ol { font-size: 17.5px; line-height: 1.65; padding-left: 22px; margin: 0 0 18px; }
-  .post-body li { margin: 8px 0; }
-  .post-body blockquote { margin: 24px 0; padding: 14px 22px; border-left: 3px solid var(--accent); background: var(--bg-alt); font-size: 17px; color: var(--ink-2); border-radius: 0 var(--radius) var(--radius) 0; font-style: italic; }
-  .post-foot { border-top: 1px solid var(--line); padding: 32px 0 64px; }
-  .post-foot a.back { font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 14px; }
+  /* Editorial post styling */
+  .post-header { position: relative; min-height: 540px; display: flex; align-items: flex-end; color: #fff; overflow: hidden; }
+  .post-header .bg { position: absolute; inset: 0; z-index: 0; }
+  .post-header .bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .post-header .bg::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(28,46,63,0.45) 0%, rgba(28,46,63,0.15) 30%, rgba(28,46,63,0.85) 100%);
+  }
+  .post-header .container { position: relative; z-index: 1; padding-top: 96px; padding-bottom: 56px; max-width: 980px; }
+  .post-header .crumbs { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 600; margin: 0 0 24px; }
+  .post-header .crumbs a { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 1px; }
+  .post-header .crumbs a:hover { border-bottom-color: var(--warm); }
+  .post-header .crumbs .sep { opacity: 0.6; padding: 0 8px; }
+  .post-header h1 { font-family: var(--font-display); font-size: clamp(32px, 4.8vw, 56px); line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 20px; font-weight: 600; max-width: 900px; }
+  .post-header .subtitle { font-size: 19px; line-height: 1.5; color: rgba(255,255,255,0.92); max-width: 720px; margin: 0 0 28px; font-weight: 300; }
+  .post-header .byline { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; font-size: 13.5px; color: rgba(255,255,255,0.85); }
+  .post-header .byline strong { color: #fff; font-weight: 600; }
+  .post-header .byline .dot { color: rgba(255,255,255,0.4); }
+
+  .post-tags { padding: 24px 0; border-bottom: 1px solid var(--line); background: var(--bg); }
+  .post-tags .container { display: flex; gap: 8px; flex-wrap: wrap; }
+  .post-tag { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; background: var(--bg-alt); color: var(--ink-2); font-weight: 600; }
+
+  .post-body { padding: 64px 0 80px; }
+  .post-body .container { max-width: 720px; }
+  .post-body p { font-size: 18px; line-height: 1.75; color: var(--ink); margin: 0 0 22px; }
+  .post-body p.lead { font-size: 22px; line-height: 1.55; color: var(--ink); font-weight: 400; margin: 0 0 32px; padding: 0 0 22px; border-bottom: 1px solid var(--line); }
+  .post-body p.meta-credit { font-size: 13.5px; color: var(--muted); margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-style: italic; }
+  .post-body h2 { font-family: var(--font-display); font-size: 30px; letter-spacing: -0.015em; margin: 56px 0 18px; font-weight: 600; line-height: 1.15; }
+  .post-body h3 { font-family: var(--font-display); font-size: 22px; margin: 44px 0 14px; font-weight: 600; line-height: 1.25; color: var(--ink); }
+  .post-body ul, .post-body ol { font-size: 17.5px; line-height: 1.7; padding-left: 22px; margin: 0 0 22px; color: var(--ink); }
+  .post-body li { margin: 10px 0; }
+  .post-body li::marker { color: var(--accent); }
+  .post-body blockquote {
+    margin: 36px -16px;
+    padding: 24px 32px;
+    border-left: 4px solid var(--accent);
+    background: var(--bg-alt);
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 500;
+    font-style: normal;
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .post-body strong { font-weight: 600; color: var(--ink); }
+  .post-body a { color: var(--accent); border-bottom: 1px solid rgba(47,102,117,0.35); }
+  .post-body a:hover { border-bottom-color: var(--accent); }
+
+  .post-foot { background: var(--bg-alt); border-top: 1px solid var(--line); padding: 56px 0; }
+  .post-foot .container { max-width: 1180px; }
+  .post-foot .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; }
+  .post-foot .head h2 { font-family: var(--font-display); font-size: 22px; margin: 0; font-weight: 600; }
+  .post-foot .head a { font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--accent); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .related-card { display: block; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: 0.18s ease; color: inherit; }
+  .related-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .related-card .img { aspect-ratio: 16/9; overflow: hidden; }
+  .related-card .img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .related-card .body { padding: 16px 18px 20px; }
+  .related-card .meta { font-family: var(--font-display); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 8px; }
+  .related-card h3 { font-family: var(--font-display); font-size: 15.5px; line-height: 1.3; margin: 0; font-weight: 600; }
+  @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
+
+  @media (max-width: 760px) {
+    .post-header { min-height: 420px; }
+    .post-body blockquote { margin: 28px 0; padding: 18px 22px; font-size: 19px; }
+  }
 </style>
 </head>
 <body>
@@ -70,22 +118,31 @@
   </div>
 </header>
 
-<section class="post-hero">
-  <div class="container" style="max-width: 920px;">
-    <p class="meta"><a href="../" style="color: var(--accent);">News</a> &middot; Jan 29, 2025</p>
-    <h1>Scale42 thought piece - DeepSeek</h1>
-    <p class="subtitle">Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand.</p>
-    <p class="byline">By <strong>Will Tasney, Thomas Beaton, Jamie Stewart</strong></p>
-    <div class="tags"><span class="tag">Thought leadership</span><span class="tag">AI</span><span class="tag">DeepSeek</span><span class="tag">Compute</span></div>
-    <div class="post-img"><img src="../../assets/news/deepseek.jpg" alt="DeepSeek and the dispersion of AI compute demand" loading="eager" /></div>
+<section class="post-header">
+  <div class="bg"><img src="../../assets/news/deepseek.jpg" alt="DeepSeek and the dispersion of AI compute demand" /></div>
+  <div class="container">
+    <p class="crumbs"><a href="../">News</a><span class="sep">/</span>Thought leadership</p>
+    <h1>DeepSeek and the dispersion of AI compute demand</h1>
+    <p class="subtitle">What algorithmic efficiency means for mid-scale data centre infrastructure.</p>
+    <div class="byline">
+      <span>By <strong>Will Tasney, Thomas Beaton, Jamie Stewart</strong></span>
+      <span class="dot">&middot;</span>
+      <span>Jan 29, 2025</span>
+      <span class="dot">&middot;</span>
+      <span>7 min read</span>
+    </div>
+  </div>
+</section>
+
+<section class="post-tags">
+  <div class="container">
+    <span class="post-tag">Thought leadership</span><span class="post-tag">AI</span><span class="post-tag">DeepSeek</span><span class="post-tag">Compute</span>
   </div>
 </section>
 
 <section class="post-body">
   <div class="container">
-    <h2>DeepSeek disruption - dispersion of AI compute demand</h2>
-<h3>Introduction</h3>
-<p>DeepSeek's innovative training approach has disrupted the AI market, though its efficiency and cost claims likely overstate reality. The company may have downplayed achievements to avoid US semiconductor sanctions scrutiny and maximise geopolitical impact against American AI dominance. This analysis examines the technology, implications, and market winners and losers, finding alignment with Scale42's sector outlook.</p>
+    <p class="lead">DeepSeek's innovative training approach has disrupted the AI market, though its efficiency and cost claims likely overstate reality. The company may have downplayed achievements to avoid US semiconductor sanctions scrutiny and maximise geopolitical impact against American AI dominance.</p>
 
 <h3>Summary</h3>
 <ul>
@@ -98,23 +155,24 @@
 </ul>
 
 <h3>What is DeepSeek?</h3>
-<p>DeepSeek represents an open-source AI Mixture-of-Experts language model containing 671 billion parameters, reportedly developed using 2,048 NVIDIA H800 GPUs in just two months. Industry estimates suggest the actual computing intensity was "10x higher than stated," indicating substantially greater efficiency than competitors.</p>
+<p>DeepSeek is an open-source AI Mixture-of-Experts language model containing 671 billion parameters, reportedly developed using 2,048 NVIDIA H800 GPUs in just two months. Industry estimates suggest the actual computing intensity was "10x higher than stated," indicating substantially greater efficiency than competitors.</p>
 <p>The company's key innovation involved abandoning CUDA in favour of PTX (Parallel Thread Execution) programming. While NVIDIA's CUDA dominance stems from becoming the industry standard - despite competitors like AMD offering comparable hardware - DeepSeek's PTX approach represents a significant technical achievement few possess capability to replicate.</p>
 <p>DeepSeek emerged as a spin-out from Chinese quantitative hedge fund High-Flyer, which reportedly purchased between 10,000 and 60,000 NVIDIA GPUs. Initial investment targeted AI trading programmes, but limited trading-algorithm success redirected efforts toward developing openly-released AI tools. US semiconductor sanctions may have fostered programming discipline comparable to Soviet-era resource constraints that produced exceptional computer scientists.</p>
 
 <h3>DeepSeek's atomic impact</h3>
-<p>The market reacted dramatically to DeepSeek's claimed $6 million development cost - dramatically less than the billions competitors invested - coupled with free intellectual property release. This undermined established players like OpenAI while challenging NVIDIA's dominance and electricity providers anticipating massive data centre consumption.</p>
+<p>The market reacted dramatically to DeepSeek's claimed $6 million development cost &mdash; dramatically less than the billions competitors invested &mdash; coupled with free intellectual property release. This undermined established players like OpenAI while challenging NVIDIA's dominance and electricity providers anticipating massive data centre consumption.</p>
 <p>However, the actual DeepSeek cost structure remains opaque. The $6 million figure potentially represents creative accounting. As a Chinese company, DeepSeek faced legal restrictions acquiring advanced NVIDIA chips since October 2022. While claiming 10,000 A100s, media reports suggest 50,000+ units. Under-reporting resources while over-reporting performance may constitute a sanctions-avoidance strategy.</p>
 <p>Independent analysis reveals significant cost gaps. An estimated 10,000 A100/H800 units cost approximately $300 million; 50,000 would exceed $1.5 billion. Additional expenses including energy, operations, AI engineering, and data acquisition further strain the $6 million narrative, though China's cost advantages do provide some savings versus American competitors.</p>
-<p>DeepSeek's announcement timing - days after the US announced its $500 billion <strong>Stargate</strong> programme - suggests deliberate geopolitical positioning, though open-source architecture likely eliminates spyware concerns.</p>
+<p>DeepSeek's announcement timing &mdash; days after the US announced its $500 billion <strong>Stargate</strong> programme &mdash; suggests deliberate geopolitical positioning, though open-source architecture likely eliminates spyware concerns.</p>
 
 <h3>Blast-radius casualty analysis</h3>
-<p>Subscription-based AI model providers face the greatest disruption - OpenAI's ChatGPT, Meta's Llama, Google's Gemini, and Anthropic / Amazon's Claude all experienced market pressure. Chipmakers suffered immediate consequences with stock declines exceeding 10 percent.</p>
-<p>However, efficiency improvements typically generate increased overall demand through the <strong>Jevons paradox</strong>. Stacy Ragson from Bernstein noted: "If we acknowledge that DeepSeek may have reduced costs by, say, 10x... we NEED innovations like this... improvements likely get absorbed due to usage and demand."</p>
+<p>Subscription-based AI model providers face the greatest disruption: OpenAI's ChatGPT, Meta's Llama, Google's Gemini, and Anthropic / Amazon's Claude all experienced market pressure. Chipmakers suffered immediate consequences with stock declines exceeding 10 percent.</p>
+<p>However, efficiency improvements typically generate increased overall demand through the <strong>Jevons paradox</strong>:</p>
+<blockquote>"If we acknowledge that DeepSeek may have reduced costs by, say, 10x... we NEED innovations like this... improvements likely get absorbed due to usage and demand." &mdash; Stacy Ragson, Bernstein</blockquote>
 <p>Electricity utilities near proposed data centre locations experienced particularly severe sell-offs. Financial Times analyst Robert Armstrong observed that market sentiment may reflect expectations of "AI will be run on smaller data centres all over the place" rather than massive proprietary facilities. Unlike NVIDIA's sharp recovery, utilities like Constellation, Vistra, and NRG remained depressed.</p>
-<p>Scale42's perspective aligns with this assessment. Rather than pursuing mega-scale sites requiring hundreds of megawatts - creating diseconomies of scale - competitive advantage derives from smaller training clusters accessing affordable, renewable energy. Hyperscale data centres now define themselves at merely 10 MW thresholds.</p>
+<p>Scale42's perspective aligns with this assessment. Rather than pursuing mega-scale sites requiring hundreds of megawatts &mdash; creating diseconomies of scale &mdash; competitive advantage derives from smaller training clusters accessing affordable, renewable energy. Hyperscale data centres now define themselves at merely 10 MW thresholds.</p>
 
-<h3>DeepSeek supports Scale42's long-term view on incumbent disruption</h3>
+<h3>DeepSeek supports Scale42's long-term view</h3>
 <p>Scale42's strategic framework predicted five disruption areas; DeepSeek validates multiple themes:</p>
 <ol>
   <li><strong>Hardware competition.</strong> While DeepSeek used NVIDIA processors, abandoning CUDA opens pathways for competing hardware providers if programmers develop non-proprietary expertise.</li>
@@ -133,8 +191,34 @@
 </section>
 
 <section class="post-foot">
-  <div class="container" style="max-width: 760px;">
-    <a class="back" href="../">&larr; All news &amp; thought leadership</a>
+  <div class="container">
+    <div class="head">
+      <h2>More from Scale42</h2>
+      <a href="../">All news &amp; thought leadership &rarr;</a>
+    </div>
+    <div class="related-grid">
+      <a class="related-card" href="../bakki-iceland-50mw/">
+        <div class="img"><img src="../../assets/news/bakki-iceland-50mw.jpg" alt="Bakki, Iceland - site for the GIG / Scale42 50 MW data centre" loading="lazy" /></div>
+        <div class="body">
+          <p class="meta">Press coverage &middot; Sep 2, 2025</p>
+          <h3>Scale42 and GIG plan 50 MW data centre in Iceland</h3>
+        </div>
+      </a>
+      <a class="related-card" href="../gig-strategic-partnership/">
+        <div class="img"><img src="../../assets/news/gig.jpg" alt="GIG and Scale42 strategic partnership announcement" loading="lazy" /></div>
+        <div class="body">
+          <p class="meta">Announcement &middot; Sep 2, 2025</p>
+          <h3>GIG forms strategic partnership with Scale-42 through GIGA Holdings</h3>
+        </div>
+      </a>
+      <a class="related-card" href="../public-statement-partnership/">
+        <div class="img"><img src="../../assets/news/partnership.jpg" alt="Scale42 and GIG public statement on strategic partnership" loading="lazy" /></div>
+        <div class="body">
+          <p class="meta">Announcement &middot; Apr 29, 2025</p>
+          <h3>Public statement on strategic partnership</h3>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 

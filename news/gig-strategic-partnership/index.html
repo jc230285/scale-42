@@ -32,28 +32,76 @@
 }
 </script>
 <style>
-  .post-hero { padding: 64px 0 32px; border-bottom: 1px solid var(--line); }
-  .post-hero .meta { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 16px; }
-  .post-hero h1 { font-family: var(--font-display); font-size: clamp(34px, 4.4vw, 52px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 18px; font-weight: 600; }
-  .post-hero p.subtitle { font-size: 19px; color: var(--ink-2); max-width: 720px; margin: 0 0 24px; }
-  .post-hero .byline { color: var(--muted); font-size: 14px; }
-  .post-hero .byline strong { color: var(--ink); font-weight: 600; }
-  .post-hero .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
-  .post-hero .tag { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; background: var(--bg-alt); color: var(--ink-2); font-weight: 600; }
-  .post-img { margin: 32px 0 0; }
-  .post-img img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); display: block; }
-  .post-body { padding: 56px 0 80px; }
-  .post-body .container { max-width: 760px; }
-  .post-body p { font-size: 17.5px; line-height: 1.65; color: var(--ink); margin: 0 0 18px; }
-  .post-body p.lead { font-size: 20px; color: var(--ink-2); }
-  .post-body p.meta-credit { font-size: 14px; color: var(--muted); margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--line); }
-  .post-body h2 { font-family: var(--font-display); font-size: 26px; letter-spacing: -0.01em; margin: 40px 0 14px; font-weight: 600; }
-  .post-body h3 { font-family: var(--font-display); font-size: 20px; margin: 32px 0 12px; font-weight: 600; }
-  .post-body ul, .post-body ol { font-size: 17.5px; line-height: 1.65; padding-left: 22px; margin: 0 0 18px; }
-  .post-body li { margin: 8px 0; }
-  .post-body blockquote { margin: 24px 0; padding: 14px 22px; border-left: 3px solid var(--accent); background: var(--bg-alt); font-size: 17px; color: var(--ink-2); border-radius: 0 var(--radius) var(--radius) 0; font-style: italic; }
-  .post-foot { border-top: 1px solid var(--line); padding: 32px 0 64px; }
-  .post-foot a.back { font-family: var(--font-display); font-weight: 600; color: var(--accent); font-size: 14px; }
+  /* Editorial post styling */
+  .post-header { position: relative; min-height: 540px; display: flex; align-items: flex-end; color: #fff; overflow: hidden; }
+  .post-header .bg { position: absolute; inset: 0; z-index: 0; }
+  .post-header .bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .post-header .bg::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(28,46,63,0.45) 0%, rgba(28,46,63,0.15) 30%, rgba(28,46,63,0.85) 100%);
+  }
+  .post-header .container { position: relative; z-index: 1; padding-top: 96px; padding-bottom: 56px; max-width: 980px; }
+  .post-header .crumbs { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.85); font-weight: 600; margin: 0 0 24px; }
+  .post-header .crumbs a { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 1px; }
+  .post-header .crumbs a:hover { border-bottom-color: var(--warm); }
+  .post-header .crumbs .sep { opacity: 0.6; padding: 0 8px; }
+  .post-header h1 { font-family: var(--font-display); font-size: clamp(32px, 4.8vw, 56px); line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 20px; font-weight: 600; max-width: 900px; }
+  .post-header .subtitle { font-size: 19px; line-height: 1.5; color: rgba(255,255,255,0.92); max-width: 720px; margin: 0 0 28px; font-weight: 300; }
+  .post-header .byline { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; font-size: 13.5px; color: rgba(255,255,255,0.85); }
+  .post-header .byline strong { color: #fff; font-weight: 600; }
+  .post-header .byline .dot { color: rgba(255,255,255,0.4); }
+
+  .post-tags { padding: 24px 0; border-bottom: 1px solid var(--line); background: var(--bg); }
+  .post-tags .container { display: flex; gap: 8px; flex-wrap: wrap; }
+  .post-tag { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; background: var(--bg-alt); color: var(--ink-2); font-weight: 600; }
+
+  .post-body { padding: 64px 0 80px; }
+  .post-body .container { max-width: 720px; }
+  .post-body p { font-size: 18px; line-height: 1.75; color: var(--ink); margin: 0 0 22px; }
+  .post-body p.lead { font-size: 22px; line-height: 1.55; color: var(--ink); font-weight: 400; margin: 0 0 32px; padding: 0 0 22px; border-bottom: 1px solid var(--line); }
+  .post-body p.meta-credit { font-size: 13.5px; color: var(--muted); margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-style: italic; }
+  .post-body h2 { font-family: var(--font-display); font-size: 30px; letter-spacing: -0.015em; margin: 56px 0 18px; font-weight: 600; line-height: 1.15; }
+  .post-body h3 { font-family: var(--font-display); font-size: 22px; margin: 44px 0 14px; font-weight: 600; line-height: 1.25; color: var(--ink); }
+  .post-body ul, .post-body ol { font-size: 17.5px; line-height: 1.7; padding-left: 22px; margin: 0 0 22px; color: var(--ink); }
+  .post-body li { margin: 10px 0; }
+  .post-body li::marker { color: var(--accent); }
+  .post-body blockquote {
+    margin: 36px -16px;
+    padding: 24px 32px;
+    border-left: 4px solid var(--accent);
+    background: var(--bg-alt);
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 500;
+    font-style: normal;
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .post-body strong { font-weight: 600; color: var(--ink); }
+  .post-body a { color: var(--accent); border-bottom: 1px solid rgba(47,102,117,0.35); }
+  .post-body a:hover { border-bottom-color: var(--accent); }
+
+  .post-foot { background: var(--bg-alt); border-top: 1px solid var(--line); padding: 56px 0; }
+  .post-foot .container { max-width: 1180px; }
+  .post-foot .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; }
+  .post-foot .head h2 { font-family: var(--font-display); font-size: 22px; margin: 0; font-weight: 600; }
+  .post-foot .head a { font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--accent); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .related-card { display: block; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: 0.18s ease; color: inherit; }
+  .related-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .related-card .img { aspect-ratio: 16/9; overflow: hidden; }
+  .related-card .img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .related-card .body { padding: 16px 18px 20px; }
+  .related-card .meta { font-family: var(--font-display); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 8px; }
+  .related-card h3 { font-family: var(--font-display); font-size: 15.5px; line-height: 1.3; margin: 0; font-weight: 600; }
+  @media (max-width: 800px) { .related-grid { grid-template-columns: 1fr; } }
+
+  @media (max-width: 760px) {
+    .post-header { min-height: 420px; }
+    .post-body blockquote { margin: 28px 0; padding: 18px 22px; font-size: 19px; }
+  }
 </style>
 </head>
 <body>
@@ -70,14 +118,25 @@
   </div>
 </header>
 
-<section class="post-hero">
-  <div class="container" style="max-width: 920px;">
-    <p class="meta"><a href="../" style="color: var(--accent);">News</a> &middot; Sep 2, 2025</p>
+<section class="post-header">
+  <div class="bg"><img src="../../assets/news/gig.jpg" alt="GIG and Scale42 strategic partnership announcement" /></div>
+  <div class="container">
+    <p class="crumbs"><a href="../">News</a><span class="sep">/</span>Announcement</p>
     <h1>GIG forms strategic partnership with Scale-42 through GIGA Holdings</h1>
     <p class="subtitle">Joint venture creating an integrated energy and digital infrastructure platform across the Nordics.</p>
-    <p class="byline">By <strong>Jamie Stewart</strong></p>
-    <div class="tags"><span class="tag">Joint venture</span><span class="tag">GIG</span><span class="tag">GIGA-42</span><span class="tag">Nordics</span></div>
-    <div class="post-img"><img src="../../assets/news/gig.jpg" alt="GIG and Scale42 - strategic partnership announcement" loading="eager" /></div>
+    <div class="byline">
+      <span>By <strong>Jamie Stewart</strong></span>
+      <span class="dot">&middot;</span>
+      <span>Sep 2, 2025</span>
+      <span class="dot">&middot;</span>
+      <span>4 min read</span>
+    </div>
+  </div>
+</section>
+
+<section class="post-tags">
+  <div class="container">
+    <span class="post-tag">Joint venture</span><span class="post-tag">GIG</span><span class="post-tag">GIGA-42</span><span class="post-tag">Nordics</span>
   </div>
 </section>
 
@@ -92,8 +151,34 @@
 </section>
 
 <section class="post-foot">
-  <div class="container" style="max-width: 760px;">
-    <a class="back" href="../">&larr; All news &amp; thought leadership</a>
+  <div class="container">
+    <div class="head">
+      <h2>More from Scale42</h2>
+      <a href="../">All news &amp; thought leadership &rarr;</a>
+    </div>
+    <div class="related-grid">
+      <a class="related-card" href="../bakki-iceland-50mw/">
+        <div class="img"><img src="../../assets/news/bakki-iceland-50mw.jpg" alt="Bakki, Iceland - site for the GIG / Scale42 50 MW data centre" loading="lazy" /></div>
+        <div class="body">
+          <p class="meta">Press coverage &middot; Sep 2, 2025</p>
+          <h3>Scale42 and GIG plan 50 MW data centre in Iceland</h3>
+        </div>
+      </a>
+      <a class="related-card" href="../public-statement-partnership/">
+        <div class="img"><img src="../../assets/news/partnership.jpg" alt="Scale42 and GIG public statement on strategic partnership" loading="lazy" /></div>
+        <div class="body">
+          <p class="meta">Announcement &middot; Apr 29, 2025</p>
+          <h3>Public statement on strategic partnership</h3>
+        </div>
+      </a>
+      <a class="related-card" href="../varkaus-finland/">
+        <div class="img"><img src="../../assets/news/varkaus-finland.avif" alt="Varkaus, Finland - Ranta-Luttila plot for the Scale42 data centre" loading="lazy" /></div>
+        <div class="body">
+          <p class="meta">Press coverage &middot; Mar 27, 2025</p>
+          <h3>Norwegian company plans data centre in Varkaus &mdash; Mayor: "Confidence is high"</h3>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
