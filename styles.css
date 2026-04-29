@@ -478,3 +478,7 @@ img { max-width: 100%; display: block; }
   .section { padding: 64px 0; }
   .hero { padding: 64px 0 56px; }
 }
+
+/* Site detail link in DC cards */
+.dc-link { color: var(--accent); font-weight: 600; font-size: 14px; margin-top: 4px; align-self: flex-start; }
+.dc-link:hover { text-decoration: underline; }
