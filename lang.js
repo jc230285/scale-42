@@ -8,13 +8,16 @@
 
   // Map every EN page to its NO counterpart.
   var EN_TO_NO = {
-    '/':                 '/no/',
-    '/index.html':       '/no/index.html',
-    '/datacenters/': '/no/datacenters/',
-    '/capabilities/':'/no/capabilities/',
-    '/careers/':     '/no/careers/',
-    '/press/':       '/no/press/',
-    '/brand/':       '/no/brand/'
+    '/':    '/no/',
+    '/index.html':    '/no/index.html',
+    '/capabilities/':    '/no/capabilities/',
+    '/careers/':    '/no/careers/',
+    '/datacenters/':    '/no/datacenters/',
+    '/datacenters/glomfjord/':    '/no/datacenters/glomfjord/',
+    '/datacenters/bakki/':    '/no/datacenters/bakki/',
+    '/datacenters/varkaus/':    '/no/datacenters/varkaus/',
+    '/news/':    '/no/news/',
+    '/press/':    '/no/press/'
   };
 
   // Click handlers on the EN/NO toggle: persist choice.

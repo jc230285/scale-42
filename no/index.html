@@ -3,31 +3,77 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Scale42 — Neste generasjons europeisk digital infrastruktur</title>
-<meta name="description" content="Scale42 utvikler og driver neste generasjons AI-datasentre i Norden. 1,7 GW pipeline av rimelig, fornybar-drevet, AI-klar kapasitet." />
+<title>Scale42 — Next-generation European Digital Infrastructure</title>
+<meta name="description" content="Scale42 develops og drifter next-generation AI datasentre i Norden. 1.7GW pipeline of low-cost, renewable-powered, KI-klare capacity." />
 <meta name="theme-color" content="#1c2e3f" />
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png" />
 <link rel="apple-touch-icon" href="../assets/favicon-192.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <link rel="canonical" href="https://www.scale-42.com/no/" />
-<link rel="alternate" hreflang="en" href="https://www.scale-42.com/" />
-<link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/" />
-<link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/" />
+
+
+
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Scale42 — Neste generasjons europeisk digital infrastruktur" />
-<meta property="og:description" content="1,7 GW pipeline av AI-klare datasentre i Norden, drevet av rimelig fornybar energi." />
+<meta property="og:title" content="Scale42 — Next-generation European Digital Infrastructure" />
+<meta property="og:description" content="1.7GW pipeline of KI-klare datasentre i Norden, powered by low-cost renewable energy." />
 <meta property="og:image" content="https://www.scale-42.com/assets/logo.png" />
-<meta property="og:url" content="https://www.scale-42.com/no/" />
-<meta property="og:locale" content="nb_NO" />
+<meta property="og:url" content="https://www.scale-42.com/" />
+<meta property="og:site_name" content="Scale42" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Scale42 — Next-generation European Digital Infrastructure" />
+<meta name="twitter:description" content="1.7GW Nordic AI datasenter pipeline, powered by renewables." />
+<meta name="twitter:image" content="https://www.scale-42.com/assets/logo.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<style>
+  .home-map-section { padding: 56px 0 0; }
+  .home-map { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  .home-map .leaflet-container { background: #eaf0f3; font-family: var(--font-sans); cursor: default; }
+  .home-map .dc-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(28,46,63,0.25); }
+  .home-map .dc-pin.tbd { background: var(--warm); }
+  .home-map-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+  .home-map-foot .legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); }
+  .home-map-foot .legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .home-map-foot .legend .live::before { background: var(--accent); }
+  .home-map-foot .legend .tbd::before { background: var(--warm); }
+  .home-map-foot a { font-weight: 600; color: var(--accent); font-size: 14px; }
+
+  /* JV / capital callout */
+  .jv-callout { background: var(--bg-alt); border-left: 3px solid var(--accent); padding: 18px 22px; border-radius: var(--radius); margin: 0 0 28px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .jv-callout .label { font-family: var(--font-display); font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); font-weight: 600; }
+  .jv-callout .text { margin: 0; font-size: 15.5px; color: var(--ink); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scale42",
+  "url": "https://www.scale-42.com",
+  "logo": "https://www.scale-42.com/assets/logo.png",
+  "description": "Developer and operator of next-generation AI data centres across the Nordics.",
+  "areaServed": ["Norway", "Finland", "Sweden", "Iceland"],
+  "founders": [
+    {"@type": "Person", "name": "William Tasney", "jobTitle": "CEO"},
+    {"@type": "Person", "name": "Bendik Fostervoll", "jobTitle": "CDO"},
+    {"@type": "Person", "name": "James Collins", "jobTitle": "CTO"}
+  ]
+}
+</script>
+<link rel="alternate" hreflang="en" href="https://www.scale-42.com/" />
+<link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/" />
+<link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/" />
 </head>
-<body><header class="nav">
+<body><script src="../lang.js"></script>
+
+<header class="nav">
   <div class="container nav-inner">
     <a class="brand" href="index.html">
       <img src="../assets/logo.svg" alt="Scale42" class="brand-logo" />
@@ -35,7 +81,7 @@
     <nav class="nav-links">
       <a href="./" class="active">Hjem</a>
       <a href="./capabilities/">Kapabiliteter</a>
-      <a href="../news/">Nyheter</a>
+      <a href="./news/">Nyheter</a>
       <a href="./index.html#contact" class="btn btn-sm">Kontakt</a>
       <div class="lang-toggle">
         <a href="../" data-lang="en">EN</a>
@@ -46,25 +92,50 @@
 </header>
 
 <section id="top" class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true">
+    <picture>
+      <source media="(min-width: 900px)" srcset="assets/hero.webp" type="image/webp">
+      <source media="(min-width: 900px)" srcset="assets/hero.jpg">
+      <source srcset="assets/hero-900.webp" type="image/webp">
+      <img src="../assets/hero-900.jpg" alt="" />
+    </picture>
+  </div>
   <div class="container hero-inner">
     <p class="eyebrow">Neste generasjons europeisk digital infrastruktur</p>
-    <h1>AI-klare datasentre,<br/>drevet av nordisk fornybar energi.</h1>
-    <p class="lede">Scale42 utvikler og driver engros AI-datasentre i Norge, Finland, Sverige og Island — samlokalisert med rikelig ren energi, spesialbygd for databehandling med høy tetthet.</p>
+    <h1>Bygger storskala KI-datasentre<br/>i Norden.</h1>
+    <p class="lede">Scale42 utvikler og drifter engros, KI-klare datasentre i Norge, Finland, Sverige og Island — samlokalisert med rikelig fornybar kraft, spesialbygget for høytetthetsberegning.</p>
     <div class="hero-cta">
-      <a href="../datacenters/" class="btn btn-primary">Utforsk datasentrene</a>
       <a href="#contact" class="btn btn-ghost">Ta kontakt →</a>
     </div>
+    <div class="hero-deco" aria-hidden="true">
+      <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg" class="parallax" data-parallax="0.15">
+        <g fill="none" stroke="rgba(47,102,117,0.45)" stroke-width="1.2">
+          <polygon points="100,5 188,55 188,170 100,220 12,170 12,55"/>
+          <polygon points="100,30 165,67 165,158 100,195 35,158 35,67"/>
+          <polygon points="100,55 142,80 142,145 100,170 58,145 58,80"/>
+        </g>
+      </svg>
+    </div>
     <dl class="hero-stats">
-      <div><dt>Aktiv pipeline</dt><dd>1,7 GW</dd></div>
+      <div><dt>Aktiv pipeline</dt><dd>1.7 GW</dd></div>
       <div><dt>Prosjekter</dt><dd>10</dd></div>
       <div><dt>Sitekapasitet</dt><dd>50–500+ MW</dd></div>
-      <div><dt>Modulstørrelse</dt><dd>12,5 MW</dd></div>
+      <div><dt>Modulstørrelse</dt><dd>12.5 MW</dd></div>
     </dl>
   </div>
 </section>
 
-<section class="equation">
+<section class="home-map-section">
+  <div class="container">
+    <p class="eyebrow">Pan-nordisk portefølje</p>
+    <h2 class="section-title" style="margin-bottom: 8px;">Ti prosjekter i fire land.</h2>
+    <p class="section-lede" style="margin-bottom: 24px;">En 1,7 GW-pipeline forankret i vannkraft, geotermisk og annen langvarig fornybar energi.</p>
+    <div id="home-map" class="home-map" aria-label="Kart over Scale42-sites"></div>
+    
+  </div>
+</section>
+
+<section class="equation bg-topo">
   <div class="container">
     <div class="eq-row">
       <div class="eq-item">
@@ -88,42 +159,43 @@
 <section id="platform" class="section">
   <div class="container">
     <p class="eyebrow">Plattformen</p>
-    <h2 class="section-title">Energi-først infrastruktur for AI-æraen.</h2>
-    <p class="section-lede">Datasentrene våre ligger der fornybar energi finnes i overflod. Denne energi-først-strategien gjør at kundene kan drifte AI-databehandling til betydelig lavere kostnad, samtidig som de opprettholder bærekraftsledelse i bransjen.</p>
-    <p class="section-lede">Anleggene våre er spesialbygd for å støtte AI- og høyytelses databehandlingsmiljøer med høy tetthet. Designet inkluderer avansert kjøling, høykapasitets strømlevering og den effektive infrastrukturen som kreves for moderne databehandling.</p>
-    <p class="section-lede">Scale42 utvikler modulære, standardiserte datasenteranlegg som tilbyr engros AI-klar plass. Kundene installerer og drifter sin egen datakraft, mens Scale42 leverer det sikre, høyenergi- og energieffektive miljøet som kreves for storskala drift.</p>
+    <h2 class="section-title">Energi-først-infrastruktur for KI-æraen.</h2>
+    <p class="section-lede">Våre datasentre er lokalisert der fornybar kraft er rikelig. Denne energi-først-strategien lar kunder drifte KI-databehandlingsinfrastruktur til betydelig lavere kostnad samtidig som de opprettholder bransjeledende bærekraftsreferanser.</p>
+    <p class="section-lede">Våre fasiliteter er spesialbygget for å støtte høytetthets KI- og høyytelsesberegningsmiljøer. Designet inneholder avansert kjøling, høykapasitets strømleveranse og den svært effektive infrastrukturen som kreves for å støtte moderne beregningsutbygginger.</p>
+    <p class="section-lede">Scale42 utvikler modulære, standardiserte datasenteranlegg som leverer engros KI-klar plass. Kundene distribuerer og drifter sin egen beregningsinfrastruktur mens Scale42 leverer det sikre, høyeffekt, energieffektive miljøet som kreves for å drifte i stor skala.</p>
 
     <div class="grid grid-3">
       <div class="card">
         <div class="card-icon">⚡</div>
-        <h3>Rimelig fornybar kraft</h3>
-        <p>Anlegg samlokalisert med vannkraft, geotermisk og annen langvarig fornybar baselast — som låser inn konkurransedyktig, forutsigbar energiprising.</p>
+        <h3>Rimelig fornybar energi</h3>
+        <p>Sites samlokalisert med vannkraft, geotermisk og annen langvarig fornybar grunnlast — låser inn konkurransedyktige, forutsigbare energipriser.</p>
       </div>
       <div class="card">
         <div class="card-icon">▦</div>
-        <h3>Bygd for AI-tetthet</h3>
-        <p>Avansert kjøling, høykapasitets strøm og effektiv infrastruktur designet for GPU/TPU/ASIC-sentriske arbeidslaster i stor skala.</p>
+        <h3>Bygget for KI-tetthet</h3>
+        <p>Avansert kjøling, høykapasitets strømleveranse og effektiv infrastruktur designet for GPU/TPU/ASIC-sentriske arbeidsbelastninger i stor skala.</p>
       </div>
       <div class="card">
         <div class="card-icon">◇</div>
         <h3>Engros, kundedrevet</h3>
-        <p>Du installerer og drifter datakraften din. Vi leverer det sikre, høyenergi- og energieffektive miljøet rundt den.</p>
+        <p>Du distribuerer og drifter din beregning. Vi leverer det sikre, høyeffekt, energieffektive miljøet rundt den.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="sustainability" class="section section-alt">
+<!-- Bærekraft strip — competitive parity with atNorth/Verne/Bulk -->
+<section id="sustainability" class="section section-alt bg-hex bg-fixed">
   <div class="container">
     <p class="eyebrow">Bærekraft</p>
-    <h2 class="section-title">Bygd på Europas reneste strømnett.</h2>
-    <p class="section-lede">Hvert Scale42-anlegg er dimensjonert mot langvarig fornybar baselast — vannkraft i Norge, geotermisk på Island, blandet fornybar i Finland og Sverige. Mål valideres per anlegg ved energisering.</p>
+    <h2 class="section-title">Bygget på Europas reneste strømnett.</h2>
+    <p class="section-lede">Hvert Scale42-anlegg dimensjoneres mot langvarig fornybar grunnlast — vannkraft i Norge, geotermisk på Island, blandet fornybar i Finland og Sverige. Mål validert per anlegg ved energisering.</p>
 
     <div class="grid grid-4 kpis">
-      <div class="kpi"><dt>Fornybar energi</dt><dd>100 %</dd><p>På tvers av aktiv pipeline</p></div>
-      <div class="kpi"><dt>Mål-PUE</dt><dd>≤ 1,20</dd><p>For 12,5 MW modulutrullinger</p></div>
-      <div class="kpi"><dt>Karbonintensitet</dt><dd>&lt; 30 gCO₂/kWh</dd><p>Det nordiske strømnettet er blant de reneste globalt</p></div>
-      <div class="kpi"><dt>Varmegjenvinning</dt><dd>Sitestyrt</dd><p>Der fjernvarmenett gjør det levedyktig</p></div>
+      <div class="kpi"><dt>Fornybar energi</dt><dd>100%</dd><p>På tvers av aktiv pipeline</p></div>
+      <div class="kpi"><dt>Mål-PUE</dt><dd>≤ 1.20</dd><p>For 12,5 MW-modulutbygginger</p></div>
+      <div class="kpi"><dt>Karbonintensitet</dt><dd>&lt; 30 gCO₂/kWh</dd><p>Nordic grid average is among the lowest globally</p></div>
+      <div class="kpi"><dt>Gjenbruk av varme</dt><dd>Sitestyrt</dd><p>Der fjernvarme gjør det mulig</p></div>
     </div>
 
     <p class="cert-strip">
@@ -131,77 +203,77 @@
       <span class="cert">ISO 27001</span>
       <span class="cert">ISO 14001</span>
       <span class="cert">ISO 50001</span>
-      <span class="cert">EU CSRD-tilpasset</span>
-      <span class="cert">Uptime Tier III-design</span>
+      <span class="cert">EU CSRD aligned</span>
+      <span class="cert">Uptime Tier III design</span>
     </p>
   </div>
 </section>
 
 <section id="design" class="section">
   <div class="container">
-    <p class="eyebrow">Modulært AI-datasenterdesign</p>
-    <h2 class="section-title">Standardiserte 12,5 MW moduler. Fasevis utbygging til 50 MW+ campus.</h2>
-    <p class="section-lede">En modulær arkitektur muliggjør rask utbygging og forutsigbar utvidelse — og støtter databehandlingsmiljøer med høy tetthet med svært effektive kjøle- og strømsystemer. Designet for direkte væskekjøling (DLC) og luftkjølte GPU-klynger fra 50 kW til 130 kW per rack.</p>
+    <p class="eyebrow">Modulær KI-datasenterdesign</p>
+    <h2 class="section-title">Standardiserte 12,5 MW-moduler. Faseutbygging til kampuser på 50 MW+.</h2>
+    <p class="section-lede">En modulær arkitektur muliggjør rask utbygging og forutsigbar ekspansjon — støtter høytetthets databehandlingsmiljøer med svært effektive kjøle- og kraftsystemer. Designet for direktekjøling med væske (DLC) og luftkjølte GPU-klynger fra 50 kW til 130 kW per rack.</p>
 
     <div class="grid grid-3">
       <div class="card">
         <div class="card-icon">▢</div>
-        <h3>12,5 MW modul</h3>
-        <p>Standardisert, repeterbar shell-and-core. Kombiner 4× for 50 MW campus, 8× for 100 MW, skaler til 500 MW+ flaggskipsanlegg.</p>
+        <h3>12,5 MW-modul</h3>
+        <p>Standardisert, repeterbar shell-and-core. Kombiner 4× for 50 MW-kampuser, 8× for 100 MW, skaler til 500 MW+ flaggskipssites.</p>
       </div>
       <div class="card">
         <div class="card-icon">≋</div>
-        <h3>Klar for væskekjøling</h3>
-        <p>Designet for DLC og immersjon ved racket, og støtter høy-tetthets GPU/TPU-klynger fra 50–130 kW.</p>
+        <h3>Klar for direktekjøling med væske</h3>
+        <p>Designet for DLC og nedsenking på rack, støtter høytetthet GPU/TPU-klynger fra 50–130 kW.</p>
       </div>
       <div class="card">
         <div class="card-icon">⌗</div>
         <h3>Kundedrevet</h3>
-        <p>Nøytralt engros-skall. Du tar med datakraften og drifter den; vi leverer strøm, fiber og det sikre miljøet.</p>
+        <p>Nøytralt engros-skall. Du bringer datakraften og drifter den; vi leverer strøm, fiber og det sikre rammeverket.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="shift" class="section section-alt">
+<section id="shift" class="section section-alt bg-grid">
   <div class="container">
-    <p class="eyebrow">Skiftet</p>
-    <h2 class="section-title">AI endrer kravene til digital infrastruktur.</h2>
+    <p class="eyebrow">The shift</p>
+    <h2 class="section-title">AI is changing digital infrastructure requirements.</h2>
 
     <div class="compare">
       <div class="compare-col legacy">
-        <p class="tag">Tradisjonelle datasentre</p>
-        <h3>Høy CAPEX og OPEX</h3>
-        <p class="compare-intro">Bygd primært for å betjene forbrukerrettede SaaS-applikasjoner, og låser inn høy CAPEX og OPEX gjennom fokus på:</p>
+        <p class="tag">Legacy datasentre</p>
+        <h3>High CAPEX & OPEX</h3>
+        <p class="compare-intro">Built primarily to serve consumer-facing software-as-a-service applications, legacy datasentre lock in high CAPEX og OPEX through a focus on:</p>
         <ul>
-          <li>Lav latens</li>
-          <li>Høy oppetid</li>
-          <li>CPU-sentriske arkitekturer</li>
+          <li>Low latency</li>
+          <li>High uptime</li>
+          <li>CPU-centric architectures</li>
         </ul>
-        <p class="compare-intro">Denne infrastrukturen:</p>
+        <p class="compare-intro">This legacy infrastructure:</p>
         <ul>
-          <li>Ligger typisk nær urbane sentre — låser inn høye tomtekostnader</li>
-          <li>Er ofte belastet med høye energikostnader, delvis grunnet avhengighet av fossilgenerert kraft</li>
-          <li>Er bygd med høy redundans i strøm og kommunikasjon — med tilhørende lav utnyttelse og høy kostnad</li>
+          <li>Is typically located close to urban centres — locking in high land costs</li>
+          <li>Is often encumbered with high energy costs, in part due to reliance on fossil-fuel-generated power</li>
+          <li>Is built with high levels of redundancy in power og communications, with associated low utilisation og high cost</li>
         </ul>
-        <p class="compare-foot">Til sammen bidrar dette til et stort fysisk fotavtrykk og videre høy CAPEX og OPEX.</p>
+        <p class="compare-foot">Together, these contribute to a large physical footprint, further locking in CAPEX og OPEX.</p>
       </div>
       <div class="compare-col next">
         <p class="tag tag-accent">Neste generasjons datasentre</p>
-        <h3>Lavere CAPEX og OPEX</h3>
-        <p class="compare-intro">Neste generasjons datasentre — f.eks. bygd for å trene komplekse AI-modeller — kan dra nytte av betydelig lavere CAPEX og OPEX ved å fokusere på:</p>
+        <h3>Lower CAPEX & OPEX</h3>
+        <p class="compare-intro">Neste generasjons datasentre — e.g. built to train complex AI models — can benefit from significantly lower CAPEX & OPEX by focusing on:</p>
         <ul>
-          <li>Rå datakraft</li>
-          <li>Høy intern nettverkshastighet for økt parallellisering</li>
-          <li>GPU / TPU / ASIC-sentriske arkitekturer</li>
+          <li>Raw compute power</li>
+          <li>High internal network speed for increased parallelisation</li>
+          <li>GPU / TPU / ASIC-centric architectures</li>
         </ul>
-        <p class="compare-intro">De er typisk:</p>
+        <p class="compare-intro">They are typically:</p>
         <ul>
-          <li>Drevet av rimelig, ren energi</li>
-          <li>Samlokalisert med kraftproduksjon, f.eks. på avsidesliggende steder</li>
-          <li>Utstyrt med færre redundante systemer, hvert med høyere utnyttelse</li>
+          <li>Powered by low-cost, clean energy</li>
+          <li>Co-located alongside power generation, e.g. in remote locations</li>
+          <li>Equipped with fewer redundant systems, each with higher utilisation</li>
         </ul>
-        <p class="compare-foot">Høy utstyrstetthet og plassering utenfor byer gir et mindre fotavtrykk og dramatisk lavere CAPEX og OPEX vs. tradisjonelle datasentre.</p>
+        <p class="compare-foot">High equipment density og out-of-city locations enable a smaller footprint og dramatically lower CAPEX og OPEX vs legacy datasentre.</p>
       </div>
     </div>
   </div>
@@ -209,92 +281,160 @@
 
 <section id="founders" class="section">
   <div class="container">
-    <p class="eyebrow">Grunnleggerne</p>
-    <h2 class="section-title">Bygd av operatører med dyp infrastruktur-DNA.</h2>
+    <p class="eyebrow">The founders</p>
+    <h2 class="section-title">Built by operators with deep infrastructure DNA.</h2>
 
     <div class="grid grid-3 team founders">
       <div class="member">
         <div class="member-photo"><img src="../assets/team/tasney.jpg" alt="William Tasney" /></div>
         <h4>William Tasney</h4>
         <p class="role">CEO</p>
-        <p>7+ år innen datasenterutvikling. Forretningsstrategi og energimarkedsekspertise. Ledet team fra oppstart til 8-sifret exit. Bakgrunn fra næringseiendom.</p>
+        <p>7+ years in datasenter development. Business strategy & energy market expertise. Led team from start-up to 8-figure exit. Commercial property background.</p>
         <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
       </div>
       <div class="member">
         <div class="member-photo"><img src="../assets/team/fostervoll.jpg" alt="Bendik Fostervoll" /></div>
         <h4>Bendik Fostervoll</h4>
         <p class="role">CDO</p>
-        <p>5+ år innen datasenterutvikling. Test og integrasjon av høyspentsystemer. 15+ år elektroingeniørfag, inkludert nordsjøolje og -gass.</p>
+        <p>5+ years in datasenter development. High-voltage power systems test & integration. 15+ years electrical engineering, including North Sea oil & gas.</p>
         <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
       </div>
       <div class="member">
         <div class="member-photo"><img src="../assets/team/collins.jpg" alt="James Collins" /></div>
         <h4>James Collins</h4>
         <p class="role">CTO</p>
-        <p>7+ år innen datasenterutvikling. Datasentersystemdesign og -ledelse. 20+ år i IT-systemadministrasjon, tekniske roller og servicearbeid i Storbritannia.</p>
+        <p>7+ years in datasenter development. Datasenter system design & management. 20+ years in IT systems administration, technical og service roles in the UK.</p>
         <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="team" class="section section-alt">
+<section id="team" class="section section-alt bg-diagonal">
   <div class="container">
-    <p class="eyebrow">Teamet</p>
-    <h2 class="section-title">Ingeniører, operatører og kapitalforvaltere.</h2>
+    <p class="eyebrow">The team</p>
+    <h2 class="section-title">Engineers, operators og capital allocators.</h2>
 
     <div class="grid grid-3 team">
-      <div class="member"><div class="member-photo"><img src="../assets/team/rahman.jpg" alt="Zeehan Rahman" /></div><h4>Zeehan Rahman</h4><p class="role">COO</p><p>4+ år innen datasenterdrift og -utvikling. MEng petroleumsingeniør. Fagekspert innen AgriTech og sirkulær økonomi.</p><a href="#" class="linkedin">in</a></div>
-      <div class="member"><div class="member-photo"><img src="../assets/team/valero.jpg" alt="Ismael Valero" /></div><h4>Ismael Valero</h4><p class="role">IT-direktør</p><p>Datasenterdesign, -bygg og -drift. 25+ år innen IT-løsningsutvikling. Nettverk, systemintegrasjon og leverandørstyring.</p><a href="#" class="linkedin">in</a></div>
-      <div class="member"><div class="member-photo"><img src="../assets/team/stewart.jpg" alt="Jamie Stewart" /></div><h4>Jamie Stewart</h4><p class="role">CSO</p><p>Selskapsstrategi og kapitalinnhenting. 11 år i forskning og strategi ved et av Europas ledende hedgefond.</p><a href="#" class="linkedin">in</a></div>
-      <div class="member"><div class="member-photo"><img src="../assets/team/beaton.jpg" alt="Thomas Beaton" /></div><h4>Thomas Beaton</h4><p class="role">CIO</p><p>Informasjon, data og forskningsledelse. 8+ år i geografisk etterretning og innovasjon. ESA og UK Space Agency-kontraktør.</p><a href="#" class="linkedin">in</a></div>
-      <div class="member"><div class="member-photo"><img src="../assets/team/murray.jpg" alt="Patrick Murray" /></div><h4>Patrick Murray</h4><p class="role">CFO</p><p>15 år innen teknologi, FinTech og Life Sciences. Lukking av betydelige finansieringsrunder og PE-aksjonæravtaler.</p><a href="#" class="linkedin">in</a></div>
-      <div class="member"><div class="member-photo"><img src="../assets/team/gussias.jpg" alt="Daniel Gussiås" /></div><h4>Daniel Gussiås</h4><p class="role">Kontaktperson</p><p>13+ år innen nordsjøolje og -gass. Feltingeniør og leder. Energisparing og teknisk isolasjon.</p><a href="#" class="linkedin">in</a></div>
-      <div class="member"><div class="member-photo"><img src="../assets/team/normann.jpg" alt="Roald Normann" /></div><h4>Roald Normann</h4><p class="role">Senior prosjektleder</p><p>Maskin-elektro- og bygg-vannkraftingeniør. 18+ år som teknisk sjef, prosjektleder og ingeniør internasjonalt.</p><a href="#" class="linkedin">in</a></div>
-      <div class="member"><div class="member-photo"><img src="../assets/team/williamson.jpg" alt="Abbie Williamson" /></div><h4>Abbie Williamson</h4><p class="role">Executive Assistant</p><p>16+ år innen drift og teamledelse. Konsernøkonomisk styring. Tidsstyring.</p><a href="#" class="linkedin">in</a></div>
+      <div class="member">
+        <div class="member-photo"><img src="../assets/team/rahman.jpg" alt="Zeehan Rahman" /></div>
+        <h4>Zeehan Rahman</h4>
+        <p class="role">COO</p>
+        <p>4+ years in datasenter operations & development. MEng petroleum engineer. AgriTech & circular economy subject matter expert.</p>
+        <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
+      </div>
+      <div class="member">
+        <div class="member-photo"><img src="../assets/team/valero.jpg" alt="Ismael Valero" /></div>
+        <h4>Ismael Valero</h4>
+        <p class="role">IT Director</p>
+        <p>Datasenter design, build & operations. 25+ years in IT solutions development. Networking, system integration & supplier management.</p>
+        <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
+      </div>
+      <div class="member">
+        <div class="member-photo"><img src="../assets/team/stewart.jpg" alt="Jamie Stewart" /></div>
+        <h4>Jamie Stewart</h4>
+        <p class="role">CSO</p>
+        <p>Corporate strategy og capital raising. 11 years in research & corporate strategy at one of Europe's preeminent hedge funds. Corporate finance experience.</p>
+        <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
+      </div>
+      <div class="member">
+        <div class="member-photo"><img src="../assets/team/beaton.jpg" alt="Thomas Beaton" /></div>
+        <h4>Thomas Beaton</h4>
+        <p class="role">CIO</p>
+        <p>Information, data, research & technical management. 8+ years in geospatial intelligence og innovation. ESA & UK Space Agency contractor.</p>
+        <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
+      </div>
+      <div class="member">
+        <div class="member-photo"><img src="../assets/team/murray.jpg" alt="Patrick Murray" /></div>
+        <h4>Patrick Murray</h4>
+        <p class="role">CFO</p>
+        <p>15 years across technology, FinTech og Life Sciences. Closing significant funding rounds og PE shareholder agreements. Built finance & compliance teams.</p>
+        <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
+      </div>
+      <div class="member">
+        <div class="member-photo"><img src="../assets/team/gussias.jpg" alt="Daniel Gussiås" /></div>
+        <h4>Daniel Gussiås</h4>
+        <p class="role">Liaison Officer</p>
+        <p>13+ years in North Sea oil & gas. Field engineer og supervisor. Energy saving og technical insulation.</p>
+        <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
+      </div>
+      <div class="member">
+        <div class="member-photo"><img src="../assets/team/normann.jpg" alt="Roald Normann" /></div>
+        <h4>Roald Normann</h4>
+        <p class="role">Senior Project Manager</p>
+        <p>Mechanical-electrical og construction-hydropower engineer. 18+ years as worldwide technical manager, project manager og engineer. International project leadership.</p>
+        <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
+      </div>
+      <div class="member">
+        <div class="member-photo"><img src="../assets/team/williamson.jpg" alt="Abbie Williamson" /></div>
+        <h4>Abbie Williamson</h4>
+        <p class="role">Executive Assistant</p>
+        <p>16+ years operations og team management. Group financial management. Time management.</p>
+        <a href="#" class="linkedin" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners" class="section">
+  <div class="container">
+    <p class="eyebrow">Partners & customers</p>
+    <h2 class="section-title">Working with the operators powering Europe's compute.</h2>
+    <p class="section-lede">Joint venture og kommersielle partnerskap på tvers av det nordiske energi- og digitale infrastrukturøkosystemet.</p>
+    <div class="jv-callout">
+      <span class="label">Støttet av</span>
+      <p class="text"><strong>GIG</strong> — joint venture-partner. Scale42 er bygget og kapitalisert sammen med GIG, som leverer den finansielle støtten og energisektor-relasjonene bak pipelinen.</p>
+    </div>
+    <div class="partners">
+      <div class="partner">GIG · Joint venture</div>
+      <div class="partner">Omtalt i DCD</div>
+      <div class="partner">Omtalt i FT</div>
+      <div class="partner">Omtalt i Yle</div>
+      <div class="partner">EPC partner · TBA</div>
+      <div class="partner">PPA partner · TBA</div>
     </div>
   </div>
 </section>
 
 <section id="news" class="section">
   <div class="container">
-    <p class="eyebrow">Nyheter</p>
-    <h2 class="section-title">Nyheter og fagartikler.</h2>
+    <p class="eyebrow">Innlegg</p>
+    <h2 class="section-title">Nyheter og tankelederskap.</h2>
     <div class="grid grid-3 posts">
       <article class="post">
-        <div class="post-img"><img src="../assets/news/iceland.jpg" alt="Island 50 MW datasenter" /></div>
-        <p class="post-date">2. sep. 2025</p>
-        <h3>Scale42 og GIG planlegger 50 MW datasenter på Island</h3>
-        <p>Dekning i Data Centre Dynamics av Bakki-fellesforetaket og dets initielle kapasitet.</p>
-        <a href="#">Les →</a>
+        <div class="post-img"><img src="../assets/news/bakki-iceland-50mw.jpg" alt="Bakki, Iceland - site for the GIG / Scale42 50 MW datasenter" /></div>
+        <p class="post-date">2. sep 2025</p>
+        <h3>Scale42 og GIG plan 50 MW datasenter in Iceland</h3>
+        <p>Coverage in Data Centre Dynamics on the Bakki joint venture og its initial capacity.</p>
+        <a href="news/bakki-iceland-50mw/">Les &rarr;</a>
       </article>
       <article class="post">
-        <div class="post-img"><img src="../assets/news/gig.jpg" alt="GIG strategisk partnerskap" /></div>
-        <p class="post-date">2. sep. 2025</p>
-        <h3>GIG inngår strategisk partnerskap med Scale42 via GIGA Holdings</h3>
-        <p>Et fellesforetak som skaper en integrert plattform for energi og digital infrastruktur i Norden.</p>
-        <a href="#">Les →</a>
+        <div class="post-img"><img src="../assets/news/gig.jpg" alt="GIG og Scale42 - strategic partnership announcement" /></div>
+        <p class="post-date">2. sep 2025</p>
+        <h3>GIG forms strategic partnership with Scale-42 through GIGA Holdings</h3>
+        <p>Joint venture creating an integrated energy og digital infrastructure platform i Norden.</p>
+        <a href="news/gig-strategic-partnership/">Les &rarr;</a>
       </article>
       <article class="post">
-        <div class="post-img"><img src="../assets/news/partnership.jpg" alt="Offentlig erklæring om partnerskap" /></div>
-        <p class="post-date">29. apr. 2025</p>
-        <h3>Offentlig erklæring om strategisk partnerskap</h3>
-        <p>GIG Ltd og Scale42 kunngjør at de er i avanserte samtaler om opprettelse av et fellesforetak for integrert infrastruktur.</p>
-        <a href="#">Les →</a>
+        <div class="post-img"><img src="../assets/news/partnership.jpg" alt="Scale42 og GIG public statement on strategic partnership" /></div>
+        <p class="post-date">29. apr 2025</p>
+        <h3>Public statement on strategic partnership</h3>
+        <p>GIG Ltd og Scale42 announce advanced discussions for the creation of a joint venture focused on integrated infrastructure.</p>
+        <a href="news/public-statement-partnership/">Les &rarr;</a>
       </article>
       <article class="post">
-        <div class="post-img"><img src="../assets/news/varkaus.jpg" alt="Varkaus, Finland" /></div>
-        <p class="post-date">27. mar. 2025</p>
-        <h3>Norsk selskap planlegger datasenter i Varkaus</h3>
-        <p>Yle melder om Scale42s finske prosjekt — "tilliten er stor", sier ordføreren.</p>
-        <a href="#">Les →</a>
+        <div class="post-img"><img src="../assets/news/varkaus-finland.avif" alt="Varkaus, Finland - Ranta-Luttila plot for the Scale42 datasenter" /></div>
+        <p class="post-date">27. mar 2025</p>
+        <h3>Norwegian company plans datasenter in Varkaus - Mayor: "Confidence is high"</h3>
+        <p>Yle reports on Scale42's Finnish project - construction targeted for early 2026.</p>
+        <a href="news/varkaus-finland/">Les &rarr;</a>
       </article>
       <article class="post">
-        <div class="post-img"><img src="../assets/news/deepseek.jpg" alt="DeepSeek-fagartikkel" /></div>
-        <p class="post-date">29. jan. 2025</p>
-        <h3>Scale42 fagartikkel — DeepSeek</h3>
-        <p>Will Tasney, Thomas Beaton og Jamie Stewart om hva algoritmisk effektivitet betyr for spredningen av AI-databehandling.</p>
-        <a href="#">Les →</a>
+        <div class="post-img"><img src="../assets/news/deepseek.jpg" alt="DeepSeek og the dispersion of AI compute demand" /></div>
+        <p class="post-date">29. jan 2025</p>
+        <h3>Scale42 thought piece - DeepSeek</h3>
+        <p>Will Tasney, Thomas Beaton og Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand.</p>
+        <a href="news/deepseek-thought-piece/">Les &rarr;</a>
       </article>
     </div>
   </div>
@@ -304,8 +444,8 @@
   <div class="container contact-inner">
     <div>
       <p class="eyebrow eyebrow-light">Kontakt</p>
-      <h2 class="section-title">La oss bygge det neste gigawattet.</h2>
-      <p class="section-lede">Skriv inn e-postadressen din nedenfor, så tar teamet vårt kontakt.</p>
+      <h2 class="section-title">Let's build the next gigawatt.</h2>
+      <p class="section-lede">Enter your email address below og our team will be in touch.</p>
     </div>
     <p style="font-size:20px;"><a href="mailto:info@scale-42.com" style="color:#fff;">info@scale-42.com</a></p>
   </div>
@@ -314,17 +454,83 @@
 <footer class="footer">
   <div class="container footer-inner">
     <img src="../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
-    <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+    <p class="copyright">© 2026 Scale42. Alle rettigheter forbeholdt.</p>
   </div>
 </footer>
 
-<script src="../lang.js"></script>
 <script>
   document.documentElement.style.scrollBehavior = 'smooth';
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => spy.observe(s));
+
   const reveal = new IntersectionObserver((entries) => {
-    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); } });
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); }
+    });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.section, .equation, .hero').forEach(el => { el.classList.add('reveal'); reveal.observe(el); });
+  document.querySelectorAll('.section, .equation, .hero').forEach(el => {
+    el.classList.add('reveal'); reveal.observe(el);
+  });
+
+  // Parallax: simple translateY based on scroll position
+  const parallaxItems = document.querySelectorAll('[data-parallax]');
+  if (parallaxItems.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY;
+      parallaxItems.forEach(el => {
+        const rate = parseFloat(el.dataset.parallax) || 0.2;
+        el.style.transform = `translateY(${y * rate}px)`;
+      });
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+  }
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  (function(){
+    const el = document.getElementById('home-map');
+    if (!el || typeof L === 'undefined') return;
+    const sites = [
+      { name: 'Glomfjord',     country: 'Norway',  status: 'live', lat: 66.8167, lng: 13.9667 },
+      { name: 'Bakki',         country: 'Iceland', status: 'live', lat: 66.0500, lng: -17.3500 },
+      { name: 'Varkaus',       country: 'Finland', status: 'live', lat: 62.3167, lng: 27.8833 },
+      { name: 'Project Aurora',   country: 'Sweden',  status: 'tbd',  lat: 63.0000, lng: 16.0000 },
+      { name: 'Project Fjord II', country: 'Norway',  status: 'tbd',  lat: 67.2000, lng: 14.5000 },
+      { name: 'Project Boreal',   country: 'Finland', status: 'tbd',  lat: 65.5000, lng: 27.0000 },
+    ];
+    const map = L.map('home-map', {
+      center: [65.0, 14.0], zoom: 4,
+      zoomControl: false, scrollWheelZoom: false, doubleClickZoom: false,
+      dragging: false, touchZoom: false, boxZoom: false, keyboard: false,
+      tap: false, attributionControl: true
+    });
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap, © CARTO', subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+    sites.forEach(s => {
+      L.marker([s.lat, s.lng], {
+        icon: L.divIcon({
+          className: '', iconSize: [16, 16], iconAnchor: [8, 8],
+          html: `<div class="dc-pin" title="${s.name}"></div>`
+        }),
+        interactive: false, keyboard: false
+      }).addTo(map);
+    });
+  })();
 </script>
 
 </body>
