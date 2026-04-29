@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Scale42 — Profilretningslinjer</title>
+<meta name="description" content="Scale42 profilretningslinjer: logo, fargepalett, typografi, komponenter." />
+<meta name="theme-color" content="#1c2e3f" />
+<link rel="icon" type="image/svg+xml" href="../assets/logo-square.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png" />
+<link rel="apple-touch-icon" href="../assets/favicon-192.png" />
+<link rel="alternate" hreflang="en" href="https://www.scale-42.com/brand.html" />
+<link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/brand.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  .brand-section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .brand-section h2 { font-family: var(--font-display); font-size: 28px; letter-spacing: -0.01em; margin: 0 0 8px; font-weight: 600; }
+  .brand-section .sub { color: var(--muted); margin: 0 0 32px; font-size: 15px; }
+  .palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .swatch { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: #fff; }
+  .swatch .chip { aspect-ratio: 4/3; }
+  .swatch .info { padding: 14px 16px; }
+  .swatch .name { font-family: var(--font-display); font-weight: 600; font-size: 14.5px; margin: 0 0 4px; }
+  .swatch .hex { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--muted); margin: 0 0 2px; }
+  .swatch .role { font-size: 12px; color: var(--ink-2); margin: 0; }
+  .logo-display { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .logo-tile { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: grid; place-items: center; background: #fff; }
+  .logo-tile img { max-width: 100%; height: auto; }
+  @media (max-width: 900px) { .palette { grid-template-columns: 1fr 1fr; } .logo-display { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#top">Hopp til innhold</a>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img src="../assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <nav class="nav-links">
+      <a href="index.html#platform">Plattform</a>
+      <a href="datacenters.html">Datasentre</a>
+      <a href="capabilities.html">Kapabiliteter</a>
+      <a href="press.html">Presse</a>
+      <a href="brand.html" class="active">Profil</a>
+      <div class="lang-toggle">
+        <a href="../brand.html" data-lang="en">EN</a>
+        <a href="brand.html" data-lang="no" class="active">NO</a>
+      </div>
+      <a href="index.html#contact" class="btn btn-sm">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section id="top" class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <p class="eyebrow">Profilretningslinjer</p>
+    <h1>Scale42 designsystem.</h1>
+    <p class="lede">Referanse for logo, palett, typografi, mønstre, fotografi, stemme og bevegelse som definerer Scale42-profilen på alle flater.</p>
+  </div>
+</section>
+
+<section class="brand-section">
+  <div class="container">
+    <h2>Posisjonering</h2>
+    <p class="sub">Hvem vi er, i ett avsnitt.</p>
+    <p style="font-size: 19px; color: var(--ink-2); max-width: 760px; margin: 0;">
+      Scale42 er en energi-først utvikler og operatør av neste generasjons AI-datasentre i Norden. Vi bygger den roligste, mest troverdige engros-infrastrukturen for hyperscaler-aktører, AI-laboratorier og HPC-operatører — samlokalisert med rikelig ren energi, skalert i standardiserte 12,5 MW moduler. Vi bygger tillit gjennom presisjon: megawatt, lokasjoner, datoer, partnere.
+    </p>
+  </div>
+</section>
+
+<section class="brand-section">
+  <div class="container">
+    <h2>Logo</h2>
+    <p class="sub">Tre formater: bredt ordmerke, kvadratisk avatar, sirkulær avatar. SVG er masterformat — PNG leveres for flater som ikke godtar SVG.</p>
+    <div class="logo-display">
+      <div class="logo-tile"><img src="../assets/logo.svg" alt="Bredt ordmerke" /></div>
+      <div class="logo-tile" style="padding:0;"><img src="../assets/logo-square.svg" alt="Kvadratisk avatar" style="width:100%;" /></div>
+      <div class="logo-tile" style="padding:0;"><img src="../assets/logo-circle.svg" alt="Sirkulær avatar" style="width:100%;" /></div>
+    </div>
+    <p class="sub" style="margin-top:24px;">Last ned alle varianter på den <a href="../brand.html#logo" style="color:var(--accent);font-weight:600">engelske profilsiden →</a></p>
+  </div>
+</section>
+
+<section class="brand-section">
+  <div class="container">
+    <h2>Fargepalett</h2>
+    <p class="sub">Fargene er hentet direkte fra logoen.</p>
+    <div class="palette">
+      <div class="swatch"><div class="chip" style="background:#1c2e3f"></div><div class="info"><p class="name">Marineblå</p><p class="hex">#1C2E3F</p><p class="role">Primær tekst, mørke seksjoner</p></div></div>
+      <div class="swatch"><div class="chip" style="background:#2f6675"></div><div class="info"><p class="name">Teal</p><p class="hex">#2F6675</p><p class="role">Aksent, lenker</p></div></div>
+      <div class="swatch"><div class="chip" style="background:#a3bcc4"></div><div class="info"><p class="name">Tåke</p><p class="hex">#A3BCC4</p><p class="role">Myk aksent</p></div></div>
+      <div class="swatch"><div class="chip" style="background:#e8b87a"></div><div class="info"><p class="name">Sand</p><p class="hex">#E8B87A</p><p class="role">Varm fremheving</p></div></div>
+      <div class="swatch"><div class="chip" style="background:#f3d6b3"></div><div class="info"><p class="name">Sand lys</p><p class="hex">#F3D6B3</p><p class="role">Toner, hover</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="brand-section">
+  <div class="container">
+    <h2>Typografi</h2>
+    <p class="sub">Commissioner for alt. Lett (300) for brødtekst og display, Medium (500) og Bold (600/700) for emfase. Open-source.</p>
+    <p style="font-family: var(--font-display); font-size: 56px; line-height: 1.05; font-weight: 500; letter-spacing: -0.02em; margin: 24px 0 0;">AI-klare datasentre.</p>
+    <p style="font-size: 17px; color: var(--ink-2); max-width: 640px; margin: 16px 0 0;">Datasentrene våre ligger der fornybar energi finnes i overflod. Denne energi-først-strategien gjør at kundene kan drifte AI-databehandling til betydelig lavere kostnad, samtidig som de opprettholder bransjeledende bærekraft.</p>
+  </div>
+</section>
+
+<section class="brand-section">
+  <div class="container">
+    <h2>Stemme og tone</h2>
+    <p class="sub">Selvsikker, teknisk, jordnær. Vi bygger tillit gjennom presisjon.</p>
+    <div class="grid grid-3">
+      <div class="card"><h3 style="font-family: var(--font-display); margin: 0 0 8px;">Vi er</h3><p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">Direkte. Kvantitative. Operatør-tenkende. Vi leder med kapasitet, lokasjon og økonomi — ikke adjektiver.</p></div>
+      <div class="card"><h3 style="font-family: var(--font-display); margin: 0 0 8px;">Vi er ikke</h3><p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">Hyperboliske. Vi unngår "revolusjonerende", "verdensledende", "banebrytende".</p></div>
+      <div class="card"><h3 style="font-family: var(--font-display); margin: 0 0 8px;">Tall, ikke påstander</h3><p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">"1,7 GW pipeline på tvers av ti prosjekter" slår "massiv portefølje".</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div><img src="../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" /><p>Neste generasjons europeisk digital infrastruktur.</p></div>
+    <div class="footer-links">
+      <a href="index.html">Hjem</a><a href="datacenters.html">Datasentre</a><a href="capabilities.html">Kapabiliteter</a><a href="careers.html">Karriere</a><a href="press.html">Presse</a><a href="brand.html">Profil</a><a href="index.html#contact">Kontakt</a>
+    </div>
+    <p class="copyright">© 2026 Scale42. Alle rettigheter reservert.</p>
+  </div>
+</footer>
+<script src="../lang.js"></script>
+</body>
+</html>

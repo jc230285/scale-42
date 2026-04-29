@@ -38,5 +38,11 @@
     <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/press.html" />
   </url>
   <url><loc>https://www.scale-42.com/no/press.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.scale-42.com/brand.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url>
+    <loc>https://www.scale-42.com/brand.html</loc>
+    <changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/brand.html" />
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/brand.html" />
+  </url>
+  <url><loc>https://www.scale-42.com/no/brand.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

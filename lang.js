@@ -14,7 +14,7 @@
     '/capabilities.html':'/no/capabilities.html',
     '/careers.html':     '/no/careers.html',
     '/press.html':       '/no/press.html',
-    '/brand.html':       '/brand.html'  // not yet translated; fall back to EN
+    '/brand.html':       '/no/brand.html'
   };
 
   // Click handlers on the EN/NO toggle: persist choice.

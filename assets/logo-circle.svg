@@ -1,0 +1,27 @@
+<svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="circle-clip">
+      <circle cx="256" cy="256" r="256"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle-clip)">
+    <!-- Navy base -->
+    <rect width="512" height="512" fill="#1c2e3f"/>
+    <!-- Decorative diagonal tiles -->
+    <polygon points="0,0 256,0 0,256" fill="#487c89" fill-opacity="0.85"/>
+    <polygon points="256,0 512,0 512,256" fill="#487c89" fill-opacity="0.45"/>
+    <polygon points="0,256 256,256 0,512" fill="#365e6e"/>
+    <polygon points="256,256 512,256 256,512" fill="#db9340" fill-opacity="0.78"/>
+    <polygon points="512,256 512,512 256,512" fill="#db9340" fill-opacity="0.32"/>
+    <polygon points="256,0 512,256 256,256" fill="#db9340" fill-opacity="0.18"/>
+    <!-- Wordmark, centered -->
+    <text x="256" y="278"
+          font-family="Commissioner, system-ui, sans-serif"
+          font-size="86"
+          font-weight="600"
+          fill="#ffffff"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          letter-spacing="-2">Scale42</text>
+  </g>
+</svg>
