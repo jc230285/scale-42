@@ -31,6 +31,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<style>
+  .home-map-section { padding: 56px 0 0; }
+  .home-map { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+  .home-map .leaflet-container { background: #eaf0f3; font-family: var(--font-sans); cursor: default; }
+  .home-map .dc-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(28,46,63,0.25); }
+  .home-map .dc-pin.tbd { background: var(--warm); }
+  .home-map-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+  .home-map-foot .legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); }
+  .home-map-foot .legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .home-map-foot .legend .live::before { background: var(--accent); }
+  .home-map-foot .legend .tbd::before { background: var(--warm); }
+  .home-map-foot a { font-weight: 600; color: var(--accent); font-size: 14px; }
+
+  /* JV / capital callout */
+  .jv-callout { background: var(--bg-alt); border-left: 3px solid var(--accent); padding: 18px 22px; border-radius: var(--radius); margin: 0 0 28px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .jv-callout .label { font-family: var(--font-display); font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); font-weight: 600; }
+  .jv-callout .text { margin: 0; font-size: 15.5px; color: var(--ink); }
+</style>
 
 <script type="application/ld+json">
 {
@@ -75,8 +94,8 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="container hero-inner">
     <p class="eyebrow">Next-generation European digital infrastructure</p>
-    <h1>AI-ready data centres,<br/>powered by Nordic renewables.</h1>
-    <p class="lede">Scale42 develops and operates wholesale AI data centres across Norway, Finland, Sweden and Iceland — co-located with abundant clean power, purpose-built for high-density compute.</p>
+    <h1>Building large-scale AI data centres<br/>across the Nordics.</h1>
+    <p class="lede">Scale42 develops and operates wholesale, AI-ready data centres in Norway, Finland, Sweden and Iceland — co-located with abundant renewable power, purpose-built for high-density compute.</p>
     <div class="hero-cta">
       <a href="datacenters.html" class="btn btn-primary">Explore data centres</a>
       <a href="#contact" class="btn btn-ghost">Get in touch →</a>
@@ -96,6 +115,22 @@
       <div><dt>Site capacity</dt><dd>50–500+ MW</dd></div>
       <div><dt>Module size</dt><dd>12.5 MW</dd></div>
     </dl>
+  </div>
+</section>
+
+<section class="home-map-section">
+  <div class="container">
+    <p class="eyebrow">Pan-Nordic portfolio</p>
+    <h2 class="section-title" style="margin-bottom: 8px;">Ten projects across four countries.</h2>
+    <p class="section-lede" style="margin-bottom: 24px;">A 1.7 GW pipeline anchored on hydro, geothermal and other long-duration renewables.</p>
+    <div id="home-map" class="home-map" aria-label="Map of Scale42 sites"></div>
+    <div class="home-map-foot">
+      <div class="legend">
+        <span class="live">Live / disclosed</span>
+        <span class="tbd">In development</span>
+      </div>
+      <a href="datacenters.html">Explore all data centres →</a>
+    </div>
   </div>
 </section>
 
@@ -345,6 +380,10 @@
     <p class="eyebrow">Partners & customers</p>
     <h2 class="section-title">Working with the operators powering Europe's compute.</h2>
     <p class="section-lede">Joint venture and commercial partnerships across the Nordic energy and digital infrastructure ecosystem.</p>
+    <div class="jv-callout">
+      <span class="label">Backed by</span>
+      <p class="text"><strong>GIG</strong> — joint venture partner. Scale42 is built and capitalised together with GIG, providing the financial backing and energy-sector relationships behind the pipeline.</p>
+    </div>
     <div class="partners">
       <div class="partner">GIG · Joint venture</div>
       <div class="partner">As featured in DCD</div>
@@ -480,6 +519,40 @@
       if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }, { passive: true });
   }
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  (function(){
+    const el = document.getElementById('home-map');
+    if (!el || typeof L === 'undefined') return;
+    const sites = [
+      { name: 'Glomfjord',     country: 'Norway',  status: 'live', lat: 66.8167, lng: 13.9667 },
+      { name: 'Bakki',         country: 'Iceland', status: 'live', lat: 66.0500, lng: -17.3500 },
+      { name: 'Varkaus',       country: 'Finland', status: 'live', lat: 62.3167, lng: 27.8833 },
+      { name: 'Project Aurora',   country: 'Sweden',  status: 'tbd',  lat: 63.0000, lng: 16.0000 },
+      { name: 'Project Fjord II', country: 'Norway',  status: 'tbd',  lat: 67.2000, lng: 14.5000 },
+      { name: 'Project Boreal',   country: 'Finland', status: 'tbd',  lat: 65.5000, lng: 27.0000 },
+    ];
+    const map = L.map('home-map', {
+      center: [65.0, 14.0], zoom: 4,
+      zoomControl: false, scrollWheelZoom: false, doubleClickZoom: false,
+      dragging: false, touchZoom: false, boxZoom: false, keyboard: false,
+      tap: false, attributionControl: true
+    });
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap, © CARTO', subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+    sites.forEach(s => {
+      L.marker([s.lat, s.lng], {
+        icon: L.divIcon({
+          className: '', iconSize: [16, 16], iconAnchor: [8, 8],
+          html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : ''}" title="${s.name}"></div>`
+        }),
+        interactive: false, keyboard: false
+      }).addTo(map);
+    });
+  })();
 </script>
 
 </body>
