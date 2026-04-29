@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Data Centres — Scale42</title>
+<meta name="description" content="Scale42's pan-Nordic portfolio of AI-ready data centre sites across Norway, Finland, Sweden and Iceland." />
+<meta name="theme-color" content="#1c2e3f" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+<link rel="apple-touch-icon" href="assets/logo.png" />
+<meta property="og:title" content="Data Centres — Scale42" />
+<meta property="og:description" content="1.7 GW pan-Nordic AI data centre pipeline — site-by-site." />
+<meta property="og:image" content="https://www.scale-42.com/assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .dc-hero { padding: 80px 0 40px; position: relative; overflow: hidden; }
+  .dc-hero::before {
+    content: ''; position: absolute; inset: 0; z-index: -1;
+    background:
+      radial-gradient(900px 400px at 90% -10%, rgba(232,184,122,0.18), transparent 60%),
+      radial-gradient(800px 400px at 0% 0%, rgba(47,102,117,0.14), transparent 70%),
+      linear-gradient(180deg, #f8fafb 0%, #ffffff 100%);
+  }
+  .dc-hero h1 { font-family: var(--font-display); font-size: clamp(40px, 5.5vw, 64px); letter-spacing: -0.02em; line-height: 1.05; margin: 12px 0 18px; font-weight: 600; }
+  .dc-hero .lede { font-size: 18px; color: var(--ink-2); max-width: 720px; margin: 0; }
+
+  .dc-summary {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; margin: 40px 0 0;
+    padding: 28px 0 0; border-top: 1px solid var(--line);
+  }
+  .dc-summary .item dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
+  .dc-summary .item dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; }
+
+  .dc-list { padding: 64px 0; border-top: 1px solid var(--line); }
+  .dc-toolbar {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin: 0 0 32px; align-items: center;
+  }
+  .dc-filter {
+    padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px;
+    background: #fff; font-size: 13.5px; font-weight: 500; color: var(--ink-2);
+    cursor: pointer; transition: 0.15s ease;
+  }
+  .dc-filter.active, .dc-filter:hover { border-color: var(--ink); color: var(--ink); background: var(--bg-alt); }
+
+  .dc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .dc-card {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: #fff; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: 0.2s ease;
+  }
+  .dc-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .dc-card .img {
+    aspect-ratio: 16/9; background: linear-gradient(135deg, #1c2e3f 0%, #2f6675 55%, #e8b87a 100%);
+    display: grid; place-items: center; color: rgba(255,255,255,0.5); position: relative;
+  }
+  .dc-card .img.bakki { background: linear-gradient(135deg, #2c3a48 0%, #5a4030 60%, #c47a4a 100%); }
+  .dc-card .img.varkaus { background: linear-gradient(135deg, #1c2e3f 0%, #406b6e 60%, #8aa9a8 100%); }
+  .dc-card .img.tbd { background: linear-gradient(135deg, #d6dde2 0%, #a3bcc4 100%); color: rgba(28,46,63,0.5); }
+  .dc-card .country-flag {
+    position: absolute; top: 16px; left: 16px;
+    background: rgba(255,255,255,0.92); color: var(--ink);
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .dc-card .status {
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(28,46,63,0.85); color: #fff;
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .dc-card .status.live { background: var(--accent); }
+  .dc-card .status.tbd { background: var(--muted); }
+
+  .dc-card .body { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .dc-card h3 { font-family: var(--font-display); font-size: 22px; margin: 0; font-weight: 600; }
+  .dc-card .loc { font-size: 13px; color: var(--muted); margin: 0; text-transform: uppercase; letter-spacing: 0.08em; }
+  .dc-card p.desc { font-size: 14.5px; color: var(--ink-2); margin: 0; }
+
+  .dc-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; padding: 16px 0 0; border-top: 1px solid var(--line);
+    margin-top: 4px;
+  }
+  .dc-stats .stat dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; }
+  .dc-stats .stat dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 16px; }
+
+  .dc-cta {
+    background: var(--bg-dark); color: #e8ece9; padding: 64px 0;
+    text-align: center;
+  }
+  .dc-cta h2 { font-family: var(--font-display); font-size: clamp(28px, 3vw, 38px); margin: 0 0 12px; font-weight: 600; letter-spacing: -0.02em; color: #fff; }
+  .dc-cta p { color: #b9c2bd; margin: 0 0 24px; font-size: 17px; }
+
+  @media (max-width: 900px) {
+    .dc-grid { grid-template-columns: 1fr; }
+    .dc-summary { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#dc-list">Skip to content</a>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Scale42" class="brand-logo" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#platform">Platform</a>
+      <a href="datacenters.html" class="active">Data Centres</a>
+      <a href="index.html#founders">Team</a>
+      <a href="index.html#news">News</a>
+      <a href="brand.html">Brand</a>
+      <div class="lang-toggle">
+        <a href="datacenters.html" data-lang="en" class="active">EN</a>
+        <a href="no/index.html" data-lang="no">NO</a>
+      </div>
+      <a href="index.html#contact" class="btn btn-sm">Contact</a>
+    </nav>
+    <!-- nav unified across all pages: Platform / Data Centres / Team / News / Brand / EN / Contact -->
+  </div>
+</header>
+
+<section class="dc-hero">
+  <div class="container">
+    <p class="eyebrow">Data centres</p>
+    <h1>1.7 GW of Nordic AI-ready capacity.</h1>
+    <p class="lede">Ten projects across Norway, Finland, Sweden and Iceland — co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 50 MW campus deployments to 500 MW+ flagship sites.</p>
+
+    <dl class="dc-summary">
+      <div class="item"><dt>Active pipeline</dt><dd>1.7 GW</dd></div>
+      <div class="item"><dt>Projects</dt><dd>10</dd></div>
+      <div class="item"><dt>Countries</dt><dd>4</dd></div>
+      <div class="item"><dt>Module size</dt><dd>12.5 MW</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="dc-list" class="dc-list">
+  <div class="container">
+    <div class="dc-toolbar">
+      <button class="dc-filter active" data-filter="all">All</button>
+      <button class="dc-filter" data-filter="norway">Norway</button>
+      <button class="dc-filter" data-filter="finland">Finland</button>
+      <button class="dc-filter" data-filter="sweden">Sweden</button>
+      <button class="dc-filter" data-filter="iceland">Iceland</button>
+    </div>
+
+    <div class="dc-grid">
+
+      <article class="dc-card" data-country="norway">
+        <div class="img">
+          <span class="country-flag">Norway</span>
+          <span class="status live">In development</span>
+          <span class="image-placeholder">[ Glomfjord — site image ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Nordland · Norway</p>
+          <h3>Glomfjord</h3>
+          <p class="desc">Hydropower-rich coastal site with deep grid capacity. Phased deployment of 12.5 MW modules to a 50 MW+ campus.</p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Initial</dt><dd>12.5 MW</dd></div>
+            <div class="stat"><dt>Target</dt><dd>50 MW+</dd></div>
+            <div class="stat"><dt>Power</dt><dd>Hydro</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="dc-card" data-country="iceland">
+        <div class="img bakki">
+          <span class="country-flag">Iceland</span>
+          <span class="status live">JV announced</span>
+          <span class="image-placeholder">[ Bakki — site image ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">North Iceland · Iceland</p>
+          <h3>Bakki</h3>
+          <p class="desc">Low-cost geothermal baseload, robust grid integration and an industrial-ready site. Operational 2027 with 50 MW initial capacity, scaling to 200 MW.</p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Initial</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Target</dt><dd>200 MW</dd></div>
+            <div class="stat"><dt>Power</dt><dd>Geothermal</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="dc-card" data-country="finland">
+        <div class="img varkaus">
+          <span class="country-flag">Finland</span>
+          <span class="status live">Permitting</span>
+          <span class="image-placeholder">[ Varkaus — site image ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Pohjois-Savo · Finland</p>
+          <h3>Varkaus</h3>
+          <p class="desc">Industrial-ready Finnish location with strong municipal support and existing grid infrastructure. Mayor: "confidence is high."</p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Initial</dt><dd>TBD</dd></div>
+            <div class="stat"><dt>Target</dt><dd>50 MW+</dd></div>
+            <div class="stat"><dt>Power</dt><dd>Mixed renewable</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="dc-card" data-country="sweden">
+        <div class="img tbd">
+          <span class="country-flag">Sweden</span>
+          <span class="status tbd">In planning</span>
+          <span class="image-placeholder">[ Site image — TBA ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Sweden</p>
+          <h3>Project Aurora</h3>
+          <p class="desc">Strategic Swedish site with strong fibre interconnection and long-term PPA optionality. Details to be announced.</p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Initial</dt><dd>—</dd></div>
+            <div class="stat"><dt>Target</dt><dd>100 MW+</dd></div>
+            <div class="stat"><dt>Power</dt><dd>Hydro / wind</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="dc-card" data-country="norway">
+        <div class="img tbd">
+          <span class="country-flag">Norway</span>
+          <span class="status tbd">In planning</span>
+          <span class="image-placeholder">[ Site image — TBA ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Norway</p>
+          <h3>Project Fjord II</h3>
+          <p class="desc">Second Norwegian campus targeting flagship-scale capacity adjacent to long-duration hydropower assets.</p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Initial</dt><dd>—</dd></div>
+            <div class="stat"><dt>Target</dt><dd>500 MW+</dd></div>
+            <div class="stat"><dt>Power</dt><dd>Hydro</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="dc-card" data-country="finland">
+        <div class="img tbd">
+          <span class="country-flag">Finland</span>
+          <span class="status tbd">In planning</span>
+          <span class="image-placeholder">[ Site image — TBA ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Finland</p>
+          <h3>Project Boreal</h3>
+          <p class="desc">Northern Finland industrial corridor — additional pipeline site under development.</p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Initial</dt><dd>—</dd></div>
+            <div class="stat"><dt>Target</dt><dd>100 MW+</dd></div>
+            <div class="stat"><dt>Power</dt><dd>Mixed renewable</dd></div>
+          </dl>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="dc-cta">
+  <div class="container">
+    <h2>Looking for capacity?</h2>
+    <p>Hyperscalers, AI labs and HPC operators — we'd be glad to talk.</p>
+    <a href="index.html#contact" class="btn btn-primary" style="background: #fff; color: var(--ink);">Get in touch →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <img src="assets/logo.png" alt="Scale42" class="brand-logo brand-logo-footer" />
+      <p>Next-generation European digital infrastructure.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="datacenters.html">Data Centres</a>
+      <a href="index.html#founders">Team</a>
+      <a href="brand.html">Brand</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Country filter
+  document.querySelectorAll('.dc-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.dc-filter').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('.dc-card').forEach(card => {
+        const show = filter === 'all' || card.dataset.country === filter;
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

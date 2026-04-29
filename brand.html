@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Scale42 — Brand Guidelines</title>
+<meta name="description" content="Scale42 brand guidelines: logo, colour palette, typography, components." />
+<meta name="theme-color" content="#1c2e3f" />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+<link rel="apple-touch-icon" href="assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  /* Brand-page-only styles */
+  .brand-hero { padding: 80px 0 40px; }
+  .brand-hero h1 { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); letter-spacing: -0.02em; line-height: 1.05; margin: 16px 0 18px; font-weight: 600; }
+  .brand-hero p { font-size: 18px; color: var(--ink-2); max-width: 680px; margin: 0; }
+
+  .brand-section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .brand-section h2 { font-family: var(--font-display); font-size: 28px; letter-spacing: -0.01em; margin: 0 0 8px; font-weight: 600; }
+  .brand-section .sub { color: var(--muted); margin: 0 0 32px; font-size: 15px; }
+
+  /* Logo block */
+  .logo-display {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;
+  }
+  .logo-tile {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 48px; display: grid; place-items: center;
+    background: #fff;
+  }
+  .logo-tile.dark { background: var(--bg-dark); }
+  .logo-tile.warm { background: var(--warm); }
+  .logo-tile img { max-width: 260px; height: auto; }
+  .logo-meta { display: flex; flex-direction: column; gap: 12px; padding: 24px 0; }
+  .logo-meta .row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+  .logo-meta .row span:first-child { color: var(--muted); }
+  .logo-meta .row span:last-child { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; }
+
+  /* Palette */
+  .palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .swatch { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: #fff; }
+  .swatch .chip { aspect-ratio: 4/3; }
+  .swatch .info { padding: 14px 16px; }
+  .swatch .name { font-family: var(--font-display); font-weight: 600; font-size: 14.5px; margin: 0 0 4px; }
+  .swatch .hex { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--muted); margin: 0 0 2px; }
+  .swatch .role { font-size: 12px; color: var(--ink-2); margin: 0; }
+
+  /* Typography */
+  .type-row { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; padding: 24px 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .type-row:first-child { border-top: 0; }
+  .type-row .meta { font-size: 13px; color: var(--muted); }
+  .type-row .meta strong { display: block; color: var(--ink); font-family: var(--font-display); font-size: 15px; margin-bottom: 4px; font-weight: 600; }
+  .type-h1 { font-family: var(--font-display); font-size: 56px; letter-spacing: -0.02em; line-height: 1.05; font-weight: 600; margin: 0; }
+  .type-h2 { font-family: var(--font-display); font-size: 36px; letter-spacing: -0.02em; line-height: 1.1; font-weight: 600; margin: 0; }
+  .type-h3 { font-family: var(--font-display); font-size: 22px; line-height: 1.2; font-weight: 600; margin: 0; }
+  .type-body { font-family: var(--font-sans); font-size: 17px; line-height: 1.55; color: var(--ink-2); margin: 0; max-width: 640px; }
+  .type-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; color: var(--accent); margin: 0; }
+
+  /* Components row */
+  .components { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .component-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; background: #fff; }
+  .component-card h3 { font-family: var(--font-display); font-size: 15px; margin: 0 0 16px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+  .component-card .demo { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+  /* Logo dos and donts */
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .rule { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; background: #fff; }
+  .rule .label { font-family: var(--font-display); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 16px; }
+  .rule.do .label { color: var(--accent); }
+  .rule.dont .label { color: #b04848; }
+  .rule ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: 14.5px; }
+  .rule li { margin: 6px 0; }
+
+  /* Voice */
+  .voice { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .voice-block { border-left: 3px solid var(--accent); padding: 8px 24px; }
+  .voice-block h4 { font-family: var(--font-display); font-size: 15px; margin: 0 0 8px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
+  .voice-block p { margin: 0; color: var(--ink-2); font-size: 15px; }
+
+  @media (max-width: 900px) {
+    .logo-display, .palette, .components, .rules, .voice, .type-row { grid-template-columns: 1fr 1fr; }
+    .palette { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .palette, .components, .rules, .voice, .type-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Scale42" class="brand-logo" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#platform">Platform</a>
+      <a href="datacenters.html">Data Centres</a>
+      <a href="index.html#founders">Team</a>
+      <a href="index.html#news">News</a>
+      <a href="brand.html" class="active">Brand</a>
+      <div class="lang-toggle">
+        <a href="brand.html" data-lang="en" class="active">EN</a>
+        <a href="no/index.html" data-lang="no">NO</a>
+      </div>
+      <a href="index.html#contact" class="btn btn-sm">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="brand-hero">
+  <div class="container">
+    <p class="type-eyebrow">Brand guidelines</p>
+    <h1>The Scale42 design system.</h1>
+    <p>A reference for the logo, colour palette, typography, components and tone of voice that define the Scale42 brand across every surface.</p>
+  </div>
+</section>
+
+<section id="logo" class="brand-section">
+  <div class="container">
+    <h2>Logo</h2>
+    <p class="sub">The Scale42 wordmark sits inside a geometric block of brand colours. Use it with generous clear space — never less than the height of the "S".</p>
+
+    <div class="logo-display">
+      <div class="logo-tile">
+        <img src="assets/logo.png" alt="Scale42 logo on light" />
+      </div>
+      <div class="logo-meta">
+        <div class="row"><span>File</span><span>assets/logo.png</span></div>
+        <div class="row"><span>Min height</span><span>32 px</span></div>
+        <div class="row"><span>Clear space</span><span>≥ 1× cap height</span></div>
+        <div class="row"><span>Preferred bg</span><span>White / navy</span></div>
+        <div class="row"><span>Format</span><span>PNG (SVG recommended)</span></div>
+      </div>
+    </div>
+
+    <div class="logo-display" style="margin-top: 24px;">
+      <div class="logo-tile dark">
+        <img src="assets/logo.png" alt="Scale42 on navy" />
+      </div>
+      <div class="logo-tile warm">
+        <img src="assets/logo.png" alt="Scale42 on sand" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="brand-section">
+  <div class="container">
+    <h2>Logo usage</h2>
+    <p class="sub">Keep the mark recognisable across every context.</p>
+    <div class="rules">
+      <div class="rule do">
+        <p class="label">Do</p>
+        <ul>
+          <li>Use on white, navy, or sand backgrounds</li>
+          <li>Maintain clear space of at least 1× cap height</li>
+          <li>Scale proportionally — never stretch or skew</li>
+          <li>Use the full PNG/SVG asset, not a recreation</li>
+        </ul>
+      </div>
+      <div class="rule dont">
+        <p class="label">Don't</p>
+        <ul>
+          <li>Recolour the logo or swap palette tiles</li>
+          <li>Place over busy imagery without a backing block</li>
+          <li>Add drop shadows, glows or outlines</li>
+          <li>Rotate, crop, or rearrange the geometric tiles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="palette" class="brand-section">
+  <div class="container">
+    <h2>Colour palette</h2>
+    <p class="sub">Colours are drawn directly from the logo. Navy and teal carry the brand; sand provides warmth and emphasis.</p>
+
+    <div class="palette">
+      <div class="swatch">
+        <div class="chip" style="background: #1c2e3f"></div>
+        <div class="info"><p class="name">Navy</p><p class="hex">#1C2E3F</p><p class="role">Primary ink, dark sections</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #2f6675"></div>
+        <div class="info"><p class="name">Teal</p><p class="hex">#2F6675</p><p class="role">Accent, links, eyebrows</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #a3bcc4"></div>
+        <div class="info"><p class="name">Mist</p><p class="hex">#A3BCC4</p><p class="role">Soft accent, dark-bg text</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #e8b87a"></div>
+        <div class="info"><p class="name">Sand</p><p class="hex">#E8B87A</p><p class="role">Warm highlight, callouts</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #f3d6b3"></div>
+        <div class="info"><p class="name">Sand light</p><p class="hex">#F3D6B3</p><p class="role">Tints, hover states</p></div>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 56px;">Neutrals</h2>
+    <p class="sub">Used for surfaces, type, and structure.</p>
+    <div class="palette">
+      <div class="swatch">
+        <div class="chip" style="background: #ffffff; border-bottom: 1px solid var(--line)"></div>
+        <div class="info"><p class="name">White</p><p class="hex">#FFFFFF</p><p class="role">Base background</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #f4f6f7"></div>
+        <div class="info"><p class="name">Surface</p><p class="hex">#F4F6F7</p><p class="role">Alternate sections</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #e1e6ea"></div>
+        <div class="info"><p class="name">Line</p><p class="hex">#E1E6EA</p><p class="role">Borders, dividers</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #6b7a85"></div>
+        <div class="info"><p class="name">Muted</p><p class="hex">#6B7A85</p><p class="role">Captions, metadata</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #3d4f60"></div>
+        <div class="info"><p class="name">Ink-2</p><p class="hex">#3D4F60</p><p class="role">Body copy</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="typography" class="brand-section">
+  <div class="container">
+    <h2>Typography</h2>
+    <p class="sub">Space Grotesk for display, Inter for body. Both are open-source and load from Google Fonts.</p>
+
+    <div class="type-row">
+      <div class="meta"><strong>Display H1</strong>Space Grotesk · 600 · 56–68px · -0.02em</div>
+      <h1 class="type-h1">AI-ready data centres.</h1>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Display H2</strong>Space Grotesk · 600 · 36–42px · -0.02em</div>
+      <h2 class="type-h2">A 1.7 GW Nordic pipeline.</h2>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Display H3</strong>Space Grotesk · 600 · 22px</div>
+      <h3 class="type-h3">Standardised 12.5 MW modules.</h3>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Body</strong>Inter · 400 · 17px · 1.55 line-height</div>
+      <p class="type-body">Our data centres are located where renewable power is abundant. This energy-first strategy lets customers operate AI compute infrastructure at substantially lower cost while maintaining industry-leading sustainability credentials.</p>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Eyebrow</strong>Inter · 600 · 12px · uppercase · 0.14em tracking</div>
+      <p class="type-eyebrow">Pan-Nordic development portfolio</p>
+    </div>
+  </div>
+</section>
+
+<section id="components" class="brand-section">
+  <div class="container">
+    <h2>Components</h2>
+    <p class="sub">Core UI primitives used across the site.</p>
+
+    <div class="components">
+      <div class="component-card">
+        <h3>Buttons</h3>
+        <div class="demo">
+          <a class="btn btn-primary" href="#">Primary</a>
+          <a class="btn btn-ghost" href="#">Ghost</a>
+          <a class="btn btn-sm btn-primary" href="#">Small</a>
+        </div>
+      </div>
+      <div class="component-card">
+        <h3>Tags</h3>
+        <div class="demo">
+          <span class="tag">Legacy</span>
+          <span class="tag tag-accent">Featured</span>
+        </div>
+      </div>
+      <div class="component-card">
+        <h3>Form input</h3>
+        <input type="email" placeholder="you@company.com" style="width: 100%; padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--line); font: inherit; font-size: 15px;" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voice" class="brand-section">
+  <div class="container">
+    <h2>Voice & tone</h2>
+    <p class="sub">Confident, technical, and grounded. We earn trust through specificity.</p>
+
+    <div class="voice">
+      <div class="voice-block">
+        <h4>We are</h4>
+        <p>Direct. Quantitative. Operator-minded. We lead with capacity, location and economics — not adjectives.</p>
+      </div>
+      <div class="voice-block">
+        <h4>We aren't</h4>
+        <p>Hyperbolic. We avoid "revolutionary," "world-class," "cutting-edge" — the Nordics, the megawatts, and the customers do that work for us.</p>
+      </div>
+      <div class="voice-block">
+        <h4>Numbers, not claims</h4>
+        <p>"1.7 GW pipeline across ten projects" beats "massive portfolio." If a metric exists, lead with it.</p>
+      </div>
+      <div class="voice-block">
+        <h4>Plain English</h4>
+        <p>We use industry terms (CAPEX, OPEX, PPA, GPU/TPU/ASIC) but never jargon for its own sake. Sentences are short.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <img src="assets/logo.png" alt="Scale42" class="brand-logo brand-logo-footer" />
+      <p>Brand guidelines · v1.0</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="#logo">Logo</a>
+      <a href="#palette">Palette</a>
+      <a href="#typography">Typography</a>
+    </div>
+    <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
