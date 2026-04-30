@@ -23,8 +23,8 @@
   <a class="cms-brand" href="/cms/">Scale42 CMS</a>
   <nav>
     <a href="/cms/people.html">People</a>
-    <a href="/cms/sites.html" class="muted">Sites</a>
-    <a href="/cms/news.html" class="muted">News</a>
+    <a href="/cms/sites.html">Sites</a>
+    <a href="/cms/news.html">News</a>
     <a href="/cms/sections.html">Sections</a>
     <a href="/" target="_blank">View site &rarr;</a>
   </nav>
@@ -59,26 +59,39 @@
   function render() {
     const grid = $('grid');
     grid.innerHTML = '';
+    const groups = {};
+    const order = [];
     for (const f of data.fields) {
-      const en = data.values.en[f.key] || '';
-      const no = data.values.no[f.key] || '';
-      const inputEn = f.type === 'textarea'
-        ? `<textarea data-key="${f.key}" data-lang="en">${escapeText(en)}</textarea>`
-        : `<input type="text" data-key="${f.key}" data-lang="en" value="${escapeAttr(en)}" />`;
-      const inputNo = f.type === 'textarea'
-        ? `<textarea data-key="${f.key}" data-lang="no">${escapeText(no)}</textarea>`
-        : `<input type="text" data-key="${f.key}" data-lang="no" value="${escapeAttr(no)}" />`;
-      const card = document.createElement('div');
-      card.className = 'field-card';
-      card.innerHTML = `
-        <h3>${escapeText(f.label)}</h3>
-        <p class="key">cms:${f.key}</p>
-        <div class="field-langs">
-          <div><label>English</label>${inputEn}</div>
-          <div><label>Norwegian</label>${inputNo}</div>
-        </div>
-      `;
-      grid.appendChild(card);
+      const g = f.group || 'Other';
+      if (!groups[g]) { groups[g] = []; order.push(g); }
+      groups[g].push(f);
+    }
+    for (const g of order) {
+      const heading = document.createElement('h2');
+      heading.style.cssText = 'margin:24px 0 6px;font-size:16px;letter-spacing:-0.01em;';
+      heading.textContent = g;
+      grid.appendChild(heading);
+      for (const f of groups[g]) {
+        const en = data.values.en[f.key] || '';
+        const no = data.values.no[f.key] || '';
+        const inputEn = f.type === 'textarea'
+          ? `<textarea data-key="${f.key}" data-lang="en">${escapeText(en)}</textarea>`
+          : `<input type="text" data-key="${f.key}" data-lang="en" value="${escapeAttr(en)}" />`;
+        const inputNo = f.type === 'textarea'
+          ? `<textarea data-key="${f.key}" data-lang="no">${escapeText(no)}</textarea>`
+          : `<input type="text" data-key="${f.key}" data-lang="no" value="${escapeAttr(no)}" />`;
+        const card = document.createElement('div');
+        card.className = 'field-card';
+        card.innerHTML = `
+          <h3>${escapeText(f.label)}</h3>
+          <p class="key">cms:${f.key}</p>
+          <div class="field-langs">
+            <div><label>English</label>${inputEn}</div>
+            <div><label>Norwegian</label>${inputNo}</div>
+          </div>
+        `;
+        grid.appendChild(card);
+      }
     }
   }
 

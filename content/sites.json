@@ -1,0 +1,10 @@
+{
+  "sites": [
+    { "id": "glomfjord", "name": "Glomfjord", "country": "Norway", "status": "live", "lat": 66.8167, "lng": 13.9667, "published": true },
+    { "id": "bakki", "name": "Bakki", "country": "Iceland", "status": "live", "lat": 66.05, "lng": -17.35, "published": true },
+    { "id": "varkaus", "name": "Varkaus", "country": "Finland", "status": "live", "lat": 62.3167, "lng": 27.8833, "published": true },
+    { "id": "aurora", "name": "Project Aurora", "country": "Sweden", "status": "tbd", "lat": 63.0, "lng": 16.0, "published": true },
+    { "id": "fjord-ii", "name": "Project Fjord II", "country": "Norway", "status": "tbd", "lat": 67.2, "lng": 14.5, "published": true },
+    { "id": "boreal", "name": "Project Boreal", "country": "Finland", "status": "tbd", "lat": 65.5, "lng": 27.0, "published": true }
+  ]
+}

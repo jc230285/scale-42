@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sites &mdash; Scale42 CMS</title>
+<link rel="stylesheet" href="cms.css" />
+</head>
+<body>
+<header class="cms-nav">
+  <a class="cms-brand" href="/cms/">Scale42 CMS</a>
+  <nav>
+    <a href="/cms/people.html">People</a>
+    <a href="/cms/sites.html">Sites</a>
+    <a href="/cms/news.html">News</a>
+    <a href="/cms/sections.html">Sections</a>
+    <a href="/" target="_blank">View site &rarr;</a>
+  </nav>
+</header>
+<main class="cms-main">
+  <div class="editor-head">
+    <h1>Sites</h1>
+    <span class="meta" id="dirty-meta">No unsaved changes</span>
+  </div>
+  <p class="lede">Pipeline sites shown on the homepage map. Status <code>live</code> = active site, <code>tbd</code> = disclosed in development.</p>
+
+  <div class="section-head">
+    <h2>All sites</h2>
+    <button class="btn add" id="btn-add">+ Add site</button>
+  </div>
+  <div class="table-wrap">
+    <table class="cms">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+          <th>Status</th>
+          <th>Latitude</th>
+          <th>Longitude</th>
+          <th class="col-pub">Live</th>
+          <th class="col-actions"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</main>
+
+<div class="footer-bar">
+  <button class="btn" id="btn-reload">Discard changes</button>
+  <span class="status-msg" id="status"></span>
+  <span class="grow"></span>
+  <button class="btn primary" id="btn-save">Save draft</button>
+  <button class="btn accent" id="btn-publish">Publish &rarr;</button>
+</div>
+
+<script>
+(async function() {
+  const $ = (id) => document.getElementById(id);
+  let data = { sites: [] }, dirty = false;
+  const setDirty = (v) => { dirty = v; $('dirty-meta').textContent = v ? 'Unsaved changes' : 'No unsaved changes'; };
+  const setStatus = (m, k) => { const e = $('status'); e.textContent = m || ''; e.className = 'status-msg' + (k ? ' ' + k : ''); };
+  const escAttr = (s) => (s == null ? '' : String(s)).replace(/"/g, '&quot;');
+
+  function row(s, idx) {
+    const tr = document.createElement('tr');
+    tr.dataset.idx = idx;
+    tr.innerHTML = `
+      <td><input type="text" data-field="name" value="${escAttr(s.name)}" /></td>
+      <td><input type="text" data-field="country" value="${escAttr(s.country)}" /></td>
+      <td>
+        <select data-field="status">
+          <option value="live"${s.status==='live'?' selected':''}>live</option>
+          <option value="tbd"${s.status==='tbd'?' selected':''}>tbd</option>
+        </select>
+      </td>
+      <td><input type="number" step="0.0001" data-field="lat" value="${escAttr(s.lat)}" style="width:120px" /></td>
+      <td><input type="number" step="0.0001" data-field="lng" value="${escAttr(s.lng)}" style="width:120px" /></td>
+      <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="published" ${s.published ? 'checked' : ''}/><span class="slider"></span></label></td>
+      <td class="col-actions">
+        <button class="btn icon" data-action="up" title="Move up">▲</button>
+        <button class="btn icon" data-action="down" title="Move down">▼</button>
+        <button class="btn danger" data-action="delete">Delete</button>
+      </td>
+    `;
+    return tr;
+  }
+
+  function render() {
+    const tbody = $('tbody');
+    tbody.innerHTML = '';
+    data.sites.forEach((s, i) => tbody.appendChild(row(s, i)));
+  }
+
+  function readBack() {
+    const arr = [];
+    $('tbody').querySelectorAll('tr').forEach((tr) => {
+      const get = (f) => {
+        const el = tr.querySelector(`[data-field="${f}"]`);
+        if (!el) return '';
+        if (el.type === 'checkbox') return el.checked;
+        if (el.type === 'number') return parseFloat(el.value);
+        return el.value;
+      };
+      const original = data.sites[parseInt(tr.dataset.idx, 10)] || {};
+      arr.push({
+        id: original.id || (get('name') || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+        name: get('name'), country: get('country'), status: get('status'),
+        lat: get('lat'), lng: get('lng'), published: get('published'),
+      });
+    });
+    data.sites = arr;
+  }
+
+  async function load() {
+    setStatus('Loading…');
+    const r = await fetch('/api/sites');
+    if (!r.ok) { setStatus('Load failed', 'err'); return; }
+    data = await r.json();
+    render(); setDirty(false); setStatus('');
+  }
+  async function save() {
+    readBack();
+    setStatus('Saving…');
+    const r = await fetch('/api/sites', { method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) });
+    if (!r.ok) { setStatus('Save failed', 'err'); return false; }
+    setDirty(false); setStatus('Draft saved', 'ok'); return true;
+  }
+  async function publish() {
+    if (!confirm('Publish sites? Regenerates the home map array.')) return;
+    if (!(await save())) return;
+    setStatus('Publishing…');
+    const r = await fetch('/api/publish/sites', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({}) });
+    const body = await r.json().catch(() => ({}));
+    if (!r.ok) { setStatus('Publish failed: ' + (body.error || r.status), 'err'); return; }
+    setStatus('Published — Coolify is redeploying', 'ok');
+  }
+
+  document.addEventListener('input', (e) => { if (e.target.closest('table.cms')) setDirty(true); });
+  document.addEventListener('change', (e) => { if (e.target.closest('table.cms')) setDirty(true); });
+  document.addEventListener('click', (e) => {
+    const t = e.target;
+    const tr = t.closest('tr');
+    if (t.matches('[data-action="delete"]')) { readBack(); data.sites.splice(parseInt(tr.dataset.idx,10), 1); render(); setDirty(true); }
+    else if (t.matches('[data-action="up"]') || t.matches('[data-action="down"]')) {
+      const idx = parseInt(tr.dataset.idx, 10);
+      const newIdx = t.matches('[data-action="up"]') ? idx-1 : idx+1;
+      if (newIdx < 0 || newIdx >= data.sites.length) return;
+      readBack();
+      const [m] = data.sites.splice(idx, 1);
+      data.sites.splice(newIdx, 0, m); render(); setDirty(true);
+    }
+  });
+  $('btn-add').addEventListener('click', () => {
+    readBack();
+    data.sites.push({ id: '', name: 'New site', country: 'Norway', status: 'tbd', lat: 65, lng: 14, published: false });
+    render(); setDirty(true);
+  });
+  $('btn-save').addEventListener('click', save);
+  $('btn-publish').addEventListener('click', publish);
+  $('btn-reload').addEventListener('click', () => { if (dirty && !confirm('Discard?')) return; load(); });
+  window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue=''; } });
+  load();
+})();
+</script>
+</body>
+</html>

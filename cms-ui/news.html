@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>News &mdash; Scale42 CMS</title>
+<link rel="stylesheet" href="cms.css" />
+</head>
+<body>
+<header class="cms-nav">
+  <a class="cms-brand" href="/cms/">Scale42 CMS</a>
+  <nav>
+    <a href="/cms/people.html">People</a>
+    <a href="/cms/sites.html">Sites</a>
+    <a href="/cms/news.html">News</a>
+    <a href="/cms/sections.html">Sections</a>
+    <a href="/" target="_blank">View site &rarr;</a>
+  </nav>
+</header>
+<main class="cms-main">
+  <div class="editor-head">
+    <h1>News</h1>
+    <span class="meta" id="dirty-meta">No unsaved changes</span>
+  </div>
+  <p class="lede">Posts shown on the news index pages (<code>/news/</code> and <code>/no/news/</code>). The post marked <strong>Featured</strong> renders as the large card at the top.</p>
+
+  <div class="section-head">
+    <h2>All posts</h2>
+    <button class="btn add" id="btn-add">+ Add post</button>
+  </div>
+  <div class="table-wrap">
+    <table class="cms">
+      <thead>
+        <tr>
+          <th>Slug</th>
+          <th>Title (EN)</th>
+          <th>Title (NO)</th>
+          <th>Type (EN)</th>
+          <th>Date (EN)</th>
+          <th>Image</th>
+          <th>Excerpt</th>
+          <th class="col-pub">Featured</th>
+          <th class="col-pub">Live</th>
+          <th class="col-actions"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</main>
+
+<div class="footer-bar">
+  <button class="btn" id="btn-reload">Discard changes</button>
+  <span class="status-msg" id="status"></span>
+  <span class="grow"></span>
+  <button class="btn primary" id="btn-save">Save draft</button>
+  <button class="btn accent" id="btn-publish">Publish &rarr;</button>
+</div>
+
+<div id="modal-root"></div>
+
+<script>
+(async function() {
+  const $ = (id) => document.getElementById(id);
+  let data = { posts: [] }, dirty = false;
+  const setDirty = (v) => { dirty = v; $('dirty-meta').textContent = v ? 'Unsaved changes' : 'No unsaved changes'; };
+  const setStatus = (m, k) => { const e = $('status'); e.textContent = m || ''; e.className = 'status-msg' + (k ? ' ' + k : ''); };
+  const escAttr = (s) => (s == null ? '' : String(s)).replace(/"/g, '&quot;');
+  const escText = (s) => (s == null ? '' : String(s)).replace(/</g, '&lt;');
+  const preview = (s) => (s || '').slice(0, 60) + ((s || '').length > 60 ? '…' : '');
+
+  function row(p, idx) {
+    const tr = document.createElement('tr');
+    tr.dataset.idx = idx;
+    tr.innerHTML = `
+      <td><input type="text" data-field="slug" value="${escAttr(p.slug)}" placeholder="slug-name" style="width:160px" /></td>
+      <td><input type="text" data-field="title_en" value="${escAttr(p.title_en)}" /></td>
+      <td><input type="text" data-field="title_no" value="${escAttr(p.title_no)}" /></td>
+      <td><input type="text" data-field="type_en" value="${escAttr(p.type_en)}" placeholder="Press coverage / Announcement / Thought leadership" style="width:160px" /></td>
+      <td><input type="text" data-field="date_en" value="${escAttr(p.date_en)}" placeholder="Sep 2, 2025" style="width:120px" /></td>
+      <td><input type="text" data-field="image" value="${escAttr(p.image)}" placeholder="filename.jpg" style="width:140px" /></td>
+      <td>
+        <p class="bio-cell" style="margin:0 0 6px">${escText(preview(p.excerpt_en))}</p>
+        <button class="btn linkish" data-action="edit-detail">Edit details</button>
+      </td>
+      <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="featured" ${p.featured ? 'checked' : ''}/><span class="slider"></span></label></td>
+      <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="published" ${p.published ? 'checked' : ''}/><span class="slider"></span></label></td>
+      <td class="col-actions">
+        <button class="btn icon" data-action="up">▲</button>
+        <button class="btn icon" data-action="down">▼</button>
+        <button class="btn danger" data-action="delete">Delete</button>
+      </td>
+    `;
+    return tr;
+  }
+
+  function render() {
+    const tbody = $('tbody');
+    tbody.innerHTML = '';
+    data.posts.forEach((p, i) => tbody.appendChild(row(p, i)));
+  }
+
+  function readBack() {
+    const arr = [];
+    $('tbody').querySelectorAll('tr').forEach((tr) => {
+      const get = (f) => {
+        const el = tr.querySelector(`[data-field="${f}"]`);
+        if (!el) return '';
+        if (el.type === 'checkbox') return el.checked;
+        return el.value;
+      };
+      const original = data.posts[parseInt(tr.dataset.idx, 10)] || {};
+      arr.push({
+        slug: get('slug'),
+        title_en: get('title_en'), title_no: get('title_no'),
+        type_en: get('type_en'), type_no: original.type_no || '',
+        date_en: get('date_en'), date_no: original.date_no || '',
+        read_time: original.read_time || '',
+        image: get('image'), alt: original.alt || '',
+        excerpt_en: original.excerpt_en || '', excerpt_no: original.excerpt_no || '',
+        featured: get('featured'), published: get('published'),
+      });
+    });
+    data.posts = arr;
+  }
+
+  function openModal(idx) {
+    readBack();
+    const p = data.posts[idx];
+    const root = $('modal-root');
+    root.innerHTML = `
+      <div class="modal-overlay" data-modal-overlay>
+        <div class="modal" style="max-width:880px">
+          <div class="modal-head">
+            <h2>Post details — ${escText(p.title_en || p.slug)}</h2>
+            <button class="close" data-modal-close>×</button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <label>Excerpt (EN)</label>
+              <textarea id="m-excerpt_en">${escText(p.excerpt_en)}</textarea>
+            </div>
+            <div>
+              <label>Excerpt (NO)</label>
+              <textarea id="m-excerpt_no">${escText(p.excerpt_no)}</textarea>
+            </div>
+            <div>
+              <label>Type (NO)</label>
+              <input type="text" id="m-type_no" value="${escAttr(p.type_no)}" />
+            </div>
+            <div>
+              <label>Date (NO)</label>
+              <input type="text" id="m-date_no" value="${escAttr(p.date_no)}" placeholder="2. sep 2025" />
+            </div>
+            <div>
+              <label>Read time (feature card only)</label>
+              <input type="text" id="m-read_time" value="${escAttr(p.read_time)}" placeholder="3 min read" />
+            </div>
+            <div>
+              <label>Image alt text</label>
+              <input type="text" id="m-alt" value="${escAttr(p.alt)}" />
+            </div>
+          </div>
+          <div class="modal-foot">
+            <button class="btn" data-modal-close>Cancel</button>
+            <button class="btn primary" id="m-apply">Apply</button>
+          </div>
+        </div>
+      </div>
+    `;
+    const close = () => { root.innerHTML = ''; };
+    root.querySelector('[data-modal-overlay]').addEventListener('click', (e) => { if (e.target === e.currentTarget) close(); });
+    root.querySelectorAll('[data-modal-close]').forEach(b => b.addEventListener('click', close));
+    document.getElementById('m-apply').addEventListener('click', () => {
+      const p2 = data.posts[idx];
+      p2.excerpt_en = document.getElementById('m-excerpt_en').value;
+      p2.excerpt_no = document.getElementById('m-excerpt_no').value;
+      p2.type_no = document.getElementById('m-type_no').value;
+      p2.date_no = document.getElementById('m-date_no').value;
+      p2.read_time = document.getElementById('m-read_time').value;
+      p2.alt = document.getElementById('m-alt').value;
+      setDirty(true); render(); close();
+    });
+  }
+
+  async function load() {
+    setStatus('Loading…');
+    const r = await fetch('/api/news');
+    if (!r.ok) { setStatus('Load failed', 'err'); return; }
+    data = await r.json(); render(); setDirty(false); setStatus('');
+  }
+  async function save() {
+    readBack();
+    setStatus('Saving…');
+    const r = await fetch('/api/news', { method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) });
+    if (!r.ok) { setStatus('Save failed', 'err'); return false; }
+    setDirty(false); setStatus('Draft saved', 'ok'); return true;
+  }
+  async function publish() {
+    if (!confirm('Publish news? Regenerates the index pages.')) return;
+    if (!(await save())) return;
+    setStatus('Publishing…');
+    const r = await fetch('/api/publish/news', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({}) });
+    const body = await r.json().catch(() => ({}));
+    if (!r.ok) { setStatus('Publish failed: ' + (body.error || r.status), 'err'); return; }
+    setStatus('Published — Coolify is redeploying', 'ok');
+  }
+
+  document.addEventListener('input', (e) => { if (e.target.closest('table.cms')) setDirty(true); });
+  document.addEventListener('change', (e) => { if (e.target.closest('table.cms')) setDirty(true); });
+  document.addEventListener('click', (e) => {
+    const t = e.target; const tr = t.closest('tr');
+    if (t.matches('[data-action="delete"]')) { readBack(); data.posts.splice(parseInt(tr.dataset.idx,10), 1); render(); setDirty(true); }
+    else if (t.matches('[data-action="up"]') || t.matches('[data-action="down"]')) {
+      const idx = parseInt(tr.dataset.idx,10); const newIdx = t.matches('[data-action="up"]') ? idx-1 : idx+1;
+      if (newIdx<0 || newIdx>=data.posts.length) return;
+      readBack();
+      const [m] = data.posts.splice(idx, 1); data.posts.splice(newIdx, 0, m); render(); setDirty(true);
+    } else if (t.matches('[data-action="edit-detail"]')) {
+      openModal(parseInt(tr.dataset.idx, 10));
+    }
+  });
+  $('btn-add').addEventListener('click', () => {
+    readBack();
+    data.posts.push({ slug:'new-post', title_en:'New post', title_no:'', type_en:'Announcement', type_no:'Kunngjøring', date_en:'', date_no:'', image:'', alt:'', excerpt_en:'', excerpt_no:'', read_time:'', featured:false, published:false });
+    render(); setDirty(true);
+  });
+  $('btn-save').addEventListener('click', save);
+  $('btn-publish').addEventListener('click', publish);
+  $('btn-reload').addEventListener('click', () => { if (dirty && !confirm('Discard?')) return; load(); });
+  window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue=''; } });
+  load();
+})();
+</script>
+</body>
+</html>

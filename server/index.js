@@ -17,6 +17,8 @@ const auth = basicAuth({
 
 app.use('/cms', auth, express.static(path.join(ROOT, 'cms-ui')));
 app.use('/api', auth, require('./routes/people'));
+app.use('/api', auth, require('./routes/sites'));
+app.use('/api', auth, require('./routes/news'));
 app.use('/api', auth, require('./routes/sections'));
 app.use('/api', auth, require('./routes/publish'));
 
