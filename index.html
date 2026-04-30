@@ -39,11 +39,13 @@
   .home-map .leaflet-container { background: #eaf0f3; font-family: var(--font-sans); cursor: default; }
   .home-map .dc-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(28,46,63,0.25); }
   .home-map .dc-pin.tbd { background: var(--warm); }
+  .home-map .dc-pin.sold { background: #33752f; }
   .home-map-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
   .home-map-foot .legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); }
   .home-map-foot .legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
   .home-map-foot .legend .live::before { background: var(--accent); }
   .home-map-foot .legend .tbd::before { background: var(--warm); }
+  .home-map-foot .legend .sold::before { background: #33752f; }
   .home-map-foot a { font-weight: 600; color: var(--accent); font-size: 14px; }
 
   /* JV / capital callout */
@@ -504,7 +506,7 @@
     const el = document.getElementById('home-map');
     if (!el || typeof L === 'undefined') return;
     const sites = /*cms:sites_array*/[
-      { name: "Glomfjord", country: "Norway", status: "live", lat: 66.8167, lng: 13.9667 },
+      { name: "Glomfjord", country: "Norway", status: "sold", lat: 66.8167, lng: 13.9667 },
       { name: "Bakki", country: "Iceland", status: "live", lat: 66.05, lng: -17.35 },
       { name: "Varkaus", country: "Finland", status: "live", lat: 62.3167, lng: 27.8833 },
       { name: "Project Aurora", country: "Sweden", status: "tbd", lat: 63, lng: 16 },
@@ -523,7 +525,7 @@
       L.marker([s.lat, s.lng], {
         icon: L.divIcon({
           className: '', iconSize: [16, 16], iconAnchor: [8, 8],
-          html: `<div class="dc-pin" title="${s.name}"></div>`
+          html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : s.status === 'sold' ? 'sold' : ''}" title="${s.name}"></div>`
         }),
         interactive: false, keyboard: false
       }).addTo(map);

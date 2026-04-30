@@ -1,7 +1,7 @@
 {
   "sites": [
     {
-      "id": "glomfjord", "name": "Glomfjord", "country": "Norway", "status": "live",
+      "id": "glomfjord", "name": "Glomfjord", "country": "Norway", "status": "sold",
       "lat": 66.8167, "lng": 13.9667,
       "power": "Hydro", "initial_mw": "12.5 MW", "target_mw": "50 MW+",
       "image": "glomfjord.webp",

@@ -80,6 +80,7 @@
   }
   .dc-card .status.live { background: var(--accent); }
   .dc-card .status.tbd { background: var(--muted); }
+  .dc-card .status.sold { background: #33752f; }
 
   .dc-card .body { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
   .dc-card h3 { font-family: var(--font-display); font-size: 22px; margin: 0; font-weight: 600; }
@@ -117,6 +118,7 @@
   .dc-map-legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
   .dc-map-legend .dot.live { background: var(--accent); }
   .dc-map-legend .dot.tbd { background: var(--muted); }
+  .dc-map-legend .dot.sold { background: #33752f; }
   .dc-map-wrap { position: relative; }
 
   /* Custom Leaflet pin */
@@ -129,6 +131,7 @@
     transform: translate(-50%, -50%);
   }
   .dc-pin.tbd { background: var(--muted); }
+  .dc-pin.sold { background: #33752f; }
   .leaflet-popup-content { font-family: var(--font-sans); font-size: 14px; line-height: 1.4; margin: 12px 14px; }
   .leaflet-popup-content h4 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
   .leaflet-popup-content .meta { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px; }
@@ -181,6 +184,7 @@
     <div id="dc-map" class="dc-map" aria-label="Map of Scale42 Nordic data centre sites"></div>
     <div class="dc-map-legend">
       <strong>Pipeline status</strong>
+      <div class="row"><span class="dot sold"></span> Sold</div>
       <div class="row"><span class="dot live"></span> In development / announced</div>
       <div class="row"><span class="dot tbd"></span> In planning</div>
     </div>
@@ -330,7 +334,7 @@
 <script>
   // Map: Nordic data centre sites
   const sites = /*cms:sites_full*/[
-    { name: "Glomfjord", country: "Norway", status: "live", lat: 66.8167, lng: 13.9667, power: "Hydro", target: "50 MW+", desc: "Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus." },
+    { name: "Glomfjord", country: "Norway", status: "sold", lat: 66.8167, lng: 13.9667, power: "Hydro", target: "50 MW+", desc: "Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus." },
     { name: "Bakki", country: "Iceland", status: "live", lat: 66.05, lng: -17.35, power: "Geothermal", target: "200 MW", desc: "Geothermal baseload, 50 MW initial 2027, scaling to 200 MW." },
     { name: "Varkaus", country: "Finland", status: "live", lat: 62.3167, lng: 27.8833, power: "Mixed renewable", target: "50 MW+", desc: "Industrial-ready Finnish site with strong municipal backing." },
     { name: "Project Aurora", country: "Sweden", status: "tbd", lat: 63, lng: 16, power: "Hydro / wind", target: "100 MW+", desc: "Strategic Swedish site. Details to be announced." },
@@ -351,7 +355,7 @@
   sites.forEach(s => {
     const icon = L.divIcon({
       className: '', iconSize: [28, 28], iconAnchor: [14, 14],
-      html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : ''}" title="${s.name}"></div>`
+      html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : s.status === 'sold' ? 'sold' : ''}" title="${s.name}"></div>`
     });
     const popup = `
       <h4>${s.name}</h4>
