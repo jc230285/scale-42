@@ -86,7 +86,7 @@ function cardHtml(sites, lang) {
             <div class="stat"><dt>${targetL}</dt><dd>${escHtml(s.target_mw || s.max_capacity_mw || '—')}</dd></div>
             <div class="stat"><dt>${powerL}</dt><dd>${escHtml(s.power || '—')}</dd></div>
           </dl>
-          <a href="${escHtml(slug)}/" class="dc-link" style="font-weight:600;color:var(--accent);font-size:13.5px;">${linkL}</a>
+          <a href="${escHtml(slug)}/" class="dc-link">${linkL}</a>
         </div>
       </article>`;
   }).join('\n\n');
@@ -110,9 +110,16 @@ function buildSiteDetailPage(s, schema, lang) {
   const status = s.status || 'tbd';
   const statusLabel = escHtml(s.short_status_label || labels[status] || labels.live);
   const statusClass = status === 'tbd' ? 'tbd' : status === 'sold' ? 'sold' : 'live';
+  const COUNTRY_GRAD = {
+    Norway: 'linear-gradient(135deg, #1c2e3f 0%, #2f6675 55%, #e8b87a 100%)',
+    Finland: 'linear-gradient(135deg, #1c2e3f 0%, #406b6e 60%, #c4d4d3 100%)',
+    Sweden: 'linear-gradient(135deg, #1c2e3f 0%, #5a4c3a 55%, #e8b87a 100%)',
+    Iceland: 'linear-gradient(135deg, #2c3a48 0%, #5a4030 60%, #c47a4a 100%)',
+    Greenland: 'linear-gradient(135deg, #1c2e3f 0%, #4a7080 55%, #d4e4ea 100%)',
+  };
   const heroImg = s.image
     ? `<img src="../../assets/sites/${escHtml(s.image)}" alt="${escHtml(s.name)}" />`
-    : '';
+    : `<div class="hero-fallback" style="background:${COUNTRY_GRAD[s.country] || COUNTRY_GRAD.Norway};aspect-ratio:24/9;border-radius:var(--radius);margin-top:24px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-family:var(--font-display);font-size:48px;font-weight:600;letter-spacing:-0.02em;">${escHtml(s.country || '')}</div>`;
 
   // Public-only fields, grouped by schema group
   const publicFields = schema.fields.filter(f => f.public && f.key !== 'name' && f.key !== 'country' && f.key !== 'image' && f.key !== 'status' && f.key !== 'desc_en' && f.key !== 'desc_no' && f.key !== 'published' && f.key !== 'short_status_label');

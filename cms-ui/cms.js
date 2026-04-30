@@ -23,7 +23,10 @@ function cmsPeople() {
         <p class="preview" data-bio-preview>${escapeText(preview(p.bio_en))}</p>
         <button class="btn linkish" data-action="edit-bio">Edit bios</button>
       </td>
+      <td><input type="email" data-field="email" value="${escapeAttr(p.email)}" placeholder="name@scale-42.com" /></td>
+      <td><input type="tel" data-field="phone" value="${escapeAttr(p.phone)}" placeholder="+47 …" /></td>
       <td><input type="url" data-field="linkedin" value="${escapeAttr(p.linkedin)}" placeholder="https://linkedin.com/in/..." /></td>
+      <td class="col-actions"><button class="btn linkish" data-action="signature">Open</button></td>
       <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="is_founder" ${p.is_founder ? 'checked' : ''}/><span class="slider"></span></label></td>
       <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="published" ${p.published ? 'checked' : ''}/><span class="slider"></span></label></td>
       <td class="col-actions">
@@ -60,6 +63,8 @@ function cmsPeople() {
         bio_en: original.bio_en || '',
         bio_no: original.bio_no || '',
         photo: original.photo || '',
+        email: get('email'),
+        phone: get('phone'),
         linkedin: get('linkedin'),
         is_founder: get('is_founder'),
         published: get('published'),
@@ -109,8 +114,146 @@ function cmsPeople() {
     });
   }
 
+  function buildSignatureHtml(p) {
+    const SITE = 'https://www.scale-42.com';
+    const photoUrl = p.photo ? `${SITE}/${p.photo}` : '';
+    const logoUrl = `${SITE}/assets/logo.png`;
+    const teal = '#2f6675';
+    const ink = '#1c2e3f';
+    const muted = '#6b7780';
+    const role = p.role_en || '';
+    const phone = p.phone || '';
+    const email = p.email || '';
+    const linkedin = p.linkedin || '';
+    return `<table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:${ink};font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    ${photoUrl ? `<td valign="top" style="padding:0 18px 0 0;">
+      <img src="${photoUrl}" alt="${(p.name||'').replace(/"/g,'&quot;')}" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" />
+    </td>` : ''}
+    <td valign="top" style="border-left:3px solid ${teal};padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:${ink};letter-spacing:-0.01em;">${p.name || ''}</div>
+      ${role ? `<div style="font-size:13px;color:${muted};margin-top:2px;">${role} &middot; Scale42</div>` : `<div style="font-size:13px;color:${muted};margin-top:2px;">Scale42</div>`}
+      <div style="margin-top:10px;font-size:12.5px;">
+        ${phone ? `<a href="tel:${phone.replace(/\s/g,'')}" style="color:${ink};text-decoration:none;">${phone}</a>` : ''}
+        ${phone && email ? `<span style="color:${muted};margin:0 6px;">&middot;</span>` : ''}
+        ${email ? `<a href="mailto:${email}" style="color:${ink};text-decoration:none;">${email}</a>` : ''}
+      </div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="${SITE}" style="color:${teal};text-decoration:none;font-weight:600;">scale-42.com</a>
+        ${linkedin ? `<span style="color:${muted};margin:0 6px;">&middot;</span><a href="${linkedin}" style="color:${teal};text-decoration:none;font-weight:600;">LinkedIn</a>` : ''}
+      </div>
+      <div style="margin-top:12px;">
+        <img src="${logoUrl}" alt="Scale42" width="96" style="display:block;border:0;" />
+      </div>
+      <div style="margin-top:8px;font-size:11px;color:${muted};">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table>`;
+  }
+
+  function buildSignatureText(p) {
+    const lines = [];
+    lines.push(p.name || '');
+    if (p.role_en) lines.push(`${p.role_en} · Scale42`); else lines.push('Scale42');
+    lines.push('');
+    if (p.phone) lines.push(p.phone);
+    if (p.email) lines.push(p.email);
+    lines.push('https://www.scale-42.com');
+    if (p.linkedin) lines.push(p.linkedin);
+    return lines.filter(l => l !== undefined).join('\n');
+  }
+
+  function openSignatureModal(idx) {
+    const p = data.people[idx];
+    const html = buildSignatureHtml(p);
+    const text = buildSignatureText(p);
+    const root = $('modal-root');
+    root.innerHTML = `
+      <div class="modal-overlay" data-modal-overlay>
+        <div class="modal" style="max-width:720px;">
+          <div class="modal-head">
+            <h2>Email signature &mdash; ${escapeText(p.name || 'Untitled')}</h2>
+            <button class="close" data-modal-close aria-label="Close">×</button>
+          </div>
+          <div class="modal-body" style="display:block;">
+            <p style="margin:0 0 10px;font-size:13px;color:#6b7780;">Preview (rendered):</p>
+            <div style="background:#fff;border:1px solid #e5e8eb;border-radius:10px;padding:20px;margin-bottom:18px;">
+              <div id="sig-preview"></div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;">
+              <button class="btn primary" id="sig-copy-html">Copy rich (Gmail / Outlook web)</button>
+              <button class="btn" id="sig-copy-source">Copy HTML source</button>
+              <button class="btn" id="sig-copy-text">Copy plain text</button>
+            </div>
+            <details>
+              <summary style="cursor:pointer;font-size:13px;color:#6b7780;">HTML source</summary>
+              <textarea readonly style="width:100%;height:180px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;margin-top:8px;border:1px solid #e5e8eb;border-radius:6px;padding:8px;">${escapeText(html)}</textarea>
+            </details>
+            <p style="margin:14px 0 0;font-size:12px;color:#6b7780;">
+              <strong>Outlook desktop:</strong> File &rarr; Options &rarr; Mail &rarr; Signatures &rarr; New &rarr; paste the rich version.<br/>
+              <strong>Gmail:</strong> Settings &rarr; See all settings &rarr; Signature &rarr; paste the rich version.<br/>
+              The image links to https://www.scale-42.com so it loads in any client; nothing is embedded.
+            </p>
+          </div>
+          <div class="modal-foot">
+            <button class="btn" data-modal-close>Close</button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.getElementById('sig-preview').innerHTML = html;
+    const close = () => { root.innerHTML = ''; };
+    root.querySelector('[data-modal-overlay]').addEventListener('click', (e) => { if (e.target === e.currentTarget) close(); });
+    root.querySelectorAll('[data-modal-close]').forEach(b => b.addEventListener('click', close));
+
+    const flash = (btn, msg) => { const o = btn.textContent; btn.textContent = msg; setTimeout(() => btn.textContent = o, 1400); };
+
+    document.getElementById('sig-copy-html').addEventListener('click', async (e) => {
+      try {
+        await navigator.clipboard.write([
+          new ClipboardItem({
+            'text/html': new Blob([html], { type: 'text/html' }),
+            'text/plain': new Blob([text], { type: 'text/plain' }),
+          })
+        ]);
+        flash(e.target, '✓ Copied — paste into Gmail/Outlook');
+      } catch (err) {
+        // fallback
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById('sig-preview'));
+        const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        document.execCommand('copy'); sel.removeAllRanges();
+        flash(e.target, '✓ Copied');
+      }
+    });
+    document.getElementById('sig-copy-source').addEventListener('click', async (e) => {
+      await navigator.clipboard.writeText(html); flash(e.target, '✓ Copied HTML');
+    });
+    document.getElementById('sig-copy-text').addEventListener('click', async (e) => {
+      await navigator.clipboard.writeText(text); flash(e.target, '✓ Copied text');
+    });
+  }
+
+  async function loadMeta() {
+    try {
+      const r = await fetch('/api/published-meta');
+      if (!r.ok) return;
+      const m = await r.json();
+      const info = m.people;
+      const el = document.getElementById('last-published');
+      if (!el) return;
+      if (info?.at) {
+        const dt = new Date(info.at);
+        const ago = Math.round((Date.now() - dt.getTime()) / 60000);
+        const txt = ago < 60 ? `${ago} min ago` : ago < 1440 ? `${Math.round(ago/60)} h ago` : dt.toLocaleDateString();
+        el.textContent = `Last published: ${txt}`;
+      } else { el.textContent = 'Never published'; }
+    } catch {}
+  }
+
   async function load() {
     setStatus('Loading…');
+    loadMeta();
     const r = await fetch('/api/people');
     if (!r.ok) { setStatus('Load failed', 'err'); return; }
     data = await r.json();
@@ -162,6 +305,9 @@ function cmsPeople() {
       setDirty(true);
     } else if (t.matches('[data-action="edit-bio"]')) {
       openBioModal(parseInt(tr.dataset.idx, 10));
+    } else if (t.matches('[data-action="signature"]')) {
+      readBack();
+      openSignatureModal(parseInt(tr.dataset.idx, 10));
     } else if (t.closest('[data-action="pick-photo"]')) {
       const idx = parseInt(tr.dataset.idx, 10);
       readBack();
@@ -172,7 +318,7 @@ function cmsPeople() {
       });
     } else if (t.matches('[data-add]')) {
       readBack();
-      data.people.push({ id: '', name: '', role_en: '', role_no: '', bio_en: '', bio_no: '', photo: '', linkedin: '', is_founder: false, published: false });
+      data.people.push({ id: '', name: '', role_en: '', role_no: '', bio_en: '', bio_no: '', photo: '', email: '', phone: '', linkedin: '', is_founder: false, published: false });
       render();
       setDirty(true);
     }

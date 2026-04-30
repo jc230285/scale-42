@@ -1,55 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://www.scale-42.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/" />
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/" />
+  <url>
+    <loc>https://www.scale-42.com/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/"/>
   </url>
-  <url><loc>https://www.scale-42.com/no/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-
-  <url><loc>https://www.scale-42.com/capabilities/</loc><changefreq>monthly</changefreq><priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/capabilities/" />
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/capabilities/" />
+  <url>
+    <loc>https://www.scale-42.com/datacenters/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/"/>
   </url>
-  <url><loc>https://www.scale-42.com/no/capabilities/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <url><loc>https://www.scale-42.com/datacenters/</loc><changefreq>weekly</changefreq><priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/" />
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/" />
+  <url>
+    <loc>https://www.scale-42.com/news/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/news/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/news/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/news/"/>
   </url>
-  <url><loc>https://www.scale-42.com/no/datacenters/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.scale-42.com/datacenters/glomfjord/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.scale-42.com/datacenters/bakki/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.scale-42.com/datacenters/varkaus/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.scale-42.com/no/datacenters/glomfjord/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.scale-42.com/no/datacenters/bakki/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.scale-42.com/no/datacenters/varkaus/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-
-  <url><loc>https://www.scale-42.com/news/</loc><changefreq>weekly</changefreq><priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/news/" />
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/news/" />
+  <url>
+    <loc>https://www.scale-42.com/capabilities/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/capabilities/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/capabilities/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/capabilities/"/>
   </url>
-  <url><loc>https://www.scale-42.com/no/news/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.scale-42.com/news/bakki-iceland-50mw/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.scale-42.com/news/gig-strategic-partnership/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.scale-42.com/news/public-statement-partnership/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.scale-42.com/news/varkaus-finland/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.scale-42.com/news/deepseek-thought-piece/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.scale-42.com/no/news/bakki-iceland-50mw/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.scale-42.com/no/news/gig-strategic-partnership/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.scale-42.com/no/news/public-statement-partnership/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.scale-42.com/no/news/varkaus-finland/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.scale-42.com/no/news/deepseek-thought-piece/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-
-  <url><loc>https://www.scale-42.com/careers/</loc><changefreq>monthly</changefreq><priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/careers/" />
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/careers/" />
+  <url>
+    <loc>https://www.scale-42.com/team/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/team/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/team/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/team/"/>
   </url>
-  <url><loc>https://www.scale-42.com/no/careers/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-
-  <url><loc>https://www.scale-42.com/press/</loc><changefreq>monthly</changefreq><priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/press/" />
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/press/" />
+  <url>
+    <loc>https://www.scale-42.com/datacenters/glomfjord/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/glomfjord/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/glomfjord/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/glomfjord/"/>
   </url>
-  <url><loc>https://www.scale-42.com/no/press/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/bakki/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/bakki/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/bakki/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/bakki/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/skibotn/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/skibotn/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/skibotn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/skibotn/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/reykjavik/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/reykjavik/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/reykjavik/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/reykjavik/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/varkaus/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/varkaus/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/varkaus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/varkaus/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/kristinestad/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/kristinestad/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/kristinestad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/kristinestad/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/nivala/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/nivala/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/nivala/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/nivala/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/jokkmokk/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/jokkmokk/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/jokkmokk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/jokkmokk/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/kronoby/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/kronoby/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/kronoby/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/kronoby/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/liperi/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/liperi/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/liperi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/liperi/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/kitee/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/kitee/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/kitee/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/kitee/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/kemi/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/kemi/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/kemi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/kemi/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/torsboda/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/torsboda/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/torsboda/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/torsboda/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/alajarvi/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/alajarvi/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/alajarvi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/alajarvi/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/boden/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/boden/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/boden/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/boden/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/datacenters/tjeldbergodden/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/tjeldbergodden/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/tjeldbergodden/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/tjeldbergodden/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/news/bakki-iceland-50mw/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/news/bakki-iceland-50mw/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/news/bakki-iceland-50mw/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/news/bakki-iceland-50mw/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/news/gig-strategic-partnership/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/news/gig-strategic-partnership/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/news/gig-strategic-partnership/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/news/gig-strategic-partnership/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/news/public-statement-partnership/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/news/public-statement-partnership/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/news/public-statement-partnership/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/news/public-statement-partnership/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/news/varkaus-finland/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/news/varkaus-finland/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/news/varkaus-finland/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/news/varkaus-finland/"/>
+  </url>
+  <url>
+    <loc>https://www.scale-42.com/news/deepseek-thought-piece/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/news/deepseek-thought-piece/"/>
+    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/news/deepseek-thought-piece/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/news/deepseek-thought-piece/"/>
+  </url>
 </urlset>

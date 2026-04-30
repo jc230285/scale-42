@@ -84,6 +84,7 @@
   <div class="editor-head">
     <h1>Sites</h1>
     <span class="meta" id="dirty-meta">No unsaved changes</span>
+    <span class="meta" id="last-published" style="margin-left:12px;color:var(--ink-2);font-size:12px;"></span>
   </div>
   <p class="lede">Pick a site on the left, edit fields on the right. <span class="pill-public" style="background:#dde7e9;color:var(--teal);padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;">●</span> blue dot = public field. Toggle "Hide internal" to focus on what renders publicly.</p>
   <div id="totals"></div>
@@ -439,12 +440,30 @@
     }
   });
 
+  async function loadMeta() {
+    try {
+      const r = await fetch('/api/published-meta');
+      if (!r.ok) return;
+      const m = await r.json();
+      const info = m.sites;
+      if (info?.at) {
+        const dt = new Date(info.at);
+        const ago = Math.round((Date.now() - dt.getTime()) / 60000);
+        const txt = ago < 60 ? `${ago} min ago` : ago < 1440 ? `${Math.round(ago/60)} h ago` : dt.toLocaleDateString();
+        $('last-published').textContent = `Last published: ${txt}`;
+      } else {
+        $('last-published').textContent = 'Never published';
+      }
+    } catch {}
+  }
+
   async function load() {
     setStatus('Loading…');
     const [r1, r2] = await Promise.all([fetch('/api/sites'), fetch('/api/sites-schema')]);
     if (!r1.ok || !r2.ok) { setStatus('Load failed', 'err'); return; }
     data = await r1.json();
     schema = await r2.json();
+    loadMeta();
     selectedIdx = Math.min(selectedIdx, data.sites.length - 1);
     if (selectedIdx < 0) selectedIdx = 0;
     renderTotals(); renderList(); renderEditor();
