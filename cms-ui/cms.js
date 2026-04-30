@@ -268,8 +268,10 @@ function cmsPeople() {
     setStatus('Saving…');
     const r = await fetch('/api/people', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     if (!r.ok) { setStatus('Save failed', 'err'); return false; }
+    const r2 = await fetch('/api/save/people', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+    if (!r2.ok) { setStatus('Saved locally; draft commit failed', 'err'); setDirty(false); return true; }
     setDirty(false);
-    setStatus('Draft saved', 'ok');
+    setStatus('Saved to draft branch', 'ok');
     return true;
   }
 
@@ -280,7 +282,7 @@ function cmsPeople() {
     const r = await fetch('/api/publish/people', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'CMS publish: people' }) });
     const body = await r.json().catch(() => ({}));
     if (!r.ok) { setStatus('Publish failed: ' + (body.error || r.status), 'err'); return; }
-    setStatus('Published — Coolify is redeploying', 'ok');
+    setStatus('Published to LIVE — both sites redeploying', 'ok');
   }
 
   document.addEventListener('input', (e) => { if (e.target.closest('table.cms')) setDirty(true); });

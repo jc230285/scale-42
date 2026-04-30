@@ -22,8 +22,8 @@ async function gh(method, url, body) {
   return r.json();
 }
 
-async function commitFiles(files, message) {
-  const ref = await gh('GET', `/repos/${REPO}/git/ref/heads/${BRANCH}`);
+async function commitFiles(files, message, branch = BRANCH) {
+  const ref = await gh('GET', `/repos/${REPO}/git/ref/heads/${branch}`);
   const baseSha = ref.object.sha;
   const baseCommit = await gh('GET', `/repos/${REPO}/git/commits/${baseSha}`);
 
@@ -45,8 +45,10 @@ async function commitFiles(files, message) {
   const newCommit = await gh('POST', `/repos/${REPO}/git/commits`, {
     message, tree: newTree.sha, parents: [baseSha],
   });
-  await gh('PATCH', `/repos/${REPO}/git/refs/heads/${BRANCH}`, { sha: newCommit.sha });
+  await gh('PATCH', `/repos/${REPO}/git/refs/heads/${branch}`, { sha: newCommit.sha });
   return newCommit.sha;
 }
 
-module.exports = { commitFiles, BRANCH };
+const PUBLIC_BRANCH = process.env.GITHUB_PUBLIC_BRANCH || 'master';
+
+module.exports = { commitFiles, BRANCH, PUBLIC_BRANCH };

@@ -117,8 +117,10 @@
     setStatus('Saving…');
     const r = await fetch('/api/sections', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     if (!r.ok) { setStatus('Save failed', 'err'); return false; }
+    const r2 = await fetch('/api/save/sections', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+    if (!r2.ok) { setStatus('Saved locally; draft commit failed', 'err'); setDirty(false); return true; }
     setDirty(false);
-    setStatus('Draft saved', 'ok');
+    setStatus('Saved to draft branch', 'ok');
     return true;
   }
 
@@ -129,7 +131,7 @@
     const r = await fetch('/api/publish/sections', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'CMS publish: sections' }) });
     const body = await r.json().catch(() => ({}));
     if (!r.ok) { setStatus('Publish failed: ' + (body.error || r.status), 'err'); return; }
-    setStatus('Published — Coolify is redeploying', 'ok');
+    setStatus('Published to LIVE — both sites redeploying', 'ok');
   }
 
   document.addEventListener('input', (e) => { if (e.target.matches('[data-key]')) setDirty(true); });

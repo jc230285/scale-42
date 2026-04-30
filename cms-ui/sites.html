@@ -475,19 +475,22 @@
     setStatus('Saving…');
     const r = await fetch('/api/sites', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     if (!r.ok) { setStatus('Save failed', 'err'); return false; }
-    setDirty(false); setStatus('Draft saved', 'ok');
+    // Commit raw JSON to draft branch so draft site reflects it
+    const r2 = await fetch('/api/save/sites', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+    if (!r2.ok) { setStatus('Saved locally; draft commit failed', 'err'); setDirty(false); return true; }
+    setDirty(false); setStatus('Saved to draft branch', 'ok');
     renderTotals();
     return true;
   }
 
   async function publish() {
-    if (!confirm('Publish sites? Regenerates pipeline pages and pushes to draft branch.')) return;
+    if (!confirm('Publish sites? Regenerates pipeline pages and pushes to LIVE site (master branch).')) return;
     if (!(await save())) return;
     setStatus('Publishing…');
     const r = await fetch('/api/publish/sites', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'CMS publish: sites' }) });
     const body = await r.json().catch(() => ({}));
     if (!r.ok) { setStatus('Publish failed: ' + (body.error || r.status), 'err'); return; }
-    setStatus('Published — Coolify is redeploying', 'ok');
+    setStatus('Published to LIVE — both sites redeploying', 'ok');
   }
 
   $('btn-save').addEventListener('click', save);
