@@ -1,58 +1,111 @@
 {
   "sites": [
     {
-      "id": "glomfjord", "name": "Glomfjord", "country": "Norway", "status": "sold",
+      "id": "glomfjord", "name": "Glomfjord", "country": "Norway", "site_type": "brownfield",
+      "internal_status": "Sold", "internal_category": "GIGA-42",
+      "published": true, "status": "sold", "short_status_label": "Sold",
       "lat": 66.8167, "lng": 13.9667,
-      "power": "Hydro", "initial_mw": "12.5 MW", "target_mw": "50 MW+",
+      "power": "Hydro", "initial_mw": "12.5 MW", "target_mw": "50 MW+", "max_capacity_mw": "50",
       "image": "glomfjord.webp",
       "desc_en": "Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus.",
-      "desc_no": "Vannkraftrik kystlokasjon, 12,5 MW-moduler skalerer til 50 MW+ campus.",
-      "published": true
+      "desc_no": "Vannkraftrik kystlokasjon, 12,5 MW-moduler skalerer til 50 MW+ campus."
     },
     {
-      "id": "bakki", "name": "Bakki", "country": "Iceland", "status": "live",
+      "id": "bakki", "name": "Bakki", "country": "Iceland", "site_type": "greenfield",
+      "internal_status": "Responsibility", "internal_category": "GIGA-42",
+      "published": true, "status": "live", "short_status_label": "JV announced",
       "lat": 66.05, "lng": -17.35,
-      "power": "Geothermal", "initial_mw": "50 MW", "target_mw": "200 MW",
+      "power": "Geothermal", "initial_mw": "50 MW", "target_mw": "200 MW", "max_capacity_mw": "200",
       "image": "bakki.jpg",
       "desc_en": "Geothermal baseload, 50 MW initial 2027, scaling to 200 MW.",
-      "desc_no": "Geotermisk grunnlast, 50 MW oppstart 2027, skalerer til 200 MW.",
-      "published": true
+      "desc_no": "Geotermisk grunnlast, 50 MW oppstart 2027, skalerer til 200 MW."
     },
     {
-      "id": "varkaus", "name": "Varkaus", "country": "Finland", "status": "live",
+      "id": "skibotn", "name": "Skibotn", "country": "Norway", "site_type": "greenfield",
+      "internal_status": "Responsibility", "internal_category": "GIGA-42",
+      "published": true, "status": "live", "short_status_label": "Power-secured",
+      "lat": 69.3833, "lng": 20.2667,
+      "power": "Hydro", "initial_mw": "25 MW", "target_mw": "150 MW",
+      "image": "",
+      "desc_en": "Sub-Arctic Norwegian site with hydropower headroom and free-air cooling at 69° N.",
+      "desc_no": "Sub-arktisk norsk lokasjon med vannkraftkapasitet og frikjøling på 69° N."
+    },
+    {
+      "id": "reykjavik", "name": "Reykjavík", "country": "Iceland", "site_type": "brownfield",
+      "internal_status": "Development focus", "internal_category": "GIGA-42",
+      "published": true, "status": "live", "short_status_label": "Permitting",
+      "lat": 64.1466, "lng": -21.9426,
+      "power": "Geothermal / hydro", "initial_mw": "20 MW", "target_mw": "100 MW",
+      "image": "",
+      "desc_en": "Greater Reykjavík capacity adjacent to existing fibre — low-latency to North America.",
+      "desc_no": "Kapasitet i Stor-Reykjavík ved siden av eksisterende fiber — lav latency til Nord-Amerika."
+    },
+    {
+      "id": "varkaus", "name": "Varkaus", "country": "Finland", "site_type": "brownfield",
+      "internal_status": "Development focus", "internal_category": "GIGA-42",
+      "published": true, "status": "live", "short_status_label": "Permitting",
       "lat": 62.3167, "lng": 27.8833,
       "power": "Mixed renewable", "initial_mw": "", "target_mw": "50 MW+",
       "image": "varkaus.jpg",
       "desc_en": "Industrial-ready Finnish site with strong municipal backing.",
-      "desc_no": "Industriklar finsk lokasjon med sterk kommunal støtte.",
-      "published": true
+      "desc_no": "Industriklar finsk lokasjon med sterk kommunal støtte."
     },
     {
-      "id": "aurora", "name": "Project Aurora", "country": "Sweden", "status": "tbd",
-      "lat": 63.0, "lng": 16.0,
-      "power": "Hydro / wind", "initial_mw": "", "target_mw": "100 MW+",
+      "id": "kristinestad", "name": "Kristinestad", "country": "Finland", "site_type": "greenfield",
+      "internal_status": "Development focus", "internal_category": "GIGA-42",
+      "published": true, "status": "live", "short_status_label": "Power-secured",
+      "lat": 62.2745, "lng": 21.3781,
+      "power": "Wind", "initial_mw": "50 MW", "target_mw": "300 MW",
       "image": "",
-      "desc_en": "Strategic Swedish site. Details to be announced.",
-      "desc_no": "Strategisk svensk lokasjon. Detaljer kommer.",
-      "published": true
+      "desc_en": "Coastal Finnish site at the wind-power heartland with deep grid capacity.",
+      "desc_no": "Finsk kystlokasjon i vindkraftens kjerneområde med stor nettkapasitet."
     },
     {
-      "id": "fjord-ii", "name": "Project Fjord II", "country": "Norway", "status": "tbd",
-      "lat": 67.2, "lng": 14.5,
-      "power": "Hydro", "initial_mw": "", "target_mw": "500 MW+",
+      "id": "nivala", "name": "Nivala", "country": "Finland", "site_type": "greenfield",
+      "internal_status": "Development focus", "internal_category": "GIGA-42",
+      "published": true, "status": "live", "short_status_label": "Permitting",
+      "lat": 63.9333, "lng": 24.9667,
+      "power": "Wind", "initial_mw": "25 MW", "target_mw": "100 MW+",
       "image": "",
-      "desc_en": "Second Norwegian campus, flagship-scale capacity.",
-      "desc_no": "Andre norske campus, flaggskip-skala kapasitet.",
-      "published": true
+      "desc_en": "North Ostrobothnia site with strong onshore wind and existing 110 kV connection.",
+      "desc_no": "Lokasjon i Nord-Österbotten med sterk landvind og eksisterende 110 kV-tilknytning."
     },
     {
-      "id": "boreal", "name": "Project Boreal", "country": "Finland", "status": "tbd",
-      "lat": 65.5, "lng": 27.0,
-      "power": "Mixed renewable", "initial_mw": "", "target_mw": "100 MW+",
+      "id": "jokkmokk", "name": "Jokkmokk", "country": "Sweden", "site_type": "greenfield",
+      "internal_status": "Development focus", "internal_category": "GIGA-42",
+      "published": true, "status": "live", "short_status_label": "Power-secured",
+      "lat": 66.6066, "lng": 19.8242,
+      "power": "Hydro", "initial_mw": "25 MW", "target_mw": "200 MW",
       "image": "",
-      "desc_en": "Northern Finland industrial corridor.",
-      "desc_no": "Industrikorridor i Nord-Finland.",
-      "published": true
-    }
+      "desc_en": "Lapland hydropower belt — co-located with Sweden's largest hydropower production region.",
+      "desc_no": "Vannkraftbeltet i Lappland — samlokalisert med Sveriges største vannkraftregion."
+    },
+    {
+      "id": "kronoby", "name": "Kronoby", "country": "Finland", "site_type": "greenfield",
+      "internal_status": "Development focus", "internal_category": "GIGA-42",
+      "published": true, "status": "live", "short_status_label": "Permitting",
+      "lat": 63.7333, "lng": 23.0167,
+      "power": "Wind / hydro", "initial_mw": "25 MW", "target_mw": "100 MW",
+      "image": "",
+      "desc_en": "Bilingual coastal Finnish site with wind and hydro complementary supply.",
+      "desc_no": "Tospråklig finsk kystlokasjon med komplementær vind- og vannkraftforsyning."
+    },
+
+    { "id": "liperi", "name": "Liperi", "country": "Finland", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "JV-candidate", "published": false, "status": "tbd", "lat": 62.5333, "lng": 29.3667, "power": "Mixed renewable", "target_mw": "50 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "kitee", "name": "Kitee", "country": "Finland", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "JV-candidate", "published": false, "status": "tbd", "lat": 62.1, "lng": 30.15, "power": "Mixed renewable", "target_mw": "50 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "honningsvag", "name": "Honningsvåg", "country": "Norway", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "Speculative", "published": false, "status": "tbd", "lat": 70.9821, "lng": 25.9704, "power": "Wind / hydro", "target_mw": "50 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "kemi", "name": "Kemi", "country": "Finland", "site_type": "brownfield", "internal_status": "Watch list", "internal_category": "Partner-led", "published": false, "status": "tbd", "lat": 65.7333, "lng": 24.5667, "power": "Mixed renewable", "target_mw": "100 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "mikkeli", "name": "Mikkeli", "country": "Finland", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "Speculative", "published": false, "status": "tbd", "lat": 61.6886, "lng": 27.2723, "power": "Mixed renewable", "target_mw": "50 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "sorfold", "name": "Sørfold", "country": "Norway", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "Speculative", "published": false, "status": "tbd", "lat": 67.4667, "lng": 15.4167, "power": "Hydro", "target_mw": "100 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "torsboda", "name": "Torsboda", "country": "Sweden", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "Partner-led", "published": false, "status": "tbd", "lat": 62.5667, "lng": 17.4167, "power": "Hydro / wind", "target_mw": "200 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "alajarvi", "name": "Alajärvi", "country": "Finland", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "JV-candidate", "published": false, "status": "tbd", "lat": 63.0, "lng": 23.8167, "power": "Wind", "target_mw": "100 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "boden", "name": "Boden", "country": "Sweden", "site_type": "brownfield", "internal_status": "Watch list", "internal_category": "Partner-led", "published": false, "status": "tbd", "lat": 65.825, "lng": 21.6889, "power": "Hydro", "target_mw": "200 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "robertsfors", "name": "Robertsfors", "country": "Sweden", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "Speculative", "published": false, "status": "tbd", "lat": 64.2, "lng": 20.85, "power": "Hydro / wind", "target_mw": "100 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "hadsel", "name": "Hadsel", "country": "Norway", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "Speculative", "published": false, "status": "tbd", "lat": 68.55, "lng": 14.85, "power": "Hydro", "target_mw": "50 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "sortland", "name": "Sortland", "country": "Norway", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "Speculative", "published": false, "status": "tbd", "lat": 68.7, "lng": 15.4, "power": "Hydro", "target_mw": "50 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "tjeldbergodden", "name": "Tjeldbergodden", "country": "Norway", "site_type": "brownfield", "internal_status": "Watch list", "internal_category": "Partner-led", "published": false, "status": "tbd", "lat": 63.4239, "lng": 8.5675, "power": "Hydro / gas", "target_mw": "100 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "salsbruket", "name": "Salsbruket", "country": "Norway", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "Speculative", "published": false, "status": "tbd", "lat": 64.7, "lng": 11.6, "power": "Hydro", "target_mw": "50 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "rovaniemi", "name": "Rovaniemi", "country": "Finland", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "Speculative", "published": false, "status": "tbd", "lat": 66.5, "lng": 25.7167, "power": "Hydro", "target_mw": "100 MW+", "desc_en": "", "desc_no": "" },
+    { "id": "nuuk", "name": "Nuuk", "country": "Greenland", "site_type": "greenfield", "internal_status": "Watch list", "internal_category": "Speculative", "published": false, "status": "tbd", "lat": 64.1814, "lng": -51.6941, "power": "Hydro", "target_mw": "50 MW+", "desc_en": "", "desc_no": "" }
   ]
 }
