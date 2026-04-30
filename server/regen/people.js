@@ -1,0 +1,74 @@
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = path.resolve(__dirname, '..', '..');
+const DATA = path.join(ROOT, 'content', 'people.json');
+
+const escapeHtml = (s = '') => s
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;');
+
+function memberHtml(p, lang) {
+  const role = lang === 'no' ? p.role_no : p.role_en;
+  const bio = lang === 'no' ? p.bio_no : p.bio_en;
+  const linkedin = p.linkedin
+    ? `\n        <a href="${escapeHtml(p.linkedin)}" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>`
+    : '';
+  return `      <div class="member">
+        <div class="member-photo"><img src="${lang === 'no' ? '../' : ''}${escapeHtml(p.photo)}" alt="${escapeHtml(p.name)}" /></div>
+        <h4>${escapeHtml(p.name)}</h4>
+        <p class="role">${escapeHtml(role || '')}</p>
+        <p>${escapeHtml(bio || '')}</p>${linkedin}
+      </div>`;
+}
+
+function blockHtml(people, klass, lang) {
+  const inner = people.filter(p => p.published).map(p => memberHtml(p, lang)).join('\n');
+  return `<div class="grid grid-3 ${klass}">\n${inner}\n    </div>`;
+}
+
+function replaceBlock(html, gridClass, replacement) {
+  const re = new RegExp(`<div class="grid grid-3 ${gridClass}">[\\s\\S]*?<\\/div>\\s*<\\/div>`, 'm');
+  // The grid contains member divs and ends with </div>. We want to stop at the matching </div> of the grid itself.
+  // Use a more conservative regex: find opening, then match until next </section> boundary's preceding </div>.
+  const opener = `<div class="grid grid-3 ${gridClass}">`;
+  const start = html.indexOf(opener);
+  if (start < 0) throw new Error(`block not found: ${gridClass}`);
+  // Walk forward counting <div> / </div> to find matching close.
+  let i = start;
+  let depth = 0;
+  const len = html.length;
+  while (i < len) {
+    const openIdx = html.indexOf('<div', i);
+    const closeIdx = html.indexOf('</div>', i);
+    if (closeIdx < 0) throw new Error('unbalanced');
+    if (openIdx >= 0 && openIdx < closeIdx) {
+      depth++;
+      i = openIdx + 4;
+    } else {
+      depth--;
+      i = closeIdx + 6;
+      if (depth === 0) break;
+    }
+  }
+  return html.slice(0, start) + replacement + html.slice(i);
+}
+
+function run() {
+  const data = JSON.parse(fs.readFileSync(DATA, 'utf-8'));
+
+  for (const lang of ['en', 'no']) {
+    const file = path.join(ROOT, lang === 'no' ? 'no/index.html' : 'index.html');
+    let html = fs.readFileSync(file, 'utf-8');
+    html = replaceBlock(html, 'team founders', blockHtml(data.founders, 'team founders', lang));
+    html = replaceBlock(html, 'team', blockHtml(data.team, 'team', lang));
+    fs.writeFileSync(file, html, 'utf-8');
+  }
+  console.log('regen people: done');
+}
+
+module.exports = { run };
+
+if (require.main === module) run();

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Scale42 CMS</title>
+<link rel="stylesheet" href="cms.css" />
+</head>
+<body>
+<header class="cms-nav">
+  <a class="cms-brand" href="/cms/">Scale42 CMS</a>
+  <nav>
+    <a href="/cms/people.html">People</a>
+    <a href="/cms/sites.html" class="muted">Sites</a>
+    <a href="/cms/news.html" class="muted">News</a>
+    <a href="/cms/sections.html" class="muted">Sections</a>
+    <a href="/" target="_blank">View site &rarr;</a>
+  </nav>
+</header>
+<main class="cms-main">
+  <h1>Dashboard</h1>
+  <p class="lede">Edit content for the public site. Changes save as drafts to <code>content/*.json</code>. Press <strong>Publish</strong> in any editor to regenerate the static HTML and push to the <code>draft</code> branch — Coolify redeploys automatically.</p>
+  <div class="card-grid">
+    <a class="card" href="/cms/people.html">
+      <h3>People</h3>
+      <p>Founders &amp; team. Bio EN/NO, role EN/NO, photo, LinkedIn.</p>
+      <span class="status">ready</span>
+    </a>
+    <a class="card disabled">
+      <h3>Sites</h3>
+      <p>Glomfjord, Bakki, Varkaus &mdash; fields per site, transposed table.</p>
+      <span class="status muted">coming soon</span>
+    </a>
+    <a class="card disabled">
+      <h3>News</h3>
+      <p>Posts list with WYSIWYG markdown editor (EN/NO tabs).</p>
+      <span class="status muted">coming soon</span>
+    </a>
+    <a class="card disabled">
+      <h3>Sections</h3>
+      <p>Hero, JV blurb, partners, contact &mdash; all home/sub-page strings.</p>
+      <span class="status muted">coming soon</span>
+    </a>
+  </div>
+</main>
+</body>
+</html>

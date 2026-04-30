@@ -1,0 +1,127 @@
+{
+  "founders": [
+    {
+      "id": "tasney",
+      "name": "William Tasney",
+      "role_en": "CEO",
+      "role_no": "Administrerende direktør",
+      "bio_en": "7+ years in data centre development. Business strategy & energy market expertise. Led team from start-up to 8-figure exit. Commercial property background.",
+      "bio_no": "7+ år innen utvikling av datasentre. Forretningsstrategi og ekspertise på energimarkedet. Ledet team fra oppstart til 8-sifret exit. Bakgrunn fra næringseiendom.",
+      "photo": "assets/team/tasney.jpg",
+      "linkedin": "https://www.linkedin.com/in/william-tasney-a9487a16a/",
+      "published": true
+    },
+    {
+      "id": "fostervoll",
+      "name": "Bendik Fostervoll",
+      "role_en": "CDO",
+      "role_no": "CDO",
+      "bio_en": "5+ years in data centre development. High-voltage power systems test & integration. 15+ years electrical engineering, including North Sea oil & gas.",
+      "bio_no": "5+ år innen utvikling av datasentre. Test og integrasjon av høyspenningsanlegg. 15+ år som elektroingeniør, inkludert olje og gass i Nordsjøen.",
+      "photo": "assets/team/fostervoll.jpg",
+      "linkedin": "https://www.linkedin.com/in/bendik-fostervoll-5482aba5/",
+      "published": true
+    },
+    {
+      "id": "collins",
+      "name": "James Collins",
+      "role_en": "CTO",
+      "role_no": "CTO",
+      "bio_en": "7+ years in data centre development. Data centre system design & management. 20+ years in IT systems administration, technical and service roles in the UK.",
+      "bio_no": "7+ år innen utvikling av datasentre. Systemdesign og forvaltning av datasentre. 20+ år innen IT-systemadministrasjon, tekniske roller og servicestillinger i Storbritannia.",
+      "photo": "assets/team/collins.jpg",
+      "linkedin": "https://www.linkedin.com/in/james-collins-11b55079/",
+      "published": true
+    }
+  ],
+  "team": [
+    {
+      "id": "rahman",
+      "name": "Zeehan Rahman",
+      "role_en": "COO",
+      "role_no": "COO",
+      "bio_en": "4+ years in data centre operations & development. MEng petroleum engineer. AgriTech & circular economy subject matter expert.",
+      "bio_no": "4+ år innen drift og utvikling av datasentre. MEng petroleumsingeniør. Fagekspert på AgriTech og sirkulær økonomi.",
+      "photo": "assets/team/rahman.jpg",
+      "linkedin": "https://www.linkedin.com/in/zeehan-rahman-22a291209/",
+      "published": true
+    },
+    {
+      "id": "valero",
+      "name": "Ismael Valero",
+      "role_en": "IT Director",
+      "role_no": "IT-direktør",
+      "bio_en": "Data centre design, build & operations. 25+ years in IT solutions development. Networking, system integration & supplier management.",
+      "bio_no": "Design, bygg og drift av datasentre. 25+ år innen utvikling av IT-løsninger. Nettverk, systemintegrasjon og leverandørstyring.",
+      "photo": "assets/team/valero.jpg",
+      "linkedin": "https://www.linkedin.com/in/ismael-valero-669b374/",
+      "published": true
+    },
+    {
+      "id": "stewart",
+      "name": "Jamie Stewart",
+      "role_en": "CSO",
+      "role_no": "CSO",
+      "bio_en": "Corporate strategy and capital raising. 11 years in research & corporate strategy at one of Europe's preeminent hedge funds. Corporate finance experience.",
+      "bio_no": "Selskapsstrategi og kapitalinnhenting. 11 år innen research og selskapsstrategi i et av Europas ledende hedgefond. Erfaring fra corporate finance.",
+      "photo": "assets/team/stewart.jpg",
+      "linkedin": "https://www.linkedin.com/in/jamie-stewart-s42/",
+      "published": true
+    },
+    {
+      "id": "beaton",
+      "name": "Thomas Beaton",
+      "role_en": "CIO",
+      "role_no": "CIO",
+      "bio_en": "Information, data, research & technical management. 8+ years in geospatial intelligence and innovation. ESA & UK Space Agency contractor.",
+      "bio_no": "Informasjon, data, research og teknisk ledelse. 8+ år innen geospatial intelligence og innovasjon. Kontraktør for ESA og UK Space Agency.",
+      "photo": "assets/team/beaton.jpg",
+      "linkedin": "https://www.linkedin.com/in/thomas-beaton-796881b7/",
+      "published": true
+    },
+    {
+      "id": "murray",
+      "name": "Patrick Murray",
+      "role_en": "CFO",
+      "role_no": "CFO",
+      "bio_en": "15 years across technology, FinTech and Life Sciences. Closing significant funding rounds and PE shareholder agreements. Built finance & compliance teams.",
+      "bio_no": "15 år innen teknologi, FinTech og Life Sciences. Lukket betydelige finansieringsrunder og PE-aksjonæravtaler. Bygget finans- og compliance-team.",
+      "photo": "assets/team/murray.jpg",
+      "linkedin": "https://www.linkedin.com/in/patrick-murray-0895033/",
+      "published": true
+    },
+    {
+      "id": "gussias",
+      "name": "Daniel Gussiås",
+      "role_en": "Liaison Officer",
+      "role_no": "Kontaktansvarlig",
+      "bio_en": "13+ years in North Sea oil & gas. Field engineer and supervisor. Energy saving and technical insulation.",
+      "bio_no": "13+ år innen olje og gass i Nordsjøen. Feltingeniør og supervisor. Energisparing og teknisk isolasjon.",
+      "photo": "assets/team/gussias.jpg",
+      "linkedin": "https://www.linkedin.com/in/daniel-gussi%C3%A5s-820652295/",
+      "published": true
+    },
+    {
+      "id": "normann",
+      "name": "Roald Normann",
+      "role_en": "Senior Project Manager",
+      "role_no": "Senior prosjektleder",
+      "bio_en": "Mechanical-electrical and construction-hydropower engineer. 18+ years as worldwide technical manager, project manager and engineer. International project leadership.",
+      "bio_no": "Maskin- og elektroingeniør med bakgrunn fra bygg og vannkraft. 18+ år som teknisk leder, prosjektleder og ingeniør verden over. Internasjonal prosjektledelse.",
+      "photo": "assets/team/normann.jpg",
+      "linkedin": "",
+      "published": true
+    },
+    {
+      "id": "williamson",
+      "name": "Abbie Williamson",
+      "role_en": "Executive Assistant",
+      "role_no": "Lederassistent",
+      "bio_en": "16+ years operations and team management. Group financial management. Time management.",
+      "bio_no": "16+ år innen drift og teamledelse. Konsernregnskap og økonomistyring. Tidsstyring.",
+      "photo": "assets/team/williamson.jpg",
+      "linkedin": "https://www.linkedin.com/in/abbiewilliamson/",
+      "published": true
+    }
+  ]
+}

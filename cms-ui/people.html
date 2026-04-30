@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>People &mdash; Scale42 CMS</title>
+<link rel="stylesheet" href="cms.css" />
+</head>
+<body>
+<header class="cms-nav">
+  <a class="cms-brand" href="/cms/">Scale42 CMS</a>
+  <nav>
+    <a href="/cms/people.html">People</a>
+    <a href="/cms/sites.html" class="muted">Sites</a>
+    <a href="/cms/news.html" class="muted">News</a>
+    <a href="/cms/sections.html" class="muted">Sections</a>
+    <a href="/" target="_blank">View site &rarr;</a>
+  </nav>
+</header>
+<main class="cms-main">
+  <div class="editor-head">
+    <h1>People</h1>
+    <span class="meta" id="dirty-meta">No unsaved changes</span>
+  </div>
+
+  <div class="section-head">
+    <h2>Founders</h2>
+    <button class="btn add" data-add="founders">+ Add founder</button>
+  </div>
+  <div class="table-wrap">
+    <table class="cms">
+      <thead>
+        <tr>
+          <th class="col-photo"></th>
+          <th>Name</th>
+          <th>Role (EN)</th>
+          <th>Role (NO)</th>
+          <th>Bio (EN)</th>
+          <th>Bio (NO)</th>
+          <th>Photo path</th>
+          <th>LinkedIn</th>
+          <th class="col-pub">Live</th>
+          <th class="col-actions"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody-founders"></tbody>
+    </table>
+  </div>
+
+  <div class="section-head" style="margin-top:32px;">
+    <h2>Team</h2>
+    <button class="btn add" data-add="team">+ Add team member</button>
+  </div>
+  <div class="table-wrap">
+    <table class="cms">
+      <thead>
+        <tr>
+          <th class="col-photo"></th>
+          <th>Name</th>
+          <th>Role (EN)</th>
+          <th>Role (NO)</th>
+          <th>Bio (EN)</th>
+          <th>Bio (NO)</th>
+          <th>Photo path</th>
+          <th>LinkedIn</th>
+          <th class="col-pub">Live</th>
+          <th class="col-actions"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody-team"></tbody>
+    </table>
+  </div>
+</main>
+
+<div class="footer-bar">
+  <button class="btn" id="btn-reload">Discard changes</button>
+  <span class="status-msg" id="status"></span>
+  <span class="grow"></span>
+  <button class="btn primary" id="btn-save">Save draft</button>
+  <button class="btn accent" id="btn-publish">Publish &rarr;</button>
+</div>
+
+<script src="cms.js"></script>
+<script>cmsPeople();</script>
+</body>
+</html>

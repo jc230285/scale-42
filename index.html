@@ -360,7 +360,6 @@
         <h4>Roald Normann</h4>
         <p class="role">Senior Project Manager</p>
         <p>Mechanical-electrical and construction-hydropower engineer. 18+ years as worldwide technical manager, project manager and engineer. International project leadership.</p>
-        <a href="https://www.linkedin.com/in/clivezickel/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
       </div>
       <div class="member">
         <div class="member-photo"><img src="assets/team/williamson.jpg" alt="Abbie Williamson" /></div>
@@ -510,7 +509,6 @@
       { name: 'Project Boreal',   country: 'Finland', status: 'tbd',  lat: 65.5000, lng: 27.0000 },
     ];
     const map = L.map('home-map', {
-      center: [65.0, 14.0], zoom: 4,
       zoomControl: false, scrollWheelZoom: false, doubleClickZoom: false,
       dragging: false, touchZoom: false, boxZoom: false, keyboard: false,
       tap: false, attributionControl: true
@@ -527,6 +525,10 @@
         interactive: false, keyboard: false
       }).addTo(map);
     });
+    const bounds = L.latLngBounds(sites.map(s => [s.lat, s.lng]));
+    const fit = () => map.fitBounds(bounds, { padding: [28, 28], maxZoom: 5, animate: false });
+    fit();
+    window.addEventListener('resize', () => { map.invalidateSize(); fit(); });
   })();
 </script>
 
