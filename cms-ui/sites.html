@@ -24,6 +24,8 @@
   </div>
   <p class="lede">Pipeline sites shown on the homepage map and on <code>/datacenters/</code>. Status <code>live</code> = active, <code>tbd</code> = disclosed in development.</p>
 
+  <div id="totals" style="display:flex;gap:24px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:14px;font-size:13.5px"></div>
+
   <div class="section-head">
     <h2>All sites</h2>
     <button class="btn add" id="btn-add">+ Add site</button>
@@ -104,10 +106,30 @@
     return tr;
   }
 
+  function parseMW(s) { const m = String(s || '').match(/[\d.]+/); return m ? parseFloat(m[0]) : 0; }
+  function fmt(n) { return Number.isInteger(n) ? n.toString() : n.toFixed(1); }
+
+  function renderTotals() {
+    const live = data.sites.filter(s => s.published && s.status === 'live');
+    const tbd = data.sites.filter(s => s.published && s.status === 'tbd');
+    const liveInitial = live.reduce((a, s) => a + parseMW(s.initial_mw), 0);
+    const liveTarget = live.reduce((a, s) => a + parseMW(s.target_mw), 0);
+    const tbdTarget = tbd.reduce((a, s) => a + parseMW(s.target_mw), 0);
+    const allTarget = liveTarget + tbdTarget;
+    $('totals').innerHTML = `
+      <div><strong>${live.length}</strong> live sites</div>
+      <div><strong>${tbd.length}</strong> disclosed (tbd)</div>
+      <div>Live initial: <strong>${fmt(liveInitial)} MW</strong></div>
+      <div>Live target: <strong>${fmt(liveTarget)} MW</strong></div>
+      <div>Total pipeline target: <strong>${fmt(allTarget)} MW</strong> (${(allTarget/1000).toFixed(2)} GW)</div>
+    `;
+  }
+
   function render() {
     const tbody = $('tbody');
     tbody.innerHTML = '';
     data.sites.forEach((s, i) => tbody.appendChild(row(s, i)));
+    renderTotals();
   }
 
   function readBack() {
@@ -196,8 +218,18 @@
     setStatus('Published — Coolify is redeploying', 'ok');
   }
 
-  document.addEventListener('input', (e) => { if (e.target.closest('table.cms')) setDirty(true); });
-  document.addEventListener('change', (e) => { if (e.target.closest('table.cms')) setDirty(true); });
+  document.addEventListener('input', (e) => {
+    if (e.target.closest('table.cms')) {
+      setDirty(true);
+      if (e.target.matches('[data-field="initial_mw"],[data-field="target_mw"]')) { readBack(); renderTotals(); }
+    }
+  });
+  document.addEventListener('change', (e) => {
+    if (e.target.closest('table.cms')) {
+      setDirty(true);
+      if (e.target.matches('[data-field="status"],[data-field="published"]')) { readBack(); renderTotals(); }
+    }
+  });
   document.addEventListener('click', (e) => {
     const t = e.target;
     const tr = t.closest('tr');
