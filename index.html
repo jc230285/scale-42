@@ -117,9 +117,9 @@
       </svg>
     </div>
     <dl class="hero-stats">
-      <div><dt><!--cms:stat1_label-->Active pipeline<!--/cms:stat1_label--></dt><dd><!--cms:stat1_value-->1.7 GW<!--/cms:stat1_value--></dd></div>
-      <div><dt><!--cms:stat2_label-->Projects<!--/cms:stat2_label--></dt><dd><!--cms:stat2_value-->10<!--/cms:stat2_value--></dd></div>
-      <div><dt><!--cms:stat3_label-->Site capacity<!--/cms:stat3_label--></dt><dd><!--cms:stat3_value-->50–500+ MW<!--/cms:stat3_value--></dd></div>
+      <div><dt><!--cms:stat1_label-->Active pipeline<!--/cms:stat1_label--></dt><dd><!--cms:stat1_value-->1 GW<!--/cms:stat1_value--></dd></div>
+      <div><dt><!--cms:stat2_label-->Projects<!--/cms:stat2_label--></dt><dd><!--cms:stat2_value-->6<!--/cms:stat2_value--></dd></div>
+      <div><dt><!--cms:stat3_label-->Site capacity<!--/cms:stat3_label--></dt><dd><!--cms:stat3_value-->50 – 500+ MW<!--/cms:stat3_value--></dd></div>
       <div><dt><!--cms:stat4_label-->Module size<!--/cms:stat4_label--></dt><dd><!--cms:stat4_value-->12.5 MW<!--/cms:stat4_value--></dd></div>
     </dl>
   </div>
@@ -504,12 +504,12 @@
     const el = document.getElementById('home-map');
     if (!el || typeof L === 'undefined') return;
     const sites = /*cms:sites_array*/[
-      { name: 'Glomfjord',     country: 'Norway',  status: 'live', lat: 66.8167, lng: 13.9667 },
-      { name: 'Bakki',         country: 'Iceland', status: 'live', lat: 66.0500, lng: -17.3500 },
-      { name: 'Varkaus',       country: 'Finland', status: 'live', lat: 62.3167, lng: 27.8833 },
-      { name: 'Project Aurora',   country: 'Sweden',  status: 'tbd',  lat: 63.0000, lng: 16.0000 },
-      { name: 'Project Fjord II', country: 'Norway',  status: 'tbd',  lat: 67.2000, lng: 14.5000 },
-      { name: 'Project Boreal',   country: 'Finland', status: 'tbd',  lat: 65.5000, lng: 27.0000 },
+      { name: "Glomfjord", country: "Norway", status: "live", lat: 66.8167, lng: 13.9667 },
+      { name: "Bakki", country: "Iceland", status: "live", lat: 66.05, lng: -17.35 },
+      { name: "Varkaus", country: "Finland", status: "live", lat: 62.3167, lng: 27.8833 },
+      { name: "Project Aurora", country: "Sweden", status: "tbd", lat: 63, lng: 16 },
+      { name: "Project Fjord II", country: "Norway", status: "tbd", lat: 67.2, lng: 14.5 },
+      { name: "Project Boreal", country: "Finland", status: "tbd", lat: 65.5, lng: 27 },
     ]/*/cms:sites_array*/;
     const map = L.map('home-map', {
       zoomControl: false, scrollWheelZoom: false, doubleClickZoom: false,

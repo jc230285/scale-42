@@ -335,12 +335,12 @@
 <script>
   // Map: Nordic data centre sites
   const sites = /*cms:sites_full*/[
-    { name: 'Glomfjord',     country: 'Norway',  status: 'live', lat: 66.8167, lng: 13.9667,  power: 'Hydro',         target: '50 MW+',  desc: 'Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus.' },
-    { name: 'Bakki',         country: 'Iceland', status: 'live', lat: 66.0500, lng: -17.3500, power: 'Geothermal',    target: '200 MW',  desc: 'Geothermal baseload, 50 MW initial 2027, scaling to 200 MW.' },
-    { name: 'Varkaus',       country: 'Finland', status: 'live', lat: 62.3167, lng: 27.8833,  power: 'Mixed renewable', target: '50 MW+', desc: 'Industrial-ready Finnish site with strong municipal backing.' },
-    { name: 'Project Aurora',   country: 'Sweden',  status: 'tbd',  lat: 63.0000, lng: 16.0000,  power: 'Hydro / wind',  target: '100 MW+', desc: 'Strategic Swedish site. Details to be announced.' },
-    { name: 'Project Fjord II', country: 'Norway',  status: 'tbd',  lat: 67.2000, lng: 14.5000,  power: 'Hydro',         target: '500 MW+', desc: 'Second Norwegian campus, flagship-scale capacity.' },
-    { name: 'Project Boreal',   country: 'Finland', status: 'tbd',  lat: 65.5000, lng: 27.0000,  power: 'Mixed renewable', target: '100 MW+', desc: 'Northern Finland industrial corridor.' },
+    { name: "Glomfjord", country: "Norway", status: "live", lat: 66.8167, lng: 13.9667, power: "Hydro", target: "50 MW+", desc: "Vannkraftrik kystlokasjon, 12,5 MW-moduler skalerer til 50 MW+ campus." },
+    { name: "Bakki", country: "Iceland", status: "live", lat: 66.05, lng: -17.35, power: "Geothermal", target: "200 MW", desc: "Geotermisk grunnlast, 50 MW oppstart 2027, skalerer til 200 MW." },
+    { name: "Varkaus", country: "Finland", status: "live", lat: 62.3167, lng: 27.8833, power: "Mixed renewable", target: "50 MW+", desc: "Industriklar finsk lokasjon med sterk kommunal støtte." },
+    { name: "Project Aurora", country: "Sweden", status: "tbd", lat: 63, lng: 16, power: "Hydro / wind", target: "100 MW+", desc: "Strategisk svensk lokasjon. Detaljer kommer." },
+    { name: "Project Fjord II", country: "Norway", status: "tbd", lat: 67.2, lng: 14.5, power: "Hydro", target: "500 MW+", desc: "Andre norske campus, flaggskip-skala kapasitet." },
+    { name: "Project Boreal", country: "Finland", status: "tbd", lat: 65.5, lng: 27, power: "Mixed renewable", target: "100 MW+", desc: "Industrikorridor i Nord-Finland." },
   ]/*/cms:sites_full*/;
 
   const map = L.map('dc-map', {
