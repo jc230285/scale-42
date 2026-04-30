@@ -43,7 +43,7 @@ code { background: #eef0f2; padding: 1px 6px; border-radius: 4px; font-size: 12.
 .table-wrap { background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
 table.cms { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 table.cms th, table.cms td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
-table.cms th { background: #fafbfc; font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); position: sticky; top: 56px; }
+table.cms th { background: #fafbfc; font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); }
 table.cms tr:last-child td { border-bottom: none; }
 table.cms input[type=text], table.cms input[type=url], table.cms textarea { width: 100%; border: 1px solid transparent; padding: 6px 8px; border-radius: 6px; font: inherit; resize: vertical; background: transparent; }
 table.cms input[type=text]:focus, table.cms input[type=url]:focus, table.cms textarea:focus { border-color: var(--teal); background: #fff; outline: none; box-shadow: 0 0 0 3px rgba(47,102,117,0.12); }
@@ -79,3 +79,21 @@ table.cms .col-photo img { width: 48px; height: 48px; border-radius: 50%; object
 .toggle .slider::before { content: ""; position: absolute; left: 2px; top: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: 0.15s; }
 .toggle input:checked + .slider { background: var(--ok); }
 .toggle input:checked + .slider::before { transform: translateX(14px); }
+
+.modal-overlay { position: fixed; inset: 0; background: rgba(28,46,63,0.5); display: flex; align-items: center; justify-content: center; z-index: 100; padding: 24px; }
+.modal { background: #fff; border-radius: 12px; width: min(960px, 100%); max-height: 90vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+.modal-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; border-bottom: 1px solid var(--line); }
+.modal-head h2 { margin: 0; font-size: 18px; font-weight: 600; }
+.modal-head .close { background: none; border: none; font-size: 22px; cursor: pointer; color: var(--ink-2); padding: 4px 8px; }
+.modal-head .close:hover { color: var(--ink); }
+.modal-body { padding: 22px 24px; overflow: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.modal-body label { display: block; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2); font-weight: 600; margin-bottom: 6px; }
+.modal-body textarea { width: 100%; min-height: 200px; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 14px; line-height: 1.55; resize: vertical; }
+.modal-body textarea:focus { border-color: var(--teal); outline: none; box-shadow: 0 0 0 3px rgba(47,102,117,0.12); }
+.modal-foot { padding: 14px 24px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; gap: 10px; background: #fafbfc; }
+@media (max-width: 720px) { .modal-body { grid-template-columns: 1fr; } }
+
+.btn.linkish { background: transparent; border: 1px solid var(--line); padding: 6px 12px; font-size: 12.5px; }
+.btn.linkish:hover { border-color: var(--navy); }
+.bio-cell { font-size: 12.5px; color: var(--ink-2); }
+.bio-cell .preview { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin: 0 0 6px; line-height: 1.4; }
