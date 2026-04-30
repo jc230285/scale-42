@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Free-air cooling at latitude 66°: what works, what doesn't &mdash; Scale42</title>
+<meta name="description" content="Glomfjord operations notes — when ambient cooling carries 30 kW racks straight through summer, where direct-liquid takes over, and the density threshold where the trade flips." />
+<meta name="theme-color" content="#1c2e3f" />
+<link rel="canonical" href="https://www.scale-42.com/news/free-air-cooling-latitude-66/" />
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Free-air cooling at latitude 66°: what works, what doesn't" />
+<meta property="og:description" content="Glomfjord operations notes — when ambient cooling carries 30 kW racks straight through summer, where direct-liquid takes over, and the density threshold where the trade flips." />
+<meta property="og:image" content="https://www.scale-42.com/assets/hero.jpg" />
+<meta property="og:url" content="https://www.scale-42.com/news/free-air-cooling-latitude-66/" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Free-air cooling at latitude 66°: what works, what doesn't",
+  "datePublished": "2026-04-30",
+  "author": [{"@type":"Person","name":"James Collins & Roald Normann"}],
+  "publisher": { "@type": "Organization", "name": "Scale42" },
+  "mainEntityOfPage": "https://www.scale-42.com/news/free-air-cooling-latitude-66/",
+  "description": "Glomfjord operations notes — when ambient cooling carries 30 kW racks straight through summer, where direct-liquid takes over, and the density threshold where the trade flips."
+}
+</script>
+
+<style>
+  .post-header { padding: 96px 0 32px; background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); }
+  .post-header .container { max-width: 980px; }
+  .post-header .crumbs { font-family: var(--font-display); font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 18px; }
+  .post-header .crumbs a { color: var(--accent); }
+  .post-header .crumbs .sep { opacity: 0.6; padding: 0 6px; }
+  .post-header h1 { font-family: var(--font-display); font-size: clamp(32px, 4.6vw, 52px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 18px; font-weight: 600; }
+  .post-header .subtitle { font-size: 19px; line-height: 1.55; color: var(--ink-2); max-width: 760px; margin: 0 0 24px; font-weight: 300; }
+  .post-header .byline { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-size: 13.5px; color: var(--ink-2); }
+  .post-header .byline strong { color: var(--ink); font-weight: 600; }
+  .post-header .byline .dot { color: var(--line); }
+  .post-tags { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .post-tags .container { display: flex; gap: 8px; flex-wrap: wrap; max-width: 980px; }
+  .post-tag { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; background: var(--bg-alt); color: var(--ink-2); font-weight: 600; }
+  .post-body { padding: 56px 0 80px; }
+  .post-body .container { max-width: 720px; }
+  .post-body p { font-size: 18px; line-height: 1.75; color: var(--ink); margin: 0 0 22px; }
+  .post-body p.lead { font-size: 22px; line-height: 1.55; color: var(--ink); font-weight: 400; margin: 0 0 32px; padding: 0 0 22px; border-bottom: 1px solid var(--line); }
+  .post-body h2 { font-family: var(--font-display); font-size: 28px; letter-spacing: -0.015em; margin: 48px 0 18px; font-weight: 600; line-height: 1.2; }
+  .post-body ul { font-size: 17.5px; line-height: 1.7; padding-left: 22px; margin: 0 0 22px; color: var(--ink); }
+  .post-body li { margin: 10px 0; }
+  .post-body li::marker { color: var(--accent); }
+  .post-body blockquote { margin: 36px 0; padding: 22px 28px; border-left: 4px solid var(--accent); background: var(--bg-alt); font-family: var(--font-display); font-size: 21px; line-height: 1.45; color: var(--ink); font-weight: 500; border-radius: 0 var(--radius) var(--radius) 0; }
+</style>
+
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../"><img src="../../assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <nav class="nav-links">
+      <a href="../../">Home</a>
+      <a href="../../capabilities/">Capabilities</a>
+      <a href="../" class="active">News</a>
+      <a href="../../#contact" class="btn btn-sm">Contact</a>
+      <div class="lang-toggle">
+        <a href="." data-lang="en" class="active">EN</a>
+        <a href="../../no/news/free-air-cooling-latitude-66/" data-lang="no">NO</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="post-header">
+  <div class="container">
+    <p class="crumbs"><a href="../../">Scale42</a><span class="sep">/</span><a href="../">News</a><span class="sep">/</span><span>Operations</span></p>
+    <h1>Free-air cooling at latitude 66°: what works, what doesn't</h1>
+    <p class="subtitle">Glomfjord operations notes — when ambient cooling carries 30 kW racks straight through summer, where direct-liquid takes over, and the density threshold where the trade flips.</p>
+    <p class="byline"><strong>James Collins & Roald Normann</strong>, CTO & Senior Project Manager <span class="dot">&bull;</span> April 30, 2026</p>
+  </div>
+</section>
+
+<section class="post-tags">
+  <div class="container">
+    <span class="post-tag">Operations</span><span class="post-tag">Cooling</span><span class="post-tag">Glomfjord</span>
+  </div>
+</section>
+
+<section class="post-body">
+  <div class="container">
+      <p class="lead">Free-air cooling sounds like a free lunch when you read the Glomfjord weather data: 366 days a year below 25 °C, prevailing wind off the fjord, no cooling tower required. The reality is more interesting. Latitude buys you a generous envelope, not a guarantee.</p>
+      <h2>What “free” actually means</h2>
+      <p>“Free-air cooling” is a misnomer in two senses. The fans still draw electricity — typically 5–10% of IT load even in optimal conditions. And the air, while cold, is also wet, salt-laden, and seasonally pollen-rich. Filtering and conditioning that air does not break the economics, but it is not free.</p>
+      <p>What latitude 66° gives us is a usable thermodynamic gradient nearly every hour of the year. The question is what density of compute that gradient can carry through the worst case — three-day high-pressure systems in July when the fjord goes still and the ambient sits at 22–24 °C.</p>
+      <h2>The summer worst case</h2>
+      <p>We have run instrumented trials on Glomfjord air handlers for three full summer cycles. The findings are unromantic and consistent:</p>
+      <ul>
+        <li><strong>Up to ~25 kW per rack:</strong> direct evaporative-assisted free air handles the worst-case July week without breaching ASHRAE A1 inlet bounds. PUE in the high 1.0s.</li>
+        <li><strong>25–35 kW per rack:</strong> free air still does most of the work, but a brief mechanical-assist window is needed during the worst 50–80 hours per year. Net annualised PUE around 1.1.</li>
+        <li><strong>Above ~40 kW per rack:</strong> free air is no longer the right primary. The economics flip toward direct-liquid at the rack level, with the chiller plant sized only for water rejection rather than air.</li>
+      </ul>
+      <p>That last threshold is where most modern AI training racks now sit. H200-class systems clear 40 kW comfortably. B200 platforms push past 60 kW. The fjord doesn't get any colder; the racks get hotter. The crossover point arrived faster than most operators expected.</p>
+      <h2>The mistake we made early</h2>
+      <p>On the first hall at Glomfjord we sized the air-side plant to handle the published TDP of the customer's planned generation. By the time the hall was live, the customer had refreshed the silicon, the racks were running 1.4× the original spec, and the air handlers were the bottleneck for 90 hours that summer.</p>
+      <blockquote>We learned to size the cooling plant for the silicon roadmap, not the silicon at deployment day.</blockquote>
+      <p>That has changed how we design every subsequent hall. We now build the air-side capacity to comfortably carry the customer's day-one density and pre-plumb for liquid cooling on every rack — even the ones that won't initially need it. The marginal cost of doing the plumbing on day one is single-digit thousands per rack. The cost of retrofitting it after the customer has loaded the hall is the customer's downtime, which is a number they will not accept.</p>
+      <h2>Where free air still wins</h2>
+      <p>Latitude is not redundant; it is just no longer the whole story. Three things that latitude 66° still earns us, free of charge:</p>
+      <ul>
+        <li><strong>Lower water consumption.</strong> Even with evaporative assist on the worst weeks, our annualised water draw is a fraction of comparable mid-latitude sites. That matters more every year as water permitting tightens.</li>
+        <li><strong>Cooler return-water temperatures into the chiller plant</strong>, which means smaller heat-exchangers, lower pumping power, and a chiller plant that runs for fewer hours a year — all of which lowers the total cost of the liquid loop, not just the air loop.</li>
+        <li><strong>Wider operating envelope on inlet temperature.</strong> Even when the silicon outpaces free-air's primary role, our cold supply is colder than a Frankfurt or Dublin hall could deliver. The customer can run their gear at the bottom of the spec.</li>
+      </ul>
+      <h2>What the next hall looks like</h2>
+      <p>Liquid first, air second. The air-side plant exists to cool the rooms the racks are in, not the racks themselves. That's a different size, different airflow strategy, and a much smaller chiller. It also means the next hall in Glomfjord is denser — more useful MW per square metre — and produces useful thermal output in the form of warm water that can feed a district loop. The next site we develop will get that loop on day one.</p>
+      <p>Latitude is a nice cushion. It is not the design.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <img src="../../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+    <p class="copyright">&copy; 2026 Scale42. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

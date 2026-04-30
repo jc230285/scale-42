@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Why we standardised on 12.5 MW modules &mdash; Scale42</title>
+<meta name="description" content="Module size is the most consequential decision in modern data centre development. Here is why 12.5 MW lands on the right side of every constraint that matters — grid, supply chain, capital, and customer onboarding." />
+<meta name="theme-color" content="#1c2e3f" />
+<link rel="canonical" href="https://www.scale-42.com/news/12-5-mw-modules-rationale/" />
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Why we standardised on 12.5 MW modules" />
+<meta property="og:description" content="Module size is the most consequential decision in modern data centre development. Here is why 12.5 MW lands on the right side of every constraint that matters — grid, supply chain, capital, and customer onboarding." />
+<meta property="og:image" content="https://www.scale-42.com/assets/hero.jpg" />
+<meta property="og:url" content="https://www.scale-42.com/news/12-5-mw-modules-rationale/" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Why we standardised on 12.5 MW modules",
+  "datePublished": "2026-04-30",
+  "author": [{"@type":"Person","name":"Bendik Fostervoll"}],
+  "publisher": { "@type": "Organization", "name": "Scale42" },
+  "mainEntityOfPage": "https://www.scale-42.com/news/12-5-mw-modules-rationale/",
+  "description": "Module size is the most consequential decision in modern data centre development. Here is why 12.5 MW lands on the right side of every constraint that matters — grid, supply chain, capital, and customer onboarding."
+}
+</script>
+
+<style>
+  .post-header { padding: 96px 0 32px; background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%); border-bottom: 1px solid var(--line); }
+  .post-header .container { max-width: 980px; }
+  .post-header .crumbs { font-family: var(--font-display); font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 18px; }
+  .post-header .crumbs a { color: var(--accent); }
+  .post-header .crumbs .sep { opacity: 0.6; padding: 0 6px; }
+  .post-header h1 { font-family: var(--font-display); font-size: clamp(32px, 4.6vw, 52px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 18px; font-weight: 600; }
+  .post-header .subtitle { font-size: 19px; line-height: 1.55; color: var(--ink-2); max-width: 760px; margin: 0 0 24px; font-weight: 300; }
+  .post-header .byline { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-size: 13.5px; color: var(--ink-2); }
+  .post-header .byline strong { color: var(--ink); font-weight: 600; }
+  .post-header .byline .dot { color: var(--line); }
+  .post-tags { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .post-tags .container { display: flex; gap: 8px; flex-wrap: wrap; max-width: 980px; }
+  .post-tag { font-family: var(--font-display); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; background: var(--bg-alt); color: var(--ink-2); font-weight: 600; }
+  .post-body { padding: 56px 0 80px; }
+  .post-body .container { max-width: 720px; }
+  .post-body p { font-size: 18px; line-height: 1.75; color: var(--ink); margin: 0 0 22px; }
+  .post-body p.lead { font-size: 22px; line-height: 1.55; color: var(--ink); font-weight: 400; margin: 0 0 32px; padding: 0 0 22px; border-bottom: 1px solid var(--line); }
+  .post-body h2 { font-family: var(--font-display); font-size: 28px; letter-spacing: -0.015em; margin: 48px 0 18px; font-weight: 600; line-height: 1.2; }
+  .post-body ul { font-size: 17.5px; line-height: 1.7; padding-left: 22px; margin: 0 0 22px; color: var(--ink); }
+  .post-body li { margin: 10px 0; }
+  .post-body li::marker { color: var(--accent); }
+  .post-body blockquote { margin: 36px 0; padding: 22px 28px; border-left: 4px solid var(--accent); background: var(--bg-alt); font-family: var(--font-display); font-size: 21px; line-height: 1.45; color: var(--ink); font-weight: 500; border-radius: 0 var(--radius) var(--radius) 0; }
+</style>
+
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../../"><img src="../../assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <nav class="nav-links">
+      <a href="../../">Home</a>
+      <a href="../../capabilities/">Capabilities</a>
+      <a href="../" class="active">News</a>
+      <a href="../../#contact" class="btn btn-sm">Contact</a>
+      <div class="lang-toggle">
+        <a href="." data-lang="en" class="active">EN</a>
+        <a href="../../no/news/12-5-mw-modules-rationale/" data-lang="no">NO</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="post-header">
+  <div class="container">
+    <p class="crumbs"><a href="../../">Scale42</a><span class="sep">/</span><a href="../">News</a><span class="sep">/</span><span>Engineering</span></p>
+    <h1>Why we standardised on 12.5 MW modules</h1>
+    <p class="subtitle">Module size is the most consequential decision in modern data centre development. Here is why 12.5 MW lands on the right side of every constraint that matters — grid, supply chain, capital, and customer onboarding.</p>
+    <p class="byline"><strong>Bendik Fostervoll</strong>, CDO <span class="dot">&bull;</span> April 30, 2026</p>
+  </div>
+</section>
+
+<section class="post-tags">
+  <div class="container">
+    <span class="post-tag">Engineering</span><span class="post-tag">Capabilities</span><span class="post-tag">Modular design</span>
+  </div>
+</section>
+
+<section class="post-body">
+  <div class="container">
+      <p class="lead">Pick the wrong module size and you spend the next decade fighting your own bill of materials. Pick the right one and the rest of the project — grid integration, supply chain, capital deployment, customer onboarding — falls into place. We standardised on 12.5 MW. Here is the case.</p>
+      <h2>The module is the product</h2>
+      <p>Most operators describe themselves as building “data centres.” That framing is misleading. What we actually build, repeatedly, is a 12.5 MW power-and-cooling block that connects to a substation on one side and a customer's compute hall on the other. Every site we develop is a different number of those blocks, configured to match the local grid envelope and the customer's deployment timeline.</p>
+      <p>Once that becomes the unit of work, the design question stops being “how big is the data centre” and becomes “how many modules can this site take, and how fast can we put each one in service.” That reframing alone is worth a year of strategy.</p>
+      <h2>Why 12.5 MW, not 5 or 25</h2>
+      <p>There is no single number that is correct for everyone. There is a number that is correct given the constraints we actually face in the Nordics in 2026. Four constraints set the upper and lower bounds:</p>
+      <ul>
+        <li><strong>Grid integration.</strong> Below ~10 MW, the grid operator treats you as a small load and the connection process is fast but the unit cost of switchgear and transformer capacity is poor. Above ~20 MW, every connection becomes a transmission-level negotiation with multi-year lead times. 12.5 MW threads that needle: large enough to amortise the high-voltage equipment, small enough that the operator can connect us at the distribution layer.</li>
+        <li><strong>Transformer supply.</strong> Step-up transformers in the 15–20 MVA class are produced in volume; lead times have stretched but remain manageable. The next class up is bespoke. Standardising on a transformer family that we know we can re-order is worth more than the marginal density gain of going bigger.</li>
+        <li><strong>Capital cadence.</strong> A 12.5 MW module is small enough that financing one does not require restructuring the company. We can commit a module on Tuesday and start procurement Wednesday. Larger blocks force a slower cadence even when the demand is there.</li>
+        <li><strong>Customer match.</strong> Most non-hyperscale AI tenants are deploying in 8–40 MW chunks today. 12.5 MW lets us hand a customer one block, two, or three, with no awkward fractions. It also lets us mix tenants on a single campus without each occupying part of a half-finished hall.</li>
+      </ul>
+      <h2>What the module looks like in practice</h2>
+      <p>Each 12.5 MW block is a fixed bill of materials: a 15/16 MVA dry-type transformer, medium-voltage switchgear, paralleled UPS strings sized for the cooling load not the IT load (because we run direct liquid where density justifies it), a chiller plant matched to local ambient, and a hall envelope sized for the rack count rather than rack-and-aisle aesthetics.</p>
+      <p>The point is not that any one of those decisions is novel. The point is that they are the same decisions every time, on every site, with the same vendors. Procurement becomes a pull request rather than a clean sheet.</p>
+      <h2>The compounding return on standardisation</h2>
+      <blockquote>The module size is the power on our bill of materials. Get it right once and every subsequent site re-uses the answer.</blockquote>
+      <p>There is a temptation, when each project is large, to optimise each one separately. We have explicitly chosen the opposite path. The compounding return on running the same playbook ten times — fewer engineering hours per MW, faster grid approvals, better terms from vendors who see real volume, fewer surprises — is larger than the gain from squeezing 5% more capacity into any individual site.</p>
+      <p>It also means the operations team learns the same site once, not ten times. Every site looks roughly the same on the inside. Every alarm has been seen before. That is the under-appreciated half of standardisation: it makes the difference between an operator who can scale and one who is permanently rebuilding their runbook.</p>
+      <h2>When the rule breaks</h2>
+      <p>12.5 MW is not religion. There are sites where the grid envelope or the customer's deployment shape forces a different unit. We accept those. What we do not accept is the temptation to redesign the module just because a site is interesting. The module is the product. The site is where the product gets installed.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <img src="../../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+    <p class="copyright">&copy; 2026 Scale42. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

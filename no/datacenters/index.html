@@ -11,7 +11,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon-192.png" />
 <link rel="apple-touch-icon" href="../../assets/favicon-192.png" />
 <meta property="og:title" content="Data Centres — Scale42" />
-<meta property="og:description" content="1.7 GW pan-Nordic AI datasenter pipeline — site-by-site." />
+<meta property="og:description" content="Pan-nordisk KI-datasenter pipeline — sted for sted." />
 <meta property="og:image" content="https://www.scale-42.com/assets/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,6 +65,7 @@
   .dc-card .img.bakki { background: linear-gradient(135deg, #2c3a48 0%, #5a4030 60%, #c47a4a 100%); }
   .dc-card .img.varkaus { background: linear-gradient(135deg, #1c2e3f 0%, #406b6e 60%, #8aa9a8 100%); }
   .dc-card .img.tbd { background: linear-gradient(135deg, #d6dde2 0%, #a3bcc4 100%); color: rgba(28,46,63,0.5); }
+  .dc-card .img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .dc-card .country-flag {
     position: absolute; top: 16px; left: 16px;
     background: rgba(255,255,255,0.92); color: var(--ink);
@@ -166,13 +167,13 @@
 <section class="dc-hero">
   <div class="container">
     <p class="eyebrow">Datasentre</p>
-    <h1>1.7 GW of Nordic KI-klare capacity.</h1>
-    <p class="lede">Ten projects across Norway, Finland, Sweden og Iceland — co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 50 MW campus deployments to 500 MW+ flagship sites.</p>
+    <h1><!--cms:dc_hero_title-->1 GW KI-klar nordisk kapasitet.<!--/cms:dc_hero_title--></h1>
+    <p class="lede"><!--cms:dc_hero_lede-->6 prosjekter i 4 nordiske land — samlokalisert med rimelig fornybar kraft, spesialbygget for høytetthetsberegning. Skalerer fra 50 MW-campus til 500 MW+ flaggskipssteder.<!--/cms:dc_hero_lede--></p>
 
     <dl class="dc-summary">
-      <div class="item"><dt>Aktiv pipeline</dt><dd>1.7 GW</dd></div>
-      <div class="item"><dt>Prosjekter</dt><dd>10</dd></div>
-      <div class="item"><dt>Countries</dt><dd>4</dd></div>
+      <div class="item"><dt>Aktiv pipeline</dt><dd><!--cms:dc_pipeline-->1 GW<!--/cms:dc_pipeline--></dd></div>
+      <div class="item"><dt>Prosjekter</dt><dd><!--cms:dc_projects-->6<!--/cms:dc_projects--></dd></div>
+      <div class="item"><dt>Land</dt><dd><!--cms:dc_countries-->4<!--/cms:dc_countries--></dd></div>
       <div class="item"><dt>Modulstørrelse</dt><dd>12.5 MW</dd></div>
     </dl>
   </div>
@@ -199,120 +200,117 @@
       <button class="dc-filter" data-filter="iceland">Iceland</button>
     </div>
 
-    <div class="dc-grid">
+    <div class="dc-grid"><!--cms:dc_cards-->
 
       <article class="dc-card" id="glomfjord" data-country="norway">
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status live">Under utvikling</span>
-          <span class="image-placeholder">[ Glomfjord — site image ]</span>
+          <img src="../assets/sites/glomfjord.webp" alt="Glomfjord" loading="lazy" />
         </div>
         <div class="body">
-          <p class="loc">Nordland · Norway</p>
+          <p class="loc">Norway</p>
           <h3>Glomfjord</h3>
-          <p class="desc">Hydropower-rich coastal site with deep grid capacity. Phased deployment of 12,5 MW-moduls to a 50 MW+ campus.</p>
+          <p class="desc">Vannkraftrik kystlokasjon, 12,5 MW-moduler skalerer til 50 MW+ campus.</p>
           <dl class="dc-stats">
-            <div class="stat"><dt>Initial</dt><dd>12.5 MW</dd></div>
-            <div class="stat"><dt>Target</dt><dd>50 MW+</dd></div>
-            <div class="stat"><dt>Power</dt><dd>Hydro</dd></div>
+            <div class="stat"><dt>Oppstart</dt><dd>12.5 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>50 MW+</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
           </dl>
-          <a href="glomfjord/" class="dc-link">Se sitedetaljer →</a>
         </div>
       </article>
 
       <article class="dc-card" id="bakki" data-country="iceland">
-        <div class="img bakki">
+        <div class="img">
           <span class="country-flag">Iceland</span>
-          <span class="status live">JV announced</span>
-          <span class="image-placeholder">[ Bakki — site image ]</span>
+          <span class="status live">Under utvikling</span>
+          <img src="../assets/sites/bakki.jpg" alt="Bakki" loading="lazy" />
         </div>
         <div class="body">
-          <p class="loc">North Iceland · Iceland</p>
+          <p class="loc">Iceland</p>
           <h3>Bakki</h3>
-          <p class="desc">Low-cost geothermal baseload, robust grid integration og an industrial-ready site. Operational 2027 with 50 MW initial capacity, scaling to 200 MW.</p>
+          <p class="desc">Geotermisk grunnlast, 50 MW oppstart 2027, skalerer til 200 MW.</p>
           <dl class="dc-stats">
-            <div class="stat"><dt>Initial</dt><dd>50 MW</dd></div>
-            <div class="stat"><dt>Target</dt><dd>200 MW</dd></div>
-            <div class="stat"><dt>Power</dt><dd>Geothermal</dd></div>
+            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>200 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Geothermal</dd></div>
           </dl>
-          <a href="bakki/" class="dc-link">Se sitedetaljer →</a>
         </div>
       </article>
 
       <article class="dc-card" id="varkaus" data-country="finland">
-        <div class="img varkaus">
+        <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status live">Permitting</span>
-          <span class="image-placeholder">[ Varkaus — site image ]</span>
+          <span class="status live">Under utvikling</span>
+          <img src="../assets/sites/varkaus.jpg" alt="Varkaus" loading="lazy" />
         </div>
         <div class="body">
-          <p class="loc">Pohjois-Savo · Finland</p>
+          <p class="loc">Finland</p>
           <h3>Varkaus</h3>
-          <p class="desc">Industrial-ready Finnish location with strong municipal support og existing grid infrastructure. Mayor: "confidence is high."</p>
+          <p class="desc">Industriklar finsk lokasjon med sterk kommunal støtte.</p>
           <dl class="dc-stats">
-            <div class="stat"><dt>Initial</dt><dd>TBD</dd></div>
-            <div class="stat"><dt>Target</dt><dd>50 MW+</dd></div>
-            <div class="stat"><dt>Power</dt><dd>Mixed renewable</dd></div>
+            <div class="stat"><dt>Oppstart</dt><dd>—</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>50 MW+</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Mixed renewable</dd></div>
           </dl>
-          <a href="varkaus/" class="dc-link">Se sitedetaljer →</a>
         </div>
       </article>
 
-      <article class="dc-card" id="project-aurora" data-country="sweden">
+      <article class="dc-card" id="aurora" data-country="sweden">
         <div class="img tbd">
           <span class="country-flag">Sweden</span>
-          <span class="status tbd">In planning</span>
-          <span class="image-placeholder">[ Site image — TBA ]</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Project Aurora — site image ]</span>
         </div>
         <div class="body">
           <p class="loc">Sweden</p>
           <h3>Project Aurora</h3>
-          <p class="desc">Strategic Swedish site with strong fibre interconnection og long-term PPA optionality. Details to be announced.</p>
+          <p class="desc">Strategisk svensk lokasjon. Detaljer kommer.</p>
           <dl class="dc-stats">
-            <div class="stat"><dt>Initial</dt><dd>—</dd></div>
-            <div class="stat"><dt>Target</dt><dd>100 MW+</dd></div>
-            <div class="stat"><dt>Power</dt><dd>Hydro / wind</dd></div>
+            <div class="stat"><dt>Oppstart</dt><dd>—</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>100 MW+</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro / wind</dd></div>
           </dl>
         </div>
       </article>
 
-      <article class="dc-card" id="project-fjord-ii" data-country="norway">
+      <article class="dc-card" id="fjord-ii" data-country="norway">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
-          <span class="image-placeholder">[ Site image — TBA ]</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Project Fjord II — site image ]</span>
         </div>
         <div class="body">
           <p class="loc">Norway</p>
           <h3>Project Fjord II</h3>
-          <p class="desc">Second Norwegian campus targeting flagship-scale capacity adjacent to long-duration hydropower assets.</p>
+          <p class="desc">Andre norske campus, flaggskip-skala kapasitet.</p>
           <dl class="dc-stats">
-            <div class="stat"><dt>Initial</dt><dd>—</dd></div>
-            <div class="stat"><dt>Target</dt><dd>500 MW+</dd></div>
-            <div class="stat"><dt>Power</dt><dd>Hydro</dd></div>
+            <div class="stat"><dt>Oppstart</dt><dd>—</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>500 MW+</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
           </dl>
         </div>
       </article>
 
-      <article class="dc-card" id="project-boreal" data-country="finland">
+      <article class="dc-card" id="boreal" data-country="finland">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
-          <span class="image-placeholder">[ Site image — TBA ]</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Project Boreal — site image ]</span>
         </div>
         <div class="body">
           <p class="loc">Finland</p>
           <h3>Project Boreal</h3>
-          <p class="desc">Northern Finland industrial corridor — additional pipeline site under development.</p>
+          <p class="desc">Industrikorridor i Nord-Finland.</p>
           <dl class="dc-stats">
-            <div class="stat"><dt>Initial</dt><dd>—</dd></div>
-            <div class="stat"><dt>Target</dt><dd>100 MW+</dd></div>
-            <div class="stat"><dt>Power</dt><dd>Mixed renewable</dd></div>
+            <div class="stat"><dt>Oppstart</dt><dd>—</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>100 MW+</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Mixed renewable</dd></div>
           </dl>
         </div>
       </article>
 
-    </div>
+    <!--/cms:dc_cards--></div>
   </div>
 </section>
 
