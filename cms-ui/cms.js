@@ -13,10 +13,8 @@ function cmsPeople() {
   function row(p, idx) {
     const tr = document.createElement('tr');
     tr.dataset.idx = idx;
-    tr.draggable = true;
     const photoSrc = p.photo ? ('/' + p.photo) : '';
     tr.innerHTML = `
-      <td class="col-handle" title="Drag to reorder">⋮⋮</td>
       <td class="col-photo">${photoSrc ? `<img src="${photoSrc}" alt="" onerror="this.style.opacity=0.2"/>` : ''}</td>
       <td><input type="text" data-field="name" value="${escapeAttr(p.name)}" /></td>
       <td><input type="text" data-field="role_en" value="${escapeAttr(p.role_en)}" /></td>
@@ -171,38 +169,6 @@ function cmsPeople() {
       render();
       setDirty(true);
     }
-  });
-
-  let dragSrc = null;
-  document.addEventListener('dragstart', (e) => {
-    const tr = e.target.closest('#tbody-people tr');
-    if (!tr) return;
-    dragSrc = tr;
-    tr.classList.add('dragging');
-    e.dataTransfer.effectAllowed = 'move';
-  });
-  document.addEventListener('dragend', () => {
-    document.querySelectorAll('#tbody-people tr').forEach(r => r.classList.remove('dragging', 'drop-target'));
-    dragSrc = null;
-  });
-  document.addEventListener('dragover', (e) => {
-    const tr = e.target.closest('#tbody-people tr');
-    if (!tr || !dragSrc || tr === dragSrc) return;
-    e.preventDefault();
-    document.querySelectorAll('#tbody-people tr.drop-target').forEach(r => r.classList.remove('drop-target'));
-    tr.classList.add('drop-target');
-  });
-  document.addEventListener('drop', (e) => {
-    const tr = e.target.closest('#tbody-people tr');
-    if (!tr || !dragSrc || tr === dragSrc) return;
-    e.preventDefault();
-    const fromIdx = parseInt(dragSrc.dataset.idx, 10);
-    const toIdx = parseInt(tr.dataset.idx, 10);
-    readBack();
-    const [moved] = data.people.splice(fromIdx, 1);
-    data.people.splice(toIdx, 0, moved);
-    render();
-    setDirty(true);
   });
 
   $('btn-save').addEventListener('click', save);
