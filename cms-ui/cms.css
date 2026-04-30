@@ -48,7 +48,14 @@ table.cms tr:last-child td { border-bottom: none; }
 table.cms input[type=text], table.cms input[type=url], table.cms textarea { width: 100%; border: 1px solid transparent; padding: 6px 8px; border-radius: 6px; font: inherit; resize: vertical; background: transparent; }
 table.cms input[type=text]:focus, table.cms input[type=url]:focus, table.cms textarea:focus { border-color: var(--teal); background: #fff; outline: none; box-shadow: 0 0 0 3px rgba(47,102,117,0.12); }
 table.cms textarea { min-height: 56px; }
-table.cms .col-actions { width: 60px; text-align: right; }
+table.cms .col-actions { width: 110px; text-align: right; white-space: nowrap; }
+table.cms .col-handle { width: 28px; text-align: center; color: var(--ink-2); cursor: grab; user-select: none; }
+table.cms .col-handle:active { cursor: grabbing; }
+table.cms tr.dragging { opacity: 0.4; }
+table.cms tr.drop-target td { border-top: 2px solid var(--teal); }
+.btn.icon { padding: 4px 7px; font-size: 12px; line-height: 1; border: 1px solid transparent; background: transparent; color: var(--ink-2); }
+.btn.icon:hover { background: #eef0f2; color: var(--ink); }
+.btn.icon:disabled { opacity: 0.3; }
 table.cms .col-pub { width: 70px; text-align: center; }
 table.cms .col-photo { width: 64px; }
 table.cms .col-photo img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; display: block; }

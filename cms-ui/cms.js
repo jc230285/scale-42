@@ -13,8 +13,10 @@ function cmsPeople() {
   function row(p, idx) {
     const tr = document.createElement('tr');
     tr.dataset.idx = idx;
+    tr.draggable = true;
     const photoSrc = p.photo ? ('/' + p.photo) : '';
     tr.innerHTML = `
+      <td class="col-handle" title="Drag to reorder">⋮⋮</td>
       <td class="col-photo">${photoSrc ? `<img src="${photoSrc}" alt="" onerror="this.style.opacity=0.2"/>` : ''}</td>
       <td><input type="text" data-field="name" value="${escapeAttr(p.name)}" /></td>
       <td><input type="text" data-field="role_en" value="${escapeAttr(p.role_en)}" /></td>
@@ -27,7 +29,11 @@ function cmsPeople() {
       <td><input type="url" data-field="linkedin" value="${escapeAttr(p.linkedin)}" placeholder="https://linkedin.com/in/..." /></td>
       <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="is_founder" ${p.is_founder ? 'checked' : ''}/><span class="slider"></span></label></td>
       <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="published" ${p.published ? 'checked' : ''}/><span class="slider"></span></label></td>
-      <td class="col-actions"><button class="btn danger" data-action="delete">Delete</button></td>
+      <td class="col-actions">
+        <button class="btn icon" data-action="up" title="Move up">▲</button>
+        <button class="btn icon" data-action="down" title="Move down">▼</button>
+        <button class="btn danger" data-action="delete">Delete</button>
+      </td>
     `;
     return tr;
   }
@@ -148,6 +154,15 @@ function cmsPeople() {
       data.people.splice(idx, 1);
       render();
       setDirty(true);
+    } else if (t.matches('[data-action="up"]') || t.matches('[data-action="down"]')) {
+      const idx = parseInt(tr.dataset.idx, 10);
+      const newIdx = t.matches('[data-action="up"]') ? idx - 1 : idx + 1;
+      if (newIdx < 0 || newIdx >= data.people.length) return;
+      readBack();
+      const [moved] = data.people.splice(idx, 1);
+      data.people.splice(newIdx, 0, moved);
+      render();
+      setDirty(true);
     } else if (t.matches('[data-action="edit-bio"]')) {
       openBioModal(parseInt(tr.dataset.idx, 10));
     } else if (t.matches('[data-add]')) {
@@ -156,6 +171,38 @@ function cmsPeople() {
       render();
       setDirty(true);
     }
+  });
+
+  let dragSrc = null;
+  document.addEventListener('dragstart', (e) => {
+    const tr = e.target.closest('#tbody-people tr');
+    if (!tr) return;
+    dragSrc = tr;
+    tr.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+  });
+  document.addEventListener('dragend', () => {
+    document.querySelectorAll('#tbody-people tr').forEach(r => r.classList.remove('dragging', 'drop-target'));
+    dragSrc = null;
+  });
+  document.addEventListener('dragover', (e) => {
+    const tr = e.target.closest('#tbody-people tr');
+    if (!tr || !dragSrc || tr === dragSrc) return;
+    e.preventDefault();
+    document.querySelectorAll('#tbody-people tr.drop-target').forEach(r => r.classList.remove('drop-target'));
+    tr.classList.add('drop-target');
+  });
+  document.addEventListener('drop', (e) => {
+    const tr = e.target.closest('#tbody-people tr');
+    if (!tr || !dragSrc || tr === dragSrc) return;
+    e.preventDefault();
+    const fromIdx = parseInt(dragSrc.dataset.idx, 10);
+    const toIdx = parseInt(tr.dataset.idx, 10);
+    readBack();
+    const [moved] = data.people.splice(fromIdx, 1);
+    data.people.splice(toIdx, 0, moved);
+    render();
+    setDirty(true);
   });
 
   $('btn-save').addEventListener('click', save);
