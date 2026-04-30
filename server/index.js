@@ -2,6 +2,8 @@ const express = require('express');
 const basicAuth = require('express-basic-auth');
 const path = require('path');
 const fs = require('fs');
+const db = require('./db');
+db.init().then(ok => { if (ok) console.log('[db] connected & ready'); }).catch(e => console.error('[db] init failed:', e.message));
 
 const app = express();
 const ROOT = path.resolve(__dirname, '..');
@@ -28,10 +30,9 @@ app.use((req, res, next) => {
 // Discourage indexing of /cms even though it's basic-auth protected
 app.use('/cms', (req, res, next) => { res.set('X-Robots-Tag', 'noindex, nofollow'); next(); });
 
-// Multi-user auth. Loads from content/cms-users.json (committed to git).
-// Falls back to CMS_USER/CMS_PASS env for first-run bootstrap.
-const fs = require('fs');
-function loadUsers() {
+// DB-backed multi-user auth. Passwords (bcrypt) live in Postgres so changes don't require a redeploy.
+// Falls back to JSON file → env vars only if DATABASE_URL is unset.
+function loadJsonUsers() {
   try {
     const raw = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'cms-users.json'), 'utf-8'));
     const m = {};
@@ -40,22 +41,40 @@ function loadUsers() {
   } catch {}
   return { [process.env.CMS_USER || 'admin']: process.env.CMS_PASS || 'change-me' };
 }
+
 const auth = basicAuth({
-  users: loadUsers(),
+  authorizer: (username, password, callback) => {
+    if (db.isReady()) {
+      db.verifyPassword(username, password)
+        .then(u => callback(null, !!u))
+        .catch(e => { console.error('[auth] db verify failed:', e.message); callback(null, false); });
+    } else {
+      const users = loadJsonUsers();
+      callback(null, users[username] && users[username] === password);
+    }
+  },
+  authorizeAsync: true,
   challenge: true,
   realm: 'Scale42 CMS',
 });
 
 // Capture authenticated user details (name/email) for audit + git commit attribution
 function attachUser(req, _res, next) {
-  try {
-    const raw = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'cms-users.json'), 'utf-8'));
-    const u = (raw.users || []).find(x => x.username === req.auth?.user);
-    req.cmsUser = u || { username: req.auth?.user || 'unknown', name: req.auth?.user || 'unknown', email: '' };
-  } catch {
-    req.cmsUser = { username: req.auth?.user || 'unknown', name: req.auth?.user || 'unknown', email: '' };
+  const username = req.auth?.user;
+  if (!username) { req.cmsUser = { username: 'unknown', name: 'unknown', email: '' }; return next(); }
+  if (db.isReady()) {
+    db.findUser(username).then(u => {
+      req.cmsUser = u ? { username: u.username, name: u.name, email: u.email, is_admin: u.is_admin } : { username, name: username, email: '' };
+      next();
+    }).catch(() => { req.cmsUser = { username, name: username, email: '' }; next(); });
+  } else {
+    try {
+      const raw = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'cms-users.json'), 'utf-8'));
+      const u = (raw.users || []).find(x => x.username === username);
+      req.cmsUser = u || { username, name: username, email: '' };
+    } catch { req.cmsUser = { username, name: username, email: '' }; }
+    next();
   }
-  next();
 }
 
 app.use('/cms', auth, express.static(path.join(ROOT, 'cms-ui')));
@@ -66,6 +85,7 @@ app.use('/api', auth, attachUser, require('./routes/sections'));
 app.use('/api', auth, attachUser, require('./routes/upload'));
 app.use('/api', auth, attachUser, require('./routes/publish'));
 app.use('/api', auth, attachUser, require('./routes/audit'));
+app.use('/api', auth, attachUser, require('./routes/account'));
 
 app.use(express.static(ROOT, {
   extensions: ['html'],

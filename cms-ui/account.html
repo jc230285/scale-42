@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Account &mdash; Scale42 CMS</title>
+<link rel="stylesheet" href="cms.css" />
+<style>
+  .form-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 24px; max-width: 520px; }
+  .form-card h2 { margin: 0 0 16px; font-size: 16px; }
+  .form-card label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); font-weight: 600; margin: 14px 0 6px; }
+  .form-card input { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; font: inherit; font-size: 14px; }
+  .form-card .msg { font-size: 13px; padding: 10px; border-radius: 6px; margin-top: 14px; }
+  .form-card .msg.ok { background: #d8eadc; color: #1f6132; }
+  .form-card .msg.err { background: #fbeae9; color: #b3261e; }
+  .users-table { width: 100%; border-collapse: collapse; margin-top: 12px; background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .users-table th, .users-table td { padding: 10px 14px; border-bottom: 1px solid var(--line); text-align: left; font-size: 13.5px; }
+  .users-table th { background: #fafbfc; font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); }
+  .users-table tr:last-child td { border-bottom: none; }
+  .badge-admin { background: #fef3e0; color: #a35c00; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+</style>
+</head>
+<body>
+<header class="cms-nav">
+  <a class="cms-brand" href="/cms/">Scale42 CMS</a>
+  <nav>
+    <a href="/cms/people.html">People</a>
+    <a href="/cms/sites.html">Sites</a>
+    <a href="/cms/news.html">News</a>
+    <a href="/cms/sections.html">Sections</a>
+    <a href="/cms/account.html" class="active">Account</a>
+    <a href="/" target="_blank">View site &rarr;</a>
+  </nav>
+</header>
+<main class="cms-main">
+  <h1>Account</h1>
+  <p class="lede">Signed in as <strong id="me">…</strong> (<span id="me-email"></span>).</p>
+
+  <div class="form-card">
+    <h2>Change your password</h2>
+    <label for="cur">Current password</label>
+    <input id="cur" type="password" autocomplete="current-password" />
+    <label for="np1">New password (min 8 chars)</label>
+    <input id="np1" type="password" autocomplete="new-password" />
+    <label for="np2">Confirm new password</label>
+    <input id="np2" type="password" autocomplete="new-password" />
+    <div style="margin-top:18px;display:flex;gap:8px;">
+      <button class="btn primary" id="btn-pw">Change password</button>
+    </div>
+    <div id="pw-msg"></div>
+  </div>
+
+  <section id="admin-section" style="margin-top:36px;display:none;">
+    <h2>Manage users <span class="badge-admin">admin only</span></h2>
+    <p class="lede">Add, edit, or remove CMS users. Username is the email address. Passwords are stored bcrypt-hashed in the database.</p>
+    <div style="margin:14px 0;">
+      <button class="btn primary" id="btn-new">+ New user</button>
+    </div>
+    <table class="users-table"><thead><tr><th>Username</th><th>Name</th><th>Email</th><th>Admin</th><th>Updated</th><th></th></tr></thead><tbody id="users-tbody"></tbody></table>
+  </section>
+</main>
+<div id="modal-root"></div>
+
+<script>
+(async function() {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => (s == null ? '' : String(s)).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+  const fmtAgo = (iso) => { const dt = new Date(iso); const m = Math.round((Date.now()-dt.getTime())/60000); return m<60?`${m}m ago`:m<1440?`${Math.round(m/60)}h ago`:dt.toLocaleDateString(); };
+
+  const me = await (await fetch('/api/whoami')).json();
+  $('me').textContent = me.name || me.username;
+  $('me-email').textContent = me.username;
+
+  // Password change
+  $('btn-pw').addEventListener('click', async () => {
+    const cur = $('cur').value, n1 = $('np1').value, n2 = $('np2').value;
+    const msg = $('pw-msg');
+    msg.className = ''; msg.textContent = '';
+    if (n1 !== n2) { msg.className = 'msg err'; msg.textContent = 'Passwords do not match.'; return; }
+    if (n1.length < 8) { msg.className = 'msg err'; msg.textContent = 'New password must be at least 8 characters.'; return; }
+    const r = await fetch('/api/account/password', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ current: cur, next: n1 }) });
+    const body = await r.json().catch(() => ({}));
+    if (!r.ok) { msg.className = 'msg err'; msg.textContent = body.error || 'Change failed'; return; }
+    msg.className = 'msg ok'; msg.textContent = 'Password changed. Next sign-in will use the new password.';
+    $('cur').value = $('np1').value = $('np2').value = '';
+  });
+
+  if (me.is_admin) {
+    $('admin-section').style.display = '';
+    async function loadUsers() {
+      const r = await fetch('/api/users');
+      if (!r.ok) { $('users-tbody').innerHTML = '<tr><td colspan="6">DB not configured.</td></tr>'; return; }
+      const { users } = await r.json();
+      $('users-tbody').innerHTML = users.map(u => `
+        <tr data-username="${esc(u.username)}">
+          <td><code>${esc(u.username)}</code></td>
+          <td>${esc(u.name)}</td>
+          <td>${esc(u.email)}</td>
+          <td>${u.is_admin ? '<span class="badge-admin">admin</span>' : ''}</td>
+          <td style="color:var(--ink-2);font-size:12px;">${fmtAgo(u.updated_at)}</td>
+          <td style="text-align:right;">
+            <button class="btn linkish" data-act="edit">Edit</button>
+            ${u.username !== me.username ? '<button class="btn danger" data-act="delete" style="margin-left:6px;">Delete</button>' : ''}
+          </td>
+        </tr>`).join('');
+    }
+    function openUserModal(existing) {
+      const root = $('modal-root');
+      const u = existing || { username: '', name: '', email: '', is_admin: false };
+      root.innerHTML = `<div class="modal-overlay" data-modal-overlay><div class="modal" style="max-width:520px;">
+        <div class="modal-head"><h2>${existing ? 'Edit user' : 'New user'}</h2><button class="close" data-modal-close>×</button></div>
+        <div class="modal-body" style="display:block;">
+          <label>Username (email)</label>
+          <input id="u-name" value="${esc(u.username)}" ${existing ? 'readonly' : ''} placeholder="firstname@scale-42.com" />
+          <label>Display name</label>
+          <input id="u-display" value="${esc(u.name)}" />
+          <label>Email</label>
+          <input id="u-email" value="${esc(u.email)}" />
+          <label>Password ${existing ? '(leave blank to keep current)' : ''}</label>
+          <input id="u-pw" type="password" value="" />
+          <label style="display:flex;gap:8px;align-items:center;margin-top:14px;"><input id="u-admin" type="checkbox" ${u.is_admin ? 'checked' : ''}/> Admin</label>
+        </div>
+        <div class="modal-foot"><button class="btn" data-modal-close>Cancel</button><button class="btn primary" id="u-save">Save</button></div>
+      </div></div>`;
+      const close = () => { root.innerHTML = ''; };
+      root.querySelector('[data-modal-overlay]').addEventListener('click', (e) => { if (e.target === e.currentTarget) close(); });
+      root.querySelectorAll('[data-modal-close]').forEach(b => b.addEventListener('click', close));
+      $('u-save').addEventListener('click', async () => {
+        const username = $('u-name').value.trim();
+        if (!username) return alert('Username required');
+        const body = {
+          name: $('u-display').value.trim(),
+          email: $('u-email').value.trim(),
+          is_admin: $('u-admin').checked,
+        };
+        const pw = $('u-pw').value;
+        if (pw) body.password = pw;
+        const r = await fetch('/api/users/' + encodeURIComponent(username), { method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) });
+        if (!r.ok) { const b = await r.json().catch(()=>({})); alert(b.error || 'Save failed'); return; }
+        close(); loadUsers();
+      });
+    }
+    $('btn-new').addEventListener('click', () => openUserModal(null));
+    $('users-tbody').addEventListener('click', async (e) => {
+      const tr = e.target.closest('tr'); if (!tr) return;
+      const username = tr.dataset.username;
+      const act = e.target.dataset.act;
+      if (act === 'edit') {
+        const r = await fetch('/api/users');
+        const { users } = await r.json();
+        openUserModal(users.find(x => x.username === username));
+      } else if (act === 'delete') {
+        if (!confirm(`Delete user ${username}?`)) return;
+        const r = await fetch('/api/users/' + encodeURIComponent(username), { method: 'DELETE' });
+        if (!r.ok) { const b = await r.json().catch(()=>({})); alert(b.error || 'Delete failed'); return; }
+        loadUsers();
+      }
+    });
+    loadUsers();
+  }
+})();
+</script>
+</body>
+</html>

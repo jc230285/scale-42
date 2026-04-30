@@ -83,7 +83,13 @@ function record(section, user, before, after, action) {
     action: action || 'save',
     changes,
   };
+  // Always append to file (cheap, in-container persistence + git audit)
   append(entry);
+  // Also write to DB if available — survives container redeploy, queryable
+  try {
+    const db = require('./db');
+    if (db.isReady()) db.recordAudit(section, user, changes, action || 'save').catch(e => console.warn('[audit] db write failed:', e.message));
+  } catch {}
   return entry;
 }
 
