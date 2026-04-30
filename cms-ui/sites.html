@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Sites &mdash; Scale42 CMS</title>
 <link rel="stylesheet" href="cms.css" />
+<style>
+  table.sites-grid { border-collapse: separate; border-spacing: 0; min-width: 100%; }
+  table.sites-grid th, table.sites-grid td { border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); padding: 8px 10px; vertical-align: top; background: #fff; }
+  table.sites-grid th.field-label { background: #fafbfc; font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); text-align: left; position: sticky; left: 0; z-index: 2; min-width: 130px; }
+  table.sites-grid td.field-label { background: #fafbfc; font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); position: sticky; left: 0; z-index: 1; min-width: 130px; }
+  table.sites-grid th.site-col, table.sites-grid td.site-col { min-width: 220px; max-width: 280px; }
+  .site-card { padding: 0; }
+  .site-card .actions { display: flex; gap: 4px; padding: 6px 8px; border-bottom: 1px solid var(--line); background: #fafbfc; align-items: center; }
+  .site-card .actions .btn.icon { padding: 3px 6px; font-size: 11px; }
+  .site-card .actions .grow { flex: 1; }
+  .site-card .img-wrap { aspect-ratio: 16/10; background: #eef0f2; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 12px; }
+  .site-card .img-wrap:hover { background: #e5e8eb; }
+  .site-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .site-card .img-wrap.empty::after { content: "+ image"; color: var(--ink-2); }
+  table.sites-grid input[type=text], table.sites-grid input[type=number], table.sites-grid select, table.sites-grid textarea { width: 100%; border: 1px solid transparent; padding: 5px 7px; border-radius: 6px; font: inherit; font-size: 13px; background: transparent; }
+  table.sites-grid input:focus, table.sites-grid select:focus, table.sites-grid textarea:focus { border-color: var(--teal); background: #fff; outline: none; box-shadow: 0 0 0 3px rgba(47,102,117,0.12); }
+  table.sites-grid textarea { min-height: 56px; resize: vertical; }
+  .add-col-btn { padding: 8px 12px; }
+</style>
 </head>
 <body>
 <header class="cms-nav">
@@ -22,7 +41,7 @@
     <h1>Sites</h1>
     <span class="meta" id="dirty-meta">No unsaved changes</span>
   </div>
-  <p class="lede">Pipeline sites shown on the homepage map and on <code>/datacenters/</code>. Status <code>live</code> = active, <code>tbd</code> = disclosed in development.</p>
+  <p class="lede">Pipeline sites — fields down the left, one column per site. Click an image to upload. Drag the &blacktriangle;/&blacktriangledown; buttons in a column header to reorder.</p>
 
   <div id="totals" style="display:flex;gap:24px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:14px;font-size:13.5px"></div>
 
@@ -31,25 +50,7 @@
     <button class="btn add" id="btn-add">+ Add site</button>
   </div>
   <div class="table-wrap" style="overflow-x:auto">
-    <table class="cms" style="min-width:1200px">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Country</th>
-          <th>Status</th>
-          <th>Power</th>
-          <th>Initial MW</th>
-          <th>Target MW</th>
-          <th>Lat</th>
-          <th>Lng</th>
-          <th class="img-cell">Image</th>
-          <th>Description</th>
-          <th class="col-pub">Live</th>
-          <th class="col-actions"></th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
+    <table class="sites-grid" id="grid"></table>
   </div>
 </main>
 
@@ -72,38 +73,47 @@
   const setStatus = (m, k) => { const e = $('status'); e.textContent = m || ''; e.className = 'status-msg' + (k ? ' ' + k : ''); };
   const escAttr = (s) => (s == null ? '' : String(s)).replace(/"/g, '&quot;');
   const escText = (s) => (s == null ? '' : String(s)).replace(/</g, '&lt;');
-  const preview = (s) => (s || '').slice(0, 50) + ((s || '').length > 50 ? '…' : '');
 
-  function row(s, idx) {
-    const tr = document.createElement('tr');
-    tr.dataset.idx = idx;
-    tr.innerHTML = `
-      <td><input type="text" data-field="name" value="${escAttr(s.name)}" style="width:140px" /></td>
-      <td><input type="text" data-field="country" value="${escAttr(s.country)}" style="width:90px" /></td>
-      <td>
-        <select data-field="status">
-          <option value="live"${s.status==='live'?' selected':''}>live</option>
-          <option value="tbd"${s.status==='tbd'?' selected':''}>tbd</option>
-        </select>
-      </td>
-      <td><input type="text" data-field="power" value="${escAttr(s.power)}" placeholder="Hydro / Geothermal / …" style="width:130px" /></td>
-      <td><input type="text" data-field="initial_mw" value="${escAttr(s.initial_mw)}" placeholder="50 MW" style="width:90px" /></td>
-      <td><input type="text" data-field="target_mw" value="${escAttr(s.target_mw)}" placeholder="200 MW" style="width:90px" /></td>
-      <td><input type="number" step="0.0001" data-field="lat" value="${escAttr(s.lat)}" style="width:90px" /></td>
-      <td><input type="number" step="0.0001" data-field="lng" value="${escAttr(s.lng)}" style="width:90px" /></td>
-      <td class="img-cell"><div class="img-thumb ${s.image ? '' : 'empty'}" data-action="pick-image" title="Click to change">${s.image ? `<img src="/assets/sites/${escAttr(s.image)}" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"/>` : ''}</div></td>
-      <td>
-        <p class="bio-cell" style="margin:0 0 6px">${escText(preview(s.desc_en))}</p>
-        <button class="btn linkish" data-action="edit-desc">Edit EN/NO</button>
-      </td>
-      <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="published" ${s.published ? 'checked' : ''}/><span class="slider"></span></label></td>
-      <td class="col-actions">
-        <button class="btn icon" data-action="up">▲</button>
-        <button class="btn icon" data-action="down">▼</button>
-        <button class="btn danger" data-action="delete">Delete</button>
-      </td>
+  const FIELDS = [
+    { key: 'name', label: 'Name', type: 'text' },
+    { key: 'country', label: 'Country', type: 'text' },
+    { key: 'status', label: 'Status', type: 'select', options: ['live', 'tbd'] },
+    { key: 'power', label: 'Power', type: 'text', placeholder: 'Hydro / Geothermal / …' },
+    { key: 'initial_mw', label: 'Initial MW', type: 'text', placeholder: '50 MW' },
+    { key: 'target_mw', label: 'Target MW', type: 'text', placeholder: '200 MW' },
+    { key: 'lat', label: 'Latitude', type: 'number' },
+    { key: 'lng', label: 'Longitude', type: 'number' },
+    { key: 'desc_en', label: 'Description (EN)', type: 'textarea' },
+    { key: 'desc_no', label: 'Description (NO)', type: 'textarea' },
+    { key: 'published', label: 'Live', type: 'toggle' },
+  ];
+
+  function siteHeader(s, idx, total) {
+    const imgUrl = s.image ? `/assets/sites/${escAttr(s.image)}` : '';
+    return `
+      <th class="site-col">
+        <div class="site-card">
+          <div class="actions">
+            <button class="btn icon" data-action="up" data-idx="${idx}" ${idx===0?'disabled':''} title="Move left">▲</button>
+            <button class="btn icon" data-action="down" data-idx="${idx}" ${idx===total-1?'disabled':''} title="Move right">▼</button>
+            <span class="grow"></span>
+            <button class="btn danger" data-action="delete" data-idx="${idx}" title="Delete site">×</button>
+          </div>
+          <div class="img-wrap ${s.image ? '' : 'empty'}" data-action="pick-image" data-idx="${idx}" title="Click to upload">
+            ${s.image ? `<img src="${imgUrl}" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"/>` : ''}
+          </div>
+        </div>
+      </th>
     `;
-    return tr;
+  }
+
+  function fieldCell(f, s, idx) {
+    const v = s[f.key];
+    if (f.type === 'textarea') return `<td class="site-col"><textarea data-key="${f.key}" data-idx="${idx}">${escText(v)}</textarea></td>`;
+    if (f.type === 'select') return `<td class="site-col"><select data-key="${f.key}" data-idx="${idx}">${f.options.map(o => `<option value="${o}"${v===o?' selected':''}>${o}</option>`).join('')}</select></td>`;
+    if (f.type === 'toggle') return `<td class="site-col"><label class="toggle"><input type="checkbox" data-key="${f.key}" data-idx="${idx}" ${v?'checked':''}/><span class="slider"></span></label></td>`;
+    if (f.type === 'number') return `<td class="site-col"><input type="number" step="0.0001" data-key="${f.key}" data-idx="${idx}" value="${escAttr(v)}" /></td>`;
+    return `<td class="site-col"><input type="text" data-key="${f.key}" data-idx="${idx}" value="${escAttr(v)}" placeholder="${escAttr(f.placeholder || '')}" /></td>`;
   }
 
   function parseMW(s) { const m = String(s || '').match(/[\d.]+/); return m ? parseFloat(m[0]) : 0; }
@@ -126,71 +136,36 @@
   }
 
   function render() {
-    const tbody = $('tbody');
-    tbody.innerHTML = '';
-    data.sites.forEach((s, i) => tbody.appendChild(row(s, i)));
+    const total = data.sites.length;
+    const headers = data.sites.map((s, i) => siteHeader(s, i, total)).join('');
+    const rows = FIELDS.map(f => `
+      <tr>
+        <td class="field-label">${escText(f.label)}</td>
+        ${data.sites.map((s, i) => fieldCell(f, s, i)).join('')}
+      </tr>
+    `).join('');
+    $('grid').innerHTML = `
+      <thead>
+        <tr>
+          <th class="field-label"></th>
+          ${headers}
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    `;
     renderTotals();
   }
 
   function readBack() {
-    const arr = [];
-    $('tbody').querySelectorAll('tr').forEach((tr) => {
-      const get = (f) => {
-        const el = tr.querySelector(`[data-field="${f}"]`);
-        if (!el) return '';
-        if (el.type === 'checkbox') return el.checked;
-        if (el.type === 'number') return parseFloat(el.value);
-        return el.value;
-      };
-      const original = data.sites[parseInt(tr.dataset.idx, 10)] || {};
-      arr.push({
-        id: original.id || (get('name') || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
-        name: get('name'), country: get('country'), status: get('status'),
-        power: get('power'), initial_mw: get('initial_mw'), target_mw: get('target_mw'),
-        lat: get('lat'), lng: get('lng'),
-        image: original.image || '',
-        desc_en: original.desc_en || '', desc_no: original.desc_no || '',
-        published: get('published'),
-      });
-    });
-    data.sites = arr;
-  }
-
-  function openDescModal(idx) {
-    readBack();
-    const s = data.sites[idx];
-    const root = $('modal-root');
-    root.innerHTML = `
-      <div class="modal-overlay" data-modal-overlay>
-        <div class="modal">
-          <div class="modal-head">
-            <h2>Description &mdash; ${escText(s.name || 'Untitled')}</h2>
-            <button class="close" data-modal-close>×</button>
-          </div>
-          <div class="modal-body">
-            <div>
-              <label>Description (EN)</label>
-              <textarea id="d-en">${escText(s.desc_en)}</textarea>
-            </div>
-            <div>
-              <label>Description (NO)</label>
-              <textarea id="d-no">${escText(s.desc_no)}</textarea>
-            </div>
-          </div>
-          <div class="modal-foot">
-            <button class="btn" data-modal-close>Cancel</button>
-            <button class="btn primary" id="d-apply">Apply</button>
-          </div>
-        </div>
-      </div>
-    `;
-    const close = () => { root.innerHTML = ''; };
-    root.querySelector('[data-modal-overlay]').addEventListener('click', (e) => { if (e.target === e.currentTarget) close(); });
-    root.querySelectorAll('[data-modal-close]').forEach(b => b.addEventListener('click', close));
-    document.getElementById('d-apply').addEventListener('click', () => {
-      data.sites[idx].desc_en = document.getElementById('d-en').value;
-      data.sites[idx].desc_no = document.getElementById('d-no').value;
-      setDirty(true); render(); close();
+    document.querySelectorAll('[data-key][data-idx]').forEach(el => {
+      const i = parseInt(el.dataset.idx, 10);
+      const k = el.dataset.key;
+      if (!data.sites[i]) return;
+      let v;
+      if (el.type === 'checkbox') v = el.checked;
+      else if (el.type === 'number') v = parseFloat(el.value);
+      else v = el.value;
+      data.sites[i][k] = v;
     });
   }
 
@@ -198,8 +173,7 @@
     setStatus('Loading…');
     const r = await fetch('/api/sites');
     if (!r.ok) { setStatus('Load failed', 'err'); return; }
-    data = await r.json();
-    render(); setDirty(false); setStatus('');
+    data = await r.json(); render(); setDirty(false); setStatus('');
   }
   async function save() {
     readBack();
@@ -209,7 +183,7 @@
     setDirty(false); setStatus('Draft saved', 'ok'); return true;
   }
   async function publish() {
-    if (!confirm('Publish sites? Regenerates home + datacenters maps.')) return;
+    if (!confirm('Publish sites? Regenerates home + datacenters maps and hero stats.')) return;
     if (!(await save())) return;
     setStatus('Publishing…');
     const r = await fetch('/api/publish/sites', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({}) });
@@ -219,32 +193,42 @@
   }
 
   document.addEventListener('input', (e) => {
-    if (e.target.closest('table.cms')) {
-      setDirty(true);
-      if (e.target.matches('[data-field="initial_mw"],[data-field="target_mw"]')) { readBack(); renderTotals(); }
-    }
+    const el = e.target;
+    if (!el.matches('[data-key][data-idx]')) return;
+    setDirty(true);
+    const i = parseInt(el.dataset.idx, 10);
+    const k = el.dataset.key;
+    const v = el.type === 'checkbox' ? el.checked : el.type === 'number' ? parseFloat(el.value) : el.value;
+    if (data.sites[i]) data.sites[i][k] = v;
+    if (k === 'initial_mw' || k === 'target_mw') renderTotals();
   });
   document.addEventListener('change', (e) => {
-    if (e.target.closest('table.cms')) {
-      setDirty(true);
-      if (e.target.matches('[data-field="status"],[data-field="published"]')) { readBack(); renderTotals(); }
-    }
+    const el = e.target;
+    if (!el.matches('[data-key][data-idx]')) return;
+    setDirty(true);
+    const i = parseInt(el.dataset.idx, 10);
+    const k = el.dataset.key;
+    const v = el.type === 'checkbox' ? el.checked : el.value;
+    if (data.sites[i]) data.sites[i][k] = v;
+    if (k === 'status' || k === 'published') renderTotals();
   });
+
   document.addEventListener('click', (e) => {
-    const t = e.target;
-    const tr = t.closest('tr');
-    if (t.matches('[data-action="delete"]')) { readBack(); data.sites.splice(parseInt(tr.dataset.idx,10), 1); render(); setDirty(true); }
-    else if (t.matches('[data-action="up"]') || t.matches('[data-action="down"]')) {
-      const idx = parseInt(tr.dataset.idx, 10);
-      const newIdx = t.matches('[data-action="up"]') ? idx-1 : idx+1;
-      if (newIdx < 0 || newIdx >= data.sites.length) return;
+    const t = e.target.closest('[data-action]');
+    if (!t) return;
+    const action = t.dataset.action;
+    const idx = parseInt(t.dataset.idx, 10);
+    if (action === 'delete') {
+      if (!confirm('Delete this site?')) return;
+      readBack(); data.sites.splice(idx, 1); render(); setDirty(true);
+    } else if (action === 'up' || action === 'down') {
+      const ni = action === 'up' ? idx - 1 : idx + 1;
+      if (ni < 0 || ni >= data.sites.length) return;
       readBack();
       const [m] = data.sites.splice(idx, 1);
-      data.sites.splice(newIdx, 0, m); render(); setDirty(true);
-    } else if (t.matches('[data-action="edit-desc"]')) {
-      openDescModal(parseInt(tr.dataset.idx, 10));
-    } else if (t.closest('[data-action="pick-image"]')) {
-      const idx = parseInt(tr.dataset.idx, 10);
+      data.sites.splice(ni, 0, m);
+      render(); setDirty(true);
+    } else if (action === 'pick-image') {
       readBack();
       window.openImagePicker({
         folder: 'sites',
@@ -253,6 +237,7 @@
       });
     }
   });
+
   $('btn-add').addEventListener('click', () => {
     readBack();
     data.sites.push({ id: '', name: 'New site', country: 'Norway', status: 'tbd', power: '', initial_mw: '', target_mw: '', lat: 65, lng: 14, image: '', desc_en: '', desc_no: '', published: false });
