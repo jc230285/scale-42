@@ -8,11 +8,11 @@
       "bio_en": "7+ years in data centre development. Business strategy & energy market expertise. Led team from start-up to 8-figure exit. Commercial property background.",
       "bio_no": "7+ år innen utvikling av datasentre. Forretningsstrategi og ekspertise på energimarkedet. Ledet team fra oppstart til 8-sifret exit. Bakgrunn fra næringseiendom.",
       "photo": "assets/team/tasney.jpg",
-      "linkedin": "https://www.linkedin.com/in/william-tasney-a9487a16a/",
-      "published": true,
-      "is_founder": true,
       "email": "william@scale-42.com",
-      "phone": ""
+      "phone": "",
+      "linkedin": "https://www.linkedin.com/in/william-tasney-a9487a16a/",
+      "is_founder": true,
+      "published": true
     },
     {
       "id": "fostervoll",
@@ -22,11 +22,11 @@
       "bio_en": "5+ years in data centre development. High-voltage power systems test & integration. 15+ years electrical engineering, including North Sea oil & gas.",
       "bio_no": "5+ år innen utvikling av datasentre. Test og integrasjon av høyspenningsanlegg. 15+ år som elektroingeniør, inkludert olje og gass i Nordsjøen.",
       "photo": "assets/team/fostervoll.jpg",
-      "linkedin": "https://www.linkedin.com/in/bendik-fostervoll-5482aba5/",
-      "published": true,
-      "is_founder": true,
       "email": "bendik@scale-42.com",
-      "phone": ""
+      "phone": "",
+      "linkedin": "https://www.linkedin.com/in/bendik-fostervoll-5482aba5/",
+      "is_founder": true,
+      "published": true
     },
     {
       "id": "collins",
@@ -36,11 +36,11 @@
       "bio_en": "7+ years in data centre development. Data centre system design & management. 20+ years in IT systems administration, technical and service roles in the UK.",
       "bio_no": "7+ år innen utvikling av datasentre. Systemdesign og forvaltning av datasentre. 20+ år innen IT-systemadministrasjon, tekniske roller og servicestillinger i Storbritannia.",
       "photo": "assets/team/collins.jpg",
-      "linkedin": "https://www.linkedin.com/in/james-collins-11b55079/",
-      "published": true,
-      "is_founder": true,
       "email": "james@scale-42.com",
-      "phone": ""
+      "phone": "+44 7717 810 941",
+      "linkedin": "https://www.linkedin.com/in/james-collins-11b55079/",
+      "is_founder": true,
+      "published": true
     },
     {
       "id": "rahman",
@@ -50,11 +50,11 @@
       "bio_en": "4+ years in data centre operations & development. MEng petroleum engineer. AgriTech & circular economy subject matter expert.",
       "bio_no": "4+ år innen drift og utvikling av datasentre. MEng petroleumsingeniør. Fagekspert på AgriTech og sirkulær økonomi.",
       "photo": "assets/team/rahman.jpg",
-      "linkedin": "https://www.linkedin.com/in/zeehan-rahman-22a291209/",
-      "published": true,
-      "is_founder": false,
       "email": "zeehan@scale-42.com",
-      "phone": ""
+      "phone": "",
+      "linkedin": "https://www.linkedin.com/in/zeehan-rahman-22a291209/",
+      "is_founder": false,
+      "published": true
     },
     {
       "id": "valero",
@@ -64,11 +64,11 @@
       "bio_en": "Data centre design, build & operations. 25+ years in IT solutions development. Networking, system integration & supplier management.",
       "bio_no": "Design, bygg og drift av datasentre. 25+ år innen utvikling av IT-løsninger. Nettverk, systemintegrasjon og leverandørstyring.",
       "photo": "assets/team/valero.jpg",
-      "linkedin": "https://www.linkedin.com/in/ismael-valero-669b374/",
-      "published": true,
-      "is_founder": false,
       "email": "ismael@scale-42.com",
-      "phone": ""
+      "phone": "",
+      "linkedin": "https://www.linkedin.com/in/ismael-valero-669b374/",
+      "is_founder": false,
+      "published": true
     },
     {
       "id": "stewart",
@@ -78,11 +78,11 @@
       "bio_en": "Corporate strategy and capital raising. 11 years in research & corporate strategy at one of Europe's preeminent hedge funds. Corporate finance experience.",
       "bio_no": "Selskapsstrategi og kapitalinnhenting. 11 år innen research og selskapsstrategi i et av Europas ledende hedgefond. Erfaring fra corporate finance.",
       "photo": "assets/team/stewart.jpg",
-      "linkedin": "https://www.linkedin.com/in/jamie-stewart-s42/",
-      "published": true,
-      "is_founder": false,
       "email": "jamie@scale-42.com",
-      "phone": ""
+      "phone": "",
+      "linkedin": "https://www.linkedin.com/in/jamie-stewart-s42/",
+      "is_founder": false,
+      "published": true
     },
     {
       "id": "beaton",
@@ -92,11 +92,11 @@
       "bio_en": "Information, data, research & technical management. 8+ years in geospatial intelligence and innovation. ESA & UK Space Agency contractor.",
       "bio_no": "Informasjon, data, research og teknisk ledelse. 8+ år innen geospatial intelligence og innovasjon. Kontraktør for ESA og UK Space Agency.",
       "photo": "assets/team/beaton.jpg",
-      "linkedin": "https://www.linkedin.com/in/thomas-beaton-796881b7/",
-      "published": true,
-      "is_founder": false,
       "email": "thomas@scale-42.com",
-      "phone": ""
+      "phone": "",
+      "linkedin": "https://www.linkedin.com/in/thomas-beaton-796881b7/",
+      "is_founder": false,
+      "published": true
     },
     {
       "id": "murray",
@@ -106,11 +106,11 @@
       "bio_en": "15 years across technology, FinTech and Life Sciences. Closing significant funding rounds and PE shareholder agreements. Built finance & compliance teams.",
       "bio_no": "15 år innen teknologi, FinTech og Life Sciences. Lukket betydelige finansieringsrunder og PE-aksjonæravtaler. Bygget finans- og compliance-team.",
       "photo": "assets/team/murray.jpg",
-      "linkedin": "https://www.linkedin.com/in/patrick-murray-0895033/",
-      "published": true,
-      "is_founder": false,
       "email": "patrick@scale-42.com",
-      "phone": ""
+      "phone": "",
+      "linkedin": "https://www.linkedin.com/in/patrick-murray-0895033/",
+      "is_founder": false,
+      "published": true
     },
     {
       "id": "gussias",
@@ -120,11 +120,11 @@
       "bio_en": "13+ years in North Sea oil & gas. Field engineer and supervisor. Energy saving and technical insulation.",
       "bio_no": "13+ år innen olje og gass i Nordsjøen. Feltingeniør og supervisor. Energisparing og teknisk isolasjon.",
       "photo": "assets/team/gussias.jpg",
-      "linkedin": "https://www.linkedin.com/in/daniel-gussi%C3%A5s-820652295/",
-      "published": true,
-      "is_founder": false,
       "email": "daniel@scale-42.com",
-      "phone": ""
+      "phone": "",
+      "linkedin": "https://www.linkedin.com/in/daniel-gussi%C3%A5s-820652295/",
+      "is_founder": false,
+      "published": true
     },
     {
       "id": "normann",
@@ -134,11 +134,11 @@
       "bio_en": "Mechanical-electrical and construction-hydropower engineer. 18+ years as worldwide technical manager, project manager and engineer. International project leadership.",
       "bio_no": "Maskin- og elektroingeniør med bakgrunn fra bygg og vannkraft. 18+ år som teknisk leder, prosjektleder og ingeniør verden over. Internasjonal prosjektledelse.",
       "photo": "assets/team/normann.jpg",
-      "linkedin": "",
-      "published": true,
-      "is_founder": false,
       "email": "roald@scale-42.com",
-      "phone": ""
+      "phone": "",
+      "linkedin": "",
+      "is_founder": false,
+      "published": true
     },
     {
       "id": "williamson",
@@ -148,11 +148,11 @@
       "bio_en": "16+ years operations and team management. Group financial management. Time management.",
       "bio_no": "16+ år innen drift og teamledelse. Konsernregnskap og økonomistyring. Tidsstyring.",
       "photo": "assets/team/williamson.jpg",
-      "linkedin": "https://www.linkedin.com/in/abbiewilliamson/",
-      "published": true,
-      "is_founder": false,
       "email": "abbie@scale-42.com",
-      "phone": ""
+      "phone": "",
+      "linkedin": "https://www.linkedin.com/in/abbiewilliamson/",
+      "is_founder": false,
+      "published": true
     }
   ]
 }
