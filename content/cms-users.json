@@ -1,11 +1,77 @@
 {
-  "_doc": "CMS users. Add an entry per staff member. password is for basic-auth login. name+email are used for audit log entries and git commit attribution.",
+  "_doc": "CMS users. Username = email. Each person has a default password \"change-me\" — they should set their own. Edit this file (or via API later) to add/remove users.",
   "users": [
     {
       "username": "admin",
       "password": "change-me",
       "name": "Admin",
       "email": "info@scale-42.com"
+    },
+    {
+      "username": "william@scale-42.com",
+      "password": "change-me",
+      "name": "William Tasney",
+      "email": "william@scale-42.com"
+    },
+    {
+      "username": "bendik@scale-42.com",
+      "password": "change-me",
+      "name": "Bendik Fostervoll",
+      "email": "bendik@scale-42.com"
+    },
+    {
+      "username": "james@scale-42.com",
+      "password": "change-me",
+      "name": "James Collins",
+      "email": "james@scale-42.com"
+    },
+    {
+      "username": "zeehan@scale-42.com",
+      "password": "change-me",
+      "name": "Zeehan Rahman",
+      "email": "zeehan@scale-42.com"
+    },
+    {
+      "username": "ismael@scale-42.com",
+      "password": "change-me",
+      "name": "Ismael Valero",
+      "email": "ismael@scale-42.com"
+    },
+    {
+      "username": "jamie@scale-42.com",
+      "password": "change-me",
+      "name": "Jamie Stewart",
+      "email": "jamie@scale-42.com"
+    },
+    {
+      "username": "thomas@scale-42.com",
+      "password": "change-me",
+      "name": "Thomas Beaton",
+      "email": "thomas@scale-42.com"
+    },
+    {
+      "username": "patrick@scale-42.com",
+      "password": "change-me",
+      "name": "Patrick Murray",
+      "email": "patrick@scale-42.com"
+    },
+    {
+      "username": "daniel@scale-42.com",
+      "password": "change-me",
+      "name": "Daniel Gussiås",
+      "email": "daniel@scale-42.com"
+    },
+    {
+      "username": "roald@scale-42.com",
+      "password": "change-me",
+      "name": "Roald Normann",
+      "email": "roald@scale-42.com"
+    },
+    {
+      "username": "abbie@scale-42.com",
+      "password": "change-me",
+      "name": "Abbie Williamson",
+      "email": "abbie@scale-42.com"
     }
   ]
 }

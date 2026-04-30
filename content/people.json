@@ -10,7 +10,9 @@
       "photo": "assets/team/tasney.jpg",
       "linkedin": "https://www.linkedin.com/in/william-tasney-a9487a16a/",
       "published": true,
-      "is_founder": true
+      "is_founder": true,
+      "email": "william@scale-42.com",
+      "phone": ""
     },
     {
       "id": "fostervoll",
@@ -22,7 +24,9 @@
       "photo": "assets/team/fostervoll.jpg",
       "linkedin": "https://www.linkedin.com/in/bendik-fostervoll-5482aba5/",
       "published": true,
-      "is_founder": true
+      "is_founder": true,
+      "email": "bendik@scale-42.com",
+      "phone": ""
     },
     {
       "id": "collins",
@@ -34,7 +38,9 @@
       "photo": "assets/team/collins.jpg",
       "linkedin": "https://www.linkedin.com/in/james-collins-11b55079/",
       "published": true,
-      "is_founder": true
+      "is_founder": true,
+      "email": "james@scale-42.com",
+      "phone": ""
     },
     {
       "id": "rahman",
@@ -46,7 +52,9 @@
       "photo": "assets/team/rahman.jpg",
       "linkedin": "https://www.linkedin.com/in/zeehan-rahman-22a291209/",
       "published": true,
-      "is_founder": false
+      "is_founder": false,
+      "email": "zeehan@scale-42.com",
+      "phone": ""
     },
     {
       "id": "valero",
@@ -58,7 +66,9 @@
       "photo": "assets/team/valero.jpg",
       "linkedin": "https://www.linkedin.com/in/ismael-valero-669b374/",
       "published": true,
-      "is_founder": false
+      "is_founder": false,
+      "email": "ismael@scale-42.com",
+      "phone": ""
     },
     {
       "id": "stewart",
@@ -70,7 +80,9 @@
       "photo": "assets/team/stewart.jpg",
       "linkedin": "https://www.linkedin.com/in/jamie-stewart-s42/",
       "published": true,
-      "is_founder": false
+      "is_founder": false,
+      "email": "jamie@scale-42.com",
+      "phone": ""
     },
     {
       "id": "beaton",
@@ -82,7 +94,9 @@
       "photo": "assets/team/beaton.jpg",
       "linkedin": "https://www.linkedin.com/in/thomas-beaton-796881b7/",
       "published": true,
-      "is_founder": false
+      "is_founder": false,
+      "email": "thomas@scale-42.com",
+      "phone": ""
     },
     {
       "id": "murray",
@@ -94,7 +108,9 @@
       "photo": "assets/team/murray.jpg",
       "linkedin": "https://www.linkedin.com/in/patrick-murray-0895033/",
       "published": true,
-      "is_founder": false
+      "is_founder": false,
+      "email": "patrick@scale-42.com",
+      "phone": ""
     },
     {
       "id": "gussias",
@@ -106,7 +122,9 @@
       "photo": "assets/team/gussias.jpg",
       "linkedin": "https://www.linkedin.com/in/daniel-gussi%C3%A5s-820652295/",
       "published": true,
-      "is_founder": false
+      "is_founder": false,
+      "email": "daniel@scale-42.com",
+      "phone": ""
     },
     {
       "id": "normann",
@@ -118,7 +136,9 @@
       "photo": "assets/team/normann.jpg",
       "linkedin": "",
       "published": true,
-      "is_founder": false
+      "is_founder": false,
+      "email": "roald@scale-42.com",
+      "phone": ""
     },
     {
       "id": "williamson",
@@ -130,7 +150,9 @@
       "photo": "assets/team/williamson.jpg",
       "linkedin": "https://www.linkedin.com/in/abbiewilliamson/",
       "published": true,
-      "is_founder": false
+      "is_founder": false,
+      "email": "abbie@scale-42.com",
+      "phone": ""
     }
   ]
 }
