@@ -7,7 +7,7 @@ const app = express();
 const ROOT = path.resolve(__dirname, '..');
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json({ limit: '5mb' }));
+app.use(express.json({ limit: '12mb' }));
 
 const auth = basicAuth({
   users: { [process.env.CMS_USER || 'admin']: process.env.CMS_PASS || 'change-me' },
@@ -20,6 +20,7 @@ app.use('/api', auth, require('./routes/people'));
 app.use('/api', auth, require('./routes/sites'));
 app.use('/api', auth, require('./routes/news'));
 app.use('/api', auth, require('./routes/sections'));
+app.use('/api', auth, require('./routes/upload'));
 app.use('/api', auth, require('./routes/publish'));
 
 app.use(express.static(ROOT, {

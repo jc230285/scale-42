@@ -37,7 +37,7 @@
           <th>Title (NO)</th>
           <th>Type (EN)</th>
           <th>Date (EN)</th>
-          <th>Image</th>
+          <th class="img-cell">Image</th>
           <th>Excerpt</th>
           <th class="col-pub">Featured</th>
           <th class="col-pub">Live</th>
@@ -59,6 +59,7 @@
 
 <div id="modal-root"></div>
 
+<script src="image-picker.js"></script>
 <script>
 (async function() {
   const $ = (id) => document.getElementById(id);
@@ -78,7 +79,7 @@
       <td><input type="text" data-field="title_no" value="${escAttr(p.title_no)}" /></td>
       <td><input type="text" data-field="type_en" value="${escAttr(p.type_en)}" placeholder="Press coverage / Announcement / Thought leadership" style="width:160px" /></td>
       <td><input type="text" data-field="date_en" value="${escAttr(p.date_en)}" placeholder="Sep 2, 2025" style="width:120px" /></td>
-      <td><input type="text" data-field="image" value="${escAttr(p.image)}" placeholder="filename.jpg" style="width:140px" /></td>
+      <td class="img-cell"><div class="img-thumb ${p.image ? '' : 'empty'}" data-action="pick-image" title="Click to change">${p.image ? `<img src="/assets/news/${escAttr(p.image)}" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"/>` : ''}</div></td>
       <td>
         <p class="bio-cell" style="margin:0 0 6px">${escText(preview(p.excerpt_en))}</p>
         <button class="btn linkish" data-action="edit-detail">Edit details</button>
@@ -116,7 +117,7 @@
         type_en: get('type_en'), type_no: original.type_no || '',
         date_en: get('date_en'), date_no: original.date_no || '',
         read_time: original.read_time || '',
-        image: get('image'), alt: original.alt || '',
+        image: original.image || '', alt: original.alt || '',
         excerpt_en: original.excerpt_en || '', excerpt_no: original.excerpt_no || '',
         featured: get('featured'), published: get('published'),
       });
@@ -218,6 +219,14 @@
       const [m] = data.posts.splice(idx, 1); data.posts.splice(newIdx, 0, m); render(); setDirty(true);
     } else if (t.matches('[data-action="edit-detail"]')) {
       openModal(parseInt(tr.dataset.idx, 10));
+    } else if (t.closest('[data-action="pick-image"]')) {
+      const idx = parseInt(tr.dataset.idx, 10);
+      readBack();
+      window.openImagePicker({
+        folder: 'news',
+        current: data.posts[idx].image ? 'assets/news/' + data.posts[idx].image : '',
+        onPick: (path) => { data.posts[idx].image = (path || '').replace(/^assets\/news\//, ''); setDirty(true); render(); },
+      });
     }
   });
   $('btn-add').addEventListener('click', () => {

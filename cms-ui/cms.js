@@ -15,7 +15,7 @@ function cmsPeople() {
     tr.dataset.idx = idx;
     const photoSrc = p.photo ? ('/' + p.photo) : '';
     tr.innerHTML = `
-      <td class="col-photo">${photoSrc ? `<img src="${photoSrc}" alt="" onerror="this.style.opacity=0.2"/>` : ''}</td>
+      <td class="img-cell"><div class="img-thumb ${p.photo ? '' : 'empty'}" data-action="pick-photo" title="Click to change">${p.photo ? `<img src="${photoSrc}" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"/>` : ''}</div></td>
       <td><input type="text" data-field="name" value="${escapeAttr(p.name)}" /></td>
       <td><input type="text" data-field="role_en" value="${escapeAttr(p.role_en)}" /></td>
       <td><input type="text" data-field="role_no" value="${escapeAttr(p.role_no)}" /></td>
@@ -23,7 +23,6 @@ function cmsPeople() {
         <p class="preview" data-bio-preview>${escapeText(preview(p.bio_en))}</p>
         <button class="btn linkish" data-action="edit-bio">Edit bios</button>
       </td>
-      <td><input type="text" data-field="photo" value="${escapeAttr(p.photo)}" placeholder="assets/team/foo.jpg" /></td>
       <td><input type="url" data-field="linkedin" value="${escapeAttr(p.linkedin)}" placeholder="https://linkedin.com/in/..." /></td>
       <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="is_founder" ${p.is_founder ? 'checked' : ''}/><span class="slider"></span></label></td>
       <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="published" ${p.published ? 'checked' : ''}/><span class="slider"></span></label></td>
@@ -60,7 +59,7 @@ function cmsPeople() {
         role_no: get('role_no'),
         bio_en: original.bio_en || '',
         bio_no: original.bio_no || '',
-        photo: get('photo'),
+        photo: original.photo || '',
         linkedin: get('linkedin'),
         is_founder: get('is_founder'),
         published: get('published'),
@@ -163,6 +162,14 @@ function cmsPeople() {
       setDirty(true);
     } else if (t.matches('[data-action="edit-bio"]')) {
       openBioModal(parseInt(tr.dataset.idx, 10));
+    } else if (t.closest('[data-action="pick-photo"]')) {
+      const idx = parseInt(tr.dataset.idx, 10);
+      readBack();
+      window.openImagePicker({
+        folder: 'team',
+        current: data.people[idx].photo,
+        onPick: (path) => { data.people[idx].photo = path; setDirty(true); render(); },
+      });
     } else if (t.matches('[data-add]')) {
       readBack();
       data.people.push({ id: '', name: '', role_en: '', role_no: '', bio_en: '', bio_no: '', photo: '', linkedin: '', is_founder: false, published: false });

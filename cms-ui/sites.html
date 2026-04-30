@@ -40,7 +40,7 @@
           <th>Target MW</th>
           <th>Lat</th>
           <th>Lng</th>
-          <th>Image</th>
+          <th class="img-cell">Image</th>
           <th>Description</th>
           <th class="col-pub">Live</th>
           <th class="col-actions"></th>
@@ -61,6 +61,7 @@
 
 <div id="modal-root"></div>
 
+<script src="image-picker.js"></script>
 <script>
 (async function() {
   const $ = (id) => document.getElementById(id);
@@ -88,7 +89,7 @@
       <td><input type="text" data-field="target_mw" value="${escAttr(s.target_mw)}" placeholder="200 MW" style="width:90px" /></td>
       <td><input type="number" step="0.0001" data-field="lat" value="${escAttr(s.lat)}" style="width:90px" /></td>
       <td><input type="number" step="0.0001" data-field="lng" value="${escAttr(s.lng)}" style="width:90px" /></td>
-      <td><input type="text" data-field="image" value="${escAttr(s.image)}" placeholder="filename.jpg" style="width:120px" /></td>
+      <td class="img-cell"><div class="img-thumb ${s.image ? '' : 'empty'}" data-action="pick-image" title="Click to change">${s.image ? `<img src="/assets/sites/${escAttr(s.image)}" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"/>` : ''}</div></td>
       <td>
         <p class="bio-cell" style="margin:0 0 6px">${escText(preview(s.desc_en))}</p>
         <button class="btn linkish" data-action="edit-desc">Edit EN/NO</button>
@@ -125,7 +126,7 @@
         name: get('name'), country: get('country'), status: get('status'),
         power: get('power'), initial_mw: get('initial_mw'), target_mw: get('target_mw'),
         lat: get('lat'), lng: get('lng'),
-        image: get('image'),
+        image: original.image || '',
         desc_en: original.desc_en || '', desc_no: original.desc_no || '',
         published: get('published'),
       });
@@ -210,6 +211,14 @@
       data.sites.splice(newIdx, 0, m); render(); setDirty(true);
     } else if (t.matches('[data-action="edit-desc"]')) {
       openDescModal(parseInt(tr.dataset.idx, 10));
+    } else if (t.closest('[data-action="pick-image"]')) {
+      const idx = parseInt(tr.dataset.idx, 10);
+      readBack();
+      window.openImagePicker({
+        folder: 'sites',
+        current: data.sites[idx].image ? 'assets/sites/' + data.sites[idx].image : '',
+        onPick: (path) => { data.sites[idx].image = (path || '').replace(/^assets\/sites\//, ''); setDirty(true); render(); },
+      });
     }
   });
   $('btn-add').addEventListener('click', () => {
