@@ -115,7 +115,7 @@ function cmsPeople() {
   }
 
   function buildSignatureHtml(p) {
-    const SITE = 'https://www.scale-42.com';
+    const SITE = 'https://draft.scale-42.com'; // until DNS for www is moved off Wix
     const photoUrl = p.photo ? `${SITE}/${p.photo}` : '';
     const logoUrl = `${SITE}/assets/logo.png`;
     const teal = '#2f6675';

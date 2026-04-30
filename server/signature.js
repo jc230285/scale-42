@@ -1,6 +1,8 @@
 // Build email signature HTML for a person — shared by client (preview/copy) and server (/api/signature/:id).
 function buildSignatureHtml(p) {
-  const SITE = 'https://www.scale-42.com';
+  // Hardcoded to the deployed asset host. Once DNS for www.scale-42.com is moved off Wix
+  // and onto the Coolify prod app, switch this back to https://www.scale-42.com.
+  const SITE = process.env.SIGNATURE_BASE_URL || 'https://draft.scale-42.com';
   const photoUrl = p.photo ? `${SITE}/${p.photo}` : '';
   const logoUrl = `${SITE}/assets/logo.png`;
   const teal = '#2f6675';

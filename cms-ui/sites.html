@@ -6,67 +6,52 @@
 <title>Sites &mdash; Scale42 CMS</title>
 <link rel="stylesheet" href="cms.css" />
 <style>
-  .layout { display: grid; grid-template-columns: 320px 1fr; gap: 18px; align-items: start; }
-  @media (max-width: 980px) { .layout { grid-template-columns: 1fr; } }
+  .toolbar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:12px; }
+  .toolbar .grow { flex:1; }
+  #totals { display:flex; gap:18px; flex-wrap:wrap; background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px 16px; font-size:13px; }
+  #totals strong { color: var(--ink); }
+  .scroll-wrap { overflow:auto; border: 1px solid var(--line); border-radius: 10px; background: #fff; max-height: calc(100vh - 240px); }
+  table.grid { border-collapse: separate; border-spacing: 0; }
+  table.grid th, table.grid td { border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); padding: 0; vertical-align: top; background: #fff; }
+  table.grid .label-col { background: #fafbfc; position: sticky; left: 0; z-index: 5; min-width: 200px; max-width: 200px; }
+  table.grid .label-col .field-label { padding: 7px 10px; font-size: 12px; font-weight: 600; color: var(--ink-2); display: flex; align-items: center; gap: 6px; }
+  table.grid .label-col .field-label .dot { width: 6px; height: 6px; border-radius: 50%; flex: 0 0 auto; }
+  table.grid .label-col .field-label .dot.public { background: var(--teal); }
+  table.grid .label-col .field-label .dot.internal { background: #cfd5d9; }
+  table.grid .group-row td { background: #eef0f2; padding: 8px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; color: var(--ink); cursor: pointer; user-select: none; position: sticky; left: 0; z-index: 4; }
+  table.grid .group-row td::before { content: '▾'; margin-right: 8px; display: inline-block; transition: transform 0.1s; }
+  table.grid .group-row.collapsed td::before { transform: rotate(-90deg); }
+  table.grid .group-row .group-internal-tag { background: #fef3e0; color: #a35c00; padding: 1px 7px; border-radius: 999px; font-size: 10px; margin-left: 8px; font-weight: 600; }
+  table.grid .site-col { min-width: 240px; max-width: 280px; }
+  table.grid thead .header-cell { padding: 8px; background: #fafbfc; position: sticky; top: 0; z-index: 6; }
+  table.grid thead .header-cell .reorder { display: flex; gap: 2px; justify-content: center; margin-bottom: 4px; }
+  table.grid thead .header-cell .reorder button { background: transparent; border: 1px solid var(--line); border-radius: 4px; cursor: pointer; padding: 1px 6px; font-size: 10px; color: var(--ink-2); }
+  table.grid thead .header-cell .reorder button:hover { color: var(--ink); border-color: var(--ink); }
+  table.grid thead .header-cell .reorder button.del { margin-left: auto; color: #b3261e; border-color: #f3c1bd; }
+  table.grid thead .header-cell .img-wrap { aspect-ratio: 16/10; background: #eef0f2; cursor: pointer; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 11px; margin-bottom: 6px; }
+  table.grid thead .header-cell .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  table.grid thead .header-cell .name { font-weight: 600; font-size: 13px; }
+  table.grid thead .header-cell .meta { font-size: 11px; color: var(--ink-2); margin-top: 2px; display: flex; gap: 4px; align-items: center; }
+  table.grid thead .header-cell .pill { display: inline-block; padding: 1px 6px; border-radius: 999px; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: #fff; }
+  table.grid thead .header-cell .pill.live { background: var(--teal); }
+  table.grid thead .header-cell .pill.tbd { background: #b8a07a; }
+  table.grid thead .header-cell .pill.sold { background: #33752f; }
+  table.grid thead .header-cell .pill.draft { background: #b3b8be; }
 
-  .site-list { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px; max-height: calc(100vh - 240px); overflow-y: auto; }
-  .site-row { display: flex; gap: 10px; align-items: center; padding: 8px; border-radius: 8px; cursor: pointer; }
-  .site-row:hover { background: #f4f6f7; }
-  .site-row.active { background: rgba(47,102,117,0.1); outline: 1px solid var(--teal); }
-  .site-row .thumb { width: 48px; height: 36px; background: #eef0f2; border-radius: 4px; flex: 0 0 auto; overflow: hidden; }
-  .site-row .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .site-row .info { flex: 1; min-width: 0; }
-  .site-row .info .name { font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .site-row .info .meta { font-size: 11px; color: var(--ink-2); margin-top: 1px; display: flex; gap: 6px; align-items: center; }
-  .site-row .info .pill { display: inline-block; padding: 1px 6px; border-radius: 999px; color: #fff; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
-  .site-row .info .pill.live { background: var(--teal); }
-  .site-row .info .pill.tbd { background: #b8a07a; }
-  .site-row .info .pill.sold { background: #33752f; }
-  .site-row .info .pill.draft { background: #b3b8be; }
-  .site-row .reorder { display: flex; flex-direction: column; gap: 1px; }
-  .site-row .reorder button { background: transparent; border: none; cursor: pointer; padding: 1px 4px; font-size: 11px; color: var(--ink-2); line-height: 1; }
-  .site-row .reorder button:hover { color: var(--ink); }
+  table.grid tbody td { padding: 4px 6px; }
+  table.grid input[type=text], table.grid input[type=number], table.grid select, table.grid textarea {
+    width: 100%; border: 1px solid transparent; padding: 4px 6px; border-radius: 4px;
+    font: inherit; font-size: 12.5px; background: transparent;
+  }
+  table.grid input:focus, table.grid select:focus, table.grid textarea:focus { border-color: var(--teal); background: #fff; outline: none; box-shadow: 0 0 0 2px rgba(47,102,117,0.12); }
+  table.grid textarea { min-height: 50px; resize: vertical; line-height: 1.35; }
+  table.grid .toggle-cell { display: flex; align-items: center; padding: 8px; }
+  table.grid .complex-cell { padding: 8px; font-size: 11px; color: var(--ink-2); cursor: pointer; }
+  table.grid .complex-cell:hover { background: #fafbfc; }
+  table.grid .complex-cell .summary { font-style: italic; }
 
-  .editor-pane { background: #fff; border: 1px solid var(--line); border-radius: 10px; }
-  .editor-toolbar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
-  .editor-toolbar .grow { flex: 1; }
-  .editor-toolbar label.toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); cursor: pointer; }
-  .editor-toolbar .pill-public { background: #dde7e9; color: var(--teal); padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
-  .editor-empty { padding: 60px 30px; text-align: center; color: var(--ink-2); }
-
-  .accordion details { border-bottom: 1px solid var(--line); }
-  .accordion details:last-child { border-bottom: none; }
-  .accordion summary { padding: 14px 20px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; user-select: none; list-style: none; }
-  .accordion summary::-webkit-details-marker { display: none; }
-  .accordion summary::before { content: '▸'; color: var(--ink-2); font-size: 11px; transition: transform 0.15s; }
-  .accordion details[open] summary::before { transform: rotate(90deg); }
-  .accordion summary:hover { background: #fafbfc; }
-  .accordion summary .group-meta { font-size: 11px; color: var(--ink-2); font-weight: 400; margin-left: auto; }
-  .accordion summary .internal-tag { background: #fef3e0; color: #a35c00; padding: 1px 7px; border-radius: 999px; font-size: 10px; font-weight: 600; }
-  .accordion .group-body { padding: 4px 20px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
-
-  .field { display: flex; flex-direction: column; gap: 4px; }
-  .field.full { grid-column: 1 / -1; }
-  .field label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); font-weight: 600; display: flex; align-items: center; gap: 6px; }
-  .field label .dot { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; }
-  .field label .dot.public { background: var(--teal); }
-  .field label .dot.internal { background: #cfd5d9; }
-  .field label .help { color: #b3b8be; font-size: 10px; font-weight: 400; text-transform: none; letter-spacing: 0; }
-  .field input, .field select, .field textarea { border: 1px solid var(--line); border-radius: 6px; padding: 7px 9px; font: inherit; font-size: 13px; }
-  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--teal); outline: none; box-shadow: 0 0 0 3px rgba(47,102,117,0.12); }
-  .field textarea { min-height: 64px; resize: vertical; }
-  .field .toggle-wrap { display: inline-flex; align-items: center; gap: 8px; padding: 5px 0; }
-  .field .img-wrap { aspect-ratio: 16/10; max-width: 240px; background: #eef0f2; cursor: pointer; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 12px; }
-  .field .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-
-  .field-internal-hidden { display: none !important; }
-
-  .study-row, .permit-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
-  .milestone-row { display: grid; grid-template-columns: 2fr 1fr 1fr 60px 30px; gap: 8px; align-items: center; padding: 6px 0; }
-  .milestone-row + .milestone-row { border-top: 1px dashed var(--line); }
-  .row-add { font-size: 12px; color: var(--teal); font-weight: 600; cursor: pointer; padding: 6px 0; }
-
-  #totals { display:flex;gap:24px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:14px;font-size:13.5px }
+  .ms-row { display: grid; grid-template-columns: 2fr 1fr 1fr 80px 30px; gap: 8px; align-items: center; padding: 6px 0; border-top: 1px dashed #e5e8eb; }
+  .ms-row:first-child { border-top: none; }
 </style>
 </head>
 <body>
@@ -74,7 +59,7 @@
   <a class="cms-brand" href="/cms/">Scale42 CMS</a>
   <nav>
     <a href="/cms/people.html">People</a>
-    <a href="/cms/sites.html">Sites</a>
+    <a href="/cms/sites.html" class="active">Sites</a>
     <a href="/cms/news.html">News</a>
     <a href="/cms/sections.html">Sections</a>
     <a href="/cms/account.html">Account</a>
@@ -87,16 +72,17 @@
     <span class="meta" id="dirty-meta">No unsaved changes</span>
     <span class="meta" id="last-published" style="margin-left:12px;color:var(--ink-2);font-size:12px;"></span>
   </div>
-  <p class="lede">Pick a site on the left, edit fields on the right. <span class="pill-public" style="background:#dde7e9;color:var(--teal);padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;">●</span> blue dot = public field. Toggle "Hide internal" to focus on what renders publicly.</p>
-  <div id="totals"></div>
-  <div class="layout">
-    <div>
-      <div class="section-head" style="margin-bottom:8px"><h2 style="margin:0;font-size:14px">All sites</h2><button class="btn add" id="btn-add">+ Add</button></div>
-      <div class="site-list" id="site-list"></div>
-    </div>
-    <div class="editor-pane" id="editor-pane">
-      <div class="editor-empty" id="editor-empty">Select a site on the left to edit.</div>
-    </div>
+  <p class="lede">Sites along the top, fields down the left. Click a column image to upload. <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);vertical-align:middle"></span> blue dot = public field. Click a group header to collapse it.</p>
+
+  <div class="toolbar">
+    <div id="totals"></div>
+    <span class="grow"></span>
+    <label style="display:flex;gap:6px;align-items:center;font-size:13px;color:var(--ink-2);"><input type="checkbox" id="hide-internal"/> Hide internal fields</label>
+    <button class="btn add" id="btn-add">+ Add site</button>
+  </div>
+
+  <div class="scroll-wrap">
+    <table class="grid" id="grid"></table>
   </div>
 </main>
 
@@ -114,330 +100,285 @@
 <script>
 (async function() {
   const $ = (id) => document.getElementById(id);
-  let data = { sites: [] }, schema = null, dirty = false, selectedIdx = 0, hideInternal = localStorage.getItem('hideInternal') === '1';
+  let data = { sites: [] }, schema = null, dirty = false;
+  let hideInternal = localStorage.getItem('hideInternal') === '1';
+  let collapsedGroups = JSON.parse(localStorage.getItem('collapsedGroups') || '{}');
+
   const setDirty = (v) => { dirty = v; $('dirty-meta').textContent = v ? 'Unsaved changes' : 'No unsaved changes'; };
   const setStatus = (m, k) => { const e = $('status'); e.textContent = m || ''; e.className = 'status-msg' + (k ? ' ' + k : ''); };
   const escAttr = (s) => (s == null ? '' : String(s)).replace(/"/g, '&quot;');
-  const escText = (s) => (s == null ? '' : String(s)).replace(/</g, '&lt;');
-  const slugify = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const escText = (s) => (s == null ? '' : String(s)).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
   const parseMW = (s) => { const m = String(s || '').match(/[\d.]+/); return m ? parseFloat(m[0]) : 0; };
+
+  $('hide-internal').checked = hideInternal;
+  $('hide-internal').addEventListener('change', (e) => {
+    hideInternal = e.target.checked;
+    localStorage.setItem('hideInternal', hideInternal ? '1' : '0');
+    readBack(); render();
+  });
 
   function renderTotals() {
     const sites = data.sites;
     const live = sites.filter(s => s.published);
-    const totalMW = live.filter(s => s.status !== 'sold').reduce((a, s) => a + parseMW(s.max_capacity_mw || s.target_mw), 0);
+    const total = live.filter(s => s.status !== 'sold').reduce((a, s) => a + parseMW(s.max_capacity_mw || s.target_mw), 0);
     const liveMW = live.filter(s => s.status === 'live').reduce((a, s) => a + parseMW(s.max_capacity_mw || s.target_mw), 0);
     const soldMW = live.filter(s => s.status === 'sold').reduce((a, s) => a + parseMW(s.max_capacity_mw || s.target_mw), 0);
+    const countries = new Set(live.map(s => s.country).filter(Boolean)).size;
     $('totals').innerHTML = `
-      <div><strong>${live.length}</strong> public · <strong>${sites.length - live.length}</strong> draft (of ${sites.length})</div>
-      <div><strong>${totalMW} MW</strong> active pipeline (excl. sold)</div>
-      <div><strong>${liveMW} MW</strong> in development · <strong>${soldMW} MW</strong> sold</div>
-      <div><strong>${new Set(live.map(s=>s.country).filter(Boolean)).size}</strong> countries</div>
+      <div><strong>${live.length}</strong> public · <strong>${sites.length - live.length}</strong> draft</div>
+      <div><strong>${total} MW</strong> active pipeline (excl. sold)</div>
+      <div><strong>${liveMW} MW</strong> in dev · <strong>${soldMW} MW</strong> sold</div>
+      <div><strong>${countries}</strong> countries</div>
     `;
-  }
-
-  function renderList() {
-    const list = $('site-list');
-    list.innerHTML = '';
-    data.sites.forEach((s, i) => {
-      const row = document.createElement('div');
-      row.className = 'site-row' + (i === selectedIdx ? ' active' : '');
-      row.dataset.idx = i;
-      const status = s.status || 'tbd';
-      const pillCls = s.published ? status : 'draft';
-      const pillTxt = s.published ? status : 'draft';
-      const thumb = s.image
-        ? `<div class="thumb"><img src="/assets/sites/${escAttr(s.image)}" alt="" /></div>`
-        : `<div class="thumb"></div>`;
-      row.innerHTML = `
-        ${thumb}
-        <div class="info">
-          <div class="name">${escText(s.name || '(unnamed)')}</div>
-          <div class="meta"><span class="pill ${pillCls}">${escText(pillTxt)}</span> ${escText(s.country || '')}</div>
-        </div>
-        <div class="reorder">
-          <button data-act="up" title="Move up">▲</button>
-          <button data-act="down" title="Move down">▼</button>
-        </div>
-      `;
-      list.appendChild(row);
-    });
   }
 
   function fieldDot(f) {
-    return `<span class="dot ${f.public ? 'public' : 'internal'}" title="${f.public ? 'Public — renders on website' : 'Internal — CMS only'}"></span>`;
+    return `<span class="dot ${f.public ? 'public' : 'internal'}" title="${f.public ? 'Public' : 'Internal only'}"></span>`;
   }
 
-  function renderField(site, f) {
+  function renderCell(site, sIdx, f) {
     const v = site[f.key];
-    const id = `f-${f.key}`;
-    const label = `<label for="${id}">${fieldDot(f)} ${escText(f.label)}${f.help ? ` <span class="help">${escText(f.help)}</span>` : ''}</label>`;
-    let input = '';
-    const dataAttrs = `data-key="${f.key}" data-type="${f.type}"`;
-    if (f.type === 'textarea' || (f.key.startsWith('desc_') || f.type === 'longtext')) {
-      input = `<textarea id="${id}" ${dataAttrs}>${escText(v)}</textarea>`;
-    } else if (f.type === 'select') {
-      const opts = (f.options || []).map(o => `<option value="${escAttr(o)}"${v === o ? ' selected' : ''}>${escText(o)}</option>`).join('');
-      input = `<select id="${id}" ${dataAttrs}><option value=""></option>${opts}</select>`;
-    } else if (f.type === 'toggle') {
-      input = `<div class="toggle-wrap"><input type="checkbox" id="${id}" ${dataAttrs} ${v ? 'checked' : ''} /> <span style="font-size:13px;color:var(--ink-2)">${v ? 'On' : 'Off'}</span></div>`;
-    } else if (f.type === 'number') {
-      input = `<input type="number" step="any" id="${id}" ${dataAttrs} value="${escAttr(v)}" />`;
-    } else if (f.type === 'image') {
-      input = `<div class="img-wrap" data-img-picker data-key="${f.key}">${v ? `<img src="/assets/sites/${escAttr(v)}" />` : '+ image'}</div><input type="hidden" id="${id}" ${dataAttrs} value="${escAttr(v)}" />`;
-    } else if (f.type === 'tags') {
-      const arr = Array.isArray(v) ? v.join(', ') : (v || '');
-      input = `<input type="text" id="${id}" ${dataAttrs} value="${escAttr(arr)}" placeholder="comma, separated, list" />`;
-    } else if (f.type === 'study' || f.type === 'permit') {
-      const obj = v && typeof v === 'object' ? v : {};
-      input = `
-        <div class="${f.type}-row">
-          <input type="text" data-sub="status" placeholder="status" value="${escAttr(obj.status)}" />
-          <input type="text" data-sub="date" placeholder="date" value="${escAttr(obj.date)}" />
-          ${f.type === 'study' ? `<input type="text" data-sub="link" placeholder="link" value="${escAttr(obj.link)}" />` : `<span></span>`}
-        </div>
-        <input type="hidden" id="${id}" ${dataAttrs} />
-      `;
-    } else if (f.type === 'milestones') {
-      const rows = (Array.isArray(v) ? v : []).map((m, i) => `
-        <div class="milestone-row" data-mi="${i}">
-          <input type="text" data-mk="name" placeholder="name" value="${escAttr(m.name)}" />
-          <input type="text" data-mk="target_date" placeholder="YYYY-MM" value="${escAttr(m.target_date)}" />
-          <input type="text" data-mk="status" placeholder="status" value="${escAttr(m.status)}" />
-          <label style="display:flex;align-items:center;gap:4px;font-size:11px;"><input type="checkbox" data-mk="public" ${m.public ? 'checked' : ''} /> Public</label>
-          <button type="button" data-mrm="${i}" title="Remove" style="background:transparent;border:none;color:var(--ink-2);cursor:pointer">✕</button>
-        </div>
-      `).join('');
-      input = `
-        <div class="milestones" data-key="${f.key}" data-type="milestones">
-          ${rows}
-          <div class="row-add" data-madd="${f.key}">+ Add milestone</div>
-        </div>
-        <input type="hidden" id="${id}" ${dataAttrs} />
-      `;
-    } else if (f.type === 'table') {
-      const cols = f.columns || [];
-      const rows = (Array.isArray(v) ? v : []).map((r, i) => `
-        <div class="study-row" style="grid-template-columns:repeat(${cols.length + 1}, 1fr);" data-ri="${i}">
-          ${cols.map(c => `<input type="text" data-tk="${c}" placeholder="${c}" value="${escAttr(r[c])}" />`).join('')}
-          <button type="button" data-trm="${i}" style="background:transparent;border:none;color:var(--ink-2);cursor:pointer">✕</button>
-        </div>
-      `).join('');
-      input = `
-        <div class="table-rows" data-key="${f.key}" data-type="table" data-cols='${escAttr(JSON.stringify(cols))}'>
-          ${rows}
-          <div class="row-add" data-tadd="${f.key}">+ Add row</div>
-        </div>
-        <input type="hidden" id="${id}" ${dataAttrs} />
-      `;
-    } else {
-      input = `<input type="text" id="${id}" ${dataAttrs} value="${escAttr(v)}"${f.readonly ? ' readonly' : ''} />`;
+    const dataAttrs = `data-key="${f.key}" data-type="${f.type}" data-idx="${sIdx}"`;
+    if (f.type === 'textarea' || f.key.startsWith('desc_')) {
+      return `<textarea ${dataAttrs}>${escText(v)}</textarea>`;
     }
-    const isFull = f.type === 'textarea' || f.type === 'milestones' || f.type === 'table' || f.key.startsWith('desc_');
-    const internalCls = !f.public && hideInternal ? ' field-internal-hidden' : '';
-    return `<div class="field${isFull ? ' full' : ''}${internalCls}">${label}${input}</div>`;
+    if (f.type === 'select') {
+      const opts = (f.options || []).map(o => `<option value="${escAttr(o)}"${v === o ? ' selected' : ''}>${escText(o)}</option>`).join('');
+      return `<select ${dataAttrs}><option value=""></option>${opts}</select>`;
+    }
+    if (f.type === 'toggle') {
+      return `<div class="toggle-cell"><input type="checkbox" ${dataAttrs} ${v ? 'checked' : ''} /></div>`;
+    }
+    if (f.type === 'number') {
+      return `<input type="number" step="any" ${dataAttrs} value="${escAttr(v)}" />`;
+    }
+    if (f.type === 'tags') {
+      const arr = Array.isArray(v) ? v.join(', ') : (v || '');
+      return `<input type="text" ${dataAttrs} value="${escAttr(arr)}" placeholder="comma, separated" />`;
+    }
+    if (f.type === 'study' || f.type === 'permit') {
+      const summary = v && (v.status || v.date) ? `${v.status || ''} ${v.date ? '· ' + v.date : ''}` : '— click to edit';
+      return `<div class="complex-cell" data-complex="${f.type}" data-cidx="${sIdx}" data-ckey="${f.key}"><span class="summary">${escText(summary)}</span></div>`;
+    }
+    if (f.type === 'milestones') {
+      const n = Array.isArray(v) ? v.length : 0;
+      return `<div class="complex-cell" data-complex="milestones" data-cidx="${sIdx}" data-ckey="${f.key}"><span class="summary">${n} milestone${n === 1 ? '' : 's'} — click to edit</span></div>`;
+    }
+    if (f.type === 'table') {
+      const n = Array.isArray(v) ? v.length : 0;
+      return `<div class="complex-cell" data-complex="table" data-cidx="${sIdx}" data-ckey="${f.key}" data-cols='${escAttr(JSON.stringify(f.columns || []))}'><span class="summary">${n} row${n === 1 ? '' : 's'} — click to edit</span></div>`;
+    }
+    if (f.type === 'image') {
+      return ''; // image is in column header
+    }
+    return `<input type="text" ${dataAttrs} value="${escAttr(v)}"${f.readonly ? ' readonly' : ''} />`;
   }
 
-  function renderEditor() {
-    const pane = $('editor-pane');
-    if (!data.sites.length || !schema) {
-      pane.innerHTML = `<div class="editor-empty">No site selected.</div>`;
-      return;
-    }
-    const site = data.sites[selectedIdx];
-    if (!site) { pane.innerHTML = `<div class="editor-empty">No site selected.</div>`; return; }
-
-    const fieldsByGroup = {};
-    for (const f of schema.fields) {
-      if (!fieldsByGroup[f.group]) fieldsByGroup[f.group] = [];
-      fieldsByGroup[f.group].push(f);
-    }
-    const groups = schema.groups.map(g => {
-      const fields = fieldsByGroup[g.key] || [];
-      const visible = hideInternal ? fields.filter(f => f.public) : fields;
-      if (!visible.length) return '';
-      const fieldsHtml = fields.map(f => renderField(site, f)).join('');
-      return `
-        <details ${['identity','public_status','power','narrative'].includes(g.key) ? 'open' : ''}>
-          <summary>
-            ${escText(g.label)}
-            ${g.internalOnly ? '<span class="internal-tag">internal</span>' : ''}
-            <span class="group-meta">${visible.length} field${visible.length === 1 ? '' : 's'}</span>
-          </summary>
-          <div class="group-body">${fieldsHtml}</div>
-        </details>
-      `;
-    }).join('');
-
-    pane.innerHTML = `
-      <div class="editor-toolbar">
-        <strong>${escText(site.name || '(unnamed)')}</strong>
-        <span style="color:var(--ink-2);font-size:13px;">${escText(site.country || '')}</span>
-        <span class="grow"></span>
-        <label class="toggle"><input type="checkbox" id="hide-internal" ${hideInternal ? 'checked' : ''} /> Hide internal fields</label>
-        <button class="btn" id="btn-duplicate">Duplicate</button>
-        <button class="btn" id="btn-delete" style="color:#b3261e">Delete</button>
+  function siteHeader(site, idx) {
+    const status = site.status || 'tbd';
+    const pillCls = site.published ? status : 'draft';
+    const pillTxt = site.published ? status : 'draft';
+    const img = site.image
+      ? `<img src="/assets/sites/${escAttr(site.image)}" />`
+      : '+ image';
+    return `
+      <div class="reorder">
+        <button data-act="up" data-ridx="${idx}" title="Move left">◀</button>
+        <button data-act="down" data-ridx="${idx}" title="Move right">▶</button>
+        <button data-act="del" data-ridx="${idx}" class="del" title="Delete">✕</button>
       </div>
-      <div class="accordion">${groups}</div>
+      <div class="img-wrap" data-img-idx="${idx}">${img}</div>
+      <div class="name">${escText(site.name || '(unnamed)')}</div>
+      <div class="meta"><span class="pill ${pillCls}">${escText(pillTxt)}</span><span>${escText(site.country || '')}</span></div>
     `;
   }
 
-  function readSite() {
-    const site = data.sites[selectedIdx];
-    if (!site) return;
-    document.querySelectorAll('#editor-pane [data-key]').forEach(el => {
+  function render() {
+    const grid = $('grid');
+    if (!schema) { grid.innerHTML = ''; return; }
+
+    let html = '<thead><tr><th class="label-col header-cell" style="z-index:7;"><div style="padding:8px;"><strong>Field</strong></div></th>';
+    data.sites.forEach((s, i) => {
+      html += `<th class="site-col header-cell">${siteHeader(s, i)}</th>`;
+    });
+    html += '</tr></thead><tbody>';
+
+    const fieldsByGroup = {};
+    for (const f of schema.fields) {
+      if (f.type === 'image') continue;
+      if (hideInternal && !f.public) continue;
+      if (!fieldsByGroup[f.group]) fieldsByGroup[f.group] = [];
+      fieldsByGroup[f.group].push(f);
+    }
+
+    for (const g of schema.groups) {
+      const fields = fieldsByGroup[g.key];
+      if (!fields || !fields.length) continue;
+      const isCollapsed = collapsedGroups[g.key];
+      const internalTag = g.internalOnly ? `<span class="group-internal-tag">internal</span>` : '';
+      html += `<tr class="group-row ${isCollapsed ? 'collapsed' : ''}" data-group="${g.key}">
+        <td colspan="${data.sites.length + 1}">${escText(g.label)}${internalTag}</td>
+      </tr>`;
+      if (isCollapsed) continue;
+      for (const f of fields) {
+        html += `<tr class="field-row">`;
+        html += `<td class="label-col"><div class="field-label">${fieldDot(f)} ${escText(f.label)}</div></td>`;
+        data.sites.forEach((s, i) => {
+          html += `<td>${renderCell(s, i, f)}</td>`;
+        });
+        html += '</tr>';
+      }
+    }
+    html += '</tbody>';
+    grid.innerHTML = html;
+    renderTotals();
+  }
+
+  function readBack() {
+    document.querySelectorAll('#grid [data-key][data-idx]').forEach(el => {
+      const i = parseInt(el.dataset.idx, 10);
       const k = el.dataset.key;
       const t = el.dataset.type;
-      if (t === 'milestones') {
-        const rows = el.querySelectorAll('.milestone-row');
-        const arr = [];
-        rows.forEach(r => {
-          arr.push({
-            name: r.querySelector('[data-mk=name]').value,
-            target_date: r.querySelector('[data-mk=target_date]').value,
-            status: r.querySelector('[data-mk=status]').value,
-            public: r.querySelector('[data-mk=public]').checked,
-          });
-        });
-        site[k] = arr;
-      } else if (t === 'table') {
-        const cols = JSON.parse(el.dataset.cols || '[]');
-        const rows = el.querySelectorAll('.study-row');
-        const arr = [];
-        rows.forEach(r => {
-          const o = {};
-          cols.forEach(c => { o[c] = r.querySelector(`[data-tk="${c}"]`).value; });
-          arr.push(o);
-        });
-        site[k] = arr;
-      } else if (t === 'study' || t === 'permit') {
-        const wrap = el.parentElement.querySelector(`.${t}-row`);
-        const o = {};
-        wrap.querySelectorAll('[data-sub]').forEach(s => { o[s.dataset.sub] = s.value; });
-        site[k] = o;
-      } else if (t === 'tags') {
-        site[k] = el.value.split(',').map(s => s.trim()).filter(Boolean);
-      } else if (el.type === 'checkbox') {
-        site[k] = el.checked;
-      } else if (el.type === 'number') {
-        site[k] = el.value === '' ? null : parseFloat(el.value);
-      } else {
-        site[k] = el.value;
-      }
+      if (!data.sites[i]) return;
+      let v;
+      if (el.type === 'checkbox') v = el.checked;
+      else if (t === 'tags') v = el.value.split(',').map(s => s.trim()).filter(Boolean);
+      else if (el.type === 'number') v = el.value === '' ? null : parseFloat(el.value);
+      else v = el.value;
+      data.sites[i][k] = v;
     });
   }
 
-  // Event delegation
-  document.addEventListener('input', (e) => {
-    if (e.target.closest('#editor-pane [data-key], #editor-pane [data-mk], #editor-pane [data-tk], #editor-pane [data-sub]')) {
-      setDirty(true);
+  function openComplexModal(idx, key, type, cols) {
+    readBack();
+    const site = data.sites[idx];
+    const root = $('modal-root');
+    let body = '';
+    if (type === 'milestones') {
+      const arr = Array.isArray(site[key]) ? site[key] : (site[key] = []);
+      body = `<div>
+        <div id="ms-rows">${arr.map((m, i) => `
+          <div class="ms-row" data-mi="${i}">
+            <input data-mk="name" placeholder="name" value="${escAttr(m.name)}" />
+            <input data-mk="target_date" placeholder="YYYY-MM" value="${escAttr(m.target_date)}" />
+            <input data-mk="status" placeholder="status" value="${escAttr(m.status)}" />
+            <label style="display:flex;gap:6px;align-items:center;font-size:11px;"><input type="checkbox" data-mk="public" ${m.public ? 'checked' : ''} /> Public</label>
+            <button type="button" data-mrm="${i}" style="background:transparent;border:none;color:#b3261e;cursor:pointer;font-size:14px;">✕</button>
+          </div>`).join('')}</div>
+        <button class="btn" id="ms-add" style="margin-top:8px;">+ Add milestone</button>
+      </div>`;
+    } else if (type === 'study' || type === 'permit') {
+      const o = (site[key] && typeof site[key] === 'object') ? site[key] : {};
+      body = `<div style="display:grid;gap:10px;">
+        <label>Status<input data-sub="status" value="${escAttr(o.status)}" /></label>
+        <label>Date<input data-sub="date" value="${escAttr(o.date)}" placeholder="YYYY-MM-DD" /></label>
+        ${type === 'study' ? `<label>Link<input data-sub="link" value="${escAttr(o.link)}" /></label>` : ''}
+      </div>`;
+    } else if (type === 'table') {
+      const arr = Array.isArray(site[key]) ? site[key] : (site[key] = []);
+      const colArr = JSON.parse(cols || '[]');
+      body = `<div>
+        <div id="t-rows">${arr.map((r, i) => `
+          <div style="display:grid;grid-template-columns:repeat(${colArr.length}, 1fr) 30px;gap:8px;align-items:center;border-top:1px dashed #e5e8eb;padding-top:6px;" data-ri="${i}">
+            ${colArr.map(c => `<input data-tk="${c}" placeholder="${c}" value="${escAttr(r[c])}" />`).join('')}
+            <button type="button" data-trm="${i}" style="background:transparent;border:none;color:#b3261e;cursor:pointer;font-size:14px;">✕</button>
+          </div>`).join('')}</div>
+        <button class="btn" id="t-add" style="margin-top:8px;">+ Add row</button>
+      </div>`;
     }
-  });
-  document.addEventListener('change', (e) => {
-    if (e.target.id === 'hide-internal') {
-      hideInternal = e.target.checked;
-      localStorage.setItem('hideInternal', hideInternal ? '1' : '0');
-      readSite();
-      renderEditor();
+    root.innerHTML = `<div class="modal-overlay" data-modal-overlay><div class="modal" style="max-width:680px;">
+      <div class="modal-head"><h2>${escText(site.name)} — ${type}</h2><button class="close" data-modal-close>×</button></div>
+      <div class="modal-body" style="display:block;">${body}</div>
+      <div class="modal-foot"><button class="btn" data-modal-close>Cancel</button><button class="btn primary" id="cx-save">Apply</button></div>
+    </div></div>`;
+    const close = () => { root.innerHTML = ''; };
+    root.querySelector('[data-modal-overlay]').addEventListener('click', (e) => { if (e.target === e.currentTarget) close(); });
+    root.querySelectorAll('[data-modal-close]').forEach(b => b.addEventListener('click', close));
+
+    if (type === 'milestones') {
+      $('ms-add')?.addEventListener('click', () => { site[key].push({name:'',target_date:'',status:'',public:false}); openComplexModal(idx,key,type,cols); });
+      root.querySelectorAll('[data-mrm]').forEach(b => b.addEventListener('click', (e) => { site[key].splice(parseInt(e.currentTarget.dataset.mrm),1); openComplexModal(idx,key,type,cols); }));
+    } else if (type === 'table') {
+      $('t-add')?.addEventListener('click', () => { const o={}; JSON.parse(cols).forEach(c=>o[c]=''); site[key].push(o); openComplexModal(idx,key,type,cols); });
+      root.querySelectorAll('[data-trm]').forEach(b => b.addEventListener('click', (e) => { site[key].splice(parseInt(e.currentTarget.dataset.trm),1); openComplexModal(idx,key,type,cols); }));
     }
-  });
+
+    $('cx-save').addEventListener('click', () => {
+      if (type === 'milestones') {
+        const rows = root.querySelectorAll('.ms-row');
+        const arr = [];
+        rows.forEach(r => arr.push({
+          name: r.querySelector('[data-mk=name]').value,
+          target_date: r.querySelector('[data-mk=target_date]').value,
+          status: r.querySelector('[data-mk=status]').value,
+          public: r.querySelector('[data-mk=public]').checked,
+        }));
+        site[key] = arr;
+      } else if (type === 'study' || type === 'permit') {
+        const o = {};
+        root.querySelectorAll('[data-sub]').forEach(s => { o[s.dataset.sub] = s.value; });
+        site[key] = o;
+      } else if (type === 'table') {
+        const colArr = JSON.parse(cols);
+        const rows = root.querySelectorAll('[data-ri]');
+        const arr = [];
+        rows.forEach(r => { const o = {}; colArr.forEach(c => o[c] = r.querySelector(`[data-tk="${c}"]`).value); arr.push(o); });
+        site[key] = arr;
+      }
+      setDirty(true); close(); render();
+    });
+  }
+
+  document.addEventListener('input', (e) => { if (e.target.closest('#grid [data-key]')) setDirty(true); });
+  document.addEventListener('change', (e) => { if (e.target.closest('#grid [data-key]')) setDirty(true); });
+
   document.addEventListener('click', (e) => {
-    const row = e.target.closest('.site-row');
-    if (row && !e.target.closest('.reorder')) {
-      readSite();
-      selectedIdx = parseInt(row.dataset.idx);
-      renderList();
-      renderEditor();
+    const groupRow = e.target.closest('.group-row');
+    if (groupRow) {
+      const k = groupRow.dataset.group;
+      collapsedGroups[k] = !collapsedGroups[k];
+      localStorage.setItem('collapsedGroups', JSON.stringify(collapsedGroups));
+      readBack(); render();
       return;
     }
-    const reBtn = e.target.closest('.reorder button');
-    if (reBtn) {
-      e.stopPropagation();
-      const i = parseInt(reBtn.closest('.site-row').dataset.idx);
-      const dir = reBtn.dataset.act === 'up' ? -1 : 1;
-      const j = i + dir;
-      if (j < 0 || j >= data.sites.length) return;
-      readSite();
-      [data.sites[i], data.sites[j]] = [data.sites[j], data.sites[i]];
-      if (selectedIdx === i) selectedIdx = j;
-      else if (selectedIdx === j) selectedIdx = i;
-      setDirty(true);
-      renderList(); renderEditor(); renderTotals();
+    const cx = e.target.closest('[data-complex]');
+    if (cx) {
+      openComplexModal(parseInt(cx.dataset.cidx), cx.dataset.ckey, cx.dataset.complex, cx.dataset.cols);
+      return;
+    }
+    const img = e.target.closest('[data-img-idx]');
+    if (img) {
+      const i = parseInt(img.dataset.imgIdx);
+      readBack();
+      window.openImagePicker({
+        folder: 'sites',
+        current: data.sites[i].image || '',
+        onPick: (filename) => { data.sites[i].image = filename; setDirty(true); render(); }
+      });
+      return;
+    }
+    const re = e.target.closest('[data-act]');
+    if (re) {
+      const i = parseInt(re.dataset.ridx);
+      const act = re.dataset.act;
+      readBack();
+      if (act === 'del') {
+        if (!confirm(`Delete ${data.sites[i].name || 'this site'}?`)) return;
+        data.sites.splice(i, 1);
+      } else if (act === 'up') {
+        if (i <= 0) return;
+        [data.sites[i-1], data.sites[i]] = [data.sites[i], data.sites[i-1]];
+      } else if (act === 'down') {
+        if (i >= data.sites.length - 1) return;
+        [data.sites[i+1], data.sites[i]] = [data.sites[i], data.sites[i+1]];
+      }
+      setDirty(true); render();
       return;
     }
     if (e.target.id === 'btn-add') {
-      readSite();
-      data.sites.push({ id: 'new-site-' + Date.now(), name: 'New site', country: '', status: 'tbd', published: false, lat: 65, lng: 17 });
-      selectedIdx = data.sites.length - 1;
-      setDirty(true); renderList(); renderEditor(); renderTotals();
-      return;
-    }
-    if (e.target.id === 'btn-delete') {
-      if (!confirm('Delete ' + (data.sites[selectedIdx].name || 'this site') + '?')) return;
-      data.sites.splice(selectedIdx, 1);
-      if (selectedIdx >= data.sites.length) selectedIdx = data.sites.length - 1;
-      setDirty(true); renderList(); renderEditor(); renderTotals();
-      return;
-    }
-    if (e.target.id === 'btn-duplicate') {
-      readSite();
-      const copy = JSON.parse(JSON.stringify(data.sites[selectedIdx]));
-      copy.id = (copy.id || 'site') + '-copy-' + Date.now();
-      copy.name = (copy.name || 'Site') + ' (copy)';
-      copy.published = false;
-      data.sites.splice(selectedIdx + 1, 0, copy);
-      selectedIdx++;
-      setDirty(true); renderList(); renderEditor(); renderTotals();
-      return;
-    }
-    if (e.target.dataset.madd) {
-      readSite();
-      const k = e.target.dataset.madd;
-      const site = data.sites[selectedIdx];
-      if (!Array.isArray(site[k])) site[k] = [];
-      site[k].push({ name: '', target_date: '', status: '', public: false });
-      setDirty(true); renderEditor();
-      return;
-    }
-    if (e.target.dataset.mrm !== undefined) {
-      readSite();
-      const i = parseInt(e.target.dataset.mrm);
-      const k = e.target.closest('.milestones').dataset.key;
-      data.sites[selectedIdx][k].splice(i, 1);
-      setDirty(true); renderEditor();
-      return;
-    }
-    if (e.target.dataset.tadd) {
-      readSite();
-      const k = e.target.dataset.tadd;
-      const site = data.sites[selectedIdx];
-      const cols = JSON.parse(e.target.parentElement.dataset.cols || '[]');
-      if (!Array.isArray(site[k])) site[k] = [];
-      const o = {}; cols.forEach(c => o[c] = '');
-      site[k].push(o);
-      setDirty(true); renderEditor();
-      return;
-    }
-    if (e.target.dataset.trm !== undefined) {
-      readSite();
-      const i = parseInt(e.target.dataset.trm);
-      const k = e.target.closest('.table-rows').dataset.key;
-      data.sites[selectedIdx][k].splice(i, 1);
-      setDirty(true); renderEditor();
-      return;
-    }
-    const imgEl = e.target.closest('[data-img-picker]');
-    if (imgEl) {
-      const k = imgEl.dataset.key;
-      window.openImagePicker({
-        folder: 'sites',
-        current: data.sites[selectedIdx][k] || '',
-        onPick: (filename) => {
-          data.sites[selectedIdx][k] = filename;
-          setDirty(true);
-          renderEditor(); renderList();
-        }
-      });
+      readBack();
+      data.sites.push({ id: 'new-' + Date.now(), name: 'New site', country: '', status: 'tbd', published: false, lat: 65, lng: 17 });
+      setDirty(true); render();
     }
   });
 
@@ -451,7 +392,7 @@
         const dt = new Date(info.at);
         const ago = Math.round((Date.now() - dt.getTime()) / 60000);
         const txt = ago < 60 ? `${ago} min ago` : ago < 1440 ? `${Math.round(ago/60)} h ago` : dt.toLocaleDateString();
-        $('last-published').textContent = `Last published: ${txt}`;
+        $('last-published').textContent = `Last published: ${txt}${info.by ? ' by ' + info.by : ''}`;
       } else {
         $('last-published').textContent = 'Never published';
       }
@@ -465,18 +406,15 @@
     data = await r1.json();
     schema = await r2.json();
     loadMeta();
-    selectedIdx = Math.min(selectedIdx, data.sites.length - 1);
-    if (selectedIdx < 0) selectedIdx = 0;
-    renderTotals(); renderList(); renderEditor();
+    render();
     setDirty(false); setStatus('');
   }
 
   async function save() {
-    readSite();
+    readBack();
     setStatus('Saving…');
     const r = await fetch('/api/sites', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     if (!r.ok) { setStatus('Save failed', 'err'); return false; }
-    // Commit raw JSON to draft branch so draft site reflects it
     const r2 = await fetch('/api/save/sites', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
     if (!r2.ok) { setStatus('Saved locally; draft commit failed', 'err'); setDirty(false); return true; }
     setDirty(false); setStatus('Saved to draft branch', 'ok');
@@ -492,6 +430,7 @@
     const body = await r.json().catch(() => ({}));
     if (!r.ok) { setStatus('Publish failed: ' + (body.error || r.status), 'err'); return; }
     setStatus('Published to LIVE — both sites redeploying', 'ok');
+    loadMeta();
   }
 
   $('btn-save').addEventListener('click', save);
