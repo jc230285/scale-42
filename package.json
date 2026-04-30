@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "express": "^4.21.0",
-    "express-basic-auth": "^1.2.1",
-    "simple-git": "^3.27.0"
+    "express-basic-auth": "^1.2.1"
   }
 }
