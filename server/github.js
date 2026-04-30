@@ -22,7 +22,7 @@ async function gh(method, url, body) {
   return r.json();
 }
 
-async function commitFiles(files, message, branch = BRANCH) {
+async function commitFiles(files, message, branch = BRANCH, author = null) {
   const ref = await gh('GET', `/repos/${REPO}/git/ref/heads/${branch}`);
   const baseSha = ref.object.sha;
   const baseCommit = await gh('GET', `/repos/${REPO}/git/commits/${baseSha}`);
@@ -42,9 +42,13 @@ async function commitFiles(files, message, branch = BRANCH) {
   const newTree = await gh('POST', `/repos/${REPO}/git/trees`, {
     base_tree: baseCommit.tree.sha, tree,
   });
-  const newCommit = await gh('POST', `/repos/${REPO}/git/commits`, {
-    message, tree: newTree.sha, parents: [baseSha],
-  });
+  const commitBody = { message, tree: newTree.sha, parents: [baseSha] };
+  if (author && author.name && author.email) {
+    const stamp = new Date().toISOString();
+    commitBody.author = { name: author.name, email: author.email, date: stamp };
+    commitBody.committer = { name: author.name, email: author.email, date: stamp };
+  }
+  const newCommit = await gh('POST', `/repos/${REPO}/git/commits`, commitBody);
   await gh('PATCH', `/repos/${REPO}/git/refs/heads/${branch}`, { sha: newCommit.sha });
   return newCommit.sha;
 }

@@ -1,0 +1,11 @@
+{
+  "_doc": "CMS users. Add an entry per staff member. password is for basic-auth login. name+email are used for audit log entries and git commit attribution.",
+  "users": [
+    {
+      "username": "admin",
+      "password": "change-me",
+      "name": "Admin",
+      "email": "info@scale-42.com"
+    }
+  ]
+}

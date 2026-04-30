@@ -24,8 +24,12 @@ router.put('/people', (req, res) => {
   if (!body || !Array.isArray(body.people)) {
     return res.status(400).json({ error: 'invalid payload' });
   }
+  let before = null;
+  try { before = JSON.parse(fs.readFileSync(FILE, 'utf-8')); } catch {}
   fs.writeFileSync(FILE, JSON.stringify(body, null, 2) + '\n', 'utf-8');
-  res.json({ ok: true });
+  const audit = require('../audit');
+  const entry = audit.record('people', req.cmsUser, before, body, 'save');
+  res.json({ ok: true, audit: entry });
 });
 
 module.exports = router;
