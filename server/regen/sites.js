@@ -9,8 +9,8 @@ const parseMW = (s) => { const m = String(s || '').match(/[\d.]+/); return m ? p
 const fmtCapacity = (mw) => mw >= 1000 ? (mw / 1000).toFixed(mw % 1000 === 0 ? 0 : 2).replace(/\.?0+$/, '') + ' GW' : mw % 1 === 0 ? mw + ' MW' : mw.toFixed(1) + ' MW';
 const escHtml = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-const STATUS_LABEL_EN = { live: 'In development', tbd: 'In planning' };
-const STATUS_LABEL_NO = { live: 'Under utvikling', tbd: 'I planlegging' };
+const STATUS_LABEL_EN = { live: 'In development', tbd: 'In planning', sold: 'Sold' };
+const STATUS_LABEL_NO = { live: 'Under utvikling', tbd: 'I planlegging', sold: 'Solgt' };
 
 function computeStats(sites) {
   const live = sites.filter(s => s.published);
@@ -65,7 +65,7 @@ function cardHtml(sites, lang) {
     return `      <article class="dc-card" id="${escHtml(slug)}" data-country="${escHtml(ckey)}">
         <div class="img${imgClass}">
           <span class="country-flag">${country}</span>
-          <span class="status ${s.status === 'tbd' ? 'tbd' : 'live'}">${escHtml(labels[s.status] || labels.live)}</span>
+          <span class="status ${s.status === 'tbd' ? 'tbd' : s.status === 'sold' ? 'sold' : 'live'}">${escHtml(labels[s.status] || labels.live)}</span>
           ${imgInner}
         </div>
         <div class="body">
