@@ -16,8 +16,9 @@ function memberHtml(p, lang) {
   const linkedin = p.linkedin
     ? `\n        <a href="${escapeHtml(p.linkedin)}" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>`
     : '';
+  const photoSrc = (lang === 'no' ? '../' : '') + escapeHtml(p.photo);
   return `      <div class="member">
-        <div class="member-photo"><img src="${lang === 'no' ? '../' : ''}${escapeHtml(p.photo)}" alt="${escapeHtml(p.name)}" /></div>
+        <div class="member-photo"><img src="${photoSrc}" alt="${escapeHtml(p.name)}" /></div>
         <h4>${escapeHtml(p.name)}</h4>
         <p class="role">${escapeHtml(role || '')}</p>
         <p>${escapeHtml(bio || '')}</p>${linkedin}
@@ -30,40 +31,31 @@ function blockHtml(people, klass, lang) {
 }
 
 function replaceBlock(html, gridClass, replacement) {
-  const re = new RegExp(`<div class="grid grid-3 ${gridClass}">[\\s\\S]*?<\\/div>\\s*<\\/div>`, 'm');
-  // The grid contains member divs and ends with </div>. We want to stop at the matching </div> of the grid itself.
-  // Use a more conservative regex: find opening, then match until next </section> boundary's preceding </div>.
   const opener = `<div class="grid grid-3 ${gridClass}">`;
   const start = html.indexOf(opener);
   if (start < 0) throw new Error(`block not found: ${gridClass}`);
-  // Walk forward counting <div> / </div> to find matching close.
   let i = start;
   let depth = 0;
-  const len = html.length;
-  while (i < len) {
+  while (i < html.length) {
     const openIdx = html.indexOf('<div', i);
     const closeIdx = html.indexOf('</div>', i);
     if (closeIdx < 0) throw new Error('unbalanced');
-    if (openIdx >= 0 && openIdx < closeIdx) {
-      depth++;
-      i = openIdx + 4;
-    } else {
-      depth--;
-      i = closeIdx + 6;
-      if (depth === 0) break;
-    }
+    if (openIdx >= 0 && openIdx < closeIdx) { depth++; i = openIdx + 4; }
+    else { depth--; i = closeIdx + 6; if (depth === 0) break; }
   }
   return html.slice(0, start) + replacement + html.slice(i);
 }
 
 function run() {
   const data = JSON.parse(fs.readFileSync(DATA, 'utf-8'));
+  const founders = data.people.filter(p => p.is_founder);
+  const team = data.people.filter(p => !p.is_founder);
 
   for (const lang of ['en', 'no']) {
     const file = path.join(ROOT, lang === 'no' ? 'no/index.html' : 'index.html');
     let html = fs.readFileSync(file, 'utf-8');
-    html = replaceBlock(html, 'team founders', blockHtml(data.founders, 'team founders', lang));
-    html = replaceBlock(html, 'team', blockHtml(data.team, 'team', lang));
+    html = replaceBlock(html, 'team founders', blockHtml(founders, 'team founders', lang));
+    html = replaceBlock(html, 'team', blockHtml(team, 'team', lang));
     fs.writeFileSync(file, html, 'utf-8');
   }
   console.log('regen people: done');

@@ -6,13 +6,12 @@ const router = express.Router();
 const FILE = path.resolve(__dirname, '..', '..', 'content', 'people.json');
 
 router.get('/people', (req, res) => {
-  const data = JSON.parse(fs.readFileSync(FILE, 'utf-8'));
-  res.json(data);
+  res.json(JSON.parse(fs.readFileSync(FILE, 'utf-8')));
 });
 
 router.put('/people', (req, res) => {
   const body = req.body;
-  if (!body || !Array.isArray(body.founders) || !Array.isArray(body.team)) {
+  if (!body || !Array.isArray(body.people)) {
     return res.status(400).json({ error: 'invalid payload' });
   }
   fs.writeFileSync(FILE, JSON.stringify(body, null, 2) + '\n', 'utf-8');

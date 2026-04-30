@@ -1,5 +1,5 @@
 function cmsPeople() {
-  let data = { founders: [], team: [] };
+  let data = { people: [] };
   let dirty = false;
   const $ = (id) => document.getElementById(id);
 
@@ -13,9 +13,11 @@ function cmsPeople() {
     el.className = 'status-msg' + (kind ? ' ' + kind : '');
   }
 
-  function row(p, group, idx) {
+  function escapeAttr(s) { return (s || '').replace(/"/g, '&quot;'); }
+  function escapeText(s) { return (s || '').replace(/</g, '&lt;'); }
+
+  function row(p, idx) {
     const tr = document.createElement('tr');
-    tr.dataset.group = group;
     tr.dataset.idx = idx;
     const photoSrc = p.photo ? ('/' + p.photo) : '';
     tr.innerHTML = `
@@ -27,6 +29,7 @@ function cmsPeople() {
       <td><textarea data-field="bio_no">${escapeText(p.bio_no)}</textarea></td>
       <td><input type="text" data-field="photo" value="${escapeAttr(p.photo)}" placeholder="assets/team/foo.jpg" /></td>
       <td><input type="url" data-field="linkedin" value="${escapeAttr(p.linkedin)}" placeholder="https://linkedin.com/in/..." /></td>
+      <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="is_founder" ${p.is_founder ? 'checked' : ''}/><span class="slider"></span></label></td>
       <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="published" ${p.published ? 'checked' : ''}/><span class="slider"></span></label></td>
       <td class="col-actions"><button class="btn danger" data-action="delete">Delete</button></td>
     `;
@@ -34,42 +37,36 @@ function cmsPeople() {
   }
 
   function render() {
-    for (const group of ['founders', 'team']) {
-      const tbody = $('tbody-' + group);
-      tbody.innerHTML = '';
-      data[group].forEach((p, i) => tbody.appendChild(row(p, group, i)));
-    }
+    const tbody = $('tbody-people');
+    tbody.innerHTML = '';
+    data.people.forEach((p, i) => tbody.appendChild(row(p, i)));
   }
 
-  function escapeAttr(s) { return (s || '').replace(/"/g, '&quot;'); }
-  function escapeText(s) { return (s || '').replace(/</g, '&lt;'); }
-
   function readBack() {
-    for (const group of ['founders', 'team']) {
-      const rows = $('tbody-' + group).querySelectorAll('tr');
-      const arr = [];
-      rows.forEach((tr) => {
-        const get = (f) => {
-          const el = tr.querySelector(`[data-field="${f}"]`);
-          if (!el) return '';
-          if (el.type === 'checkbox') return el.checked;
-          return el.value;
-        };
-        const original = data[group][parseInt(tr.dataset.idx, 10)] || {};
-        arr.push({
-          id: original.id || slug(get('name')),
-          name: get('name'),
-          role_en: get('role_en'),
-          role_no: get('role_no'),
-          bio_en: get('bio_en'),
-          bio_no: get('bio_no'),
-          photo: get('photo'),
-          linkedin: get('linkedin'),
-          published: get('published'),
-        });
+    const rows = $('tbody-people').querySelectorAll('tr');
+    const arr = [];
+    rows.forEach((tr) => {
+      const get = (f) => {
+        const el = tr.querySelector(`[data-field="${f}"]`);
+        if (!el) return '';
+        if (el.type === 'checkbox') return el.checked;
+        return el.value;
+      };
+      const original = data.people[parseInt(tr.dataset.idx, 10)] || {};
+      arr.push({
+        id: original.id || slug(get('name')),
+        name: get('name'),
+        role_en: get('role_en'),
+        role_no: get('role_no'),
+        bio_en: get('bio_en'),
+        bio_no: get('bio_no'),
+        photo: get('photo'),
+        linkedin: get('linkedin'),
+        is_founder: get('is_founder'),
+        published: get('published'),
       });
-      data[group] = arr;
-    }
+    });
+    data.people = arr;
   }
 
   function slug(s) { return (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 32) || 'new'; }
@@ -113,26 +110,20 @@ function cmsPeople() {
     setStatus('Published — Coolify is redeploying', 'ok');
   }
 
-  document.addEventListener('input', (e) => {
-    if (e.target.closest('table.cms')) setDirty(true);
-  });
-  document.addEventListener('change', (e) => {
-    if (e.target.closest('table.cms')) setDirty(true);
-  });
+  document.addEventListener('input', (e) => { if (e.target.closest('table.cms')) setDirty(true); });
+  document.addEventListener('change', (e) => { if (e.target.closest('table.cms')) setDirty(true); });
   document.addEventListener('click', (e) => {
     const t = e.target;
     if (t.matches('[data-action="delete"]')) {
       const tr = t.closest('tr');
-      const group = tr.dataset.group;
       const idx = parseInt(tr.dataset.idx, 10);
       readBack();
-      data[group].splice(idx, 1);
+      data.people.splice(idx, 1);
       render();
       setDirty(true);
     } else if (t.matches('[data-add]')) {
       readBack();
-      const group = t.dataset.add;
-      data[group].push({ id: '', name: '', role_en: '', role_no: '', bio_en: '', bio_no: '', photo: '', linkedin: '', published: false });
+      data.people.push({ id: '', name: '', role_en: '', role_no: '', bio_en: '', bio_no: '', photo: '', linkedin: '', is_founder: false, published: false });
       render();
       setDirty(true);
     }

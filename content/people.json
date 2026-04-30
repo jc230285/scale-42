@@ -1,5 +1,5 @@
 {
-  "founders": [
+  "people": [
     {
       "id": "tasney",
       "name": "William Tasney",
@@ -9,7 +9,8 @@
       "bio_no": "7+ år innen utvikling av datasentre. Forretningsstrategi og ekspertise på energimarkedet. Ledet team fra oppstart til 8-sifret exit. Bakgrunn fra næringseiendom.",
       "photo": "assets/team/tasney.jpg",
       "linkedin": "https://www.linkedin.com/in/william-tasney-a9487a16a/",
-      "published": true
+      "published": true,
+      "is_founder": true
     },
     {
       "id": "fostervoll",
@@ -20,7 +21,8 @@
       "bio_no": "5+ år innen utvikling av datasentre. Test og integrasjon av høyspenningsanlegg. 15+ år som elektroingeniør, inkludert olje og gass i Nordsjøen.",
       "photo": "assets/team/fostervoll.jpg",
       "linkedin": "https://www.linkedin.com/in/bendik-fostervoll-5482aba5/",
-      "published": true
+      "published": true,
+      "is_founder": true
     },
     {
       "id": "collins",
@@ -31,10 +33,9 @@
       "bio_no": "7+ år innen utvikling av datasentre. Systemdesign og forvaltning av datasentre. 20+ år innen IT-systemadministrasjon, tekniske roller og servicestillinger i Storbritannia.",
       "photo": "assets/team/collins.jpg",
       "linkedin": "https://www.linkedin.com/in/james-collins-11b55079/",
-      "published": true
-    }
-  ],
-  "team": [
+      "published": true,
+      "is_founder": true
+    },
     {
       "id": "rahman",
       "name": "Zeehan Rahman",
@@ -44,7 +45,8 @@
       "bio_no": "4+ år innen drift og utvikling av datasentre. MEng petroleumsingeniør. Fagekspert på AgriTech og sirkulær økonomi.",
       "photo": "assets/team/rahman.jpg",
       "linkedin": "https://www.linkedin.com/in/zeehan-rahman-22a291209/",
-      "published": true
+      "published": true,
+      "is_founder": false
     },
     {
       "id": "valero",
@@ -55,7 +57,8 @@
       "bio_no": "Design, bygg og drift av datasentre. 25+ år innen utvikling av IT-løsninger. Nettverk, systemintegrasjon og leverandørstyring.",
       "photo": "assets/team/valero.jpg",
       "linkedin": "https://www.linkedin.com/in/ismael-valero-669b374/",
-      "published": true
+      "published": true,
+      "is_founder": false
     },
     {
       "id": "stewart",
@@ -66,7 +69,8 @@
       "bio_no": "Selskapsstrategi og kapitalinnhenting. 11 år innen research og selskapsstrategi i et av Europas ledende hedgefond. Erfaring fra corporate finance.",
       "photo": "assets/team/stewart.jpg",
       "linkedin": "https://www.linkedin.com/in/jamie-stewart-s42/",
-      "published": true
+      "published": true,
+      "is_founder": false
     },
     {
       "id": "beaton",
@@ -77,7 +81,8 @@
       "bio_no": "Informasjon, data, research og teknisk ledelse. 8+ år innen geospatial intelligence og innovasjon. Kontraktør for ESA og UK Space Agency.",
       "photo": "assets/team/beaton.jpg",
       "linkedin": "https://www.linkedin.com/in/thomas-beaton-796881b7/",
-      "published": true
+      "published": true,
+      "is_founder": false
     },
     {
       "id": "murray",
@@ -88,7 +93,8 @@
       "bio_no": "15 år innen teknologi, FinTech og Life Sciences. Lukket betydelige finansieringsrunder og PE-aksjonæravtaler. Bygget finans- og compliance-team.",
       "photo": "assets/team/murray.jpg",
       "linkedin": "https://www.linkedin.com/in/patrick-murray-0895033/",
-      "published": true
+      "published": true,
+      "is_founder": false
     },
     {
       "id": "gussias",
@@ -99,7 +105,8 @@
       "bio_no": "13+ år innen olje og gass i Nordsjøen. Feltingeniør og supervisor. Energisparing og teknisk isolasjon.",
       "photo": "assets/team/gussias.jpg",
       "linkedin": "https://www.linkedin.com/in/daniel-gussi%C3%A5s-820652295/",
-      "published": true
+      "published": true,
+      "is_founder": false
     },
     {
       "id": "normann",
@@ -110,7 +117,8 @@
       "bio_no": "Maskin- og elektroingeniør med bakgrunn fra bygg og vannkraft. 18+ år som teknisk leder, prosjektleder og ingeniør verden over. Internasjonal prosjektledelse.",
       "photo": "assets/team/normann.jpg",
       "linkedin": "",
-      "published": true
+      "published": true,
+      "is_founder": false
     },
     {
       "id": "williamson",
@@ -121,7 +129,8 @@
       "bio_no": "16+ år innen drift og teamledelse. Konsernregnskap og økonomistyring. Tidsstyring.",
       "photo": "assets/team/williamson.jpg",
       "linkedin": "https://www.linkedin.com/in/abbiewilliamson/",
-      "published": true
+      "published": true,
+      "is_founder": false
     }
   ]
 }
