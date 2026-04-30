@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sections &mdash; Scale42 CMS</title>
+<link rel="stylesheet" href="cms.css" />
+<style>
+  .sections-grid { display: grid; gap: 18px; }
+  .field-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+  .field-card h3 { margin: 0 0 4px; font-size: 14px; font-weight: 600; }
+  .field-card .key { font-size: 11px; color: var(--ink-2); font-family: ui-monospace, Menlo, monospace; margin: 0 0 14px; }
+  .field-langs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .field-langs label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2); font-weight: 600; margin-bottom: 6px; }
+  .field-langs input, .field-langs textarea { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font: inherit; font-size: 13.5px; line-height: 1.5; resize: vertical; }
+  .field-langs textarea { min-height: 80px; }
+  .field-langs input:focus, .field-langs textarea:focus { border-color: var(--teal); outline: none; box-shadow: 0 0 0 3px rgba(47,102,117,0.12); }
+  @media (max-width: 720px) { .field-langs { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="cms-nav">
+  <a class="cms-brand" href="/cms/">Scale42 CMS</a>
+  <nav>
+    <a href="/cms/people.html">People</a>
+    <a href="/cms/sites.html" class="muted">Sites</a>
+    <a href="/cms/news.html" class="muted">News</a>
+    <a href="/cms/sections.html">Sections</a>
+    <a href="/" target="_blank">View site &rarr;</a>
+  </nav>
+</header>
+<main class="cms-main">
+  <div class="editor-head">
+    <h1>Sections</h1>
+    <span class="meta" id="dirty-meta">No unsaved changes</span>
+  </div>
+  <p class="lede">Editable strings on the homepage. EN renders at <code>/</code>, NO at <code>/no/</code>.</p>
+
+  <div class="sections-grid" id="grid"></div>
+</main>
+
+<div class="footer-bar">
+  <button class="btn" id="btn-reload">Discard changes</button>
+  <span class="status-msg" id="status"></span>
+  <span class="grow"></span>
+  <button class="btn primary" id="btn-save">Save draft</button>
+  <button class="btn accent" id="btn-publish">Publish &rarr;</button>
+</div>
+
+<script>
+(async function() {
+  const $ = (id) => document.getElementById(id);
+  let data = null, dirty = false;
+  const setDirty = (v) => { dirty = v; $('dirty-meta').textContent = v ? 'Unsaved changes' : 'No unsaved changes'; };
+  const setStatus = (m, k) => { const e = $('status'); e.textContent = m || ''; e.className = 'status-msg' + (k ? ' ' + k : ''); };
+  const escapeAttr = (s) => (s || '').replace(/"/g, '&quot;');
+  const escapeText = (s) => (s || '').replace(/</g, '&lt;');
+
+  function render() {
+    const grid = $('grid');
+    grid.innerHTML = '';
+    for (const f of data.fields) {
+      const en = data.values.en[f.key] || '';
+      const no = data.values.no[f.key] || '';
+      const inputEn = f.type === 'textarea'
+        ? `<textarea data-key="${f.key}" data-lang="en">${escapeText(en)}</textarea>`
+        : `<input type="text" data-key="${f.key}" data-lang="en" value="${escapeAttr(en)}" />`;
+      const inputNo = f.type === 'textarea'
+        ? `<textarea data-key="${f.key}" data-lang="no">${escapeText(no)}</textarea>`
+        : `<input type="text" data-key="${f.key}" data-lang="no" value="${escapeAttr(no)}" />`;
+      const card = document.createElement('div');
+      card.className = 'field-card';
+      card.innerHTML = `
+        <h3>${escapeText(f.label)}</h3>
+        <p class="key">cms:${f.key}</p>
+        <div class="field-langs">
+          <div><label>English</label>${inputEn}</div>
+          <div><label>Norwegian</label>${inputNo}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    }
+  }
+
+  function readBack() {
+    document.querySelectorAll('[data-key]').forEach(el => {
+      data.values[el.dataset.lang][el.dataset.key] = el.value;
+    });
+  }
+
+  async function load() {
+    setStatus('Loading…');
+    const r = await fetch('/api/sections');
+    if (!r.ok) { setStatus('Load failed', 'err'); return; }
+    data = await r.json();
+    render();
+    setDirty(false);
+    setStatus('');
+  }
+
+  async function save() {
+    readBack();
+    setStatus('Saving…');
+    const r = await fetch('/api/sections', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+    if (!r.ok) { setStatus('Save failed', 'err'); return false; }
+    setDirty(false);
+    setStatus('Draft saved', 'ok');
+    return true;
+  }
+
+  async function publish() {
+    if (!confirm('Publish sections? Regenerates index.html + no/index.html and pushes to draft branch.')) return;
+    if (!(await save())) return;
+    setStatus('Publishing…');
+    const r = await fetch('/api/publish/sections', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'CMS publish: sections' }) });
+    const body = await r.json().catch(() => ({}));
+    if (!r.ok) { setStatus('Publish failed: ' + (body.error || r.status), 'err'); return; }
+    setStatus('Published — Coolify is redeploying', 'ok');
+  }
+
+  document.addEventListener('input', (e) => { if (e.target.matches('[data-key]')) setDirty(true); });
+  $('btn-save').addEventListener('click', save);
+  $('btn-publish').addEventListener('click', publish);
+  $('btn-reload').addEventListener('click', () => { if (dirty && !confirm('Discard unsaved changes?')) return; load(); });
+  window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+  load();
+})();
+</script>
+</body>
+</html>

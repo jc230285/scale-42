@@ -61,6 +61,6 @@ function run() {
   console.log('regen people: done');
 }
 
-module.exports = { run };
+module.exports = { run, files: ['content/people.json', 'index.html', 'no/index.html'] };
 
 if (require.main === module) run();

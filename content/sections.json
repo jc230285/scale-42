@@ -1,0 +1,28 @@
+{
+  "fields": [
+    { "key": "hero_eyebrow", "label": "Hero eyebrow", "type": "text" },
+    { "key": "hero_title", "label": "Hero title (HTML allowed: <br/>)", "type": "textarea" },
+    { "key": "hero_lede", "label": "Hero lede paragraph", "type": "textarea" },
+    { "key": "jv_blurb", "label": "JV blurb (HTML allowed: <strong>)", "type": "textarea" },
+    { "key": "contact_email", "label": "Contact email", "type": "text" },
+    { "key": "footer_copyright", "label": "Footer copyright", "type": "text" }
+  ],
+  "values": {
+    "en": {
+      "hero_eyebrow": "Next-generation European digital infrastructure",
+      "hero_title": "Building large-scale AI data centres<br/>across the Nordics.",
+      "hero_lede": "Scale42 develops and operates wholesale, AI-ready data centres in Norway, Finland, Sweden and Iceland — co-located with abundant renewable power, purpose-built for high-density compute.",
+      "jv_blurb": "<strong>GIG</strong> — joint venture partner. Scale42 is built and capitalised together with GIG, providing the financial backing and energy-sector relationships behind the pipeline.",
+      "contact_email": "info@scale-42.com",
+      "footer_copyright": "© 2026 Scale42. All rights reserved."
+    },
+    "no": {
+      "hero_eyebrow": "Neste generasjons europeisk digital infrastruktur",
+      "hero_title": "Bygger storskala KI-datasentre<br/>i Norden.",
+      "hero_lede": "Scale42 utvikler og drifter engros, KI-klare datasentre i Norge, Finland, Sverige og Island — samlokalisert med rikelig fornybar kraft, spesialbygget for høytetthetsberegning.",
+      "jv_blurb": "<strong>GIG</strong> — joint venture-partner. Scale42 er bygget og kapitalisert sammen med GIG, som leverer den finansielle støtten og energisektor-relasjonene bak pipelinen.",
+      "contact_email": "info@scale-42.com",
+      "footer_copyright": "© 2026 Scale42. Alle rettigheter forbeholdt."
+    }
+  }
+}
