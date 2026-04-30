@@ -4,9 +4,14 @@ const path = require('path');
 
 const router = express.Router();
 const FILE = path.resolve(__dirname, '..', '..', 'content', 'sites.json');
+const SCHEMA = path.resolve(__dirname, '..', '..', 'content', 'sites-schema.json');
 
 router.get('/sites', (req, res) => {
   res.json(JSON.parse(fs.readFileSync(FILE, 'utf-8')));
+});
+
+router.get('/sites-schema', (req, res) => {
+  res.json(JSON.parse(fs.readFileSync(SCHEMA, 'utf-8')));
 });
 
 router.put('/sites', (req, res) => {

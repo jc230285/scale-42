@@ -6,23 +6,67 @@
 <title>Sites &mdash; Scale42 CMS</title>
 <link rel="stylesheet" href="cms.css" />
 <style>
-  table.sites-grid { border-collapse: separate; border-spacing: 0; min-width: 100%; }
-  table.sites-grid th, table.sites-grid td { border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); padding: 8px 10px; vertical-align: top; background: #fff; }
-  table.sites-grid th.field-label { background: #fafbfc; font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); text-align: left; position: sticky; left: 0; z-index: 2; min-width: 130px; }
-  table.sites-grid td.field-label { background: #fafbfc; font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); position: sticky; left: 0; z-index: 1; min-width: 130px; }
-  table.sites-grid th.site-col, table.sites-grid td.site-col { min-width: 220px; max-width: 280px; }
-  .site-card { padding: 0; }
-  .site-card .actions { display: flex; gap: 4px; padding: 6px 8px; border-bottom: 1px solid var(--line); background: #fafbfc; align-items: center; }
-  .site-card .actions .btn.icon { padding: 3px 6px; font-size: 11px; }
-  .site-card .actions .grow { flex: 1; }
-  .site-card .img-wrap { aspect-ratio: 16/10; background: #eef0f2; cursor: pointer; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 12px; }
-  .site-card .img-wrap:hover { background: #e5e8eb; }
-  .site-card .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .site-card .img-wrap.empty::after { content: "+ image"; color: var(--ink-2); }
-  table.sites-grid input[type=text], table.sites-grid input[type=number], table.sites-grid select, table.sites-grid textarea { width: 100%; border: 1px solid transparent; padding: 5px 7px; border-radius: 6px; font: inherit; font-size: 13px; background: transparent; }
-  table.sites-grid input:focus, table.sites-grid select:focus, table.sites-grid textarea:focus { border-color: var(--teal); background: #fff; outline: none; box-shadow: 0 0 0 3px rgba(47,102,117,0.12); }
-  table.sites-grid textarea { min-height: 56px; resize: vertical; }
-  .add-col-btn { padding: 8px 12px; }
+  .layout { display: grid; grid-template-columns: 320px 1fr; gap: 18px; align-items: start; }
+  @media (max-width: 980px) { .layout { grid-template-columns: 1fr; } }
+
+  .site-list { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px; max-height: calc(100vh - 240px); overflow-y: auto; }
+  .site-row { display: flex; gap: 10px; align-items: center; padding: 8px; border-radius: 8px; cursor: pointer; }
+  .site-row:hover { background: #f4f6f7; }
+  .site-row.active { background: rgba(47,102,117,0.1); outline: 1px solid var(--teal); }
+  .site-row .thumb { width: 48px; height: 36px; background: #eef0f2; border-radius: 4px; flex: 0 0 auto; overflow: hidden; }
+  .site-row .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .site-row .info { flex: 1; min-width: 0; }
+  .site-row .info .name { font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .site-row .info .meta { font-size: 11px; color: var(--ink-2); margin-top: 1px; display: flex; gap: 6px; align-items: center; }
+  .site-row .info .pill { display: inline-block; padding: 1px 6px; border-radius: 999px; color: #fff; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+  .site-row .info .pill.live { background: var(--teal); }
+  .site-row .info .pill.tbd { background: #b8a07a; }
+  .site-row .info .pill.sold { background: #33752f; }
+  .site-row .info .pill.draft { background: #b3b8be; }
+  .site-row .reorder { display: flex; flex-direction: column; gap: 1px; }
+  .site-row .reorder button { background: transparent; border: none; cursor: pointer; padding: 1px 4px; font-size: 11px; color: var(--ink-2); line-height: 1; }
+  .site-row .reorder button:hover { color: var(--ink); }
+
+  .editor-pane { background: #fff; border: 1px solid var(--line); border-radius: 10px; }
+  .editor-toolbar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .editor-toolbar .grow { flex: 1; }
+  .editor-toolbar label.toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); cursor: pointer; }
+  .editor-toolbar .pill-public { background: #dde7e9; color: var(--teal); padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .editor-empty { padding: 60px 30px; text-align: center; color: var(--ink-2); }
+
+  .accordion details { border-bottom: 1px solid var(--line); }
+  .accordion details:last-child { border-bottom: none; }
+  .accordion summary { padding: 14px 20px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; user-select: none; list-style: none; }
+  .accordion summary::-webkit-details-marker { display: none; }
+  .accordion summary::before { content: '▸'; color: var(--ink-2); font-size: 11px; transition: transform 0.15s; }
+  .accordion details[open] summary::before { transform: rotate(90deg); }
+  .accordion summary:hover { background: #fafbfc; }
+  .accordion summary .group-meta { font-size: 11px; color: var(--ink-2); font-weight: 400; margin-left: auto; }
+  .accordion summary .internal-tag { background: #fef3e0; color: #a35c00; padding: 1px 7px; border-radius: 999px; font-size: 10px; font-weight: 600; }
+  .accordion .group-body { padding: 4px 20px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+
+  .field { display: flex; flex-direction: column; gap: 4px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+  .field label .dot { width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; }
+  .field label .dot.public { background: var(--teal); }
+  .field label .dot.internal { background: #cfd5d9; }
+  .field label .help { color: #b3b8be; font-size: 10px; font-weight: 400; text-transform: none; letter-spacing: 0; }
+  .field input, .field select, .field textarea { border: 1px solid var(--line); border-radius: 6px; padding: 7px 9px; font: inherit; font-size: 13px; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--teal); outline: none; box-shadow: 0 0 0 3px rgba(47,102,117,0.12); }
+  .field textarea { min-height: 64px; resize: vertical; }
+  .field .toggle-wrap { display: inline-flex; align-items: center; gap: 8px; padding: 5px 0; }
+  .field .img-wrap { aspect-ratio: 16/10; max-width: 240px; background: #eef0f2; cursor: pointer; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; color: var(--ink-2); font-size: 12px; }
+  .field .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+  .field-internal-hidden { display: none !important; }
+
+  .study-row, .permit-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .milestone-row { display: grid; grid-template-columns: 2fr 1fr 1fr 60px 30px; gap: 8px; align-items: center; padding: 6px 0; }
+  .milestone-row + .milestone-row { border-top: 1px dashed var(--line); }
+  .row-add { font-size: 12px; color: var(--teal); font-weight: 600; cursor: pointer; padding: 6px 0; }
+
+  #totals { display:flex;gap:24px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:14px;font-size:13.5px }
 </style>
 </head>
 <body>
@@ -41,16 +85,16 @@
     <h1>Sites</h1>
     <span class="meta" id="dirty-meta">No unsaved changes</span>
   </div>
-  <p class="lede">Pipeline sites — fields down the left, one column per site. Click an image to upload. Drag the &blacktriangle;/&blacktriangledown; buttons in a column header to reorder.</p>
-
-  <div id="totals" style="display:flex;gap:24px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:14px;font-size:13.5px"></div>
-
-  <div class="section-head">
-    <h2>All sites</h2>
-    <button class="btn add" id="btn-add">+ Add site</button>
-  </div>
-  <div class="table-wrap" style="overflow-x:auto">
-    <table class="sites-grid" id="grid"></table>
+  <p class="lede">Pick a site on the left, edit fields on the right. <span class="pill-public" style="background:#dde7e9;color:var(--teal);padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;">●</span> blue dot = public field. Toggle "Hide internal" to focus on what renders publicly.</p>
+  <div id="totals"></div>
+  <div class="layout">
+    <div>
+      <div class="section-head" style="margin-bottom:8px"><h2 style="margin:0;font-size:14px">All sites</h2><button class="btn add" id="btn-add">+ Add</button></div>
+      <div class="site-list" id="site-list"></div>
+    </div>
+    <div class="editor-pane" id="editor-pane">
+      <div class="editor-empty" id="editor-empty">Select a site on the left to edit.</div>
+    </div>
   </div>
 </main>
 
@@ -68,185 +112,370 @@
 <script>
 (async function() {
   const $ = (id) => document.getElementById(id);
-  let data = { sites: [] }, dirty = false;
+  let data = { sites: [] }, schema = null, dirty = false, selectedIdx = 0, hideInternal = localStorage.getItem('hideInternal') === '1';
   const setDirty = (v) => { dirty = v; $('dirty-meta').textContent = v ? 'Unsaved changes' : 'No unsaved changes'; };
   const setStatus = (m, k) => { const e = $('status'); e.textContent = m || ''; e.className = 'status-msg' + (k ? ' ' + k : ''); };
   const escAttr = (s) => (s == null ? '' : String(s)).replace(/"/g, '&quot;');
   const escText = (s) => (s == null ? '' : String(s)).replace(/</g, '&lt;');
-
-  const FIELDS = [
-    { key: 'name', label: 'Name', type: 'text' },
-    { key: 'country', label: 'Country', type: 'text' },
-    { key: 'status', label: 'Status', type: 'select', options: ['live', 'tbd', 'sold'] },
-    { key: 'power', label: 'Power', type: 'text', placeholder: 'Hydro / Geothermal / …' },
-    { key: 'initial_mw', label: 'Initial MW', type: 'text', placeholder: '50 MW' },
-    { key: 'target_mw', label: 'Target MW', type: 'text', placeholder: '200 MW' },
-    { key: 'lat', label: 'Latitude', type: 'number' },
-    { key: 'lng', label: 'Longitude', type: 'number' },
-    { key: 'desc_en', label: 'Description (EN)', type: 'textarea' },
-    { key: 'desc_no', label: 'Description (NO)', type: 'textarea' },
-    { key: 'published', label: 'Live', type: 'toggle' },
-  ];
-
-  function siteHeader(s, idx, total) {
-    const imgUrl = s.image ? `/assets/sites/${escAttr(s.image)}` : '';
-    return `
-      <th class="site-col">
-        <div class="site-card">
-          <div class="actions">
-            <button class="btn icon" data-action="up" data-idx="${idx}" ${idx===0?'disabled':''} title="Move left">▲</button>
-            <button class="btn icon" data-action="down" data-idx="${idx}" ${idx===total-1?'disabled':''} title="Move right">▼</button>
-            <span class="grow"></span>
-            <button class="btn danger" data-action="delete" data-idx="${idx}" title="Delete site">×</button>
-          </div>
-          <div class="img-wrap ${s.image ? '' : 'empty'}" data-action="pick-image" data-idx="${idx}" title="Click to upload">
-            ${s.image ? `<img src="${imgUrl}" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"/>` : ''}
-          </div>
-        </div>
-      </th>
-    `;
-  }
-
-  function fieldCell(f, s, idx) {
-    const v = s[f.key];
-    if (f.type === 'textarea') return `<td class="site-col"><textarea data-key="${f.key}" data-idx="${idx}">${escText(v)}</textarea></td>`;
-    if (f.type === 'select') return `<td class="site-col"><select data-key="${f.key}" data-idx="${idx}">${f.options.map(o => `<option value="${o}"${v===o?' selected':''}>${o}</option>`).join('')}</select></td>`;
-    if (f.type === 'toggle') return `<td class="site-col"><label class="toggle"><input type="checkbox" data-key="${f.key}" data-idx="${idx}" ${v?'checked':''}/><span class="slider"></span></label></td>`;
-    if (f.type === 'number') return `<td class="site-col"><input type="number" step="0.0001" data-key="${f.key}" data-idx="${idx}" value="${escAttr(v)}" /></td>`;
-    return `<td class="site-col"><input type="text" data-key="${f.key}" data-idx="${idx}" value="${escAttr(v)}" placeholder="${escAttr(f.placeholder || '')}" /></td>`;
-  }
-
-  function parseMW(s) { const m = String(s || '').match(/[\d.]+/); return m ? parseFloat(m[0]) : 0; }
-  function fmt(n) { return Number.isInteger(n) ? n.toString() : n.toFixed(1); }
+  const slugify = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const parseMW = (s) => { const m = String(s || '').match(/[\d.]+/); return m ? parseFloat(m[0]) : 0; };
 
   function renderTotals() {
-    const live = data.sites.filter(s => s.published && s.status === 'live');
-    const tbd = data.sites.filter(s => s.published && s.status === 'tbd');
-    const liveInitial = live.reduce((a, s) => a + parseMW(s.initial_mw), 0);
-    const liveTarget = live.reduce((a, s) => a + parseMW(s.target_mw), 0);
-    const tbdTarget = tbd.reduce((a, s) => a + parseMW(s.target_mw), 0);
-    const allTarget = liveTarget + tbdTarget;
+    const sites = data.sites;
+    const live = sites.filter(s => s.published);
+    const totalMW = live.filter(s => s.status !== 'sold').reduce((a, s) => a + parseMW(s.max_capacity_mw || s.target_mw), 0);
+    const liveMW = live.filter(s => s.status === 'live').reduce((a, s) => a + parseMW(s.max_capacity_mw || s.target_mw), 0);
+    const soldMW = live.filter(s => s.status === 'sold').reduce((a, s) => a + parseMW(s.max_capacity_mw || s.target_mw), 0);
     $('totals').innerHTML = `
-      <div><strong>${live.length}</strong> live sites</div>
-      <div><strong>${tbd.length}</strong> disclosed (tbd)</div>
-      <div>Live initial: <strong>${fmt(liveInitial)} MW</strong></div>
-      <div>Live target: <strong>${fmt(liveTarget)} MW</strong></div>
-      <div>Total pipeline target: <strong>${fmt(allTarget)} MW</strong> (${(allTarget/1000).toFixed(2)} GW)</div>
+      <div><strong>${live.length}</strong> public · <strong>${sites.length - live.length}</strong> draft (of ${sites.length})</div>
+      <div><strong>${totalMW} MW</strong> active pipeline (excl. sold)</div>
+      <div><strong>${liveMW} MW</strong> in development · <strong>${soldMW} MW</strong> sold</div>
+      <div><strong>${new Set(live.map(s=>s.country).filter(Boolean)).size}</strong> countries</div>
     `;
   }
 
-  function render() {
-    const total = data.sites.length;
-    const headers = data.sites.map((s, i) => siteHeader(s, i, total)).join('');
-    const rows = FIELDS.map(f => `
-      <tr>
-        <td class="field-label">${escText(f.label)}</td>
-        ${data.sites.map((s, i) => fieldCell(f, s, i)).join('')}
-      </tr>
-    `).join('');
-    $('grid').innerHTML = `
-      <thead>
-        <tr>
-          <th class="field-label"></th>
-          ${headers}
-        </tr>
-      </thead>
-      <tbody>${rows}</tbody>
-    `;
-    renderTotals();
-  }
-
-  function readBack() {
-    document.querySelectorAll('[data-key][data-idx]').forEach(el => {
-      const i = parseInt(el.dataset.idx, 10);
-      const k = el.dataset.key;
-      if (!data.sites[i]) return;
-      let v;
-      if (el.type === 'checkbox') v = el.checked;
-      else if (el.type === 'number') v = parseFloat(el.value);
-      else v = el.value;
-      data.sites[i][k] = v;
+  function renderList() {
+    const list = $('site-list');
+    list.innerHTML = '';
+    data.sites.forEach((s, i) => {
+      const row = document.createElement('div');
+      row.className = 'site-row' + (i === selectedIdx ? ' active' : '');
+      row.dataset.idx = i;
+      const status = s.status || 'tbd';
+      const pillCls = s.published ? status : 'draft';
+      const pillTxt = s.published ? status : 'draft';
+      const thumb = s.image
+        ? `<div class="thumb"><img src="/assets/sites/${escAttr(s.image)}" alt="" /></div>`
+        : `<div class="thumb"></div>`;
+      row.innerHTML = `
+        ${thumb}
+        <div class="info">
+          <div class="name">${escText(s.name || '(unnamed)')}</div>
+          <div class="meta"><span class="pill ${pillCls}">${escText(pillTxt)}</span> ${escText(s.country || '')}</div>
+        </div>
+        <div class="reorder">
+          <button data-act="up" title="Move up">▲</button>
+          <button data-act="down" title="Move down">▼</button>
+        </div>
+      `;
+      list.appendChild(row);
     });
   }
 
+  function fieldDot(f) {
+    return `<span class="dot ${f.public ? 'public' : 'internal'}" title="${f.public ? 'Public — renders on website' : 'Internal — CMS only'}"></span>`;
+  }
+
+  function renderField(site, f) {
+    const v = site[f.key];
+    const id = `f-${f.key}`;
+    const label = `<label for="${id}">${fieldDot(f)} ${escText(f.label)}${f.help ? ` <span class="help">${escText(f.help)}</span>` : ''}</label>`;
+    let input = '';
+    const dataAttrs = `data-key="${f.key}" data-type="${f.type}"`;
+    if (f.type === 'textarea' || (f.key.startsWith('desc_') || f.type === 'longtext')) {
+      input = `<textarea id="${id}" ${dataAttrs}>${escText(v)}</textarea>`;
+    } else if (f.type === 'select') {
+      const opts = (f.options || []).map(o => `<option value="${escAttr(o)}"${v === o ? ' selected' : ''}>${escText(o)}</option>`).join('');
+      input = `<select id="${id}" ${dataAttrs}><option value=""></option>${opts}</select>`;
+    } else if (f.type === 'toggle') {
+      input = `<div class="toggle-wrap"><input type="checkbox" id="${id}" ${dataAttrs} ${v ? 'checked' : ''} /> <span style="font-size:13px;color:var(--ink-2)">${v ? 'On' : 'Off'}</span></div>`;
+    } else if (f.type === 'number') {
+      input = `<input type="number" step="any" id="${id}" ${dataAttrs} value="${escAttr(v)}" />`;
+    } else if (f.type === 'image') {
+      input = `<div class="img-wrap" data-img-picker data-key="${f.key}">${v ? `<img src="/assets/sites/${escAttr(v)}" />` : '+ image'}</div><input type="hidden" id="${id}" ${dataAttrs} value="${escAttr(v)}" />`;
+    } else if (f.type === 'tags') {
+      const arr = Array.isArray(v) ? v.join(', ') : (v || '');
+      input = `<input type="text" id="${id}" ${dataAttrs} value="${escAttr(arr)}" placeholder="comma, separated, list" />`;
+    } else if (f.type === 'study' || f.type === 'permit') {
+      const obj = v && typeof v === 'object' ? v : {};
+      input = `
+        <div class="${f.type}-row">
+          <input type="text" data-sub="status" placeholder="status" value="${escAttr(obj.status)}" />
+          <input type="text" data-sub="date" placeholder="date" value="${escAttr(obj.date)}" />
+          ${f.type === 'study' ? `<input type="text" data-sub="link" placeholder="link" value="${escAttr(obj.link)}" />` : `<span></span>`}
+        </div>
+        <input type="hidden" id="${id}" ${dataAttrs} />
+      `;
+    } else if (f.type === 'milestones') {
+      const rows = (Array.isArray(v) ? v : []).map((m, i) => `
+        <div class="milestone-row" data-mi="${i}">
+          <input type="text" data-mk="name" placeholder="name" value="${escAttr(m.name)}" />
+          <input type="text" data-mk="target_date" placeholder="YYYY-MM" value="${escAttr(m.target_date)}" />
+          <input type="text" data-mk="status" placeholder="status" value="${escAttr(m.status)}" />
+          <label style="display:flex;align-items:center;gap:4px;font-size:11px;"><input type="checkbox" data-mk="public" ${m.public ? 'checked' : ''} /> Public</label>
+          <button type="button" data-mrm="${i}" title="Remove" style="background:transparent;border:none;color:var(--ink-2);cursor:pointer">✕</button>
+        </div>
+      `).join('');
+      input = `
+        <div class="milestones" data-key="${f.key}" data-type="milestones">
+          ${rows}
+          <div class="row-add" data-madd="${f.key}">+ Add milestone</div>
+        </div>
+        <input type="hidden" id="${id}" ${dataAttrs} />
+      `;
+    } else if (f.type === 'table') {
+      const cols = f.columns || [];
+      const rows = (Array.isArray(v) ? v : []).map((r, i) => `
+        <div class="study-row" style="grid-template-columns:repeat(${cols.length + 1}, 1fr);" data-ri="${i}">
+          ${cols.map(c => `<input type="text" data-tk="${c}" placeholder="${c}" value="${escAttr(r[c])}" />`).join('')}
+          <button type="button" data-trm="${i}" style="background:transparent;border:none;color:var(--ink-2);cursor:pointer">✕</button>
+        </div>
+      `).join('');
+      input = `
+        <div class="table-rows" data-key="${f.key}" data-type="table" data-cols='${escAttr(JSON.stringify(cols))}'>
+          ${rows}
+          <div class="row-add" data-tadd="${f.key}">+ Add row</div>
+        </div>
+        <input type="hidden" id="${id}" ${dataAttrs} />
+      `;
+    } else {
+      input = `<input type="text" id="${id}" ${dataAttrs} value="${escAttr(v)}"${f.readonly ? ' readonly' : ''} />`;
+    }
+    const isFull = f.type === 'textarea' || f.type === 'milestones' || f.type === 'table' || f.key.startsWith('desc_');
+    const internalCls = !f.public && hideInternal ? ' field-internal-hidden' : '';
+    return `<div class="field${isFull ? ' full' : ''}${internalCls}">${label}${input}</div>`;
+  }
+
+  function renderEditor() {
+    const pane = $('editor-pane');
+    if (!data.sites.length || !schema) {
+      pane.innerHTML = `<div class="editor-empty">No site selected.</div>`;
+      return;
+    }
+    const site = data.sites[selectedIdx];
+    if (!site) { pane.innerHTML = `<div class="editor-empty">No site selected.</div>`; return; }
+
+    const fieldsByGroup = {};
+    for (const f of schema.fields) {
+      if (!fieldsByGroup[f.group]) fieldsByGroup[f.group] = [];
+      fieldsByGroup[f.group].push(f);
+    }
+    const groups = schema.groups.map(g => {
+      const fields = fieldsByGroup[g.key] || [];
+      const visible = hideInternal ? fields.filter(f => f.public) : fields;
+      if (!visible.length) return '';
+      const fieldsHtml = fields.map(f => renderField(site, f)).join('');
+      return `
+        <details ${['identity','public_status','power','narrative'].includes(g.key) ? 'open' : ''}>
+          <summary>
+            ${escText(g.label)}
+            ${g.internalOnly ? '<span class="internal-tag">internal</span>' : ''}
+            <span class="group-meta">${visible.length} field${visible.length === 1 ? '' : 's'}</span>
+          </summary>
+          <div class="group-body">${fieldsHtml}</div>
+        </details>
+      `;
+    }).join('');
+
+    pane.innerHTML = `
+      <div class="editor-toolbar">
+        <strong>${escText(site.name || '(unnamed)')}</strong>
+        <span style="color:var(--ink-2);font-size:13px;">${escText(site.country || '')}</span>
+        <span class="grow"></span>
+        <label class="toggle"><input type="checkbox" id="hide-internal" ${hideInternal ? 'checked' : ''} /> Hide internal fields</label>
+        <button class="btn" id="btn-duplicate">Duplicate</button>
+        <button class="btn" id="btn-delete" style="color:#b3261e">Delete</button>
+      </div>
+      <div class="accordion">${groups}</div>
+    `;
+  }
+
+  function readSite() {
+    const site = data.sites[selectedIdx];
+    if (!site) return;
+    document.querySelectorAll('#editor-pane [data-key]').forEach(el => {
+      const k = el.dataset.key;
+      const t = el.dataset.type;
+      if (t === 'milestones') {
+        const rows = el.querySelectorAll('.milestone-row');
+        const arr = [];
+        rows.forEach(r => {
+          arr.push({
+            name: r.querySelector('[data-mk=name]').value,
+            target_date: r.querySelector('[data-mk=target_date]').value,
+            status: r.querySelector('[data-mk=status]').value,
+            public: r.querySelector('[data-mk=public]').checked,
+          });
+        });
+        site[k] = arr;
+      } else if (t === 'table') {
+        const cols = JSON.parse(el.dataset.cols || '[]');
+        const rows = el.querySelectorAll('.study-row');
+        const arr = [];
+        rows.forEach(r => {
+          const o = {};
+          cols.forEach(c => { o[c] = r.querySelector(`[data-tk="${c}"]`).value; });
+          arr.push(o);
+        });
+        site[k] = arr;
+      } else if (t === 'study' || t === 'permit') {
+        const wrap = el.parentElement.querySelector(`.${t}-row`);
+        const o = {};
+        wrap.querySelectorAll('[data-sub]').forEach(s => { o[s.dataset.sub] = s.value; });
+        site[k] = o;
+      } else if (t === 'tags') {
+        site[k] = el.value.split(',').map(s => s.trim()).filter(Boolean);
+      } else if (el.type === 'checkbox') {
+        site[k] = el.checked;
+      } else if (el.type === 'number') {
+        site[k] = el.value === '' ? null : parseFloat(el.value);
+      } else {
+        site[k] = el.value;
+      }
+    });
+  }
+
+  // Event delegation
+  document.addEventListener('input', (e) => {
+    if (e.target.closest('#editor-pane [data-key], #editor-pane [data-mk], #editor-pane [data-tk], #editor-pane [data-sub]')) {
+      setDirty(true);
+    }
+  });
+  document.addEventListener('change', (e) => {
+    if (e.target.id === 'hide-internal') {
+      hideInternal = e.target.checked;
+      localStorage.setItem('hideInternal', hideInternal ? '1' : '0');
+      readSite();
+      renderEditor();
+    }
+  });
+  document.addEventListener('click', (e) => {
+    const row = e.target.closest('.site-row');
+    if (row && !e.target.closest('.reorder')) {
+      readSite();
+      selectedIdx = parseInt(row.dataset.idx);
+      renderList();
+      renderEditor();
+      return;
+    }
+    const reBtn = e.target.closest('.reorder button');
+    if (reBtn) {
+      e.stopPropagation();
+      const i = parseInt(reBtn.closest('.site-row').dataset.idx);
+      const dir = reBtn.dataset.act === 'up' ? -1 : 1;
+      const j = i + dir;
+      if (j < 0 || j >= data.sites.length) return;
+      readSite();
+      [data.sites[i], data.sites[j]] = [data.sites[j], data.sites[i]];
+      if (selectedIdx === i) selectedIdx = j;
+      else if (selectedIdx === j) selectedIdx = i;
+      setDirty(true);
+      renderList(); renderEditor(); renderTotals();
+      return;
+    }
+    if (e.target.id === 'btn-add') {
+      readSite();
+      data.sites.push({ id: 'new-site-' + Date.now(), name: 'New site', country: '', status: 'tbd', published: false, lat: 65, lng: 17 });
+      selectedIdx = data.sites.length - 1;
+      setDirty(true); renderList(); renderEditor(); renderTotals();
+      return;
+    }
+    if (e.target.id === 'btn-delete') {
+      if (!confirm('Delete ' + (data.sites[selectedIdx].name || 'this site') + '?')) return;
+      data.sites.splice(selectedIdx, 1);
+      if (selectedIdx >= data.sites.length) selectedIdx = data.sites.length - 1;
+      setDirty(true); renderList(); renderEditor(); renderTotals();
+      return;
+    }
+    if (e.target.id === 'btn-duplicate') {
+      readSite();
+      const copy = JSON.parse(JSON.stringify(data.sites[selectedIdx]));
+      copy.id = (copy.id || 'site') + '-copy-' + Date.now();
+      copy.name = (copy.name || 'Site') + ' (copy)';
+      copy.published = false;
+      data.sites.splice(selectedIdx + 1, 0, copy);
+      selectedIdx++;
+      setDirty(true); renderList(); renderEditor(); renderTotals();
+      return;
+    }
+    if (e.target.dataset.madd) {
+      readSite();
+      const k = e.target.dataset.madd;
+      const site = data.sites[selectedIdx];
+      if (!Array.isArray(site[k])) site[k] = [];
+      site[k].push({ name: '', target_date: '', status: '', public: false });
+      setDirty(true); renderEditor();
+      return;
+    }
+    if (e.target.dataset.mrm !== undefined) {
+      readSite();
+      const i = parseInt(e.target.dataset.mrm);
+      const k = e.target.closest('.milestones').dataset.key;
+      data.sites[selectedIdx][k].splice(i, 1);
+      setDirty(true); renderEditor();
+      return;
+    }
+    if (e.target.dataset.tadd) {
+      readSite();
+      const k = e.target.dataset.tadd;
+      const site = data.sites[selectedIdx];
+      const cols = JSON.parse(e.target.parentElement.dataset.cols || '[]');
+      if (!Array.isArray(site[k])) site[k] = [];
+      const o = {}; cols.forEach(c => o[c] = '');
+      site[k].push(o);
+      setDirty(true); renderEditor();
+      return;
+    }
+    if (e.target.dataset.trm !== undefined) {
+      readSite();
+      const i = parseInt(e.target.dataset.trm);
+      const k = e.target.closest('.table-rows').dataset.key;
+      data.sites[selectedIdx][k].splice(i, 1);
+      setDirty(true); renderEditor();
+      return;
+    }
+    const imgEl = e.target.closest('[data-img-picker]');
+    if (imgEl) {
+      const k = imgEl.dataset.key;
+      window.openImagePicker({
+        folder: 'sites',
+        current: data.sites[selectedIdx][k] || '',
+        onPick: (filename) => {
+          data.sites[selectedIdx][k] = filename;
+          setDirty(true);
+          renderEditor(); renderList();
+        }
+      });
+    }
+  });
+
   async function load() {
     setStatus('Loading…');
-    const r = await fetch('/api/sites');
-    if (!r.ok) { setStatus('Load failed', 'err'); return; }
-    data = await r.json(); render(); setDirty(false); setStatus('');
+    const [r1, r2] = await Promise.all([fetch('/api/sites'), fetch('/api/sites-schema')]);
+    if (!r1.ok || !r2.ok) { setStatus('Load failed', 'err'); return; }
+    data = await r1.json();
+    schema = await r2.json();
+    selectedIdx = Math.min(selectedIdx, data.sites.length - 1);
+    if (selectedIdx < 0) selectedIdx = 0;
+    renderTotals(); renderList(); renderEditor();
+    setDirty(false); setStatus('');
   }
+
   async function save() {
-    readBack();
+    readSite();
     setStatus('Saving…');
-    const r = await fetch('/api/sites', { method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) });
+    const r = await fetch('/api/sites', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     if (!r.ok) { setStatus('Save failed', 'err'); return false; }
-    setDirty(false); setStatus('Draft saved', 'ok'); return true;
+    setDirty(false); setStatus('Draft saved', 'ok');
+    renderTotals();
+    return true;
   }
+
   async function publish() {
-    if (!confirm('Publish sites? Regenerates home + datacenters maps and hero stats.')) return;
+    if (!confirm('Publish sites? Regenerates pipeline pages and pushes to draft branch.')) return;
     if (!(await save())) return;
     setStatus('Publishing…');
-    const r = await fetch('/api/publish/sites', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({}) });
+    const r = await fetch('/api/publish/sites', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'CMS publish: sites' }) });
     const body = await r.json().catch(() => ({}));
     if (!r.ok) { setStatus('Publish failed: ' + (body.error || r.status), 'err'); return; }
     setStatus('Published — Coolify is redeploying', 'ok');
   }
 
-  document.addEventListener('input', (e) => {
-    const el = e.target;
-    if (!el.matches('[data-key][data-idx]')) return;
-    setDirty(true);
-    const i = parseInt(el.dataset.idx, 10);
-    const k = el.dataset.key;
-    const v = el.type === 'checkbox' ? el.checked : el.type === 'number' ? parseFloat(el.value) : el.value;
-    if (data.sites[i]) data.sites[i][k] = v;
-    if (k === 'initial_mw' || k === 'target_mw') renderTotals();
-  });
-  document.addEventListener('change', (e) => {
-    const el = e.target;
-    if (!el.matches('[data-key][data-idx]')) return;
-    setDirty(true);
-    const i = parseInt(el.dataset.idx, 10);
-    const k = el.dataset.key;
-    const v = el.type === 'checkbox' ? el.checked : el.value;
-    if (data.sites[i]) data.sites[i][k] = v;
-    if (k === 'status' || k === 'published') renderTotals();
-  });
-
-  document.addEventListener('click', (e) => {
-    const t = e.target.closest('[data-action]');
-    if (!t) return;
-    const action = t.dataset.action;
-    const idx = parseInt(t.dataset.idx, 10);
-    if (action === 'delete') {
-      if (!confirm('Delete this site?')) return;
-      readBack(); data.sites.splice(idx, 1); render(); setDirty(true);
-    } else if (action === 'up' || action === 'down') {
-      const ni = action === 'up' ? idx - 1 : idx + 1;
-      if (ni < 0 || ni >= data.sites.length) return;
-      readBack();
-      const [m] = data.sites.splice(idx, 1);
-      data.sites.splice(ni, 0, m);
-      render(); setDirty(true);
-    } else if (action === 'pick-image') {
-      readBack();
-      window.openImagePicker({
-        folder: 'sites',
-        current: data.sites[idx].image ? 'assets/sites/' + data.sites[idx].image : '',
-        onPick: (path) => { data.sites[idx].image = (path || '').replace(/^assets\/sites\//, ''); setDirty(true); render(); },
-      });
-    }
-  });
-
-  $('btn-add').addEventListener('click', () => {
-    readBack();
-    data.sites.push({ id: '', name: 'New site', country: 'Norway', status: 'tbd', power: '', initial_mw: '', target_mw: '', lat: 65, lng: 14, image: '', desc_en: '', desc_no: '', published: false });
-    render(); setDirty(true);
-  });
   $('btn-save').addEventListener('click', save);
   $('btn-publish').addEventListener('click', publish);
-  $('btn-reload').addEventListener('click', () => { if (dirty && !confirm('Discard?')) return; load(); });
-  window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue=''; } });
+  $('btn-reload').addEventListener('click', () => { if (dirty && !confirm('Discard unsaved changes?')) return; load(); });
+  window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
   load();
 })();
 </script>
