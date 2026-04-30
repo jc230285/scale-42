@@ -10,7 +10,7 @@ const ALLOWED_FOLDERS = new Set(['team', 'sites', 'news']);
 const ALLOWED_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif', '.svg']);
 const MAX_BYTES = 8 * 1024 * 1024;
 
-const slug = (s) => (s || '').toLowerCase().replace(/[^a-z0-9.\-_]+/g, '-').replace(/^-|-$/g, '');
+const { randomUUID } = require('crypto');
 
 router.post('/upload', async (req, res) => {
   try {
@@ -18,13 +18,14 @@ router.post('/upload', async (req, res) => {
     if (!ALLOWED_FOLDERS.has(folder)) return res.status(400).json({ error: 'invalid folder' });
     if (!filename || !base64) return res.status(400).json({ error: 'filename and base64 required' });
 
-    const cleanName = slug(filename);
-    const ext = path.extname(cleanName).toLowerCase();
+    const ext = path.extname(filename).toLowerCase();
     if (!ALLOWED_EXT.has(ext)) return res.status(400).json({ error: `extension not allowed: ${ext}` });
 
     const buf = Buffer.from(base64, 'base64');
     if (buf.length > MAX_BYTES) return res.status(413).json({ error: 'file too large (max 8 MB)' });
 
+    // UUID-based filename so concurrent uploads don't clash and content is content-addressable
+    const cleanName = `${randomUUID()}${ext}`;
     const relPath = `assets/${folder}/${cleanName}`;
     const absPath = path.join(ROOT, relPath);
     fs.mkdirSync(path.dirname(absPath), { recursive: true });

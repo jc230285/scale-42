@@ -79,6 +79,51 @@
       "excerpt_no": "Hva algoritmisk effektivitet betyr for mellomstor datasenterinfrastruktur.",
       "featured": false,
       "published": true
+    },
+    {
+      "slug": "12-5-mw-modules-rationale",
+      "type_en": "Thought leadership",
+      "type_no": "Tankelederskap",
+      "date_en": "DRAFT",
+      "date_no": "UTKAST",
+      "image": "",
+      "alt": "12.5 MW data centre module under integration",
+      "title_en": "Why we standardised on 12.5 MW modules",
+      "title_no": "Hvorfor vi standardiserte på 12,5 MW-moduler",
+      "excerpt_en": "Module size is the most consequential design choice in modern data centre development. Here is why 12.5 MW lands in the sweet spot between grid integration, supply-chain availability, and customer onboarding speed.",
+      "excerpt_no": "Modulstørrelse er det mest konsekvensrike designvalget i moderne datasenterutvikling. Her er grunnen til at 12,5 MW treffer balansepunktet mellom nettintegrasjon, leverandørkjede og kundens onboarding-tempo.",
+      "featured": false,
+      "published": false
+    },
+    {
+      "slug": "hydropower-first-compute",
+      "type_en": "Thought leadership",
+      "type_no": "Tankelederskap",
+      "date_en": "DRAFT",
+      "date_no": "UTKAST",
+      "image": "",
+      "alt": "Hydropower reservoir feeding Nordic compute",
+      "title_en": "Hydropower-first: why Norway anchors our pipeline",
+      "title_no": "Vannkraft først: derfor forankrer Norge pipelinen vår",
+      "excerpt_en": "Long-duration hydropower behaves nothing like wind or solar at the substation. For 24/7 AI workloads, that distinction decides whether a site is investable or marginal.",
+      "excerpt_no": "Langtidsvannkraft oppfører seg helt annerledes enn vind eller sol ved transformatorstasjonen. For 24/7 KI-arbeidslaster avgjør den forskjellen om en lokasjon er investerbar eller marginal.",
+      "featured": false,
+      "published": false
+    },
+    {
+      "slug": "free-air-cooling-latitude-66",
+      "type_en": "Operations",
+      "type_no": "Drift",
+      "date_en": "DRAFT",
+      "date_no": "UTKAST",
+      "image": "",
+      "alt": "Cool air intake on a Nordic data centre",
+      "title_en": "Free-air cooling at latitude 66°: what works, what doesn't",
+      "title_no": "Friluftkjøling på 66 grader nord: hva fungerer, hva ikke",
+      "excerpt_en": "Glomfjord operations notes: when ambient cooling carries 30 kW racks straight through summer, where direct-liquid takes over, and the density threshold where the trade flips.",
+      "excerpt_no": "Driftsnotater fra Glomfjord: når omgivelseskjøling tar 30 kW-racker rett gjennom sommeren, hvor direkte væske tar over, og tettheten der balansen snur.",
+      "featured": false,
+      "published": false
     }
   ]
 }

@@ -26,9 +26,10 @@
     },
     {
       "key": "stat1_value",
-      "label": "Stat 1 — value (auto from Sites publish)",
+      "label": "Stat 1 — value",
       "type": "text",
-      "group": "Hero stats"
+      "group": "Hero stats",
+      "auto": true
     },
     {
       "key": "stat2_label",
@@ -38,9 +39,10 @@
     },
     {
       "key": "stat2_value",
-      "label": "Stat 2 — value (auto from Sites publish)",
+      "label": "Stat 2 — value",
       "type": "text",
-      "group": "Hero stats"
+      "group": "Hero stats",
+      "auto": true
     },
     {
       "key": "stat3_label",
@@ -50,9 +52,10 @@
     },
     {
       "key": "stat3_value",
-      "label": "Stat 3 — value (auto from Sites publish)",
+      "label": "Stat 3 — value",
       "type": "text",
-      "group": "Hero stats"
+      "group": "Hero stats",
+      "auto": true
     },
     {
       "key": "stat4_label",
