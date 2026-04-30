@@ -331,14 +331,14 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
   // Map: Nordic data centre sites
-  const sites = [
+  const sites = /*cms:sites_full*/[
     { name: 'Glomfjord',     country: 'Norway',  status: 'live', lat: 66.8167, lng: 13.9667,  power: 'Hydro',         target: '50 MW+',  desc: 'Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus.' },
     { name: 'Bakki',         country: 'Iceland', status: 'live', lat: 66.0500, lng: -17.3500, power: 'Geothermal',    target: '200 MW',  desc: 'Geothermal baseload, 50 MW initial 2027, scaling to 200 MW.' },
     { name: 'Varkaus',       country: 'Finland', status: 'live', lat: 62.3167, lng: 27.8833,  power: 'Mixed renewable', target: '50 MW+', desc: 'Industrial-ready Finnish site with strong municipal backing.' },
     { name: 'Project Aurora',   country: 'Sweden',  status: 'tbd',  lat: 63.0000, lng: 16.0000,  power: 'Hydro / wind',  target: '100 MW+', desc: 'Strategic Swedish site. Details to be announced.' },
     { name: 'Project Fjord II', country: 'Norway',  status: 'tbd',  lat: 67.2000, lng: 14.5000,  power: 'Hydro',         target: '500 MW+', desc: 'Second Norwegian campus, flagship-scale capacity.' },
     { name: 'Project Boreal',   country: 'Finland', status: 'tbd',  lat: 65.5000, lng: 27.0000,  power: 'Mixed renewable', target: '100 MW+', desc: 'Northern Finland industrial corridor.' },
-  ];
+  ]/*/cms:sites_full*/;
 
   const map = L.map('dc-map', {
     center: [65.0, 17.0], zoom: 4, zoomControl: true,

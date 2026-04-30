@@ -1,10 +1,58 @@
 {
   "sites": [
-    { "id": "glomfjord", "name": "Glomfjord", "country": "Norway", "status": "live", "lat": 66.8167, "lng": 13.9667, "published": true },
-    { "id": "bakki", "name": "Bakki", "country": "Iceland", "status": "live", "lat": 66.05, "lng": -17.35, "published": true },
-    { "id": "varkaus", "name": "Varkaus", "country": "Finland", "status": "live", "lat": 62.3167, "lng": 27.8833, "published": true },
-    { "id": "aurora", "name": "Project Aurora", "country": "Sweden", "status": "tbd", "lat": 63.0, "lng": 16.0, "published": true },
-    { "id": "fjord-ii", "name": "Project Fjord II", "country": "Norway", "status": "tbd", "lat": 67.2, "lng": 14.5, "published": true },
-    { "id": "boreal", "name": "Project Boreal", "country": "Finland", "status": "tbd", "lat": 65.5, "lng": 27.0, "published": true }
+    {
+      "id": "glomfjord", "name": "Glomfjord", "country": "Norway", "status": "live",
+      "lat": 66.8167, "lng": 13.9667,
+      "power": "Hydro", "initial_mw": "12.5 MW", "target_mw": "50 MW+",
+      "image": "glomfjord.webp",
+      "desc_en": "Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus.",
+      "desc_no": "Vannkraftrik kystlokasjon, 12,5 MW-moduler skalerer til 50 MW+ campus.",
+      "published": true
+    },
+    {
+      "id": "bakki", "name": "Bakki", "country": "Iceland", "status": "live",
+      "lat": 66.05, "lng": -17.35,
+      "power": "Geothermal", "initial_mw": "50 MW", "target_mw": "200 MW",
+      "image": "bakki.jpg",
+      "desc_en": "Geothermal baseload, 50 MW initial 2027, scaling to 200 MW.",
+      "desc_no": "Geotermisk grunnlast, 50 MW oppstart 2027, skalerer til 200 MW.",
+      "published": true
+    },
+    {
+      "id": "varkaus", "name": "Varkaus", "country": "Finland", "status": "live",
+      "lat": 62.3167, "lng": 27.8833,
+      "power": "Mixed renewable", "initial_mw": "", "target_mw": "50 MW+",
+      "image": "varkaus.jpg",
+      "desc_en": "Industrial-ready Finnish site with strong municipal backing.",
+      "desc_no": "Industriklar finsk lokasjon med sterk kommunal støtte.",
+      "published": true
+    },
+    {
+      "id": "aurora", "name": "Project Aurora", "country": "Sweden", "status": "tbd",
+      "lat": 63.0, "lng": 16.0,
+      "power": "Hydro / wind", "initial_mw": "", "target_mw": "100 MW+",
+      "image": "",
+      "desc_en": "Strategic Swedish site. Details to be announced.",
+      "desc_no": "Strategisk svensk lokasjon. Detaljer kommer.",
+      "published": true
+    },
+    {
+      "id": "fjord-ii", "name": "Project Fjord II", "country": "Norway", "status": "tbd",
+      "lat": 67.2, "lng": 14.5,
+      "power": "Hydro", "initial_mw": "", "target_mw": "500 MW+",
+      "image": "",
+      "desc_en": "Second Norwegian campus, flagship-scale capacity.",
+      "desc_no": "Andre norske campus, flaggskip-skala kapasitet.",
+      "published": true
+    },
+    {
+      "id": "boreal", "name": "Project Boreal", "country": "Finland", "status": "tbd",
+      "lat": 65.5, "lng": 27.0,
+      "power": "Mixed renewable", "initial_mw": "", "target_mw": "100 MW+",
+      "image": "",
+      "desc_en": "Northern Finland industrial corridor.",
+      "desc_no": "Industrikorridor i Nord-Finland.",
+      "published": true
+    }
   ]
 }

@@ -22,21 +22,26 @@
     <h1>Sites</h1>
     <span class="meta" id="dirty-meta">No unsaved changes</span>
   </div>
-  <p class="lede">Pipeline sites shown on the homepage map. Status <code>live</code> = active site, <code>tbd</code> = disclosed in development.</p>
+  <p class="lede">Pipeline sites shown on the homepage map and on <code>/datacenters/</code>. Status <code>live</code> = active, <code>tbd</code> = disclosed in development.</p>
 
   <div class="section-head">
     <h2>All sites</h2>
     <button class="btn add" id="btn-add">+ Add site</button>
   </div>
-  <div class="table-wrap">
-    <table class="cms">
+  <div class="table-wrap" style="overflow-x:auto">
+    <table class="cms" style="min-width:1200px">
       <thead>
         <tr>
           <th>Name</th>
           <th>Country</th>
           <th>Status</th>
-          <th>Latitude</th>
-          <th>Longitude</th>
+          <th>Power</th>
+          <th>Initial MW</th>
+          <th>Target MW</th>
+          <th>Lat</th>
+          <th>Lng</th>
+          <th>Image</th>
+          <th>Description</th>
           <th class="col-pub">Live</th>
           <th class="col-actions"></th>
         </tr>
@@ -54,6 +59,8 @@
   <button class="btn accent" id="btn-publish">Publish &rarr;</button>
 </div>
 
+<div id="modal-root"></div>
+
 <script>
 (async function() {
   const $ = (id) => document.getElementById(id);
@@ -61,25 +68,35 @@
   const setDirty = (v) => { dirty = v; $('dirty-meta').textContent = v ? 'Unsaved changes' : 'No unsaved changes'; };
   const setStatus = (m, k) => { const e = $('status'); e.textContent = m || ''; e.className = 'status-msg' + (k ? ' ' + k : ''); };
   const escAttr = (s) => (s == null ? '' : String(s)).replace(/"/g, '&quot;');
+  const escText = (s) => (s == null ? '' : String(s)).replace(/</g, '&lt;');
+  const preview = (s) => (s || '').slice(0, 50) + ((s || '').length > 50 ? '…' : '');
 
   function row(s, idx) {
     const tr = document.createElement('tr');
     tr.dataset.idx = idx;
     tr.innerHTML = `
-      <td><input type="text" data-field="name" value="${escAttr(s.name)}" /></td>
-      <td><input type="text" data-field="country" value="${escAttr(s.country)}" /></td>
+      <td><input type="text" data-field="name" value="${escAttr(s.name)}" style="width:140px" /></td>
+      <td><input type="text" data-field="country" value="${escAttr(s.country)}" style="width:90px" /></td>
       <td>
         <select data-field="status">
           <option value="live"${s.status==='live'?' selected':''}>live</option>
           <option value="tbd"${s.status==='tbd'?' selected':''}>tbd</option>
         </select>
       </td>
-      <td><input type="number" step="0.0001" data-field="lat" value="${escAttr(s.lat)}" style="width:120px" /></td>
-      <td><input type="number" step="0.0001" data-field="lng" value="${escAttr(s.lng)}" style="width:120px" /></td>
+      <td><input type="text" data-field="power" value="${escAttr(s.power)}" placeholder="Hydro / Geothermal / …" style="width:130px" /></td>
+      <td><input type="text" data-field="initial_mw" value="${escAttr(s.initial_mw)}" placeholder="50 MW" style="width:90px" /></td>
+      <td><input type="text" data-field="target_mw" value="${escAttr(s.target_mw)}" placeholder="200 MW" style="width:90px" /></td>
+      <td><input type="number" step="0.0001" data-field="lat" value="${escAttr(s.lat)}" style="width:90px" /></td>
+      <td><input type="number" step="0.0001" data-field="lng" value="${escAttr(s.lng)}" style="width:90px" /></td>
+      <td><input type="text" data-field="image" value="${escAttr(s.image)}" placeholder="filename.jpg" style="width:120px" /></td>
+      <td>
+        <p class="bio-cell" style="margin:0 0 6px">${escText(preview(s.desc_en))}</p>
+        <button class="btn linkish" data-action="edit-desc">Edit EN/NO</button>
+      </td>
       <td class="col-pub"><label class="toggle"><input type="checkbox" data-field="published" ${s.published ? 'checked' : ''}/><span class="slider"></span></label></td>
       <td class="col-actions">
-        <button class="btn icon" data-action="up" title="Move up">▲</button>
-        <button class="btn icon" data-action="down" title="Move down">▼</button>
+        <button class="btn icon" data-action="up">▲</button>
+        <button class="btn icon" data-action="down">▼</button>
         <button class="btn danger" data-action="delete">Delete</button>
       </td>
     `;
@@ -106,10 +123,52 @@
       arr.push({
         id: original.id || (get('name') || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
         name: get('name'), country: get('country'), status: get('status'),
-        lat: get('lat'), lng: get('lng'), published: get('published'),
+        power: get('power'), initial_mw: get('initial_mw'), target_mw: get('target_mw'),
+        lat: get('lat'), lng: get('lng'),
+        image: get('image'),
+        desc_en: original.desc_en || '', desc_no: original.desc_no || '',
+        published: get('published'),
       });
     });
     data.sites = arr;
+  }
+
+  function openDescModal(idx) {
+    readBack();
+    const s = data.sites[idx];
+    const root = $('modal-root');
+    root.innerHTML = `
+      <div class="modal-overlay" data-modal-overlay>
+        <div class="modal">
+          <div class="modal-head">
+            <h2>Description &mdash; ${escText(s.name || 'Untitled')}</h2>
+            <button class="close" data-modal-close>×</button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <label>Description (EN)</label>
+              <textarea id="d-en">${escText(s.desc_en)}</textarea>
+            </div>
+            <div>
+              <label>Description (NO)</label>
+              <textarea id="d-no">${escText(s.desc_no)}</textarea>
+            </div>
+          </div>
+          <div class="modal-foot">
+            <button class="btn" data-modal-close>Cancel</button>
+            <button class="btn primary" id="d-apply">Apply</button>
+          </div>
+        </div>
+      </div>
+    `;
+    const close = () => { root.innerHTML = ''; };
+    root.querySelector('[data-modal-overlay]').addEventListener('click', (e) => { if (e.target === e.currentTarget) close(); });
+    root.querySelectorAll('[data-modal-close]').forEach(b => b.addEventListener('click', close));
+    document.getElementById('d-apply').addEventListener('click', () => {
+      data.sites[idx].desc_en = document.getElementById('d-en').value;
+      data.sites[idx].desc_no = document.getElementById('d-no').value;
+      setDirty(true); render(); close();
+    });
   }
 
   async function load() {
@@ -127,7 +186,7 @@
     setDirty(false); setStatus('Draft saved', 'ok'); return true;
   }
   async function publish() {
-    if (!confirm('Publish sites? Regenerates the home map array.')) return;
+    if (!confirm('Publish sites? Regenerates home + datacenters maps.')) return;
     if (!(await save())) return;
     setStatus('Publishing…');
     const r = await fetch('/api/publish/sites', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({}) });
@@ -149,11 +208,13 @@
       readBack();
       const [m] = data.sites.splice(idx, 1);
       data.sites.splice(newIdx, 0, m); render(); setDirty(true);
+    } else if (t.matches('[data-action="edit-desc"]')) {
+      openDescModal(parseInt(tr.dataset.idx, 10));
     }
   });
   $('btn-add').addEventListener('click', () => {
     readBack();
-    data.sites.push({ id: '', name: 'New site', country: 'Norway', status: 'tbd', lat: 65, lng: 14, published: false });
+    data.sites.push({ id: '', name: 'New site', country: 'Norway', status: 'tbd', power: '', initial_mw: '', target_mw: '', lat: 65, lng: 14, image: '', desc_en: '', desc_no: '', published: false });
     render(); setDirty(true);
   });
   $('btn-save').addEventListener('click', save);
