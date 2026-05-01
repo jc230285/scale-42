@@ -12,8 +12,9 @@ const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/"${active==='home'?' class="active"':''}>Home</a>
-      <a href="/capabilities/"${active==='capabilities'?' class="active"':''}>Capabilities</a>
+      <a href="/capabilities/"${active==='capabilities'?' class="active"':''}>Solutions</a>
       <a href="/datacenters/"${active==='datacenters'?' class="active"':''}>Data centres</a>
+      <a href="/sustainability/"${active==='sustainability'?' class="active"':''}>Sustainability</a>
       <a href="/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/news/"${active==='news'?' class="active"':''}>News</a>
       <a href="/#contact" class="btn btn-sm">Contact</a>
@@ -27,8 +28,9 @@ const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img 
     <button class="nav-toggle" aria-label="Meny" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/no/"${active==='home'?' class="active"':''}>Hjem</a>
-      <a href="/no/capabilities/"${active==='capabilities'?' class="active"':''}>Kapabiliteter</a>
+      <a href="/no/capabilities/"${active==='capabilities'?' class="active"':''}>Løsninger</a>
       <a href="/no/datacenters/"${active==='datacenters'?' class="active"':''}>Datasentre</a>
+      <a href="/no/sustainability/"${active==='sustainability'?' class="active"':''}>Bærekraft</a>
       <a href="/no/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/no/news/"${active==='news'?' class="active"':''}>Nyheter</a>
       <a href="/no/#contact" class="btn btn-sm">Kontakt</a>
@@ -43,6 +45,7 @@ const PAGES = [
   { file: 'index.html', lang: 'en', active: 'home', noPath: '/no/' },
   { file: 'capabilities/index.html', lang: 'en', active: 'capabilities', noPath: '/no/capabilities/' },
   { file: 'datacenters/index.html', lang: 'en', active: 'datacenters', noPath: '/no/datacenters/' },
+  { file: 'sustainability/index.html', lang: 'en', active: 'sustainability', noPath: '/no/sustainability/' },
   { file: 'team/index.html', lang: 'en', active: 'team', noPath: '/no/team/' },
   { file: 'news/index.html', lang: 'en', active: 'news', noPath: '/no/news/' },
   { file: 'careers/index.html', lang: 'en', active: null, noPath: '/no/careers/' },
@@ -53,6 +56,7 @@ const PAGES = [
   { file: 'no/index.html', lang: 'no', active: 'home', enPath: '/' },
   { file: 'no/capabilities/index.html', lang: 'no', active: 'capabilities', enPath: '/capabilities/' },
   { file: 'no/datacenters/index.html', lang: 'no', active: 'datacenters', enPath: '/datacenters/' },
+  { file: 'no/sustainability/index.html', lang: 'no', active: 'sustainability', enPath: '/sustainability/' },
   { file: 'no/team/index.html', lang: 'no', active: 'team', enPath: '/team/' },
   { file: 'no/news/index.html', lang: 'no', active: 'news', enPath: '/news/' },
   { file: 'no/careers/index.html', lang: 'no', active: null, enPath: '/careers/' },

@@ -12,7 +12,7 @@ const FOOTER_EN = `<div class="footer-grid">
       </div>
       <div class="footer-col">
         <h5>Platform</h5>
-        <a href="/capabilities/">Capabilities</a>
+        <a href="/capabilities/">Solutions</a>
         <a href="/datacenters/">Data centres</a>
         <a href="/sustainability/">Sustainability</a>
       </div>
@@ -44,7 +44,7 @@ const FOOTER_NO = `<div class="footer-grid">
       </div>
       <div class="footer-col">
         <h5>Plattform</h5>
-        <a href="/no/capabilities/">Kapabiliteter</a>
+        <a href="/no/capabilities/">Løsninger</a>
         <a href="/no/datacenters/">Datasentre</a>
         <a href="/no/sustainability/">Bærekraft</a>
       </div>

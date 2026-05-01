@@ -531,19 +531,10 @@ img { max-width: 100%; display: block; }
 .nav .lang-toggle a:not(.active):hover { color: #fff; background: rgba(255,255,255,0.05); }
 
 /* Hero mosaic — deck-cover style */
-.hero-mosaic { position: relative; overflow: hidden; }
-.hero-mosaic .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(28,46,63,0.78) 0%, rgba(28,46,63,0.35) 24%, rgba(28,46,63,0.05) 100%); z-index: 1; pointer-events: none; }
-.hero-mosaic-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
-.hero-mosaic-overlay .m-band { position: absolute; top: 0; bottom: 0; }
-.hero-mosaic-overlay .m-band-1 { left: 0; width: 24%; background: #1c2e3f; }
-.hero-mosaic-overlay .m-band-2 { left: 24%; width: 26%; background: rgba(47,102,117,0.55); mix-blend-mode: multiply; }
-.hero-mosaic-overlay .m-band-3 { left: 50%; width: 25%; background: rgba(232,184,122,0.55); mix-blend-mode: multiply; }
-.hero-mosaic-overlay .m-band-4 { left: 75%; width: 25%; background: rgba(196,212,211,0.35); mix-blend-mode: screen; }
-.hero-mosaic-overlay .m-tri { position: absolute; top: 0; bottom: 0; }
-.hero-mosaic-overlay .m-tri-1 { left: 24%; width: 26%; background: rgba(47,102,117,0.85); clip-path: polygon(0 100%, 0 0, 100% 100%); }
-.hero-mosaic-overlay .m-tri-2 { left: 50%; width: 25%; background: rgba(232,184,122,0.85); clip-path: polygon(0 100%, 100% 0, 100% 100%); }
-.hero-mosaic-overlay .m-tri-3 { left: 75%; width: 25%; background: rgba(28,46,63,0.55); clip-path: polygon(0 0, 100% 0, 0 100%); }
-.hero-wordmark { position: absolute; left: 0; bottom: 28px; padding: 0 24px; font-family: var(--font-display); font-size: clamp(80px, 14vw, 220px); font-weight: 700; line-height: 0.9; color: rgba(255,255,255,0.07); letter-spacing: -0.04em; z-index: 1; pointer-events: none; user-select: none; }
+.hero-mosaic { position: relative; overflow: hidden; background: #1c2e3f; }
+.hero-mosaic .hero-bg picture, .hero-mosaic .hero-bg picture img { opacity: 0.32; mix-blend-mode: luminosity; }
+.hero-mosaic .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(28,46,63,0.92) 0%, rgba(28,46,63,0.55) 35%, rgba(28,46,63,0.15) 100%); z-index: 1; pointer-events: none; }
+.hero-mosaic-svg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; z-index: 2; pointer-events: none; mix-blend-mode: normal; opacity: 0.95; }
 .hero-mosaic .hero-inner { position: relative; z-index: 3; }
 .hero-mosaic h1, .hero-mosaic .lede, .hero-mosaic .eyebrow { color: #fff; }
 .hero-mosaic .lede { color: rgba(255,255,255,0.86); }
@@ -551,11 +542,5 @@ img { max-width: 100%; display: block; }
 .hero-mosaic .hero-stats dt { color: rgba(255,255,255,0.7); }
 .hero-mosaic .hero-stats dd { color: #fff; }
 @media (max-width: 800px) {
-  .hero-mosaic-overlay .m-band-1 { width: 36%; }
-  .hero-mosaic-overlay .m-band-2 { left: 36%; width: 22%; }
-  .hero-mosaic-overlay .m-band-3 { left: 58%; width: 22%; }
-  .hero-mosaic-overlay .m-band-4 { left: 80%; width: 20%; }
-  .hero-mosaic-overlay .m-tri-1 { left: 36%; width: 22%; }
-  .hero-mosaic-overlay .m-tri-2 { left: 58%; width: 22%; }
-  .hero-mosaic-overlay .m-tri-3 { left: 80%; width: 20%; }
+  .hero-mosaic-svg { object-position: bottom right; opacity: 0.55; }
 }
