@@ -155,9 +155,19 @@ function buildSiteDetailPage(s, schema, lang) {
 
   const groupSections = groupOrder.filter(g => byGroup[g] && byGroup[g].length).map(g => {
     const groupMeta = schema.groups.find(x => x.key === g);
-    const rows = byGroup[g].map(f => {
-      return `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`;
-    }).join('');
+    const fields = byGroup[g];
+    let rows = '';
+    if (g === 'location' && fields.some(f => f.key === 'lat') && fields.some(f => f.key === 'lng')) {
+      const lat = s.lat, lng = s.lng;
+      const coordCell = (lat !== undefined && lat !== null && lat !== '' && lng !== undefined && lng !== null && lng !== '')
+        ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lat + ',' + lng)}" target="_blank" rel="noopener">${escHtml(lat)}, ${escHtml(lng)} ↗</a>`
+        : '<span class="empty">—</span>';
+      rows += `<div class="kv"><dt>${isNo ? 'Koordinater' : 'Coordinates'}</dt><dd>${coordCell}</dd></div>`;
+      rows += fields.filter(f => f.key !== 'lat' && f.key !== 'lng').map(f =>
+        `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`).join('');
+    } else {
+      rows = fields.map(f => `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`).join('');
+    }
     return `<section class="kv-section"><h2>${escHtml(groupMeta.label)}</h2><dl class="kv-grid">${rows}</dl></section>`;
   }).join('\n');
 
