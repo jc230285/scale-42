@@ -89,19 +89,26 @@ document.getElementById('copy-text').addEventListener('click', async () => { awa
 }
 
 function indexPage(people) {
-  const cards = people.map(p => {
-    const slug = slugFor(p);
-    const photo = p.photo
-      ? `<img src="/${escAttr(p.photo)}" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />`
-      : '<div style="width:48px;height:48px;border-radius:50%;background:#eef0f2;flex:0 0 auto;"></div>';
-    return `    <a href="${escAttr(slug)}/" class="row">
-      ${photo}
-      <div class="info">
-        <div class="name">${escAttr(p.name)}</div>
-        <div class="meta">${escAttr(p.role_en || '')}${p.email ? ' · ' + escAttr(p.email) : ''}</div>
-      </div>
-      <span class="arrow">→</span>
-    </a>`;
+  const { buildSignatureHtml } = require('../signature');
+  const cards = people.map((p, i) => {
+    const html = buildSignatureHtml(p);
+    const text = [p.name, p.role_en ? `${p.role_en} · Scale42` : 'Scale42', '', p.phone, p.email, 'https://www.scale-42.com', p.linkedin || ''].filter(Boolean).join('\n');
+    return `<section class="card" data-i="${i}">
+  <div class="head">
+    <div>
+      <div class="name">${escAttr(p.name)}</div>
+      <div class="meta">${escAttr(p.role_en || '')}${p.email ? ' · ' + escAttr(p.email) : ''}${p.phone ? ' · ' + escAttr(p.phone) : ''}</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview>${html}</div>
+  <script type="application/json" class="sig-data">${JSON.stringify({ html, text })}</script>
+</section>`;
   }).join('\n');
   return `<!doctype html>
 <html lang="en">
@@ -113,23 +120,54 @@ function indexPage(people) {
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 <style>
   body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #f8fafb; color: #1c2e3f; }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 56px 20px 80px; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 56px 20px 80px; }
   h1 { font-size: 24px; margin: 0 0 8px; letter-spacing: -0.01em; }
-  p.lede { color: #6b7780; font-size: 14.5px; line-height: 1.55; margin: 0 0 28px; }
-  .row { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #fff; border: 1px solid #e5e8eb; border-radius: 10px; margin-bottom: 8px; text-decoration: none; color: inherit; transition: 0.12s; }
-  .row:hover { border-color: #2f6675; transform: translateX(2px); }
-  .row .info { flex: 1; min-width: 0; }
-  .row .name { font-weight: 600; font-size: 14.5px; }
-  .row .meta { font-size: 12.5px; color: #6b7780; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .row .arrow { color: #2f6675; font-weight: 600; }
+  p.lede { color: #6b7780; font-size: 14.5px; line-height: 1.55; margin: 0 0 32px; }
+  .card { background: #fff; border: 1px solid #e5e8eb; border-radius: 12px; padding: 22px 26px; margin-bottom: 18px; }
+  .card .head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid #eef0f2; }
+  .card .name { font-weight: 600; font-size: 15.5px; }
+  .card .meta { font-size: 12.5px; color: #6b7780; margin-top: 2px; }
+  .card .actions { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .card button { background: #2f6675; color: #fff; border: 0; padding: 7px 13px; border-radius: 6px; font: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer; }
+  .card button.ghost { background: transparent; color: #2f6675; border: 1px solid #2f6675; }
+  .card button:hover { opacity: 0.9; }
+  .card .msg { font-size: 12px; color: #1f6132; font-weight: 600; margin-left: 6px; min-width: 0; }
+  .card .preview { background: #fafbfc; border: 1px solid #eef0f2; border-radius: 8px; padding: 18px 20px; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Email signatures</h1>
-  <p class="lede">Pick your name to get a copy-paste-ready signature for Gmail, Outlook, or any email client. Photos load from scale-42.com so they render in any client.</p>
+  <p class="lede">All staff signatures rendered below. Click <strong>Copy for email</strong> on yours and paste into Gmail, Outlook, or any email client. Photos load from scale-42.com so they render anywhere.</p>
 ${cards}
 </div>
+<script>
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('button[data-act]'); if (!btn) return;
+  const card = btn.closest('.card');
+  const data = JSON.parse(card.querySelector('.sig-data').textContent);
+  const msg = card.querySelector('[data-msg]');
+  const flash = (m) => { msg.textContent = m; setTimeout(() => msg.textContent = '', 1800); };
+  try {
+    if (btn.dataset.act === 'rich') {
+      await navigator.clipboard.write([new ClipboardItem({
+        'text/html': new Blob([data.html], { type: 'text/html' }),
+        'text/plain': new Blob([data.text], { type: 'text/plain' }),
+      })]);
+      flash('✓ Copied');
+    } else if (btn.dataset.act === 'html') {
+      await navigator.clipboard.writeText(data.html); flash('✓ HTML copied');
+    } else {
+      await navigator.clipboard.writeText(data.text); flash('✓ Text copied');
+    }
+  } catch {
+    const range = document.createRange(); range.selectNodeContents(card.querySelector('[data-preview]'));
+    const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand('copy'); sel.removeAllRanges();
+    flash('✓ Copied');
+  }
+});
+</script>
 </body>
 </html>
 `;
