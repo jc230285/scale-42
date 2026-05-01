@@ -295,7 +295,7 @@
       "power": "Geothermal / hydro",
       "initial_mw": "30 MW",
       "target_mw": "200 MW",
-      "image": "",
+      "image": "reykjavik.svg",
       "desc_en": "Greater Reykjavík capacity adjacent to existing fibre — low-latency to North America.",
       "desc_no": "Kapasitet i Stor-Reykjavík ved siden av eksisterende fiber — lav latency til Nord-Amerika.",
       "bid_status": "Lead",
@@ -389,7 +389,7 @@
       "power": "Wind",
       "initial_mw": "60 MW",
       "target_mw": "800 MW",
-      "image": "",
+      "image": "kristinestad.svg",
       "desc_en": "Coastal Finnish site at the wind-power heartland with deep grid capacity.",
       "desc_no": "Finsk kystlokasjon i vindkraftens kjerneområde med stor nettkapasitet.",
       "bid_status": "Project",
@@ -479,7 +479,7 @@
       "power": "Wind",
       "initial_mw": "50 MW",
       "target_mw": "800 MW",
-      "image": "",
+      "image": "nivala.svg",
       "desc_en": "North Ostrobothnia site with strong onshore wind and existing 110 kV connection.",
       "desc_no": "Lokasjon i Nord-Österbotten med sterk landvind og eksisterende 110 kV-tilknytning.",
       "bid_status": "Project",
@@ -570,7 +570,7 @@
       "power": "Hydro",
       "initial_mw": "50 MW",
       "target_mw": "400 MW",
-      "image": "",
+      "image": "jokkmokk.svg",
       "desc_en": "Lapland hydropower belt — co-located with Sweden's largest hydropower production region.",
       "desc_no": "Vannkraftbeltet i Lappland — samlokalisert med Sveriges største vannkraftregion.",
       "bid_status": "Lead *hot* (was Project, reclassified after discussion with Luke)",
@@ -663,7 +663,7 @@
       "power": "Wind / hydro",
       "initial_mw": "50 MW",
       "target_mw": "800 MW",
-      "image": "",
+      "image": "kronoby.svg",
       "desc_en": "Bilingual coastal Finnish site with wind and hydro complementary supply.",
       "desc_no": "Tospråklig finsk kystlokasjon med komplementær vind- og vannkraftforsyning.",
       "bid_status": "Lead",
@@ -827,7 +827,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "extra_data": ""
+      "extra_data": "",
+      "image": "torsboda.svg"
     },
     {
       "id": "liperi",
@@ -917,7 +918,8 @@
       "dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "image": "liperi.svg"
     },
     {
       "id": "kitee",
@@ -1007,7 +1009,8 @@
       "dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "image": "kitee.svg"
     },
     {
       "id": "sorfold",
@@ -1099,7 +1102,8 @@
       "dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "image": "sorfold.svg"
     },
     {
       "id": "alajarvi",
@@ -1189,7 +1193,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "extra_data": ""
+      "extra_data": "",
+      "image": "alajarvi.svg"
     },
     {
       "id": "robertsfors",
@@ -1279,7 +1284,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "extra_data": ""
+      "extra_data": "",
+      "image": "robertsfors.svg"
     },
     {
       "id": "nuuk",
@@ -1368,7 +1374,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "extra_data": ""
+      "extra_data": "",
+      "image": "nuuk.svg"
     },
     {
       "id": "tjeldbergodden",
@@ -1460,7 +1467,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "extra_data": ""
+      "extra_data": "",
+      "image": "tjeldbergodden.svg"
     },
     {
       "id": "honningsvag",
@@ -1550,7 +1558,8 @@
       "dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "image": "honningsvag.svg"
     },
     {
       "id": "kemi",
@@ -1641,7 +1650,8 @@
       "dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "image": "kemi.svg"
     },
     {
       "id": "mikkeli",
@@ -1731,7 +1741,8 @@
       "dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "image": "mikkeli.svg"
     },
     {
       "id": "boden",
@@ -1822,7 +1833,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "extra_data": ""
+      "extra_data": "",
+      "image": "boden.svg"
     },
     {
       "id": "hadsel",
@@ -1912,7 +1924,8 @@
       "key_risks_dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "image": "hadsel.svg"
     },
     {
       "id": "sortland",
@@ -2002,7 +2015,8 @@
       "key_risks_dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "image": "sortland.svg"
     },
     {
       "id": "salsbruket",
@@ -2092,7 +2106,8 @@
       "key_risks_dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "image": "salsbruket.svg"
     },
     {
       "id": "rovaniemi",
@@ -2182,7 +2197,8 @@
       "key_risks_dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "image": "rovaniemi.svg"
     },
     {
       "id": "varkaus",
@@ -2357,7 +2373,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "bo.svg"
     },
     {
       "id": "kontiolahti",
@@ -2444,7 +2461,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "kontiolahti.svg"
     },
     {
       "id": "keminmaa",
@@ -2531,7 +2549,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "keminmaa.svg"
     },
     {
       "id": "tornio",
@@ -2618,7 +2637,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "tornio.svg"
     },
     {
       "id": "oulu",
@@ -2705,7 +2725,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "oulu.svg"
     },
     {
       "id": "skelleftea",
@@ -2792,7 +2813,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "skelleftea.svg"
     },
     {
       "id": "utansjo",
@@ -2879,7 +2901,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "utansjo.svg"
     },
     {
       "id": "kalix",
@@ -2966,7 +2989,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "kalix.svg"
     },
     {
       "id": "reydarfjordur",
@@ -3053,7 +3077,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "reydarfjordur.svg"
     },
     {
       "id": "akureyri",
@@ -3140,7 +3165,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "akureyri.svg"
     },
     {
       "id": "valaiscanton",
@@ -3227,7 +3253,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "valaiscanton.svg"
     },
     {
       "id": "tbcnorthernengland",
@@ -3314,7 +3341,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "tbcnorthernengland.svg"
     },
     {
       "id": "icelandrunofriver",
@@ -3401,7 +3429,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "icelandrunofriver.svg"
     },
     {
       "id": "moiranamoindustrialpark",
@@ -3488,7 +3517,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "moiranamoindustrialpark.svg"
     },
     {
       "id": "andoya",
@@ -3575,7 +3605,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "andoya.svg"
     },
     {
       "id": "sognlustersognekraftsognutvikling",
@@ -3662,7 +3693,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "sognlustersognekraftsognutvikling.svg"
     },
     {
       "id": "ostersundspikboderna",
@@ -3749,7 +3781,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "ostersundspikboderna.svg"
     },
     {
       "id": "morsil",
@@ -3836,7 +3869,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "morsil.svg"
     },
     {
       "id": "milan",
@@ -3923,7 +3957,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "image": "milan.svg"
     }
   ]
 }
