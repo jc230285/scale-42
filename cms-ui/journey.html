@@ -155,8 +155,13 @@
           </div>
         </div>
         <div class="field-row" style="margin-top:10px;">
-          <label>Image URL (optional)</label>
-          <input type="text" data-k="image" value="${escAttr(n.image)}" placeholder="/assets/journey/2018-hydrokraft.jpg" />
+          <label>Image</label>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input type="text" data-k="image" value="${escAttr(n.image)}" placeholder="/assets/journey/..." style="flex:1;" />
+            <input type="file" accept="image/*" data-upload="${escAttr(n.id || '')}" style="display:none;" />
+            <button type="button" class="upload-btn" data-upload-for="${escAttr(n.id || '')}" style="background:transparent;border:1px solid var(--line);padding:6px 12px;font:inherit;font-size:12px;cursor:pointer;border-radius:6px;">Upload…</button>
+          </div>
+          ${n.image ? `<div style="margin-top:8px;"><img src="${escAttr(n.image)}" alt="" style="max-height:80px;border-radius:6px;border:1px solid var(--line);" /></div>` : ''}
         </div>
       `;
       c.appendChild(card);
@@ -188,6 +193,12 @@
   document.addEventListener('input', (e) => { if (e.target.matches('input, textarea')) setDirty(true); });
 
   $('nodes').addEventListener('click', (e) => {
+    const ub = e.target.closest('.upload-btn');
+    if (ub) {
+      const file = ub.parentElement.querySelector('input[type=file]');
+      file.click();
+      return;
+    }
     const btn = e.target.closest('button[data-act]');
     if (!btn) return;
     readBack();
@@ -203,6 +214,26 @@
     }
     render();
     setDirty(true);
+  });
+
+  $('nodes').addEventListener('change', async (e) => {
+    if (!e.target.matches('input[type=file][data-upload]')) return;
+    const f = e.target.files[0];
+    if (!f) return;
+    const card = e.target.closest('.node-card');
+    const urlInput = card.querySelector('input[data-k="image"]');
+    setStatus('Uploading ' + f.name + '…');
+    const reader = new FileReader();
+    reader.onload = async () => {
+      const base64 = String(reader.result).split(',')[1];
+      const r = await fetch('/api/upload', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ folder: 'journey', filename: f.name, base64 }) });
+      const body = await r.json().catch(() => ({}));
+      if (!r.ok) { setStatus('Upload failed: ' + (body.error || r.status), 'err'); return; }
+      urlInput.value = '/' + body.path;
+      setDirty(true);
+      setStatus('Uploaded — save to apply', 'ok');
+    };
+    reader.readAsDataURL(f);
   });
 
   $('btn-add').addEventListener('click', () => {
