@@ -88,6 +88,21 @@ app.use('/api', auth, attachUser, require('./routes/publish'));
 app.use('/api', auth, attachUser, require('./routes/audit'));
 app.use('/api', auth, attachUser, require('./routes/account'));
 
+// Block private directories from being served as static assets.
+// /content/ contains sites.json (with internal fields), cms-users.json (bcrypt hashes),
+// audit.jsonl, journey.json, etc. — none of these should be publicly fetchable.
+// /server/, /scripts/, /cms-ui/ are also private (cms-ui is mounted under /cms with auth above).
+const PRIVATE_PREFIXES = ['/content/', '/server/', '/scripts/', '/cms-ui/', '/.git/', '/.env'];
+app.use((req, res, next) => {
+  const p = req.path.toLowerCase();
+  for (const prefix of PRIVATE_PREFIXES) {
+    if (p === prefix.replace(/\/$/, '') || p.startsWith(prefix)) {
+      return res.status(404).send('Not found');
+    }
+  }
+  next();
+});
+
 app.use(express.static(ROOT, {
   extensions: ['html'],
   index: 'index.html',
