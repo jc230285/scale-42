@@ -8,109 +8,437 @@
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 <style>
   body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #f8fafb; color: #1c2e3f; }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 56px 20px 80px; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 56px 20px 80px; }
   h1 { font-size: 24px; margin: 0 0 8px; letter-spacing: -0.01em; }
-  p.lede { color: #6b7780; font-size: 14.5px; line-height: 1.55; margin: 0 0 28px; }
-  .row { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: #fff; border: 1px solid #e5e8eb; border-radius: 10px; margin-bottom: 8px; text-decoration: none; color: inherit; transition: 0.12s; }
-  .row:hover { border-color: #2f6675; transform: translateX(2px); }
-  .row .info { flex: 1; min-width: 0; }
-  .row .name { font-weight: 600; font-size: 14.5px; }
-  .row .meta { font-size: 12.5px; color: #6b7780; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .row .arrow { color: #2f6675; font-weight: 600; }
+  p.lede { color: #6b7780; font-size: 14.5px; line-height: 1.55; margin: 0 0 32px; }
+  .card { background: #fff; border: 1px solid #e5e8eb; border-radius: 12px; padding: 22px 26px; margin-bottom: 18px; }
+  .card .head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid #eef0f2; }
+  .card .name { font-weight: 600; font-size: 15.5px; }
+  .card .meta { font-size: 12.5px; color: #6b7780; margin-top: 2px; }
+  .card .actions { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .card button { background: #2f6675; color: #fff; border: 0; padding: 7px 13px; border-radius: 6px; font: inherit; font-size: 12.5px; font-weight: 500; cursor: pointer; }
+  .card button.ghost { background: transparent; color: #2f6675; border: 1px solid #2f6675; }
+  .card button:hover { opacity: 0.9; }
+  .card .msg { font-size: 12px; color: #1f6132; font-weight: 600; margin-left: 6px; min-width: 0; }
+  .card .preview { background: #fafbfc; border: 1px solid #eef0f2; border-radius: 8px; padding: 18px 20px; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Email signatures</h1>
-  <p class="lede">Pick your name to get a copy-paste-ready signature for Gmail, Outlook, or any email client. Photos load from scale-42.com so they render in any client.</p>
-    <a href="fostervoll/" class="row">
-      <img src="/assets/team/fostervoll.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">Bendik Fostervoll</div>
-        <div class="meta">CDO &amp; Founder · bendik@scale-42.com</div>
+  <p class="lede">All staff signatures rendered below. Click <strong>Copy for email</strong> on yours and paste into Gmail, Outlook, or any email client. Photos load from scale-42.com so they render anywhere.</p>
+<section class="card" data-i="0">
+  <div class="head">
+    <div>
+      <div class="name">Bendik Fostervoll</div>
+      <div class="meta">CDO &amp; Founder · bendik@scale-42.com · +47 456 06 071</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/fostervoll.jpg" alt="Bendik Fostervoll" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">Bendik Fostervoll</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">CDO &amp; Founder &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        <a href="tel:+4745606071" style="color:#1c2e3f;text-decoration:none;">+47 456 06 071</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span>
+        <a href="mailto:bendik@scale-42.com" style="color:#1c2e3f;text-decoration:none;">bendik@scale-42.com</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="collins/" class="row">
-      <img src="/assets/team/collins.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">James Collins</div>
-        <div class="meta">CTO &amp; Founder · james@scale-42.com</div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span><a href="https://www.linkedin.com/in/bendik-fostervoll-5482aba5/" style="color:#2f6675;text-decoration:none;font-weight:600;">LinkedIn</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="tasney/" class="row">
-      <img src="/assets/team/tasney.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">William Tasney</div>
-        <div class="meta">Founder · william@scale-42.com</div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/fostervoll.jpg\" alt=\"Bendik Fostervoll\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">Bendik Fostervoll</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">CDO &amp; Founder &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        <a href=\"tel:+4745606071\" style=\"color:#1c2e3f;text-decoration:none;\">+47 456 06 071</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span>\n        <a href=\"mailto:bendik@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">bendik@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span><a href=\"https://www.linkedin.com/in/bendik-fostervoll-5482aba5/\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">LinkedIn</a>\n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"Bendik Fostervoll\nCDO & Founder · Scale42\n+47 456 06 071\nbendik@scale-42.com\nhttps://www.scale-42.com\nhttps://www.linkedin.com/in/bendik-fostervoll-5482aba5/"}</script>
+</section>
+<section class="card" data-i="1">
+  <div class="head">
+    <div>
+      <div class="name">James Collins</div>
+      <div class="meta">CTO &amp; Founder · james@scale-42.com · +44 7717 810 941</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/collins.jpg" alt="James Collins" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">James Collins</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">CTO &amp; Founder &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        <a href="tel:+447717810941" style="color:#1c2e3f;text-decoration:none;">+44 7717 810 941</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span>
+        <a href="mailto:james@scale-42.com" style="color:#1c2e3f;text-decoration:none;">james@scale-42.com</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="stewart/" class="row">
-      <img src="/assets/team/stewart.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">Jamie Stewart</div>
-        <div class="meta">CEO · jamie@scale-42.com</div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span><a href="https://www.linkedin.com/in/james-collins-11b55079/" style="color:#2f6675;text-decoration:none;font-weight:600;">LinkedIn</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="beaton/" class="row">
-      <img src="/assets/team/beaton.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">Thomas Beaton</div>
-        <div class="meta">CIO · thomas@scale-42.com</div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/collins.jpg\" alt=\"James Collins\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">James Collins</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">CTO &amp; Founder &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        <a href=\"tel:+447717810941\" style=\"color:#1c2e3f;text-decoration:none;\">+44 7717 810 941</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span>\n        <a href=\"mailto:james@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">james@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span><a href=\"https://www.linkedin.com/in/james-collins-11b55079/\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">LinkedIn</a>\n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"James Collins\nCTO & Founder · Scale42\n+44 7717 810 941\njames@scale-42.com\nhttps://www.scale-42.com\nhttps://www.linkedin.com/in/james-collins-11b55079/"}</script>
+</section>
+<section class="card" data-i="2">
+  <div class="head">
+    <div>
+      <div class="name">William Tasney</div>
+      <div class="meta">Founder · william@scale-42.com · +44 7850 581354</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/tasney.jpg" alt="William Tasney" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">William Tasney</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">Founder &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        <a href="tel:+447850581354" style="color:#1c2e3f;text-decoration:none;">+44 7850 581354</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span>
+        <a href="mailto:william@scale-42.com" style="color:#1c2e3f;text-decoration:none;">william@scale-42.com</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="normann/" class="row">
-      <img src="/assets/team/normann.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">Roald Normann</div>
-        <div class="meta">Senior Project Manager · roald@scale-42.com</div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span><a href="https://www.linkedin.com/in/william-tasney-a9487a16a/" style="color:#2f6675;text-decoration:none;font-weight:600;">LinkedIn</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="gussias/" class="row">
-      <img src="/assets/team/gussias.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">Daniel Gussiås</div>
-        <div class="meta">Liaison Officer · daniel@scale-42.com</div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/tasney.jpg\" alt=\"William Tasney\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">William Tasney</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">Founder &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        <a href=\"tel:+447850581354\" style=\"color:#1c2e3f;text-decoration:none;\">+44 7850 581354</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span>\n        <a href=\"mailto:william@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">william@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span><a href=\"https://www.linkedin.com/in/william-tasney-a9487a16a/\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">LinkedIn</a>\n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"William Tasney\nFounder · Scale42\n+44 7850 581354\nwilliam@scale-42.com\nhttps://www.scale-42.com\nhttps://www.linkedin.com/in/william-tasney-a9487a16a/"}</script>
+</section>
+<section class="card" data-i="3">
+  <div class="head">
+    <div>
+      <div class="name">Jamie Stewart</div>
+      <div class="meta">CEO · jamie@scale-42.com · +44 7581 371395</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/stewart.jpg" alt="Jamie Stewart" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">Jamie Stewart</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">CEO &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        <a href="tel:+447581371395" style="color:#1c2e3f;text-decoration:none;">+44 7581 371395</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span>
+        <a href="mailto:jamie@scale-42.com" style="color:#1c2e3f;text-decoration:none;">jamie@scale-42.com</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="rahman/" class="row">
-      <img src="/assets/team/rahman.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">Zeehan Rahman</div>
-        <div class="meta">COO · zeehan@scale-42.com</div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span><a href="https://www.linkedin.com/in/jamie-stewart-s42/" style="color:#2f6675;text-decoration:none;font-weight:600;">LinkedIn</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="valero/" class="row">
-      <img src="/assets/team/valero.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">Ismael Valero</div>
-        <div class="meta">IT Director · ismael@scale-42.com</div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/stewart.jpg\" alt=\"Jamie Stewart\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">Jamie Stewart</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">CEO &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        <a href=\"tel:+447581371395\" style=\"color:#1c2e3f;text-decoration:none;\">+44 7581 371395</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span>\n        <a href=\"mailto:jamie@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">jamie@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span><a href=\"https://www.linkedin.com/in/jamie-stewart-s42/\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">LinkedIn</a>\n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"Jamie Stewart\nCEO · Scale42\n+44 7581 371395\njamie@scale-42.com\nhttps://www.scale-42.com\nhttps://www.linkedin.com/in/jamie-stewart-s42/"}</script>
+</section>
+<section class="card" data-i="4">
+  <div class="head">
+    <div>
+      <div class="name">Thomas Beaton</div>
+      <div class="meta">CIO · thomas@scale-42.com · +44 7837 727240</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/beaton.jpg" alt="Thomas Beaton" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">Thomas Beaton</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">CIO &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        <a href="tel:+447837727240" style="color:#1c2e3f;text-decoration:none;">+44 7837 727240</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span>
+        <a href="mailto:thomas@scale-42.com" style="color:#1c2e3f;text-decoration:none;">thomas@scale-42.com</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="murray/" class="row">
-      <img src="/assets/team/murray.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">Patrick Murray</div>
-        <div class="meta">CFO · patrick@scale-42.com</div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span><a href="https://www.linkedin.com/in/thomas-beaton-796881b7/" style="color:#2f6675;text-decoration:none;font-weight:600;">LinkedIn</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="williamson/" class="row">
-      <img src="/assets/team/williamson.jpg" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex:0 0 auto;" />
-      <div class="info">
-        <div class="name">Abbie Williamson</div>
-        <div class="meta">Executive Assistant · abbie@scale-42.com</div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/beaton.jpg\" alt=\"Thomas Beaton\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">Thomas Beaton</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">CIO &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        <a href=\"tel:+447837727240\" style=\"color:#1c2e3f;text-decoration:none;\">+44 7837 727240</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span>\n        <a href=\"mailto:thomas@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">thomas@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span><a href=\"https://www.linkedin.com/in/thomas-beaton-796881b7/\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">LinkedIn</a>\n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"Thomas Beaton\nCIO · Scale42\n+44 7837 727240\nthomas@scale-42.com\nhttps://www.scale-42.com\nhttps://www.linkedin.com/in/thomas-beaton-796881b7/"}</script>
+</section>
+<section class="card" data-i="5">
+  <div class="head">
+    <div>
+      <div class="name">Roald Normann</div>
+      <div class="meta">Senior Project Manager · roald@scale-42.com</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/normann.jpg" alt="Roald Normann" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">Roald Normann</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">Senior Project Manager &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        
+        
+        <a href="mailto:roald@scale-42.com" style="color:#1c2e3f;text-decoration:none;">roald@scale-42.com</a>
       </div>
-      <span class="arrow">→</span>
-    </a>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        
+      </div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/normann.jpg\" alt=\"Roald Normann\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">Roald Normann</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">Senior Project Manager &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        \n        \n        <a href=\"mailto:roald@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">roald@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        \n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"Roald Normann\nSenior Project Manager · Scale42\nroald@scale-42.com\nhttps://www.scale-42.com"}</script>
+</section>
+<section class="card" data-i="6">
+  <div class="head">
+    <div>
+      <div class="name">Daniel Gussiås</div>
+      <div class="meta">Liaison Officer · daniel@scale-42.com · +47 928 68 874</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/gussias.jpg" alt="Daniel Gussiås" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">Daniel Gussiås</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">Liaison Officer &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        <a href="tel:+4792868874" style="color:#1c2e3f;text-decoration:none;">+47 928 68 874</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span>
+        <a href="mailto:daniel@scale-42.com" style="color:#1c2e3f;text-decoration:none;">daniel@scale-42.com</a>
+      </div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span><a href="https://www.linkedin.com/in/daniel-gussi%C3%A5s-820652295/" style="color:#2f6675;text-decoration:none;font-weight:600;">LinkedIn</a>
+      </div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/gussias.jpg\" alt=\"Daniel Gussiås\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">Daniel Gussiås</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">Liaison Officer &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        <a href=\"tel:+4792868874\" style=\"color:#1c2e3f;text-decoration:none;\">+47 928 68 874</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span>\n        <a href=\"mailto:daniel@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">daniel@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span><a href=\"https://www.linkedin.com/in/daniel-gussi%C3%A5s-820652295/\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">LinkedIn</a>\n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"Daniel Gussiås\nLiaison Officer · Scale42\n+47 928 68 874\ndaniel@scale-42.com\nhttps://www.scale-42.com\nhttps://www.linkedin.com/in/daniel-gussi%C3%A5s-820652295/"}</script>
+</section>
+<section class="card" data-i="7">
+  <div class="head">
+    <div>
+      <div class="name">Zeehan Rahman</div>
+      <div class="meta">COO · zeehan@scale-42.com · +91 81309 20837</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/rahman.jpg" alt="Zeehan Rahman" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">Zeehan Rahman</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">COO &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        <a href="tel:+918130920837" style="color:#1c2e3f;text-decoration:none;">+91 81309 20837</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span>
+        <a href="mailto:zeehan@scale-42.com" style="color:#1c2e3f;text-decoration:none;">zeehan@scale-42.com</a>
+      </div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span><a href="https://www.linkedin.com/in/zeehan-rahman-22a291209/" style="color:#2f6675;text-decoration:none;font-weight:600;">LinkedIn</a>
+      </div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/rahman.jpg\" alt=\"Zeehan Rahman\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">Zeehan Rahman</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">COO &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        <a href=\"tel:+918130920837\" style=\"color:#1c2e3f;text-decoration:none;\">+91 81309 20837</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span>\n        <a href=\"mailto:zeehan@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">zeehan@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span><a href=\"https://www.linkedin.com/in/zeehan-rahman-22a291209/\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">LinkedIn</a>\n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"Zeehan Rahman\nCOO · Scale42\n+91 81309 20837\nzeehan@scale-42.com\nhttps://www.scale-42.com\nhttps://www.linkedin.com/in/zeehan-rahman-22a291209/"}</script>
+</section>
+<section class="card" data-i="8">
+  <div class="head">
+    <div>
+      <div class="name">Ismael Valero</div>
+      <div class="meta">IT Director · ismael@scale-42.com · +34 657 97 09 18</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/valero.jpg" alt="Ismael Valero" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">Ismael Valero</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">IT Director &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        <a href="tel:+34657970918" style="color:#1c2e3f;text-decoration:none;">+34 657 97 09 18</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span>
+        <a href="mailto:ismael@scale-42.com" style="color:#1c2e3f;text-decoration:none;">ismael@scale-42.com</a>
+      </div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span><a href="https://www.linkedin.com/in/ismael-valero-669b374/" style="color:#2f6675;text-decoration:none;font-weight:600;">LinkedIn</a>
+      </div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/valero.jpg\" alt=\"Ismael Valero\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">Ismael Valero</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">IT Director &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        <a href=\"tel:+34657970918\" style=\"color:#1c2e3f;text-decoration:none;\">+34 657 97 09 18</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span>\n        <a href=\"mailto:ismael@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">ismael@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span><a href=\"https://www.linkedin.com/in/ismael-valero-669b374/\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">LinkedIn</a>\n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"Ismael Valero\nIT Director · Scale42\n+34 657 97 09 18\nismael@scale-42.com\nhttps://www.scale-42.com\nhttps://www.linkedin.com/in/ismael-valero-669b374/"}</script>
+</section>
+<section class="card" data-i="9">
+  <div class="head">
+    <div>
+      <div class="name">Patrick Murray</div>
+      <div class="meta">CFO · patrick@scale-42.com</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/murray.jpg" alt="Patrick Murray" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">Patrick Murray</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">CFO &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        
+        
+        <a href="mailto:patrick@scale-42.com" style="color:#1c2e3f;text-decoration:none;">patrick@scale-42.com</a>
+      </div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span><a href="https://www.linkedin.com/in/patrick-murray-0895033/" style="color:#2f6675;text-decoration:none;font-weight:600;">LinkedIn</a>
+      </div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/murray.jpg\" alt=\"Patrick Murray\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">Patrick Murray</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">CFO &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        \n        \n        <a href=\"mailto:patrick@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">patrick@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span><a href=\"https://www.linkedin.com/in/patrick-murray-0895033/\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">LinkedIn</a>\n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"Patrick Murray\nCFO · Scale42\npatrick@scale-42.com\nhttps://www.scale-42.com\nhttps://www.linkedin.com/in/patrick-murray-0895033/"}</script>
+</section>
+<section class="card" data-i="10">
+  <div class="head">
+    <div>
+      <div class="name">Abbie Williamson</div>
+      <div class="meta">Executive Assistant · abbie@scale-42.com · +44 7590 911094</div>
+    </div>
+    <div class="actions">
+      <button data-act="rich">Copy for email</button>
+      <button class="ghost" data-act="html">HTML</button>
+      <button class="ghost" data-act="text">Plain text</button>
+      <span class="msg" data-msg></span>
+    </div>
+  </div>
+  <div class="preview" data-preview><table cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;">
+  <tr>
+    <td valign="top" style="padding:0 18px 0 0;"><img src="https://draft.scale-42.com/assets/team/williamson.jpg" alt="Abbie Williamson" width="84" height="84" style="display:block;border-radius:50%;border:0;object-fit:cover;" /></td>
+    <td valign="top" style="border-left:3px solid #2f6675;padding:2px 0 2px 16px;">
+      <div style="font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;">Abbie Williamson</div>
+      <div style="font-size:13px;color:#6b7780;margin-top:2px;">Executive Assistant &middot; Scale42</div>
+      <div style="margin-top:10px;font-size:12.5px;">
+        <a href="tel:+447590911094" style="color:#1c2e3f;text-decoration:none;">+44 7590 911094</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span>
+        <a href="mailto:abbie@scale-42.com" style="color:#1c2e3f;text-decoration:none;">abbie@scale-42.com</a>
+      </div>
+      <div style="margin-top:6px;font-size:12.5px;">
+        <a href="https://draft.scale-42.com" style="color:#2f6675;text-decoration:none;font-weight:600;">scale-42.com</a>
+        <span style="color:#6b7780;margin:0 6px;">&middot;</span><a href="https://www.linkedin.com/in/abbiewilliamson/" style="color:#2f6675;text-decoration:none;font-weight:600;">LinkedIn</a>
+      </div>
+      <div style="margin-top:12px;"><img src="https://draft.scale-42.com/assets/logo.png" alt="Scale42" width="96" style="display:block;border:0;" /></div>
+      <div style="margin-top:8px;font-size:11px;color:#6b7780;">Next-generation European digital infrastructure</div>
+    </td>
+  </tr>
+</table></div>
+  <script type="application/json" class="sig-data">{"html":"<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2e3f;font-size:13px;line-height:1.45;border-collapse:collapse;\">\n  <tr>\n    <td valign=\"top\" style=\"padding:0 18px 0 0;\"><img src=\"https://draft.scale-42.com/assets/team/williamson.jpg\" alt=\"Abbie Williamson\" width=\"84\" height=\"84\" style=\"display:block;border-radius:50%;border:0;object-fit:cover;\" /></td>\n    <td valign=\"top\" style=\"border-left:3px solid #2f6675;padding:2px 0 2px 16px;\">\n      <div style=\"font-size:16px;font-weight:600;color:#1c2e3f;letter-spacing:-0.01em;\">Abbie Williamson</div>\n      <div style=\"font-size:13px;color:#6b7780;margin-top:2px;\">Executive Assistant &middot; Scale42</div>\n      <div style=\"margin-top:10px;font-size:12.5px;\">\n        <a href=\"tel:+447590911094\" style=\"color:#1c2e3f;text-decoration:none;\">+44 7590 911094</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span>\n        <a href=\"mailto:abbie@scale-42.com\" style=\"color:#1c2e3f;text-decoration:none;\">abbie@scale-42.com</a>\n      </div>\n      <div style=\"margin-top:6px;font-size:12.5px;\">\n        <a href=\"https://draft.scale-42.com\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">scale-42.com</a>\n        <span style=\"color:#6b7780;margin:0 6px;\">&middot;</span><a href=\"https://www.linkedin.com/in/abbiewilliamson/\" style=\"color:#2f6675;text-decoration:none;font-weight:600;\">LinkedIn</a>\n      </div>\n      <div style=\"margin-top:12px;\"><img src=\"https://draft.scale-42.com/assets/logo.png\" alt=\"Scale42\" width=\"96\" style=\"display:block;border:0;\" /></div>\n      <div style=\"margin-top:8px;font-size:11px;color:#6b7780;\">Next-generation European digital infrastructure</div>\n    </td>\n  </tr>\n</table>","text":"Abbie Williamson\nExecutive Assistant · Scale42\n+44 7590 911094\nabbie@scale-42.com\nhttps://www.scale-42.com\nhttps://www.linkedin.com/in/abbiewilliamson/"}</script>
+</section>
 </div>
+<script>
+document.addEventListener('click', async (e) => {
+  const btn = e.target.closest('button[data-act]'); if (!btn) return;
+  const card = btn.closest('.card');
+  const data = JSON.parse(card.querySelector('.sig-data').textContent);
+  const msg = card.querySelector('[data-msg]');
+  const flash = (m) => { msg.textContent = m; setTimeout(() => msg.textContent = '', 1800); };
+  try {
+    if (btn.dataset.act === 'rich') {
+      await navigator.clipboard.write([new ClipboardItem({
+        'text/html': new Blob([data.html], { type: 'text/html' }),
+        'text/plain': new Blob([data.text], { type: 'text/plain' }),
+      })]);
+      flash('✓ Copied');
+    } else if (btn.dataset.act === 'html') {
+      await navigator.clipboard.writeText(data.html); flash('✓ HTML copied');
+    } else {
+      await navigator.clipboard.writeText(data.text); flash('✓ Text copied');
+    }
+  } catch {
+    const range = document.createRange(); range.selectNodeContents(card.querySelector('[data-preview]'));
+    const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand('copy'); sel.removeAllRanges();
+    flash('✓ Copied');
+  }
+});
+</script>
 </body>
 </html>
