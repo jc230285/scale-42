@@ -184,9 +184,15 @@ function buildSiteDetailPage(s, schema, lang) {
   <div class="container nav-inner">
     <a class="brand" href="${isNo ? '../../' : '../../'}"><img src="${isNo ? '../../../assets/logo.svg' : '../../assets/logo.svg'}" alt="Scale42" class="brand-logo" /></a>
     <nav class="nav-links">
-      <a href="${isNo ? '../../' : '../../'}">${isNo ? 'Hjem' : 'Home'}</a>
+      <a href="../../">${isNo ? 'Hjem' : 'Home'}</a>
+      <a href="../../capabilities/">${isNo ? 'Kapabiliteter' : 'Capabilities'}</a>
       <a href="${backLink}" class="active">${isNo ? 'Datasentre' : 'Data centres'}</a>
-      <a href="${isNo ? '../../news/' : '../../news/'}">${isNo ? 'Nyheter' : 'News'}</a>
+      <a href="../../news/">${isNo ? 'Nyheter' : 'News'}</a>
+      <a href="../../#contact" class="btn btn-sm">${isNo ? 'Kontakt' : 'Contact'}</a>
+      <div class="lang-toggle">
+        <a href="${isNo ? '../../../datacenters/' + s.slug + '/' : '.'}" data-lang="en"${isNo ? '' : ' class="active"'}>EN</a>
+        <a href="${isNo ? '.' : '../../no/datacenters/' + s.slug + '/'}" data-lang="no"${isNo ? ' class="active"' : ''}>NO</a>
+      </div>
     </nav>
   </div>
 </header>
@@ -217,7 +223,7 @@ function buildSiteDetailPage(s, schema, lang) {
 }
 
 function regenSiteDetailPages(sites, schema) {
-  for (const s of sites.filter(x => x.published)) {
+  for (const s of sites) {
     const slug = siteSlug(s);
     for (const lang of ['en', 'no']) {
       const dir = path.join(ROOT, lang === 'no' ? 'no/datacenters' : 'datacenters', slug);
