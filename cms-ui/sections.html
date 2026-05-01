@@ -16,6 +16,25 @@
   .field-langs textarea { min-height: 80px; }
   .field-langs input:focus, .field-langs textarea:focus { border-color: var(--teal); outline: none; box-shadow: 0 0 0 3px rgba(47,102,117,0.12); }
   @media (max-width: 720px) { .field-langs { grid-template-columns: 1fr; } }
+
+  /* Lang toggle */
+  .lang-tabs { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-left: 12px; }
+  .lang-tabs button { background: #fff; border: 0; padding: 6px 12px; font: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer; color: var(--ink-2); }
+  .lang-tabs button + button { border-left: 1px solid var(--line); }
+  .lang-tabs button.active { background: var(--teal); color: #fff; }
+
+  /* Hide inactive lang */
+  body.lang-en .field-lang-no, body.lang-no .field-lang-en { display: none; }
+  body.lang-en .field-langs, body.lang-no .field-langs { grid-template-columns: 1fr; }
+
+  /* Page section header */
+  .page-section { background: #f8fafb; border: 1px solid var(--line); border-radius: 12px; padding: 6px 18px 18px; margin-top: 28px; }
+  .page-section-head { display: flex; align-items: baseline; justify-content: space-between; padding: 12px 0 8px; border-bottom: 1px solid var(--line); margin-bottom: 16px; gap: 14px; flex-wrap: wrap; }
+  .page-section-head h2 { margin: 0; font-size: 18px; letter-spacing: -0.01em; }
+  .page-section-head .page-path { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--ink-2); margin-left: 8px; font-weight: normal; }
+  .page-section-head a.view-link { font-size: 12.5px; font-weight: 600; color: var(--teal); text-decoration: none; }
+  .page-section-head a.view-link:hover { text-decoration: underline; }
+  .group-heading { margin: 18px 0 8px; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -35,8 +54,13 @@
   <div class="editor-head">
     <h1>Sections</h1>
     <span class="meta" id="dirty-meta">No unsaved changes</span>
+    <span class="lang-tabs" role="tablist" aria-label="Language">
+      <button type="button" data-lang="both" class="active">Both</button>
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="no">NO</button>
+    </span>
   </div>
-  <p class="lede">Editable strings on the homepage. EN renders at <code>/</code>, NO at <code>/no/</code>.</p>
+  <p class="lede">Editable text grouped by the page it appears on. EN renders at <code>/&lt;page&gt;/</code>, NO at <code>/no/&lt;page&gt;/</code>.</p>
 
   <div class="sections-grid" id="grid"></div>
 </main>
@@ -61,42 +85,64 @@
   function render() {
     const grid = $('grid');
     grid.innerHTML = '';
-    const groups = {};
-    const order = [];
+    // Group: page → group → field[]
+    const pages = {};
+    const pageOrder = [];
     for (const f of data.fields) {
+      const p = f.page || '/';
+      if (!pages[p]) { pages[p] = { label: f.page_label || p, groups: {}, groupOrder: [] }; pageOrder.push(p); }
       const g = f.group || 'Other';
-      if (!groups[g]) { groups[g] = []; order.push(g); }
-      groups[g].push(f);
+      if (!pages[p].groups[g]) { pages[p].groups[g] = []; pages[p].groupOrder.push(g); }
+      pages[p].groups[g].push(f);
     }
-    for (const g of order) {
-      const heading = document.createElement('h2');
-      heading.style.cssText = 'margin:24px 0 6px;font-size:16px;letter-spacing:-0.01em;';
-      heading.textContent = g;
-      grid.appendChild(heading);
-      for (const f of groups[g]) {
-        const en = data.values.en[f.key] || '';
-        const no = data.values.no[f.key] || '';
-        const inputEn = f.type === 'textarea'
-          ? `<textarea data-key="${f.key}" data-lang="en">${escapeText(en)}</textarea>`
-          : `<input type="text" data-key="${f.key}" data-lang="en" value="${escapeAttr(en)}" />`;
-        const inputNo = f.type === 'textarea'
-          ? `<textarea data-key="${f.key}" data-lang="no">${escapeText(no)}</textarea>`
-          : `<input type="text" data-key="${f.key}" data-lang="no" value="${escapeAttr(no)}" />`;
-        const card = document.createElement('div');
-        card.className = 'field-card';
-        const badge = f.auto ? `<span style="background:#fef3e0;color:#a35c00;font-size:10.5px;padding:2px 8px;border-radius:999px;margin-left:8px;font-weight:600">auto from Sites</span>` : '';
-        card.innerHTML = `
-          <h3>${escapeText(f.label)}${badge}</h3>
-          <p class="key">cms:${f.key}</p>
-          <div class="field-langs">
-            <div><label>English</label>${inputEn}</div>
-            <div><label>Norwegian</label>${inputNo}</div>
-          </div>
-        `;
-        grid.appendChild(card);
+    for (const p of pageOrder) {
+      const pg = pages[p];
+      const section = document.createElement('section');
+      section.className = 'page-section';
+      const livePath = p === '*' ? null : p;
+      const viewLink = livePath ? `<a class="view-link" href="${livePath}" target="_blank">View live ↗</a>` : '';
+      section.innerHTML = `<header class="page-section-head"><h2>${escapeText(pg.label)} <span class="page-path">${escapeText(p)}</span></h2>${viewLink}</header>`;
+      for (const g of pg.groupOrder) {
+        const gh = document.createElement('div');
+        gh.className = 'group-heading';
+        gh.textContent = g;
+        section.appendChild(gh);
+        for (const f of pg.groups[g]) {
+          const en = data.values.en[f.key] || '';
+          const no = data.values.no[f.key] || '';
+          const inputEn = f.type === 'textarea'
+            ? `<textarea data-key="${f.key}" data-lang="en">${escapeText(en)}</textarea>`
+            : `<input type="text" data-key="${f.key}" data-lang="en" value="${escapeAttr(en)}" />`;
+          const inputNo = f.type === 'textarea'
+            ? `<textarea data-key="${f.key}" data-lang="no">${escapeText(no)}</textarea>`
+            : `<input type="text" data-key="${f.key}" data-lang="no" value="${escapeAttr(no)}" />`;
+          const card = document.createElement('div');
+          card.className = 'field-card';
+          const badge = f.auto ? `<span style="background:#fef3e0;color:#a35c00;font-size:10.5px;padding:2px 8px;border-radius:999px;margin-left:8px;font-weight:600">auto from Sites</span>` : '';
+          card.innerHTML = `
+            <h3>${escapeText(f.label)}${badge}</h3>
+            <p class="key">cms:${f.key}</p>
+            <div class="field-langs">
+              <div class="field-lang-en"><label>English</label>${inputEn}</div>
+              <div class="field-lang-no"><label>Norwegian</label>${inputNo}</div>
+            </div>
+          `;
+          section.appendChild(card);
+        }
       }
+      grid.appendChild(section);
     }
   }
+
+  function setLang(l) {
+    document.body.classList.remove('lang-en', 'lang-no');
+    if (l === 'en') document.body.classList.add('lang-en');
+    if (l === 'no') document.body.classList.add('lang-no');
+    document.querySelectorAll('.lang-tabs button').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+    try { localStorage.setItem('cms-sections-lang', l); } catch (_) {}
+  }
+  document.querySelectorAll('.lang-tabs button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  setLang(localStorage.getItem('cms-sections-lang') || 'both');
 
   function readBack() {
     document.querySelectorAll('[data-key]').forEach(el => {
