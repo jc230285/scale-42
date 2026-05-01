@@ -13,6 +13,7 @@ const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src
       <a href="/"${active==='home'?' class="active"':''}>Home</a>
       <a href="/capabilities/"${active==='capabilities'?' class="active"':''}>Capabilities</a>
       <a href="/datacenters/"${active==='datacenters'?' class="active"':''}>Data centres</a>
+      <a href="/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/news/"${active==='news'?' class="active"':''}>News</a>
       <a href="/#contact" class="btn btn-sm">Contact</a>
       <div class="lang-toggle">
@@ -26,6 +27,7 @@ const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img 
       <a href="/no/"${active==='home'?' class="active"':''}>Hjem</a>
       <a href="/no/capabilities/"${active==='capabilities'?' class="active"':''}>Kapabiliteter</a>
       <a href="/no/datacenters/"${active==='datacenters'?' class="active"':''}>Datasentre</a>
+      <a href="/no/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/no/news/"${active==='news'?' class="active"':''}>Nyheter</a>
       <a href="/no/#contact" class="btn btn-sm">Kontakt</a>
       <div class="lang-toggle">
@@ -39,6 +41,7 @@ const PAGES = [
   { file: 'index.html', lang: 'en', active: 'home', noPath: '/no/' },
   { file: 'capabilities/index.html', lang: 'en', active: 'capabilities', noPath: '/no/capabilities/' },
   { file: 'datacenters/index.html', lang: 'en', active: 'datacenters', noPath: '/no/datacenters/' },
+  { file: 'team/index.html', lang: 'en', active: 'team', noPath: '/no/team/' },
   { file: 'news/index.html', lang: 'en', active: 'news', noPath: '/no/news/' },
   { file: 'careers/index.html', lang: 'en', active: null, noPath: '/no/careers/' },
   { file: 'press/index.html', lang: 'en', active: null, noPath: '/no/press/' },
@@ -48,6 +51,7 @@ const PAGES = [
   { file: 'no/index.html', lang: 'no', active: 'home', enPath: '/' },
   { file: 'no/capabilities/index.html', lang: 'no', active: 'capabilities', enPath: '/capabilities/' },
   { file: 'no/datacenters/index.html', lang: 'no', active: 'datacenters', enPath: '/datacenters/' },
+  { file: 'no/team/index.html', lang: 'no', active: 'team', enPath: '/team/' },
   { file: 'no/news/index.html', lang: 'no', active: 'news', enPath: '/news/' },
   { file: 'no/careers/index.html', lang: 'no', active: null, enPath: '/careers/' },
   { file: 'no/press/index.html', lang: 'no', active: null, enPath: '/press/' },

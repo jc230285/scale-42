@@ -16,7 +16,8 @@ function memberHtml(p, lang) {
   const linkedin = p.linkedin
     ? `\n        <a href="${escapeHtml(p.linkedin)}" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>`
     : '';
-  const photoSrc = (lang === 'no' ? '../' : '') + escapeHtml(p.photo);
+  // Team pages live at /team/ and /no/team/, so photos are at ../assets/team/<photo>.
+  const photoSrc = '/' + escapeHtml(p.photo);
   return `      <div class="member">
         <div class="member-photo"><img src="${photoSrc}" alt="${escapeHtml(p.name)}" /></div>
         <h4>${escapeHtml(p.name)}</h4>
@@ -52,7 +53,8 @@ function run() {
   const team = data.people.filter(p => !p.is_founder);
 
   for (const lang of ['en', 'no']) {
-    const file = path.join(ROOT, lang === 'no' ? 'no/index.html' : 'index.html');
+    const file = path.join(ROOT, lang === 'no' ? 'no/team/index.html' : 'team/index.html');
+    if (!fs.existsSync(file)) { console.warn('team page missing:', file); continue; }
     let html = fs.readFileSync(file, 'utf-8');
     html = replaceBlock(html, 'team founders', blockHtml(founders, 'team founders', lang));
     html = replaceBlock(html, 'team', blockHtml(team, 'team', lang));
@@ -64,6 +66,6 @@ function run() {
   console.log('regen people: done');
 }
 
-module.exports = { run, files: ['content/people.json', 'index.html', 'no/index.html', 'signatures/index.html'] };
+module.exports = { run, files: ['content/people.json', 'team/index.html', 'no/team/index.html', 'signatures/index.html'] };
 
 if (require.main === module) run();
