@@ -13,7 +13,7 @@
       "body_no": "Proof of concept.",
       "badge_en": "",
       "badge_no": "",
-      "image": ""
+      "image": "/assets/journey/n2016.svg"
     },
     {
       "id": "n2017",
@@ -24,7 +24,7 @@
       "body_no": "Leier datasenterplass i Storbritannia.",
       "badge_en": "",
       "badge_no": "",
-      "image": ""
+      "image": "/assets/journey/n2017.svg"
     },
     {
       "id": "n2018",
@@ -35,7 +35,7 @@
       "body_no": "Første norske drift.",
       "badge_en": "2 MW",
       "badge_no": "2 MW",
-      "image": ""
+      "image": "/assets/journey/n2018.svg"
     },
     {
       "id": "n2019",
@@ -46,7 +46,7 @@
       "body_no": "Utviklet under leieavtale, eies i dag av Scale42.",
       "badge_en": "",
       "badge_no": "",
-      "image": ""
+      "image": "/assets/journey/n2019.svg"
     },
     {
       "id": "n2021",
@@ -57,7 +57,7 @@
       "body_no": "Utbygging fullført og operativ.",
       "badge_en": "30 MW",
       "badge_no": "30 MW",
-      "image": ""
+      "image": "/assets/journey/n2021.svg"
     },
     {
       "id": "n2022",
@@ -68,7 +68,7 @@
       "body_no": "32 mUSD exit, MOIC 16× på under 4 år og IRR på 166%. Omdøpt til NScale AS.",
       "badge_en": "",
       "badge_no": "",
-      "image": ""
+      "image": "/assets/journey/n2022.svg"
     },
     {
       "id": "n2023",
@@ -79,7 +79,7 @@
       "body_no": "Med eiendeler holdt utenfor Hydrokraft-salget; cap table ryddet.",
       "badge_en": "",
       "badge_no": "",
-      "image": ""
+      "image": "/assets/journey/n2023.svg"
     },
     {
       "id": "n2024",
@@ -90,7 +90,7 @@
       "body_no": "Planlegging, kraft og design på tvers av den nordiske pipelinen. GIGA-42 JV etablert med Global Interconnection Group.",
       "badge_en": "",
       "badge_no": "",
-      "image": ""
+      "image": "/assets/journey/n2024.svg"
     },
     {
       "id": "n2026",
@@ -101,7 +101,7 @@
       "body_no": "Pipeline på flere GW utviklet.",
       "badge_en": "Multi-GW",
       "badge_no": "Flere GW",
-      "image": ""
+      "image": "/assets/journey/n2026.svg"
     }
   ]
 }
