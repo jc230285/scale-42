@@ -189,9 +189,11 @@
     const status = site.status || 'tbd';
     const pillCls = site.published ? status : 'draft';
     const pillTxt = site.published ? status : 'draft';
-    const img = site.image
-      ? `<img src="/assets/sites/${escAttr(site.image)}" />`
-      : '+ image';
+    // Tolerate both bare filenames ("foo.jpg") and full paths ("assets/sites/foo.jpg" or "/assets/sites/foo.jpg")
+    const imgSrc = site.image
+      ? (/^\/?assets\//.test(site.image) ? '/' + site.image.replace(/^\/+/, '') : '/assets/sites/' + site.image)
+      : null;
+    const img = imgSrc ? `<img src="${escAttr(imgSrc)}" />` : '+ image';
     return `
       <div class="reorder">
         <button data-act="up" data-ridx="${idx}" title="Move left">◀</button>

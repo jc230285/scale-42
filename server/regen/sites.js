@@ -56,6 +56,14 @@ function siteSlug(s) {
   return (s.id || s.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')).replace(/^-+|-+$/g, '');
 }
 
+// Resolve a site.image (bare filename or full assets path) to a URL with the given prefix.
+function resolveImg(image, basePrefix) {
+  if (!image) return '';
+  // If user/CMS stored the full path (e.g. "assets/sites/foo.jpg"), use it absolute.
+  if (/^\/?assets\//i.test(image)) return '/' + String(image).replace(/^\/+/, '');
+  return basePrefix + image;
+}
+
 function cardHtml(sites, lang) {
   const labels = lang === 'no' ? STATUS_LABEL_NO : STATUS_LABEL_EN;
   const initialL = lang === 'no' ? 'Oppstart' : 'Initial';
@@ -68,7 +76,7 @@ function cardHtml(sites, lang) {
     const ckey = String(s.country || '').toLowerCase();
     const slug = siteSlug(s);
     const imgInner = s.image
-      ? `<img src="../assets/sites/${escHtml(s.image)}" alt="${escHtml(s.name)}" loading="lazy" />`
+      ? `<img src="${escHtml(resolveImg(s.image, '../assets/sites/'))}" alt="${escHtml(s.name)}" loading="lazy" />`
       : `<span class="image-placeholder">[ ${escHtml(s.name)} ]</span>`;
     const imgClass = s.image ? '' : (s.status === 'tbd' ? ' tbd' : '');
     const statusClass = s.status === 'tbd' ? 'tbd' : s.status === 'sold' ? 'sold' : 'live';
@@ -121,9 +129,7 @@ function buildSiteDetailPage(s, schema, lang) {
     Iceland: 'linear-gradient(135deg, #2c3a48 0%, #5a4030 60%, #c47a4a 100%)',
     Greenland: 'linear-gradient(135deg, #1c2e3f 0%, #4a7080 55%, #d4e4ea 100%)',
   };
-  const heroImgSrc = isNo
-    ? `../../../assets/sites/${escHtml(s.image)}`
-    : `../../assets/sites/${escHtml(s.image)}`;
+  const heroImgSrc = escHtml(resolveImg(s.image, isNo ? '../../../assets/sites/' : '../../assets/sites/'));
   const heroImg = s.image
     ? `<div class="hero-frame"><img src="${heroImgSrc}" alt="${escHtml(s.name)}" /></div>`
     : `<div class="hero-frame" style="background:${COUNTRY_GRAD[s.country] || COUNTRY_GRAD.Norway};display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-family:var(--font-display);font-size:48px;font-weight:600;letter-spacing:-0.02em;">${escHtml(s.country || '')}</div>`;
@@ -213,7 +219,7 @@ function buildSiteDetailPage(s, schema, lang) {
   url: `https://www.scale-42.com/${isNo ? 'no/' : ''}datacenters/${slug}/`,
   ...(s.lat && s.lng ? { geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng } } : {}),
   ...(s.country ? { address: { '@type': 'PostalAddress', addressCountry: s.country, ...(s.address ? { streetAddress: s.address } : {}) } } : {}),
-  ...(s.image ? { image: `https://www.scale-42.com/assets/sites/${s.image}` } : {}),
+  ...(s.image ? { image: `https://www.scale-42.com${resolveImg(s.image, '/assets/sites/')}` } : {}),
   containedInPlace: { '@type': 'Country', name: s.country || '' },
   provider: { '@type': 'Organization', name: 'Scale42', url: 'https://www.scale-42.com/' }
 })}</script>
