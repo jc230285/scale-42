@@ -57,22 +57,40 @@ window.openImagePicker = function ({ folder, current, onPick }) {
     manual.value = '';
   }
 
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(String(r.result).split(',')[1] || '');
+      r.onerror = () => reject(r.error || new Error('read failed'));
+      r.readAsDataURL(file);
+    });
+  }
+
   document.getElementById('up-apply').addEventListener('click', async () => {
+    const applyBtn = document.getElementById('up-apply');
     if (chosenFile) {
-      status.textContent = 'Uploading…';
-      const buf = await chosenFile.arrayBuffer();
-      const base64 = btoa(String.fromCharCode(...new Uint8Array(buf)));
-      const r = await fetch('/api/upload', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ folder, filename: chosenFile.name, base64 }),
-      });
-      const body = await r.json().catch(() => ({}));
-      if (!r.ok) { status.textContent = 'Upload failed: ' + (body.error || r.status); status.style.color = 'var(--danger)'; return; }
-      chosenPath = body.path;
-      status.textContent = body.committed ? 'Uploaded ✓' : (body.warning || 'Saved');
-      onPick(chosenPath);
-      close();
+      try {
+        status.style.color = 'var(--ink-2)';
+        status.textContent = 'Reading file…';
+        applyBtn.disabled = true;
+        const base64 = await fileToBase64(chosenFile);
+        status.textContent = `Uploading ${(base64.length * 3 / 4 / 1024).toFixed(0)} KB…`;
+        const r = await fetch('/api/upload', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ folder, filename: chosenFile.name, base64 }),
+        });
+        const body = await r.json().catch(() => ({}));
+        if (!r.ok) { status.textContent = 'Upload failed: ' + (body.error || r.status); status.style.color = 'var(--danger)'; applyBtn.disabled = false; return; }
+        chosenPath = body.path;
+        status.textContent = body.committed ? 'Uploaded ✓' : (body.warning || 'Saved');
+        onPick(chosenPath);
+        close();
+      } catch (err) {
+        status.textContent = 'Upload error: ' + (err.message || err);
+        status.style.color = 'var(--danger)';
+        applyBtn.disabled = false;
+      }
     } else if (manual.value && manual.value !== current) {
       onPick(manual.value);
       close();
