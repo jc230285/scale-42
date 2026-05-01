@@ -36,10 +36,10 @@ const FOOTER_EN = `<div class="footer-grid">
       <p class="footer-legal">Scale42 AS · Registered in Norway</p>
     </div>
     <div class="cookie-banner" id="cookie-banner" hidden>
-      <p>We use a single first-party cookie to remember this choice. No tracking, no ads. <a href="/privacy/">Privacy policy</a>.</p>
-      <button type="button" onclick="document.cookie='s42_cookie=ok;path=/;max-age=31536000;samesite=lax';this.closest('.cookie-banner').remove();">OK</button>
+      <p>This site uses no tracking or ad cookies — just a local preference for this notice. <a href="/privacy/">Privacy</a></p>
+      <button type="button" onclick="try{localStorage.setItem('s42_cookie_ok','1')}catch(e){}this.closest('.cookie-banner').remove();">OK</button>
     </div>
-    <script>(function(){if(!/(?:^|; )s42_cookie=/.test(document.cookie)){var b=document.getElementById('cookie-banner');if(b)b.hidden=false;}})();</script>`;
+    <script>(function(){try{if(localStorage.getItem('s42_cookie_ok'))return}catch(e){}var b=document.getElementById('cookie-banner');if(b)b.hidden=false;})();</script>`;
 
 const FOOTER_NO = `<div class="footer-grid">
       <div class="footer-col footer-brand">
@@ -73,10 +73,10 @@ const FOOTER_NO = `<div class="footer-grid">
       <p class="footer-legal">Scale42 AS · Registrert i Norge</p>
     </div>
     <div class="cookie-banner" id="cookie-banner" hidden>
-      <p>Vi bruker én førsteparts informasjonskapsel for å huske valget ditt. Ingen sporing, ingen annonser. <a href="/no/privacy/">Personvernerklæring</a>.</p>
-      <button type="button" onclick="document.cookie='s42_cookie=ok;path=/;max-age=31536000;samesite=lax';this.closest('.cookie-banner').remove();">OK</button>
+      <p>Ingen sporings- eller annonsekapsler — kun en lokal preferanse for denne meldingen. <a href="/no/privacy/">Personvern</a></p>
+      <button type="button" onclick="try{localStorage.setItem('s42_cookie_ok','1')}catch(e){}this.closest('.cookie-banner').remove();">OK</button>
     </div>
-    <script>(function(){if(!/(?:^|; )s42_cookie=/.test(document.cookie)){var b=document.getElementById('cookie-banner');if(b)b.hidden=false;}})();</script>`;
+    <script>(function(){try{if(localStorage.getItem('s42_cookie_ok'))return}catch(e){}var b=document.getElementById('cookie-banner');if(b)b.hidden=false;})();</script>`;
 
 function injectFooter(html, lang) {
   const block = lang === 'no' ? FOOTER_NO : FOOTER_EN;
