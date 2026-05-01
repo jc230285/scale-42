@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const { commitFiles } = require('../github');
+const { commitFiles, BRANCH, PUBLIC_BRANCH } = require('../github');
 
 const router = express.Router();
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -31,13 +31,23 @@ router.post('/upload', async (req, res) => {
     fs.mkdirSync(path.dirname(absPath), { recursive: true });
     fs.writeFileSync(absPath, buf);
 
+    // Commit asset to BOTH draft and master so the image exists on prod the moment
+    // sites.json/news/etc references it from a Publish.
+    let draftSha = null, publicSha = null, warning = null;
     try {
-      await commitFiles([relPath], `CMS upload: ${relPath}`);
+      draftSha = await commitFiles([relPath], `CMS upload: ${relPath}`, BRANCH);
     } catch (err) {
-      console.error('upload commit failed:', err.message);
-      return res.json({ ok: true, path: relPath, committed: false, warning: 'saved locally; not committed (GITHUB_TOKEN missing or push failed)' });
+      console.error('upload draft commit failed:', err.message);
+      warning = `draft commit failed: ${err.message}`;
     }
-    res.json({ ok: true, path: relPath, committed: true });
+    try {
+      publicSha = await commitFiles([relPath], `CMS upload: ${relPath}`, PUBLIC_BRANCH);
+    } catch (err) {
+      console.error('upload public commit failed:', err.message);
+      warning = (warning ? warning + '; ' : '') + `public commit failed: ${err.message}`;
+    }
+    const committed = !!(draftSha || publicSha);
+    res.json({ ok: true, path: relPath, committed, draftSha, publicSha, warning: committed ? null : (warning || 'saved locally only') });
   } catch (err) {
     console.error('upload error', err);
     res.status(500).json({ error: String(err.message || err) });

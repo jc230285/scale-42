@@ -82,7 +82,9 @@ window.openImagePicker = function ({ folder, current, onPick }) {
         });
         const body = await r.json().catch(() => ({}));
         if (!r.ok) { status.textContent = 'Upload failed: ' + (body.error || r.status); status.style.color = 'var(--danger)'; applyBtn.disabled = false; return; }
-        chosenPath = body.path;
+        // Stored value is just the filename — renderers prepend assets/<folder>/ themselves.
+        const prefix = `assets/${folder}/`;
+        chosenPath = body.path.startsWith(prefix) ? body.path.slice(prefix.length) : body.path;
         status.textContent = body.committed ? 'Uploaded ✓' : (body.warning || 'Saved');
         onPick(chosenPath);
         close();
