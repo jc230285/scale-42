@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Audit log &mdash; Scale42 CMS</title>
+<link rel="stylesheet" href="cms.css" />
+<style>
+  .audit-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .audit-table th, .audit-table td { padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: left; font-size: 13px; vertical-align: top; }
+  .audit-table th { background: #fafbfc; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-2); font-weight: 600; }
+  .audit-table tr:last-child td { border-bottom: none; }
+  .audit-section { display: inline-block; padding: 1px 8px; border-radius: 999px; background: #eef0f2; color: var(--ink); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+  .audit-action.publish { color: var(--ok); font-weight: 600; }
+  .audit-action.save { color: var(--ink-2); }
+  .audit-changes { font-size: 12px; color: var(--ink-2); white-space: pre-wrap; max-width: 540px; }
+  .filter-bar { display: flex; gap: 12px; margin-bottom: 14px; align-items: center; }
+  .filter-bar select { padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; font: inherit; font-size: 13px; }
+</style>
+</head>
+<body>
+<header class="cms-nav">
+  <a class="cms-brand" href="/cms/">Scale42 CMS</a>
+  <nav>
+    <a href="/cms/people.html">People</a>
+    <a href="/cms/sites.html">Sites</a>
+    <a href="/cms/news.html">News</a>
+    <a href="/cms/sections.html">Sections</a>
+    <a href="/cms/journey.html">Journey</a>
+    <a href="/cms/audit.html">Audit</a>
+    <a href="/signatures/" target="_blank">Signatures</a>
+    <a href="/cms/account.html">Account</a>
+    <a href="/" target="_blank">View site &rarr;</a>
+  </nav>
+</header>
+<main class="cms-main">
+  <div class="editor-head">
+    <h1>Audit log</h1>
+    <span class="meta" id="count"></span>
+  </div>
+  <p class="lede">Most recent CMS save and publish actions, newest first.</p>
+
+  <div class="filter-bar">
+    <label>Section
+      <select id="filter-section">
+        <option value="">All</option>
+        <option value="sites">Sites</option>
+        <option value="people">People</option>
+        <option value="news">News</option>
+        <option value="sections">Sections</option>
+        <option value="journey">Journey</option>
+      </select>
+    </label>
+    <label>Limit
+      <select id="filter-limit">
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="250">250</option>
+        <option value="500">500</option>
+      </select>
+    </label>
+    <button class="btn" id="btn-refresh">Refresh</button>
+  </div>
+
+  <div id="table-wrap"></div>
+</main>
+
+<script>
+(async function() {
+  const $ = (id) => document.getElementById(id);
+  const escText = (s) => (s == null ? '' : String(s)).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
+
+  function fmtTs(ts) {
+    if (!ts) return '';
+    const d = new Date(ts);
+    if (isNaN(d)) return ts;
+    return d.toLocaleString();
+  }
+
+  function renderChanges(c) {
+    if (!c) return '';
+    if (typeof c === 'string') return escText(c);
+    try {
+      if (Array.isArray(c)) return escText(c.map(x => typeof x === 'string' ? x : JSON.stringify(x)).join('\n'));
+      return escText(JSON.stringify(c, null, 2));
+    } catch { return ''; }
+  }
+
+  async function load() {
+    const section = $('filter-section').value;
+    const limit = $('filter-limit').value || 50;
+    const params = new URLSearchParams({ limit });
+    if (section) params.set('section', section);
+    const r = await fetch('/api/audit?' + params.toString());
+    if (!r.ok) { $('table-wrap').innerHTML = `<p style="color:var(--danger);">Load failed (${r.status}).</p>`; return; }
+    const body = await r.json();
+    const entries = body.entries || [];
+    $('count').textContent = `${entries.length} ${entries.length === 1 ? 'entry' : 'entries'}`;
+    if (!entries.length) { $('table-wrap').innerHTML = '<p style="color:var(--ink-2);">No entries.</p>'; return; }
+    const rows = entries.map(e => `
+      <tr>
+        <td style="white-space:nowrap;color:var(--ink-2);font-size:12px;">${escText(fmtTs(e.ts))}</td>
+        <td><span class="audit-section">${escText(e.section || '')}</span></td>
+        <td class="audit-action ${escText(e.action || 'save')}">${escText(e.action || 'save')}</td>
+        <td>${escText(e.user_name || e.user || '')}</td>
+        <td class="audit-changes">${renderChanges(e.changes)}</td>
+      </tr>
+    `).join('');
+    $('table-wrap').innerHTML = `
+      <table class="audit-table">
+        <thead><tr><th>When</th><th>Section</th><th>Action</th><th>User</th><th>Changes</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+  }
+
+  $('btn-refresh').addEventListener('click', load);
+  $('filter-section').addEventListener('change', load);
+  $('filter-limit').addEventListener('change', load);
+  load();
+})();
+</script>
+</body>
+</html>
