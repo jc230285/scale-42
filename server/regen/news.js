@@ -12,13 +12,15 @@ function featureHtml(p, lang, assetsPrefix) {
   const title = lang === 'no' ? p.title_no : p.title_en;
   const ex = lang === 'no' ? p.excerpt_no : p.excerpt_en;
   const readMore = lang === 'no' ? 'Les artikkelen' : 'Read the article';
+  const draftBadge = !p.published ? '<span style="background:#fef3e0;color:#a35c00;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-right:8px;">Draft</span>' : '';
   const meta = [t, d, p.read_time].filter(Boolean).join(' &middot; ');
-  return `    <article class="news-feature">
+  const articleStyle = !p.published ? ' style="opacity:0.9;border-left:3px solid #e8b87a;padding-left:14px;"' : '';
+  return `    <article class="news-feature"${articleStyle}>
       <a class="img" href="${esc(p.slug)}/" aria-label="${esc(title)}">
         <img src="${assetsPrefix}assets/news/${esc(p.image)}" alt="${esc(p.alt || title)}" />
       </a>
       <div>
-        <p class="meta">${meta}</p>
+        <p class="meta">${draftBadge}${meta}</p>
         <h2><a href="${esc(p.slug)}/">${esc(title)}</a></h2>
         <p>${esc(ex)}</p>
         <a class="read-more" href="${esc(p.slug)}/">${readMore} &rarr;</a>
@@ -32,10 +34,12 @@ function cardHtml(p, lang, assetsPrefix) {
   const title = lang === 'no' ? p.title_no : p.title_en;
   const ex = lang === 'no' ? p.excerpt_no : p.excerpt_en;
   const readMore = lang === 'no' ? 'Les' : 'Read';
-  return `      <a class="news-card" href="${esc(p.slug)}/">
+  const draftBadge = !p.published ? '<span style="background:#fef3e0;color:#a35c00;padding:1px 7px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-right:6px;">Draft</span>' : '';
+  const cardStyle = !p.published ? ' style="opacity:0.9;border-left:3px solid #e8b87a;"' : '';
+  return `      <a class="news-card" href="${esc(p.slug)}/"${cardStyle}>
         <div class="img"><img src="${assetsPrefix}assets/news/${esc(p.image)}" alt="${esc(p.alt || title)}" loading="lazy" /></div>
         <div class="body">
-          <p class="meta"><span>${esc(t)}</span><span class="dot">&bull;</span><span>${esc(d)}</span></p>
+          <p class="meta">${draftBadge}<span>${esc(t)}</span><span class="dot">&bull;</span><span>${esc(d)}</span></p>
           <h3>${esc(title)}</h3>
           <p>${esc(ex)}</p>
           <span class="read-more">${readMore} &rarr;</span>
@@ -44,8 +48,10 @@ function cardHtml(p, lang, assetsPrefix) {
 }
 
 function buildBlock(posts, lang, assetsPrefix) {
-  const live = posts.filter(p => p.published);
-  const feature = live.find(p => p.featured) || live[0];
+  // INCLUDE_DRAFTS=true on the draft app shows unpublished posts (with a 'DRAFT' tag).
+  const includeDrafts = process.env.INCLUDE_DRAFTS === 'true' || process.env.INCLUDE_DRAFTS === '1';
+  const live = includeDrafts ? posts.slice() : posts.filter(p => p.published);
+  const feature = live.find(p => p.featured && p.published) || live.find(p => p.published) || live[0];
   const cards = live.filter(p => p !== feature);
   const featureHtmlOut = feature ? featureHtml(feature, lang, assetsPrefix) : '';
   const cardsHtmlOut = cards.map(p => cardHtml(p, lang, assetsPrefix)).join('\n');
