@@ -13,6 +13,8 @@ const escHtml = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace
 const STATUS_LABEL_EN = { live: 'In development', tbd: 'In planning', sold: 'Sold' };
 const STATUS_LABEL_NO = { live: 'Under utvikling', tbd: 'I planlegging', sold: 'Solgt' };
 
+const COUNTRY_FLAG = { Norway: '🇳🇴', Finland: '🇫🇮', Sweden: '🇸🇪', Iceland: '🇮🇸', Greenland: '🇬🇱', Denmark: '🇩🇰' };
+
 function computeStats(sites) {
   const live = sites.filter(s => s.published);
   // pipeline excludes sold
@@ -153,22 +155,38 @@ function buildSiteDetailPage(s, schema, lang) {
     return escHtml(String(v));
   };
 
+  const hasCoords = s.lat !== undefined && s.lat !== null && s.lat !== '' && s.lng !== undefined && s.lng !== null && s.lng !== '';
+  const mapBlock = (g) => {
+    if (g !== 'location' || !hasCoords) return '';
+    return `<div class="site-map" id="site-map-${escHtml(slug)}" data-lat="${escHtml(s.lat)}" data-lng="${escHtml(s.lng)}" data-status="${escHtml(statusClass)}" data-name="${escHtml(s.name)}"></div>`;
+  };
+
   const groupSections = groupOrder.filter(g => byGroup[g] && byGroup[g].length).map(g => {
     const groupMeta = schema.groups.find(x => x.key === g);
     const fields = byGroup[g];
     let rows = '';
     if (g === 'location' && fields.some(f => f.key === 'lat') && fields.some(f => f.key === 'lng')) {
-      const lat = s.lat, lng = s.lng;
-      const coordCell = (lat !== undefined && lat !== null && lat !== '' && lng !== undefined && lng !== null && lng !== '')
-        ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lat + ',' + lng)}" target="_blank" rel="noopener">${escHtml(lat)}, ${escHtml(lng)} ↗</a>`
+      const coordCell = hasCoords
+        ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.lat + ',' + s.lng)}" target="_blank" rel="noopener">${escHtml(s.lat)}, ${escHtml(s.lng)} ↗</a>`
         : '<span class="empty">—</span>';
       rows += `<div class="kv"><dt>${isNo ? 'Koordinater' : 'Coordinates'}</dt><dd>${coordCell}</dd></div>`;
       rows += fields.filter(f => f.key !== 'lat' && f.key !== 'lng').map(f =>
         `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`).join('');
+    } else if (g === 'access' && fields.some(f => f.key === 'nearest_airport')) {
+      rows = fields.map(f => {
+        if (f.key === 'nearest_airport') {
+          const ap = s.nearest_airport;
+          if (!ap) return `<div class="kv"><dt>${escHtml(f.label)}</dt><dd><span class="empty">—</span></dd></div>`;
+          const dest = hasCoords ? s.lat + ',' + s.lng : escHtml(s.name);
+          const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(ap)}&destination=${encodeURIComponent(dest)}`;
+          return `<div class="kv"><dt>${escHtml(f.label)}</dt><dd><a href="${url}" target="_blank" rel="noopener">${escHtml(ap)} ↗</a></dd></div>`;
+        }
+        return `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`;
+      }).join('');
     } else {
       rows = fields.map(f => `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`).join('');
     }
-    return `<section class="kv-section"><h2>${escHtml(groupMeta.label)}</h2><dl class="kv-grid">${rows}</dl></section>`;
+    return `<section class="kv-section"><h2>${escHtml(groupMeta.label)}</h2>${mapBlock(g)}<dl class="kv-grid">${rows}</dl></section>`;
   }).join('\n');
 
   const backLink = isNo ? '../' : '../';
@@ -189,6 +207,7 @@ function buildSiteDetailPage(s, schema, lang) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${isNo ? '../../../styles.css' : '../../styles.css'}" />
+${hasCoords ? '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />' : ''}
 <style>
   .site-hero { padding: 56px 0 32px; }
   .site-hero .crumb a { color: var(--accent); font-weight: 600; font-size: 13px; }
@@ -208,6 +227,13 @@ function buildSiteDetailPage(s, schema, lang) {
   .kv dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; font-weight: 600; }
   .kv dd { margin: 0; font-size: 15px; color: var(--ink); }
   .kv dd .empty { color: var(--muted); }
+  .kv dd a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .kv dd a:hover { text-decoration: underline; }
+  .site-map { width: 100%; height: 240px; border-radius: var(--radius); border: 1px solid var(--line); margin: 8px 0 4px; overflow: hidden; }
+  .site-map .leaflet-container { background: #eaf0f3; cursor: default; }
+  .site-map .dc-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(28,46,63,0.25); }
+  .site-map .dc-pin.tbd { background: var(--muted); }
+  .site-map .dc-pin.sold { background: #33752f; }
 </style>
 </head>
 <body>
@@ -230,7 +256,7 @@ function buildSiteDetailPage(s, schema, lang) {
 <section class="site-hero">
   <div class="container">
     <p class="crumb"><a href="${backLink}">${backText}</a></p>
-    <p class="eyebrow">${heroLede} · ${escHtml(s.country)}</p>
+    <p class="eyebrow">${heroLede} · ${COUNTRY_FLAG[s.country] || ''} ${escHtml(s.country)}</p>
     <h1>${escHtml(s.name)}</h1>
     <p class="meta"><span class="pill ${statusClass}">${statusLabel}</span></p>
     ${heroImg}
@@ -248,6 +274,21 @@ function buildSiteDetailPage(s, schema, lang) {
     <p class="copyright">© 2026 Scale42. All rights reserved.</p>
   </div>
 </footer>
+${hasCoords ? `<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+  var el = document.getElementById('site-map-${slug}'); if (!el) return;
+  var lat = parseFloat(el.dataset.lat), lng = parseFloat(el.dataset.lng);
+  var map = L.map(el, { zoomControl: true, scrollWheelZoom: false, dragging: true, attributionControl: true })
+    .setView([lat, lng], 9);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 19
+  }).addTo(map);
+  var status = el.dataset.status;
+  L.marker([lat, lng], { icon: L.divIcon({ className: '', html: '<div class="dc-pin ' + status + '"></div>', iconSize: [14,14], iconAnchor: [7,7] }) })
+    .addTo(map).bindPopup(el.dataset.name);
+})();
+</script>` : ''}
 </body>
 </html>
 `;

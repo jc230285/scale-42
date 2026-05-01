@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <style>
   .site-hero { padding: 56px 0 32px; }
   .site-hero .crumb a { color: var(--accent); font-weight: 600; font-size: 13px; }
@@ -31,6 +32,13 @@
   .kv dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; font-weight: 600; }
   .kv dd { margin: 0; font-size: 15px; color: var(--ink); }
   .kv dd .empty { color: var(--muted); }
+  .kv dd a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .kv dd a:hover { text-decoration: underline; }
+  .site-map { width: 100%; height: 240px; border-radius: var(--radius); border: 1px solid var(--line); margin: 8px 0 4px; overflow: hidden; }
+  .site-map .leaflet-container { background: #eaf0f3; cursor: default; }
+  .site-map .dc-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(28,46,63,0.25); }
+  .site-map .dc-pin.tbd { background: var(--muted); }
+  .site-map .dc-pin.sold { background: #33752f; }
 </style>
 </head>
 <body>
@@ -53,7 +61,7 @@
 <section class="site-hero">
   <div class="container">
     <p class="crumb"><a href="../">← Back to all sites</a></p>
-    <p class="eyebrow">Data centre project · Norway</p>
+    <p class="eyebrow">Data centre project · 🇳🇴 Norway</p>
     <h1>Salsbruket</h1>
     <p class="meta"><span class="pill tbd">In planning</span></p>
     <div class="hero-frame" style="background:linear-gradient(135deg, #1c2e3f 0%, #2f6675 55%, #e8b87a 100%);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-family:var(--font-display);font-size:48px;font-weight:600;letter-spacing:-0.02em;">Norway</div>
@@ -63,7 +71,7 @@
   <div class="container">
     
     <section class="kv-section"><h2>Identity</h2><dl class="kv-grid"><div class="kv"><dt>Type</dt><dd>greenfield</dd></div></dl></section>
-<section class="kv-section"><h2>Location</h2><dl class="kv-grid"><div class="kv"><dt>Coordinates</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=64.7%2C11.6" target="_blank" rel="noopener">64.7, 11.6 ↗</a></dd></div><div class="kv"><dt>Site size (ha)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Zoning status</dt><dd><span class="empty">—</span></dd></div></dl></section>
+<section class="kv-section"><h2>Location</h2><div class="site-map" id="site-map-salsbruket" data-lat="64.7" data-lng="11.6" data-status="tbd" data-name="Salsbruket"></div><dl class="kv-grid"><div class="kv"><dt>Coordinates</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=64.7%2C11.6" target="_blank" rel="noopener">64.7, 11.6 ↗</a></dd></div><div class="kv"><dt>Site size (ha)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Zoning status</dt><dd><span class="empty">—</span></dd></div></dl></section>
 <section class="kv-section"><h2>Power</h2><dl class="kv-grid"><div class="kv"><dt>Power source</dt><dd>Hydro</dd></div><div class="kv"><dt>Initial MW</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Target MW</dt><dd>50 MW+</dd></div><div class="kv"><dt>Max capacity (MW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Power availability (public text)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Connection voltage</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>PPA status (public)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Heat reuse</dt><dd><span class="empty">—</span></dd></div></dl></section>
 <section class="kv-section"><h2>Design</h2><dl class="kv-grid"><div class="kv"><dt>IT load (MW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Design PUE</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Rack density (kW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Cooling</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Workload mix</dt><dd><span class="empty">—</span></dd></div></dl></section>
 <section class="kv-section"><h2>Connectivity</h2><dl class="kv-grid"><div class="kv"><dt>Fibre providers</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Fibre speeds (Gbps)</dt><dd><span class="empty">—</span></dd></div></dl></section>
@@ -77,5 +85,20 @@
     <p class="copyright">© 2026 Scale42. All rights reserved.</p>
   </div>
 </footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+  var el = document.getElementById('site-map-salsbruket'); if (!el) return;
+  var lat = parseFloat(el.dataset.lat), lng = parseFloat(el.dataset.lng);
+  var map = L.map(el, { zoomControl: true, scrollWheelZoom: false, dragging: true, attributionControl: true })
+    .setView([lat, lng], 9);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 19
+  }).addTo(map);
+  var status = el.dataset.status;
+  L.marker([lat, lng], { icon: L.divIcon({ className: '', html: '<div class="dc-pin ' + status + '"></div>', iconSize: [14,14], iconAnchor: [7,7] }) })
+    .addTo(map).bindPopup(el.dataset.name);
+})();
+</script>
 </body>
 </html>

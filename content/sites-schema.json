@@ -490,6 +490,13 @@
       "public": false
     },
     {
+      "key": "nearest_airport",
+      "label": "Nearest airport",
+      "group": "access",
+      "type": "text",
+      "public": true
+    },
+    {
       "key": "airport_km",
       "label": "Airport (km)",
       "group": "access",
