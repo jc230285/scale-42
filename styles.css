@@ -533,9 +533,9 @@ img { max-width: 100%; display: block; }
 /* Hero mosaic — deck-cover style */
 .hero-mosaic { position: relative; overflow: hidden; background: #1c2e3f; min-height: 560px; }
 .hero-mosaic .hero-bg { z-index: 0; }
-.hero-mosaic .hero-bg picture, .hero-mosaic .hero-bg picture img { display: none; }
-.hero-mosaic .hero-bg::after { display: none; }
-.hero-mosaic-svg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; z-index: 1; pointer-events: none; opacity: 0.55; }
+.hero-mosaic .hero-bg picture, .hero-mosaic .hero-bg picture img { opacity: 0.45; }
+.hero-mosaic .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,46,63,0.55) 0%, rgba(28,46,63,0.75) 100%); z-index: 1; pointer-events: none; }
+.hero-mosaic-svg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; z-index: 2; pointer-events: none; opacity: 0.55; mix-blend-mode: multiply; }
 .hero-mosaic .hero-inner { position: relative; z-index: 3; }
 .hero-mosaic h1, .hero-mosaic .lede, .hero-mosaic .eyebrow { color: #fff; }
 .hero-mosaic h1 { text-shadow: 0 2px 24px rgba(0,0,0,0.45); }
