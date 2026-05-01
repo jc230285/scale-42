@@ -830,7 +830,7 @@
       "label": "Strategic status",
       "group": "status_ownership",
       "type": "select",
-      "public": false,
+      "public": true,
       "options": [
         "Going to 3rd party",
         "GIGA-42 Responsibility",
@@ -840,6 +840,34 @@
         "Who the fuck knows",
         ""
       ]
+    },
+    {
+      "key": "plots_identified",
+      "label": "Plots identified",
+      "group": "location",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "plots_secured",
+      "label": "Plots secured",
+      "group": "location",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "water_availability",
+      "label": "Water availability",
+      "group": "location",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "extra_data",
+      "label": "Other data (raw)",
+      "group": "narrative",
+      "type": "textarea",
+      "public": false
     }
   ]
 }

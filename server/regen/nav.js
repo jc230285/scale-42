@@ -57,6 +57,17 @@ const PAGES = [
 // News article + datacenter detail pages too
 function discoverDetailPages() {
   const out = [];
+  // Signatures index + per-person pages.
+  const sigIdx = path.join(ROOT, 'signatures', 'index.html');
+  if (fs.existsSync(sigIdx)) out.push({ file: 'signatures/index.html', lang: 'en', active: null, noPath: '/no/' });
+  const sigDir = path.join(ROOT, 'signatures');
+  if (fs.existsSync(sigDir)) {
+    for (const e of fs.readdirSync(sigDir, { withFileTypes: true })) {
+      if (!e.isDirectory()) continue;
+      const f = path.join(sigDir, e.name, 'index.html');
+      if (fs.existsSync(f)) out.push({ file: 'signatures/' + e.name + '/index.html', lang: 'en', active: null, noPath: '/no/' });
+    }
+  }
   for (const dir of ['news', 'no/news', 'datacenters', 'no/datacenters']) {
     const root = path.join(ROOT, dir);
     if (!fs.existsSync(root)) continue;

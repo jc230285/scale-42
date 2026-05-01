@@ -45,9 +45,9 @@ function homeArrayLiteral(sites) {
 }
 
 function fullArrayLiteral(sites, lang) {
-  const lines = sites.filter(s => s.published).map(s => {
+  const lines = sites.filter(s => s.published && s.lat != null && s.lng != null).map(s => {
     const desc = lang === 'no' ? s.desc_no : s.desc_en;
-    return `    { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, lat: ${s.lat}, lng: ${s.lng}, power: ${JSON.stringify(s.power || '')}, target: ${JSON.stringify(s.max_capacity_mw || s.target_mw || '')}, desc: ${JSON.stringify(desc || '')} }`;
+    return `    { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, strat: ${JSON.stringify(s.strategic_status || '')}, lat: ${s.lat}, lng: ${s.lng}, power: ${JSON.stringify(s.power || '')}, target: ${JSON.stringify(s.max_capacity_mw || s.target_mw || '')}, desc: ${JSON.stringify(desc || '')} }`;
   });
   return `[\n${lines.join(',\n')},\n  ]`;
 }

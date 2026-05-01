@@ -134,6 +134,12 @@
   }
   .dc-pin.tbd { background: var(--muted); }
   .dc-pin.sold { background: #33752f; }
+  .dc-pin.strat-giga { background: #2f6675; }
+  .dc-pin.strat-dev { background: #2e7d32; }
+  .dc-pin.strat-3p { background: #b9923a; }
+  .dc-pin.strat-later { background: #5b6e7d; }
+  .dc-pin.strat-bin { background: #b3261e; }
+  .dc-pin.strat-review { background: #7e57c2; }
   .leaflet-popup-content { font-family: var(--font-sans); font-size: 14px; line-height: 1.4; margin: 12px 14px; }
   .leaflet-popup-content h4 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
   .leaflet-popup-content .meta { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px; }
@@ -173,13 +179,13 @@
 <section class="dc-hero">
   <div class="container">
     <p class="eyebrow">Datasentre</p>
-    <h1><!--cms:dc_hero_title-->7.82 GW KI-klar nordisk kapasitet.<!--/cms:dc_hero_title--></h1>
-    <p class="lede"><!--cms:dc_hero_lede-->16 prosjekter i 4 nordiske land — samlokalisert med rimelig fornybar kraft, spesialbygget for høytetthetsberegning. Skalerer fra 50 MW-campus til 500 MW+ flaggskipssteder.<!--/cms:dc_hero_lede--></p>
+    <h1><!--cms:dc_hero_title-->16.34 GW KI-klar nordisk kapasitet.<!--/cms:dc_hero_title--></h1>
+    <p class="lede"><!--cms:dc_hero_lede-->44 prosjekter i 8 nordiske land — samlokalisert med rimelig fornybar kraft, spesialbygget for høytetthetsberegning. Skalerer fra 50 MW-campus til 500 MW+ flaggskipssteder.<!--/cms:dc_hero_lede--></p>
 
     <dl class="dc-summary">
-      <div class="item"><dt>Aktiv pipeline</dt><dd><!--cms:dc_pipeline-->7.82 GW<!--/cms:dc_pipeline--></dd></div>
-      <div class="item"><dt>Prosjekter</dt><dd><!--cms:dc_projects-->16<!--/cms:dc_projects--></dd></div>
-      <div class="item"><dt>Land</dt><dd><!--cms:dc_countries-->4<!--/cms:dc_countries--></dd></div>
+      <div class="item"><dt>Aktiv pipeline</dt><dd><!--cms:dc_pipeline-->16.34 GW<!--/cms:dc_pipeline--></dd></div>
+      <div class="item"><dt>Prosjekter</dt><dd><!--cms:dc_projects-->44<!--/cms:dc_projects--></dd></div>
+      <div class="item"><dt>Land</dt><dd><!--cms:dc_countries-->8<!--/cms:dc_countries--></dd></div>
       <div class="item"><dt>Modulstørrelse</dt><dd>12.5 MW</dd></div>
     </dl>
   </div>
@@ -190,9 +196,13 @@
     <div id="dc-map" class="dc-map" aria-label="Map of Scale42 Nordic datasenter sites"></div>
     <div class="dc-map-legend">
       <strong>Pipeline-status</strong>
-      <div class="row"><span class="dot sold"></span> Solgt</div>
-      <div class="row"><span class="dot live"></span> Under utvikling / annonsert</div>
-      <div class="row"><span class="dot tbd"></span> I planlegging</div>
+      <div class="row"><span class="dot" style="background:#33752f"></span> Solgt</div>
+      <div class="row"><span class="dot" style="background:#2f6675"></span> GIGA-42 prioritet</div>
+      <div class="row"><span class="dot" style="background:#2e7d32"></span> Utviklingsfokus</div>
+      <div class="row"><span class="dot" style="background:#b9923a"></span> Partnerledet</div>
+      <div class="row"><span class="dot" style="background:#5b6e7d"></span> Senere fase</div>
+      <div class="row"><span class="dot" style="background:#7e57c2"></span> Under vurdering</div>
+      <div class="row"><span class="dot" style="background:#b3261e"></span> Nedprioritert</div>
     </div>
   </div>
 </section>
@@ -419,6 +429,25 @@
         </div>
       </article>
 
+      <article class="dc-card" id="sorfold" data-country="norway">
+        <div class="img tbd">
+          <span class="country-flag">Norway</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Sørfold ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Norway</p>
+          <h3>Sørfold</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>100 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
+          </dl>
+          <a href="sorfold/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
       <article class="dc-card" id="alajarvi" data-country="finland">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
@@ -435,6 +464,44 @@
             <div class="stat"><dt>Kraft</dt><dd>Wind</dd></div>
           </dl>
           <a href="alajarvi/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="robertsfors" data-country="sweden">
+        <div class="img tbd">
+          <span class="country-flag">Sweden</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Robertsfors ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Sweden</p>
+          <h3>Robertsfors</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>1000 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro / wind</dd></div>
+          </dl>
+          <a href="robertsfors/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="nuuk" data-country="greenland">
+        <div class="img tbd">
+          <span class="country-flag">Greenland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Nuuk ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Greenland</p>
+          <h3>Nuuk</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>55 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>55 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
+          </dl>
+          <a href="nuuk/" class="dc-link">Se sitedetaljer →</a>
         </div>
       </article>
 
@@ -457,6 +524,25 @@
         </div>
       </article>
 
+      <article class="dc-card" id="honningsvag" data-country="norway">
+        <div class="img tbd">
+          <span class="country-flag">Norway</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Honningsvåg ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Norway</p>
+          <h3>Honningsvåg</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>8 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>15 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Wind / hydro</dd></div>
+          </dl>
+          <a href="honningsvag/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
       <article class="dc-card" id="kemi" data-country="finland">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
@@ -473,6 +559,25 @@
             <div class="stat"><dt>Kraft</dt><dd>Mixed renewable</dd></div>
           </dl>
           <a href="kemi/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="mikkeli" data-country="finland">
+        <div class="img tbd">
+          <span class="country-flag">Finland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Mikkeli ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Finland</p>
+          <h3>Mikkeli</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>60 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>250 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Mixed renewable</dd></div>
+          </dl>
+          <a href="mikkeli/" class="dc-link">Se sitedetaljer →</a>
         </div>
       </article>
 
@@ -495,6 +600,82 @@
         </div>
       </article>
 
+      <article class="dc-card" id="hadsel" data-country="norway">
+        <div class="img tbd">
+          <span class="country-flag">Norway</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Hadsel ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Norway</p>
+          <h3>Hadsel</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>20 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>40 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
+          </dl>
+          <a href="hadsel/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="sortland" data-country="norway">
+        <div class="img tbd">
+          <span class="country-flag">Norway</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Sortland ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Norway</p>
+          <h3>Sortland</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>20 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>40 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
+          </dl>
+          <a href="sortland/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="salsbruket" data-country="norway">
+        <div class="img tbd">
+          <span class="country-flag">Norway</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Salsbruket ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Norway</p>
+          <h3>Salsbruket</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>5 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>5 MW (possibly 80 MW+ subject to substation power)</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
+          </dl>
+          <a href="salsbruket/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="rovaniemi" data-country="finland">
+        <div class="img tbd">
+          <span class="country-flag">Finland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Rovaniemi ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Finland</p>
+          <h3>Rovaniemi</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>800 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
+          </dl>
+          <a href="rovaniemi/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
       <article class="dc-card" id="varkaus" data-country="finland">
         <div class="img">
           <span class="country-flag">Finland</span>
@@ -506,11 +687,372 @@
           <h3>Varkaus</h3>
           <p class="desc">Industriklar finsk lokasjon med sterk kommunal støtte.</p>
           <dl class="dc-stats">
-            <div class="stat"><dt>Oppstart</dt><dd>—</dd></div>
+            <div class="stat"><dt>Oppstart</dt><dd>60 MW</dd></div>
             <div class="stat"><dt>Mål</dt><dd>50 MW+</dd></div>
             <div class="stat"><dt>Kraft</dt><dd>Mixed renewable</dd></div>
           </dl>
           <a href="varkaus/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="bo" data-country="norway">
+        <div class="img tbd">
+          <span class="country-flag">Norway</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Bo ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Norway</p>
+          <h3>Bo</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>5 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>5</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="bo/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="kontiolahti" data-country="finland">
+        <div class="img tbd">
+          <span class="country-flag">Finland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Kontiolahti ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Finland</p>
+          <h3>Kontiolahti</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>60 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>100</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="kontiolahti/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="keminmaa" data-country="finland">
+        <div class="img tbd">
+          <span class="country-flag">Finland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Keminmaa ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Finland</p>
+          <h3>Keminmaa</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>60 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>200</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="keminmaa/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="tornio" data-country="finland">
+        <div class="img tbd">
+          <span class="country-flag">Finland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Tornio ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Finland</p>
+          <h3>Tornio</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>200 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>2000</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="tornio/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="oulu" data-country="finland">
+        <div class="img tbd">
+          <span class="country-flag">Finland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Oulu ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Finland</p>
+          <h3>Oulu</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>100 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>400</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="oulu/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="skelleftea" data-country="sweden">
+        <div class="img tbd">
+          <span class="country-flag">Sweden</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Skelleftea ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Sweden</p>
+          <h3>Skelleftea</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>100 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>100</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="skelleftea/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="utansjo" data-country="sweden">
+        <div class="img tbd">
+          <span class="country-flag">Sweden</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Utansjö ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Sweden</p>
+          <h3>Utansjö</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>50</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="utansjo/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="kalix" data-country="sweden">
+        <div class="img tbd">
+          <span class="country-flag">Sweden</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Kalix ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Sweden</p>
+          <h3>Kalix</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>200 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>500</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="kalix/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="reydarfjordur" data-country="iceland">
+        <div class="img tbd">
+          <span class="country-flag">Iceland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Reyðarfjörður ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Iceland</p>
+          <h3>Reyðarfjörður</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>100</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="reydarfjordur/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="akureyri" data-country="iceland">
+        <div class="img tbd">
+          <span class="country-flag">Iceland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Akureyri ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Iceland</p>
+          <h3>Akureyri</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>70</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="akureyri/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="valaiscanton" data-country="switzerland">
+        <div class="img tbd">
+          <span class="country-flag">Switzerland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Valais Canton ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Switzerland</p>
+          <h3>Valais Canton</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>TBC MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>—</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="valaiscanton/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="tbcnorthernengland" data-country="uk">
+        <div class="img tbd">
+          <span class="country-flag">UK</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ TBC (Northern England) ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">UK</p>
+          <h3>TBC (Northern England)</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>—</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="tbcnorthernengland/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="icelandrunofriver" data-country="iceland">
+        <div class="img tbd">
+          <span class="country-flag">Iceland</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Iceland Run of River ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Iceland</p>
+          <h3>Iceland Run of River</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>10 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>—</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="icelandrunofriver/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="moiranamoindustrialpark" data-country="norway">
+        <div class="img tbd">
+          <span class="country-flag">Norway</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Mo I Rana, Mo Industrial Park ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Norway</p>
+          <h3>Mo I Rana, Mo Industrial Park</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>190 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>396</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="moiranamoindustrialpark/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="andoya" data-country="norway">
+        <div class="img tbd">
+          <span class="country-flag">Norway</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Andøya ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Norway</p>
+          <h3>Andøya</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>10 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>25</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="andoya/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="sognlustersognekraftsognutvikling" data-country="norway">
+        <div class="img tbd">
+          <span class="country-flag">Norway</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Sogn (Luster, Sognekraft Sogn Utvikling) ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Norway</p>
+          <h3>Sogn (Luster, Sognekraft Sogn Utvikling)</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>120</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="sognlustersognekraftsognutvikling/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="ostersundspikboderna" data-country="sweden">
+        <div class="img tbd">
+          <span class="country-flag">Sweden</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Östersund (Spikboderna) ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Sweden</p>
+          <h3>Östersund (Spikboderna)</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>60 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>2004</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="ostersundspikboderna/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="morsil" data-country="sweden">
+        <div class="img tbd">
+          <span class="country-flag">Sweden</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Mörsil ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Sweden</p>
+          <h3>Mörsil</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>2 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>5</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="morsil/" class="dc-link">Se sitedetaljer →</a>
+        </div>
+      </article>
+
+      <article class="dc-card" id="milan" data-country="italy">
+        <div class="img tbd">
+          <span class="country-flag">Italy</span>
+          <span class="status tbd">I planlegging</span>
+          <span class="image-placeholder">[ Milan ]</span>
+        </div>
+        <div class="body">
+          <p class="loc">Italy</p>
+          <h3>Milan</h3>
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>60 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>100</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>—</dd></div>
+          </dl>
+          <a href="milan/" class="dc-link">Se sitedetaljer →</a>
         </div>
       </article>
 
@@ -537,22 +1079,31 @@
 <script>
   // Map: Nordic data centre sites
   const sites = /*cms:sites_full*/[
-    { name: "Glomfjord", country: "Norway", status: "sold", lat: 66.8167, lng: 13.9667, power: "Hydro", target: "50", desc: "Vannkraftrik kystlokasjon, 12,5 MW-moduler skalerer til 50 MW+ campus." },
-    { name: "Bakki", country: "Iceland", status: "live", lat: 66.05, lng: -17.35, power: "Geothermal", target: "200", desc: "Geotermisk grunnlast, 50 MW oppstart 2027, skalerer til 200 MW." },
-    { name: "Skibotn", country: "Norway", status: "live", lat: 69.3833, lng: 20.2667, power: "Hydro", target: "15", desc: "Sub-arktisk norsk lokasjon med vannkraftkapasitet og frikjøling på 69° N." },
-    { name: "Reykjavík", country: "Iceland", status: "live", lat: 64.1466, lng: -21.9426, power: "Geothermal / hydro", target: "200", desc: "Kapasitet i Stor-Reykjavík ved siden av eksisterende fiber — lav latency til Nord-Amerika." },
-    { name: "Kristinestad", country: "Finland", status: "live", lat: 62.2745, lng: 21.3781, power: "Wind", target: "800", desc: "Finsk kystlokasjon i vindkraftens kjerneområde med stor nettkapasitet." },
-    { name: "Nivala", country: "Finland", status: "live", lat: 63.9333, lng: 24.9667, power: "Wind", target: "800", desc: "Lokasjon i Nord-Österbotten med sterk landvind og eksisterende 110 kV-tilknytning." },
-    { name: "Jokkmokk", country: "Sweden", status: "live", lat: 66.6066, lng: 19.8242, power: "Hydro", target: "400", desc: "Vannkraftbeltet i Lappland — samlokalisert med Sveriges største vannkraftregion." },
-    { name: "Kronoby", country: "Finland", status: "live", lat: 63.7333, lng: 23.0167, power: "Wind / hydro", target: "800", desc: "Tospråklig finsk kystlokasjon med komplementær vind- og vannkraftforsyning." },
-    { name: "Torsboda", country: "Sweden", status: "tbd", lat: 62.5667, lng: 17.4167, power: "Hydro / wind", target: "1200", desc: "" },
-    { name: "Liperi", country: "Finland", status: "tbd", lat: 62.5333, lng: 29.3667, power: "Mixed renewable", target: "100", desc: "" },
-    { name: "Kitee", country: "Finland", status: "tbd", lat: 62.1, lng: 30.15, power: "Mixed renewable", target: "60", desc: "" },
-    { name: "Alajärvi", country: "Finland", status: "tbd", lat: 63, lng: 23.8167, power: "Wind", target: "1000", desc: "" },
-    { name: "Tjeldbergodden", country: "Norway", status: "tbd", lat: 63.4239, lng: 8.5675, power: "Hydro / gas", target: "190", desc: "" },
-    { name: "Kemi", country: "Finland", status: "tbd", lat: 65.7333, lng: 24.5667, power: "Mixed renewable", target: "1000", desc: "" },
-    { name: "Boden", country: "Sweden", status: "tbd", lat: 65.825, lng: 21.6889, power: "Hydro", target: "1000", desc: "" },
-    { name: "Varkaus", country: "Finland", status: "live", lat: 62.3167, lng: 27.8833, power: "Mixed renewable", target: "50 MW+", desc: "Industriklar finsk lokasjon med sterk kommunal støtte." },
+    { name: "Glomfjord", country: "Norway", status: "sold", strat: "", lat: 66.8167, lng: 13.9667, power: "Hydro", target: "50", desc: "Vannkraftrik kystlokasjon, 12,5 MW-moduler skalerer til 50 MW+ campus." },
+    { name: "Bakki", country: "Iceland", status: "live", strat: "GIGA-42 Responsibility", lat: 66.05, lng: -17.35, power: "Geothermal", target: "200", desc: "Geotermisk grunnlast, 50 MW oppstart 2027, skalerer til 200 MW." },
+    { name: "Skibotn", country: "Norway", status: "live", strat: "GIGA-42 Responsibility", lat: 69.3833, lng: 20.2667, power: "Hydro", target: "15", desc: "Sub-arktisk norsk lokasjon med vannkraftkapasitet og frikjøling på 69° N." },
+    { name: "Reykjavík", country: "Iceland", status: "live", strat: "GIGA-42 Responsibility", lat: 64.1466, lng: -21.9426, power: "Geothermal / hydro", target: "200", desc: "Kapasitet i Stor-Reykjavík ved siden av eksisterende fiber — lav latency til Nord-Amerika." },
+    { name: "Kristinestad", country: "Finland", status: "live", strat: "Development focus", lat: 62.2745, lng: 21.3781, power: "Wind", target: "800", desc: "Finsk kystlokasjon i vindkraftens kjerneområde med stor nettkapasitet." },
+    { name: "Nivala", country: "Finland", status: "live", strat: "Development focus", lat: 63.9333, lng: 24.9667, power: "Wind", target: "800", desc: "Lokasjon i Nord-Österbotten med sterk landvind og eksisterende 110 kV-tilknytning." },
+    { name: "Jokkmokk", country: "Sweden", status: "live", strat: "Development focus", lat: 66.6066, lng: 19.8242, power: "Hydro", target: "400", desc: "Vannkraftbeltet i Lappland — samlokalisert med Sveriges største vannkraftregion." },
+    { name: "Kronoby", country: "Finland", status: "live", strat: "Development focus", lat: 63.7333, lng: 23.0167, power: "Wind / hydro", target: "800", desc: "Tospråklig finsk kystlokasjon med komplementær vind- og vannkraftforsyning." },
+    { name: "Torsboda", country: "Sweden", status: "tbd", strat: "Development focus", lat: 62.5667, lng: 17.4167, power: "Hydro / wind", target: "1200", desc: "" },
+    { name: "Liperi", country: "Finland", status: "tbd", strat: "Going to 3rd party", lat: 62.5333, lng: 29.3667, power: "Mixed renewable", target: "100", desc: "" },
+    { name: "Kitee", country: "Finland", status: "tbd", strat: "Going to 3rd party", lat: 62.1, lng: 30.15, power: "Mixed renewable", target: "60", desc: "" },
+    { name: "Sørfold", country: "Norway", status: "tbd", strat: "Going to 3rd party", lat: 67.4667, lng: 15.4167, power: "Hydro", target: "100", desc: "" },
+    { name: "Alajärvi", country: "Finland", status: "tbd", strat: "Later stage project", lat: 63, lng: 23.8167, power: "Wind", target: "1000", desc: "" },
+    { name: "Robertsfors", country: "Sweden", status: "tbd", strat: "Later stage project", lat: 64.2, lng: 20.85, power: "Hydro / wind", target: "1000", desc: "" },
+    { name: "Nuuk", country: "Greenland", status: "tbd", strat: "Later stage project", lat: 64.1814, lng: -51.6941, power: "Hydro", target: "55", desc: "" },
+    { name: "Tjeldbergodden", country: "Norway", status: "tbd", strat: "Who the fuck knows", lat: 63.4239, lng: 8.5675, power: "Hydro / gas", target: "190", desc: "" },
+    { name: "Honningsvåg", country: "Norway", status: "tbd", strat: "Bin the project", lat: 70.9821, lng: 25.9704, power: "Wind / hydro", target: "15", desc: "" },
+    { name: "Kemi", country: "Finland", status: "tbd", strat: "Bin the project", lat: 65.7333, lng: 24.5667, power: "Mixed renewable", target: "1000", desc: "" },
+    { name: "Mikkeli", country: "Finland", status: "tbd", strat: "Bin the project", lat: 61.6886, lng: 27.2723, power: "Mixed renewable", target: "250", desc: "" },
+    { name: "Boden", country: "Sweden", status: "tbd", strat: "Bin the project", lat: 65.825, lng: 21.6889, power: "Hydro", target: "1000", desc: "" },
+    { name: "Hadsel", country: "Norway", status: "tbd", strat: "Bin the project", lat: 68.55, lng: 14.85, power: "Hydro", target: "40", desc: "" },
+    { name: "Sortland", country: "Norway", status: "tbd", strat: "Bin the project", lat: 68.7, lng: 15.4, power: "Hydro", target: "40", desc: "" },
+    { name: "Salsbruket", country: "Norway", status: "tbd", strat: "Bin the project", lat: 64.7, lng: 11.6, power: "Hydro", target: "5", desc: "" },
+    { name: "Rovaniemi", country: "Finland", status: "tbd", strat: "Bin the project", lat: 66.5, lng: 25.7167, power: "Hydro", target: "800", desc: "" },
+    { name: "Varkaus", country: "Finland", status: "live", strat: "", lat: 62.3167, lng: 27.8833, power: "Mixed renewable", target: "100", desc: "Industriklar finsk lokasjon med sterk kommunal støtte." },
   ]/*/cms:sites_full*/;
 
   const map = L.map('dc-map', {
@@ -568,7 +1119,7 @@
   sites.forEach(s => {
     const icon = L.divIcon({
       className: '', iconSize: [28, 28], iconAnchor: [14, 14],
-      html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : s.status === 'sold' ? 'sold' : ''}" title="${s.name}"></div>`
+      html: `<div class="dc-pin ${s.status === 'sold' ? 'sold' : (({ 'GIGA-42 Responsibility':'strat-giga','Development focus':'strat-dev','Going to 3rd party':'strat-3p','Later stage project':'strat-later','Bin the project':'strat-bin','Who the fuck knows':'strat-review' })[s.strat] || (s.status === 'tbd' ? 'tbd' : ''))}" title="${s.name}"></div>`
     });
     const popup = `
       <h4>${s.name}</h4>

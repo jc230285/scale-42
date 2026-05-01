@@ -41,6 +41,13 @@ function personPage(p, html) {
 </style>
 </head>
 <body>
+<header class="nav">
+  <div class="container nav-inner">
+    <!--cms:nav-->
+    <!--/cms:nav-->
+  </div>
+</header>
+<link rel="stylesheet" href="/styles.css" />
 <div class="wrap">
   <p class="nav"><a href="../">← All signatures</a></p>
   <h1>Email signature for <strong>${escAttr(p.name)}</strong></h1>
@@ -136,6 +143,13 @@ function indexPage(people) {
 </style>
 </head>
 <body>
+<header class="nav">
+  <div class="container nav-inner">
+    <!--cms:nav-->
+    <!--/cms:nav-->
+  </div>
+</header>
+<link rel="stylesheet" href="/styles.css" />
 <div class="wrap">
   <h1>Email signatures</h1>
   <p class="lede">All staff signatures rendered below. Click <strong>Copy for email</strong> on yours and paste into Gmail, Outlook, or any email client. Photos load from scale-42.com so they render anywhere.</p>
