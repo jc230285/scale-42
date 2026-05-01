@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Journey &mdash; Scale42 CMS</title>
+<link rel="stylesheet" href="cms.css" />
+<style>
+  .node-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; margin-bottom: 14px; }
+  .node-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .node-head input.year { font-family: ui-monospace, Menlo, monospace; font-size: 14px; font-weight: 700; color: var(--teal); width: 130px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; }
+  .node-head .node-id { font-size: 11px; color: var(--ink-2); font-family: ui-monospace, Menlo, monospace; flex: 1; }
+  .node-head button.del { background: transparent; border: 1px solid #d99; color: #b22; padding: 4px 10px; border-radius: 6px; font: inherit; font-size: 12px; cursor: pointer; }
+  .node-head button.del:hover { background: #fee; }
+  .move-btns { display: inline-flex; gap: 4px; }
+  .move-btns button { background: transparent; border: 1px solid var(--line); padding: 2px 8px; font: inherit; font-size: 12px; cursor: pointer; border-radius: 4px; }
+  .move-btns button:hover { background: var(--bg-alt); }
+  .field-langs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .field-langs label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2); font-weight: 600; margin-bottom: 4px; }
+  .field-langs input, .field-langs textarea { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 6px 9px; font: inherit; font-size: 13px; }
+  .field-langs textarea { min-height: 60px; resize: vertical; }
+  .field-row { margin-bottom: 10px; }
+  .field-row > label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-2); font-weight: 600; margin-bottom: 4px; }
+  .field-row input { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 6px 9px; font: inherit; font-size: 13px; }
+
+  .lang-tabs { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-left: 12px; }
+  .lang-tabs button { background: #fff; border: 0; padding: 6px 12px; font: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer; color: var(--ink-2); }
+  .lang-tabs button + button { border-left: 1px solid var(--line); }
+  .lang-tabs button.active { background: var(--teal); color: #fff; }
+  body.lang-en .field-lang-no, body.lang-no .field-lang-en { display: none; }
+  body.lang-en .field-langs, body.lang-no .field-langs { grid-template-columns: 1fr; }
+
+  .add-btn { background: var(--teal); color: #fff; border: 0; padding: 8px 16px; font: inherit; font-size: 13px; font-weight: 600; border-radius: 6px; cursor: pointer; margin-top: 8px; }
+</style>
+</head>
+<body>
+<header class="cms-nav">
+  <a class="cms-brand" href="/cms/">Scale42 CMS</a>
+  <nav>
+    <a href="/cms/people.html">People</a>
+    <a href="/cms/sites.html">Sites</a>
+    <a href="/cms/news.html">News</a>
+    <a href="/cms/sections.html">Sections</a>
+    <a href="/cms/journey.html">Journey</a>
+    <a href="/signatures/" target="_blank">Signatures</a>
+    <a href="/cms/account.html">Account</a>
+    <a href="/team/" target="_blank">View team page &rarr;</a>
+  </nav>
+</header>
+<main class="cms-main">
+  <div class="editor-head">
+    <h1>Journey timeline</h1>
+    <span class="meta" id="dirty-meta">No unsaved changes</span>
+    <span class="lang-tabs" role="tablist" aria-label="Language">
+      <button type="button" data-lang="both" class="active">Both</button>
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="no">NO</button>
+    </span>
+  </div>
+  <p class="lede">Timeline rendered at the top of <code>/team/</code> and <code>/no/team/</code>. Order = display order. Add, remove, reorder.</p>
+
+  <div class="node-card" style="background:#f8fafb;">
+    <div class="field-langs">
+      <div class="field-lang-en">
+        <label>Section eyebrow (EN)</label>
+        <input type="text" id="title-en" />
+      </div>
+      <div class="field-lang-no">
+        <label>Section eyebrow (NO)</label>
+        <input type="text" id="title-no" />
+      </div>
+    </div>
+    <div class="field-langs" style="margin-top:10px;">
+      <div class="field-lang-en">
+        <label>Section heading (EN)</label>
+        <input type="text" id="lede-en" />
+      </div>
+      <div class="field-lang-no">
+        <label>Section heading (NO)</label>
+        <input type="text" id="lede-no" />
+      </div>
+    </div>
+  </div>
+
+  <div id="nodes"></div>
+  <button class="add-btn" id="btn-add">+ Add node</button>
+</main>
+
+<div class="footer-bar">
+  <button class="btn" id="btn-reload">Discard changes</button>
+  <span class="status-msg" id="status"></span>
+  <span class="grow"></span>
+  <button class="btn primary" id="btn-save">Save draft</button>
+  <button class="btn accent" id="btn-publish">Publish &rarr;</button>
+</div>
+
+<script>
+(async function() {
+  const $ = (id) => document.getElementById(id);
+  let data = null, dirty = false;
+  const setDirty = (v) => { dirty = v; $('dirty-meta').textContent = v ? 'Unsaved changes' : 'No unsaved changes'; };
+  const setStatus = (m, k) => { const e = $('status'); e.textContent = m || ''; e.className = 'status-msg' + (k ? ' ' + k : ''); };
+  const escAttr = (s) => (s || '').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  const escText = (s) => (s || '').replace(/</g, '&lt;');
+
+  function render() {
+    $('title-en').value = data.title_en || '';
+    $('title-no').value = data.title_no || '';
+    $('lede-en').value = data.lede_en || '';
+    $('lede-no').value = data.lede_no || '';
+    const c = $('nodes');
+    c.innerHTML = '';
+    (data.nodes || []).forEach((n, idx) => {
+      const card = document.createElement('div');
+      card.className = 'node-card';
+      card.dataset.idx = idx;
+      card.innerHTML = `
+        <div class="node-head">
+          <input type="text" class="year" data-k="year" value="${escAttr(n.year)}" placeholder="Year" />
+          <span class="node-id">${escText(n.id || '')}</span>
+          <span class="move-btns">
+            <button type="button" data-act="up" title="Move up">↑</button>
+            <button type="button" data-act="down" title="Move down">↓</button>
+          </span>
+          <button type="button" class="del" data-act="del">Delete</button>
+        </div>
+        <div class="field-langs">
+          <div class="field-lang-en">
+            <label>Headline (EN)</label>
+            <input type="text" data-k="headline_en" value="${escAttr(n.headline_en)}" />
+          </div>
+          <div class="field-lang-no">
+            <label>Headline (NO)</label>
+            <input type="text" data-k="headline_no" value="${escAttr(n.headline_no)}" />
+          </div>
+        </div>
+        <div class="field-langs" style="margin-top:10px;">
+          <div class="field-lang-en">
+            <label>Body (EN)</label>
+            <textarea data-k="body_en">${escText(n.body_en)}</textarea>
+          </div>
+          <div class="field-lang-no">
+            <label>Body (NO)</label>
+            <textarea data-k="body_no">${escText(n.body_no)}</textarea>
+          </div>
+        </div>
+        <div class="field-langs" style="margin-top:10px;">
+          <div class="field-lang-en">
+            <label>Badge (EN, optional, e.g. "30 MW")</label>
+            <input type="text" data-k="badge_en" value="${escAttr(n.badge_en)}" />
+          </div>
+          <div class="field-lang-no">
+            <label>Badge (NO)</label>
+            <input type="text" data-k="badge_no" value="${escAttr(n.badge_no)}" />
+          </div>
+        </div>
+        <div class="field-row" style="margin-top:10px;">
+          <label>Image URL (optional)</label>
+          <input type="text" data-k="image" value="${escAttr(n.image)}" placeholder="/assets/journey/2018-hydrokraft.jpg" />
+        </div>
+      `;
+      c.appendChild(card);
+    });
+  }
+
+  function readBack() {
+    data.title_en = $('title-en').value;
+    data.title_no = $('title-no').value;
+    data.lede_en = $('lede-en').value;
+    data.lede_no = $('lede-no').value;
+    data.nodes = Array.from(document.querySelectorAll('.node-card[data-idx]')).map(card => {
+      const get = (k) => { const el = card.querySelector(`[data-k="${k}"]`); return el ? el.value : ''; };
+      const orig = data.nodes[+card.dataset.idx] || {};
+      return {
+        id: orig.id || ('n' + Date.now() + Math.floor(Math.random() * 1000)),
+        year: get('year'),
+        headline_en: get('headline_en'),
+        headline_no: get('headline_no'),
+        body_en: get('body_en'),
+        body_no: get('body_no'),
+        badge_en: get('badge_en'),
+        badge_no: get('badge_no'),
+        image: get('image')
+      };
+    });
+  }
+
+  document.addEventListener('input', (e) => { if (e.target.matches('input, textarea')) setDirty(true); });
+
+  $('nodes').addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    readBack();
+    const card = btn.closest('.node-card');
+    const idx = +card.dataset.idx;
+    if (btn.dataset.act === 'del') {
+      if (!confirm('Delete this node?')) return;
+      data.nodes.splice(idx, 1);
+    } else if (btn.dataset.act === 'up' && idx > 0) {
+      [data.nodes[idx-1], data.nodes[idx]] = [data.nodes[idx], data.nodes[idx-1]];
+    } else if (btn.dataset.act === 'down' && idx < data.nodes.length - 1) {
+      [data.nodes[idx+1], data.nodes[idx]] = [data.nodes[idx], data.nodes[idx+1]];
+    }
+    render();
+    setDirty(true);
+  });
+
+  $('btn-add').addEventListener('click', () => {
+    readBack();
+    data.nodes.push({ id: 'n' + Date.now(), year: '', headline_en: '', headline_no: '', body_en: '', body_no: '', badge_en: '', badge_no: '', image: '' });
+    render();
+    setDirty(true);
+  });
+
+  async function load() {
+    setStatus('Loading…');
+    const r = await fetch('/api/journey');
+    if (!r.ok) { setStatus('Load failed', 'err'); return; }
+    data = await r.json();
+    if (!Array.isArray(data.nodes)) data.nodes = [];
+    render();
+    setDirty(false);
+    setStatus('');
+  }
+
+  async function save() {
+    readBack();
+    setStatus('Saving…');
+    const r = await fetch('/api/journey', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+    if (!r.ok) { setStatus('Save failed', 'err'); return false; }
+    const r2 = await fetch('/api/save/journey', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+    if (!r2.ok) { setStatus('Saved locally; draft commit failed', 'err'); setDirty(false); return true; }
+    setDirty(false);
+    setStatus('Saved to draft branch', 'ok');
+    return true;
+  }
+
+  async function publish() {
+    if (!confirm('Publish journey? Regenerates team pages and pushes to LIVE.')) return;
+    if (!(await save())) return;
+    setStatus('Publishing…');
+    const r = await fetch('/api/publish/journey', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'CMS publish: journey' }) });
+    const body = await r.json().catch(() => ({}));
+    if (!r.ok) { setStatus('Publish failed: ' + (body.error || r.status), 'err'); return; }
+    setStatus('Published — both sites redeploying', 'ok');
+  }
+
+  $('btn-save').addEventListener('click', save);
+  $('btn-publish').addEventListener('click', publish);
+  $('btn-reload').addEventListener('click', () => { if (dirty && !confirm('Discard unsaved changes?')) return; load(); });
+  window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+  function setLang(l) {
+    document.body.classList.remove('lang-en', 'lang-no');
+    if (l === 'en') document.body.classList.add('lang-en');
+    if (l === 'no') document.body.classList.add('lang-no');
+    document.querySelectorAll('.lang-tabs button').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+    try { localStorage.setItem('cms-journey-lang', l); } catch (_) {}
+  }
+  document.querySelectorAll('.lang-tabs button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  setLang(localStorage.getItem('cms-journey-lang') || 'both');
+
+  load();
+})();
+</script>
+</body>
+</html>

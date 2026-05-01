@@ -82,6 +82,7 @@ app.use('/api', auth, attachUser, require('./routes/people'));
 app.use('/api', auth, attachUser, require('./routes/sites'));
 app.use('/api', auth, attachUser, require('./routes/news'));
 app.use('/api', auth, attachUser, require('./routes/sections'));
+app.use('/api', auth, attachUser, require('./routes/journey'));
 app.use('/api', auth, attachUser, require('./routes/upload'));
 app.use('/api', auth, attachUser, require('./routes/publish'));
 app.use('/api', auth, attachUser, require('./routes/audit'));

@@ -1,0 +1,107 @@
+{
+  "title_en": "Our journey",
+  "title_no": "Vår reise",
+  "lede_en": "From a single rack of servers to a multi-gigawatt pipeline.",
+  "lede_no": "Fra ett serverrack til en pipeline på flere gigawatt.",
+  "nodes": [
+    {
+      "id": "n2016",
+      "year": "2016",
+      "headline_en": "Initial server testing",
+      "headline_no": "Første servertesting",
+      "body_en": "Proof of concept.",
+      "body_no": "Proof of concept.",
+      "badge_en": "",
+      "badge_no": "",
+      "image": ""
+    },
+    {
+      "id": "n2017",
+      "year": "2017",
+      "headline_en": "Production",
+      "headline_no": "Produksjon",
+      "body_en": "Leasing UK data centre space.",
+      "body_no": "Leier datasenterplass i Storbritannia.",
+      "badge_en": "",
+      "badge_no": "",
+      "image": ""
+    },
+    {
+      "id": "n2018",
+      "year": "2018",
+      "headline_en": "Hydrokraft AS founded",
+      "headline_no": "Hydrokraft AS stiftet",
+      "body_en": "First Norwegian operation.",
+      "body_no": "Første norske drift.",
+      "badge_en": "2 MW",
+      "badge_no": "2 MW",
+      "image": ""
+    },
+    {
+      "id": "n2019",
+      "year": "2019",
+      "headline_en": "Høyanger data centre",
+      "headline_no": "Høyanger datasenter",
+      "body_en": "Developed under leasehold and currently held by Scale42.",
+      "body_no": "Utviklet under leieavtale, eies i dag av Scale42.",
+      "badge_en": "",
+      "badge_no": "",
+      "image": ""
+    },
+    {
+      "id": "n2021",
+      "year": "2021",
+      "headline_en": "Phase I",
+      "headline_no": "Fase I",
+      "body_en": "Build-out completed and operational.",
+      "body_no": "Utbygging fullført og operativ.",
+      "badge_en": "30 MW",
+      "badge_no": "30 MW",
+      "image": ""
+    },
+    {
+      "id": "n2022",
+      "year": "2022",
+      "headline_en": "Sale of Hydrokraft",
+      "headline_no": "Salg av Hydrokraft",
+      "body_en": "$32 m exit, MOIC of 16× in under 4 years and an IRR of 166%. Renamed NScale AS.",
+      "body_no": "32 mUSD exit, MOIC 16× på under 4 år og IRR på 166%. Omdøpt til NScale AS.",
+      "badge_en": "",
+      "badge_no": "",
+      "image": ""
+    },
+    {
+      "id": "n2023",
+      "year": "2023",
+      "headline_en": "Scale42 founded",
+      "headline_no": "Scale42 stiftet",
+      "body_en": "With assets excluded from the Hydrokraft sale; cap table cleared.",
+      "body_no": "Med eiendeler holdt utenfor Hydrokraft-salget; cap table ryddet.",
+      "badge_en": "",
+      "badge_no": "",
+      "image": ""
+    },
+    {
+      "id": "n2024",
+      "year": "2024–2025",
+      "headline_en": "Pipeline developed · GIGA-42 JV established",
+      "headline_no": "Pipeline utviklet · GIGA-42 JV etablert",
+      "body_en": "Planning, power and designs across the Nordic pipeline. GIGA-42 JV established with Global Interconnection Group.",
+      "body_no": "Planlegging, kraft og design på tvers av den nordiske pipelinen. GIGA-42 JV etablert med Global Interconnection Group.",
+      "badge_en": "",
+      "badge_no": "",
+      "image": ""
+    },
+    {
+      "id": "n2026",
+      "year": "2026–2030",
+      "headline_en": "AI data centres deployed & scaled",
+      "headline_no": "KI-datasentre utrullet og skalert",
+      "body_en": "Multi-GW pipeline developed.",
+      "body_no": "Pipeline på flere GW utviklet.",
+      "badge_en": "Multi-GW",
+      "badge_no": "Flere GW",
+      "image": ""
+    }
+  ]
+}

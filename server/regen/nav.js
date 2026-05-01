@@ -15,6 +15,7 @@ const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src
       <a href="/solutions/"${active==='solutions'?' class="active"':''}>Solutions</a>
       <a href="/datacenters/"${active==='datacenters'?' class="active"':''}>Data centres</a>
       <a href="/sustainability/"${active==='sustainability'?' class="active"':''}>Sustainability</a>
+      <a href="/giga-42/"${active==='giga42'?' class="active"':''}>GIGA-42</a>
       <a href="/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/news/"${active==='news'?' class="active"':''}>News</a>
       <a href="/#contact" class="btn btn-sm">Contact</a>
@@ -31,6 +32,7 @@ const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img 
       <a href="/no/solutions/"${active==='solutions'?' class="active"':''}>Løsninger</a>
       <a href="/no/datacenters/"${active==='datacenters'?' class="active"':''}>Datasentre</a>
       <a href="/no/sustainability/"${active==='sustainability'?' class="active"':''}>Bærekraft</a>
+      <a href="/no/giga-42/"${active==='giga42'?' class="active"':''}>GIGA-42</a>
       <a href="/no/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/no/news/"${active==='news'?' class="active"':''}>Nyheter</a>
       <a href="/no/#contact" class="btn btn-sm">Kontakt</a>
@@ -46,6 +48,7 @@ const PAGES = [
   { file: 'solutions/index.html', lang: 'en', active: 'solutions', noPath: '/no/solutions/' },
   { file: 'datacenters/index.html', lang: 'en', active: 'datacenters', noPath: '/no/datacenters/' },
   { file: 'sustainability/index.html', lang: 'en', active: 'sustainability', noPath: '/no/sustainability/' },
+  { file: 'giga-42/index.html', lang: 'en', active: 'giga42', noPath: '/no/giga-42/' },
   { file: 'team/index.html', lang: 'en', active: 'team', noPath: '/no/team/' },
   { file: 'news/index.html', lang: 'en', active: 'news', noPath: '/no/news/' },
   { file: 'careers/index.html', lang: 'en', active: null, noPath: '/no/careers/' },
@@ -57,6 +60,7 @@ const PAGES = [
   { file: 'no/solutions/index.html', lang: 'no', active: 'solutions', enPath: '/solutions/' },
   { file: 'no/datacenters/index.html', lang: 'no', active: 'datacenters', enPath: '/datacenters/' },
   { file: 'no/sustainability/index.html', lang: 'no', active: 'sustainability', enPath: '/sustainability/' },
+  { file: 'no/giga-42/index.html', lang: 'no', active: 'giga42', enPath: '/giga-42/' },
   { file: 'no/team/index.html', lang: 'no', active: 'team', enPath: '/team/' },
   { file: 'no/news/index.html', lang: 'no', active: 'news', enPath: '/news/' },
   { file: 'no/careers/index.html', lang: 'no', active: null, enPath: '/careers/' },
