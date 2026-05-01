@@ -20,6 +20,7 @@ function run() {
     }
     fs.writeFileSync(file, html, 'utf-8');
   }
+  try { require('./nav').run(); } catch (e) { console.warn('nav regen skipped:', e.message); }
   console.log('regen sections: done');
 }
 

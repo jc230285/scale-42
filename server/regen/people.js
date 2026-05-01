@@ -60,6 +60,7 @@ function run() {
   }
   // Also regen public signatures pages
   try { require('./signatures').run(); } catch (e) { console.warn('signatures regen skipped:', e.message); }
+  try { require('./nav').run(); } catch (e) { console.warn('nav regen skipped:', e.message); }
   console.log('regen people: done');
 }
 

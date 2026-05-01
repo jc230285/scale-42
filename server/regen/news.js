@@ -74,6 +74,7 @@ function run() {
     html = replaceBlock(html, buildBlock(data.posts, t.lang, t.prefix));
     fs.writeFileSync(p, html, 'utf-8');
   }
+  try { require('./nav').run(); } catch (e) { console.warn('nav regen skipped:', e.message); }
   console.log('regen news: done');
 }
 
