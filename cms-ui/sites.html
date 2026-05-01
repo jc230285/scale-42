@@ -165,6 +165,10 @@
       const n = Array.isArray(v) ? v.length : 0;
       return `<div class="complex-cell" data-complex="milestones" data-cidx="${sIdx}" data-ckey="${f.key}"><span class="summary">${n} milestone${n === 1 ? '' : 's'} — click to edit</span></div>`;
     }
+    if (f.type === 'links') {
+      const n = Array.isArray(v) ? v.length : 0;
+      return `<div class="complex-cell" data-complex="links" data-cidx="${sIdx}" data-ckey="${f.key}"><span class="summary">${n} link${n === 1 ? '' : 's'} — click to edit</span></div>`;
+    }
     if (f.type === 'table') {
       const n = Array.isArray(v) ? v.length : 0;
       return `<div class="complex-cell" data-complex="table" data-cidx="${sIdx}" data-ckey="${f.key}" data-cols='${escAttr(JSON.stringify(f.columns || []))}'><span class="summary">${n} row${n === 1 ? '' : 's'} — click to edit</span></div>`;
@@ -268,6 +272,17 @@
           </div>`).join('')}</div>
         <button class="btn" id="ms-add" style="margin-top:8px;">+ Add milestone</button>
       </div>`;
+    } else if (type === 'links') {
+      const arr = Array.isArray(site[key]) ? site[key] : (site[key] = []);
+      body = `<div>
+        <div id="lk-rows">${arr.map((l, i) => `
+          <div class="lk-row" data-li="${i}" style="display:grid;grid-template-columns:1fr 2fr 30px;gap:8px;align-items:center;border-top:1px dashed #e5e8eb;padding-top:6px;">
+            <input data-lk="title" placeholder="Title" value="${escAttr(l.title)}" />
+            <input data-lk="url" placeholder="https://..." value="${escAttr(l.url)}" />
+            <button type="button" data-lrm="${i}" style="background:transparent;border:none;color:#b3261e;cursor:pointer;font-size:14px;">✕</button>
+          </div>`).join('')}</div>
+        <button class="btn" id="lk-add" style="margin-top:8px;">+ Add link</button>
+      </div>`;
     } else if (type === 'study' || type === 'permit') {
       const o = (site[key] && typeof site[key] === 'object') ? site[key] : {};
       body = `<div style="display:grid;gap:10px;">
@@ -302,6 +317,9 @@
     } else if (type === 'table') {
       $('t-add')?.addEventListener('click', () => { const o={}; JSON.parse(cols).forEach(c=>o[c]=''); site[key].push(o); openComplexModal(idx,key,type,cols); });
       root.querySelectorAll('[data-trm]').forEach(b => b.addEventListener('click', (e) => { site[key].splice(parseInt(e.currentTarget.dataset.trm),1); openComplexModal(idx,key,type,cols); }));
+    } else if (type === 'links') {
+      $('lk-add')?.addEventListener('click', () => { site[key].push({title:'',url:''}); openComplexModal(idx,key,type,cols); });
+      root.querySelectorAll('[data-lrm]').forEach(b => b.addEventListener('click', (e) => { site[key].splice(parseInt(e.currentTarget.dataset.lrm),1); openComplexModal(idx,key,type,cols); }));
     }
 
     $('cx-save').addEventListener('click', () => {
@@ -325,6 +343,14 @@
         const arr = [];
         rows.forEach(r => { const o = {}; colArr.forEach(c => o[c] = r.querySelector(`[data-tk="${c}"]`).value); arr.push(o); });
         site[key] = arr;
+      } else if (type === 'links') {
+        const rows = root.querySelectorAll('.lk-row');
+        const arr = [];
+        rows.forEach(r => arr.push({
+          title: r.querySelector('[data-lk=title]').value,
+          url: r.querySelector('[data-lk=url]').value,
+        }));
+        site[key] = arr.filter(l => l.title || l.url);
       }
       setDirty(true); close(); render();
     });

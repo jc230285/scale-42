@@ -138,6 +138,15 @@ function buildSiteDetailPage(s, schema, lang) {
 
   const fmt = (v, type) => {
     if (v === undefined || v === null || v === '') return '<span class="empty">—</span>';
+    if (type === 'links') {
+      const list = Array.isArray(v) ? v : [];
+      if (!list.length) return '<span class="empty">—</span>';
+      return list.map(n => {
+        const url = escHtml(n.url || '');
+        const title = escHtml(n.title || n.url || '');
+        return url ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>` : title;
+      }).join('<br>');
+    }
     if (Array.isArray(v)) return v.length ? v.map(escHtml).join(', ') : '<span class="empty">—</span>';
     if (type === 'toggle') return v ? 'Yes' : 'No';
     if (typeof v === 'object') return '<span class="empty">—</span>';

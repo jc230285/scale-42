@@ -18,7 +18,13 @@
       "max_capacity_mw": "50",
       "image": "glomfjord.webp",
       "desc_en": "Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus.",
-      "desc_no": "Vannkraftrik kystlokasjon, 12,5 MW-moduler skalerer til 50 MW+ campus."
+      "desc_no": "Vannkraftrik kystlokasjon, 12,5 MW-moduler skalerer til 50 MW+ campus.",
+      "news_links": [
+        {
+          "title": "News on the sale",
+          "url": "https://www.financemagnates.com/thought-leadership/arkon-energy-acquires-hydrokraft-as-to-grow-its-bitcoin-mining-effort/"
+        }
+      ]
     },
     {
       "id": "bakki",
