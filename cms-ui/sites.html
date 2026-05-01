@@ -83,8 +83,6 @@
     <span class="meta" id="dirty-meta">No unsaved changes</span>
     <span class="meta" id="last-published" style="margin-left:12px;color:var(--ink-2);font-size:12px;"></span>
   </div>
-  <p class="lede">Sites along the top, fields down the left. Click a column image to upload. <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);vertical-align:middle"></span> blue dot = public field. Click a group header to collapse it.</p>
-
   <div class="toolbar">
     <span class="grow"></span>
     <label style="display:flex;gap:6px;align-items:center;font-size:13px;color:var(--ink-2);"><input type="checkbox" id="hide-internal"/> Hide internal fields</label>
@@ -112,7 +110,7 @@
 (async function() {
   const $ = (id) => document.getElementById(id);
   let data = { sites: [] }, schema = null, dirty = false;
-  let hideInternal = localStorage.getItem('hideInternal') === '1';
+  let hideInternal = localStorage.getItem('hideInternal') === null ? true : (localStorage.getItem('hideInternal') === '1');
   let collapsedGroups = JSON.parse(localStorage.getItem('collapsedGroups') || '{}');
 
   const setDirty = (v) => { dirty = v; $('dirty-meta').textContent = v ? 'Unsaved changes' : 'No unsaved changes'; };
