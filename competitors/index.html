@@ -100,7 +100,7 @@
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/">Home</a>
-      <a href="/capabilities/">Solutions</a>
+      <a href="/solutions/">Solutions</a>
       <a href="/datacenters/">Data centres</a>
       <a href="/sustainability/">Sustainability</a>
       <a href="/team/">Team</a>
@@ -425,7 +425,7 @@
       </div>
       <div class="footer-col">
         <h5>Platform</h5>
-        <a href="/capabilities/">Solutions</a>
+        <a href="/solutions/">Solutions</a>
         <a href="/datacenters/">Data centres</a>
         <a href="/sustainability/">Sustainability</a>
       </div>
@@ -448,6 +448,11 @@
       <p class="copyright">© 2026 Scale42. All rights reserved.</p>
       <p class="footer-legal">Scale42 AS · Registered in Norway</p>
     </div>
+    <div class="cookie-banner" id="cookie-banner" hidden>
+      <p>We use a single first-party cookie to remember this choice. No tracking, no ads. <a href="/privacy/">Privacy policy</a>.</p>
+      <button type="button" onclick="document.cookie='s42_cookie=ok;path=/;max-age=31536000;samesite=lax';this.closest('.cookie-banner').remove();">OK</button>
+    </div>
+    <script>(function(){if(!/(?:^|; )s42_cookie=/.test(document.cookie)){var b=document.getElementById('cookie-banner');if(b)b.hidden=false;}})();</script>
     <!--/cms:footer-->
   </div>
 </footer>

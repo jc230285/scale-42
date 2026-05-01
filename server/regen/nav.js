@@ -12,7 +12,7 @@ const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/"${active==='home'?' class="active"':''}>Home</a>
-      <a href="/capabilities/"${active==='capabilities'?' class="active"':''}>Solutions</a>
+      <a href="/solutions/"${active==='solutions'?' class="active"':''}>Solutions</a>
       <a href="/datacenters/"${active==='datacenters'?' class="active"':''}>Data centres</a>
       <a href="/sustainability/"${active==='sustainability'?' class="active"':''}>Sustainability</a>
       <a href="/team/"${active==='team'?' class="active"':''}>Team</a>
@@ -28,7 +28,7 @@ const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img 
     <button class="nav-toggle" aria-label="Meny" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/no/"${active==='home'?' class="active"':''}>Hjem</a>
-      <a href="/no/capabilities/"${active==='capabilities'?' class="active"':''}>Løsninger</a>
+      <a href="/no/solutions/"${active==='solutions'?' class="active"':''}>Løsninger</a>
       <a href="/no/datacenters/"${active==='datacenters'?' class="active"':''}>Datasentre</a>
       <a href="/no/sustainability/"${active==='sustainability'?' class="active"':''}>Bærekraft</a>
       <a href="/no/team/"${active==='team'?' class="active"':''}>Team</a>
@@ -43,7 +43,7 @@ const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img 
 // (relative path from ROOT) -> { lang, active, langSwitch }
 const PAGES = [
   { file: 'index.html', lang: 'en', active: 'home', noPath: '/no/' },
-  { file: 'capabilities/index.html', lang: 'en', active: 'capabilities', noPath: '/no/capabilities/' },
+  { file: 'solutions/index.html', lang: 'en', active: 'solutions', noPath: '/no/solutions/' },
   { file: 'datacenters/index.html', lang: 'en', active: 'datacenters', noPath: '/no/datacenters/' },
   { file: 'sustainability/index.html', lang: 'en', active: 'sustainability', noPath: '/no/sustainability/' },
   { file: 'team/index.html', lang: 'en', active: 'team', noPath: '/no/team/' },
@@ -54,7 +54,7 @@ const PAGES = [
   { file: 'competitors/index.html', lang: 'en', active: null, noPath: '/no/' },
   { file: '404.html', lang: 'en', active: null, noPath: '/no/' },
   { file: 'no/index.html', lang: 'no', active: 'home', enPath: '/' },
-  { file: 'no/capabilities/index.html', lang: 'no', active: 'capabilities', enPath: '/capabilities/' },
+  { file: 'no/solutions/index.html', lang: 'no', active: 'solutions', enPath: '/solutions/' },
   { file: 'no/datacenters/index.html', lang: 'no', active: 'datacenters', enPath: '/datacenters/' },
   { file: 'no/sustainability/index.html', lang: 'no', active: 'sustainability', enPath: '/sustainability/' },
   { file: 'no/team/index.html', lang: 'no', active: 'team', enPath: '/team/' },

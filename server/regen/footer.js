@@ -12,7 +12,7 @@ const FOOTER_EN = `<div class="footer-grid">
       </div>
       <div class="footer-col">
         <h5>Platform</h5>
-        <a href="/capabilities/">Solutions</a>
+        <a href="/solutions/">Solutions</a>
         <a href="/datacenters/">Data centres</a>
         <a href="/sustainability/">Sustainability</a>
       </div>
@@ -34,7 +34,12 @@ const FOOTER_EN = `<div class="footer-grid">
     <div class="footer-bottom">
       <p class="copyright">© 2026 Scale42. All rights reserved.</p>
       <p class="footer-legal">Scale42 AS · Registered in Norway</p>
-    </div>`;
+    </div>
+    <div class="cookie-banner" id="cookie-banner" hidden>
+      <p>We use a single first-party cookie to remember this choice. No tracking, no ads. <a href="/privacy/">Privacy policy</a>.</p>
+      <button type="button" onclick="document.cookie='s42_cookie=ok;path=/;max-age=31536000;samesite=lax';this.closest('.cookie-banner').remove();">OK</button>
+    </div>
+    <script>(function(){if(!/(?:^|; )s42_cookie=/.test(document.cookie)){var b=document.getElementById('cookie-banner');if(b)b.hidden=false;}})();</script>`;
 
 const FOOTER_NO = `<div class="footer-grid">
       <div class="footer-col footer-brand">
@@ -44,7 +49,7 @@ const FOOTER_NO = `<div class="footer-grid">
       </div>
       <div class="footer-col">
         <h5>Plattform</h5>
-        <a href="/no/capabilities/">Løsninger</a>
+        <a href="/no/solutions/">Løsninger</a>
         <a href="/no/datacenters/">Datasentre</a>
         <a href="/no/sustainability/">Bærekraft</a>
       </div>
@@ -66,7 +71,12 @@ const FOOTER_NO = `<div class="footer-grid">
     <div class="footer-bottom">
       <p class="copyright">© 2026 Scale42. Alle rettigheter forbeholdt.</p>
       <p class="footer-legal">Scale42 AS · Registrert i Norge</p>
-    </div>`;
+    </div>
+    <div class="cookie-banner" id="cookie-banner" hidden>
+      <p>Vi bruker én førsteparts informasjonskapsel for å huske valget ditt. Ingen sporing, ingen annonser. <a href="/no/privacy/">Personvernerklæring</a>.</p>
+      <button type="button" onclick="document.cookie='s42_cookie=ok;path=/;max-age=31536000;samesite=lax';this.closest('.cookie-banner').remove();">OK</button>
+    </div>
+    <script>(function(){if(!/(?:^|; )s42_cookie=/.test(document.cookie)){var b=document.getElementById('cookie-banner');if(b)b.hidden=false;}})();</script>`;
 
 function injectFooter(html, lang) {
   const block = lang === 'no' ? FOOTER_NO : FOOTER_EN;

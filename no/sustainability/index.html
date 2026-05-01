@@ -31,7 +31,7 @@
     <button class="nav-toggle" aria-label="Meny" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/no/">Hjem</a>
-      <a href="/no/capabilities/">Løsninger</a>
+      <a href="/no/solutions/">Løsninger</a>
       <a href="/no/datacenters/">Datasentre</a>
       <a href="/no/sustainability/" class="active">Bærekraft</a>
       <a href="/no/team/">Team</a>
@@ -110,7 +110,7 @@
       </div>
       <div class="footer-col">
         <h5>Plattform</h5>
-        <a href="/no/capabilities/">Løsninger</a>
+        <a href="/no/solutions/">Løsninger</a>
         <a href="/no/datacenters/">Datasentre</a>
         <a href="/no/sustainability/">Bærekraft</a>
       </div>
@@ -133,6 +133,11 @@
       <p class="copyright">© 2026 Scale42. Alle rettigheter forbeholdt.</p>
       <p class="footer-legal">Scale42 AS · Registrert i Norge</p>
     </div>
+    <div class="cookie-banner" id="cookie-banner" hidden>
+      <p>Vi bruker én førsteparts informasjonskapsel for å huske valget ditt. Ingen sporing, ingen annonser. <a href="/no/privacy/">Personvernerklæring</a>.</p>
+      <button type="button" onclick="document.cookie='s42_cookie=ok;path=/;max-age=31536000;samesite=lax';this.closest('.cookie-banner').remove();">OK</button>
+    </div>
+    <script>(function(){if(!/(?:^|; )s42_cookie=/.test(document.cookie)){var b=document.getElementById('cookie-banner');if(b)b.hidden=false;}})();</script>
     <!--/cms:footer-->
   </div>
 </footer>
