@@ -22,6 +22,16 @@
   table.grid .group-row td::before { content: '▾'; margin-right: 8px; display: inline-block; transition: transform 0.1s; }
   table.grid .group-row.collapsed td::before { transform: rotate(-90deg); }
   table.grid .group-row .group-internal-tag { background: #fef3e0; color: #a35c00; padding: 1px 7px; border-radius: 999px; font-size: 10px; margin-left: 8px; font-weight: 600; }
+  table.grid tr.internal-field td { background: #fdecec; }
+  table.grid tr.internal-field td.label-col { background: #fbdbdb; }
+  table.grid tr.internal-field td.label-col .field-label { color: #8a1c1c; }
+  .strat-pill { display: inline-block; margin-top: 6px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; background: #6b7780; }
+  .strat-going-to-3rd-party- { background: #b9923a; }
+  .strat-giga-42-responsibility { background: #2f6675; }
+  .strat-development-focus { background: #2e7d32; }
+  .strat-later-stage-project { background: #5b6e7d; }
+  .strat-bin-the-project { background: #b3261e; }
+  .strat-who-the-fuck-knows { background: #7e57c2; }
   table.grid .site-col { min-width: 240px; max-width: 280px; }
   table.grid thead .header-cell { padding: 8px; background: #fafbfc; position: sticky; top: 0; z-index: 6; }
   table.grid thead .header-cell .reorder { display: flex; gap: 2px; justify-content: center; margin-bottom: 4px; }
@@ -195,6 +205,7 @@
       <div class="img-wrap" data-img-idx="${idx}">${img}</div>
       <div class="name">${escText(site.name || '(unnamed)')}</div>
       <div class="meta"><span class="pill ${pillCls}">${escText(pillTxt)}</span><span>${escText(site.country || '')}</span></div>
+      ${site.strategic_status ? `<div class="strat-pill strat-${escAttr(site.strategic_status.replace(/[^a-z0-9]/gi,'-').toLowerCase())}" title="Strategic status">${escText(site.strategic_status)}</div>` : ''}
     `;
   }
 
@@ -226,7 +237,8 @@
       </tr>`;
       if (isCollapsed) continue;
       for (const f of fields) {
-        html += `<tr class="field-row">`;
+        const rowCls = f.public ? 'field-row' : 'field-row internal-field';
+        html += `<tr class="${rowCls}">`;
         html += `<td class="label-col"><div class="field-label">${fieldDot(f)} ${escText(f.label)}</div></td>`;
         data.sites.forEach((s, i) => {
           html += `<td>${renderCell(s, i, f)}</td>`;

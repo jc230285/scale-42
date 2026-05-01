@@ -733,6 +733,113 @@
       "group": "narrative",
       "type": "links",
       "public": true
+    },
+    {
+      "key": "highway_access",
+      "label": "Highway access",
+      "group": "access",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "airport_access",
+      "label": "Airport access",
+      "group": "access",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "college_university",
+      "label": "College / universities",
+      "group": "access",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "other_access_notes",
+      "label": "Other access notes",
+      "group": "access",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "latency_summary",
+      "label": "Latency to key markets",
+      "group": "connectivity",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "fibre_general_info",
+      "label": "Fibre commentary",
+      "group": "connectivity",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "project_description",
+      "label": "Project description (long)",
+      "group": "narrative",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "bid_status",
+      "label": "Project / lead status",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "category_rationale",
+      "label": "Category & rationale",
+      "group": "status_ownership",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "fingrid_map_link",
+      "label": "Fingrid / grid map link",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "connection_enquiry_link",
+      "label": "Connection enquiry link",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "investment_memo_link",
+      "label": "Investment memo link",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "key_risks_dependencies",
+      "label": "Key risks & dependencies",
+      "group": "commercial",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "strategic_status",
+      "label": "Strategic status",
+      "group": "status_ownership",
+      "type": "select",
+      "public": false,
+      "options": [
+        "Going to 3rd party",
+        "GIGA-42 Responsibility",
+        "Development focus",
+        "Later stage project",
+        "Bin the project",
+        "Who the fuck knows",
+        ""
+      ]
     }
   ]
 }
