@@ -157,6 +157,7 @@
   <div class="container nav-inner">
     <!--cms:nav-->
     <a class="brand" href="/"><img src="/assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/">Home</a>
       <a href="/capabilities/">Capabilities</a>
@@ -208,17 +209,30 @@
 <section id="dc-list" class="dc-list">
   <div class="container">
     <div class="dc-toolbar">
-      <button class="dc-filter active" data-filter="all">All</button>
-      <button class="dc-filter" data-filter="norway">Norway</button>
-      <button class="dc-filter" data-filter="finland">Finland</button>
-      <button class="dc-filter" data-filter="sweden">Sweden</button>
-      <button class="dc-filter" data-filter="iceland">Iceland</button>
-      <button class="dc-filter" data-filter="greenland">Greenland</button>
+      <strong style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-right:8px;">Country</strong>
+      <button class="dc-filter active" data-axis="country" data-filter="all">All</button>
+      <button class="dc-filter" data-axis="country" data-filter="norway">Norway</button>
+      <button class="dc-filter" data-axis="country" data-filter="finland">Finland</button>
+      <button class="dc-filter" data-axis="country" data-filter="sweden">Sweden</button>
+      <button class="dc-filter" data-axis="country" data-filter="iceland">Iceland</button>
+      <button class="dc-filter" data-axis="country" data-filter="greenland">Greenland</button>
+      <button class="dc-filter" data-axis="country" data-filter="switzerland">Switzerland</button>
+      <button class="dc-filter" data-axis="country" data-filter="italy">Italy</button>
+    </div>
+    <div class="dc-toolbar" style="margin-top:-16px;">
+      <strong style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-right:8px;">Status</strong>
+      <button class="dc-filter active" data-axis="strat" data-filter="all">All</button>
+      <button class="dc-filter" data-axis="strat" data-filter="sold">Sold</button>
+      <button class="dc-filter" data-axis="strat" data-filter="giga-42-responsibility">GIGA-42 priority</button>
+      <button class="dc-filter" data-axis="strat" data-filter="development-focus">Development focus</button>
+      <button class="dc-filter" data-axis="strat" data-filter="going-to-3rd-party">Partner-led</button>
+      <button class="dc-filter" data-axis="strat" data-filter="later-stage-project">Later stage</button>
+      <button class="dc-filter" data-axis="strat" data-filter="bin-the-project">Deprioritised</button>
     </div>
 
     <div class="dc-grid"><!--cms:dc_cards-->
 
-      <article class="dc-card" id="glomfjord" data-country="norway">
+      <article class="dc-card" id="glomfjord" data-country="norway" data-strat="sold">
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status sold">Sold</span>
@@ -237,7 +251,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="bakki" data-country="iceland">
+      <article class="dc-card" id="bakki" data-country="iceland" data-strat="giga-42-responsibility">
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status live">JV announced</span>
@@ -256,7 +270,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="skibotn" data-country="norway">
+      <article class="dc-card" id="skibotn" data-country="norway" data-strat="giga-42-responsibility">
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status live">Power-secured</span>
@@ -275,7 +289,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="reykjavik" data-country="iceland">
+      <article class="dc-card" id="reykjavik" data-country="iceland" data-strat="giga-42-responsibility">
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status live">Permitting</span>
@@ -294,7 +308,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kristinestad" data-country="finland">
+      <article class="dc-card" id="kristinestad" data-country="finland" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Power-secured</span>
@@ -313,7 +327,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nivala" data-country="finland">
+      <article class="dc-card" id="nivala" data-country="finland" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -332,7 +346,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="jokkmokk" data-country="sweden">
+      <article class="dc-card" id="jokkmokk" data-country="sweden" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status live">Power-secured</span>
@@ -351,7 +365,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kronoby" data-country="finland">
+      <article class="dc-card" id="kronoby" data-country="finland" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -370,7 +384,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="torsboda" data-country="sweden">
+      <article class="dc-card" id="torsboda" data-country="sweden" data-strat="development-focus">
         <div class="img tbd">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -389,7 +403,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="liperi" data-country="finland">
+      <article class="dc-card" id="liperi" data-country="finland" data-strat="going-to-3rd-party">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -408,7 +422,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kitee" data-country="finland">
+      <article class="dc-card" id="kitee" data-country="finland" data-strat="going-to-3rd-party">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -427,7 +441,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sorfold" data-country="norway">
+      <article class="dc-card" id="sorfold" data-country="norway" data-strat="going-to-3rd-party">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -446,7 +460,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="alajarvi" data-country="finland">
+      <article class="dc-card" id="alajarvi" data-country="finland" data-strat="later-stage-project">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -465,7 +479,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="robertsfors" data-country="sweden">
+      <article class="dc-card" id="robertsfors" data-country="sweden" data-strat="later-stage-project">
         <div class="img tbd">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -484,7 +498,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nuuk" data-country="greenland">
+      <article class="dc-card" id="nuuk" data-country="greenland" data-strat="later-stage-project">
         <div class="img tbd">
           <span class="country-flag">Greenland</span>
           <span class="status tbd">In planning</span>
@@ -503,7 +517,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tjeldbergodden" data-country="norway">
+      <article class="dc-card" id="tjeldbergodden" data-country="norway" data-strat="who-the-fuck-knows">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -522,7 +536,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="honningsvag" data-country="norway">
+      <article class="dc-card" id="honningsvag" data-country="norway" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -541,7 +555,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kemi" data-country="finland">
+      <article class="dc-card" id="kemi" data-country="finland" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -560,7 +574,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="mikkeli" data-country="finland">
+      <article class="dc-card" id="mikkeli" data-country="finland" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -579,7 +593,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="boden" data-country="sweden">
+      <article class="dc-card" id="boden" data-country="sweden" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -598,7 +612,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="hadsel" data-country="norway">
+      <article class="dc-card" id="hadsel" data-country="norway" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -617,7 +631,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sortland" data-country="norway">
+      <article class="dc-card" id="sortland" data-country="norway" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -636,7 +650,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="salsbruket" data-country="norway">
+      <article class="dc-card" id="salsbruket" data-country="norway" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -655,7 +669,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="rovaniemi" data-country="finland">
+      <article class="dc-card" id="rovaniemi" data-country="finland" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -1067,9 +1081,40 @@
 </section>
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <img src="../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
-    <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+  <div class="container">
+    <!--cms:footer-->
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+        <p class="footer-tag">Pan-Nordic AI &amp; HPC infrastructure — built on hydropower, geothermal and free-air cooling.</p>
+        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/datacenters/">Data centres</a>
+        <a href="/sustainability/">Sustainability</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="/team/">Team</a>
+        <a href="/careers/">Careers</a>
+        <a href="/news/">News</a>
+        <a href="/press/">Press</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="/news/rss.xml">RSS feed</a>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+      <p class="footer-legal">Scale42 AS · Registered in Norway</p>
+    </div>
+    <!--/cms:footer-->
   </div>
 </footer>
 
@@ -1146,15 +1191,21 @@
   map.once('focus', () => map.scrollWheelZoom.enable());
   map.on('click', () => map.scrollWheelZoom.enable());
 
-  // Country filter
+  // Combined country + strategic-status filter
+  const active = { country: 'all', strat: 'all' };
+  function applyFilters() {
+    document.querySelectorAll('.dc-card').forEach(card => {
+      const c = active.country === 'all' || card.dataset.country === active.country;
+      const s = active.strat === 'all' || card.dataset.strat === active.strat;
+      card.style.display = (c && s) ? '' : 'none';
+    });
+  }
   document.querySelectorAll('.dc-filter').forEach(btn => {
     btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('.dc-filter').forEach(b => b.classList.toggle('active', b === btn));
-      document.querySelectorAll('.dc-card').forEach(card => {
-        const show = filter === 'all' || card.dataset.country === filter;
-        card.style.display = show ? '' : 'none';
-      });
+      const axis = btn.dataset.axis || 'country';
+      active[axis] = btn.dataset.filter;
+      document.querySelectorAll(`.dc-filter[data-axis="${axis}"]`).forEach(b => b.classList.toggle('active', b === btn));
+      applyFilters();
     });
   });
 </script>

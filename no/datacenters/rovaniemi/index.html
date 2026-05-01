@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#1c2e3f" />
 <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg" />
 <link rel="canonical" href="https://www.scale-42.com/no/datacenters/rovaniemi/" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Rovaniemi Data Centre","description":"","url":"https://www.scale-42.com/no/datacenters/rovaniemi/","geo":{"@type":"GeoCoordinates","latitude":66.5,"longitude":25.7167},"address":{"@type":"PostalAddress","addressCountry":"Finland","streetAddress":"Voimalaitostie 123, 97635 Rovaniemi, Finland"},"containedInPlace":{"@type":"Country","name":"Finland"},"provider":{"@type":"Organization","name":"Scale42","url":"https://www.scale-42.com/"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -46,6 +47,7 @@
   <div class="container nav-inner">
     <!--cms:nav-->
     <a class="brand" href="/no/"><img src="/assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Meny" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/no/">Hjem</a>
       <a href="/no/capabilities/">Kapabiliteter</a>
@@ -82,10 +84,49 @@
 <section class="kv-section"><h2>Narrative</h2><dl class="kv-grid"><div class="kv"><dt>News &amp; press</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Project description (long)</dt><dd>Identified April 2025 near the Pirtikoski hydrodam alongside Business Rovaniemi. Discussions halted in expectation of finding a more workforce-friendly location. Gently sloping site with sporadic woodland and multiple access roads, adjacent to 400 kV substation and hydropower dam.</dd></div></dl></section>
   </div>
 </section>
+<section class="dc-cta" style="background:var(--bg-dark);color:#e8ece9;padding:64px 0;text-align:center;">
+  <div class="container">
+    <h2 style="font-family:var(--font-display);font-size:clamp(28px,3vw,38px);margin:0 0 12px;font-weight:600;letter-spacing:-0.02em;color:#fff;">Vurderer du Rovaniemi?</h2>
+    <p style="color:#b9c2bd;margin:0 0 24px;font-size:17px;">Be om en RFI-pakke for dette spesifikke prosjektet — power, fibre, timeline, kommersielle vilkår.</p>
+    <a href="mailto:info@scale-42.com?subject=RFI%20request%20%E2%80%94%20Rovaniemi" class="btn btn-primary" style="background:#fff;color:var(--ink);">Be om RFI-pakke →</a>
+    <a href="../" class="btn" style="margin-left:8px;color:#fff;border-color:#fff;">Tilbake til alle sites</a>
+  </div>
+</section>
 <footer class="footer">
-  <div class="container footer-inner">
-    <img src="../../../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
-    <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+  <div class="container">
+    <!--cms:footer-->
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+        <p class="footer-tag">Pan-nordisk KI- og HPC-infrastruktur — bygget på vannkraft, geotermisk energi og frikjøling.</p>
+        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Plattform</h5>
+        <a href="/no/capabilities/">Kapabiliteter</a>
+        <a href="/no/datacenters/">Datasentre</a>
+        <a href="/no/sustainability/">Bærekraft</a>
+      </div>
+      <div class="footer-col">
+        <h5>Selskap</h5>
+        <a href="/no/team/">Team</a>
+        <a href="/no/careers/">Karriere</a>
+        <a href="/no/news/">Nyheter</a>
+        <a href="/no/press/">Presse</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ressurser</h5>
+        <a href="/news/rss.xml">RSS</a>
+        <a href="/sitemap.xml">Områdekart</a>
+        <a href="/no/privacy/">Personvern</a>
+        <a href="/no/#contact">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 Scale42. Alle rettigheter forbeholdt.</p>
+      <p class="footer-legal">Scale42 AS · Registrert i Norge</p>
+    </div>
+    <!--/cms:footer-->
   </div>
 </footer>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>

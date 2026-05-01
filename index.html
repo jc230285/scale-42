@@ -79,6 +79,7 @@
   <div class="container nav-inner">
     <!--cms:nav-->
     <a class="brand" href="/"><img src="/assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/" class="active">Home</a>
       <a href="/capabilities/">Capabilities</a>
@@ -95,7 +96,7 @@
   </div>
 </header>
 
-<section id="top" class="hero">
+<section id="top" class="hero hero-mosaic">
   <div class="hero-bg" aria-hidden="true">
     <picture>
       <source media="(min-width: 900px)" srcset="assets/hero.webp" type="image/webp">
@@ -103,6 +104,16 @@
       <source srcset="assets/hero-900.webp" type="image/webp">
       <img src="assets/hero-900.jpg" alt="" />
     </picture>
+    <div class="hero-mosaic-overlay" aria-hidden="true">
+      <span class="m-band m-band-1"></span>
+      <span class="m-band m-band-2"></span>
+      <span class="m-band m-band-3"></span>
+      <span class="m-band m-band-4"></span>
+      <span class="m-tri m-tri-1"></span>
+      <span class="m-tri m-tri-2"></span>
+      <span class="m-tri m-tri-3"></span>
+    </div>
+    <div class="hero-wordmark" aria-hidden="true">Scale42</div>
   </div>
   <div class="container hero-inner">
     <p class="eyebrow"><!--cms:hero_eyebrow-->Next-generation European digital infrastructure<!--/cms:hero_eyebrow--></p>
@@ -368,9 +379,40 @@
 </section>
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <img src="assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
-    <p class="copyright"><!--cms:footer_copyright-->© 2026 Scale42. All rights reserved.<!--/cms:footer_copyright--></p>
+  <div class="container">
+    <!--cms:footer-->
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+        <p class="footer-tag">Pan-Nordic AI &amp; HPC infrastructure — built on hydropower, geothermal and free-air cooling.</p>
+        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/datacenters/">Data centres</a>
+        <a href="/sustainability/">Sustainability</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="/team/">Team</a>
+        <a href="/careers/">Careers</a>
+        <a href="/news/">News</a>
+        <a href="/press/">Press</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="/news/rss.xml">RSS feed</a>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+      <p class="footer-legal">Scale42 AS · Registered in Norway</p>
+    </div>
+    <!--/cms:footer-->
   </div>
 </footer>
 
@@ -454,16 +496,10 @@
       { name: "Skelleftea", country: "Sweden", status: "tbd", lat: 64.75, lng: 20.95 },
       { name: "Utansjö", country: "Sweden", status: "tbd", lat: 62.78, lng: 17.92 },
       { name: "Kalix", country: "Sweden", status: "tbd", lat: 65.85, lng: 23.16 },
-      { name: "Reyðarfjörður", country: "Iceland", status: "tbd", lat: undefined, lng: undefined },
       { name: "Akureyri", country: "Iceland", status: "tbd", lat: 65.68, lng: -18.1 },
       { name: "Valais Canton", country: "Switzerland", status: "tbd", lat: 46.2, lng: 7.62 },
-      { name: "TBC (Northern England)", country: "UK", status: "tbd", lat: undefined, lng: undefined },
-      { name: "Iceland Run of River", country: "Iceland", status: "tbd", lat: undefined, lng: undefined },
       { name: "Mo I Rana, Mo Industrial Park", country: "Norway", status: "tbd", lat: 66.31, lng: 14.14 },
-      { name: "Andøya", country: "Norway", status: "tbd", lat: undefined, lng: undefined },
       { name: "Sogn (Luster, Sognekraft Sogn Utvikling)", country: "Norway", status: "tbd", lat: 61.4, lng: 7.4 },
-      { name: "Östersund (Spikboderna)", country: "Sweden", status: "tbd", lat: undefined, lng: undefined },
-      { name: "Mörsil", country: "Sweden", status: "tbd", lat: undefined, lng: undefined },
       { name: "Milan", country: "Italy", status: "tbd", lat: 45.47, lng: 9.19 },
     ]/*/cms:sites_array*/;
     const map = L.map('home-map', {

@@ -160,6 +160,7 @@
   <div class="container nav-inner">
     <!--cms:nav-->
     <a class="brand" href="/no/"><img src="/assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Meny" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/no/">Hjem</a>
       <a href="/no/capabilities/">Kapabiliteter</a>
@@ -221,7 +222,7 @@
 
     <div class="dc-grid"><!--cms:dc_cards-->
 
-      <article class="dc-card" id="glomfjord" data-country="norway">
+      <article class="dc-card" id="glomfjord" data-country="norway" data-strat="sold">
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status sold">Sold</span>
@@ -240,7 +241,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="bakki" data-country="iceland">
+      <article class="dc-card" id="bakki" data-country="iceland" data-strat="giga-42-responsibility">
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status live">JV announced</span>
@@ -259,7 +260,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="skibotn" data-country="norway">
+      <article class="dc-card" id="skibotn" data-country="norway" data-strat="giga-42-responsibility">
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status live">Power-secured</span>
@@ -278,7 +279,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="reykjavik" data-country="iceland">
+      <article class="dc-card" id="reykjavik" data-country="iceland" data-strat="giga-42-responsibility">
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status live">Permitting</span>
@@ -297,7 +298,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kristinestad" data-country="finland">
+      <article class="dc-card" id="kristinestad" data-country="finland" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Power-secured</span>
@@ -316,7 +317,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nivala" data-country="finland">
+      <article class="dc-card" id="nivala" data-country="finland" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -335,7 +336,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="jokkmokk" data-country="sweden">
+      <article class="dc-card" id="jokkmokk" data-country="sweden" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status live">Power-secured</span>
@@ -354,7 +355,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kronoby" data-country="finland">
+      <article class="dc-card" id="kronoby" data-country="finland" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -373,7 +374,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="torsboda" data-country="sweden">
+      <article class="dc-card" id="torsboda" data-country="sweden" data-strat="development-focus">
         <div class="img tbd">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -392,7 +393,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="liperi" data-country="finland">
+      <article class="dc-card" id="liperi" data-country="finland" data-strat="going-to-3rd-party">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -411,7 +412,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kitee" data-country="finland">
+      <article class="dc-card" id="kitee" data-country="finland" data-strat="going-to-3rd-party">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -430,7 +431,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sorfold" data-country="norway">
+      <article class="dc-card" id="sorfold" data-country="norway" data-strat="going-to-3rd-party">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -449,7 +450,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="alajarvi" data-country="finland">
+      <article class="dc-card" id="alajarvi" data-country="finland" data-strat="later-stage-project">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -468,7 +469,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="robertsfors" data-country="sweden">
+      <article class="dc-card" id="robertsfors" data-country="sweden" data-strat="later-stage-project">
         <div class="img tbd">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -487,7 +488,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nuuk" data-country="greenland">
+      <article class="dc-card" id="nuuk" data-country="greenland" data-strat="later-stage-project">
         <div class="img tbd">
           <span class="country-flag">Greenland</span>
           <span class="status tbd">I planlegging</span>
@@ -506,7 +507,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tjeldbergodden" data-country="norway">
+      <article class="dc-card" id="tjeldbergodden" data-country="norway" data-strat="who-the-fuck-knows">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -525,7 +526,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="honningsvag" data-country="norway">
+      <article class="dc-card" id="honningsvag" data-country="norway" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -544,7 +545,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kemi" data-country="finland">
+      <article class="dc-card" id="kemi" data-country="finland" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -563,7 +564,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="mikkeli" data-country="finland">
+      <article class="dc-card" id="mikkeli" data-country="finland" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -582,7 +583,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="boden" data-country="sweden">
+      <article class="dc-card" id="boden" data-country="sweden" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -601,7 +602,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="hadsel" data-country="norway">
+      <article class="dc-card" id="hadsel" data-country="norway" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -620,7 +621,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sortland" data-country="norway">
+      <article class="dc-card" id="sortland" data-country="norway" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -639,7 +640,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="salsbruket" data-country="norway">
+      <article class="dc-card" id="salsbruket" data-country="norway" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -658,7 +659,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="rovaniemi" data-country="finland">
+      <article class="dc-card" id="rovaniemi" data-country="finland" data-strat="bin-the-project">
         <div class="img tbd">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -1070,9 +1071,40 @@
 </section>
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <img src="../../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
-    <p class="copyright">© 2026 Scale42. Alle rettigheter forbeholdt.</p>
+  <div class="container">
+    <!--cms:footer-->
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+        <p class="footer-tag">Pan-nordisk KI- og HPC-infrastruktur — bygget på vannkraft, geotermisk energi og frikjøling.</p>
+        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Plattform</h5>
+        <a href="/no/capabilities/">Kapabiliteter</a>
+        <a href="/no/datacenters/">Datasentre</a>
+        <a href="/no/sustainability/">Bærekraft</a>
+      </div>
+      <div class="footer-col">
+        <h5>Selskap</h5>
+        <a href="/no/team/">Team</a>
+        <a href="/no/careers/">Karriere</a>
+        <a href="/no/news/">Nyheter</a>
+        <a href="/no/press/">Presse</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ressurser</h5>
+        <a href="/news/rss.xml">RSS</a>
+        <a href="/sitemap.xml">Områdekart</a>
+        <a href="/no/privacy/">Personvern</a>
+        <a href="/no/#contact">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 Scale42. Alle rettigheter forbeholdt.</p>
+      <p class="footer-legal">Scale42 AS · Registrert i Norge</p>
+    </div>
+    <!--/cms:footer-->
   </div>
 </footer>
 

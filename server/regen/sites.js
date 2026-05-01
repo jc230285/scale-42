@@ -38,7 +38,7 @@ function updateMarker(html, key, value) {
 }
 
 function homeArrayLiteral(sites) {
-  const lines = sites.filter(s => s.published).map(s =>
+  const lines = sites.filter(s => s.published && s.lat != null && s.lng != null).map(s =>
     `      { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, lat: ${s.lat}, lng: ${s.lng} }`
   );
   return `[\n${lines.join(',\n')},\n    ]`;
@@ -73,7 +73,9 @@ function cardHtml(sites, lang) {
     const imgClass = s.image ? '' : (s.status === 'tbd' ? ' tbd' : '');
     const statusClass = s.status === 'tbd' ? 'tbd' : s.status === 'sold' ? 'sold' : 'live';
     const statusLabel = escHtml(s.short_status_label || labels[s.status] || labels.live);
-    return `      <article class="dc-card" id="${escHtml(slug)}" data-country="${escHtml(ckey)}">
+    const stratKey = (s.strategic_status || '').replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().replace(/^-+|-+$/g, '');
+    const stratAttr = stratKey ? ` data-strat="${escHtml(stratKey)}"` : (s.status === 'sold' ? ' data-strat="sold"' : '');
+    return `      <article class="dc-card" id="${escHtml(slug)}" data-country="${escHtml(ckey)}"${stratAttr}>
         <div class="img${imgClass}">
           <span class="country-flag">${country}</span>
           <span class="status ${statusClass}">${statusLabel}</span>
@@ -203,6 +205,18 @@ function buildSiteDetailPage(s, schema, lang) {
 <meta name="theme-color" content="#1c2e3f" />
 <link rel="icon" type="image/svg+xml" href="${isNo ? '../../../assets/favicon.svg' : '../../assets/favicon.svg'}" />
 <link rel="canonical" href="https://www.scale-42.com/${isNo ? 'no/' : ''}datacenters/${escHtml(slug)}/" />
+<script type="application/ld+json">${JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Place',
+  name: s.name + ' Data Centre',
+  description: desc || '',
+  url: `https://www.scale-42.com/${isNo ? 'no/' : ''}datacenters/${slug}/`,
+  ...(s.lat && s.lng ? { geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng } } : {}),
+  ...(s.country ? { address: { '@type': 'PostalAddress', addressCountry: s.country, ...(s.address ? { streetAddress: s.address } : {}) } } : {}),
+  ...(s.image ? { image: `https://www.scale-42.com/assets/sites/${s.image}` } : {}),
+  containedInPlace: { '@type': 'Country', name: s.country || '' },
+  provider: { '@type': 'Organization', name: 'Scale42', url: 'https://www.scale-42.com/' }
+})}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -259,10 +273,18 @@ ${hasCoords ? '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist
     ${groupSections}
   </div>
 </section>
+<section class="dc-cta" style="background:var(--bg-dark);color:#e8ece9;padding:64px 0;text-align:center;">
+  <div class="container">
+    <h2 style="font-family:var(--font-display);font-size:clamp(28px,3vw,38px);margin:0 0 12px;font-weight:600;letter-spacing:-0.02em;color:#fff;">${isNo ? 'Vurderer du ' + escHtml(s.name) + '?' : 'Considering ' + escHtml(s.name) + '?'}</h2>
+    <p style="color:#b9c2bd;margin:0 0 24px;font-size:17px;">${isNo ? 'Be om en RFI-pakke for dette spesifikke prosjektet — power, fibre, timeline, kommersielle vilkår.' : 'Request an RFI pack for this specific site — power, fibre, timeline, commercial terms.'}</p>
+    <a href="mailto:info@scale-42.com?subject=${encodeURIComponent('RFI request — ' + s.name)}" class="btn btn-primary" style="background:#fff;color:var(--ink);">${isNo ? 'Be om RFI-pakke' : 'Request RFI pack'} →</a>
+    <a href="../" class="btn" style="margin-left:8px;color:#fff;border-color:#fff;">${isNo ? 'Tilbake til alle sites' : 'Back to all sites'}</a>
+  </div>
+</section>
 <footer class="footer">
-  <div class="container footer-inner">
-    <img src="${isNo ? '../../../assets/logo.svg' : '../../assets/logo.svg'}" alt="Scale42" class="brand-logo brand-logo-footer" />
-    <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+  <div class="container">
+    <!--cms:footer-->
+    <!--/cms:footer-->
   </div>
 </footer>
 ${hasCoords ? `<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>

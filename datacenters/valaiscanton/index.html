@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#1c2e3f" />
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
 <link rel="canonical" href="https://www.scale-42.com/datacenters/valaiscanton/" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Valais Canton Data Centre","description":"","url":"https://www.scale-42.com/datacenters/valaiscanton/","geo":{"@type":"GeoCoordinates","latitude":46.2,"longitude":7.62},"address":{"@type":"PostalAddress","addressCountry":"Switzerland","streetAddress":"Valais Canton"},"containedInPlace":{"@type":"Country","name":"Switzerland"},"provider":{"@type":"Organization","name":"Scale42","url":"https://www.scale-42.com/"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -46,6 +47,7 @@
   <div class="container nav-inner">
     <!--cms:nav-->
     <a class="brand" href="/"><img src="/assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/">Home</a>
       <a href="/capabilities/">Capabilities</a>
@@ -82,10 +84,49 @@
 <section class="kv-section"><h2>Narrative</h2><dl class="kv-grid"><div class="kv"><dt>News &amp; press</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Project description (long)</dt><dd><span class="empty">—</span></dd></div></dl></section>
   </div>
 </section>
+<section class="dc-cta" style="background:var(--bg-dark);color:#e8ece9;padding:64px 0;text-align:center;">
+  <div class="container">
+    <h2 style="font-family:var(--font-display);font-size:clamp(28px,3vw,38px);margin:0 0 12px;font-weight:600;letter-spacing:-0.02em;color:#fff;">Considering Valais Canton?</h2>
+    <p style="color:#b9c2bd;margin:0 0 24px;font-size:17px;">Request an RFI pack for this specific site — power, fibre, timeline, commercial terms.</p>
+    <a href="mailto:info@scale-42.com?subject=RFI%20request%20%E2%80%94%20Valais%20Canton" class="btn btn-primary" style="background:#fff;color:var(--ink);">Request RFI pack →</a>
+    <a href="../" class="btn" style="margin-left:8px;color:#fff;border-color:#fff;">Back to all sites</a>
+  </div>
+</section>
 <footer class="footer">
-  <div class="container footer-inner">
-    <img src="../../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
-    <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+  <div class="container">
+    <!--cms:footer-->
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+        <p class="footer-tag">Pan-Nordic AI &amp; HPC infrastructure — built on hydropower, geothermal and free-air cooling.</p>
+        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="/capabilities/">Capabilities</a>
+        <a href="/datacenters/">Data centres</a>
+        <a href="/sustainability/">Sustainability</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="/team/">Team</a>
+        <a href="/careers/">Careers</a>
+        <a href="/news/">News</a>
+        <a href="/press/">Press</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="/news/rss.xml">RSS feed</a>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+      <p class="footer-legal">Scale42 AS · Registered in Norway</p>
+    </div>
+    <!--/cms:footer-->
   </div>
 </footer>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>

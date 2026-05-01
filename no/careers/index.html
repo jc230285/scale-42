@@ -32,6 +32,7 @@
   <div class="container nav-inner">
     <!--cms:nav-->
     <a class="brand" href="/no/"><img src="/assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Meny" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/no/">Hjem</a>
       <a href="/no/capabilities/">Kapabiliteter</a>
@@ -86,9 +87,40 @@
 </section>
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <img src="../../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
-    <p class="copyright">© 2026 Scale42. Alle rettigheter forbeholdt.</p>
+  <div class="container">
+    <!--cms:footer-->
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+        <p class="footer-tag">Pan-nordisk KI- og HPC-infrastruktur — bygget på vannkraft, geotermisk energi og frikjøling.</p>
+        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Plattform</h5>
+        <a href="/no/capabilities/">Kapabiliteter</a>
+        <a href="/no/datacenters/">Datasentre</a>
+        <a href="/no/sustainability/">Bærekraft</a>
+      </div>
+      <div class="footer-col">
+        <h5>Selskap</h5>
+        <a href="/no/team/">Team</a>
+        <a href="/no/careers/">Karriere</a>
+        <a href="/no/news/">Nyheter</a>
+        <a href="/no/press/">Presse</a>
+      </div>
+      <div class="footer-col">
+        <h5>Ressurser</h5>
+        <a href="/news/rss.xml">RSS</a>
+        <a href="/sitemap.xml">Områdekart</a>
+        <a href="/no/privacy/">Personvern</a>
+        <a href="/no/#contact">Kontakt</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 Scale42. Alle rettigheter forbeholdt.</p>
+      <p class="footer-legal">Scale42 AS · Registrert i Norge</p>
+    </div>
+    <!--/cms:footer-->
   </div>
 </footer>
 
