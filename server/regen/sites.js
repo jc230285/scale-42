@@ -117,27 +117,37 @@ function buildSiteDetailPage(s, schema, lang) {
     Iceland: 'linear-gradient(135deg, #2c3a48 0%, #5a4030 60%, #c47a4a 100%)',
     Greenland: 'linear-gradient(135deg, #1c2e3f 0%, #4a7080 55%, #d4e4ea 100%)',
   };
+  const heroImgSrc = isNo
+    ? `../../../assets/sites/${escHtml(s.image)}`
+    : `../../assets/sites/${escHtml(s.image)}`;
   const heroImg = s.image
-    ? `<img src="../../assets/sites/${escHtml(s.image)}" alt="${escHtml(s.name)}" />`
-    : `<div class="hero-fallback" style="background:${COUNTRY_GRAD[s.country] || COUNTRY_GRAD.Norway};aspect-ratio:24/9;border-radius:var(--radius);margin-top:24px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-family:var(--font-display);font-size:48px;font-weight:600;letter-spacing:-0.02em;">${escHtml(s.country || '')}</div>`;
+    ? `<div class="hero-frame"><img src="${heroImgSrc}" alt="${escHtml(s.name)}" /></div>`
+    : `<div class="hero-frame" style="background:${COUNTRY_GRAD[s.country] || COUNTRY_GRAD.Norway};display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-family:var(--font-display);font-size:48px;font-weight:600;letter-spacing:-0.02em;">${escHtml(s.country || '')}</div>`;
 
-  // Public-only fields, grouped by schema group
-  const publicFields = schema.fields.filter(f => f.public && f.key !== 'name' && f.key !== 'country' && f.key !== 'image' && f.key !== 'status' && f.key !== 'desc_en' && f.key !== 'desc_no' && f.key !== 'published' && f.key !== 'short_status_label');
+  // Public-only fields, grouped by schema group. Render every public field
+  // (empty values shown as "—") so the structure is visible and editors can
+  // see what's still to populate.
+  const SKIP = new Set(['name', 'country', 'image', 'status', 'desc_en', 'desc_no', 'published', 'short_status_label']);
+  const publicFields = schema.fields.filter(f => f.public && !SKIP.has(f.key));
   const groupOrder = schema.groups.filter(g => !g.internalOnly).map(g => g.key);
   const byGroup = {};
   for (const f of publicFields) {
-    const v = s[f.key];
-    if (v === undefined || v === null || v === '') continue;
     if (!byGroup[f.group]) byGroup[f.group] = [];
     byGroup[f.group].push(f);
   }
 
-  const groupSections = groupOrder.filter(g => byGroup[g]).map(g => {
+  const fmt = (v, type) => {
+    if (v === undefined || v === null || v === '') return '<span class="empty">—</span>';
+    if (Array.isArray(v)) return v.length ? v.map(escHtml).join(', ') : '<span class="empty">—</span>';
+    if (type === 'toggle') return v ? 'Yes' : 'No';
+    if (typeof v === 'object') return '<span class="empty">—</span>';
+    return escHtml(String(v));
+  };
+
+  const groupSections = groupOrder.filter(g => byGroup[g] && byGroup[g].length).map(g => {
     const groupMeta = schema.groups.find(x => x.key === g);
     const rows = byGroup[g].map(f => {
-      const v = s[f.key];
-      const display = Array.isArray(v) ? v.join(', ') : escHtml(v);
-      return `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${display}</dd></div>`;
+      return `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`;
     }).join('');
     return `<section class="kv-section"><h2>${escHtml(groupMeta.label)}</h2><dl class="kv-grid">${rows}</dl></section>`;
   }).join('\n');
@@ -169,7 +179,8 @@ function buildSiteDetailPage(s, schema, lang) {
   .site-hero .pill.live { background: var(--accent); }
   .site-hero .pill.tbd { background: var(--muted); }
   .site-hero .pill.sold { background: #33752f; }
-  .site-hero img { width: 100%; max-height: 420px; object-fit: cover; border-radius: var(--radius); margin-top: 24px; }
+  .site-hero .hero-frame { width: 100%; aspect-ratio: 24/9; border-radius: var(--radius); margin-top: 24px; overflow: hidden; }
+  .site-hero .hero-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .site-body { padding: 32px 0 64px; }
   .site-body .lede { font-size: 19px; color: var(--ink); max-width: 720px; }
   .kv-section { padding: 32px 0; border-top: 1px solid var(--line); }
@@ -177,6 +188,7 @@ function buildSiteDetailPage(s, schema, lang) {
   .kv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px 32px; margin: 0; }
   .kv dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; font-weight: 600; }
   .kv dd { margin: 0; font-size: 15px; color: var(--ink); }
+  .kv dd .empty { color: var(--muted); }
 </style>
 </head>
 <body>
@@ -190,8 +202,8 @@ function buildSiteDetailPage(s, schema, lang) {
       <a href="../../news/">${isNo ? 'Nyheter' : 'News'}</a>
       <a href="../../#contact" class="btn btn-sm">${isNo ? 'Kontakt' : 'Contact'}</a>
       <div class="lang-toggle">
-        <a href="${isNo ? '../../../datacenters/' + s.slug + '/' : '.'}" data-lang="en"${isNo ? '' : ' class="active"'}>EN</a>
-        <a href="${isNo ? '.' : '../../no/datacenters/' + s.slug + '/'}" data-lang="no"${isNo ? ' class="active"' : ''}>NO</a>
+        <a href="${isNo ? '../../../datacenters/' + slug + '/' : '.'}" data-lang="en"${isNo ? '' : ' class="active"'}>EN</a>
+        <a href="${isNo ? '.' : '../../no/datacenters/' + slug + '/'}" data-lang="no"${isNo ? ' class="active"' : ''}>NO</a>
       </div>
     </nav>
   </div>

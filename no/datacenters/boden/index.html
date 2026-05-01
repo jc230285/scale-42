@@ -21,7 +21,8 @@
   .site-hero .pill.live { background: var(--accent); }
   .site-hero .pill.tbd { background: var(--muted); }
   .site-hero .pill.sold { background: #33752f; }
-  .site-hero img { width: 100%; max-height: 420px; object-fit: cover; border-radius: var(--radius); margin-top: 24px; }
+  .site-hero .hero-frame { width: 100%; aspect-ratio: 24/9; border-radius: var(--radius); margin-top: 24px; overflow: hidden; }
+  .site-hero .hero-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .site-body { padding: 32px 0 64px; }
   .site-body .lede { font-size: 19px; color: var(--ink); max-width: 720px; }
   .kv-section { padding: 32px 0; border-top: 1px solid var(--line); }
@@ -29,6 +30,7 @@
   .kv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px 32px; margin: 0; }
   .kv dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; font-weight: 600; }
   .kv dd { margin: 0; font-size: 15px; color: var(--ink); }
+  .kv dd .empty { color: var(--muted); }
 </style>
 </head>
 <body>
@@ -42,7 +44,7 @@
       <a href="../../news/">Nyheter</a>
       <a href="../../#contact" class="btn btn-sm">Kontakt</a>
       <div class="lang-toggle">
-        <a href="../../../datacenters/undefined/" data-lang="en">EN</a>
+        <a href="../../../datacenters/boden/" data-lang="en">EN</a>
         <a href="." data-lang="no" class="active">NO</a>
       </div>
     </nav>
@@ -54,15 +56,18 @@
     <p class="eyebrow">Datasenter-prosjekt · Sweden</p>
     <h1>Boden</h1>
     <p class="meta"><span class="pill tbd">I planlegging</span></p>
-    <div class="hero-fallback" style="background:linear-gradient(135deg, #1c2e3f 0%, #5a4c3a 55%, #e8b87a 100%);aspect-ratio:24/9;border-radius:var(--radius);margin-top:24px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-family:var(--font-display);font-size:48px;font-weight:600;letter-spacing:-0.02em;">Sweden</div>
+    <div class="hero-frame" style="background:linear-gradient(135deg, #1c2e3f 0%, #5a4c3a 55%, #e8b87a 100%);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-family:var(--font-display);font-size:48px;font-weight:600;letter-spacing:-0.02em;">Sweden</div>
   </div>
 </section>
 <section class="site-body">
   <div class="container">
     
     <section class="kv-section"><h2>Identity</h2><dl class="kv-grid"><div class="kv"><dt>Type</dt><dd>brownfield</dd></div></dl></section>
-<section class="kv-section"><h2>Location</h2><dl class="kv-grid"><div class="kv"><dt>Latitude</dt><dd>65.825</dd></div><div class="kv"><dt>Longitude</dt><dd>21.6889</dd></div></dl></section>
-<section class="kv-section"><h2>Power</h2><dl class="kv-grid"><div class="kv"><dt>Power source</dt><dd>Hydro</dd></div><div class="kv"><dt>Target MW</dt><dd>200 MW+</dd></div></dl></section>
+<section class="kv-section"><h2>Location</h2><dl class="kv-grid"><div class="kv"><dt>Latitude</dt><dd>65.825</dd></div><div class="kv"><dt>Longitude</dt><dd>21.6889</dd></div><div class="kv"><dt>Site size (ha)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Zoning status</dt><dd><span class="empty">—</span></dd></div></dl></section>
+<section class="kv-section"><h2>Power</h2><dl class="kv-grid"><div class="kv"><dt>Power source</dt><dd>Hydro</dd></div><div class="kv"><dt>Initial MW</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Target MW</dt><dd>200 MW+</dd></div><div class="kv"><dt>Max capacity (MW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Power availability (public text)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Connection voltage</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>PPA status (public)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Heat reuse</dt><dd><span class="empty">—</span></dd></div></dl></section>
+<section class="kv-section"><h2>Design</h2><dl class="kv-grid"><div class="kv"><dt>IT load (MW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Design PUE</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Rack density (kW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Cooling</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Workload mix</dt><dd><span class="empty">—</span></dd></div></dl></section>
+<section class="kv-section"><h2>Connectivity</h2><dl class="kv-grid"><div class="kv"><dt>Fibre providers</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Fibre speeds (Gbps)</dt><dd><span class="empty">—</span></dd></div></dl></section>
+<section class="kv-section"><h2>Timeline</h2><dl class="kv-grid"><div class="kv"><dt>Ready-to-build date</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Energisation date</dt><dd><span class="empty">—</span></dd></div></dl></section>
   </div>
 </section>
 <footer class="footer">
