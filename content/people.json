@@ -71,20 +71,6 @@
       "published": true
     },
     {
-      "id": "normann",
-      "name": "Roald Normann",
-      "role_en": "Senior Project Manager",
-      "role_no": "Senior prosjektleder",
-      "bio_en": "Mechanical-electrical and construction-hydropower engineer. 18+ years as worldwide technical manager, project manager and engineer. International project leadership.",
-      "bio_no": "Maskin- og elektroingeniør med bakgrunn fra bygg og vannkraft. 18+ år som teknisk leder, prosjektleder og ingeniør verden over. Internasjonal prosjektledelse.",
-      "photo": "assets/team/normann.jpg",
-      "email": "roald@scale-42.com",
-      "phone": "",
-      "linkedin": "",
-      "is_founder": false,
-      "published": true
-    },
-    {
       "id": "gussias",
       "name": "Daniel Gussiås",
       "role_en": "Liaison Officer",
@@ -123,6 +109,20 @@
       "email": "ismael@scale-42.com",
       "phone": "+34 657 97 09 18",
       "linkedin": "https://www.linkedin.com/in/ismael-valero-669b374/",
+      "is_founder": false,
+      "published": true
+    },
+    {
+      "id": "normann",
+      "name": "Roald Normann",
+      "role_en": "Senior Project Manager",
+      "role_no": "Senior prosjektleder",
+      "bio_en": "Mechanical-electrical and construction-hydropower engineer. 18+ years as worldwide technical manager, project manager and engineer. International project leadership.",
+      "bio_no": "Maskin- og elektroingeniør med bakgrunn fra bygg og vannkraft. 18+ år som teknisk leder, prosjektleder og ingeniør verden over. Internasjonal prosjektledelse.",
+      "photo": "assets/team/normann.jpg",
+      "email": "roald@scale-42.com",
+      "phone": "",
+      "linkedin": "",
       "is_founder": false,
       "published": true
     },
