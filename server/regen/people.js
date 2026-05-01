@@ -58,9 +58,11 @@ function run() {
     html = replaceBlock(html, 'team', blockHtml(team, 'team', lang));
     fs.writeFileSync(file, html, 'utf-8');
   }
+  // Also regen public signatures pages
+  try { require('./signatures').run(); } catch (e) { console.warn('signatures regen skipped:', e.message); }
   console.log('regen people: done');
 }
 
-module.exports = { run, files: ['content/people.json', 'index.html', 'no/index.html'] };
+module.exports = { run, files: ['content/people.json', 'index.html', 'no/index.html', 'signatures/index.html'] };
 
 if (require.main === module) run();

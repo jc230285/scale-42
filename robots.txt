@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /cms/
 Disallow: /api/
+Disallow: /signatures/
 
 Sitemap: https://www.scale-42.com/sitemap.xml
