@@ -128,7 +128,7 @@ img { max-width: 100%; display: block; }
 .hero-stats dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 28px; letter-spacing: -0.01em; }
 
 /* Equation block — dark 3-column pillars */
-.equation { background: var(--ink); color: #fff; padding: 48px 0; }
+.equation { background: var(--ink); color: #fff; padding: 20px 0; }
 .equation .container { padding: 0 24px; }
 .eq-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; align-items: center; }
 .eq-pillar { padding: 8px 32px; border-left: 1px solid var(--warm); }
