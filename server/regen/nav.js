@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..', '..');
 
-const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src="/assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src="/assets/logo-wordmark-white.svg" alt="Scale42" class="brand-logo" /></a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/"${active==='home'?' class="active"':''}>Home</a>
@@ -25,7 +25,7 @@ const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src
       </div>
     </nav>`;
 
-const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img src="/assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img src="/assets/logo-wordmark-white.svg" alt="Scale42" class="brand-logo" /></a>
     <button class="nav-toggle" aria-label="Meny" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/no/"${active==='home'?' class="active"':''}>Hjem</a>
