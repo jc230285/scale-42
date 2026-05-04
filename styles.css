@@ -580,5 +580,13 @@ img { max-width: 100%; display: block; }
 .journey-body { margin: 0; color: var(--ink-2); font-size: 13.5px; line-height: 1.5; }
 .journey-img { margin-top: 10px; border-radius: 8px; overflow: hidden; }
 .journey-img img { display: block; width: 100%; height: auto; }
-@media (max-width: 700px) { .journey-pin { display: none; } .journey-section .journey-fallback { display: block; } }
-.journey-section .journey-fallback { display: none; }
+@media (max-width: 800px) {
+  .journey-pin { height: auto !important; }
+  .journey-pin .sticky { position: static; max-height: none; padding: 24px 0; overflow: visible; }
+  .journey { grid-template-columns: 1fr; grid-auto-flow: row; grid-auto-columns: auto; grid-template-rows: none; gap: 16px; padding: 16px 24px; }
+  .journey::before { display: none; }
+  .journey-node { grid-column: 1 !important; grid-row: auto !important; align-self: stretch !important; padding: 0 !important; padding-left: 32px !important; position: relative; border-left: 2px solid rgba(47,102,117,0.3); }
+  .journey-node:nth-child(odd) .journey-marker,
+  .journey-node:nth-child(even) .journey-marker { left: -8px; top: 14px; bottom: auto; transform: none; }
+  .journey-node::after { display: none !important; }
+}

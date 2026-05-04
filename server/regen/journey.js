@@ -46,12 +46,15 @@ ${nodes}
   var track = pin.querySelector('[data-journey-track]');
   if (!track) return;
   var sticky = pin.querySelector('.sticky');
+  function isMobile(){ return window.innerWidth <= 800; }
   function setHeight(){
+    if (isMobile()) { pin.style.height = ''; track.style.transform = ''; return; }
     var stickyH = sticky ? sticky.offsetHeight : window.innerHeight;
     var extra = Math.max(0, track.scrollWidth - window.innerWidth);
     pin.style.height = (stickyH + extra) + 'px';
   }
   function onScroll(){
+    if (isMobile()) { track.style.transform = ''; return; }
     var rect = pin.getBoundingClientRect();
     var max = pin.offsetHeight - window.innerHeight;
     if (max <= 0) { track.style.transform = ''; return; }
