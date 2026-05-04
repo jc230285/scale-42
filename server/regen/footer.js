@@ -36,11 +36,7 @@ const FOOTER_EN = `<div class="footer-grid">
       <p class="copyright">© 2026 Scale42. All rights reserved.</p>
       <p class="footer-legal">Scale42 AS · Registered in Norway</p>
     </div>
-    <div class="cookie-banner" id="cookie-banner" hidden>
-      <p>This site uses no tracking or ad cookies — just a local preference for this notice. <a href="/privacy/">Privacy</a></p>
-      <button type="button" onclick="try{localStorage.setItem('s42_cookie_ok','1')}catch(e){}this.closest('.cookie-banner').remove();">OK</button>
-    </div>
-    <script>(function(){try{if(localStorage.getItem('s42_cookie_ok'))return}catch(e){}var b=document.getElementById('cookie-banner');if(b)b.hidden=false;})();</script>`;
+`;
 
 const FOOTER_NO = `<div class="footer-grid">
       <div class="footer-col footer-brand">
@@ -74,11 +70,7 @@ const FOOTER_NO = `<div class="footer-grid">
       <p class="copyright">© 2026 Scale42. Alle rettigheter forbeholdt.</p>
       <p class="footer-legal">Scale42 AS · Registrert i Norge</p>
     </div>
-    <div class="cookie-banner" id="cookie-banner" hidden>
-      <p>Ingen sporings- eller annonsekapsler — kun en lokal preferanse for denne meldingen. <a href="/no/privacy/">Personvern</a></p>
-      <button type="button" onclick="try{localStorage.setItem('s42_cookie_ok','1')}catch(e){}this.closest('.cookie-banner').remove();">OK</button>
-    </div>
-    <script>(function(){try{if(localStorage.getItem('s42_cookie_ok'))return}catch(e){}var b=document.getElementById('cookie-banner');if(b)b.hidden=false;})();</script>`;
+`;
 
 function injectFooter(html, lang) {
   const block = lang === 'no' ? FOOTER_NO : FOOTER_EN;
