@@ -136,10 +136,10 @@ img { max-width: 100%; display: block; }
 .eq-pillar h3 { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; letter-spacing: -0.01em; margin: 0 0 18px; color: #fff; }
 .eq-pillar ul { list-style: disc; margin: 0; padding-left: 20px; color: rgba(255,255,255,0.92); }
 .eq-pillar li { font-size: 15.5px; line-height: 1.5; margin: 6px 0; }
-.eq-foot { margin-top: 32px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.18); background: #fff; color: var(--ink); }
+.eq-foot { margin-top: 32px; padding: 24px 0; background: var(--accent); color: #fff; }
 .eq-foot .container { padding: 0 24px; }
 .eq-foot p { margin: 0; font-size: 15px; line-height: 1.55; }
-.eq-foot .label { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; color: var(--accent); margin-right: 8px; }
+.eq-foot .label { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; color: var(--warm); margin-right: 8px; }
 @media (max-width: 800px) {
   .eq-pillars { grid-template-columns: 1fr; }
   .eq-pillar { border-left: 0; border-top: 1px solid var(--warm); padding: 18px 0; }
