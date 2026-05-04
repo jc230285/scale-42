@@ -12,8 +12,8 @@ const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/"${active==='home'?' class="active"':''}>Home</a>
-      <a href="/solutions/"${active==='solutions'?' class="active"':''}>Solutions</a>
       <a href="/datacenters/"${active==='datacenters'?' class="active"':''}>Data centres</a>
+      <a href="/solutions/"${active==='solutions'?' class="active"':''}>Solutions</a>
       <a href="/sustainability/"${active==='sustainability'?' class="active"':''}>Sustainability</a>
       <a href="/giga-42/"${active==='giga42'?' class="active"':''}>GIGA-42</a>
       <a href="/team/"${active==='team'?' class="active"':''}>Team</a>
@@ -29,8 +29,8 @@ const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img 
     <button class="nav-toggle" aria-label="Meny" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/no/"${active==='home'?' class="active"':''}>Hjem</a>
-      <a href="/no/solutions/"${active==='solutions'?' class="active"':''}>Løsninger</a>
       <a href="/no/datacenters/"${active==='datacenters'?' class="active"':''}>Datasentre</a>
+      <a href="/no/solutions/"${active==='solutions'?' class="active"':''}>Løsninger</a>
       <a href="/no/sustainability/"${active==='sustainability'?' class="active"':''}>Bærekraft</a>
       <a href="/no/giga-42/"${active==='giga42'?' class="active"':''}>GIGA-42</a>
       <a href="/no/team/"${active==='team'?' class="active"':''}>Team</a>
