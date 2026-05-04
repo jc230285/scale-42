@@ -119,7 +119,7 @@
   "values": {
     "en": {
       "hero_eyebrow": "Next-generation European digital infrastructure",
-      "hero_title": "Building large-scale AI data centres<br/>across the Nordics.",
+      "hero_title": "Building large-scale AI data centres across the Nordics.",
       "hero_lede": "Scale42 develops and operates wholesale, AI-ready data centres in Norway, Finland, Sweden and Iceland — co-located with abundant renewable power, purpose-built for high-density compute.",
       "stat1_label": "Active pipeline",
       "stat1_value": "16.34 GW",
@@ -135,7 +135,7 @@
     },
     "no": {
       "hero_eyebrow": "Neste generasjons europeisk digital infrastruktur",
-      "hero_title": "Bygger storskala KI-datasentre<br/>i Norden.",
+      "hero_title": "Bygger storskala KI-datasentre i Norden.",
       "hero_lede": "Scale42 utvikler og drifter engros, KI-klare datasentre i Norge, Finland, Sverige og Island — samlokalisert med rikelig fornybar kraft, spesialbygget for høytetthetsberegning.",
       "stat1_label": "Aktiv pipeline",
       "stat1_value": "16.34 GW",
