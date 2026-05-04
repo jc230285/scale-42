@@ -146,9 +146,11 @@
   if (!pin) return;
   var track = pin.querySelector('[data-journey-track]');
   if (!track) return;
+  var sticky = pin.querySelector('.sticky');
   function setHeight(){
+    var stickyH = sticky ? sticky.offsetHeight : window.innerHeight;
     var extra = Math.max(0, track.scrollWidth - window.innerWidth);
-    pin.style.height = (window.innerHeight + extra) + 'px';
+    pin.style.height = (stickyH + extra) + 'px';
   }
   function onScroll(){
     var rect = pin.getBoundingClientRect();
