@@ -29,7 +29,7 @@ const FOOTER_EN = `<div class="footer-grid">
         <a href="/news/rss.xml">RSS feed</a>
         <a href="/sitemap.xml">Sitemap</a>
         <a href="/privacy/">Privacy</a>
-        <a href="/#contact">Contact</a>
+        <a href="/contact/">Contact</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -63,7 +63,7 @@ const FOOTER_NO = `<div class="footer-grid">
         <a href="/news/rss.xml">RSS</a>
         <a href="/sitemap.xml">Områdekart</a>
         <a href="/no/privacy/">Personvern</a>
-        <a href="/no/#contact">Kontakt</a>
+        <a href="/no/contact/">Kontakt</a>
       </div>
     </div>
     <div class="footer-bottom">

@@ -18,7 +18,7 @@ const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src
       <a href="/giga-42/"${active==='giga42'?' class="active"':''}>GIGA-42</a>
       <a href="/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/news/"${active==='news'?' class="active"':''}>News</a>
-      <a href="/#contact" class="btn btn-sm">Contact</a>
+      <a href="/contact/"${active==='contact'?' class="btn btn-sm active"':' class="btn btn-sm"'}>Contact</a>
       <div class="lang-toggle">
         <a href="." data-lang="en" class="active">EN</a>
         <a href="${lang_no_href}" data-lang="no">NO</a>
@@ -35,7 +35,7 @@ const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img 
       <a href="/no/giga-42/"${active==='giga42'?' class="active"':''}>GIGA-42</a>
       <a href="/no/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/no/news/"${active==='news'?' class="active"':''}>Nyheter</a>
-      <a href="/no/#contact" class="btn btn-sm">Kontakt</a>
+      <a href="/no/contact/"${active==='contact'?' class="btn btn-sm active"':' class="btn btn-sm"'}>Kontakt</a>
       <div class="lang-toggle">
         <a href="${lang_en_href}" data-lang="en">EN</a>
         <a href="." data-lang="no" class="active">NO</a>
