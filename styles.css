@@ -127,25 +127,24 @@ img { max-width: 100%; display: block; }
 .hero-stats dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
 .hero-stats dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 28px; letter-spacing: -0.01em; }
 
-/* Equation block */
-.equation { background: transparent; padding: 36px 0; }
-.eq-row {
-  display: flex; align-items: center; justify-content: center;
-  gap: 24px; flex-wrap: wrap;
+/* Equation block — dark 3-column pillars */
+.equation { background: var(--ink); color: #fff; padding: 48px 0 0; }
+.equation .container { padding: 0 24px; }
+.eq-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.eq-pillar { padding: 8px 32px; border-left: 1px solid var(--warm); }
+.eq-pillar:first-child { border-left: 0; }
+.eq-pillar h3 { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; letter-spacing: -0.01em; margin: 0 0 18px; color: #fff; }
+.eq-pillar ul { list-style: disc; margin: 0; padding-left: 20px; color: rgba(255,255,255,0.92); }
+.eq-pillar li { font-size: 15.5px; line-height: 1.5; margin: 6px 0; }
+.eq-foot { margin-top: 32px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.18); background: #fff; color: var(--ink); }
+.eq-foot .container { padding: 0 24px; }
+.eq-foot p { margin: 0; font-size: 15px; line-height: 1.55; }
+.eq-foot .label { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; color: var(--accent); margin-right: 8px; }
+@media (max-width: 800px) {
+  .eq-pillars { grid-template-columns: 1fr; }
+  .eq-pillar { border-left: 0; border-top: 1px solid var(--warm); padding: 18px 0; }
+  .eq-pillar:first-child { border-top: 0; }
 }
-.eq-item { display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 120px; max-width: 180px; }
-.eq-title { text-align: center; margin: 0 0 28px; }
-.eq-title .eyebrow { color: var(--accent); }
-.eq-title h2 { font-family: var(--font-display); font-size: clamp(24px, 3.2vw, 34px); margin: 6px 0 0; font-weight: 600; letter-spacing: -0.01em; }
-.eq-icon {
-  width: 64px; height: 64px; border-radius: var(--radius);
-  background: #fff; border: 1px solid var(--line);
-  display: grid; place-items: center; font-size: 28px;
-  color: var(--accent);
-}
-.eq-result .eq-icon { background: var(--ink); color: #fff; border-color: var(--ink); }
-.eq-label { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 14.5px; text-align: center; max-width: 180px; }
-.eq-op { font-family: var(--font-display); font-size: 28px; color: var(--accent); font-weight: 500; }
 
 /* Sections */
 .section { padding: 56px 0; border-top: 1px solid var(--line); }
