@@ -26,15 +26,43 @@ function renderJourney(data, lang) {
       </li>`;
   }).join('\n');
 
-  return `<section class="section journey-section">
-  <div class="container">
-    <p class="eyebrow">${esc(title)}</p>
-    <h2 class="section-title">${esc(lede)}</h2>
-    <ol class="journey">
+  return `<section class="journey-section">
+  <div class="journey-pin" data-journey-pin>
+    <div class="sticky">
+      <div class="heading">
+        <p class="eyebrow">${esc(title)}</p>
+        <h2>${esc(lede)}</h2>
+      </div>
+      <ol class="journey" data-journey-track>
 ${nodes}
-    </ol>
+      </ol>
+    </div>
   </div>
-</section>`;
+</section>
+<script>
+(function(){
+  var pin = document.querySelector('[data-journey-pin]');
+  if (!pin) return;
+  var track = pin.querySelector('[data-journey-track]');
+  if (!track) return;
+  function setHeight(){
+    var extra = Math.max(0, track.scrollWidth - window.innerWidth);
+    pin.style.height = (window.innerHeight + extra) + 'px';
+  }
+  function onScroll(){
+    var rect = pin.getBoundingClientRect();
+    var max = pin.offsetHeight - window.innerHeight;
+    if (max <= 0) { track.style.transform = ''; return; }
+    var progress = Math.min(1, Math.max(0, -rect.top / max));
+    var distance = Math.max(0, track.scrollWidth - window.innerWidth);
+    track.style.transform = 'translateX(' + (-progress * distance) + 'px)';
+  }
+  setHeight();
+  onScroll();
+  window.addEventListener('resize', function(){ setHeight(); onScroll(); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+</script>`;
 }
 
 function injectJourney(html, block) {
