@@ -15,7 +15,7 @@ function renderJourney(data, lang) {
     const badge = lang === 'no' ? n.badge_no : n.badge_en;
     const img = n.image ? `<div class="journey-img"><img src="${esc(n.image)}" alt="" loading="lazy" /></div>` : '';
     const badgeHtml = badge ? `<span class="journey-badge">${esc(badge)}</span>` : '';
-    return `      <li class="journey-node">
+    return `      <li class="journey-node" style="grid-column:${i+1};">
         <div class="journey-marker" aria-hidden="true"></div>
         <div class="journey-content">
           <div class="journey-year">${esc(n.year)}${badgeHtml}</div>
