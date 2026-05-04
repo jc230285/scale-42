@@ -531,7 +531,7 @@ img { max-width: 100%; display: block; }
 .nav .lang-toggle a:not(.active):hover { color: #fff; background: rgba(255,255,255,0.05); }
 
 /* Hero mosaic — deck-cover style */
-.hero-mosaic { position: relative; overflow: hidden; background: #1c2e3f; min-height: 560px; }
+.hero-mosaic { position: relative; overflow: hidden; background: #1c2e3f; min-height: 560px; max-width: var(--maxw); width: calc(100% - 48px); margin: 24px auto 0; border-radius: var(--radius); border: 1px solid var(--line); }
 .hero-mosaic .hero-bg { z-index: 0; }
 .hero-mosaic .hero-bg picture, .hero-mosaic .hero-bg picture img { opacity: 0.45; }
 .hero-mosaic .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,46,63,0.55) 0%, rgba(28,46,63,0.75) 100%); z-index: 1; pointer-events: none; }
