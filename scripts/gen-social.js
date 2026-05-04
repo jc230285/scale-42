@@ -37,38 +37,36 @@ const specs = [
       create: { width: W, height: H, channels: 4, background: { ...NAVY, alpha: 1 } }
     });
 
-    // Mosaic mark: fill height keeping aspect, anchored to right edge
+    // Mosaic mark: fill height keeping aspect, anchored to LEFT edge.
+    // If markW > W, keep the LEFT portion of the mark visible (crop the right overflow).
     const markH = H;
     const markW = Math.round(markH * MARK_AR);
     const mark = await sharp(markSvg, { density: 400 })
       .resize({ width: markW, height: markH, fit: 'fill' })
       .png().toBuffer();
-    const markLeft = W - markW; // could be negative; sharp clips automatically? Use extract or position via top/left with negative — sharp doesn't accept negative.
-    // For wide banners markW > W is rare (only when H very tall vs W); for tall banners markW < W so markLeft > 0
-    // Need handling: if markW > W, crop the mark from its right side to width W
     let markComp = mark;
-    let mLeft = markLeft;
-    let mTop = 0;
-    if (markLeft < 0) {
-      // Crop mark so its rightmost W pixels remain
-      markComp = await sharp(mark).extract({ left: -markLeft, top: 0, width: W, height: H }).png().toBuffer();
-      mLeft = 0;
+    let mLeft = 0;
+    let visibleMarkW = markW;
+    if (markW > W) {
+      markComp = await sharp(mark).extract({ left: 0, top: 0, width: W, height: H }).png().toBuffer();
+      visibleMarkW = W;
     }
 
-    // Wordmark: top-left, sized relative to canvas height
-    const wmH = Math.round(Math.min(H * 0.18, W * 0.10));
+    // Wordmark: centered horizontally over the visible mark, vertically in the upper triangles
+    // (top quadrant of mark — y range 0..H/2, centered at H/4)
+    const wmTargetW = Math.round(Math.min(visibleMarkW * 0.55, W * 0.45));
     const wm = await sharp(wordmarkSvg, { density: 400 })
-      .resize({ height: wmH })
+      .resize({ width: wmTargetW })
       .png().toBuffer();
     const wmMeta = await sharp(wm).metadata();
-    const padX = Math.round(Math.min(W, H) * 0.05);
-    const padY = padX;
+    const wmLeft = Math.round(mLeft + (visibleMarkW - wmMeta.width) / 2);
+    const wmTop = Math.round(H / 4 - wmMeta.height / 2);
 
     const out = path.join(OUT, `${name}.png`);
     await canvas
       .composite([
-        { input: markComp, left: mLeft, top: mTop },
-        { input: wm, left: padX, top: padY },
+        { input: markComp, left: mLeft, top: 0 },
+        { input: wm, left: Math.max(0, wmLeft), top: Math.max(0, wmTop) },
       ])
       .png({ compressionLevel: 9 })
       .toFile(out);
