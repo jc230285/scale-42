@@ -591,8 +591,9 @@
     <style>
       .social-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; margin-top: 28px; }
       .social-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
-      .social-card .preview { background: #1c2e3f url('../assets/logo-mark.svg?v=3') center/100% 100% no-repeat; border-radius: 6px; margin-bottom: 12px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-      .social-card .preview img.mark { width: 50%; max-width: 220px; height: auto; opacity: 0.95; pointer-events: none; }
+      .social-card .preview { background: #1c2e3f; border-radius: 6px; margin-bottom: 12px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+      .social-card .preview img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; pointer-events: none; }
+      .social-card .preview img.mark { position: relative; z-index: 1; width: 50%; max-width: 220px; height: auto; opacity: 0.95; pointer-events: none; }
       .social-card .preview.tall img.mark { width: 70%; }
       .social-card .preview::after { content: attr(data-ratio); position: absolute; left: 8px; bottom: 6px; color: rgba(255,255,255,0.55); font: 600 10px/1 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; z-index: 1; }
       .social-card .label { font-weight: 600; font-size: 14px; margin: 0 0 4px; }
@@ -604,89 +605,89 @@
     <div class="social-grid">
       <div class="social-card">
         <p class="social-platform">LinkedIn</p>
-        <div class="preview" style="aspect-ratio:1128/191;" data-ratio="5.91 : 1"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:1128/191;" data-ratio="5.91 : 1"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Company page banner</p>
         <p class="dims">1128 × 191 px</p>
         <p class="note">Logo cropped on mobile — keep clear space.</p>
       </div>
       <div class="social-card">
         <p class="social-platform">LinkedIn</p>
-        <div class="preview" style="aspect-ratio:1584/396;" data-ratio="4 : 1"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:1584/396;" data-ratio="4 : 1"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Personal profile banner</p>
         <p class="dims">1584 × 396 px</p>
       </div>
       <div class="social-card">
         <p class="social-platform">LinkedIn</p>
-        <div class="preview" style="aspect-ratio:1/1;" data-ratio="1 : 1"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:1/1;" data-ratio="1 : 1"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Square post</p>
         <p class="dims">1200 × 1200 px</p>
       </div>
       <div class="social-card">
         <p class="social-platform">LinkedIn</p>
-        <div class="preview" style="aspect-ratio:4/5;" data-ratio="4 : 5"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:4/5;" data-ratio="4 : 5"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Portrait post</p>
         <p class="dims">1080 × 1350 px</p>
       </div>
       <div class="social-card">
         <p class="social-platform">LinkedIn / Facebook share</p>
-        <div class="preview" style="aspect-ratio:1200/630;" data-ratio="1.91 : 1"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:1200/630;" data-ratio="1.91 : 1"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Open Graph image</p>
         <p class="dims">1200 × 630 px</p>
         <p class="note">Site-wide default for link previews.</p>
       </div>
       <div class="social-card">
         <p class="social-platform">X / Twitter</p>
-        <div class="preview" style="aspect-ratio:1500/500;" data-ratio="3 : 1"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:1500/500;" data-ratio="3 : 1"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Profile banner</p>
         <p class="dims">1500 × 500 px</p>
       </div>
       <div class="social-card">
         <p class="social-platform">X / Twitter</p>
-        <div class="preview" style="aspect-ratio:16/9;" data-ratio="16 : 9"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:16/9;" data-ratio="16 : 9"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">In-stream post</p>
         <p class="dims">1600 × 900 px</p>
       </div>
       <div class="social-card">
         <p class="social-platform">Facebook</p>
-        <div class="preview" style="aspect-ratio:820/312;" data-ratio="2.63 : 1"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:820/312;" data-ratio="2.63 : 1"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Page cover</p>
         <p class="dims">820 × 312 px (desktop)</p>
         <p class="note">640 × 360 mobile-safe area.</p>
       </div>
       <div class="social-card">
         <p class="social-platform">Instagram</p>
-        <div class="preview" style="aspect-ratio:1/1;" data-ratio="1 : 1"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:1/1;" data-ratio="1 : 1"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Feed (square)</p>
         <p class="dims">1080 × 1080 px</p>
       </div>
       <div class="social-card">
         <p class="social-platform">Instagram</p>
-        <div class="preview" style="aspect-ratio:9/16;" data-ratio="9 : 16"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:9/16;" data-ratio="9 : 16"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Story / Reel</p>
         <p class="dims">1080 × 1920 px</p>
       </div>
       <div class="social-card">
         <p class="social-platform">YouTube</p>
-        <div class="preview" style="aspect-ratio:2560/1440;" data-ratio="16 : 9"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:2560/1440;" data-ratio="16 : 9"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Channel banner</p>
         <p class="dims">2560 × 1440 px</p>
         <p class="note">Safe area 1546 × 423 (TV trim).</p>
       </div>
       <div class="social-card">
         <p class="social-platform">YouTube</p>
-        <div class="preview" style="aspect-ratio:1280/720;" data-ratio="16 : 9"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:1280/720;" data-ratio="16 : 9"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Video thumbnail</p>
         <p class="dims">1280 × 720 px</p>
       </div>
       <div class="social-card">
         <p class="social-platform">Email</p>
-        <div class="preview" style="aspect-ratio:600/200;" data-ratio="3 : 1"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:600/200;" data-ratio="3 : 1"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Signature banner</p>
         <p class="dims">600 × 200 px</p>
       </div>
       <div class="social-card">
         <p class="social-platform">Favicon</p>
-        <div class="preview" style="aspect-ratio:1/1;" data-ratio="1 : 1"><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
+        <div class="preview" style="aspect-ratio:1/1;" data-ratio="1 : 1"><img class="bg" src="../assets/logo-mark.svg?v=4" alt="" aria-hidden="true" /><img class="mark" src="../assets/logo-wordmark-white.svg?v=2" alt="" /></div>
         <p class="label">Browser icon</p>
         <p class="dims">512 × 512 px (SVG preferred)</p>
       </div>
