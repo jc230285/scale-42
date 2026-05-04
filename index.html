@@ -37,8 +37,9 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <style>
   .home-map-section { padding: 56px 0 0; }
-  .home-map { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
-  .home-map .leaflet-container { background: #eaf0f3; font-family: var(--font-sans); cursor: default; }
+  .home-map { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: #d6e2e6; }
+  .home-map .leaflet-container { background: #d6e2e6; font-family: var(--font-sans); cursor: default; }
+  .home-map .leaflet-tile-pane { filter: saturate(0.6) hue-rotate(-12deg) contrast(0.96); }
   .home-map .dc-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(28,46,63,0.25); }
   .home-map .dc-pin.tbd { background: var(--muted); }
   .home-map .dc-pin.sold { background: #33752f; }
@@ -501,8 +502,12 @@
       dragging: false, touchZoom: false, boxZoom: false, keyboard: false,
       tap: false, attributionControl: true
     });
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '© OpenStreetMap, © CARTO', subdomains: 'abcd', maxZoom: 19
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap, © CARTO', subdomains: 'abcd', maxZoom: 19, noWrap: true,
+      bounds: [[-90, -180], [90, 180]]
+    }).addTo(map);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd', maxZoom: 19, noWrap: true, opacity: 0.85
     }).addTo(map);
     sites.forEach(s => {
       L.marker([s.lat, s.lng], {
