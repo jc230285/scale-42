@@ -87,7 +87,7 @@ img { max-width: 100%; display: block; }
 .hero { position: relative; overflow: hidden; padding: 29px 0 24px; }
 .hero-lede-row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin: 0 0 22px; }
 .hero-lede-row .lede { flex: 1 1 420px; margin: 0; }
-.hero-lede-row .hero-cta { margin: 0; flex: 0 0 auto; }
+.hero-lede-row .hero-cta { margin: 0 0 0 auto; flex: 0 0 auto; }
 .hero-bg {
   position: absolute; inset: 0; z-index: -1;
   background:
