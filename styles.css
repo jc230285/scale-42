@@ -128,7 +128,7 @@ img { max-width: 100%; display: block; }
 .hero-stats dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 28px; letter-spacing: -0.01em; }
 
 /* Equation block */
-.equation { background: var(--bg-alt); padding: 36px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.equation { background: transparent; padding: 36px 0; }
 .eq-row {
   display: flex; align-items: center; justify-content: center;
   gap: 24px; flex-wrap: wrap;
