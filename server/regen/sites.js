@@ -67,7 +67,20 @@ function fullArrayLiteral(sites, lang) {
 }
 
 function siteSlug(s) {
-  return (s.id || s.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')).replace(/^-+|-+$/g, '');
+  const base = (s.id || s.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')).replace(/^-+|-+$/g, '');
+  return s.url_token ? `${base}-${s.url_token}` : base;
+}
+
+function ensureUrlTokens(sites) {
+  let changed = false;
+  for (const s of sites) {
+    if (!s.url_token) {
+      s.url_token = require('crypto').randomBytes(5).toString('base64url').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 8);
+      while (s.url_token.length < 8) s.url_token += require('crypto').randomBytes(3).toString('hex')[0];
+      changed = true;
+    }
+  }
+  return changed;
 }
 
 // Resolve a site.image (bare filename or full assets path) to a URL with the given prefix.
@@ -730,6 +743,24 @@ function regenSiteDetailPages(sites, schema) {
 function run() {
   const data = JSON.parse(fs.readFileSync(DATA, 'utf-8'));
   const schema = JSON.parse(fs.readFileSync(SCHEMA, 'utf-8'));
+  // Assign hard-to-guess url_tokens to any site missing one, persist back
+  if (ensureUrlTokens(data.sites)) {
+    fs.writeFileSync(DATA, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+    console.log('Assigned url_tokens to new sites.');
+  }
+  // Wipe stale per-site directories so old/guessable URLs can't reach pages
+  const validSlugs = new Set(data.sites.map(s => siteSlug(s)));
+  for (const base of ['datacenters', 'no/datacenters']) {
+    const dir = path.join(ROOT, base);
+    if (!fs.existsSync(dir)) continue;
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      if (entry.name === 'compare') continue;
+      if (!validSlugs.has(entry.name)) {
+        fs.rmSync(path.join(dir, entry.name), { recursive: true, force: true });
+      }
+    }
+  }
   // Auto-derive status from public_status_label so editors only manage one field
   for (const s of data.sites) {
     if (s.public_status_label) s.status = deriveStatus(s.public_status_label);
