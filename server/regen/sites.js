@@ -152,6 +152,53 @@ function buildSiteDetailPage(s, schema, lang) {
   // see what's still to populate.
   const SKIP = new Set(['name', 'country', 'image', 'status', 'desc_en', 'desc_no', 'published', 'short_status_label', 'public_status_label']);
   const publicFields = schema.fields.filter(f => f.public && !SKIP.has(f.key));
+  const buildGridDonut = (mixStr) => {
+    if (!mixStr) return '';
+    const palette = { hydro: '#2f6675', wind: '#7aa9b6', geothermal: '#c47a3d', solar: '#e0b341', nuclear: '#5b8c5a', gas: '#8a8a8a', biomass: '#7a8c47', thermal: '#6b6b6b', diesel: '#3d3d3d' };
+    const parts = String(mixStr).split(',').map(p => {
+      const m = p.trim().match(/^(.+?)\s+(\d+(?:\.\d+)?)\s*%$/i);
+      if (!m) return null;
+      return { name: m[1].trim(), pct: parseFloat(m[2]) };
+    }).filter(Boolean);
+    if (!parts.length) return '';
+    const total = parts.reduce((a, p) => a + p.pct, 0) || 1;
+    const r = 42, cx = 60, cy = 60, sw = 16;
+    const C = 2 * Math.PI * r;
+    let off = 0;
+    const segs = parts.map(p => {
+      const len = (p.pct / total) * C;
+      const colour = palette[p.name.toLowerCase()] || '#a8b2bc';
+      const seg = `<circle r="${r}" cx="${cx}" cy="${cy}" fill="none" stroke="${colour}" stroke-width="${sw}" stroke-dasharray="${len.toFixed(2)} ${(C - len).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}" transform="rotate(-90 ${cx} ${cy})"/>`;
+      off += len;
+      return seg;
+    }).join('');
+    const legend = parts.map(p => {
+      const colour = palette[p.name.toLowerCase()] || '#a8b2bc';
+      return `<li><span class="sw" style="background:${colour}"></span>${escHtml(p.name)} <strong>${p.pct}%</strong></li>`;
+    }).join('');
+    return `<div class="grid-donut"><svg viewBox="0 0 120 120" role="img" aria-label="Grid generation mix">${segs}</svg><ul class="grid-donut-legend">${legend}</ul></div>`;
+  };
+
+  const FRA_BASELINE = { temp: 11.4, fc: 4200, co2: 380, price: 195, hub: 0 };
+  const buildFraCompare = () => {
+    if (!s.avg_temp_c && !s.grid_co2 && !s.grid_price) return '';
+    const fmtDelta = (val, base, unit, lowerBetter) => {
+      if (val == null || val === '') return `<dd>—</dd>`;
+      const v = Number(val);
+      const d = v - base;
+      const better = lowerBetter ? d < 0 : d > 0;
+      const sign = d > 0 ? '+' : '';
+      const cls = better ? 'd-good' : (d === 0 ? '' : 'd-bad');
+      return `<dd><strong>${v}${unit}</strong> <span class="delta ${cls}">${sign}${d.toFixed(unit === ' °C' ? 1 : 0)}${unit} vs FRA</span></dd>`;
+    };
+    return `<div class="fra-compare"><h3>${isNo ? 'Sammenlignet med Frankfurt' : 'vs. Frankfurt baseline'}</h3><dl>` +
+      `<div><dt>${isNo ? 'Snitt-temp' : 'Avg temp'}</dt>${fmtDelta(s.avg_temp_c, FRA_BASELINE.temp, ' °C', true)}</div>` +
+      `<div><dt>${isNo ? 'Frikjøling' : 'Free-cooling'}</dt>${s.free_cooling_hours ? `<dd><strong>${Number(s.free_cooling_hours).toLocaleString()} h/yr</strong> <span class="delta ${Number(s.free_cooling_hours) > FRA_BASELINE.fc ? 'd-good' : 'd-bad'}">${Number(s.free_cooling_hours) > FRA_BASELINE.fc ? '+' : ''}${(Number(s.free_cooling_hours) - FRA_BASELINE.fc).toLocaleString()} h vs FRA</span></dd>` : '<dd>—</dd>'}</div>` +
+      `<div><dt>${isNo ? 'Karbonintensitet' : 'Grid carbon'}</dt>${fmtDelta(s.grid_co2, FRA_BASELINE.co2, ' g', true)}</div>` +
+      `<div><dt>${isNo ? 'Industriell strømpris' : 'Industrial price'}</dt>${fmtDelta(s.grid_price, FRA_BASELINE.price, ' €/MWh', true)}</div>` +
+      `</dl></div>`;
+  };
+
   const buildTempChart = (series) => {
     if (!series || series.length < 2) return '';
     const w = 1200, h = 220, padL = 36, padR = 12, padT = 12, padB = 28;
@@ -308,7 +355,10 @@ function buildSiteDetailPage(s, schema, lang) {
         const chart = Array.isArray(s.temp_chart) ? buildTempChart(s.temp_chart) : '';
         chartBlock = `<div class="temp-row"><div class="temp-row-head"><span class="dt-label">${isNo ? 'Snitt-temp (3 år)' : 'Avg annual temp (3 yr)'}</span><span class="dt-val">${escHtml(String(s.avg_temp_c))} °C</span></div>${chart}</div>`;
       }
-      return `<section id="sec-${g}" class="kv-section"><h2>${escHtml(groupMeta.label)}</h2><div class="loc-split"><dl class="kv-grid">${rows}</dl>${mapBlock(g)}</div>${chartBlock}</section>`;
+      const donut = buildGridDonut(s.grid_mix);
+      const fra = buildFraCompare();
+      const extras = (donut || fra) ? `<div class="loc-extras">${donut}${fra}</div>` : '';
+      return `<section id="sec-${g}" class="kv-section"><h2>${escHtml(groupMeta.label)}</h2><div class="loc-split"><dl class="kv-grid">${rows}</dl>${mapBlock(g)}</div>${extras}${chartBlock}</section>`;
     }
     // Skip sections where every public field is empty
     const hasData = fields.some(f => {
@@ -408,6 +458,20 @@ ${s.image ? `<meta property="og:image" content="https://www.scale-42.com${resolv
   .climate-grid dd { margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
   .site-map-embed iframe { display: block; width: 100%; height: 100%; min-height: 320px; border: 0; border-radius: 12px; }
   .kv-wide { grid-column: 1 / -1; }
+  .loc-extras { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); }
+  @media (max-width: 800px) { .loc-extras { grid-template-columns: 1fr; } }
+  .grid-donut { display: flex; align-items: center; gap: 16px; }
+  .grid-donut svg { width: 120px; height: 120px; flex-shrink: 0; }
+  .grid-donut-legend { list-style: none; padding: 0; margin: 0; font-size: 13px; color: var(--ink-2); }
+  .grid-donut-legend li { display: flex; align-items: center; gap: 8px; padding: 2px 0; }
+  .grid-donut-legend .sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .fra-compare h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+  .fra-compare dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; margin: 0; }
+  .fra-compare dt { font-size: 11px; color: var(--muted); margin: 0; }
+  .fra-compare dd { margin: 2px 0 0; font-size: 14px; color: var(--ink); }
+  .fra-compare .delta { font-size: 11px; font-weight: 600; margin-left: 4px; }
+  .fra-compare .delta.d-good { color: #2f7a4d; }
+  .fra-compare .delta.d-bad { color: #b8492f; }
   .temp-row { margin: 24px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); }
   .temp-row-head { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 8px; }
   .temp-row-head .dt-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
@@ -478,6 +542,142 @@ ${heroMapBanner}
 `;
 }
 
+function buildComparePage(sites, lang) {
+  const isNo = lang === 'no';
+  const published = sites.filter(s => s.published !== false);
+  const data = published.map(s => ({
+    slug: siteSlug(s),
+    name: s.name,
+    country: s.country || '',
+    status: s.public_status_label || '',
+    type: s.site_type || '',
+    pubLoc: s.public_location || '',
+    init: s.initial_mw || '',
+    target: s.target_mw || '',
+    max: s.max_capacity_mw || '',
+    power: s.power || '',
+    avgTemp: s.avg_temp_c || '',
+    fcHours: s.free_cooling_hours || '',
+    hot: s.hot_days_per_year || '',
+    cold: s.cold_days_per_year || '',
+    pop50: s.population_50km || '',
+    co2: s.grid_co2 || '',
+    price: s.grid_price || '',
+    mix: s.grid_mix || '',
+    seaport: s.nearest_seaport || '',
+    seaportKm: s.nearest_seaport_km || '',
+    airport: s.nearest_airport_public || '',
+    airportKm: s.nearest_airport_km || '',
+    sub: s.nearest_substation || '',
+    subKm: s.nearest_substation_km || '',
+    hubs: s.hub_distances_km || '',
+  }));
+  const dataJson = JSON.stringify(data);
+  const cssRel = isNo ? '../../../styles.css' : '../../styles.css';
+  const stylesHref = isNo ? '../../no/datacenters/' : '../';
+  const html = `<!DOCTYPE html>
+<html lang="${isNo ? 'no' : 'en'}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${isNo ? 'Sammenlign datasentre' : 'Compare datacentres'} · Scale42</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="${cssRel}" />
+<style>
+  .cmp-wrap { padding: 56px 0; }
+  .cmp-pickers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 0 0 32px; }
+  .cmp-pickers select { width: 100%; padding: 10px 12px; font-size: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+  .cmp-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .cmp-table th, .cmp-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .cmp-table th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; width: 26%; }
+  .cmp-table td { font-family: var(--font-display); }
+  .cmp-table .better { color: #2f7a4d; font-weight: 600; }
+  .cmp-empty { color: var(--muted); font-style: italic; }
+</style>
+</head>
+<body>
+<header class="nav"><div class="container nav-inner"><!--cms:nav--><!--/cms:nav--></div></header>
+<section class="cmp-wrap">
+  <div class="container">
+    <p class="crumb"><a href="../">${isNo ? '← Tilbake til oversikt' : '← Back to all sites'}</a></p>
+    <h1>${isNo ? 'Sammenlign datasentre' : 'Compare datacentres'}</h1>
+    <p class="lede">${isNo ? 'Velg to prosjekter for å sammenligne klima, kraft, infrastruktur og logistikk side om side.' : 'Pick two projects to compare climate, power, infrastructure and logistics side-by-side.'}</p>
+    <div class="cmp-pickers">
+      <select id="sel-a"></select>
+      <select id="sel-b"></select>
+    </div>
+    <table class="cmp-table"><tbody id="cmp-body"></tbody></table>
+  </div>
+</section>
+<footer class="footer"><div class="container"><!--cms:footer--><!--/cms:footer--></div></footer>
+<script>
+const SITES = ${dataJson};
+const ROWS = [
+  ['Country', 'country'],
+  ['Status', 'status'],
+  ['Type', 'type'],
+  ['Location', 'pubLoc'],
+  ['Power source', 'power'],
+  ['Initial MW', 'init', 'mw'],
+  ['Target MW', 'target', 'mw'],
+  ['Max capacity MW', 'max', 'mw', true],
+  ['Avg temp °C', 'avgTemp', 'tempLow'],
+  ['Free-cooling h/yr', 'fcHours', 'numHigh'],
+  ['Hot days >25°C', 'hot', 'numLow'],
+  ['Cold days <-10°C', 'cold', 'num'],
+  ['Population (50 km)', 'pop50', 'num'],
+  ['Grid carbon gCO₂/kWh', 'co2', 'numLow'],
+  ['Industrial price €/MWh', 'price', 'numLow'],
+  ['Grid mix', 'mix'],
+  ['Nearest seaport', 'seaport'],
+  ['Seaport distance km', 'seaportKm', 'numLow'],
+  ['Nearest airport', 'airport'],
+  ['Airport distance km', 'airportKm', 'numLow'],
+  ['Nearest HV substation', 'sub'],
+  ['Substation distance km', 'subKm', 'numLow'],
+  ['Distances to hubs', 'hubs'],
+];
+function fillSelects() {
+  const a = document.getElementById('sel-a'), b = document.getElementById('sel-b');
+  const opts = SITES.map(s => '<option value="'+s.slug+'">'+s.name+' — '+s.country+'</option>').join('');
+  a.innerHTML = opts; b.innerHTML = opts;
+  a.selectedIndex = 0; b.selectedIndex = Math.min(1, SITES.length - 1);
+  a.onchange = render; b.onchange = render;
+}
+function fmt(v) { return (v === '' || v == null) ? '<span class="cmp-empty">—</span>' : v; }
+function render() {
+  const a = SITES.find(s => s.slug === document.getElementById('sel-a').value);
+  const b = SITES.find(s => s.slug === document.getElementById('sel-b').value);
+  const body = document.getElementById('cmp-body');
+  let html = '<tr><th></th><td><strong>'+a.name+'</strong></td><td><strong>'+b.name+'</strong></td></tr>';
+  for (const [label, key, kind, higherBetter] of ROWS) {
+    const va = a[key], vb = b[key];
+    let ca = '', cb = '';
+    if (kind && kind.startsWith('num') || kind === 'tempLow' || kind === 'mw') {
+      const na = parseFloat(va), nb = parseFloat(vb);
+      if (!isNaN(na) && !isNaN(nb) && na !== nb) {
+        const aBetter = (kind === 'numLow' || kind === 'tempLow') ? na < nb : (higherBetter || kind === 'numHigh' || kind === 'mw') ? na > nb : false;
+        const bBetter = (kind === 'numLow' || kind === 'tempLow') ? nb < na : (higherBetter || kind === 'numHigh' || kind === 'mw') ? nb > na : false;
+        if (aBetter) ca = 'better';
+        if (bBetter) cb = 'better';
+      }
+    }
+    html += '<tr><th>'+label+'</th><td class="'+ca+'">'+fmt(va)+'</td><td class="'+cb+'">'+fmt(vb)+'</td></tr>';
+  }
+  body.innerHTML = html;
+}
+fillSelects();
+render();
+</script>
+</body>
+</html>`;
+  const dir = path.join(ROOT, isNo ? 'no/datacenters/compare' : 'datacenters/compare');
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf-8');
+}
+
 function regenSiteDetailPages(sites, schema) {
   for (const s of sites) {
     const slug = siteSlug(s);
@@ -546,6 +746,10 @@ function run() {
 
   // Per-site detail pages
   regenSiteDetailPages(data.sites, schema);
+
+  // Compare-2-sites page
+  buildComparePage(data.sites, 'en');
+  buildComparePage(data.sites, 'no');
 
   // Sync sections.json
   if (fs.existsSync(SECTIONS)) {
