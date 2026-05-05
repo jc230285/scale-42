@@ -53,14 +53,19 @@
   .dc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .dc-card {
     border: 1px solid var(--line); border-radius: var(--radius);
-    background: #fff; overflow: hidden;
-    display: flex; flex-direction: column;
-    transition: 0.2s ease;
+    background: #1c2e3f; overflow: hidden;
+    position: relative; aspect-ratio: 4/3;
+    transition: 0.2s ease; color: #fff;
   }
   .dc-card:hover { border-color: var(--ink); transform: translateY(-2px); }
   .dc-card .img {
-    aspect-ratio: 16/9; background: linear-gradient(135deg, #1c2e3f 0%, #2f6675 55%, #e8b87a 100%);
-    color: rgba(255,255,255,0.5); position: relative; overflow: hidden;
+    position: absolute; inset: 0; background: linear-gradient(135deg, #1c2e3f 0%, #2f6675 55%, #e8b87a 100%);
+    color: rgba(255,255,255,0.5); overflow: hidden;
+  }
+  .dc-card::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(28,46,63,0) 30%, rgba(28,46,63,0.55) 60%, rgba(28,46,63,0.92) 100%);
+    pointer-events: none;
   }
   .dc-card .img.bakki { background: linear-gradient(135deg, #2c3a48 0%, #5a4030 60%, #c47a4a 100%); }
   .dc-card .img.varkaus { background: linear-gradient(135deg, #1c2e3f 0%, #406b6e 60%, #8aa9a8 100%); }
@@ -85,18 +90,20 @@
   .dc-card .status.tbd { background: var(--muted); }
   .dc-card .status.sold { background: #33752f; }
 
-  .dc-card .body { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-  .dc-card h3 { font-family: var(--font-display); font-size: 22px; margin: 0; font-weight: 600; }
-  .dc-card .loc { font-size: 13px; color: var(--muted); margin: 0; text-transform: uppercase; letter-spacing: 0.08em; }
-  .dc-card p.desc { font-size: 14.5px; color: var(--ink-2); margin: 0; }
+  .dc-card .body { position: absolute; left: 0; right: 0; bottom: 0; padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px; z-index: 2; color: #fff; }
+  .dc-card h3 { font-family: var(--font-display); font-size: 22px; margin: 0; font-weight: 600; color: #fff; }
+  .dc-card .loc { font-size: 12px; color: rgba(255,255,255,0.75); margin: 0; text-transform: uppercase; letter-spacing: 0.08em; }
+  .dc-card p.desc { font-size: 13.5px; color: rgba(255,255,255,0.88); margin: 0; }
+  .dc-card .dc-link { display: none; }
+  .dc-card-link { position: absolute; inset: 0; z-index: 4; text-indent: -9999px; overflow: hidden; }
 
   .dc-stats {
     display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 16px; padding: 16px 0 0; border-top: 1px solid var(--line);
+    gap: 12px; padding: 10px 0 0; border-top: 1px solid rgba(255,255,255,0.18);
     margin-top: 4px;
   }
-  .dc-stats .stat dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; }
-  .dc-stats .stat dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 16px; }
+  .dc-stats .stat dt { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); margin: 0 0 2px; }
+  .dc-stats .stat dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #fff; }
 
   .dc-cta {
     background: var(--bg-dark); color: #e8ece9; padding: 64px 0;
@@ -235,7 +242,7 @@
 
     <div class="dc-grid"><!--cms:dc_cards-->
 
-      <article class="dc-card" id="glomfjord" data-country="norway" data-strat="sold">
+      <article class="dc-card" id="glomfjord" data-country="norway" data-strat="sold"><a class="dc-card-link" href="glomfjord/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status sold">Sold</span>
@@ -254,7 +261,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="bakki" data-country="iceland" data-strat="giga-42-responsibility">
+      <article class="dc-card" id="bakki" data-country="iceland" data-strat="giga-42-responsibility"><a class="dc-card-link" href="bakki/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status live">JV announced</span>
@@ -273,7 +280,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="skibotn" data-country="norway" data-strat="giga-42-responsibility">
+      <article class="dc-card" id="skibotn" data-country="norway" data-strat="giga-42-responsibility"><a class="dc-card-link" href="skibotn/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status live">Power-secured</span>
@@ -292,7 +299,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="reykjavik" data-country="iceland" data-strat="giga-42-responsibility">
+      <article class="dc-card" id="reykjavik" data-country="iceland" data-strat="giga-42-responsibility"><a class="dc-card-link" href="reykjavik/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status live">Permitting</span>
@@ -311,7 +318,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kristinestad" data-country="finland" data-strat="development-focus">
+      <article class="dc-card" id="kristinestad" data-country="finland" data-strat="development-focus"><a class="dc-card-link" href="kristinestad/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Power-secured</span>
@@ -330,7 +337,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nivala" data-country="finland" data-strat="development-focus">
+      <article class="dc-card" id="nivala" data-country="finland" data-strat="development-focus"><a class="dc-card-link" href="nivala/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -349,7 +356,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="jokkmokk" data-country="sweden" data-strat="development-focus">
+      <article class="dc-card" id="jokkmokk" data-country="sweden" data-strat="development-focus"><a class="dc-card-link" href="jokkmokk/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status live">Power-secured</span>
@@ -368,7 +375,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kronoby" data-country="finland" data-strat="development-focus">
+      <article class="dc-card" id="kronoby" data-country="finland" data-strat="development-focus"><a class="dc-card-link" href="kronoby/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -387,7 +394,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="torsboda" data-country="sweden" data-strat="development-focus">
+      <article class="dc-card" id="torsboda" data-country="sweden" data-strat="development-focus"><a class="dc-card-link" href="torsboda/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -406,7 +413,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="liperi" data-country="finland" data-strat="going-to-3rd-party">
+      <article class="dc-card" id="liperi" data-country="finland" data-strat="going-to-3rd-party"><a class="dc-card-link" href="liperi/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -425,7 +432,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kitee" data-country="finland" data-strat="going-to-3rd-party">
+      <article class="dc-card" id="kitee" data-country="finland" data-strat="going-to-3rd-party"><a class="dc-card-link" href="kitee/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -444,7 +451,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sorfold" data-country="norway" data-strat="going-to-3rd-party">
+      <article class="dc-card" id="sorfold" data-country="norway" data-strat="going-to-3rd-party"><a class="dc-card-link" href="sorfold/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -463,7 +470,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="alajarvi" data-country="finland" data-strat="later-stage-project">
+      <article class="dc-card" id="alajarvi" data-country="finland" data-strat="later-stage-project"><a class="dc-card-link" href="alajarvi/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -482,7 +489,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="robertsfors" data-country="sweden" data-strat="later-stage-project">
+      <article class="dc-card" id="robertsfors" data-country="sweden" data-strat="later-stage-project"><a class="dc-card-link" href="robertsfors/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -501,7 +508,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nuuk" data-country="greenland" data-strat="later-stage-project">
+      <article class="dc-card" id="nuuk" data-country="greenland" data-strat="later-stage-project"><a class="dc-card-link" href="nuuk/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Greenland</span>
           <span class="status tbd">In planning</span>
@@ -520,7 +527,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tjeldbergodden" data-country="norway" data-strat="who-the-fuck-knows">
+      <article class="dc-card" id="tjeldbergodden" data-country="norway" data-strat="who-the-fuck-knows"><a class="dc-card-link" href="tjeldbergodden/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -539,7 +546,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="honningsvag" data-country="norway" data-strat="bin-the-project">
+      <article class="dc-card" id="honningsvag" data-country="norway" data-strat="bin-the-project"><a class="dc-card-link" href="honningsvag/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -558,7 +565,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kemi" data-country="finland" data-strat="bin-the-project">
+      <article class="dc-card" id="kemi" data-country="finland" data-strat="bin-the-project"><a class="dc-card-link" href="kemi/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -577,7 +584,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="mikkeli" data-country="finland" data-strat="bin-the-project">
+      <article class="dc-card" id="mikkeli" data-country="finland" data-strat="bin-the-project"><a class="dc-card-link" href="mikkeli/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -596,7 +603,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="boden" data-country="sweden" data-strat="bin-the-project">
+      <article class="dc-card" id="boden" data-country="sweden" data-strat="bin-the-project"><a class="dc-card-link" href="boden/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -615,7 +622,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="hadsel" data-country="norway" data-strat="bin-the-project">
+      <article class="dc-card" id="hadsel" data-country="norway" data-strat="bin-the-project"><a class="dc-card-link" href="hadsel/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -634,7 +641,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sortland" data-country="norway" data-strat="bin-the-project">
+      <article class="dc-card" id="sortland" data-country="norway" data-strat="bin-the-project"><a class="dc-card-link" href="sortland/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -653,7 +660,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="salsbruket" data-country="norway" data-strat="bin-the-project">
+      <article class="dc-card" id="salsbruket" data-country="norway" data-strat="bin-the-project"><a class="dc-card-link" href="salsbruket/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -672,7 +679,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="rovaniemi" data-country="finland" data-strat="bin-the-project">
+      <article class="dc-card" id="rovaniemi" data-country="finland" data-strat="bin-the-project"><a class="dc-card-link" href="rovaniemi/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -691,7 +698,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="varkaus" data-country="finland">
+      <article class="dc-card" id="varkaus" data-country="finland"><a class="dc-card-link" href="varkaus/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -710,7 +717,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="bo" data-country="norway">
+      <article class="dc-card" id="bo" data-country="norway"><a class="dc-card-link" href="bo/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -729,7 +736,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kontiolahti" data-country="finland">
+      <article class="dc-card" id="kontiolahti" data-country="finland"><a class="dc-card-link" href="kontiolahti/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -748,7 +755,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="keminmaa" data-country="finland">
+      <article class="dc-card" id="keminmaa" data-country="finland"><a class="dc-card-link" href="keminmaa/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -767,7 +774,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tornio" data-country="finland">
+      <article class="dc-card" id="tornio" data-country="finland"><a class="dc-card-link" href="tornio/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -786,7 +793,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="oulu" data-country="finland">
+      <article class="dc-card" id="oulu" data-country="finland"><a class="dc-card-link" href="oulu/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">In planning</span>
@@ -805,7 +812,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="skelleftea" data-country="sweden">
+      <article class="dc-card" id="skelleftea" data-country="sweden"><a class="dc-card-link" href="skelleftea/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -824,7 +831,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="utansjo" data-country="sweden">
+      <article class="dc-card" id="utansjo" data-country="sweden"><a class="dc-card-link" href="utansjo/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -843,7 +850,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kalix" data-country="sweden">
+      <article class="dc-card" id="kalix" data-country="sweden"><a class="dc-card-link" href="kalix/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -862,7 +869,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="reydarfjordur" data-country="iceland">
+      <article class="dc-card" id="reydarfjordur" data-country="iceland"><a class="dc-card-link" href="reydarfjordur/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status tbd">In planning</span>
@@ -881,7 +888,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="akureyri" data-country="iceland">
+      <article class="dc-card" id="akureyri" data-country="iceland"><a class="dc-card-link" href="akureyri/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status tbd">In planning</span>
@@ -900,7 +907,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="valaiscanton" data-country="switzerland">
+      <article class="dc-card" id="valaiscanton" data-country="switzerland"><a class="dc-card-link" href="valaiscanton/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Switzerland</span>
           <span class="status tbd">In planning</span>
@@ -919,7 +926,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tbcnorthernengland" data-country="uk">
+      <article class="dc-card" id="tbcnorthernengland" data-country="uk"><a class="dc-card-link" href="tbcnorthernengland/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">UK</span>
           <span class="status tbd">In planning</span>
@@ -938,7 +945,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="icelandrunofriver" data-country="iceland">
+      <article class="dc-card" id="icelandrunofriver" data-country="iceland"><a class="dc-card-link" href="icelandrunofriver/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status tbd">In planning</span>
@@ -957,7 +964,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="moiranamoindustrialpark" data-country="norway">
+      <article class="dc-card" id="moiranamoindustrialpark" data-country="norway"><a class="dc-card-link" href="moiranamoindustrialpark/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -976,7 +983,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="andoya" data-country="norway">
+      <article class="dc-card" id="andoya" data-country="norway"><a class="dc-card-link" href="andoya/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -995,7 +1002,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sognlustersognekraftsognutvikling" data-country="norway">
+      <article class="dc-card" id="sognlustersognekraftsognutvikling" data-country="norway"><a class="dc-card-link" href="sognlustersognekraftsognutvikling/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">In planning</span>
@@ -1014,7 +1021,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="ostersundspikboderna" data-country="sweden">
+      <article class="dc-card" id="ostersundspikboderna" data-country="sweden"><a class="dc-card-link" href="ostersundspikboderna/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -1033,7 +1040,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="morsil" data-country="sweden">
+      <article class="dc-card" id="morsil" data-country="sweden"><a class="dc-card-link" href="morsil/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">In planning</span>
@@ -1052,7 +1059,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="milan" data-country="italy">
+      <article class="dc-card" id="milan" data-country="italy"><a class="dc-card-link" href="milan/" aria-label="View site details">view</a>
         <div class="img">
           <span class="country-flag">Italy</span>
           <span class="status tbd">In planning</span>
