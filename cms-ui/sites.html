@@ -155,6 +155,11 @@
       const opts = (f.options || []).map(o => `<option value="${escAttr(o)}"${v === o ? ' selected' : ''}>${escText(o)}</option>`).join('');
       return `<select ${dataAttrs}><option value=""></option>${opts}</select>`;
     }
+    if (f.type === 'combo') {
+      const listId = `dl-${f.key}`;
+      const opts = (f.options || []).map(o => `<option value="${escAttr(o)}"></option>`).join('');
+      return `<input type="text" list="${listId}" ${dataAttrs} value="${escAttr(v)}" /><datalist id="${listId}">${opts}</datalist>`;
+    }
     if (f.type === 'toggle') {
       return `<div class="toggle-cell"><input type="checkbox" ${dataAttrs} ${v ? 'checked' : ''} /></div>`;
     }
