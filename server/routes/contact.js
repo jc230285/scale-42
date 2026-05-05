@@ -134,7 +134,7 @@ router.post('/contact',
         try {
           const fromUser = process.env.GMAIL_USER || process.env.SMTP_USER;
           const fromAlias = process.env.MAIL_FROM || fromUser;
-          await t.sendMail({
+          const info = await t.sendMail({
             from: `"Scale42 website" <${fromAlias}>`,
             envelope: { from: fromUser, to: to.split(',').map(s => s.trim()) },
             to,
@@ -143,9 +143,19 @@ router.post('/contact',
             text,
             html,
           });
-        } catch (e) { console.error('SMTP send failed', e); }
+          entry.email_sent = true;
+          entry.message_id = info.messageId;
+          entry.smtp_response = info.response;
+          console.log(`[contact] email OK to=${to} msgId=${info.messageId} resp=${info.response}`);
+          try { appendInquiry(entry); } catch {}
+        } catch (e) {
+          entry.email_sent = false;
+          entry.email_error = String((e && e.message) || e);
+          console.error('[contact] SMTP send FAILED:', (e && e.message) || e);
+          try { appendInquiry(entry); } catch {}
+        }
       } else {
-        console.warn('Contact submission received but SMTP not configured.');
+        console.warn('[contact] submission received but SMTP not configured');
       }
 
       res.redirect(303, '/contact/sent/');

@@ -90,6 +90,7 @@ app.use('/api', auth, attachUser, require('./routes/upload'));
 app.use('/api', auth, attachUser, require('./routes/publish'));
 app.use('/api', auth, attachUser, require('./routes/audit'));
 app.use('/api', auth, attachUser, require('./routes/account'));
+app.use('/api', auth, attachUser, require('./routes/inquiries'));
 
 // Block private directories from being served as static assets.
 // /content/ contains sites.json (with internal fields), cms-users.json (bcrypt hashes),
