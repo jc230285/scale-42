@@ -9,3 +9,4 @@
 {"ts":"2026-05-05T07:33:30.774Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:glomfjord","path":"public_status_label","before":"","after":"Operational"}]}
 {"ts":"2026-05-05T07:33:42.381Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
 {"ts":"2026-05-05T07:53:18.934Z","user":"james@scale-42.com","user_name":"James Collins","section":"sections","action":"save","changes":[{"entity":"sections:en","path":"hero_eyebrow","before":"Next-generation European digital infrastructure","after":"Next-generation European AI infrastructure"},{"entity":"sections:no","path":"hero_eyebrow","before":"Neste generasjons europeisk digital infrastruktur","after":"Neste generasjons europeisk AI-infrastruktur"}]}
+{"ts":"2026-05-05T07:53:29.944Z","user":"james@scale-42.com","user_name":"James Collins","section":"sections","action":"publish","changes":[]}
