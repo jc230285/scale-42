@@ -47,15 +47,64 @@
 </header>
 
 <section id="contact" class="section section-dark">
-  <div class="container contact-inner">
-    <div>
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto;">
       <p class="eyebrow eyebrow-light">Contact</p>
       <h2 class="section-title">Let's build the next gigawatt.</h2>
-      <p class="section-lede">Drop us a line and our team will be in touch.</p>
+      <p class="section-lede">Tell us about your project and we'll be back within one working day.</p>
+      <p style="font-size:18px;margin:8px 0 28px;"><a href="mailto:info@scale-42.com" style="color:#fff;"><!--cms:contact_email-->info@scale-42.com<!--/cms:contact_email--></a></p>
+
+      <form method="POST" action="/api/contact" class="contact-form" autocomplete="on">
+        <div class="cf-row">
+          <label>Inquiry type
+            <select name="inquiry_type" required>
+              <option value="capacity">Capacity / RFI</option>
+              <option value="partnership">Partnership / JV</option>
+              <option value="supplier">Supplier / Contractor</option>
+              <option value="press">Press</option>
+              <option value="careers">Careers</option>
+              <option value="general">General</option>
+            </select>
+          </label>
+        </div>
+        <div class="cf-row cf-2">
+          <label>Name *<input type="text" name="name" required maxlength="200"></label>
+          <label>Company<input type="text" name="company" maxlength="200"></label>
+        </div>
+        <div class="cf-row cf-2">
+          <label>Email *<input type="email" name="email" required maxlength="200"></label>
+          <label>Phone<input type="tel" name="phone" maxlength="60"></label>
+        </div>
+        <div class="cf-row">
+          <label>MW required (if applicable)<input type="text" name="mw" placeholder="e.g. 50 MW initial, 200 MW target" maxlength="40"></label>
+        </div>
+        <div class="cf-row">
+          <label>Message *<textarea name="message" required maxlength="5000" rows="6"></textarea></label>
+        </div>
+        <div style="position:absolute;left:-9999px;" aria-hidden="true">
+          <label>Website (leave blank)<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.6);margin:4px 0 16px;">By submitting this form you consent to Scale42 contacting you about your inquiry. We do not share your details with third parties.</p>
+        <button type="submit" class="btn btn-primary" style="background:#fff;color:var(--ink);">Send message →</button>
+      </form>
     </div>
-    <p style="font-size:20px;"><a href="mailto:info@scale-42.com" style="color:#fff;"><!--cms:contact_email-->info@scale-42.com<!--/cms:contact_email--></a></p>
   </div>
 </section>
+<style>
+  .contact-form label { display:flex; flex-direction:column; gap:6px; font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.7); font-weight:600; }
+  .contact-form input, .contact-form select, .contact-form textarea {
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); border-radius:8px;
+    padding:12px 14px; font-size:15px; color:#fff; font-family:inherit; text-transform:none; letter-spacing:normal;
+  }
+  .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+    outline:none; border-color:#fff; background:rgba(255,255,255,0.10);
+  }
+  .contact-form textarea { resize:vertical; min-height:120px; }
+  .contact-form .cf-row { margin:0 0 18px; }
+  .contact-form .cf-2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media (max-width:640px) { .contact-form .cf-2 { grid-template-columns:1fr; } }
+  .contact-form select option { color:#000; }
+</style>
 
 <footer class="footer">
   <div class="container">

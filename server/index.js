@@ -77,6 +77,9 @@ function attachUser(req, _res, next) {
   }
 }
 
+// Public contact form — no auth, rate-limited inside the route module.
+app.use('/api', require('./routes/contact'));
+
 app.use('/cms', auth, express.static(path.join(ROOT, 'cms-ui')));
 app.use('/api', auth, attachUser, require('./routes/people'));
 app.use('/api', auth, attachUser, require('./routes/sites'));
