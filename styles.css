@@ -104,7 +104,7 @@ img { max-width: 100%; display: block; }
 .eyebrow-light { color: var(--accent-2); }
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(38px, 5.6vw, 68px);
+  font-size: 67px;
   line-height: 1.05; letter-spacing: -0.02em;
   margin: 0 0 22px; font-weight: 600;
 }
