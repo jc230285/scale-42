@@ -360,14 +360,8 @@ function buildSiteDetailPage(s, schema, lang) {
       const extras = (donut || fra) ? `<div class="loc-extras">${donut}${fra}</div>` : '';
       return `<section id="sec-${g}" class="kv-section"><h2>${escHtml(groupMeta.label)}</h2><div class="loc-split"><dl class="kv-grid">${rows}</dl>${mapBlock(g)}</div>${extras}${chartBlock}</section>`;
     }
-    // Skip sections where every public field is empty
-    const hasData = fields.some(f => {
-      const v = s[f.key];
-      if (v === undefined || v === null || v === '') return false;
-      if (Array.isArray(v) && v.length === 0) return false;
-      return true;
-    });
-    if (!hasData) return '';
+    // Skip sections where rendered rows are empty (no values OR only filtered-out fields)
+    if (!rows || !rows.trim()) return '';
     return `<section id="sec-${g}" class="kv-section"><h2>${escHtml(groupMeta.label)}</h2>${mapBlock(g)}<dl class="kv-grid">${rows}</dl></section>`;
   }).join('\n');
 
@@ -382,6 +376,7 @@ function buildSiteDetailPage(s, schema, lang) {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>${escHtml(s.name)} — Scale42</title>
 <meta name="description" content="${escHtml((desc || '').slice(0, 160))}" />
+${s.published ? '' : '<meta name="robots" content="noindex,nofollow" />'}
 <meta name="theme-color" content="#1c2e3f" />
 <link rel="icon" type="image/svg+xml" href="${isNo ? '../../../assets/favicon.svg' : '../../assets/favicon.svg'}" />
 <link rel="canonical" href="https://www.scale-42.com/${isNo ? 'no/' : ''}datacenters/${escHtml(slug)}/" />
@@ -806,6 +801,28 @@ function run() {
   // Regenerate the canonical nav into every page (incl. site detail pages
   // we just wrote with cms:nav placeholders).
   try { require('./nav').run(); } catch (e) { console.warn('nav regen skipped:', e.message); }
+  try { require('./sitemap').run(); } catch (e) { console.warn('sitemap regen skipped:', e.message); }
+  // Build-time guard: warn about internal links pointing at unpublished sites
+  try {
+    const unpublishedSlugs = new Set(data.sites.filter(s => !s.published).map(s => siteSlug(s)));
+    if (unpublishedSlugs.size) {
+      const { execSync } = require('child_process');
+      let dead = [];
+      for (const slug of unpublishedSlugs) {
+        try {
+          const out = execSync(`git grep -l "datacenters/${slug}/" -- "*.html" "*.json" "content/" "*.md"`, { cwd: ROOT, encoding: 'utf8' }).trim();
+          if (out) {
+            const files = out.split(/\r?\n/).filter(f => !f.startsWith('datacenters/' + slug) && !f.startsWith('no/datacenters/' + slug));
+            if (files.length) dead.push({ slug, files });
+          }
+        } catch {}
+      }
+      if (dead.length) {
+        console.warn('⚠ Links to unpublished sites:');
+        for (const d of dead) console.warn(`  ${d.slug} ← referenced in ${d.files.join(', ')}`);
+      }
+    }
+  } catch (e) { /* git grep not available */ }
 
   console.log('regen sites: done', stats);
 }
