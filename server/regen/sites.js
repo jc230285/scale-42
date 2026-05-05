@@ -181,11 +181,10 @@ function buildSiteDetailPage(s, schema, lang) {
   const pubLat = hasCoords ? round1(s.lat) : null;
   const pubLng = hasCoords ? round1(s.lng) : null;
   const pubLoc = s.public_location || [s.name, s.country].filter(Boolean).join(', ');
-  // Map embed is now a hero banner below the image, so disable per-section embed
-  const mapBlock = () => '';
-  const heroMapBanner = pubLoc
-    ? `<section class="site-map-banner"><iframe src="https://www.google.com/maps?q=${encodeURIComponent(pubLoc)}&output=embed&z=9" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></section>`
+  const mapBlock = (g) => (g === 'location' && pubLoc)
+    ? `<div class="site-map-embed"><iframe src="https://www.google.com/maps?q=${encodeURIComponent(pubLoc)}&output=embed&z=9" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>`
     : '';
+  const heroMapBanner = '';
 
   // Power-source icons
   const POWER_ICON = { hydro: '💧', wind: '🌬️', geothermal: '♨️', solar: '☀️', nuclear: '⚛️', gas: '🔥', mixed: '⚡' };

@@ -94,7 +94,11 @@
       "project_description": "",
       "extra_data": "",
       "public_status_label": "Operational",
-      "public_location": "Glomfjord, Norway"
+      "public_location": "Glomfjord, Norway",
+      "nearest_airport_public": "Mo i Rana Airport, Røssvoll (MQN)",
+      "nearest_airport_km": "52",
+      "nearest_seaport": "Bodø",
+      "nearest_seaport_km": "56"
     },
     {
       "id": "bakki",
@@ -190,7 +194,14 @@
       "strategy_notes": "",
       "internal_comments": "",
       "public_status_label": "In development",
-      "public_location": "Húsavík, Iceland"
+      "public_location": "Húsavík, Iceland",
+      "area_overview": "Húsavík is a town in Norðurþing municipality on the northeast coast of Iceland on the shores of Skjálfandi bay with 2,485 inhabitants. The most famous landmark of the town is the wooden church Húsavíkurkirkja, built in 1907. Húsavík is served by Húsavík Airport.",
+      "population": "2508",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/H%C3%BAsav%C3%ADk",
+      "nearest_airport_public": "Akureyri International Airport (AEY)",
+      "nearest_airport_km": "55",
+      "nearest_seaport": "Húsavík",
+      "nearest_seaport_km": "1"
     },
     {
       "id": "skibotn",
@@ -284,7 +295,11 @@
       "strategy_notes": "",
       "internal_comments": "",
       "public_status_label": "In development",
-      "public_location": "Skibotn, Norway"
+      "public_location": "Skibotn, Norway",
+      "nearest_airport_public": "Sørkjosen Airport (SOJ)",
+      "nearest_airport_km": "52",
+      "nearest_seaport": "Tromsø",
+      "nearest_seaport_km": "59"
     },
     {
       "id": "reykjavik",
@@ -380,7 +395,14 @@
       "internal_comments": "",
       "extra_data": "",
       "public_status_label": "In development",
-      "public_location": "Reykjavík, Iceland"
+      "public_location": "Reykjavík, Iceland",
+      "area_overview": "Reykjavík is the capital and largest city of Iceland. It is located on the southern shore of the Faxaflói bay in southwest Iceland and has a latitude of 64°08′ N, making it the world's northernmost capital of a sovereign state. Reykjavík has a population of around 139,000 as of 2025, and the surrounding Capital Region has a population of around 249,000, constituting approximately 64% of Iceland's population.",
+      "population": "138772",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Reykjav%C3%ADk",
+      "nearest_airport_public": "Reykjavík Domestic Airport (RKV)",
+      "nearest_airport_km": "2",
+      "nearest_seaport": "Reykjavík (Sundahöfn)",
+      "nearest_seaport_km": "5"
     },
     {
       "id": "kristinestad",
@@ -472,7 +494,11 @@
       "strategy_notes": "",
       "internal_comments": "",
       "public_status_label": "In development",
-      "public_location": "Kristinestad, Finland"
+      "public_location": "Kristinestad, Finland",
+      "nearest_airport_public": "Vaasa Airport (VAA)",
+      "nearest_airport_km": "88",
+      "nearest_seaport": "Pori",
+      "nearest_seaport_km": "76"
     },
     {
       "id": "nivala",
@@ -565,7 +591,11 @@
       "internal_comments": "",
       "extra_data": "",
       "public_status_label": "In development",
-      "public_location": "Nivala, Finland"
+      "public_location": "Nivala, Finland",
+      "nearest_airport_public": "Kokkola-Pietarsaari Airport (KOK)",
+      "nearest_airport_km": "92",
+      "nearest_seaport": "Raahe",
+      "nearest_seaport_km": "87"
     },
     {
       "id": "jokkmokk",
@@ -660,7 +690,11 @@
       "strategy_notes": "",
       "internal_comments": "",
       "public_status_label": "In development",
-      "public_location": "Jokkmokk, Sweden"
+      "public_location": "Jokkmokk, Sweden",
+      "nearest_airport_public": "Gällivare Airport (GEV)",
+      "nearest_airport_km": "73",
+      "nearest_seaport": "Luleå",
+      "nearest_seaport_km": "155"
     },
     {
       "id": "kronoby",
@@ -752,7 +786,11 @@
       "internal_comments": "",
       "extra_data": "",
       "public_status_label": "In development",
-      "public_location": "Kronoby, Finland"
+      "public_location": "Kronoby, Finland",
+      "nearest_airport_public": "Kokkola-Pietarsaari Airport (KOK)",
+      "nearest_airport_km": "6",
+      "nearest_seaport": "Kokkola",
+      "nearest_seaport_km": "13"
     },
     {
       "id": "torsboda",
@@ -846,7 +884,11 @@
       "extra_data": "",
       "image": "torsboda.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Torsboda, Sweden"
+      "public_location": "Torsboda, Sweden",
+      "nearest_airport_public": "Sundsvall-Härnösand Airport (SDL)",
+      "nearest_airport_km": "5",
+      "nearest_seaport": "Sundsvall",
+      "nearest_seaport_km": "20"
     },
     {
       "id": "liperi",
@@ -939,7 +981,11 @@
       "internal_comments": "",
       "image": "liperi.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Liperi, Finland"
+      "public_location": "Liperi, Finland",
+      "nearest_airport_public": "Joensuu Airport (JOE)",
+      "nearest_airport_km": "19",
+      "nearest_seaport": "Kotka",
+      "nearest_seaport_km": "264"
     },
     {
       "id": "kitee",
@@ -1032,7 +1078,13 @@
       "internal_comments": "",
       "image": "kitee.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Kitee, Finland"
+      "public_location": "Kitee, Finland",
+      "area_overview": "The Kiteezi Landfill, also known as the Kiteezi Rubbish Dump, is a solid waste disposal site in Uganda. It is the main solid waste disposal site for the capital city of Kampala, with a projected metropolitan population of approximately 4 million people, as of 2024, serving the homes, businesses and industries of that metropolis.",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Kiteezi_Landfill",
+      "nearest_airport_public": "Savonlinna Airport (SVL)",
+      "nearest_airport_km": "65",
+      "nearest_seaport": "Kotka",
+      "nearest_seaport_km": "250"
     },
     {
       "id": "sorfold",
@@ -1127,7 +1179,11 @@
       "internal_comments": "",
       "image": "sorfold.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Sørfold, Norway"
+      "public_location": "Sørfold, Norway",
+      "nearest_airport_public": "Bodø Airport (BOO)",
+      "nearest_airport_km": "50",
+      "nearest_seaport": "Bodø",
+      "nearest_seaport_km": "48"
     },
     {
       "id": "alajarvi",
@@ -1220,7 +1276,11 @@
       "extra_data": "",
       "image": "alajarvi.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Alajärvi, Finland"
+      "public_location": "Alajärvi, Finland",
+      "nearest_airport_public": "Kokkola-Pietarsaari Airport (KOK)",
+      "nearest_airport_km": "87",
+      "nearest_seaport": "Kokkola",
+      "nearest_seaport_km": "102"
     },
     {
       "id": "robertsfors",
@@ -1313,7 +1373,11 @@
       "extra_data": "",
       "image": "robertsfors.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Robertsfors, Sweden"
+      "public_location": "Robertsfors, Sweden",
+      "nearest_airport_public": "Skellefteå Airport (SFT)",
+      "nearest_airport_km": "48",
+      "nearest_seaport": "Skellefteå (Skelleftehamn)",
+      "nearest_seaport_km": "57"
     },
     {
       "id": "nuuk",
@@ -1405,7 +1469,14 @@
       "extra_data": "",
       "image": "nuuk.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Nuuk, Greenland"
+      "public_location": "Nuuk, Greenland",
+      "area_overview": "Nuuk is the capital and most populous city of Greenland, an autonomous territory of Denmark. It is the seat of the Sermersooq municipality and the government of Greenland and is the territory's largest cultural and economic center. In January 2025, it had a population of 20,113—more than a third of the territory's population—making it one of the smallest capital cities in the world by population.",
+      "population": "18326",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Nuuk",
+      "nearest_airport_public": "Nuuk International Airport (GOH)",
+      "nearest_airport_km": "1",
+      "nearest_seaport": "Nuuk",
+      "nearest_seaport_km": "2"
     },
     {
       "id": "tjeldbergodden",
@@ -1500,7 +1571,11 @@
       "extra_data": "",
       "image": "tjeldbergodden.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Tjeldbergodden, Norway"
+      "public_location": "Tjeldbergodden, Norway",
+      "nearest_airport_public": "Kristiansund Airport, Kvernberget (KSU)",
+      "nearest_airport_km": "51",
+      "nearest_seaport": "Kristiansund",
+      "nearest_seaport_km": "55"
     },
     {
       "id": "honningsvag",
@@ -1593,7 +1668,14 @@
       "internal_comments": "",
       "image": "honningsvag.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Honningsvåg, Norway"
+      "public_location": "Honningsvåg, Norway",
+      "area_overview": "Honningsvåg is the northernmost city/town in mainland Norway. It is located in Nordkapp Municipality in Finnmark county. Honningsvåg was declared a city in 1996, despite its small population. The 1.04-square-kilometre (260-acre) town has a population of 2,245 (2023), which gives the town a population density of 2,159 inhabitants per square kilometre (5,590/sq mi).",
+      "population": "2261",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Honningsv%C3%A5g",
+      "nearest_airport_public": "Honningsvåg Airport, Valan (HVG)",
+      "nearest_airport_km": "3",
+      "nearest_seaport": "Hammerfest",
+      "nearest_seaport_km": "91"
     },
     {
       "id": "kemi",
@@ -1687,7 +1769,14 @@
       "internal_comments": "",
       "image": "kemi.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Kemi, Finland"
+      "public_location": "Kemi, Finland",
+      "area_overview": "Kemi is a town and municipality of Finland. It is located approximately 30 kilometres (19 mi) from the city of Tornio and the Swedish border. The distance to Oulu is 105 kilometres (65 mi) to the south and to Rovaniemi is 117 kilometres (73 mi) to the northeast. It was founded in 1869 by a decree of the Emperor Alexander II of Russia because of its proximity to a deepwater port.",
+      "population": "19371",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Kemi",
+      "nearest_airport_public": "Kemi-Tornio Airport (KEM)",
+      "nearest_airport_km": "5",
+      "nearest_seaport": "Kemi (Ajos)",
+      "nearest_seaport_km": "7"
     },
     {
       "id": "mikkeli",
@@ -1780,7 +1869,14 @@
       "internal_comments": "",
       "image": "mikkeli.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Mikkeli, Finland"
+      "public_location": "Mikkeli, Finland",
+      "area_overview": "Mikkeli is a city in, and the regional capital of, South Savo, Finland, located in the Finnish Lakeland. The population is approximately 52,000, while the Mikkeli sub-region of South Savo has a population of approximately 68,000. Mikkeli is the 18th most-populous municipality of Finland and the 19th most-populous urban area in the country.",
+      "population": "51551",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Mikkeli",
+      "nearest_airport_public": "Lappeenranta Airport (LPP)",
+      "nearest_airport_km": "85",
+      "nearest_seaport": "Kotka",
+      "nearest_seaport_km": "138"
     },
     {
       "id": "boden",
@@ -1874,7 +1970,14 @@
       "extra_data": "",
       "image": "boden.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Boden, Sweden"
+      "public_location": "Boden, Sweden",
+      "area_overview": "Boden is a locality and the seat of Boden Municipality in Norrbotten County, Sweden, with 16,847 inhabitants in 2018. It is part of the larger area around coastal city Luleå some 36 kilometres (22 mi) southeast. After Kiruna, it is the second largest town in Northern Sweden's interior.",
+      "population": "16644",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Boden%2C_Sweden",
+      "nearest_airport_public": "Luleå Airport (LLA)",
+      "nearest_airport_km": "37",
+      "nearest_seaport": "Luleå",
+      "nearest_seaport_km": "34"
     },
     {
       "id": "hadsel",
@@ -1967,7 +2070,13 @@
       "internal_comments": "",
       "image": "hadsel.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Hadsel, Norway"
+      "public_location": "Hadsel, Norway",
+      "area_overview": "Halse og Harkmark is a former municipality in the old Vest-Agder county, Norway. The 105-square-kilometre (41 sq mi) municipality existed from 1838 until its dissolution in 1964. The administrative centre of the municipality was the village of Halse, which at that time was a suburb of the town of Mandal. It was located in the southern part of the municipality of Mandal. The municipality of Halse og Harkmark encompassed the rural areas that surrounded the town of Mandal, including many islands such as Hille, Skjernøy, and Pysen. It is now located within Lindesnes Municipality in what is now Agder county.",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Halse_og_Harkmark",
+      "nearest_airport_public": "Stokmarknes Airport, Skagen (SKN)",
+      "nearest_airport_km": "8",
+      "nearest_seaport": "Narvik",
+      "nearest_seaport_km": "106"
     },
     {
       "id": "sortland",
@@ -2060,7 +2169,14 @@
       "internal_comments": "",
       "image": "sortland.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Sortland, Norway"
+      "public_location": "Sortland, Norway",
+      "area_overview": " (Norwegian) or Suortá (Northern Sami) is a municipality in Nordland county, Norway. It is part of the traditional region of Vesterålen. The administrative centre of the municipality is the town of Sortland. Other population centres in Sortland include the villages of Bø, Holand, Holmstad, Liland, Sigerfjord, Strand, and Vik. The Norwegian Coast Guard has its northern base in Sortland, called Kystvaktskvadron Nord.",
+      "population": "10748",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Sortland_Municipality",
+      "nearest_airport_public": "Stokmarknes Airport, Skagen (SKN)",
+      "nearest_airport_km": "20",
+      "nearest_seaport": "Narvik",
+      "nearest_seaport_km": "88"
     },
     {
       "id": "salsbruket",
@@ -2154,7 +2270,11 @@
       "image": "salsbruket.svg",
       "public_status_label": "Coming soon",
       "public_location": "Salsbruket, Norway",
-      "power_notes": "Target: (possibly 80 subject to substation power)"
+      "power_notes": "Target: (possibly 80 subject to substation power)",
+      "nearest_airport_public": "Rørvik Airport, Ryum (RVK)",
+      "nearest_airport_km": "26",
+      "nearest_seaport": "Mosjøen",
+      "nearest_seaport_km": "146"
     },
     {
       "id": "rovaniemi",
@@ -2247,7 +2367,14 @@
       "internal_comments": "",
       "image": "rovaniemi.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Rovaniemi, Finland"
+      "public_location": "Rovaniemi, Finland",
+      "area_overview": "Rovaniemi is a city in Finland and the regional capital of Lapland. It is located near the Arctic Circle in the northern interior of the country. The population of Rovaniemi is approximately 66,000, while the sub-region has a population of approximately 70,000. It is the 17th most populous municipality in Finland, and the 11th most populous urban area in the country.",
+      "population": "65329",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Rovaniemi",
+      "nearest_airport_public": "Rovaniemi Airport (RVN)",
+      "nearest_airport_km": "9",
+      "nearest_seaport": "Kemi (Ajos)",
+      "nearest_seaport_km": "107"
     },
     {
       "id": "varkaus",
@@ -2337,7 +2464,11 @@
       "internal_comments": "",
       "project_description": "",
       "public_status_label": "In development",
-      "public_location": "Varkaus, Finland"
+      "public_location": "Varkaus, Finland",
+      "nearest_airport_public": "Savonlinna Airport (SVL)",
+      "nearest_airport_km": "69",
+      "nearest_seaport": "Kotka",
+      "nearest_seaport_km": "212"
     },
     {
       "id": "bo",
@@ -2427,7 +2558,14 @@
       "project_description": "",
       "image": "bo.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Bo, Norway"
+      "public_location": "Bo, Norway",
+      "area_overview": "Bodø is a municipality in Nordland county, Norway. It is part of the traditional region of Salten. The administrative centre of the municipality is the town of Bodø. Some of the notable villages in Bodø include Misvær, Skjerstad, Saltstraumen, Løding, Løpsmarka, Kjerringøy, Sørvær, and Fenes.",
+      "population": "53638",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Bod%C3%B8_Municipality",
+      "nearest_airport_public": "Stokmarknes Airport, Skagen (SKN)",
+      "nearest_airport_km": "26",
+      "nearest_seaport": "Narvik",
+      "nearest_seaport_km": "125"
     },
     {
       "id": "kontiolahti",
@@ -2517,7 +2655,11 @@
       "project_description": "",
       "image": "kontiolahti.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Kontiolahti, Finland"
+      "public_location": "Kontiolahti, Finland",
+      "nearest_airport_public": "Joensuu Airport (JOE)",
+      "nearest_airport_km": "15",
+      "nearest_seaport": "Kotka",
+      "nearest_seaport_km": "296"
     },
     {
       "id": "keminmaa",
@@ -2607,7 +2749,11 @@
       "project_description": "",
       "image": "keminmaa.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Keminmaa, Finland"
+      "public_location": "Keminmaa, Finland",
+      "nearest_airport_public": "Kemi-Tornio Airport (KEM)",
+      "nearest_airport_km": "3",
+      "nearest_seaport": "Kemi (Ajos)",
+      "nearest_seaport_km": "15"
     },
     {
       "id": "tornio",
@@ -2697,7 +2843,14 @@
       "project_description": "",
       "image": "tornio.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Tornio, Finland"
+      "public_location": "Tornio, Finland",
+      "area_overview": "Tornio is a city and municipality in Lapland, Finland. The city forms a cross-border twin city together with Haparanda on the Swedish side. The municipality covers an area of 1,348.83 square kilometres (520.79 sq mi), of which 161.59 km2 (62.39 sq mi) is water. The population density is 17.52 inhabitants per square kilometre (45.4/sq mi), with a total population of 20,823.",
+      "population": "21018",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Tornio",
+      "nearest_airport_public": "Kemi-Tornio Airport (KEM)",
+      "nearest_airport_km": "21",
+      "nearest_seaport": "Kemi (Ajos)",
+      "nearest_seaport_km": "26"
     },
     {
       "id": "oulu",
@@ -2787,7 +2940,14 @@
       "project_description": "",
       "image": "oulu.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Oulu, Finland"
+      "public_location": "Oulu, Finland",
+      "area_overview": "Oulu is a major port city in Finland and the regional capital of North Ostrobothnia. It is located on the north-western coast of the country at the mouth of the River Oulu. The population of Oulu is approximately 217,000, while the sub-region has a population of approximately 265,000. It is the 5th most populous municipality in Finland, and the fourth most populous urban area in the country. Oulu is also the most populous city in Northern Finland.",
+      "population": "217469",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Oulu",
+      "nearest_airport_public": "Oulu Airport (OUL)",
+      "nearest_airport_km": "10",
+      "nearest_seaport": "Oulu (Oritkari)",
+      "nearest_seaport_km": "2"
     },
     {
       "id": "skelleftea",
@@ -2877,7 +3037,14 @@
       "project_description": "",
       "image": "skelleftea.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Skelleftea, Sweden"
+      "public_location": "Skelleftea, Sweden",
+      "area_overview": "Skellefteå is a city in Västerbotten County, Sweden, with a population of 36,388. It is the seat of Skellefteå Municipality, which had 77,322 inhabitants in 2024.",
+      "population": "39146",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Skellefte%C3%A5",
+      "nearest_airport_public": "Skellefteå Airport (SFT)",
+      "nearest_airport_km": "15",
+      "nearest_seaport": "Skellefteå (Skelleftehamn)",
+      "nearest_seaport_km": "15"
     },
     {
       "id": "utansjo",
@@ -2967,7 +3134,11 @@
       "project_description": "",
       "image": "utansjo.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Utansjö, Sweden"
+      "public_location": "Utansjö, Sweden",
+      "nearest_airport_public": "Kramfors-Sollefteå Höga Kusten Airport (KRF)",
+      "nearest_airport_km": "31",
+      "nearest_seaport": "Sundsvall",
+      "nearest_seaport_km": "53"
     },
     {
       "id": "kalix",
@@ -3057,7 +3228,14 @@
       "project_description": "",
       "image": "kalix.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Kalix, Sweden"
+      "public_location": "Kalix, Sweden",
+      "area_overview": "Kalix is a locality and the seat of the Kalix Municipality in Norrbotten County, Sweden. The name Kalix is believed to originate from the Sami word Gáláseatnu, or \"Kalasätno\", meaning \"The cold river\" the ancient name of the Kalix River. It had 7,299 inhabitants in 2005, out of 17,300 inhabitants in the municipality of Kalix.",
+      "population": "8226",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Kalix",
+      "nearest_airport_public": "Luleå Airport (LLA)",
+      "nearest_airport_km": "58",
+      "nearest_seaport": "Luleå",
+      "nearest_seaport_km": "55"
     },
     {
       "id": "reydarfjordur",
@@ -3237,7 +3415,14 @@
       "project_description": "",
       "image": "akureyri.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Akureyri, Iceland"
+      "public_location": "Akureyri, Iceland",
+      "area_overview": "Akureyri is a town in northern Iceland, the country's fifth most populous municipality and the largest outside the Capital Region. The municipality includes the town's neighbourhood at the head of Eyjafjörður and two farther islands: Hrísey at the mouth of Eyjafjörður and Grímsey off the coast.",
+      "population": "20050",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Akureyri",
+      "nearest_airport_public": "Akureyri International Airport (AEY)",
+      "nearest_airport_km": "3",
+      "nearest_seaport": "Akureyri",
+      "nearest_seaport_km": "1"
     },
     {
       "id": "valaiscanton",
@@ -3328,7 +3513,11 @@
       "image": "valaiscanton.svg",
       "public_status_label": "Coming soon",
       "public_location": "Valais Canton, Switzerland",
-      "power_notes": "Initial: TBC MW"
+      "power_notes": "Initial: TBC MW",
+      "nearest_airport_public": "Bern Airport (BRN)",
+      "nearest_airport_km": "80",
+      "nearest_seaport": "Copenhagen",
+      "nearest_seaport_km": "1112"
     },
     {
       "id": "tbcnorthernengland",
@@ -3598,7 +3787,11 @@
       "project_description": "",
       "image": "moiranamoindustrialpark.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Mo I Rana, Mo Industrial Park, Norway"
+      "public_location": "Mo I Rana, Mo Industrial Park, Norway",
+      "nearest_airport_public": "Mo i Rana Airport, Røssvoll (MQN)",
+      "nearest_airport_km": "9",
+      "nearest_seaport": "Mo i Rana",
+      "nearest_seaport_km": "1"
     },
     {
       "id": "andoya",
@@ -3632,8 +3825,8 @@
       "investment_memo_link": "",
       "strategic_status": "",
       "short_status_label": "",
-      "lat": null,
-      "lng": null,
+      "lat": 69.0658,
+      "lng": 15.1688,
       "size_ha": null,
       "zoning_status": "",
       "planning_status": "",
@@ -3688,7 +3881,13 @@
       "project_description": "",
       "image": "andoya.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Andøya, Norway"
+      "public_location": "Andøya, Norway",
+      "area_overview": "Anden is a small island in Øksnes Municipality in Nordland county, Norway. It lies in the Vesterålen archipelago, about 5 kilometres (3.1 mi) north of the village of Stø on the northern tip of the large island of Langøya, and about 14 kilometres (8.7 mi) west of the large island of Andøya. It is home to the Anda Lighthouse, which was the last lighthouse in Norway to be automated.",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Anden%2C_Norway",
+      "nearest_airport_public": "Andøya Airport, Andenes (ANX)",
+      "nearest_airport_km": "46",
+      "nearest_seaport": "Narvik",
+      "nearest_seaport_km": "115"
     },
     {
       "id": "sognlustersognekraftsognutvikling",
@@ -3778,7 +3977,11 @@
       "project_description": "",
       "image": "sognlustersognekraftsognutvikling.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Sogn (Luster, Sognekraft Sogn Utvikling), Norway"
+      "public_location": "Sogn (Luster, Sognekraft Sogn Utvikling), Norway",
+      "nearest_airport_public": "Ørsta-Volda Airport, Hovden (HOV)",
+      "nearest_airport_km": "111",
+      "nearest_seaport": "Ålesund",
+      "nearest_seaport_km": "136"
     },
     {
       "id": "ostersundspikboderna",
@@ -3901,8 +4104,8 @@
       "investment_memo_link": "",
       "strategic_status": "",
       "short_status_label": "",
-      "lat": null,
-      "lng": null,
+      "lat": 62.78333333,
+      "lng": 17.9,
       "size_ha": null,
       "zoning_status": "",
       "planning_status": "",
@@ -3958,7 +4161,14 @@
       "project_description": "",
       "image": "morsil.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Mörsil, Sweden"
+      "public_location": "Mörsil, Sweden",
+      "area_overview": "Veda och Mörtsal is a smaller locality in Högsjö parish, Härnösand Municipality, Sweden. It had 61 inhabitants in 2015. It comprises two villages halfway between Kramfors and Härnösand. The ferry that served as transport to Nyadal, on the other side of the Ångerman River, before the Höga Kusten Bridge was built, was in Veda. The settlement lies less than 1 kilometer from Utansjö.",
+      "population": "60",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Veda_och_M%C3%B6rtsal",
+      "nearest_airport_public": "Kramfors-Sollefteå Höga Kusten Airport (KRF)",
+      "nearest_airport_km": "30",
+      "nearest_seaport": "Sundsvall",
+      "nearest_seaport_km": "53"
     },
     {
       "id": "milan",
@@ -4048,7 +4258,14 @@
       "project_description": "",
       "image": "milan.svg",
       "public_status_label": "Coming soon",
-      "public_location": "Milan, Italy"
+      "public_location": "Milan, Italy",
+      "area_overview": "Milan is the regional capital of Lombardy, in northern Italy, and the seat of the Metropolitan City of Milan. It is the second-most populous city in Italy after Rome, with a population of 1,362,863 in 2026. The city's wider metropolitan area is the largest in Italy, and the fourth-largest in the European Union, with an estimated population of 6.55 million. Milan is considered Italy's economic capital, and its metropolitan area accounts for about 20% of the country's GDP.",
+      "population": "1354196",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Milan",
+      "nearest_airport_public": "Milano Linate Airport (LIN)",
+      "nearest_airport_km": "7",
+      "nearest_seaport": "Copenhagen",
+      "nearest_seaport_km": "1162"
     }
   ]
 }
