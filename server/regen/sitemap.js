@@ -15,7 +15,7 @@ function run() {
 
   const urls = [];
   // Top-level pages
-  const topPages = ['', 'datacenters/', 'news/', 'solutions/', 'sustainability/', 'giga-42/', 'team/', 'careers/', 'press/', 'privacy/'];
+  const topPages = ['', 'datacenters/', 'news/', 'solutions/', 'sustainability/', 'partners/', 'team/', 'careers/', 'press/', 'privacy/'];
   for (const p of topPages) {
     urls.push({ loc: `${BASE}/${p}`, alt: `${BASE}/no/${p}` });
   }

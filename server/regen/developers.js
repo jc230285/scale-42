@@ -1,4 +1,4 @@
-// Regen for the Partners page (/giga-42/ + /no/giga-42/) sourced from content/developers.json.
+// Regen for the Partners page (/partners/ + /no/partners/) sourced from content/developers.json.
 // Also re-runs sites regen so dc-card logos refresh when partner logos change.
 const fs = require('fs');
 const path = require('path');
@@ -50,8 +50,8 @@ function rewritePage(file, lang) {
 }
 
 function run() {
-  rewritePage(path.join(ROOT, 'giga-42', 'index.html'), 'en');
-  rewritePage(path.join(ROOT, 'no', 'giga-42', 'index.html'), 'no');
+  rewritePage(path.join(ROOT, 'partners', 'index.html'), 'en');
+  rewritePage(path.join(ROOT, 'no', 'partners', 'index.html'), 'no');
   // Also refresh dc-card logos via sites regen
   try { require('./sites').run(); } catch (e) { console.warn('sites regen skipped:', e.message); }
   console.log('regen partners: done');
@@ -59,7 +59,7 @@ function run() {
 
 module.exports = {
   run,
-  files: ['content/developers.json', 'giga-42/index.html', 'no/giga-42/index.html', 'datacenters/index.html', 'no/datacenters/index.html', 'index.html', 'no/index.html'],
+  files: ['content/developers.json', 'partners/index.html', 'no/partners/index.html', 'datacenters/index.html', 'no/datacenters/index.html', 'index.html', 'no/index.html'],
 };
 
 if (require.main === module) run();
