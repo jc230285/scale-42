@@ -201,6 +201,19 @@ function parseCsvLine(line) {
   return out;
 }
 
+// Country-level annual data (Ember 2024 grid intensity gCO2/kWh; Eurostat 2024-H2 industrial electricity €/MWh non-household band IC)
+const COUNTRY_GRID = {
+  Iceland:     { co2: 27,  price_eur_mwh: 88,  source_mix: 'Hydro 70%, geothermal 30%' },
+  Norway:      { co2: 31,  price_eur_mwh: 94,  source_mix: 'Hydro 88%, wind 10%, thermal 2%' },
+  Sweden:      { co2: 41,  price_eur_mwh: 79,  source_mix: 'Hydro 41%, nuclear 30%, wind 21%' },
+  Finland:     { co2: 79,  price_eur_mwh: 86,  source_mix: 'Nuclear 35%, hydro 21%, wind 19%' },
+  Denmark:     { co2: 151, price_eur_mwh: 117, source_mix: 'Wind 53%, biomass 24%, solar 8%' },
+  Greenland:   { co2: 80,  price_eur_mwh: 130, source_mix: 'Hydro 70%, diesel 30%' },
+  Switzerland: { co2: 35,  price_eur_mwh: 173, source_mix: 'Hydro 57%, nuclear 32%' },
+  Italy:       { co2: 257, price_eur_mwh: 169, source_mix: 'Gas 47%, hydro 16%, solar 12%' },
+  'United Kingdom': { co2: 162, price_eur_mwh: 248, source_mix: 'Gas 35%, wind 28%, nuclear 14%' },
+};
+
 // Latency-proxy hubs (great-circle km)
 const HUBS = [
   { name: 'Frankfurt', lat: 50.110, lng: 8.682 },
@@ -209,7 +222,48 @@ const HUBS = [
   { name: 'Amsterdam', lat: 52.370, lng: 4.895 },
 ];
 
-// Open-Meteo ERA5 archive: daily mean temp → avg temp, free-cooling hours, monthly series
+// Daylight hours at summer/winter solstice (NOAA approximation)
+function daylightHours(lat) {
+  const ax = (decl) => {
+    const phi = lat * Math.PI / 180;
+    const d = decl * Math.PI / 180;
+    const cosH = -Math.tan(phi) * Math.tan(d);
+    if (cosH <= -1) return 24;
+    if (cosH >= 1) return 0;
+    return (Math.acos(cosH) * 180 / Math.PI) * 2 / 15;
+  };
+  return { summer: ax(23.44).toFixed(1), winter: ax(-23.44).toFixed(1) };
+}
+
+// Time zone offset in hours from lng (rough — does not handle DST or political tz)
+function tzOffset(lng) {
+  const h = Math.round(lng / 15);
+  return (h >= 0 ? `UTC+${h}` : `UTC${h}`);
+}
+
+// OSM Overpass: nearest power=substation with voltage>=132 kV within 50 km
+async function nearestHighVoltSubstation(lat, lng) {
+  const r = 50000;
+  const q = `[out:json][timeout:25];(node["power"="substation"]["voltage"~"^(1[3-9][0-9]|[2-9][0-9]{2}|[0-9]{4,})000"](around:${r},${lat},${lng});way["power"="substation"]["voltage"~"^(1[3-9][0-9]|[2-9][0-9]{2}|[0-9]{4,})000"](around:${r},${lat},${lng});relation["power"="substation"]["voltage"~"^(1[3-9][0-9]|[2-9][0-9]{2}|[0-9]{4,})000"](around:${r},${lat},${lng}););out center 30;`;
+  const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(q)}`;
+  try {
+    const j = await fetchJsonCached(url, 60);
+    const elems = j?.elements || [];
+    let best = null;
+    for (const e of elems) {
+      const eLat = e.lat || e.center?.lat, eLng = e.lon || e.center?.lon;
+      if (eLat == null || eLng == null) continue;
+      const km = haversineKm({ lat, lng }, { lat: eLat, lng: eLng });
+      const v = (e.tags?.voltage || '').split(';').map(x => parseInt(x, 10)).filter(Number.isFinite);
+      const kv = v.length ? Math.max(...v) / 1000 : null;
+      const name = e.tags?.name || e.tags?.['name:en'] || `${kv || '?'} kV substation`;
+      if (!best || km < best.km) best = { km, kv, name };
+    }
+    return best;
+  } catch { return null; }
+}
+
+// Open-Meteo ERA5 archive: daily mean temp → avg temp, free-cooling hours, monthly series + extremes
 async function climateFor(lat, lng, years = 3) {
   const end = new Date(); end.setDate(end.getDate() - 7);
   const start = new Date(end); start.setFullYear(end.getFullYear() - years);
@@ -223,14 +277,15 @@ async function climateFor(lat, lng, years = 3) {
     const tmean = j?.daily?.temperature_2m_mean || [];
     const tmax = j?.daily?.temperature_2m_max || [];
     if (!days.length) return null;
-    let sum = 0, n = 0, fcHours = 0;
-    const monthly = {}; // 'YYYY-MM' → { sum, n }
+    let sum = 0, n = 0, fcHours = 0, hotDays = 0, coldDays = 0;
+    const monthly = {};
     for (let i = 0; i < days.length; i++) {
       const t = tmean[i]; if (t == null) continue;
       sum += t; n++;
-      // free-cooling proxy: hours/day with max < 18 °C
       if (tmax[i] != null && tmax[i] < 18) fcHours += 24;
       else if (t < 18) fcHours += 12;
+      if (tmax[i] != null && tmax[i] > 25) hotDays++;
+      if (tmax[i] != null && tmax[i] < -10) coldDays++;
       const ym = days[i].slice(0, 7);
       (monthly[ym] = monthly[ym] || { sum: 0, n: 0 }).sum += t;
       monthly[ym].n++;
@@ -240,6 +295,8 @@ async function climateFor(lat, lng, years = 3) {
     return {
       avg_temp_c: (sum / n).toFixed(1),
       free_cooling_hours: String(Math.round(fcHours / years)),
+      hot_days_per_year: String(Math.round(hotDays / years)),
+      cold_days_per_year: String(Math.round(coldDays / years)),
       temp_chart: series,
     };
   } catch { return null; }
@@ -312,17 +369,40 @@ function nearest(point, list) {
           if (!s.nearest_seaport_km) s.nearest_seaport_km = String(Math.round(p.km));
         }
       }
-      if (!s.avg_temp_c || !s.free_cooling_hours || !s.temp_chart) {
+      if (!s.avg_temp_c || !s.free_cooling_hours || !s.temp_chart || !s.hot_days_per_year) {
         const c = await climateFor(coord.lat, coord.lng);
         if (c) {
           if (!s.avg_temp_c) s.avg_temp_c = c.avg_temp_c;
           if (!s.free_cooling_hours) s.free_cooling_hours = c.free_cooling_hours;
           if (!s.temp_chart) s.temp_chart = c.temp_chart;
+          if (!s.hot_days_per_year) s.hot_days_per_year = c.hot_days_per_year;
+          if (!s.cold_days_per_year) s.cold_days_per_year = c.cold_days_per_year;
         }
       }
       if (!s.population_50km) {
         s.population_50km = String(populationWithin(coord, cities, 50));
       }
+      if (!s.daylight_hours) {
+        const dl = daylightHours(coord.lat);
+        s.daylight_hours = `Summer: ${dl.summer} h · Winter: ${dl.winter} h`;
+      }
+      if (!s.tz_offset) s.tz_offset = tzOffset(coord.lng);
+      if (!s.nearest_substation) {
+        const sub = await nearestHighVoltSubstation(coord.lat, coord.lng);
+        if (sub) {
+          s.nearest_substation = sub.kv ? `${sub.name} — ${sub.kv} kV` : sub.name;
+          s.nearest_substation_km = String(Math.round(sub.km));
+        }
+      }
+    }
+    // Country-level grid data (no coords needed)
+    const cd = COUNTRY_GRID[s.country];
+    if (cd) {
+      if (!s.grid_co2) s.grid_co2 = String(cd.co2);
+      if (!s.grid_price) s.grid_price = String(cd.price_eur_mwh);
+      if (!s.grid_mix) s.grid_mix = cd.source_mix;
+    }
+    if (false) {
       if (!s.hub_distances_km) {
         s.hub_distances_km = HUBS.map(h => `${h.name}: ${Math.round(haversineKm(coord, h))} km`).join(' · ');
       }

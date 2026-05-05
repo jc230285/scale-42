@@ -154,19 +154,40 @@ function buildSiteDetailPage(s, schema, lang) {
   const publicFields = schema.fields.filter(f => f.public && !SKIP.has(f.key));
   const buildTempChart = (series) => {
     if (!series || series.length < 2) return '';
-    const w = 320, h = 80, pad = 4;
+    const w = 1200, h = 220, padL = 36, padR = 12, padT = 12, padB = 28;
     const ts = series.map(p => p.t);
     const lo = Math.min(...ts), hi = Math.max(...ts);
-    const span = (hi - lo) || 1;
-    const step = (w - pad * 2) / (series.length - 1);
-    const pts = series.map((p, i) => {
-      const x = pad + i * step;
-      const y = h - pad - ((p.t - lo) / span) * (h - pad * 2);
-      return `${x.toFixed(1)},${y.toFixed(1)}`;
-    });
+    const niceLo = Math.floor(lo / 5) * 5, niceHi = Math.ceil(hi / 5) * 5;
+    const span = (niceHi - niceLo) || 1;
+    const innerW = w - padL - padR, innerH = h - padT - padB;
+    const step = innerW / (series.length - 1);
+    const xAt = (i) => padL + i * step;
+    const yAt = (t) => padT + (1 - (t - niceLo) / span) * innerH;
+    const pts = series.map((p, i) => `${xAt(i).toFixed(1)},${yAt(p.t).toFixed(1)}`);
     const path = `M ${pts.join(' L ')}`;
-    const area = `M ${pts[0].split(',')[0]},${h - pad} L ${pts.join(' L ')} L ${pts[pts.length - 1].split(',')[0]},${h - pad} Z`;
-    return `<div class="temp-chart"><svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="3-year monthly mean temperature"><path d="${area}" fill="rgba(47,102,117,0.12)"/><path d="${path}" stroke="var(--accent)" stroke-width="1.5" fill="none"/></svg><div class="temp-chart-meta"><span>${series[0].ym}</span><span>${hi.toFixed(0)} °C max · ${lo.toFixed(0)} °C min</span><span>${series[series.length - 1].ym}</span></div></div>`;
+    const area = `M ${xAt(0).toFixed(1)},${(padT + innerH).toFixed(1)} L ${pts.join(' L ')} L ${xAt(series.length - 1).toFixed(1)},${(padT + innerH).toFixed(1)} Z`;
+    // Y gridlines + labels every 5 °C
+    let gridY = '';
+    for (let v = niceLo; v <= niceHi; v += 5) {
+      const y = yAt(v);
+      gridY += `<line x1="${padL}" x2="${w - padR}" y1="${y}" y2="${y}" stroke="#e5eaee" stroke-width="1"/>`;
+      gridY += `<text x="${padL - 6}" y="${y + 3}" font-size="10" fill="#7a8693" text-anchor="end">${v}°</text>`;
+    }
+    // X ticks: month label every 3 months, vertical line every 12 months (year boundary)
+    const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    let gridX = '';
+    series.forEach((p, i) => {
+      const [y, m] = p.ym.split('-').map(Number);
+      const x = xAt(i);
+      if (m === 1) {
+        gridX += `<line x1="${x}" x2="${x}" y1="${padT}" y2="${padT + innerH}" stroke="#cdd6df" stroke-width="1"/>`;
+        gridX += `<text x="${x}" y="${h - 4}" font-size="11" fill="#1c2e3f" text-anchor="middle" font-weight="600">${y}</text>`;
+      } else if ((m - 1) % 3 === 0) {
+        gridX += `<line x1="${x}" x2="${x}" y1="${padT + innerH}" y2="${padT + innerH + 4}" stroke="#cdd6df" stroke-width="1"/>`;
+        gridX += `<text x="${x}" y="${h - 14}" font-size="9" fill="#7a8693" text-anchor="middle">${MONTHS[m - 1]}</text>`;
+      }
+    });
+    return `<div class="temp-chart"><svg viewBox="0 0 ${w} ${h}" role="img" aria-label="3-year monthly mean temperature">${gridY}${gridX}<path d="${area}" fill="rgba(47,102,117,0.12)"/><path d="${path}" stroke="var(--accent)" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg><div class="temp-chart-meta"><span>${hi.toFixed(0)} °C max · ${lo.toFixed(0)} °C min</span></div></div>`;
   };
 
   const groupOrder = schema.groups.filter(g => !g.internalOnly).map(g => g.key);
@@ -279,7 +300,7 @@ function buildSiteDetailPage(s, schema, lang) {
         return `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`;
       }).join('');
     } else {
-      rows = fields.map(f => `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`).join('');
+      rows = fields.filter(f => f.key !== 'site_type').map(f => `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`).join('');
     }
     if (g === 'location') {
       let chartBlock = '';
@@ -287,8 +308,16 @@ function buildSiteDetailPage(s, schema, lang) {
         const chart = Array.isArray(s.temp_chart) ? buildTempChart(s.temp_chart) : '';
         chartBlock = `<div class="temp-row"><div class="temp-row-head"><span class="dt-label">${isNo ? 'Snitt-temp (3 år)' : 'Avg annual temp (3 yr)'}</span><span class="dt-val">${escHtml(String(s.avg_temp_c))} °C</span></div>${chart}</div>`;
       }
-      return `<section id="sec-${g}" class="kv-section"><h2>${escHtml(groupMeta.label)}</h2><div class="loc-split">${mapBlock(g)}<dl class="kv-grid">${rows}</dl></div>${chartBlock}</section>`;
+      return `<section id="sec-${g}" class="kv-section"><h2>${escHtml(groupMeta.label)}</h2><div class="loc-split"><dl class="kv-grid">${rows}</dl>${mapBlock(g)}</div>${chartBlock}</section>`;
     }
+    // Skip sections where every public field is empty
+    const hasData = fields.some(f => {
+      const v = s[f.key];
+      if (v === undefined || v === null || v === '') return false;
+      if (Array.isArray(v) && v.length === 0) return false;
+      return true;
+    });
+    if (!hasData) return '';
     return `<section id="sec-${g}" class="kv-section"><h2>${escHtml(groupMeta.label)}</h2>${mapBlock(g)}<dl class="kv-grid">${rows}</dl></section>`;
   }).join('\n');
 
@@ -383,19 +412,26 @@ ${s.image ? `<meta property="og:image" content="https://www.scale-42.com${resolv
   .temp-row-head { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 8px; }
   .temp-row-head .dt-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
   .temp-row-head .dt-val { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
-  .temp-chart svg { width: 100%; height: 120px; display: block; }
-  .temp-chart-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .temp-chart svg { width: 100%; height: 220px; display: block; }
+  .temp-chart-meta { display: flex; justify-content: flex-end; font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .pill.type-tag { background: rgba(47,102,117,0.12); color: var(--accent); border: 1px solid rgba(47,102,117,0.3); margin-left: 8px; text-transform: capitalize; font-weight: 600; }
   .loc-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
   .loc-split .site-map-embed { position: sticky; top: 80px; height: 420px; }
   @media (max-width: 800px) { .loc-split { grid-template-columns: 1fr; } .loc-split .site-map-embed { position: static; height: 280px; } }
+  .pdf-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--ink); color: #fff; border: 0; padding: 8px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; }
+  .pdf-btn:hover { background: var(--accent); color: #fff; }
+  @page { size: A4; margin: 14mm; }
   @media print {
-    .nav, .footer, .site-toc, .dc-cta, .site-map-banner { display: none !important; }
-    body { color: #000; }
-    .site-hero { padding: 0 0 16px; }
+    .nav, .footer, .site-toc, .dc-cta, .site-map-banner, .pdf-btn, .site-map-embed { display: none !important; }
+    body { color: #000; background: #fff; font-size: 11pt; }
+    .site-hero { padding: 0 0 12mm; page-break-after: always; }
     .site-body { padding: 0; }
-    .kv-section { page-break-inside: avoid; padding: 16px 0; border-top: 1px solid #ddd; }
+    .kv-section, .climate-block, .temp-row { page-break-before: always; page-break-inside: avoid; padding: 0 0 8mm; border-top: 0; }
+    .kv-section h2, .climate-block h2 { font-size: 16pt; margin: 0 0 4mm; }
+    .loc-split { display: block; }
     a { color: #000; text-decoration: none; }
-    .hero-frame img { max-height: 280px; }
+    .hero-frame img { max-height: 80mm; width: 100%; object-fit: cover; }
+    .temp-chart svg { height: 60mm; }
   }
 </style>
 </head>
@@ -412,7 +448,7 @@ ${s.image ? `<meta property="og:image" content="https://www.scale-42.com${resolv
     <p class="crumb"><a href="${backLink}">${backText}</a></p>
     <p class="eyebrow">${heroLede} · ${escHtml(s.country)}</p>
     <h1>${escHtml(s.name)}</h1>
-    <p class="meta"><span class="pill ${statusClass}">${statusLabel}</span></p>
+    <p class="meta"><span class="pill ${statusClass}">${statusLabel}</span>${s.site_type ? `<span class="pill type-tag">${escHtml(s.site_type)}</span>` : ''}<a href="#" class="pdf-btn" onclick="window.print();return false;" style="margin-left:12px;">${isNo ? '⬇ Last ned PDF' : '⬇ Download PDF'}</a></p>
     ${heroImg}
   </div>
 </section>
