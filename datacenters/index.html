@@ -198,11 +198,11 @@
   <div class="container">
     <p class="eyebrow">Data centres</p>
     <h1><!--cms:dc_hero_title-->16.34 GW of Nordic AI-ready capacity.<!--/cms:dc_hero_title--></h1>
-    <p class="lede"><!--cms:dc_hero_lede-->44 projects across 8 Nordic countries — co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 50 MW campus deployments to 500 MW+ flagship sites.<!--/cms:dc_hero_lede--></p>
+    <p class="lede"><!--cms:dc_hero_lede-->43 projects across 8 Nordic countries — co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 50 MW campus deployments to 500 MW+ flagship sites.<!--/cms:dc_hero_lede--></p>
 
     <dl class="dc-summary">
       <div class="item"><dt>Active pipeline</dt><dd><!--cms:dc_pipeline-->16.34 GW<!--/cms:dc_pipeline--></dd></div>
-      <div class="item"><dt>Projects</dt><dd><!--cms:dc_projects-->44<!--/cms:dc_projects--></dd></div>
+      <div class="item"><dt>Projects</dt><dd><!--cms:dc_projects-->43<!--/cms:dc_projects--></dd></div>
       <div class="item"><dt>Countries</dt><dd><!--cms:dc_countries-->8<!--/cms:dc_countries--></dd></div>
       <div class="item"><dt>Module size</dt><dd>12.5 MW</dd></div>
     </dl>
@@ -216,7 +216,6 @@
       <strong>Status</strong>
       <div class="row"><span class="dot live"></span> Operational / In development</div>
       <div class="row"><span class="dot tbd"></span> Coming soon</div>
-      <div class="row"><span class="dot sold"></span> Sold</div>
     </div>
   </div>
 </section>
@@ -236,24 +235,6 @@
     </div>
 
     <div class="dc-grid"><!--cms:dc_cards-->
-
-      <article class="dc-card" id="glomfjord" data-country="norway" data-strat="sold">
-        <a class="dc-card-link" href="glomfjord/" aria-label="Glomfjord">view</a>
-        <h3 class="dc-name-top">Glomfjord</h3>
-        <p class="loc loc-top">Norway</p>
-        <span class="status sold">Sold</span>
-        <div class="img">
-          <img src="../assets/sites/glomfjord.webp" alt="Glomfjord" loading="lazy" />
-        </div>
-        <div class="body">
-          <p class="desc">Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus.</p>
-          <dl class="dc-stats">
-            <div class="stat"><dt>Initial</dt><dd>12.5 MW</dd></div>
-            <div class="stat"><dt>Target</dt><dd>50 MW+</dd></div>
-            <div class="stat"><dt>Power</dt><dd>Hydro</dd></div>
-          </dl>
-        </div>
-      </article>
 
       <article class="dc-card" id="bakki" data-country="iceland" data-strat="giga-42-responsibility">
         <a class="dc-card-link" href="bakki/" aria-label="Bakki">view</a>
@@ -1085,7 +1066,6 @@
 <script>
   // Map: Nordic data centre sites
   const sites = /*cms:sites_full*/[
-    { name: "Glomfjord", country: "Norway", status: "sold", strat: "", lat: 66.8167, lng: 13.9667, power: "Hydro", target: "50", desc: "Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus." },
     { name: "Bakki", country: "Iceland", status: "live", strat: "GIGA-42 Responsibility", lat: 66.05, lng: -17.35, power: "Geothermal", target: "200", desc: "Geothermal baseload, 50 MW initial 2027, scaling to 200 MW." },
     { name: "Skibotn", country: "Norway", status: "live", strat: "GIGA-42 Responsibility", lat: 69.3833, lng: 20.2667, power: "Hydro", target: "15", desc: "Sub-Arctic Norwegian site with hydropower headroom and free-air cooling at 69° N." },
     { name: "Reykjavík", country: "Iceland", status: "live", strat: "GIGA-42 Responsibility", lat: 64.1466, lng: -21.9426, power: "Geothermal / hydro", target: "200", desc: "Greater Reykjavík capacity adjacent to existing fibre — low-latency to North America." },

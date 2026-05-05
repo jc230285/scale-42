@@ -7,7 +7,7 @@
       "site_type": "brownfield",
       "internal_status": "Sold",
       "internal_category": "GIGA-42",
-      "published": true,
+      "published": false,
       "status": "sold",
       "short_status_label": "Sold",
       "lat": 66.8167,
@@ -93,7 +93,7 @@
       "internal_comments": "",
       "project_description": "",
       "extra_data": "",
-      "public_status_label": "Sold"
+      "public_status_label": ""
     },
     {
       "id": "bakki",

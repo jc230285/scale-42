@@ -15,6 +15,14 @@ const STATUS_LABEL_NO = { live: 'Under utvikling', tbd: 'I planlegging', sold: '
 
 const COUNTRY_FLAG = { Norway: '🇳🇴', Finland: '🇫🇮', Sweden: '🇸🇪', Iceland: '🇮🇸', Greenland: '🇬🇱', Denmark: '🇩🇰' };
 
+function deriveStatus(label) {
+  if (!label) return 'tbd';
+  const l = String(label).toLowerCase();
+  if (l === 'sold') return 'sold';
+  if (l === 'operational' || l === 'in development') return 'live';
+  return 'tbd';
+}
+
 function computeStats(sites) {
   const live = sites.filter(s => s.published);
   // pipeline excludes sold
@@ -326,6 +334,10 @@ function regenSiteDetailPages(sites, schema) {
 function run() {
   const data = JSON.parse(fs.readFileSync(DATA, 'utf-8'));
   const schema = JSON.parse(fs.readFileSync(SCHEMA, 'utf-8'));
+  // Auto-derive status from public_status_label so editors only manage one field
+  for (const s of data.sites) {
+    if (s.public_status_label) s.status = deriveStatus(s.public_status_label);
+  }
   const stats = computeStats(data.sites);
 
   // Map array literals (JS)

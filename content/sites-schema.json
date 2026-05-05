@@ -2,6 +2,11 @@
   "_doc": "Single source of truth for site fields. `public:true` = renders to website/PDF-public deck. `public:false` = CMS + internal deck only. Groups drive editor accordions.",
   "groups": [
     {
+      "key": "publish",
+      "label": "Publish",
+      "internalOnly": false
+    },
+    {
       "key": "identity",
       "label": "Identity",
       "internalOnly": false
@@ -201,22 +206,24 @@
     },
     {
       "key": "published",
-      "label": "Public — show on website",
-      "group": "public_status",
+      "label": "Show on public website",
+      "group": "publish",
       "type": "toggle",
-      "public": false
+      "public": true
     },
     {
       "key": "status",
-      "label": "Public status",
-      "group": "public_status",
+      "label": "Status (auto-derived)",
+      "group": "status_ownership",
       "type": "select",
       "options": [
         "live",
         "tbd",
         "sold"
       ],
-      "public": true
+      "public": false,
+      "readonly": true,
+      "help": "Automatically set from Public status — drives badge colour and pin colour."
     },
     {
       "key": "short_status_label",
@@ -245,8 +252,7 @@
       "options": [
         "Operational",
         "In development",
-        "Coming soon",
-        "Sold"
+        "Coming soon"
       ],
       "public": true,
       "help": "Shown as the badge on each public site card."
@@ -519,7 +525,7 @@
       "label": "Nearest airport",
       "group": "access",
       "type": "text",
-      "public": true
+      "public": false
     },
     {
       "key": "airport_km",
@@ -764,28 +770,28 @@
       "label": "Highway access",
       "group": "access",
       "type": "text",
-      "public": true
+      "public": false
     },
     {
       "key": "airport_access",
       "label": "Airport access",
       "group": "access",
       "type": "text",
-      "public": true
+      "public": false
     },
     {
       "key": "college_university",
       "label": "College / universities",
       "group": "access",
       "type": "text",
-      "public": true
+      "public": false
     },
     {
       "key": "other_access_notes",
       "label": "Other access notes",
       "group": "access",
       "type": "textarea",
-      "public": true
+      "public": false
     },
     {
       "key": "latency_summary",
@@ -855,7 +861,7 @@
       "label": "Strategic status",
       "group": "status_ownership",
       "type": "select",
-      "public": true,
+      "public": false,
       "options": [
         "Going to 3rd party",
         "GIGA-42 Responsibility",
