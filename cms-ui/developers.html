@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Developers — Scale42 CMS</title>
+<link rel="stylesheet" href="cms.css" />
+<style>
+  .dev-grid { display: grid; gap: 14px; margin-top: 16px; }
+  .dev-row { display: grid; grid-template-columns: 80px 1fr 1fr 1fr 40px; gap: 12px; align-items: center; padding: 12px; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+  .dev-row .logo-cell { width: 72px; height: 48px; display: flex; align-items: center; justify-content: center; background: #f4f6f8; border-radius: 4px; overflow: hidden; }
+  .dev-row .logo-cell img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .dev-row label { font-size: 11px; color: var(--ink-2); display: flex; flex-direction: column; gap: 4px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+  .dev-row input { padding: 8px 10px; font-size: 14px; border: 1px solid var(--line); border-radius: 4px; background: #fff; font-family: inherit; text-transform: none; letter-spacing: normal; font-weight: 400; }
+  .dev-row .del { background: transparent; border: none; color: #b3261e; cursor: pointer; font-size: 18px; }
+  .toolbar { display: flex; gap: 10px; margin-top: 18px; }
+  .add-btn { padding: 10px 18px; background: var(--ink); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; }
+  .save-btn { padding: 10px 18px; background: var(--accent); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; }
+  .save-btn[disabled] { opacity: 0.4; cursor: default; }
+  .help { font-size: 13px; color: var(--ink-2); margin: 6px 0 0; }
+</style>
+</head>
+<body>
+<header class="cms-nav">
+  <a class="cms-brand" href="/cms/">Scale42 CMS</a>
+  <nav>
+    <a href="/cms/people.html">People</a>
+    <a href="/cms/sites.html">Sites</a>
+    <a href="/cms/developers.html" class="active">Developers</a>
+    <a href="/cms/news.html">News</a>
+    <a href="/cms/sections.html">Sections</a>
+    <a href="/cms/journey.html">Journey</a>
+    <a href="/cms/audit.html">Audit</a>
+    <a href="/cms/account.html">Account</a>
+    <a href="/" target="_blank">View site &rarr;</a>
+  </nav>
+</header>
+<main class="cms-main">
+  <h1>Developers</h1>
+  <p class="lede">Logos shown on datacenter cards. The <strong>id</strong> is referenced by sites — change it carefully (existing assignments break). Logo URL can be external (https://…) or a local path under <code>/assets/</code>.</p>
+  <div id="dev-grid" class="dev-grid"></div>
+  <div class="toolbar">
+    <button class="add-btn" id="add">+ Add developer</button>
+    <button class="save-btn" id="save" disabled>Save</button>
+    <span id="status" style="color:var(--ink-2);font-size:13px;align-self:center;"></span>
+  </div>
+</main>
+<script>
+let state = { developers: [] };
+let dirty = false;
+const $ = id => document.getElementById(id);
+
+function setDirty(v) { dirty = v; $('save').disabled = !v; }
+function escAttr(s) { return String(s ?? '').replace(/"/g, '&quot;'); }
+
+function render() {
+  $('dev-grid').innerHTML = state.developers.map((d, i) => `
+    <div class="dev-row" data-i="${i}">
+      <div class="logo-cell">${d.logo ? `<img src="${escAttr(d.logo)}" alt="" />` : ''}</div>
+      <label>ID (slug)<input data-k="id" value="${escAttr(d.id)}" placeholder="giga-42" /></label>
+      <label>Name<input data-k="name" value="${escAttr(d.name)}" placeholder="GIGA-42" /></label>
+      <label>Logo URL<input data-k="logo" value="${escAttr(d.logo)}" placeholder="https://…/logo.png" /></label>
+      <label>Site URL<input data-k="url" value="${escAttr(d.url)}" placeholder="https://…" /></label>
+      <button class="del" data-del="${i}" title="Delete">✕</button>
+    </div>
+  `).join('');
+}
+
+document.addEventListener('input', (e) => {
+  const row = e.target.closest('.dev-row');
+  if (!row) return;
+  const i = +row.dataset.i;
+  const k = e.target.dataset.k;
+  if (!k) return;
+  state.developers[i][k] = e.target.value;
+  if (k === 'logo') {
+    const img = row.querySelector('.logo-cell');
+    img.innerHTML = e.target.value ? `<img src="${escAttr(e.target.value)}" alt="" />` : '';
+  }
+  setDirty(true);
+});
+
+document.addEventListener('click', (e) => {
+  const del = e.target.closest('[data-del]');
+  if (del) {
+    if (!confirm('Delete this developer?')) return;
+    state.developers.splice(+del.dataset.del, 1);
+    render();
+    setDirty(true);
+  }
+});
+
+$('add').onclick = () => {
+  state.developers.push({ id: '', name: '', logo: '', url: '' });
+  render();
+  setDirty(true);
+};
+
+$('save').onclick = async () => {
+  $('status').textContent = 'Saving…';
+  const r = await fetch('/api/developers', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(state),
+  });
+  if (r.ok) { $('status').textContent = 'Saved.'; setDirty(false); setTimeout(() => $('status').textContent = '', 2000); }
+  else { const err = await r.json().catch(() => ({})); $('status').textContent = 'Save failed: ' + (err.error || r.status); }
+};
+
+(async function init() {
+  const r = await fetch('/api/developers');
+  state = await r.json();
+  if (!state.developers) state.developers = [];
+  render();
+})();
+</script>
+</body>
+</html>

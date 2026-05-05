@@ -105,8 +105,27 @@ function resolveImg(image, basePrefix) {
   return basePrefix + image;
 }
 
+function loadDevelopers() {
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.resolve(ROOT, 'content', 'developers.json'), 'utf-8'));
+    const m = new Map();
+    for (const d of (raw.developers || [])) m.set(d.id, d);
+    return m;
+  } catch { return new Map(); }
+}
+function developersBlock(siteIds, devMap) {
+  if (!Array.isArray(siteIds) || !siteIds.length) return '';
+  const items = siteIds.map(id => devMap.get(id)).filter(Boolean);
+  if (!items.length) return '';
+  return `<div class="dc-developers">${items.map(d => {
+    const img = `<img src="${escHtml(d.logo)}" alt="${escHtml(d.name)}" title="${escHtml(d.name)}" loading="lazy" />`;
+    return d.url ? `<a href="${escHtml(d.url)}" target="_blank" rel="noopener" title="${escHtml(d.name)}" onclick="event.stopPropagation();">${img}</a>` : img;
+  }).join('')}</div>`;
+}
+
 function cardHtml(sites, lang) {
   const labels = lang === 'no' ? STATUS_LABEL_NO : STATUS_LABEL_EN;
+  const devMap = loadDevelopers();
   const initialL = lang === 'no' ? 'Oppstart' : 'Initial';
   const targetL = lang === 'no' ? 'Mål' : 'Target';
   const powerL = lang === 'no' ? 'Kraft' : 'Power';
@@ -129,6 +148,7 @@ function cardHtml(sites, lang) {
         <h3 class="dc-name-top">${escHtml(s.name)}</h3>
         <p class="loc loc-top">${country}</p>
         <span class="status ${statusClass}">${statusLabel}</span>
+        ${developersBlock(s.developers, devMap)}
         <div class="img${imgClass}">
           ${imgInner}
         </div>

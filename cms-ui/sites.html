@@ -109,7 +109,7 @@
 <script>
 (async function() {
   const $ = (id) => document.getElementById(id);
-  let data = { sites: [] }, schema = null, dirty = false;
+  let data = { sites: [] }, schema = null, dirty = false, developers = [];
   let hideInternal = localStorage.getItem('hideInternal') === null ? true : (localStorage.getItem('hideInternal') === '1');
   let collapsedGroups = JSON.parse(localStorage.getItem('collapsedGroups') || '{}');
 
@@ -178,6 +178,14 @@
     if (f.type === 'tags') {
       const arr = Array.isArray(v) ? v.join(', ') : (v || '');
       return `<input type="text" ${dataAttrs} value="${escAttr(arr)}" placeholder="comma, separated" />`;
+    }
+    if (f.type === 'multiselect_developers') {
+      const selected = new Set(Array.isArray(v) ? v : []);
+      const opts = developers.map(d =>
+        `<label style="display:flex;gap:6px;align-items:center;font-size:12px;padding:2px 0;"><input type="checkbox" value="${escAttr(d.id)}"${selected.has(d.id) ? ' checked' : ''}> ${escText(d.name)}</label>`
+      ).join('');
+      const summary = [...selected].map(id => (developers.find(d => d.id === id) || {}).name || id).join(', ') || '— none';
+      return `<details ${dataAttrs} style="font-size:12px;"><summary style="cursor:pointer;color:var(--ink-2);">${escText(summary)}</summary><div style="padding:6px 0;">${opts || '<em>No developers configured. <a href="/cms/developers.html">Add some →</a></em>'}</div></details>`;
     }
     if (f.type === 'study' || f.type === 'permit') {
       const summary = v && (v.status || v.date) ? `${v.status || ''} ${v.date ? '· ' + v.date : ''}` : '— click to edit';
@@ -273,7 +281,10 @@
       const t = el.dataset.type;
       if (!data.sites[i]) return;
       let v;
-      if (el.type === 'checkbox') v = el.checked;
+      if (t === 'multiselect_developers') {
+        v = Array.from(el.querySelectorAll('input[type=checkbox]:checked')).map(cb => cb.value);
+      }
+      else if (el.type === 'checkbox') v = el.checked;
       else if (t === 'tags') v = el.value.split(',').map(s => s.trim()).filter(Boolean);
       else if (el.type === 'number') v = el.value === '' ? null : parseFloat(el.value);
       else v = el.value;
@@ -490,10 +501,11 @@
 
   async function load() {
     setStatus('Loading…');
-    const [r1, r2] = await Promise.all([fetch('/api/sites'), fetch('/api/sites-schema')]);
+    const [r1, r2, r3] = await Promise.all([fetch('/api/sites'), fetch('/api/sites-schema'), fetch('/api/developers')]);
     if (!r1.ok || !r2.ok) { setStatus('Load failed', 'err'); return; }
     data = await r1.json();
     schema = await r2.json();
+    developers = (r3.ok ? (await r3.json()).developers : []) || [];
     loadMeta();
     render();
     setDirty(false); setStatus('');
