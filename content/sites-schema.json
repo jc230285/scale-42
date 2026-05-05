@@ -1,119 +1,1028 @@
 {
   "_doc": "Single source of truth for site fields. `public:true` = renders to website/PDF-public deck. `public:false` = CMS + internal deck only. Groups drive editor accordions.",
   "groups": [
-    { "key": "identity", "label": "Identity", "internalOnly": false },
-    { "key": "status_ownership", "label": "Status & Ownership", "internalOnly": true },
-    { "key": "public_status", "label": "Public Status", "internalOnly": false },
-    { "key": "location", "label": "Location", "internalOnly": false },
-    { "key": "power", "label": "Power", "internalOnly": false },
-    { "key": "design", "label": "Design", "internalOnly": false },
-    { "key": "connectivity", "label": "Connectivity", "internalOnly": false },
-    { "key": "access", "label": "Access", "internalOnly": true },
-    { "key": "timeline", "label": "Timeline", "internalOnly": false },
-    { "key": "commercial", "label": "Commercial", "internalOnly": true },
-    { "key": "studies", "label": "Studies (checklist)", "internalOnly": true },
-    { "key": "permits", "label": "Permits (checklist)", "internalOnly": true },
-    { "key": "narrative", "label": "Narrative", "internalOnly": false }
+    {
+      "key": "publish",
+      "label": "Publish",
+      "internalOnly": false
+    },
+    {
+      "key": "identity",
+      "label": "Identity",
+      "internalOnly": false
+    },
+    {
+      "key": "status_ownership",
+      "label": "Status & Ownership",
+      "internalOnly": true
+    },
+    {
+      "key": "public_status",
+      "label": "Public Status",
+      "internalOnly": false
+    },
+    {
+      "key": "location",
+      "label": "Location",
+      "internalOnly": false
+    },
+    {
+      "key": "power",
+      "label": "Power",
+      "internalOnly": false
+    },
+    {
+      "key": "design",
+      "label": "Design",
+      "internalOnly": false
+    },
+    {
+      "key": "connectivity",
+      "label": "Connectivity",
+      "internalOnly": false
+    },
+    {
+      "key": "access",
+      "label": "Access",
+      "internalOnly": true
+    },
+    {
+      "key": "timeline",
+      "label": "Timeline",
+      "internalOnly": false
+    },
+    {
+      "key": "commercial",
+      "label": "Commercial",
+      "internalOnly": true
+    },
+    {
+      "key": "studies",
+      "label": "Studies (checklist)",
+      "internalOnly": true
+    },
+    {
+      "key": "permits",
+      "label": "Permits (checklist)",
+      "internalOnly": true
+    },
+    {
+      "key": "narrative",
+      "label": "Narrative",
+      "internalOnly": false
+    }
   ],
   "fields": [
-    { "key": "id", "label": "ID (slug)", "group": "identity", "type": "text", "public": false, "readonly": true },
-    { "key": "name", "label": "Name", "group": "identity", "type": "text", "public": true },
-    { "key": "country", "label": "Country", "group": "identity", "type": "text", "public": true },
-    { "key": "site_type", "label": "Type", "group": "identity", "type": "select", "options": ["greenfield", "brownfield", "retrofit"], "public": true },
-    { "key": "address", "label": "Address", "group": "identity", "type": "text", "public": false },
-    { "key": "site_link", "label": "Site map link", "group": "identity", "type": "text", "public": false },
-    { "key": "image", "label": "Image", "group": "identity", "type": "image", "public": true },
-
-    { "key": "internal_status", "label": "Internal status", "group": "status_ownership", "type": "select", "options": ["Responsibility", "Development focus", "Watch list", "Dropped", "Sold"], "public": false },
-    { "key": "internal_category", "label": "Category", "group": "status_ownership", "type": "select", "options": ["GIGA-42", "JV-candidate", "Partner-led", "Speculative"], "public": false },
-    { "key": "jv_partner", "label": "JV partner", "group": "status_ownership", "type": "text", "public": false },
-    { "key": "project_owner", "label": "Project owner (internal)", "group": "status_ownership", "type": "text", "public": false },
-    { "key": "current_control", "label": "Current control", "group": "status_ownership", "type": "text", "public": false },
-    { "key": "planned_ultimate_control", "label": "Planned ultimate control", "group": "status_ownership", "type": "text", "public": false },
-    { "key": "contractual_arrangement", "label": "Contractual arrangement", "group": "status_ownership", "type": "textarea", "public": false },
-    { "key": "land_paperwork_status", "label": "Land paperwork status", "group": "status_ownership", "type": "text", "public": false },
-    { "key": "nbs_assessment", "label": "NBS assessment", "group": "status_ownership", "type": "textarea", "public": false },
-
-    { "key": "published", "label": "Public — show on website", "group": "public_status", "type": "toggle", "public": false },
-    { "key": "status", "label": "Public status", "group": "public_status", "type": "select", "options": ["live", "tbd", "sold"], "public": true },
-    { "key": "short_status_label", "label": "Public status label", "group": "public_status", "type": "text", "public": true, "help": "e.g. 'Power-secured', 'Permitting'" },
-
-    { "key": "lat", "label": "Latitude", "group": "location", "type": "number", "public": true },
-    { "key": "lng", "label": "Longitude", "group": "location", "type": "number", "public": true },
-    { "key": "size_ha", "label": "Site size (ha)", "group": "location", "type": "number", "public": true },
-    { "key": "zoning_status", "label": "Zoning status", "group": "location", "type": "text", "public": true },
-    { "key": "planning_status", "label": "Planning status (detail)", "group": "location", "type": "textarea", "public": false },
-    { "key": "eia_required", "label": "EIA required", "group": "location", "type": "toggle", "public": false },
-    { "key": "eia_status", "label": "EIA status", "group": "location", "type": "text", "public": false },
-    { "key": "restrictions", "label": "Restrictions", "group": "location", "type": "textarea", "public": false },
-
-    { "key": "power", "label": "Power source", "group": "power", "type": "text", "public": true },
-    { "key": "initial_mw", "label": "Initial MW", "group": "power", "type": "text", "public": true },
-    { "key": "target_mw", "label": "Target MW", "group": "power", "type": "text", "public": true },
-    { "key": "max_capacity_mw", "label": "Max capacity (MW)", "group": "power", "type": "text", "public": true },
-    { "key": "utility_capacity_phases", "label": "Utility capacity phases", "group": "power", "type": "table", "columns": ["phase", "mw", "date"], "public": false },
-    { "key": "power_availability", "label": "Power availability (public text)", "group": "power", "type": "textarea", "public": true },
-    { "key": "connection_voltage", "label": "Connection voltage", "group": "power", "type": "text", "public": true },
-    { "key": "exact_power_status", "label": "Exact power status (internal)", "group": "power", "type": "text", "public": false },
-    { "key": "power_paperwork", "label": "Power paperwork", "group": "power", "type": "textarea", "public": false },
-    { "key": "ppa_counterparty", "label": "PPA counterparty", "group": "power", "type": "text", "public": false },
-    { "key": "ppa_status", "label": "PPA status (public)", "group": "power", "type": "text", "public": true },
-    { "key": "dso", "label": "DSO", "group": "power", "type": "text", "public": false },
-    { "key": "tso", "label": "TSO", "group": "power", "type": "text", "public": false },
-    { "key": "heat_reuse", "label": "Heat reuse", "group": "power", "type": "textarea", "public": true },
-
-    { "key": "it_load_mw", "label": "IT load (MW)", "group": "design", "type": "text", "public": true },
-    { "key": "dpue", "label": "Design PUE", "group": "design", "type": "text", "public": true },
-    { "key": "ppue", "label": "Partial PUE (internal)", "group": "design", "type": "text", "public": false },
-    { "key": "racks", "label": "Racks", "group": "design", "type": "text", "public": false },
-    { "key": "rack_density_kw", "label": "Rack density (kW)", "group": "design", "type": "text", "public": true },
-    { "key": "cooling", "label": "Cooling", "group": "design", "type": "text", "public": true, "help": "DLC / air / hybrid" },
-    { "key": "workload_mix", "label": "Workload mix", "group": "design", "type": "text", "public": true, "help": "e.g. 'Training 70% / Inference 30%'" },
-
-    { "key": "fibre_providers", "label": "Fibre providers", "group": "connectivity", "type": "tags", "public": true },
-    { "key": "fibre_strands", "label": "Fibre strands", "group": "connectivity", "type": "text", "public": false },
-    { "key": "fibre_speeds_gbps", "label": "Fibre speeds (Gbps)", "group": "connectivity", "type": "text", "public": true },
-    { "key": "latency_targets", "label": "Latency targets", "group": "connectivity", "type": "table", "columns": ["pop", "ms"], "public": false },
-    { "key": "subsea_cables", "label": "Subsea cables", "group": "connectivity", "type": "tags", "public": false },
-    { "key": "isp_check_status", "label": "ISP connectivity check", "group": "connectivity", "type": "text", "public": false },
-
-    { "key": "highway_km", "label": "Highway access (km)", "group": "access", "type": "number", "public": false },
-    { "key": "airport_km", "label": "Airport (km)", "group": "access", "type": "number", "public": false },
-    { "key": "university_km", "label": "Nearest college/uni (km)", "group": "access", "type": "number", "public": false },
-    { "key": "labour_availability", "label": "Labour availability", "group": "access", "type": "textarea", "public": false },
-
-    { "key": "milestones", "label": "Milestones", "group": "timeline", "type": "milestones", "columns": ["name", "target_date", "status", "public"], "public": false, "help": "Each milestone has its own public flag — public ones render on the public site/PDF." },
-    { "key": "rtb_date", "label": "Ready-to-build date", "group": "timeline", "type": "text", "public": true },
-    { "key": "energisation_date", "label": "Energisation date", "group": "timeline", "type": "text", "public": true },
-
-    { "key": "project_budget_musd", "label": "Project budget (MUSD)", "group": "commercial", "type": "number", "public": false },
-    { "key": "offtakers", "label": "Offtakers (internal)", "group": "commercial", "type": "tags", "public": false },
-    { "key": "risks", "label": "Risks", "group": "commercial", "type": "textarea", "public": false },
-    { "key": "dependencies", "label": "Dependencies", "group": "commercial", "type": "textarea", "public": false },
-
-    { "key": "study_feasibility", "label": "Feasibility", "group": "studies", "type": "study", "public": false },
-    { "key": "study_alta", "label": "ALTA+", "group": "studies", "type": "study", "public": false },
-    { "key": "study_topo", "label": "Topographical", "group": "studies", "type": "study", "public": false },
-    { "key": "study_geotech", "label": "Geotechnical", "group": "studies", "type": "study", "public": false },
-    { "key": "study_load_basic", "label": "Basic utility load study", "group": "studies", "type": "study", "public": false },
-    { "key": "study_load_advanced", "label": "Advanced utility load study", "group": "studies", "type": "study", "public": false },
-    { "key": "study_concept_design", "label": "Concept design", "group": "studies", "type": "study", "public": false },
-    { "key": "study_basis_of_design", "label": "Basis of design", "group": "studies", "type": "study", "public": false },
-    { "key": "study_test_fit", "label": "Test fit", "group": "studies", "type": "study", "public": false },
-    { "key": "study_localised_design", "label": "Localised design", "group": "studies", "type": "study", "public": false },
-    { "key": "study_env_assessment", "label": "Environmental assessment", "group": "studies", "type": "study", "public": false },
-
-    { "key": "permit_area_zoning", "label": "Area zoning approved", "group": "permits", "type": "permit", "public": false },
-    { "key": "permit_detailed_regulation", "label": "Detailed regulation", "group": "permits", "type": "permit", "public": false },
-    { "key": "permit_building", "label": "Building permit", "group": "permits", "type": "permit", "public": false },
-    { "key": "permit_environmental", "label": "Environmental permit", "group": "permits", "type": "permit", "public": false },
-    { "key": "permit_emissions", "label": "Emissions permit", "group": "permits", "type": "permit", "public": false },
-    { "key": "permit_grid_connection", "label": "Grid connection permit", "group": "permits", "type": "permit", "public": false },
-
-    { "key": "desc_en", "label": "Description (EN)", "group": "narrative", "type": "textarea", "public": true },
-    { "key": "desc_no", "label": "Description (NO)", "group": "narrative", "type": "textarea", "public": true },
-    { "key": "site_rationale", "label": "Site rationale", "group": "narrative", "type": "textarea", "public": false },
-    { "key": "strategy_notes", "label": "Strategy notes", "group": "narrative", "type": "textarea", "public": false },
-    { "key": "internal_comments", "label": "Internal comments", "group": "narrative", "type": "textarea", "public": false }
+    {
+      "key": "id",
+      "label": "ID (slug)",
+      "group": "identity",
+      "type": "text",
+      "public": false,
+      "readonly": true
+    },
+    {
+      "key": "name",
+      "label": "Name",
+      "group": "identity",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "country",
+      "label": "Country",
+      "group": "identity",
+      "type": "combo",
+      "options": [
+        "Norway",
+        "Sweden",
+        "Finland",
+        "Iceland",
+        "Greenland",
+        "Denmark",
+        "Estonia",
+        "Latvia",
+        "Lithuania",
+        "Germany",
+        "Netherlands",
+        "United Kingdom",
+        "Ireland",
+        "France",
+        "Spain",
+        "Italy",
+        "Switzerland",
+        "Austria",
+        "Poland"
+      ],
+      "public": true
+    },
+    {
+      "key": "site_type",
+      "label": "Type",
+      "group": "identity",
+      "type": "select",
+      "options": [
+        "greenfield",
+        "brownfield",
+        "retrofit"
+      ],
+      "public": true
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "group": "identity",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "site_link",
+      "label": "Site map link",
+      "group": "identity",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "image",
+      "label": "Image",
+      "group": "identity",
+      "type": "image",
+      "public": true
+    },
+    {
+      "key": "internal_status",
+      "label": "Internal status",
+      "group": "status_ownership",
+      "type": "select",
+      "options": [
+        "Responsibility",
+        "Development focus",
+        "Watch list",
+        "Dropped",
+        "Sold"
+      ],
+      "public": false
+    },
+    {
+      "key": "internal_category",
+      "label": "Category",
+      "group": "status_ownership",
+      "type": "select",
+      "options": [
+        "GIGA-42",
+        "JV-candidate",
+        "Partner-led",
+        "Speculative"
+      ],
+      "public": false
+    },
+    {
+      "key": "jv_partner",
+      "label": "JV partner",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "project_owner",
+      "label": "Project owner (internal)",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "current_control",
+      "label": "Current control",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "planned_ultimate_control",
+      "label": "Planned ultimate control",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "contractual_arrangement",
+      "label": "Contractual arrangement",
+      "group": "status_ownership",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "land_paperwork_status",
+      "label": "Land paperwork status",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "nbs_assessment",
+      "label": "NBS assessment",
+      "group": "status_ownership",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "published",
+      "label": "Show on public website",
+      "group": "publish",
+      "type": "toggle",
+      "public": true
+    },
+    {
+      "key": "status",
+      "label": "Status (auto-derived)",
+      "group": "status_ownership",
+      "type": "select",
+      "options": [
+        "live",
+        "tbd",
+        "sold"
+      ],
+      "public": false,
+      "readonly": true,
+      "help": "Automatically set from Public status — drives badge colour and pin colour."
+    },
+    {
+      "key": "short_status_label",
+      "label": "Internal status detail",
+      "group": "status_ownership",
+      "type": "select",
+      "options": [
+        "Operational",
+        "In construction",
+        "Permitting",
+        "Power-secured",
+        "Land secured",
+        "In planning",
+        "JV announced",
+        "Under review",
+        "Sold"
+      ],
+      "public": false,
+      "help": "Detailed internal state — not shown publicly."
+    },
+    {
+      "key": "public_status_label",
+      "label": "Public status",
+      "group": "public_status",
+      "type": "select",
+      "options": [
+        "Operational",
+        "In development",
+        "Coming soon"
+      ],
+      "public": true,
+      "help": "Shown as the badge on each public site card."
+    },
+    {
+      "key": "public_location",
+      "label": "Public location (town/city)",
+      "group": "location",
+      "type": "text",
+      "public": true,
+      "help": "Shown publicly. Drives the public Google Maps link."
+    },
+    {
+      "key": "lat",
+      "label": "Latitude (internal)",
+      "group": "location",
+      "type": "number",
+      "public": false
+    },
+    {
+      "key": "lng",
+      "label": "Longitude (internal)",
+      "group": "location",
+      "type": "number",
+      "public": false
+    },
+    {
+      "key": "size_ha",
+      "label": "Site size (ha)",
+      "group": "location",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "nearest_seaport",
+      "label": "Nearest seaport",
+      "group": "location",
+      "type": "text",
+      "public": true,
+      "help": "Town/port name — drives a Google Maps directions link from the public location."
+    },
+    {
+      "key": "nearest_seaport_km",
+      "label": "Nearest seaport (km)",
+      "group": "location",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "nearest_airport_public",
+      "label": "Nearest airport (public)",
+      "group": "location",
+      "type": "text",
+      "public": true,
+      "help": "Airport/town shown publicly. Internal airport detail stays in Access."
+    },
+    {
+      "key": "nearest_airport_km",
+      "label": "Nearest airport (km)",
+      "group": "location",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "population",
+      "label": "Local population",
+      "group": "location",
+      "type": "number",
+      "public": true,
+      "help": "Population of the nearest town/municipality."
+    },
+    {
+      "key": "area_overview",
+      "label": "Area overview",
+      "group": "location",
+      "type": "textarea",
+      "public": true,
+      "help": "Short blurb about the area — economy, climate, infrastructure context."
+    },
+    {
+      "key": "avg_temp_c",
+      "label": "Avg annual temp (°C)",
+      "group": "location",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "free_cooling_hours",
+      "label": "Free-cooling hours / yr",
+      "group": "location",
+      "type": "number",
+      "public": true,
+      "help": "Hours per year with ambient cool enough for direct-to-air cooling."
+    },
+    {
+      "key": "population_50km",
+      "label": "Population within 50 km",
+      "group": "location",
+      "type": "number",
+      "public": true,
+      "help": "Sum of GeoNames cities >500 within 50 km radius."
+    },
+    {
+      "key": "temp_chart",
+      "label": "Temp chart data (auto)",
+      "group": "location",
+      "type": "text",
+      "public": false,
+      "help": "Monthly mean temperature series (3 yrs) — internal, drives the chart."
+    },
+    {
+      "key": "hub_distances_km",
+      "label": "Distance to peering hubs",
+      "group": "location",
+      "type": "text",
+      "public": true,
+      "help": "Auto-computed great-circle distance to FRA/STO/LON/AMS."
+    },
+    {
+      "key": "zoning_status",
+      "label": "Zoning status",
+      "group": "location",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "planning_status",
+      "label": "Planning status (detail)",
+      "group": "location",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "eia_required",
+      "label": "EIA required",
+      "group": "location",
+      "type": "toggle",
+      "public": false
+    },
+    {
+      "key": "eia_status",
+      "label": "EIA status",
+      "group": "location",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "restrictions",
+      "label": "Restrictions",
+      "group": "location",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "power",
+      "label": "Power source",
+      "group": "power",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "initial_mw",
+      "label": "Initial MW",
+      "group": "power",
+      "type": "number",
+      "public": true,
+      "help": "Numeric only — MW unit added on render. Notes go in 'Power notes'."
+    },
+    {
+      "key": "target_mw",
+      "label": "Target MW",
+      "group": "power",
+      "type": "number",
+      "public": true,
+      "help": "Numeric only — MW unit added on render."
+    },
+    {
+      "key": "max_capacity_mw",
+      "label": "Max capacity (MW)",
+      "group": "power",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "power_notes",
+      "label": "Power notes",
+      "group": "power",
+      "type": "textarea",
+      "public": true,
+      "help": "Free-text qualifications about the power figures (e.g. 'subject to substation upgrade')."
+    },
+    {
+      "key": "utility_capacity_phases",
+      "label": "Utility capacity phases",
+      "group": "power",
+      "type": "table",
+      "columns": [
+        "phase",
+        "mw",
+        "date"
+      ],
+      "public": false
+    },
+    {
+      "key": "power_availability",
+      "label": "Power availability (public text)",
+      "group": "power",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "connection_voltage",
+      "label": "Connection voltage",
+      "group": "power",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "exact_power_status",
+      "label": "Exact power status (internal)",
+      "group": "power",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "power_paperwork",
+      "label": "Power paperwork",
+      "group": "power",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "ppa_counterparty",
+      "label": "PPA counterparty",
+      "group": "power",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "ppa_status",
+      "label": "PPA status (public)",
+      "group": "power",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "dso",
+      "label": "DSO",
+      "group": "power",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "tso",
+      "label": "TSO",
+      "group": "power",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "heat_reuse",
+      "label": "Heat reuse",
+      "group": "power",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "it_load_mw",
+      "label": "IT load (MW)",
+      "group": "design",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "dpue",
+      "label": "Design PUE",
+      "group": "design",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "ppue",
+      "label": "Partial PUE (internal)",
+      "group": "design",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "racks",
+      "label": "Racks",
+      "group": "design",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "rack_density_kw",
+      "label": "Rack density (kW)",
+      "group": "design",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "cooling",
+      "label": "Cooling",
+      "group": "design",
+      "type": "text",
+      "public": true,
+      "help": "DLC / air / hybrid"
+    },
+    {
+      "key": "workload_mix",
+      "label": "Workload mix",
+      "group": "design",
+      "type": "text",
+      "public": true,
+      "help": "e.g. 'Training 70% / Inference 30%'"
+    },
+    {
+      "key": "fibre_providers",
+      "label": "Fibre providers",
+      "group": "connectivity",
+      "type": "tags",
+      "public": true
+    },
+    {
+      "key": "fibre_strands",
+      "label": "Fibre strands",
+      "group": "connectivity",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "fibre_speeds_gbps",
+      "label": "Fibre speeds (Gbps)",
+      "group": "connectivity",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "latency_targets",
+      "label": "Latency targets",
+      "group": "connectivity",
+      "type": "table",
+      "columns": [
+        "pop",
+        "ms"
+      ],
+      "public": false
+    },
+    {
+      "key": "subsea_cables",
+      "label": "Subsea cables",
+      "group": "connectivity",
+      "type": "tags",
+      "public": false
+    },
+    {
+      "key": "isp_check_status",
+      "label": "ISP connectivity check",
+      "group": "connectivity",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "highway_km",
+      "label": "Highway access (km)",
+      "group": "access",
+      "type": "number",
+      "public": false
+    },
+    {
+      "key": "nearest_airport",
+      "label": "Nearest airport",
+      "group": "access",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "airport_km",
+      "label": "Airport (km)",
+      "group": "access",
+      "type": "number",
+      "public": false
+    },
+    {
+      "key": "university_km",
+      "label": "Nearest college/uni (km)",
+      "group": "access",
+      "type": "number",
+      "public": false
+    },
+    {
+      "key": "labour_availability",
+      "label": "Labour availability",
+      "group": "access",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "milestones",
+      "label": "Milestones",
+      "group": "timeline",
+      "type": "milestones",
+      "columns": [
+        "name",
+        "target_date",
+        "status",
+        "public"
+      ],
+      "public": false,
+      "help": "Each milestone has its own public flag — public ones render on the public site/PDF."
+    },
+    {
+      "key": "rtb_date",
+      "label": "Ready-to-build date",
+      "group": "timeline",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "energisation_date",
+      "label": "Energisation date",
+      "group": "timeline",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "project_budget_musd",
+      "label": "Project budget (MUSD)",
+      "group": "commercial",
+      "type": "number",
+      "public": false
+    },
+    {
+      "key": "offtakers",
+      "label": "Offtakers (internal)",
+      "group": "commercial",
+      "type": "tags",
+      "public": false
+    },
+    {
+      "key": "risks",
+      "label": "Risks",
+      "group": "commercial",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "dependencies",
+      "label": "Dependencies",
+      "group": "commercial",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "study_feasibility",
+      "label": "Feasibility",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "study_alta",
+      "label": "ALTA+",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "study_topo",
+      "label": "Topographical",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "study_geotech",
+      "label": "Geotechnical",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "study_load_basic",
+      "label": "Basic utility load study",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "study_load_advanced",
+      "label": "Advanced utility load study",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "study_concept_design",
+      "label": "Concept design",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "study_basis_of_design",
+      "label": "Basis of design",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "study_test_fit",
+      "label": "Test fit",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "study_localised_design",
+      "label": "Localised design",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "study_env_assessment",
+      "label": "Environmental assessment",
+      "group": "studies",
+      "type": "study",
+      "public": false
+    },
+    {
+      "key": "permit_area_zoning",
+      "label": "Area zoning approved",
+      "group": "permits",
+      "type": "permit",
+      "public": false
+    },
+    {
+      "key": "permit_detailed_regulation",
+      "label": "Detailed regulation",
+      "group": "permits",
+      "type": "permit",
+      "public": false
+    },
+    {
+      "key": "permit_building",
+      "label": "Building permit",
+      "group": "permits",
+      "type": "permit",
+      "public": false
+    },
+    {
+      "key": "permit_environmental",
+      "label": "Environmental permit",
+      "group": "permits",
+      "type": "permit",
+      "public": false
+    },
+    {
+      "key": "permit_emissions",
+      "label": "Emissions permit",
+      "group": "permits",
+      "type": "permit",
+      "public": false
+    },
+    {
+      "key": "permit_grid_connection",
+      "label": "Grid connection permit",
+      "group": "permits",
+      "type": "permit",
+      "public": false
+    },
+    {
+      "key": "desc_en",
+      "label": "Description (EN)",
+      "group": "narrative",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "desc_no",
+      "label": "Description (NO)",
+      "group": "narrative",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "site_rationale",
+      "label": "Site rationale",
+      "group": "narrative",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "strategy_notes",
+      "label": "Strategy notes",
+      "group": "narrative",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "internal_comments",
+      "label": "Internal comments",
+      "group": "narrative",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "news_links",
+      "label": "News & press",
+      "group": "narrative",
+      "type": "links",
+      "public": true
+    },
+    {
+      "key": "highway_access",
+      "label": "Highway access",
+      "group": "access",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "airport_access",
+      "label": "Airport access",
+      "group": "access",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "college_university",
+      "label": "College / universities",
+      "group": "access",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "other_access_notes",
+      "label": "Other access notes",
+      "group": "access",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "latency_summary",
+      "label": "Latency to key markets",
+      "group": "connectivity",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "fibre_general_info",
+      "label": "Fibre commentary",
+      "group": "connectivity",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "project_description",
+      "label": "Project description (long)",
+      "group": "narrative",
+      "type": "textarea",
+      "public": true
+    },
+    {
+      "key": "bid_status",
+      "label": "Project / lead status",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "category_rationale",
+      "label": "Category & rationale",
+      "group": "status_ownership",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "fingrid_map_link",
+      "label": "Fingrid / grid map link",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "connection_enquiry_link",
+      "label": "Connection enquiry link",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "investment_memo_link",
+      "label": "Investment memo link",
+      "group": "status_ownership",
+      "type": "text",
+      "public": false
+    },
+    {
+      "key": "key_risks_dependencies",
+      "label": "Key risks & dependencies",
+      "group": "commercial",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "strategic_status",
+      "label": "Strategic status",
+      "group": "status_ownership",
+      "type": "select",
+      "public": false,
+      "options": [
+        "Going to 3rd party",
+        "GIGA-42 Responsibility",
+        "Development focus",
+        "Later stage project",
+        "Bin the project",
+        "Who the fuck knows",
+        ""
+      ]
+    },
+    {
+      "key": "plots_identified",
+      "label": "Plots identified",
+      "group": "location",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "plots_secured",
+      "label": "Plots secured",
+      "group": "location",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "water_availability",
+      "label": "Water availability",
+      "group": "location",
+      "type": "textarea",
+      "public": false
+    },
+    {
+      "key": "extra_data",
+      "label": "Other data (raw)",
+      "group": "narrative",
+      "type": "textarea",
+      "public": false
+    }
   ]
 }
