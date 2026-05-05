@@ -33,9 +33,9 @@ function computeStats(sites) {
   const max = caps.length ? Math.max(...caps) : 0;
   const countries = new Set(live.map(s => s.country).filter(Boolean));
   return {
-    pipeline: fmtCapacity(totalTarget),
+    pipeline: Math.round(totalTarget).toLocaleString('en-US') + ' MW',
     projects: String(live.length),
-    capacity: caps.length ? `${min} – ${max}+ MW` : '—',
+    capacity: caps.length ? `${Math.round(min)} – ${Math.round(max)} MW` : '—',
     countries: String(countries.size),
   };
 }

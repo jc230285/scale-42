@@ -8,7 +8,13 @@
 <meta name="theme-color" content="#1c2e3f" />
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
 <link rel="canonical" href="https://www.scale-42.com/datacenters/robertsfors/" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Robertsfors Data Centre","description":"","url":"https://www.scale-42.com/datacenters/robertsfors/","geo":{"@type":"GeoCoordinates","latitude":64.2,"longitude":20.85},"address":{"@type":"PostalAddress","addressCountry":"Sweden","streetAddress":"Storgatan, 915 31 Sikeå, Sweden"},"image":"https://www.scale-42.com/assets/sites/robertsfors.svg","containedInPlace":{"@type":"Country","name":"Sweden"},"provider":{"@type":"Organization","name":"Scale42","url":"https://www.scale-42.com/"}}</script>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Robertsfors — Scale42" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://www.scale-42.com/datacenters/robertsfors/" />
+<meta property="og:image" content="https://www.scale-42.com/assets/sites/robertsfors.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Robertsfors Data Centre","description":"","url":"https://www.scale-42.com/datacenters/robertsfors/","geo":{"@type":"GeoCoordinates","latitude":64.2,"longitude":20.85},"address":{"@type":"PostalAddress","addressCountry":"Sweden","streetAddress":"Storgatan, 915 31 Sikeå, Sweden"},"image":"https://www.scale-42.com/assets/sites/robertsfors.svg","containedInPlace":{"@type":"Country","name":"Sweden"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Power source","value":"Hydro / wind"}],"provider":{"@type":"Organization","name":"Scale42","url":"https://www.scale-42.com/"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -40,6 +46,35 @@
   .site-map .dc-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(28,46,63,0.25); }
   .site-map .dc-pin.tbd { background: var(--muted); }
   .site-map .dc-pin.sold { background: #33752f; }
+  .hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px 28px; margin: 22px 0 0; max-width: 760px; }
+  .hero-stats > div { border-left: 2px solid var(--accent); padding-left: 14px; }
+  .hero-stats dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; font-weight: 600; }
+  .hero-stats dd { margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .power-strip { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; }
+  .power-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(47,102,117,0.08); color: var(--accent); border: 1px solid rgba(47,102,117,0.2); padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .power-chip .ico { font-size: 15px; }
+  .site-map-banner { padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .site-map-banner iframe { display: block; width: 100%; height: 360px; border: 0; }
+  .site-toc { position: sticky; top: 70px; background: #fff; border-bottom: 1px solid var(--line); z-index: 10; padding: 10px 0; margin: 0 0 8px; }
+  .site-toc ul { display: flex; gap: 18px; flex-wrap: wrap; list-style: none; padding: 0 24px; margin: 0; max-width: 1200px; margin: 0 auto; }
+  .site-toc a { color: var(--ink-2); font-size: 13px; font-weight: 500; text-decoration: none; }
+  .site-toc a:hover { color: var(--accent); }
+  .climate-block { padding: 32px 0; border-top: 1px solid var(--line); }
+  .climate-block h2 { font-family: var(--font-display); font-size: 22px; margin: 0 0 16px; font-weight: 600; }
+  .climate-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px 28px; margin: 0; }
+  .climate-grid > div { background: #f6f8fa; border-radius: 10px; padding: 16px; }
+  .climate-grid dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 6px; font-weight: 600; }
+  .climate-grid dd { margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .site-map-embed iframe { display: block; width: 100%; height: 320px; border: 0; border-radius: 12px; margin: 8px 0 4px; }
+  @media print {
+    .nav, .footer, .site-toc, .dc-cta, .site-map-banner { display: none !important; }
+    body { color: #000; }
+    .site-hero { padding: 0 0 16px; }
+    .site-body { padding: 0; }
+    .kv-section { page-break-inside: avoid; padding: 16px 0; border-top: 1px solid #ddd; }
+    a { color: #000; text-decoration: none; }
+    .hero-frame img { max-height: 280px; }
+  }
 </style>
 </head>
 <body>
@@ -77,13 +112,13 @@
 <section class="site-body">
   <div class="container">
     
-    <section class="kv-section"><h2>Identity</h2><dl class="kv-grid"><div class="kv"><dt>Type</dt><dd>greenfield</dd></div></dl></section>
-<section class="kv-section"><h2>Location</h2><div class="site-map-embed"><iframe src="https://www.google.com/maps?q=Robertsfors%2C%20Sweden&output=embed&z=10" width="100%" height="320" style="border:0;border-radius:12px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><dl class="kv-grid"><div class="kv"><dt>Location</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Robertsfors%2C%20Sweden" target="_blank" rel="noopener">Robertsfors, Sweden ↗</a> · <a href="https://en.wikipedia.org/wiki/Special:Search?search=Robertsfors%2C%20Sweden" target="_blank" rel="noopener">Wikipedia ↗</a></dd></div><div class="kv"><dt>Site size (ha)</dt><dd>145</dd></div><div class="kv"><dt>Local population</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Area overview</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Zoning status</dt><dd>Site selection ongoing.</dd></div></dl></section>
-<section class="kv-section"><h2>Power</h2><dl class="kv-grid"><div class="kv"><dt>Power source</dt><dd>Hydro / wind</dd></div><div class="kv"><dt>Initial MW</dt><dd>50 MW</dd></div><div class="kv"><dt>Target MW</dt><dd>1000 MW</dd></div><div class="kv"><dt>Max capacity (MW)</dt><dd>1000</dd></div><div class="kv"><dt>Power availability (public text)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Connection voltage</dt><dd>110kV</dd></div><div class="kv"><dt>PPA status (public)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Heat reuse</dt><dd>Planned</dd></div></dl></section>
-<section class="kv-section"><h2>Design</h2><dl class="kv-grid"><div class="kv"><dt>IT load (MW)</dt><dd>224</dd></div><div class="kv"><dt>Design PUE</dt><dd>1.15</dd></div><div class="kv"><dt>Rack density (kW)</dt><dd>40-70 kW (Air) / 132-400 kW (DLC)</dd></div><div class="kv"><dt>Cooling</dt><dd>Air — perimeter; DLC — room-level CDU</dd></div><div class="kv"><dt>Workload mix</dt><dd>Inference, cloud, regional AI</dd></div></dl></section>
-<section class="kv-section"><h2>Connectivity</h2><dl class="kv-grid"><div class="kv"><dt>Fibre providers</dt><dd>GlobalConnect, Telia Carrier</dd></div><div class="kv"><dt>Fibre speeds (Gbps)</dt><dd>100–400G class services</dd></div><div class="kv"><dt>Latency to key markets</dt><dd>Stockholm ~10–12 ms · Frankfurt ~22–26 ms · Amsterdam ~22–26 ms · London ~26–30 ms.</dd></div><div class="kv"><dt>Fibre commentary</dt><dd>Strong regional fibre with access to Sweden's national backbone; suitable for scalable AI and cloud deployments.</dd></div></dl></section>
-<section class="kv-section"><h2>Timeline</h2><dl class="kv-grid"><div class="kv"><dt>Ready-to-build date</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Energisation date</dt><dd><span class="empty">—</span></dd></div></dl></section>
-<section class="kv-section"><h2>Narrative</h2><dl class="kv-grid"><div class="kv"><dt>News &amp; press</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Project description (long)</dt><dd>Brought to GIGA-42 by JLL. Sale of land by Holmen. Viewed as a follow-on for other Swedish projects re: time to powered land. Land near a main highway outside Robertsfors with a mix of open grassland and forestry.</dd></div></dl></section>
+    <section id="sec-identity" class="kv-section"><h2>Identity</h2><dl class="kv-grid"><div class="kv"><dt>Type</dt><dd>greenfield</dd></div></dl></section>
+<section id="sec-location" class="kv-section"><h2>Location</h2><dl class="kv-grid"><div class="kv"><dt>Location</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Robertsfors%2C%20Sweden" target="_blank" rel="noopener">Robertsfors, Sweden ↗</a> · <a href="https://en.wikipedia.org/wiki/Special:Search?search=Robertsfors%2C%20Sweden" target="_blank" rel="noopener">Wikipedia ↗</a></dd></div><div class="kv"><dt>Site size (ha)</dt><dd>145</dd></div><div class="kv"><dt>Local population</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Area overview</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Avg annual temp (°C)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Free-cooling hours / yr</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Zoning status</dt><dd>Site selection ongoing.</dd></div></dl></section>
+<section id="sec-power" class="kv-section"><h2>Power</h2><dl class="kv-grid"><div class="kv"><dt>Power source</dt><dd>Hydro / wind</dd></div><div class="kv"><dt>Initial MW</dt><dd>50 MW</dd></div><div class="kv"><dt>Target MW</dt><dd>1000 MW</dd></div><div class="kv"><dt>Max capacity (MW)</dt><dd>1000</dd></div><div class="kv"><dt>Power availability (public text)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Connection voltage</dt><dd>110kV</dd></div><div class="kv"><dt>PPA status (public)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Heat reuse</dt><dd>Planned</dd></div></dl></section>
+<section id="sec-design" class="kv-section"><h2>Design</h2><dl class="kv-grid"><div class="kv"><dt>IT load (MW)</dt><dd>224</dd></div><div class="kv"><dt>Design PUE</dt><dd>1.15</dd></div><div class="kv"><dt>Rack density (kW)</dt><dd>40-70 kW (Air) / 132-400 kW (DLC)</dd></div><div class="kv"><dt>Cooling</dt><dd>Air — perimeter; DLC — room-level CDU</dd></div><div class="kv"><dt>Workload mix</dt><dd>Inference, cloud, regional AI</dd></div></dl></section>
+<section id="sec-connectivity" class="kv-section"><h2>Connectivity</h2><dl class="kv-grid"><div class="kv"><dt>Fibre providers</dt><dd>GlobalConnect, Telia Carrier</dd></div><div class="kv"><dt>Fibre speeds (Gbps)</dt><dd>100–400G class services</dd></div><div class="kv"><dt>Latency to key markets</dt><dd>Stockholm ~10–12 ms · Frankfurt ~22–26 ms · Amsterdam ~22–26 ms · London ~26–30 ms.</dd></div><div class="kv"><dt>Fibre commentary</dt><dd>Strong regional fibre with access to Sweden's national backbone; suitable for scalable AI and cloud deployments.</dd></div></dl></section>
+<section id="sec-timeline" class="kv-section"><h2>Timeline</h2><dl class="kv-grid"><div class="kv"><dt>Ready-to-build date</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Energisation date</dt><dd><span class="empty">—</span></dd></div></dl></section>
+<section id="sec-narrative" class="kv-section"><h2>Narrative</h2><dl class="kv-grid"><div class="kv"><dt>News &amp; press</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Project description (long)</dt><dd>Brought to GIGA-42 by JLL. Sale of land by Holmen. Viewed as a follow-on for other Swedish projects re: time to powered land. Land near a main highway outside Robertsfors with a mix of open grassland and forestry.</dd></div></dl></section>
   </div>
 </section>
 <section class="dc-cta" style="background:var(--bg-dark);color:#e8ece9;padding:64px 0;text-align:center;">
