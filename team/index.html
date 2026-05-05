@@ -156,11 +156,18 @@
   if (!track) return;
   var sticky = pin.querySelector('.sticky');
   function isMobile(){ return window.innerWidth <= 800; }
+  function alignLine(){
+    var marker = track.querySelector('.journey-marker');
+    if (!marker) return;
+    var y = marker.offsetTop + marker.offsetHeight / 2;
+    track.style.setProperty('--journey-line-top', y + 'px');
+  }
   function setHeight(){
-    if (isMobile()) { pin.style.height = ''; track.style.transform = ''; return; }
+    if (isMobile()) { pin.style.height = ''; track.style.transform = ''; alignLine(); return; }
     var stickyH = sticky ? sticky.offsetHeight : window.innerHeight;
     var extra = Math.max(0, track.scrollWidth - window.innerWidth);
     pin.style.height = (stickyH + extra) + 'px';
+    alignLine();
   }
   function onScroll(){
     if (isMobile()) { track.style.transform = ''; return; }
