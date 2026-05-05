@@ -30,21 +30,24 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/hero-900.webp" media="(max-width: 899px)">
+<link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 900px)">
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <style>
-  .home-map-section { padding: 56px 0 0; }
-  .home-map { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
-  .home-map .leaflet-container { background: #eaf0f3; font-family: var(--font-sans); cursor: default; }
+  .home-map-section { padding: 20px 0 0; margin-bottom: 15px; }
+  .home-map { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: #d6e2e6; }
+  .home-map .leaflet-container { background: #d6e2e6; font-family: var(--font-sans); cursor: default; }
+  .home-map .leaflet-tile-pane { filter: saturate(0.6) hue-rotate(-12deg) contrast(0.96); }
   .home-map .dc-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(28,46,63,0.25); }
-  .home-map .dc-pin.tbd { background: var(--warm); }
+  .home-map .dc-pin.tbd { background: var(--muted); }
   .home-map .dc-pin.sold { background: #33752f; }
   .home-map-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
   .home-map-foot .legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); }
   .home-map-foot .legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
   .home-map-foot .legend .live::before { background: var(--accent); }
-  .home-map-foot .legend .tbd::before { background: var(--warm); }
+  .home-map-foot .legend .tbd::before { background: var(--muted); }
   .home-map-foot .legend .sold::before { background: #33752f; }
   .home-map-foot a { font-weight: 600; color: var(--accent); font-size: 14px; }
 
@@ -77,24 +80,28 @@
 
 <header class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.svg" alt="Scale42" class="brand-logo" />
-    </a>
+    <!--cms:nav-->
+    <a class="brand" href="/"><img src="/assets/logo-wordmark-white.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
-      <a href="./" class="active">Home</a>
-      <a href="capabilities/">Capabilities</a>
-      <a href="datacenters/">Data centres</a>
-      <a href="news/">News</a>
-      <a href="#contact" class="btn btn-sm">Contact</a>
+      <a href="/" class="active">Home</a>
+      <a href="/datacenters/">Data centres</a>
+      <a href="/solutions/">Solutions</a>
+      <a href="/sustainability/">Sustainability</a>
+      <a href="/giga-42/">GIGA-42</a>
+      <a href="/team/">Team</a>
+      <a href="/news/">News</a>
+      <a href="/contact/" class="btn btn-sm">Contact</a>
       <div class="lang-toggle">
         <a href="." data-lang="en" class="active">EN</a>
-        <a href="no/" data-lang="no">NO</a>
+        <a href="/no/" data-lang="no">NO</a>
       </div>
     </nav>
+    <!--/cms:nav-->
   </div>
 </header>
 
-<section id="top" class="hero">
+<section id="top" class="hero hero-mosaic">
   <div class="hero-bg" aria-hidden="true">
     <picture>
       <source media="(min-width: 900px)" srcset="assets/hero.webp" type="image/webp">
@@ -103,26 +110,20 @@
       <img src="assets/hero-900.jpg" alt="" />
     </picture>
   </div>
+  <img class="hero-mosaic-svg" src="/assets/logo-mark.svg?v=2" alt="" aria-hidden="true" />
   <div class="container hero-inner">
-    <p class="eyebrow"><!--cms:hero_eyebrow-->Next-generation European digital infrastructure<!--/cms:hero_eyebrow--></p>
-    <h1><!--cms:hero_title-->Building large-scale AI data centres<br/>across the Nordics.<!--/cms:hero_title--></h1>
-    <p class="lede"><!--cms:hero_lede-->Scale42 develops and operates wholesale, AI-ready data centres in Norway, Finland, Sweden and Iceland — co-located with abundant renewable power, purpose-built for high-density compute.<!--/cms:hero_lede--></p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-ghost">Get in touch →</a>
-    </div>
-    <div class="hero-deco" aria-hidden="true">
-      <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg" class="parallax" data-parallax="0.15">
-        <g fill="none" stroke="rgba(47,102,117,0.45)" stroke-width="1.2">
-          <polygon points="100,5 188,55 188,170 100,220 12,170 12,55"/>
-          <polygon points="100,30 165,67 165,158 100,195 35,158 35,67"/>
-          <polygon points="100,55 142,80 142,145 100,170 58,145 58,80"/>
-        </g>
-      </svg>
+    <p class="eyebrow"><!--cms:hero_eyebrow-->Next-generation European AI infrastructure<!--/cms:hero_eyebrow--></p>
+    <h1><!--cms:hero_title-->Building large-scale AI data centres across the Nordics.<!--/cms:hero_title--></h1>
+    <div class="hero-lede-row">
+      <p class="lede"><!--cms:hero_lede-->Scale42 develops and operates wholesale, AI-ready data centres in Norway, Finland, Sweden and Iceland — co-located with abundant renewable power, purpose-built for high-density compute.<!--/cms:hero_lede--></p>
+      <div class="hero-cta">
+        <a href="/contact/" class="btn btn-ghost">Get in touch →</a>
+      </div>
     </div>
     <dl class="hero-stats">
-      <div><dt><!--cms:stat1_label-->Active pipeline<!--/cms:stat1_label--></dt><dd><!--cms:stat1_value-->2 GW<!--/cms:stat1_value--></dd></div>
-      <div><dt><!--cms:stat2_label-->Projects<!--/cms:stat2_label--></dt><dd><!--cms:stat2_value-->16<!--/cms:stat2_value--></dd></div>
-      <div><dt><!--cms:stat3_label-->Site capacity<!--/cms:stat3_label--></dt><dd><!--cms:stat3_value-->50 – 300+ MW<!--/cms:stat3_value--></dd></div>
+      <div><dt><!--cms:stat1_label-->Active pipeline<!--/cms:stat1_label--></dt><dd><!--cms:stat1_value-->16.34 GW<!--/cms:stat1_value--></dd></div>
+      <div><dt><!--cms:stat2_label-->Projects<!--/cms:stat2_label--></dt><dd><!--cms:stat2_value-->43<!--/cms:stat2_value--></dd></div>
+      <div><dt><!--cms:stat3_label-->Site capacity<!--/cms:stat3_label--></dt><dd><!--cms:stat3_value-->5 – 2004+ MW<!--/cms:stat3_value--></dd></div>
       <div><dt><!--cms:stat4_label-->Module size<!--/cms:stat4_label--></dt><dd><!--cms:stat4_value-->12.5 MW<!--/cms:stat4_value--></dd></div>
     </dl>
   </div>
@@ -138,22 +139,55 @@
   </div>
 </section>
 
-<section class="equation bg-topo">
+<section class="equation">
   <div class="container">
-    <div class="eq-row">
-      <div class="eq-item">
-        <div class="eq-icon">⛰</div>
-        <p class="eq-label">Low-cost clean energy</p>
+    <div class="eq-pillars">
+      <div class="eq-pillar">
+        <h3>Sustainable</h3>
+        <ul>
+          <li>Renewable Power</li>
+          <li>Industry leading PUE</li>
+          <li>Heat Recycling</li>
+        </ul>
       </div>
-      <div class="eq-op">+</div>
-      <div class="eq-item">
-        <div class="eq-icon">▦</div>
-        <p class="eq-label">Accelerated computing</p>
+      <div class="eq-pillar">
+        <h3>European</h3>
+        <ul>
+          <li>Geographically Nordic Compute Infrastructure for Real European Demand</li>
+          <li>GDPR</li>
+        </ul>
       </div>
-      <div class="eq-op">=</div>
-      <div class="eq-item eq-result">
-        <div class="eq-icon">◆</div>
-        <p class="eq-label">Next-generation data centres</p>
+      <div class="eq-pillar">
+        <h3>AI Infrastructure</h3>
+        <ul>
+          <li>Next generation infrastructure</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="design" class="section">
+  <div class="container">
+    <p class="eyebrow">Modular AI data centre design</p>
+    <h2 class="section-title">Standardised 12.5 MW modules. Phased deployment to 50 MW+ campuses.</h2>
+    <p class="section-lede">A modular architecture enables rapid build-out and predictable expansion — supporting high-density computing environments with highly efficient cooling and power systems. Designed for direct-liquid-cooling (DLC) and air-cooled GPU clusters from 50 kW to 130 kW per rack.</p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-icon">▢</div>
+        <h3>12.5 MW module</h3>
+        <p>Standardised, repeatable shell-and-core. Combine 4× for 50 MW campuses, 8× for 100 MW, scale to 500 MW+ flagship sites.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">≋</div>
+        <h3>Direct-liquid-cooling ready</h3>
+        <p>Designed for DLC and immersion at the rack, supporting high-density GPU/TPU clusters from 50–130 kW.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⌗</div>
+        <h3>Customer-operated</h3>
+        <p>Neutral wholesale shell. You bring the compute and operate it; we deliver power, fibre and the secure envelope.</p>
       </div>
     </div>
   </div>
@@ -188,221 +222,12 @@
 </section>
 
 <!-- Sustainability strip — competitive parity with atNorth/Verne/Bulk -->
-<section id="sustainability" class="section section-alt bg-hex bg-fixed">
-  <div class="container">
-    <p class="eyebrow">Sustainability</p>
-    <h2 class="section-title">Built on the cleanest grids in Europe.</h2>
-    <p class="section-lede">Every Scale42 site is sized against long-duration renewable baseload — hydro in Norway, geothermal in Iceland, mixed renewables in Finland and Sweden. Targets validated per site at energisation.</p>
-
-    <div class="grid grid-4 kpis">
-      <div class="kpi"><dt>Renewable energy</dt><dd>100%</dd><p>Across the active pipeline</p></div>
-      <div class="kpi"><dt>Target PUE</dt><dd>≤ 1.20</dd><p>For 12.5 MW module deployments</p></div>
-      <div class="kpi"><dt>Carbon intensity</dt><dd>&lt; 30 gCO₂/kWh</dd><p>Nordic grid average is among the lowest globally</p></div>
-      <div class="kpi"><dt>Heat reuse</dt><dd>Site-led</dd><p>Where district networks make it viable</p></div>
-    </div>
-
-    <p class="cert-strip">
-      <span>Targeting:</span>
-      <span class="cert">ISO 27001</span>
-      <span class="cert">ISO 14001</span>
-      <span class="cert">ISO 50001</span>
-      <span class="cert">EU CSRD aligned</span>
-      <span class="cert">Uptime Tier III design</span>
-    </p>
-  </div>
-</section>
-
-<section id="design" class="section">
-  <div class="container">
-    <p class="eyebrow">Modular AI data centre design</p>
-    <h2 class="section-title">Standardised 12.5 MW modules. Phased deployment to 50 MW+ campuses.</h2>
-    <p class="section-lede">A modular architecture enables rapid build-out and predictable expansion — supporting high-density computing environments with highly efficient cooling and power systems. Designed for direct-liquid-cooling (DLC) and air-cooled GPU clusters from 50 kW to 130 kW per rack.</p>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="card-icon">▢</div>
-        <h3>12.5 MW module</h3>
-        <p>Standardised, repeatable shell-and-core. Combine 4× for 50 MW campuses, 8× for 100 MW, scale to 500 MW+ flagship sites.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">≋</div>
-        <h3>Direct-liquid-cooling ready</h3>
-        <p>Designed for DLC and immersion at the rack, supporting high-density GPU/TPU clusters from 50–130 kW.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">⌗</div>
-        <h3>Customer-operated</h3>
-        <p>Neutral wholesale shell. You bring the compute and operate it; we deliver power, fibre and the secure envelope.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="shift" class="section section-alt bg-grid">
-  <div class="container">
-    <p class="eyebrow">The shift</p>
-    <h2 class="section-title">AI is changing digital infrastructure requirements.</h2>
-
-    <div class="compare">
-      <div class="compare-col legacy">
-        <p class="tag">Legacy data centres</p>
-        <h3>High CAPEX & OPEX</h3>
-        <p class="compare-intro">Built primarily to serve consumer-facing software-as-a-service applications, legacy data centres lock in high CAPEX and OPEX through a focus on:</p>
-        <ul>
-          <li>Low latency</li>
-          <li>High uptime</li>
-          <li>CPU-centric architectures</li>
-        </ul>
-        <p class="compare-intro">This legacy infrastructure:</p>
-        <ul>
-          <li>Is typically located close to urban centres — locking in high land costs</li>
-          <li>Is often encumbered with high energy costs, in part due to reliance on fossil-fuel-generated power</li>
-          <li>Is built with high levels of redundancy in power and communications, with associated low utilisation and high cost</li>
-        </ul>
-        <p class="compare-foot">Together, these contribute to a large physical footprint, further locking in CAPEX and OPEX.</p>
-      </div>
-      <div class="compare-col next">
-        <p class="tag tag-accent">Next-generation data centres</p>
-        <h3>Lower CAPEX & OPEX</h3>
-        <p class="compare-intro">Next-generation data centres — e.g. built to train complex AI models — can benefit from significantly lower CAPEX & OPEX by focusing on:</p>
-        <ul>
-          <li>Raw compute power</li>
-          <li>High internal network speed for increased parallelisation</li>
-          <li>GPU / TPU / ASIC-centric architectures</li>
-        </ul>
-        <p class="compare-intro">They are typically:</p>
-        <ul>
-          <li>Powered by low-cost, clean energy</li>
-          <li>Co-located alongside power generation, e.g. in remote locations</li>
-          <li>Equipped with fewer redundant systems, each with higher utilisation</li>
-        </ul>
-        <p class="compare-foot">High equipment density and out-of-city locations enable a smaller footprint and dramatically lower CAPEX and OPEX vs legacy data centres.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="founders" class="section">
-  <div class="container">
-    <p class="eyebrow">The founders</p>
-    <h2 class="section-title">Built by operators with deep infrastructure DNA.</h2>
-
-    <div class="grid grid-3 team founders">
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/fostervoll.jpg" alt="Bendik Fostervoll" /></div>
-        <h4>Bendik Fostervoll</h4>
-        <p class="role">CDO &amp; Founder</p>
-        <p>5+ years in data centre development. High-voltage power systems test &amp; integration. 15+ years electrical engineering, including North Sea oil &amp; gas.</p>
-        <a href="https://www.linkedin.com/in/bendik-fostervoll-5482aba5/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
-      </div>
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/collins.jpg" alt="James Collins" /></div>
-        <h4>James Collins</h4>
-        <p class="role">CTO &amp; Founder</p>
-        <p>7+ years in data centre development. Data centre system design &amp; management. 20+ years in IT systems administration, technical and service roles in the UK.</p>
-        <a href="https://www.linkedin.com/in/james-collins-11b55079/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
-      </div>
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/tasney.jpg" alt="William Tasney" /></div>
-        <h4>William Tasney</h4>
-        <p class="role">Founder</p>
-        <p>7+ years in data centre development. Business strategy &amp; energy market expertise. Led team from start-up to 8-figure exit. Commercial property background.</p>
-        <a href="https://www.linkedin.com/in/william-tasney-a9487a16a/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="team" class="section section-alt bg-diagonal">
-  <div class="container">
-    <p class="eyebrow">The team</p>
-    <h2 class="section-title">Engineers, operators and capital allocators.</h2>
-
-    <div class="grid grid-3 team">
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/stewart.jpg" alt="Jamie Stewart" /></div>
-        <h4>Jamie Stewart</h4>
-        <p class="role">CEO</p>
-        <p>Corporate strategy and capital raising. 11 years in research &amp; corporate strategy at one of Europe's preeminent hedge funds. Corporate finance experience.</p>
-        <a href="https://www.linkedin.com/in/jamie-stewart-s42/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
-      </div>
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/beaton.jpg" alt="Thomas Beaton" /></div>
-        <h4>Thomas Beaton</h4>
-        <p class="role">CIO</p>
-        <p>Information, data, research &amp; technical management. 8+ years in geospatial intelligence and innovation. ESA &amp; UK Space Agency contractor.</p>
-        <a href="https://www.linkedin.com/in/thomas-beaton-796881b7/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
-      </div>
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/normann.jpg" alt="Roald Normann" /></div>
-        <h4>Roald Normann</h4>
-        <p class="role">Senior Project Manager</p>
-        <p>Mechanical-electrical and construction-hydropower engineer. 18+ years as worldwide technical manager, project manager and engineer. International project leadership.</p>
-      </div>
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/gussias.jpg" alt="Daniel Gussiås" /></div>
-        <h4>Daniel Gussiås</h4>
-        <p class="role">Liaison Officer</p>
-        <p>13+ years in North Sea oil &amp; gas. Field engineer and supervisor. Energy saving and technical insulation.</p>
-        <a href="https://www.linkedin.com/in/daniel-gussi%C3%A5s-820652295/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
-      </div>
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/rahman.jpg" alt="Zeehan Rahman" /></div>
-        <h4>Zeehan Rahman</h4>
-        <p class="role">COO</p>
-        <p>4+ years in data centre operations &amp; development. MEng petroleum engineer. AgriTech &amp; circular economy subject matter expert.</p>
-        <a href="https://www.linkedin.com/in/zeehan-rahman-22a291209/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
-      </div>
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/valero.jpg" alt="Ismael Valero" /></div>
-        <h4>Ismael Valero</h4>
-        <p class="role">IT Director</p>
-        <p>Data centre design, build &amp; operations. 25+ years in IT solutions development. Networking, system integration &amp; supplier management.</p>
-        <a href="https://www.linkedin.com/in/ismael-valero-669b374/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
-      </div>
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/murray.jpg" alt="Patrick Murray" /></div>
-        <h4>Patrick Murray</h4>
-        <p class="role">CFO</p>
-        <p>15 years across technology, FinTech and Life Sciences. Closing significant funding rounds and PE shareholder agreements. Built finance &amp; compliance teams.</p>
-        <a href="https://www.linkedin.com/in/patrick-murray-0895033/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
-      </div>
-      <div class="member">
-        <div class="member-photo"><img src="assets/team/williamson.jpg" alt="Abbie Williamson" /></div>
-        <h4>Abbie Williamson</h4>
-        <p class="role">Executive Assistant</p>
-        <p>16+ years operations and team management. Group financial management. Time management.</p>
-        <a href="https://www.linkedin.com/in/abbiewilliamson/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">in</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="partners" class="section">
-  <div class="container">
-    <p class="eyebrow">Partners & customers</p>
-    <h2 class="section-title">Working with the operators powering Europe's compute.</h2>
-    <p class="section-lede">Joint venture and commercial partnerships across the Nordic energy and digital infrastructure ecosystem.</p>
-    <div class="jv-callout">
-      <span class="label">Backed by</span>
-      <p class="text"><!--cms:jv_blurb--><strong>GIG</strong> — joint venture partner. Scale42 is built and capitalised together with GIG, providing the financial backing and energy-sector relationships behind the pipeline.<!--/cms:jv_blurb--></p>
-    </div>
-    <div class="partners">
-      <div class="partner">GIG · Joint venture</div>
-      <div class="partner">As featured in DCD</div>
-      <div class="partner">As featured in FT</div>
-      <div class="partner">As featured in Yle</div>
-      <div class="partner">EPC partner · TBA</div>
-      <div class="partner">PPA partner · TBA</div>
-    </div>
-  </div>
-</section>
 
 <section id="news" class="section">
   <div class="container">
     <p class="eyebrow">Posts</p>
     <h2 class="section-title">News & thought leadership.</h2>
-    <div class="grid grid-3 posts">
+    <div class="grid grid-4 posts">
       <article class="post">
         <div class="post-img"><img src="assets/news/bakki-iceland-50mw.jpg" alt="Bakki, Iceland - site for the GIG / Scale42 50 MW data centre" /></div>
         <p class="post-date">Sep 2, 2025</p>
@@ -431,32 +256,48 @@
         <p>Yle reports on Scale42's Finnish project - construction targeted for early 2026.</p>
         <a href="news/varkaus-finland/">Read &rarr;</a>
       </article>
-      <article class="post">
-        <div class="post-img"><img src="assets/news/deepseek.jpg" alt="DeepSeek and the dispersion of AI compute demand" /></div>
-        <p class="post-date">Jan 29, 2025</p>
-        <h3>Scale42 thought piece - DeepSeek</h3>
-        <p>Will Tasney, Thomas Beaton and Jamie Stewart on what algorithmic efficiency means for the dispersion of AI compute demand.</p>
-        <a href="news/deepseek-thought-piece/">Read &rarr;</a>
-      </article>
     </div>
-  </div>
-</section>
-
-<section id="contact" class="section section-dark">
-  <div class="container contact-inner">
-    <div>
-      <p class="eyebrow eyebrow-light">Contact</p>
-      <h2 class="section-title">Let's build the next gigawatt.</h2>
-      <p class="section-lede">Enter your email address below and our team will be in touch.</p>
-    </div>
-    <p style="font-size:20px;"><a href="mailto:info@scale-42.com" style="color:#fff;"><!--cms:contact_email-->info@scale-42.com<!--/cms:contact_email--></a></p>
+    <p style="text-align:center;margin-top:32px;"><a href="news/" class="btn btn-primary">Read more news →</a></p>
   </div>
 </section>
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <img src="assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
-    <p class="copyright"><!--cms:footer_copyright-->© 2026 Scale42. All rights reserved.<!--/cms:footer_copyright--></p>
+  <div class="container">
+    <!--cms:footer-->
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+        <p class="footer-tag">Pan-Nordic AI &amp; HPC infrastructure — built on hydropower, geothermal and free-air cooling.</p>
+        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="/solutions/">Solutions</a>
+        <a href="/datacenters/">Data centres</a>
+        <a href="/sustainability/">Sustainability</a>
+        <a href="/giga-42/">GIGA-42</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="/team/">Team</a>
+        <a href="/careers/">Careers</a>
+        <a href="/news/">News</a>
+        <a href="/press/">Press</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="/news/rss.xml">RSS feed</a>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">© 2026 Scale42. All rights reserved.</p>
+      <p class="footer-legal">Scale42 AS · Registered in Norway</p>
+    </div>
+
+    <!--/cms:footer-->
   </div>
 </footer>
 
@@ -507,30 +348,55 @@
     const el = document.getElementById('home-map');
     if (!el || typeof L === 'undefined') return;
     const sites = /*cms:sites_array*/[
-      { name: "Glomfjord", country: "Norway", status: "sold", lat: 66.8167, lng: 13.9667 },
-      { name: "Bakki", country: "Iceland", status: "live", lat: 66.05, lng: -17.35 },
-      { name: "Skibotn", country: "Norway", status: "live", lat: 69.3833, lng: 20.2667 },
-      { name: "Reykjavík", country: "Iceland", status: "live", lat: 64.1466, lng: -21.9426 },
-      { name: "Varkaus", country: "Finland", status: "live", lat: 62.3167, lng: 27.8833 },
-      { name: "Kristinestad", country: "Finland", status: "live", lat: 62.2745, lng: 21.3781 },
-      { name: "Nivala", country: "Finland", status: "live", lat: 63.9333, lng: 24.9667 },
-      { name: "Jokkmokk", country: "Sweden", status: "live", lat: 66.6066, lng: 19.8242 },
-      { name: "Kronoby", country: "Finland", status: "live", lat: 63.7333, lng: 23.0167 },
-      { name: "Liperi", country: "Finland", status: "tbd", lat: 62.5333, lng: 29.3667 },
-      { name: "Kitee", country: "Finland", status: "tbd", lat: 62.1, lng: 30.15 },
-      { name: "Kemi", country: "Finland", status: "tbd", lat: 65.7333, lng: 24.5667 },
-      { name: "Torsboda", country: "Sweden", status: "tbd", lat: 62.5667, lng: 17.4167 },
-      { name: "Alajärvi", country: "Finland", status: "tbd", lat: 63, lng: 23.8167 },
-      { name: "Boden", country: "Sweden", status: "tbd", lat: 65.825, lng: 21.6889 },
-      { name: "Tjeldbergodden", country: "Norway", status: "tbd", lat: 63.4239, lng: 8.5675 },
+      { name: "Bakki", country: "Iceland", status: "live", lat: 66.1, lng: -17.3 },
+      { name: "Skibotn", country: "Norway", status: "live", lat: 69.4, lng: 20.3 },
+      { name: "Reykjavík", country: "Iceland", status: "live", lat: 64.1, lng: -21.9 },
+      { name: "Kristinestad", country: "Finland", status: "live", lat: 62.3, lng: 21.4 },
+      { name: "Nivala", country: "Finland", status: "live", lat: 63.9, lng: 25 },
+      { name: "Jokkmokk", country: "Sweden", status: "live", lat: 66.6, lng: 19.8 },
+      { name: "Kronoby", country: "Finland", status: "live", lat: 63.7, lng: 23 },
+      { name: "Torsboda", country: "Sweden", status: "tbd", lat: 62.6, lng: 17.4 },
+      { name: "Liperi", country: "Finland", status: "tbd", lat: 62.5, lng: 29.4 },
+      { name: "Kitee", country: "Finland", status: "tbd", lat: 62.1, lng: 30.2 },
+      { name: "Sørfold", country: "Norway", status: "tbd", lat: 67.5, lng: 15.4 },
+      { name: "Alajärvi", country: "Finland", status: "tbd", lat: 63, lng: 23.8 },
+      { name: "Robertsfors", country: "Sweden", status: "tbd", lat: 64.2, lng: 20.9 },
+      { name: "Nuuk", country: "Greenland", status: "tbd", lat: 64.2, lng: -51.7 },
+      { name: "Tjeldbergodden", country: "Norway", status: "tbd", lat: 63.4, lng: 8.6 },
+      { name: "Honningsvåg", country: "Norway", status: "tbd", lat: 71, lng: 26 },
+      { name: "Kemi", country: "Finland", status: "tbd", lat: 65.7, lng: 24.6 },
+      { name: "Mikkeli", country: "Finland", status: "tbd", lat: 61.7, lng: 27.3 },
+      { name: "Boden", country: "Sweden", status: "tbd", lat: 65.8, lng: 21.7 },
+      { name: "Hadsel", country: "Norway", status: "tbd", lat: 68.6, lng: 14.9 },
+      { name: "Sortland", country: "Norway", status: "tbd", lat: 68.7, lng: 15.4 },
+      { name: "Salsbruket", country: "Norway", status: "tbd", lat: 64.7, lng: 11.6 },
+      { name: "Rovaniemi", country: "Finland", status: "tbd", lat: 66.5, lng: 25.7 },
+      { name: "Varkaus", country: "Finland", status: "live", lat: 62.3, lng: 27.9 },
+      { name: "Bo", country: "Norway", status: "tbd", lat: 68.6, lng: 14.4 },
+      { name: "Kontiolahti", country: "Finland", status: "tbd", lat: 62.7, lng: 29.9 },
+      { name: "Keminmaa", country: "Finland", status: "tbd", lat: 65.8, lng: 24.6 },
+      { name: "Tornio", country: "Finland", status: "tbd", lat: 65.9, lng: 24.2 },
+      { name: "Oulu", country: "Finland", status: "tbd", lat: 65, lng: 25.5 },
+      { name: "Skelleftea", country: "Sweden", status: "tbd", lat: 64.8, lng: 21 },
+      { name: "Utansjö", country: "Sweden", status: "tbd", lat: 62.8, lng: 17.9 },
+      { name: "Kalix", country: "Sweden", status: "tbd", lat: 65.9, lng: 23.2 },
+      { name: "Akureyri", country: "Iceland", status: "tbd", lat: 65.7, lng: -18.1 },
+      { name: "Valais Canton", country: "Switzerland", status: "tbd", lat: 46.2, lng: 7.6 },
+      { name: "Mo I Rana, Mo Industrial Park", country: "Norway", status: "tbd", lat: 66.3, lng: 14.1 },
+      { name: "Sogn (Luster, Sognekraft Sogn Utvikling)", country: "Norway", status: "tbd", lat: 61.4, lng: 7.4 },
+      { name: "Milan", country: "Italy", status: "tbd", lat: 45.5, lng: 9.2 },
     ]/*/cms:sites_array*/;
     const map = L.map('home-map', {
       zoomControl: false, scrollWheelZoom: false, doubleClickZoom: false,
       dragging: false, touchZoom: false, boxZoom: false, keyboard: false,
       tap: false, attributionControl: true
     });
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '© OpenStreetMap, © CARTO', subdomains: 'abcd', maxZoom: 19
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap, © CARTO', subdomains: 'abcd', maxZoom: 19, noWrap: true,
+      bounds: [[-90, -180], [90, 180]]
+    }).addTo(map);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd', maxZoom: 19, noWrap: true, opacity: 0.85
     }).addTo(map);
     sites.forEach(s => {
       L.marker([s.lat, s.lng], {

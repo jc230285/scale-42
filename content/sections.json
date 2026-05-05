@@ -4,101 +4,129 @@
       "key": "hero_eyebrow",
       "label": "Hero eyebrow",
       "type": "text",
-      "group": "Hero"
+      "group": "Hero",
+      "page": "/",
+      "page_label": "Home"
     },
     {
       "key": "hero_title",
       "label": "Hero title (HTML allowed: <br/>)",
       "type": "textarea",
-      "group": "Hero"
+      "group": "Hero",
+      "page": "/",
+      "page_label": "Home"
     },
     {
       "key": "hero_lede",
       "label": "Hero lede paragraph",
       "type": "textarea",
-      "group": "Hero"
+      "group": "Hero",
+      "page": "/",
+      "page_label": "Home"
     },
     {
       "key": "stat1_label",
       "label": "Stat 1 — label (Active pipeline)",
       "type": "text",
-      "group": "Hero stats"
+      "group": "Hero stats",
+      "page": "/",
+      "page_label": "Home"
     },
     {
       "key": "stat1_value",
       "label": "Stat 1 — value",
       "type": "text",
       "group": "Hero stats",
+      "page": "/",
+      "page_label": "Home",
       "auto": true
     },
     {
       "key": "stat2_label",
       "label": "Stat 2 — label (Projects)",
       "type": "text",
-      "group": "Hero stats"
+      "group": "Hero stats",
+      "page": "/",
+      "page_label": "Home"
     },
     {
       "key": "stat2_value",
       "label": "Stat 2 — value",
       "type": "text",
       "group": "Hero stats",
+      "page": "/",
+      "page_label": "Home",
       "auto": true
     },
     {
       "key": "stat3_label",
       "label": "Stat 3 — label (Site capacity)",
       "type": "text",
-      "group": "Hero stats"
+      "group": "Hero stats",
+      "page": "/",
+      "page_label": "Home"
     },
     {
       "key": "stat3_value",
       "label": "Stat 3 — value",
       "type": "text",
       "group": "Hero stats",
+      "page": "/",
+      "page_label": "Home",
       "auto": true
     },
     {
       "key": "stat4_label",
       "label": "Stat 4 — label",
       "type": "text",
-      "group": "Hero stats"
+      "group": "Hero stats",
+      "page": "/",
+      "page_label": "Home"
     },
     {
       "key": "stat4_value",
       "label": "Stat 4 — value",
       "type": "text",
-      "group": "Hero stats"
+      "group": "Hero stats",
+      "page": "/",
+      "page_label": "Home"
     },
     {
       "key": "jv_blurb",
       "label": "JV blurb (HTML allowed: <strong>)",
       "type": "textarea",
-      "group": "JV / Partners"
+      "group": "JV / Partners",
+      "page": "/",
+      "page_label": "Home"
     },
     {
       "key": "contact_email",
       "label": "Contact email",
       "type": "text",
-      "group": "Contact"
+      "group": "Contact",
+      "page": "/",
+      "page_label": "Home"
     },
     {
       "key": "footer_copyright",
       "label": "Footer copyright",
       "type": "text",
-      "group": "Footer"
+      "group": "Footer",
+      "page": "*",
+      "page_label": "All pages"
     }
   ],
   "values": {
     "en": {
-      "hero_eyebrow": "Next-generation European digital infrastructure",
-      "hero_title": "Building large-scale AI data centres<br/>across the Nordics.",
+      "hero_eyebrow": "Next-generation European AI infrastructure",
+      "hero_title": "Building large-scale AI data centres across the Nordics.",
       "hero_lede": "Scale42 develops and operates wholesale, AI-ready data centres in Norway, Finland, Sweden and Iceland — co-located with abundant renewable power, purpose-built for high-density compute.",
       "stat1_label": "Active pipeline",
-      "stat1_value": "2 GW",
+      "stat1_value": "16.34 GW",
       "stat2_label": "Projects",
-      "stat2_value": "16",
+      "stat2_value": "43",
       "stat3_label": "Site capacity",
-      "stat3_value": "50 – 300+ MW",
+      "stat3_value": "5 – 2004+ MW",
       "stat4_label": "Module size",
       "stat4_value": "12.5 MW",
       "jv_blurb": "<strong>GIG</strong> — joint venture partner. Scale42 is built and capitalised together with GIG, providing the financial backing and energy-sector relationships behind the pipeline.",
@@ -106,15 +134,15 @@
       "footer_copyright": "© 2026 Scale42. All rights reserved."
     },
     "no": {
-      "hero_eyebrow": "Neste generasjons europeisk digital infrastruktur",
-      "hero_title": "Bygger storskala KI-datasentre<br/>i Norden.",
+      "hero_eyebrow": "Neste generasjons europeisk AI-infrastruktur",
+      "hero_title": "Bygger storskala KI-datasentre i Norden.",
       "hero_lede": "Scale42 utvikler og drifter engros, KI-klare datasentre i Norge, Finland, Sverige og Island — samlokalisert med rikelig fornybar kraft, spesialbygget for høytetthetsberegning.",
       "stat1_label": "Aktiv pipeline",
-      "stat1_value": "2 GW",
+      "stat1_value": "16.34 GW",
       "stat2_label": "Prosjekter",
-      "stat2_value": "16",
+      "stat2_value": "43",
       "stat3_label": "Sitekapasitet",
-      "stat3_value": "50 – 300+ MW",
+      "stat3_value": "5 – 2004+ MW",
       "stat4_label": "Modulstørrelse",
       "stat4_value": "12.5 MW",
       "jv_blurb": "<strong>GIG</strong> — joint venture-partner. Scale42 er bygget og kapitalisert sammen med GIG, som leverer den finansielle støtten og energisektor-relasjonene bak pipelinen.",
