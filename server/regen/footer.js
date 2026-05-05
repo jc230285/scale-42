@@ -21,7 +21,6 @@ const FOOTER_EN = `<div class="footer-grid">
         <h5>Company</h5>
         <a href="/team/">Team</a>
         <a href="/news/">News</a>
-        <a href="/press/">Press</a>
       </div>
       <div class="footer-col">
         <h5>Resources</h5>
@@ -54,7 +53,6 @@ const FOOTER_NO = `<div class="footer-grid">
         <h5>Selskap</h5>
         <a href="/no/team/">Team</a>
         <a href="/no/news/">Nyheter</a>
-        <a href="/no/press/">Presse</a>
       </div>
       <div class="footer-col">
         <h5>Ressurser</h5>
