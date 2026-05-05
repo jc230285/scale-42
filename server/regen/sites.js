@@ -748,17 +748,35 @@ function run() {
     fs.writeFileSync(DATA, JSON.stringify(data, null, 2) + '\n', 'utf-8');
     console.log('Assigned url_tokens to new sites.');
   }
-  // Wipe stale per-site directories so old/guessable URLs can't reach pages
+  // Wipe stale per-site directories so old/guessable URLs can't reach pages.
+  // Keep token-suffixed dirs and redirect-dirs for published sites' bare IDs.
   const validSlugs = new Set(data.sites.map(s => siteSlug(s)));
+  const redirectSlugs = new Set(
+    data.sites.filter(s => s.published).map(s =>
+      (s.id || s.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')).replace(/^-+|-+$/g, '')
+    )
+  );
   for (const base of ['datacenters', 'no/datacenters']) {
     const dir = path.join(ROOT, base);
     if (!fs.existsSync(dir)) continue;
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       if (!entry.isDirectory()) continue;
       if (entry.name === 'compare') continue;
-      if (!validSlugs.has(entry.name)) {
+      if (!validSlugs.has(entry.name) && !redirectSlugs.has(entry.name)) {
         fs.rmSync(path.join(dir, entry.name), { recursive: true, force: true });
       }
+    }
+  }
+  // Redirect bare-slug paths to tokenised paths for published sites only
+  for (const s of data.sites.filter(x => x.published)) {
+    const bare = (s.id || s.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')).replace(/^-+|-+$/g, '');
+    const target = siteSlug(s);
+    if (bare === target) continue;
+    const redirectHtml = `<!doctype html><html><head><meta charset="utf-8"><title>${s.name} — Scale42</title><link rel="canonical" href="https://www.scale-42.com/datacenters/${target}/"><meta http-equiv="refresh" content="0; url=../${target}/"><meta name="robots" content="noindex,follow"></head><body><script>location.replace('../${target}/');</script><p>Redirecting to <a href="../${target}/">${s.name}</a>…</p></body></html>`;
+    for (const langDir of ['datacenters', 'no/datacenters']) {
+      const d = path.join(ROOT, langDir, bare);
+      fs.mkdirSync(d, { recursive: true });
+      fs.writeFileSync(path.join(d, 'index.html'), redirectHtml, 'utf-8');
     }
   }
   // Auto-derive status from public_status_label so editors only manage one field
