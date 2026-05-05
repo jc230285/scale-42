@@ -27,13 +27,15 @@ function computeStats(sites) {
   const live = sites.filter(s => s.published);
   // pipeline excludes sold
   const pipelineSites = live.filter(s => s.status !== 'sold');
-  const totalTarget = pipelineSites.reduce((a, s) => a + parseMW(s.max_capacity_mw || s.target_mw), 0);
-  const caps = pipelineSites.map(s => parseMW(s.max_capacity_mw || s.target_mw)).filter(Boolean);
+  const totalInitial = pipelineSites.reduce((a, s) => a + parseMW(s.initial_mw), 0);
+  const totalTarget = pipelineSites.reduce((a, s) => a + parseMW(s.target_mw || s.max_capacity_mw || s.initial_mw), 0);
+  const caps = pipelineSites.map(s => parseMW(s.max_capacity_mw || s.target_mw || s.initial_mw)).filter(Boolean);
   const min = caps.length ? Math.min(...caps) : 0;
   const max = caps.length ? Math.max(...caps) : 0;
   const countries = new Set(live.map(s => s.country).filter(Boolean));
+  const fmt = (n) => Math.round(n).toLocaleString('en-US');
   return {
-    pipeline: Math.round(totalTarget).toLocaleString('en-US') + ' MW',
+    pipeline: `${fmt(totalInitial)} – ${fmt(totalTarget)} MW`,
     projects: String(live.length),
     capacity: caps.length ? `${Math.round(min)} – ${Math.round(max)} MW` : '—',
     countries: String(countries.size),
@@ -58,7 +60,9 @@ function fullArrayLiteral(sites, lang) {
   const lines = sites.filter(s => s.published && s.lat != null && s.lng != null).map(s => {
     const desc = lang === 'no' ? s.desc_no : s.desc_en;
     const loc = s.public_location || [s.name, s.country].filter(Boolean).join(', ');
-    return `    { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, location: ${JSON.stringify(loc)}, lat: ${round1(s.lat)}, lng: ${round1(s.lng)}, power: ${JSON.stringify(s.power || '')}, target: ${JSON.stringify(s.max_capacity_mw || s.target_mw || '')}, desc: ${JSON.stringify(desc || '')} }`;
+    const tgt = s.max_capacity_mw || s.target_mw;
+    const tgtStr = tgt != null && tgt !== '' ? `${tgt} MW` : '';
+    return `    { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, location: ${JSON.stringify(loc)}, lat: ${round1(s.lat)}, lng: ${round1(s.lng)}, power: ${JSON.stringify(s.power || '')}, target: ${JSON.stringify(tgtStr)}, desc: ${JSON.stringify(desc || '')} }`;
   });
   return `[\n${lines.join(',\n')},\n  ]`;
 }
@@ -105,8 +109,8 @@ function cardHtml(sites, lang) {
         <div class="body">
           <p class="desc">${escHtml(desc)}</p>
           <dl class="dc-stats">
-            <div class="stat"><dt>${initialL}</dt><dd>${escHtml(s.initial_mw || '—')}</dd></div>
-            <div class="stat"><dt>${targetL}</dt><dd>${escHtml(s.target_mw || s.max_capacity_mw || '—')}</dd></div>
+            <div class="stat"><dt>${initialL}</dt><dd>${s.initial_mw != null && s.initial_mw !== '' ? escHtml(s.initial_mw) + ' MW' : '—'}</dd></div>
+            <div class="stat"><dt>${targetL}</dt><dd>${(s.target_mw || s.max_capacity_mw) != null && (s.target_mw || s.max_capacity_mw) !== '' ? escHtml(s.target_mw || s.max_capacity_mw) + ' MW' : '—'}</dd></div>
             <div class="stat"><dt>${powerL}</dt><dd>${escHtml(s.power || '—')}</dd></div>
           </dl>
         </div>
@@ -200,8 +204,8 @@ function buildSiteDetailPage(s, schema, lang) {
   // Hero KPI strip
   const fmtPop = s.population ? Number(s.population).toLocaleString() : null;
   const kpis = [
-    { l: isNo ? 'Oppstart' : 'Initial', v: s.initial_mw },
-    { l: isNo ? 'Mål' : 'Target', v: s.target_mw || s.max_capacity_mw },
+    { l: isNo ? 'Oppstart' : 'Initial', v: s.initial_mw != null && s.initial_mw !== '' ? `${s.initial_mw} MW` : null },
+    { l: isNo ? 'Mål' : 'Target', v: (s.target_mw || s.max_capacity_mw) != null && (s.target_mw || s.max_capacity_mw) !== '' ? `${s.target_mw || s.max_capacity_mw} MW` : null },
     { l: isNo ? 'Kraft' : 'Power', v: s.power },
     { l: isNo ? 'Befolkning' : 'Population', v: fmtPop },
   ].filter(k => k.v);

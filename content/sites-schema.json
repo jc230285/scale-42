@@ -414,22 +414,32 @@
       "key": "initial_mw",
       "label": "Initial MW",
       "group": "power",
-      "type": "text",
-      "public": true
+      "type": "number",
+      "public": true,
+      "help": "Numeric only — MW unit added on render. Notes go in 'Power notes'."
     },
     {
       "key": "target_mw",
       "label": "Target MW",
       "group": "power",
-      "type": "text",
-      "public": true
+      "type": "number",
+      "public": true,
+      "help": "Numeric only — MW unit added on render."
     },
     {
       "key": "max_capacity_mw",
       "label": "Max capacity (MW)",
       "group": "power",
-      "type": "text",
+      "type": "number",
       "public": true
+    },
+    {
+      "key": "power_notes",
+      "label": "Power notes",
+      "group": "power",
+      "type": "textarea",
+      "public": true,
+      "help": "Free-text qualifications about the power figures (e.g. 'subject to substation upgrade')."
     },
     {
       "key": "utility_capacity_phases",
