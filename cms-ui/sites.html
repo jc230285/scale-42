@@ -422,20 +422,27 @@
     }
   });
 
+  function fmtAgo(iso) {
+    const dt = new Date(iso);
+    const ago = Math.round((Date.now() - dt.getTime()) / 60000);
+    if (ago < 1) return 'just now';
+    if (ago < 60) return `${ago} min ago`;
+    if (ago < 1440) return `${Math.round(ago/60)} h ago`;
+    return dt.toLocaleDateString() + ' ' + dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
   async function loadMeta() {
     try {
       const r = await fetch('/api/published-meta');
       if (!r.ok) return;
       const m = await r.json();
-      const info = m.sites;
-      if (info?.at) {
-        const dt = new Date(info.at);
-        const ago = Math.round((Date.now() - dt.getTime()) / 60000);
-        const txt = ago < 60 ? `${ago} min ago` : ago < 1440 ? `${Math.round(ago/60)} h ago` : dt.toLocaleDateString();
-        $('last-published').textContent = `Last published: ${txt}${info.by ? ' by ' + info.by : ''}`;
-      } else {
-        $('last-published').textContent = 'Never published';
-      }
+      const draft = m.sites_draft;
+      const pub = m.sites;
+      const parts = [];
+      if (draft?.at) parts.push(`Draft: ${fmtAgo(draft.at)}${draft.by ? ' by ' + draft.by : ''}`);
+      else parts.push('No draft saved');
+      if (pub?.at) parts.push(`Published: ${fmtAgo(pub.at)}${pub.by ? ' by ' + pub.by : ''}`);
+      else parts.push('Never published');
+      $('last-published').textContent = parts.join(' · ');
     } catch {}
   }
 
@@ -459,6 +466,7 @@
     if (!r2.ok) { setStatus('Saved locally; draft commit failed', 'err'); setDirty(false); return true; }
     setDirty(false); setStatus('Saved to draft branch', 'ok');
     renderTotals();
+    loadMeta();
     return true;
   }
 
