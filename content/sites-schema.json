@@ -385,6 +385,15 @@
       "help": "Monthly mean temperature series (3 yrs) — internal, drives the chart."
     },
     {
+      "key": "url_token",
+      "label": "URL token",
+      "group": "publish",
+      "type": "text",
+      "public": false,
+      "readonly": true,
+      "help": "Random suffix appended to the public URL. Auto-assigned; do not edit."
+    },
+    {
       "key": "hot_days_per_year",
       "label": "Hot days / yr (>25 °C)",
       "group": "location",
