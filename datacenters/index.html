@@ -68,7 +68,9 @@
     pointer-events: none;
   }
   .dc-card .img .image-placeholder { display: none; }
+  .dc-card .img img[src$=".svg"] { display: none; }
   .dc-card .country-flag { display: none; }
+  .dc-card > .loc:not(.loc-top) { display: none; }
   .dc-card .img.bakki { background: linear-gradient(135deg, #2c3a48 0%, #5a4030 60%, #c47a4a 100%); }
   .dc-card .img.varkaus { background: linear-gradient(135deg, #1c2e3f 0%, #406b6e 60%, #8aa9a8 100%); }
   .dc-card .img.tbd { background: linear-gradient(135deg, #d6dde2 0%, #a3bcc4 100%); color: rgba(28,46,63,0.5); }
@@ -98,7 +100,7 @@
   .dc-card h3 { font-family: var(--font-display); font-size: 22px; margin: 0; font-weight: 600; color: #fff; }
   .dc-card p.desc { font-size: 13.5px; color: rgba(255,255,255,0.88); margin: 0; }
   .dc-card .dc-link { display: none; }
-  .dc-card-link { position: absolute; inset: 0; z-index: 4; text-indent: -9999px; overflow: hidden; }
+  .dc-card-link { display: none; }
 
   .dc-stats {
     display: grid; grid-template-columns: repeat(3, 1fr);
@@ -231,16 +233,6 @@
       <button class="dc-filter" data-axis="country" data-filter="greenland">Greenland</button>
       <button class="dc-filter" data-axis="country" data-filter="switzerland">Switzerland</button>
       <button class="dc-filter" data-axis="country" data-filter="italy">Italy</button>
-    </div>
-    <div class="dc-toolbar" style="margin-top:-16px;">
-      <strong style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-right:8px;">Status</strong>
-      <button class="dc-filter active" data-axis="strat" data-filter="all">All</button>
-      <button class="dc-filter" data-axis="strat" data-filter="sold">Sold</button>
-      <button class="dc-filter" data-axis="strat" data-filter="giga-42-responsibility">GIGA-42 priority</button>
-      <button class="dc-filter" data-axis="strat" data-filter="development-focus">Development focus</button>
-      <button class="dc-filter" data-axis="strat" data-filter="going-to-3rd-party">Partner-led</button>
-      <button class="dc-filter" data-axis="strat" data-filter="later-stage-project">Later stage</button>
-      <button class="dc-filter" data-axis="strat" data-filter="bin-the-project">Deprioritised</button>
     </div>
 
     <div class="dc-grid"><!--cms:dc_cards-->
