@@ -165,7 +165,8 @@
   function onScroll(){
     if (isMobile()) { track.style.transform = ''; return; }
     var rect = pin.getBoundingClientRect();
-    var max = pin.offsetHeight - window.innerHeight;
+    var stickyH = sticky ? sticky.offsetHeight : window.innerHeight;
+    var max = pin.offsetHeight - stickyH;
     if (max <= 0) { track.style.transform = ''; return; }
     var progress = Math.min(1, Math.max(0, -rect.top / max));
     var distance = Math.max(0, track.scrollWidth - window.innerWidth);
