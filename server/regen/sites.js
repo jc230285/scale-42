@@ -188,11 +188,24 @@ function buildSiteDetailPage(s, schema, lang) {
     const fields = byGroup[g];
     let rows = '';
     if (g === 'location') {
+      const dirLink = (place) => `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(pubLoc || s.country || '')}&destination=${encodeURIComponent(place)}`;
+      const searchLink = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+      const wikiLink = (q) => `https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(q)}`;
       const locCell = pubLoc
-        ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(pubLoc)}" target="_blank" rel="noopener">${escHtml(pubLoc)} ↗</a>`
+        ? `<a href="${searchLink(pubLoc)}" target="_blank" rel="noopener">${escHtml(pubLoc)} ↗</a> · <a href="${wikiLink(pubLoc)}" target="_blank" rel="noopener">Wikipedia ↗</a>`
         : '<span class="empty">—</span>';
       rows += `<div class="kv"><dt>${isNo ? 'Sted' : 'Location'}</dt><dd>${locCell}</dd></div>`;
-      rows += fields.filter(f => !['lat', 'lng', 'public_location'].includes(f.key)).map(f =>
+      const handled = new Set(['lat', 'lng', 'public_location', 'nearest_seaport', 'nearest_seaport_km', 'nearest_airport_public', 'nearest_airport_km']);
+      // Combined seaport/airport rows with Google directions links
+      if (s.nearest_seaport) {
+        const km = s.nearest_seaport_km ? ` · ${escHtml(s.nearest_seaport_km)} km` : '';
+        rows += `<div class="kv"><dt>${isNo ? 'Nærmeste havn' : 'Nearest seaport'}</dt><dd><a href="${dirLink(s.nearest_seaport)}" target="_blank" rel="noopener">${escHtml(s.nearest_seaport)} ↗</a>${km}</dd></div>`;
+      }
+      if (s.nearest_airport_public) {
+        const km = s.nearest_airport_km ? ` · ${escHtml(s.nearest_airport_km)} km` : '';
+        rows += `<div class="kv"><dt>${isNo ? 'Nærmeste flyplass' : 'Nearest airport'}</dt><dd><a href="${dirLink(s.nearest_airport_public)}" target="_blank" rel="noopener">${escHtml(s.nearest_airport_public)} ↗</a>${km}</dd></div>`;
+      }
+      rows += fields.filter(f => !handled.has(f.key)).map(f =>
         `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`).join('');
     } else if (g === 'access' && fields.some(f => f.key === 'nearest_airport')) {
       rows = fields.map(f => {

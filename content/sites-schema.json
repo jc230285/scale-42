@@ -308,6 +308,52 @@
       "public": true
     },
     {
+      "key": "nearest_seaport",
+      "label": "Nearest seaport",
+      "group": "location",
+      "type": "text",
+      "public": true,
+      "help": "Town/port name — drives a Google Maps directions link from the public location."
+    },
+    {
+      "key": "nearest_seaport_km",
+      "label": "Nearest seaport (km)",
+      "group": "location",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "nearest_airport_public",
+      "label": "Nearest airport (public)",
+      "group": "location",
+      "type": "text",
+      "public": true,
+      "help": "Airport/town shown publicly. Internal airport detail stays in Access."
+    },
+    {
+      "key": "nearest_airport_km",
+      "label": "Nearest airport (km)",
+      "group": "location",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "population",
+      "label": "Local population",
+      "group": "location",
+      "type": "number",
+      "public": true,
+      "help": "Population of the nearest town/municipality."
+    },
+    {
+      "key": "area_overview",
+      "label": "Area overview",
+      "group": "location",
+      "type": "textarea",
+      "public": true,
+      "help": "Short blurb about the area — economy, climate, infrastructure context."
+    },
+    {
       "key": "zoning_status",
       "label": "Zoning status",
       "group": "location",
