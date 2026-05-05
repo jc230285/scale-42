@@ -31,7 +31,7 @@ const FOOTER_EN = `<div class="footer-grid">
       </div>
     </div>
     <div class="footer-bottom" style="justify-content:flex-end;">
-      <p class="footer-legal" style="text-align:right;">Northern DC AS trading as Scale-42 · Registered in Norway · © 2026</p>
+      <p class="footer-legal" style="text-align:right;">Northern DC AS trading as Scale-42™ · Registered in Norway · © 2026</p>
     </div>
 `;
 
@@ -62,7 +62,7 @@ const FOOTER_NO = `<div class="footer-grid">
       </div>
     </div>
     <div class="footer-bottom" style="justify-content:flex-end;">
-      <p class="footer-legal" style="text-align:right;">Northern DC AS trading as Scale-42 · Registrert i Norge · © 2026</p>
+      <p class="footer-legal" style="text-align:right;">Northern DC AS trading as Scale-42™ · Registrert i Norge · © 2026</p>
     </div>
 `;
 
