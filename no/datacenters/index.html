@@ -55,6 +55,7 @@
     border: 1px solid var(--line); border-radius: var(--radius);
     background: #1c2e3f; overflow: hidden;
     position: relative; aspect-ratio: 4/3;
+    container-type: inline-size;
     transition: 0.2s ease; color: #fff;
   }
   .dc-card:hover { border-color: var(--ink); transform: translateY(-2px); }
@@ -87,16 +88,18 @@
   .dc-card .status.tbd { background: var(--muted); }
   .dc-card .status.sold { background: #33752f; }
   .dc-card .dc-developers {
-    position: absolute; top: 46px; right: 14px; z-index: 5;
-    display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end;
-    max-width: 180px;
+    position: absolute; top: 56px; right: 14px; z-index: 5;
+    display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;
+    max-width: 60%;
   }
   .dc-card .dc-developers img {
-    height: 24px; width: auto; max-width: 80px;
-    background: rgba(255,255,255,0.92); border-radius: 4px;
-    padding: 3px 6px; object-fit: contain;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    width: clamp(80px, 10cqw, 160px); height: auto;
+    background: rgba(255,255,255,0.92); border-radius: 6px;
+    padding: 8px 14px; object-fit: contain; box-sizing: content-box;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
+  .dc-card .dc-developers a { display: inline-block; position: relative; z-index: 6; pointer-events: auto; cursor: pointer; }
+  .dc-card .dc-developers a:hover img { box-shadow: 0 2px 10px rgba(0,0,0,0.5); transform: translateY(-1px); }
   .dc-card > .loc { position: absolute; top: 16px; left: 18px; z-index: 3; margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
 
   .dc-card .body { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 22px 18px; display: flex; flex-direction: column; gap: 10px; z-index: 2; color: #fff; background: linear-gradient(180deg, rgba(15,25,35,0) 0%, rgba(15,25,35,0.85) 35%, rgba(15,25,35,0.96) 100%); }
@@ -204,12 +207,12 @@
 <section class="dc-hero">
   <div class="container">
     <p class="eyebrow">Datasentre</p>
-    <h1><!--cms:dc_hero_title-->6,985 MW KI-klar nordisk kapasitet.<!--/cms:dc_hero_title--></h1>
-    <p class="lede"><!--cms:dc_hero_lede-->17 prosjekter i 5 nordiske land — samlokalisert med rimelig fornybar kraft, spesialbygget for høytetthetsberegning. Skalerer fra 50 MW-campus til 500 MW+ flaggskipssteder.<!--/cms:dc_hero_lede--></p>
+    <h1><!--cms:dc_hero_title-->6,470 MW KI-klar nordisk kapasitet.<!--/cms:dc_hero_title--></h1>
+    <p class="lede"><!--cms:dc_hero_lede-->16 datasentre i 5 nordiske land, samlokalisert med rimelig fornybar kraft, spesialbygget for høytetthetsberegning. Skalerer fra 50 MW-campus til 500 MW+ flaggskipssteder.<!--/cms:dc_hero_lede--></p>
 
     <dl class="dc-summary">
-      <div class="item"><dt>Total Kapasitet Pipeline</dt><dd><!--cms:dc_pipeline-->6,985 MW<!--/cms:dc_pipeline--></dd></div>
-      <div class="item"><dt>Aktive prosjekter</dt><dd><!--cms:dc_projects-->17<!--/cms:dc_projects--></dd></div>
+      <div class="item"><dt>Total Kapasitet Pipeline</dt><dd><!--cms:dc_pipeline-->6,470 MW<!--/cms:dc_pipeline--></dd></div>
+      <div class="item"><dt>Aktive prosjekter</dt><dd><!--cms:dc_projects-->16<!--/cms:dc_projects--></dd></div>
       <div class="item"><dt>Land</dt><dd><!--cms:dc_countries-->5<!--/cms:dc_countries--></dd></div>
       <div class="item"><dt>Minste utplasseringsenhet</dt><dd>12.5 MW IT</dd></div>
     </dl>
@@ -229,14 +232,19 @@
 
 <section id="dc-list" class="dc-list">
   <div class="container">
-    <div class="dc-toolbar">
-      <button class="dc-filter active" data-filter="all">Alle</button>
-      <button class="dc-filter" data-filter="norway">Norge</button>
-      <button class="dc-filter" data-filter="finland">Finland</button>
-      <button class="dc-filter" data-filter="sweden">Sverige</button>
-      <button class="dc-filter" data-filter="iceland">Island</button>
-      <button class="dc-filter" data-filter="greenland">Grønland</button>
-    </div>
+    <div class="dc-toolbar"><!--cms:dc_filters-->
+
+
+      <strong style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-right:8px;">Land</strong>
+      <button class="dc-filter active" data-axis="country" data-filter="all">Alle</button>
+      <button class="dc-filter" data-axis="country" data-filter="finland">Finland</button>
+      <button class="dc-filter" data-axis="country" data-filter="greenland">Grønland</button>
+      <button class="dc-filter" data-axis="country" data-filter="iceland">Island</button>
+      <button class="dc-filter" data-axis="country" data-filter="norway">Norge</button>
+      <button class="dc-filter" data-axis="country" data-filter="sweden">Sverige</button>
+    
+
+    <!--/cms:dc_filters--></div>
 
     <div class="dc-grid"><!--cms:dc_cards-->
 
@@ -373,25 +381,6 @@
         </div>
       </article>
 
-      <article class="dc-card" id="torsboda-vssrnom0" data-country="sweden" data-strat="development-focus">
-        <a class="dc-card-link" href="torsboda-vssrnom0/" aria-label="Torsboda">view</a>
-        <h3 class="dc-name-top">Torsboda</h3>
-        <p class="loc loc-top">Sweden</p>
-        <span class="status tbd">Coming soon</span>
-        
-        <div class="img">
-          <img src="../assets/sites/torsboda.svg" alt="Torsboda" loading="lazy" />
-        </div>
-        <div class="body">
-          <p class="desc"></p>
-          <dl class="dc-stats">
-            <div class="stat"><dt>Oppstart</dt><dd>250 MW</dd></div>
-            <div class="stat"><dt>Mål</dt><dd>1200 MW</dd></div>
-            <div class="stat"><dt>Kraft</dt><dd>Hydro / wind</dd></div>
-          </dl>
-        </div>
-      </article>
-
       <article class="dc-card" id="sorfold-0j5hdxoa" data-country="norway" data-strat="going-to-3rd-party">
         <a class="dc-card-link" href="sorfold-0j5hdxoa/" aria-label="Sørfold">view</a>
         <h3 class="dc-name-top">Sørfold</h3>
@@ -407,6 +396,25 @@
             <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
             <div class="stat"><dt>Mål</dt><dd>100 MW</dd></div>
             <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="dc-card" id="torsboda-vssrnom0" data-country="sweden" data-strat="development-focus">
+        <a class="dc-card-link" href="torsboda-vssrnom0/" aria-label="Torsboda">view</a>
+        <h3 class="dc-name-top">Torsboda</h3>
+        <p class="loc loc-top">Sweden</p>
+        <span class="status tbd">Coming soon</span>
+        
+        <div class="img">
+          <img src="../assets/sites/torsboda.svg" alt="Torsboda" loading="lazy" />
+        </div>
+        <div class="body">
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>250 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>1200 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro / wind</dd></div>
           </dl>
         </div>
       </article>
@@ -464,25 +472,6 @@
             <div class="stat"><dt>Oppstart</dt><dd>70 MW</dd></div>
             <div class="stat"><dt>Mål</dt><dd>190 MW</dd></div>
             <div class="stat"><dt>Kraft</dt><dd>Hydro / gas</dd></div>
-          </dl>
-        </div>
-      </article>
-
-      <article class="dc-card" id="honningsvag-u40glxe0" data-country="norway" data-strat="bin-the-project">
-        <a class="dc-card-link" href="honningsvag-u40glxe0/" aria-label="Honningsvåg">view</a>
-        <h3 class="dc-name-top">Honningsvåg</h3>
-        <p class="loc loc-top">Norway</p>
-        <span class="status tbd">Coming soon</span>
-        
-        <div class="img">
-          <img src="../assets/sites/honningsvag.svg" alt="Honningsvåg" loading="lazy" />
-        </div>
-        <div class="body">
-          <p class="desc"></p>
-          <dl class="dc-stats">
-            <div class="stat"><dt>Oppstart</dt><dd>8 MW</dd></div>
-            <div class="stat"><dt>Mål</dt><dd>15 MW</dd></div>
-            <div class="stat"><dt>Kraft</dt><dd>Wind / hydro</dd></div>
           </dl>
         </div>
       </article>
@@ -594,9 +583,7 @@
       <div class="footer-col">
         <h5>Selskap</h5>
         <a href="/no/team/">Team</a>
-        <a href="/no/careers/">Karriere</a>
         <a href="/no/news/">Nyheter</a>
-        <a href="/no/press/">Presse</a>
       </div>
       <div class="footer-col">
         <h5>Ressurser</h5>
@@ -606,9 +593,8 @@
         <a href="/no/contact/">Kontakt</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p class="copyright">© 2026 Scale42. Alle rettigheter forbeholdt.</p>
-      <p class="footer-legal">Scale42 AS · Registrert i Norge</p>
+    <div class="footer-bottom" style="justify-content:flex-end;">
+      <p class="footer-legal" style="text-align:right;">Northern DC AS trading as Scale-42™ · Registrert i Norge · © 2026</p>
     </div>
 
     <!--/cms:footer-->
@@ -626,12 +612,11 @@
     { name: "Jokkmokk", country: "Sweden", status: "live", location: "Jokkmokk, Sweden", lat: 66.6, lng: 19.8, power: "Hydro", target: "400 MW", desc: "Vannkraftbeltet i Lappland — samlokalisert med Sveriges største vannkraftregion." },
     { name: "Liperi", country: "Finland", status: "live", location: "Liperi, Finland", lat: 62.5, lng: 29.4, power: "Mixed renewable", target: "100 MW", desc: "" },
     { name: "Kitee", country: "Finland", status: "live", location: "Kitee, Finland", lat: 62.1, lng: 30.2, power: "Mixed renewable", target: "60 MW", desc: "" },
-    { name: "Torsboda", country: "Sweden", status: "tbd", location: "Torsboda, Sweden", lat: 62.6, lng: 17.4, power: "Hydro / wind", target: "1200 MW", desc: "" },
     { name: "Sørfold", country: "Norway", status: "live", location: "Sørfold, Norway", lat: 67.5, lng: 15.4, power: "Hydro", target: "100 MW", desc: "" },
-    { name: "Robertsfors", country: "Sweden", status: "tbd", location: "Robertsfors, Sweden", lat: 64.2, lng: 20.9, power: "Hydro / wind", target: "1000 MW", desc: "" },
+    { name: "Torsboda", country: "Sweden", status: "tbd", location: "Torsboda, Sweden", lat: 62.6, lng: 17.4, power: "Hydro / wind", target: "1200 MW", desc: "" },
+    { name: "Robertsfors", country: "Sweden", status: "tbd", location: "Robertsfors, Sweden", lat: 64.2, lng: 20.9, power: "Hydro / wind", target: "500 MW", desc: "" },
     { name: "Nuuk", country: "Greenland", status: "tbd", location: "Nuuk, Greenland", lat: 64.2, lng: -51.7, power: "Hydro", target: "55 MW", desc: "" },
     { name: "Tjeldbergodden", country: "Norway", status: "tbd", location: "Tjeldbergodden, Norway", lat: 63.4, lng: 8.6, power: "Hydro / gas", target: "190 MW", desc: "" },
-    { name: "Honningsvåg", country: "Norway", status: "tbd", location: "Honningsvåg, Norway", lat: 71, lng: 26, power: "Wind / hydro", target: "15 MW", desc: "" },
     { name: "Kemi", country: "Finland", status: "tbd", location: "Kemi, Finland", lat: 65.7, lng: 24.6, power: "Mixed renewable", target: "1000 MW", desc: "" },
     { name: "Mikkeli", country: "Finland", status: "tbd", location: "Mikkeli, Finland", lat: 61.7, lng: 27.3, power: "Mixed renewable", target: "250 MW", desc: "" },
     { name: "Rovaniemi", country: "Finland", status: "tbd", location: "Rovaniemi, Finland", lat: 66.5, lng: 25.7, power: "Hydro", target: "800 MW", desc: "" },
