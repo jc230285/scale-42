@@ -34,7 +34,9 @@
     display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 24px; margin: 40px 0 0;
     padding: 28px 0 0; border-top: 1px solid var(--line);
+    text-align: center; justify-items: center;
   }
+  .dc-summary .item { text-align: center; }
   .dc-summary .item dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
   .dc-summary .item dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; }
 
@@ -102,14 +104,14 @@
   }
   .dc-card .dc-developers img {
     width: clamp(80px, 10cqw, 160px); height: auto;
-    background: rgba(255,255,255,0.92); border-radius: 6px;
-    padding: 8px 14px; object-fit: contain; box-sizing: content-box;
+    background: rgba(255,255,255,0.4); border-radius: 10px;
+    padding: 3px 3px; object-fit: contain; box-sizing: content-box;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
   .dc-card .dc-developers a { display: inline-block; position: relative; z-index: 6; pointer-events: auto; cursor: pointer; }
   .dc-card .dc-developers a:hover img { box-shadow: 0 2px 10px rgba(0,0,0,0.5); transform: translateY(-1px); }
 
-  .dc-card .body { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 22px 18px; display: flex; flex-direction: column; gap: 10px; z-index: 2; color: #fff; background: linear-gradient(180deg, rgba(15,25,35,0) 0%, rgba(15,25,35,0.85) 35%, rgba(15,25,35,0.96) 100%); }
+  .dc-card .body { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 22px 0; display: flex; flex-direction: column; gap: 10px; z-index: 2; color: #fff; background: linear-gradient(180deg, rgba(15,25,35,0) 0%, rgba(15,25,35,0.85) 35%, rgba(15,25,35,0.96) 100%); }
   .dc-card .body p.desc, .dc-card .body .dc-stats { text-shadow: 0 1px 4px rgba(0,0,0,0.6); }
   .dc-card .body .loc { display: none; }
   .dc-card h3 { font-family: var(--font-display); font-size: 22px; margin: 0; font-weight: 600; color: #fff; }
@@ -123,8 +125,9 @@
   .dc-stats {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 12px; padding: 10px 0 0; border-top: 1px solid rgba(255,255,255,0.18);
-    margin-top: 4px;
+    margin-top: 4px; text-align: center; justify-items: center;
   }
+  .dc-stats .stat { text-align: center; }
   .dc-stats .stat dt { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); margin: 0 0 2px; }
   .dc-stats .stat dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #fff; }
 
@@ -194,7 +197,7 @@
       <a href="/datacenters/" class="active">Data centres</a>
       <a href="/solutions/">Solutions</a>
       <a href="/sustainability/">Sustainability</a>
-      <a href="/giga-42/">GIGA-42</a>
+      <a href="/partners/">Partners</a>
       <a href="/team/">Team</a>
       <a href="/news/">News</a>
       <a href="/contact/" class="btn btn-sm">Contact</a>
@@ -212,7 +215,7 @@
   <div class="container">
     <p class="eyebrow">Data centres</p>
     <h1><!--cms:dc_hero_title-->6,470 MW of Nordic AI-ready capacity.<!--/cms:dc_hero_title--></h1>
-    <p class="lede"><!--cms:dc_hero_lede-->16 Data Centres across 5 Nordic countries, co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 50 MW campus deployments to 500 MW+ flagship sites.<!--/cms:dc_hero_lede--></p>
+    <p class="lede"><!--cms:dc_hero_lede-->16 Data Centres across 5 Nordic countries, co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 30 MW to 500 MW.<!--/cms:dc_hero_lede--></p>
 
     <dl class="dc-summary">
       <div class="item"><dt>Total Capacity Pipeline</dt><dd><!--cms:dc_pipeline-->6,470 MW<!--/cms:dc_pipeline--></dd></div>
@@ -257,7 +260,7 @@
         <h3 class="dc-name-top">Bakki</h3>
         <p class="loc loc-top">Iceland</p>
         <span class="status live">In development</span>
-        <div class="dc-developers"><a href="https://giga-42.com" target="_blank" rel="noopener" title="GIGA-42" onclick="event.stopPropagation();"><img src="https://giga-42.com/assets/logo.png" alt="GIGA-42" title="GIGA-42" loading="lazy" /></a></div>
+        <div class="dc-developers"><a href="https://giga-42.com" target="_blank" rel="noopener" title="GIGA-42" onclick="event.stopPropagation();"><img src="https://giga-42.com/assets/logo.png" alt="GIGA-42" title="GIGA-42" loading="lazy" /></a><img src="/assets/developers/norsk-datakraft.png" alt="Norsk Datakraft AS" title="Norsk Datakraft AS" loading="lazy" /></div>
         <div class="img">
           <img src="../assets/sites/0a0d0e8b-252a-44c7-b386-9ddfb691b670.jpg" alt="Bakki" loading="lazy" />
         </div>
@@ -582,7 +585,7 @@
         <a href="/solutions/">Solutions</a>
         <a href="/datacenters/">Data centres</a>
         <a href="/sustainability/">Sustainability</a>
-        <a href="/giga-42/">GIGA-42</a>
+        <a href="/partners/">Partners</a>
       </div>
       <div class="footer-col">
         <h5>Company</h5>

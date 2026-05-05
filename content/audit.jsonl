@@ -51,3 +51,5 @@
 {"ts":"2026-05-05T12:40:57.874Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:bakki","path":"developers","before":[],"after":["giga-42"]},{"entity":"site:skibotn","path":"developers","before":[],"after":["giga-42"]},{"entity":"site:reykjavik","path":"developers","before":[],"after":["giga-42"]}]}
 {"ts":"2026-05-05T12:41:05.974Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
 {"ts":"2026-05-05T12:41:10.312Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
+{"ts":"2026-05-05T14:34:17.620Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:bakki","path":"developers","before":["giga-42"],"after":["giga-42","norsk-datakraft"]}]}
+{"ts":"2026-05-05T14:34:29.363Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
