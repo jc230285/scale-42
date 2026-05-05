@@ -174,13 +174,14 @@ function buildSiteDetailPage(s, schema, lang) {
   };
 
   const hasCoords = s.lat !== undefined && s.lat !== null && s.lat !== '' && s.lng !== undefined && s.lng !== null && s.lng !== '';
-  const round1 = (n) => Math.round(parseFloat(n) * 10) / 10;
+  const round1 = (n) => Math.round(parseFloat(n) * 100) / 100;
   const pubLat = hasCoords ? round1(s.lat) : null;
   const pubLng = hasCoords ? round1(s.lng) : null;
   const pubLoc = s.public_location || [s.name, s.country].filter(Boolean).join(', ');
   const mapBlock = (g) => {
-    if (g !== 'location' || !hasCoords) return '';
-    return `<div class="site-map" id="site-map-${escHtml(slug)}" data-lat="${escHtml(pubLat)}" data-lng="${escHtml(pubLng)}" data-status="${escHtml(statusClass)}" data-name="${escHtml(s.name)}"></div>`;
+    if (g !== 'location' || !pubLoc) return '';
+    const q = encodeURIComponent(pubLoc);
+    return `<div class="site-map-embed"><iframe src="https://www.google.com/maps?q=${q}&output=embed&z=10" width="100%" height="320" style="border:0;border-radius:12px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>`;
   };
 
   const groupSections = groupOrder.filter(g => byGroup[g] && byGroup[g].length).map(g => {
