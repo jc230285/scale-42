@@ -222,9 +222,20 @@
       "key": "short_status_label",
       "label": "Public status label",
       "group": "public_status",
-      "type": "text",
+      "type": "select",
+      "options": [
+        "Operational",
+        "In construction",
+        "Permitting",
+        "Power-secured",
+        "Land secured",
+        "In planning",
+        "JV announced",
+        "Under review",
+        "Sold"
+      ],
       "public": true,
-      "help": "e.g. 'Power-secured', 'Permitting'"
+      "help": "Shown as the badge on each site card."
     },
     {
       "key": "lat",
