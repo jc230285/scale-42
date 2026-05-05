@@ -384,7 +384,35 @@
   }
 
   document.addEventListener('input', (e) => { if (e.target.closest('#grid [data-key]')) setDirty(true); });
-  document.addEventListener('change', (e) => { if (e.target.closest('#grid [data-key]')) setDirty(true); });
+  document.addEventListener('change', (e) => {
+    const cell = e.target.closest('#grid [data-key]');
+    if (!cell) return;
+    if (cell.dataset.key === 'published' && e.target.checked === false) {
+      const sIdx = parseInt(cell.dataset.s, 10);
+      const slug = (data.sites[sIdx]?.slug) || (data.sites[sIdx]?.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      checkInboundLinks(slug).then(refs => {
+        if (refs.length) {
+          const ok = confirm('⚠ This site is referenced in:\n\n' + refs.join('\n') + '\n\nUnpublishing will leave dead links. Continue?');
+          if (!ok) { e.target.checked = true; return; }
+        }
+        setDirty(true);
+      });
+    } else {
+      setDirty(true);
+    }
+  });
+  async function checkInboundLinks(slug) {
+    if (!slug) return [];
+    const refs = [];
+    try {
+      const news = await (await fetch('/content/news.json')).json();
+      for (const n of (news.items || news.posts || news)) {
+        const body = JSON.stringify(n);
+        if (body.includes('/datacenters/' + slug + '/')) refs.push('news: ' + (n.slug || n.title || n.id));
+      }
+    } catch {}
+    return refs;
+  }
 
   document.addEventListener('click', (e) => {
     const groupRow = e.target.closest('.group-row');

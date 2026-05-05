@@ -820,6 +820,7 @@ function run() {
       if (dead.length) {
         console.warn('⚠ Links to unpublished sites:');
         for (const d of dead) console.warn(`  ${d.slug} ← referenced in ${d.files.join(', ')}`);
+        if (process.env.STRICT_LINKS) process.exitCode = 2;
       }
     }
   } catch (e) { /* git grep not available */ }
