@@ -84,21 +84,20 @@ function cardHtml(sites, lang) {
     const stratKey = (s.strategic_status || '').replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().replace(/^-+|-+$/g, '');
     const stratAttr = stratKey ? ` data-strat="${escHtml(stratKey)}"` : (s.status === 'sold' ? ' data-strat="sold"' : '');
     return `      <article class="dc-card" id="${escHtml(slug)}" data-country="${escHtml(ckey)}"${stratAttr}>
+        <a class="dc-card-link" href="${escHtml(slug)}/" aria-label="${escHtml(s.name)}">view</a>
+        <h3 class="dc-name-top">${escHtml(s.name)}</h3>
+        <p class="loc loc-top">${country}</p>
+        <span class="status ${statusClass}">${statusLabel}</span>
         <div class="img${imgClass}">
-          <span class="country-flag">${country}</span>
-          <span class="status ${statusClass}">${statusLabel}</span>
           ${imgInner}
         </div>
         <div class="body">
-          <p class="loc">${country}</p>
-          <h3>${escHtml(s.name)}</h3>
           <p class="desc">${escHtml(desc)}</p>
           <dl class="dc-stats">
             <div class="stat"><dt>${initialL}</dt><dd>${escHtml(s.initial_mw || '—')}</dd></div>
             <div class="stat"><dt>${targetL}</dt><dd>${escHtml(s.target_mw || s.max_capacity_mw || '—')}</dd></div>
             <div class="stat"><dt>${powerL}</dt><dd>${escHtml(s.power || '—')}</dd></div>
           </dl>
-          <a href="${escHtml(slug)}/" class="dc-link">${linkL}</a>
         </div>
       </article>`;
   }).join('\n\n');
