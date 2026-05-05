@@ -5,6 +5,9 @@ on:
     - cron: '0 4 1 * *'  # 04:00 UTC, 1st of each month
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   enrich:
     runs-on: ubuntu-latest

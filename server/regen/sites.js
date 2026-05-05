@@ -587,8 +587,13 @@ function buildComparePage(sites, lang) {
 <link rel="stylesheet" href="${cssRel}" />
 <style>
   .cmp-wrap { padding: 56px 0; }
+  .cmp-filters { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 16px; }
+  .cmp-filters label { font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 160px; }
+  .cmp-filters select { padding: 8px 10px; font-size: 14px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
   .cmp-pickers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 0 0 32px; }
   .cmp-pickers select { width: 100%; padding: 10px 12px; font-size: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+  .cmp-share { margin: 0 0 24px; font-size: 13px; color: var(--muted); }
+  .cmp-share a { color: var(--accent); text-decoration: none; font-weight: 600; cursor: pointer; }
   .cmp-table { width: 100%; border-collapse: collapse; font-size: 14px; }
   .cmp-table th, .cmp-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
   .cmp-table th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; width: 26%; }
@@ -604,10 +609,15 @@ function buildComparePage(sites, lang) {
     <p class="crumb"><a href="../">${isNo ? '← Tilbake til oversikt' : '← Back to all sites'}</a></p>
     <h1>${isNo ? 'Sammenlign datasentre' : 'Compare datacentres'}</h1>
     <p class="lede">${isNo ? 'Velg to prosjekter for å sammenligne klima, kraft, infrastruktur og logistikk side om side.' : 'Pick two projects to compare climate, power, infrastructure and logistics side-by-side.'}</p>
+    <div class="cmp-filters">
+      <label>${isNo ? 'Land' : 'Country'}<select id="f-country"><option value="">${isNo ? 'Alle' : 'All'}</option></select></label>
+      <label>${isNo ? 'Status' : 'Status'}<select id="f-status"><option value="">${isNo ? 'Alle' : 'All'}</option></select></label>
+    </div>
     <div class="cmp-pickers">
       <select id="sel-a"></select>
       <select id="sel-b"></select>
     </div>
+    <p class="cmp-share"><a id="cmp-copy">${isNo ? '🔗 Kopier delbar lenke' : '🔗 Copy shareable link'}</a> <span id="cmp-copied" style="margin-left:8px;color:#2f7a4d;display:none;">✓</span></p>
     <table class="cmp-table"><tbody id="cmp-body"></tbody></table>
   </div>
 </section>
@@ -639,13 +649,46 @@ const ROWS = [
   ['Substation distance km', 'subKm', 'numLow'],
   ['Distances to hubs', 'hubs'],
 ];
-function fillSelects() {
-  const a = document.getElementById('sel-a'), b = document.getElementById('sel-b');
-  const opts = SITES.map(s => '<option value="'+s.slug+'">'+s.name+' — '+s.country+'</option>').join('');
-  a.innerHTML = opts; b.innerHTML = opts;
-  a.selectedIndex = 0; b.selectedIndex = Math.min(1, SITES.length - 1);
-  a.onchange = render; b.onchange = render;
+const params = new URLSearchParams(location.search);
+function uniq(arr) { return [...new Set(arr.filter(Boolean))].sort(); }
+function fillFilters() {
+  const fc = document.getElementById('f-country'), fs = document.getElementById('f-status');
+  for (const c of uniq(SITES.map(s => s.country))) fc.insertAdjacentHTML('beforeend', '<option value="'+c+'">'+c+'</option>');
+  for (const st of uniq(SITES.map(s => s.status))) fs.insertAdjacentHTML('beforeend', '<option value="'+st+'">'+st+'</option>');
+  fc.value = params.get('country') || '';
+  fs.value = params.get('status') || '';
+  fc.onchange = fillSelects; fs.onchange = fillSelects;
 }
+function filtered() {
+  const c = document.getElementById('f-country').value;
+  const st = document.getElementById('f-status').value;
+  return SITES.filter(s => (!c || s.country === c) && (!st || s.status === st));
+}
+function fillSelects(initial) {
+  const list = filtered();
+  const a = document.getElementById('sel-a'), b = document.getElementById('sel-b');
+  const prevA = a.value, prevB = b.value;
+  const opts = list.map(s => '<option value="'+s.slug+'">'+s.name+' — '+s.country+'</option>').join('');
+  a.innerHTML = opts; b.innerHTML = opts;
+  if (!list.length) { document.getElementById('cmp-body').innerHTML = '<tr><td>—</td></tr>'; return; }
+  const wantA = initial ? (params.get('a') || list[0].slug) : prevA;
+  const wantB = initial ? (params.get('b') || list[Math.min(1, list.length-1)].slug) : prevB;
+  a.value = list.some(s => s.slug === wantA) ? wantA : list[0].slug;
+  b.value = list.some(s => s.slug === wantB) ? wantB : list[Math.min(1, list.length-1)].slug;
+  a.onchange = render; b.onchange = render;
+  render();
+}
+document.getElementById('cmp-copy').onclick = () => {
+  const u = new URL(location.href);
+  u.searchParams.set('a', document.getElementById('sel-a').value);
+  u.searchParams.set('b', document.getElementById('sel-b').value);
+  const c = document.getElementById('f-country').value;
+  const st = document.getElementById('f-status').value;
+  if (c) u.searchParams.set('country', c); else u.searchParams.delete('country');
+  if (st) u.searchParams.set('status', st); else u.searchParams.delete('status');
+  navigator.clipboard.writeText(u.toString());
+  const t = document.getElementById('cmp-copied'); t.style.display = 'inline'; setTimeout(() => t.style.display = 'none', 1500);
+};
 function fmt(v) { return (v === '' || v == null) ? '<span class="cmp-empty">—</span>' : v; }
 function render() {
   const a = SITES.find(s => s.slug === document.getElementById('sel-a').value);
@@ -747,9 +790,6 @@ function run() {
   // Per-site detail pages
   regenSiteDetailPages(data.sites, schema);
 
-  // Compare-2-sites page
-  buildComparePage(data.sites, 'en');
-  buildComparePage(data.sites, 'no');
 
   // Sync sections.json
   if (fs.existsSync(SECTIONS)) {
