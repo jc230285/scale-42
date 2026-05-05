@@ -856,10 +856,10 @@ function run() {
     html = updateMarker(html, 'dc_countries', stats.countries);
     if (lang === 'en') {
       html = updateMarker(html, 'dc_hero_title', `${stats.pipeline} of Nordic AI-ready capacity.`);
-      html = updateMarker(html, 'dc_hero_lede', `${stats.projects} projects across ${stats.countries} Nordic countries — co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 50 MW campus deployments to 500 MW+ flagship sites.`);
+      html = updateMarker(html, 'dc_hero_lede', `${stats.projects} Data Centres across ${stats.countries} Nordic countries, co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 50 MW campus deployments to 500 MW+ flagship sites.`);
     } else {
       html = updateMarker(html, 'dc_hero_title', `${stats.pipeline} KI-klar nordisk kapasitet.`);
-      html = updateMarker(html, 'dc_hero_lede', `${stats.projects} prosjekter i ${stats.countries} nordiske land — samlokalisert med rimelig fornybar kraft, spesialbygget for høytetthetsberegning. Skalerer fra 50 MW-campus til 500 MW+ flaggskipssteder.`);
+      html = updateMarker(html, 'dc_hero_lede', `${stats.projects} datasentre i ${stats.countries} nordiske land, samlokalisert med rimelig fornybar kraft, spesialbygget for høytetthetsberegning. Skalerer fra 50 MW-campus til 500 MW+ flaggskipssteder.`);
     }
     html = replaceHtmlBlock(html, 'dc_cards', cardHtml(data.sites, lang));
     html = replaceHtmlBlock(html, 'dc_filters', dcFiltersHtml(data.sites, lang));

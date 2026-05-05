@@ -283,6 +283,9 @@
       if (!data.sites[i]) return;
       let v;
       if (t === 'multiselect_developers') {
+        // Guard: if the developers list hasn't loaded (no checkboxes rendered),
+        // don't overwrite the existing value — preserves saved selections on race.
+        if (el.querySelectorAll('input[type=checkbox]').length === 0) return;
         v = Array.from(el.querySelectorAll('input[type=checkbox]:checked')).map(cb => cb.value);
       }
       else if (el.type === 'checkbox') v = el.checked;

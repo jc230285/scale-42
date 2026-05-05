@@ -16,7 +16,7 @@ router.get('/sites-schema', (req, res) => {
 
 // Server-managed fields the CMS UI does not send back (readonly / enriched).
 // Preserved from the previous record so they don't get wiped on save.
-const MANAGED_FIELDS = ['url_token', 'area_overview', 'wikipedia_url', 'population_50km',
+const MANAGED_FIELDS = ['url_token', 'developers', 'area_overview', 'wikipedia_url', 'population_50km',
   'nearest_airport', 'nearest_seaport', 'nearest_substation', 'nearest_substation_km',
   'avg_temp_c', 'free_cooling_hours', 'hot_days_per_year', 'cold_days_per_year',
   'temp_chart', 'daylight_hours', 'tz_offset', 'hub_distances_km',
