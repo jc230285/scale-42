@@ -265,7 +265,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "t0t0sabf"
+      "url_token": "m1ypqw61",
+      "developers": []
     },
     {
       "id": "bakki",
@@ -533,7 +534,10 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "whhehm45"
+      "url_token": "lxjuczc3",
+      "developers": [
+        "giga-42"
+      ]
     },
     {
       "id": "skibotn",
@@ -798,7 +802,10 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "9qbowue4"
+      "url_token": "6xz9kqw5",
+      "developers": [
+        "giga-42"
+      ]
     },
     {
       "id": "reykjavik",
@@ -1066,7 +1073,10 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "pfjoyy32"
+      "url_token": "ieg70x00",
+      "developers": [
+        "giga-42"
+      ]
     },
     {
       "id": "kristinestad",
@@ -1329,7 +1339,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "rhblpucf"
+      "url_token": "ujpucb0c",
+      "developers": []
     },
     {
       "id": "jokkmokk",
@@ -1595,7 +1606,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "fqu3smud"
+      "url_token": "mndmdlk3",
+      "developers": []
     },
     {
       "id": "liperi",
@@ -1859,7 +1871,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "yn6xxf88"
+      "url_token": "7u32bym4",
+      "developers": []
     },
     {
       "id": "kitee",
@@ -2124,7 +2137,274 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "e6ypvc4a"
+      "url_token": "uw3yqvc4",
+      "developers": []
+    },
+    {
+      "id": "torsboda",
+      "name": "Torsboda",
+      "country": "Sweden",
+      "site_type": "greenfield",
+      "internal_status": "Watch list",
+      "internal_category": "Partner-led",
+      "published": true,
+      "status": "tbd",
+      "lat": 62.5667,
+      "lng": 17.4167,
+      "power": "Hydro / wind",
+      "target_mw": 1200,
+      "desc_en": "",
+      "desc_no": "",
+      "bid_status": "Lead *hot* (was Project, changed by TB & WT 19/02)",
+      "category_rationale": "Close / Dispose — shovel-ready 2028 with ~400 MW potential. Power connection 2029-2030 so RFS much longer. Strategic location with proximity to multiple hydropower projects.",
+      "nbs_assessment": "Bid submitted Jan 2026 against several other DC companies. Result expected Feb 2026. Early feedback indicated front-runner status.",
+      "project_description": "Brought to Scale42 January 2026 by Peter Sladey. Zoned land near Sundsvall, SE2 Sweden, with ~1,200 MW of power and an electrification timeline. ~15% slope on the westward side of a hill; managed woodland cleared for industrial use.",
+      "address": "E4, 861 95 Svarvarböle, Sweden",
+      "site_link": "https://maps.app.goo.gl/hQ3sxiokwWGPTHSNA",
+      "size_ha": null,
+      "eia_required": true,
+      "eia_status": "Required above 100 MW",
+      "max_capacity_mw": 1200,
+      "initial_mw": 250,
+      "connection_voltage": "110kV & 400kV",
+      "dso": "Skelleftea Kraft",
+      "tso": "Svenska kraftnät",
+      "ppa_counterparty": "Nordpool",
+      "exact_power_status": "Power becomes available and allocated to site owner in 2028.",
+      "heat_reuse": "Planned",
+      "it_load_mw": "960",
+      "dpue": "1.15",
+      "ppue": "1.25",
+      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
+      "cooling": "Air — perimeter; DLC — room-level CDU",
+      "workload_mix": "Training, inference, hyperscale cloud",
+      "fibre_providers": [
+        "GlobalConnect",
+        "Telia Carrier",
+        "Arelion"
+      ],
+      "fibre_strands": "Available (high-capacity backbone routes)",
+      "fibre_speeds_gbps": "400G DWDM, upgradeable",
+      "fibre_general_info": "Strategic central-eastern Sweden location with dense carrier presence and short routes to continental Europe. Strong for latency-sensitive workloads.",
+      "latency_summary": "Stockholm ~5–8 ms · Frankfurt ~18–22 ms · Amsterdam ~18–22 ms · London ~22–25 ms.",
+      "highway_access": "Adjacent to Highway E4",
+      "airport_access": "2.5 km to international",
+      "college_university": "30 min to college & university",
+      "other_access_notes": "2.6 km to commercial port.",
+      "zoning_status": "Already zoned (190 ha, 30% building rights). Power connection target 2027.",
+      "key_risks_dependencies": "Currently in competition with other bidders; Scale42 has strong municipal track record.",
+      "project_owner": "100%",
+      "current_control": "Purchase negotiations",
+      "planned_ultimate_control": "Own freehold",
+      "contractual_arrangement": "Peter Sladey (land agent)",
+      "strategic_status": "Development focus",
+      "jv_partner": "",
+      "land_paperwork_status": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "short_status_label": "",
+      "planning_status": "",
+      "restrictions": "",
+      "plots_identified": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power_availability": "",
+      "power_paperwork": "",
+      "ppa_status": "",
+      "racks": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "extra_data": "",
+      "image": "torsboda.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Torsboda, Sweden",
+      "nearest_airport_public": "Sundsvall-Härnösand Airport (SDL)",
+      "nearest_airport_km": 5,
+      "nearest_seaport": "Sundsvall",
+      "nearest_seaport_km": 20,
+      "avg_temp_c": 5.5,
+      "free_cooling_hours": 7965,
+      "hub_distances_km": "Frankfurt: 1483 km · Stockholm: 362 km · London: 1614 km · Amsterdam: 1354 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 2.6
+        },
+        {
+          "ym": "2023-05",
+          "t": 9.9
+        },
+        {
+          "ym": "2023-06",
+          "t": 15.9
+        },
+        {
+          "ym": "2023-07",
+          "t": 15.5
+        },
+        {
+          "ym": "2023-08",
+          "t": 14.9
+        },
+        {
+          "ym": "2023-09",
+          "t": 12.6
+        },
+        {
+          "ym": "2023-10",
+          "t": 2.3
+        },
+        {
+          "ym": "2023-11",
+          "t": -4.4
+        },
+        {
+          "ym": "2023-12",
+          "t": -6.8
+        },
+        {
+          "ym": "2024-01",
+          "t": -6.9
+        },
+        {
+          "ym": "2024-02",
+          "t": -4.8
+        },
+        {
+          "ym": "2024-03",
+          "t": -1.5
+        },
+        {
+          "ym": "2024-04",
+          "t": 0.7
+        },
+        {
+          "ym": "2024-05",
+          "t": 12.3
+        },
+        {
+          "ym": "2024-06",
+          "t": 14.4
+        },
+        {
+          "ym": "2024-07",
+          "t": 16.1
+        },
+        {
+          "ym": "2024-08",
+          "t": 15.9
+        },
+        {
+          "ym": "2024-09",
+          "t": 11.3
+        },
+        {
+          "ym": "2024-10",
+          "t": 5.7
+        },
+        {
+          "ym": "2024-11",
+          "t": 0.2
+        },
+        {
+          "ym": "2024-12",
+          "t": -3.7
+        },
+        {
+          "ym": "2025-01",
+          "t": -3.8
+        },
+        {
+          "ym": "2025-02",
+          "t": -3.5
+        },
+        {
+          "ym": "2025-03",
+          "t": 0.8
+        },
+        {
+          "ym": "2025-04",
+          "t": 4.7
+        },
+        {
+          "ym": "2025-05",
+          "t": 7.5
+        },
+        {
+          "ym": "2025-06",
+          "t": 12.9
+        },
+        {
+          "ym": "2025-07",
+          "t": 18.5
+        },
+        {
+          "ym": "2025-08",
+          "t": 14.1
+        },
+        {
+          "ym": "2025-09",
+          "t": 12
+        },
+        {
+          "ym": "2025-10",
+          "t": 6
+        },
+        {
+          "ym": "2025-11",
+          "t": -1.1
+        },
+        {
+          "ym": "2025-12",
+          "t": -0.5
+        },
+        {
+          "ym": "2026-01",
+          "t": -8.1
+        },
+        {
+          "ym": "2026-02",
+          "t": -10.9
+        },
+        {
+          "ym": "2026-03",
+          "t": 1.9
+        },
+        {
+          "ym": "2026-04",
+          "t": 3.8
+        }
+      ],
+      "population_50km": 150824,
+      "population": null,
+      "area_overview": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "vssrnom0",
+      "developers": []
     },
     {
       "id": "sorfold",
@@ -2390,272 +2670,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "kbhu37ec"
-    },
-    {
-      "id": "torsboda",
-      "name": "Torsboda",
-      "country": "Sweden",
-      "site_type": "greenfield",
-      "internal_status": "Watch list",
-      "internal_category": "Partner-led",
-      "published": true,
-      "status": "tbd",
-      "lat": 62.5667,
-      "lng": 17.4167,
-      "power": "Hydro / wind",
-      "target_mw": 1200,
-      "desc_en": "",
-      "desc_no": "",
-      "bid_status": "Lead *hot* (was Project, changed by TB & WT 19/02)",
-      "category_rationale": "Close / Dispose — shovel-ready 2028 with ~400 MW potential. Power connection 2029-2030 so RFS much longer. Strategic location with proximity to multiple hydropower projects.",
-      "nbs_assessment": "Bid submitted Jan 2026 against several other DC companies. Result expected Feb 2026. Early feedback indicated front-runner status.",
-      "project_description": "Brought to Scale42 January 2026 by Peter Sladey. Zoned land near Sundsvall, SE2 Sweden, with ~1,200 MW of power and an electrification timeline. ~15% slope on the westward side of a hill; managed woodland cleared for industrial use.",
-      "address": "E4, 861 95 Svarvarböle, Sweden",
-      "site_link": "https://maps.app.goo.gl/hQ3sxiokwWGPTHSNA",
-      "size_ha": null,
-      "eia_required": true,
-      "eia_status": "Required above 100 MW",
-      "max_capacity_mw": 1200,
-      "initial_mw": 250,
-      "connection_voltage": "110kV & 400kV",
-      "dso": "Skelleftea Kraft",
-      "tso": "Svenska kraftnät",
-      "ppa_counterparty": "Nordpool",
-      "exact_power_status": "Power becomes available and allocated to site owner in 2028.",
-      "heat_reuse": "Planned",
-      "it_load_mw": "960",
-      "dpue": "1.15",
-      "ppue": "1.25",
-      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
-      "cooling": "Air — perimeter; DLC — room-level CDU",
-      "workload_mix": "Training, inference, hyperscale cloud",
-      "fibre_providers": [
-        "GlobalConnect",
-        "Telia Carrier",
-        "Arelion"
-      ],
-      "fibre_strands": "Available (high-capacity backbone routes)",
-      "fibre_speeds_gbps": "400G DWDM, upgradeable",
-      "fibre_general_info": "Strategic central-eastern Sweden location with dense carrier presence and short routes to continental Europe. Strong for latency-sensitive workloads.",
-      "latency_summary": "Stockholm ~5–8 ms · Frankfurt ~18–22 ms · Amsterdam ~18–22 ms · London ~22–25 ms.",
-      "highway_access": "Adjacent to Highway E4",
-      "airport_access": "2.5 km to international",
-      "college_university": "30 min to college & university",
-      "other_access_notes": "2.6 km to commercial port.",
-      "zoning_status": "Already zoned (190 ha, 30% building rights). Power connection target 2027.",
-      "key_risks_dependencies": "Currently in competition with other bidders; Scale42 has strong municipal track record.",
-      "project_owner": "100%",
-      "current_control": "Purchase negotiations",
-      "planned_ultimate_control": "Own freehold",
-      "contractual_arrangement": "Peter Sladey (land agent)",
-      "strategic_status": "Development focus",
-      "jv_partner": "",
-      "land_paperwork_status": "",
-      "fingrid_map_link": "",
-      "connection_enquiry_link": "",
-      "investment_memo_link": "",
-      "short_status_label": "",
-      "planning_status": "",
-      "restrictions": "",
-      "plots_identified": "",
-      "plots_secured": "",
-      "water_availability": "",
-      "power_availability": "",
-      "power_paperwork": "",
-      "ppa_status": "",
-      "racks": "",
-      "subsea_cables": [],
-      "isp_check_status": "",
-      "highway_km": null,
-      "nearest_airport": "",
-      "airport_km": null,
-      "university_km": null,
-      "labour_availability": "",
-      "rtb_date": "",
-      "energisation_date": "",
-      "project_budget_musd": null,
-      "offtakers": [],
-      "risks": "",
-      "dependencies": "",
-      "site_rationale": "",
-      "strategy_notes": "",
-      "internal_comments": "",
-      "extra_data": "",
-      "image": "torsboda.svg",
-      "public_status_label": "Coming soon",
-      "public_location": "Torsboda, Sweden",
-      "nearest_airport_public": "Sundsvall-Härnösand Airport (SDL)",
-      "nearest_airport_km": 5,
-      "nearest_seaport": "Sundsvall",
-      "nearest_seaport_km": 20,
-      "avg_temp_c": 5.5,
-      "free_cooling_hours": 7965,
-      "hub_distances_km": "Frankfurt: 1483 km · Stockholm: 362 km · London: 1614 km · Amsterdam: 1354 km",
-      "temp_chart": [
-        {
-          "ym": "2023-04",
-          "t": 2.6
-        },
-        {
-          "ym": "2023-05",
-          "t": 9.9
-        },
-        {
-          "ym": "2023-06",
-          "t": 15.9
-        },
-        {
-          "ym": "2023-07",
-          "t": 15.5
-        },
-        {
-          "ym": "2023-08",
-          "t": 14.9
-        },
-        {
-          "ym": "2023-09",
-          "t": 12.6
-        },
-        {
-          "ym": "2023-10",
-          "t": 2.3
-        },
-        {
-          "ym": "2023-11",
-          "t": -4.4
-        },
-        {
-          "ym": "2023-12",
-          "t": -6.8
-        },
-        {
-          "ym": "2024-01",
-          "t": -6.9
-        },
-        {
-          "ym": "2024-02",
-          "t": -4.8
-        },
-        {
-          "ym": "2024-03",
-          "t": -1.5
-        },
-        {
-          "ym": "2024-04",
-          "t": 0.7
-        },
-        {
-          "ym": "2024-05",
-          "t": 12.3
-        },
-        {
-          "ym": "2024-06",
-          "t": 14.4
-        },
-        {
-          "ym": "2024-07",
-          "t": 16.1
-        },
-        {
-          "ym": "2024-08",
-          "t": 15.9
-        },
-        {
-          "ym": "2024-09",
-          "t": 11.3
-        },
-        {
-          "ym": "2024-10",
-          "t": 5.7
-        },
-        {
-          "ym": "2024-11",
-          "t": 0.2
-        },
-        {
-          "ym": "2024-12",
-          "t": -3.7
-        },
-        {
-          "ym": "2025-01",
-          "t": -3.8
-        },
-        {
-          "ym": "2025-02",
-          "t": -3.5
-        },
-        {
-          "ym": "2025-03",
-          "t": 0.8
-        },
-        {
-          "ym": "2025-04",
-          "t": 4.7
-        },
-        {
-          "ym": "2025-05",
-          "t": 7.5
-        },
-        {
-          "ym": "2025-06",
-          "t": 12.9
-        },
-        {
-          "ym": "2025-07",
-          "t": 18.5
-        },
-        {
-          "ym": "2025-08",
-          "t": 14.1
-        },
-        {
-          "ym": "2025-09",
-          "t": 12
-        },
-        {
-          "ym": "2025-10",
-          "t": 6
-        },
-        {
-          "ym": "2025-11",
-          "t": -1.1
-        },
-        {
-          "ym": "2025-12",
-          "t": -0.5
-        },
-        {
-          "ym": "2026-01",
-          "t": -8.1
-        },
-        {
-          "ym": "2026-02",
-          "t": -10.9
-        },
-        {
-          "ym": "2026-03",
-          "t": 1.9
-        },
-        {
-          "ym": "2026-04",
-          "t": 3.8
-        }
-      ],
-      "population_50km": 150824,
-      "population": null,
-      "area_overview": "",
-      "power_notes": "",
-      "hot_days_per_year": null,
-      "cold_days_per_year": null,
-      "daylight_hours": "",
-      "tz_offset": "",
-      "nearest_substation": "",
-      "nearest_substation_km": null,
-      "grid_co2": null,
-      "grid_price": null,
-      "grid_mix": "",
-      "url_token": "hkeyka1c"
+      "url_token": "0j5hdxoa",
+      "developers": []
     },
     {
       "id": "nivala",
@@ -2919,7 +2935,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "29o25lq7"
+      "url_token": "lhh9msy4",
+      "developers": []
     },
     {
       "id": "kronoby",
@@ -3182,7 +3199,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "qja4vuca"
+      "url_token": "ruo2k2g8",
+      "developers": []
     },
     {
       "id": "alajarvi",
@@ -3446,7 +3464,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "tiucl60d"
+      "url_token": "av3im5od",
+      "developers": []
     },
     {
       "id": "robertsfors",
@@ -3710,7 +3729,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "ort5geu4"
+      "url_token": "acyuki06",
+      "developers": []
     },
     {
       "id": "nuuk",
@@ -3974,7 +3994,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "cxvgvza4"
+      "url_token": "lv9ge3w8",
+      "developers": []
     },
     {
       "id": "tjeldbergodden",
@@ -4240,7 +4261,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "tnmdl9ed"
+      "url_token": "5iufahy3",
+      "developers": []
     },
     {
       "id": "honningsvag",
@@ -4505,7 +4527,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "rlfan6qb"
+      "url_token": "u40glxe0",
+      "developers": []
     },
     {
       "id": "kemi",
@@ -4771,7 +4794,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "mctamtkc"
+      "url_token": "tzqbelob",
+      "developers": []
     },
     {
       "id": "mikkeli",
@@ -5036,7 +5060,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "pjocoxcc"
+      "url_token": "tlqpsl84",
+      "developers": []
     },
     {
       "id": "boden",
@@ -5302,7 +5327,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "nlgxcxmc"
+      "url_token": "3shjqiy0",
+      "developers": []
     },
     {
       "id": "hadsel",
@@ -5567,7 +5593,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "nnwopiea"
+      "url_token": "kkcg0ac5",
+      "developers": []
     },
     {
       "id": "sortland",
@@ -5832,7 +5859,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "zv5rna01"
+      "url_token": "vei5gpm2",
+      "developers": []
     },
     {
       "id": "salsbruket",
@@ -6096,7 +6124,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "t8m76t83"
+      "url_token": "cpxf6v80",
+      "developers": []
     },
     {
       "id": "rovaniemi",
@@ -6361,7 +6390,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "ln8aauk3"
+      "url_token": "ce0uxjya",
+      "developers": []
     },
     {
       "id": "varkaus",
@@ -6622,7 +6652,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "ztpm8z4b"
+      "url_token": "rotme8wf",
+      "developers": []
     },
     {
       "id": "bo",
@@ -6884,7 +6915,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "gj8ynria"
+      "url_token": "h2jckju9",
+      "developers": []
     },
     {
       "id": "kontiolahti",
@@ -7145,7 +7177,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "9wmicca2"
+      "url_token": "4xvql18e",
+      "developers": []
     },
     {
       "id": "keminmaa",
@@ -7406,7 +7439,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "jikp6vy9"
+      "url_token": "yjw0arc5",
+      "developers": []
     },
     {
       "id": "tornio",
@@ -7668,7 +7702,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "wlpsfrmd"
+      "url_token": "tup9nec7",
+      "developers": []
     },
     {
       "id": "oulu",
@@ -7930,7 +7965,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "uh4prrs1"
+      "url_token": "9k41dtcf",
+      "developers": []
     },
     {
       "id": "skelleftea",
@@ -8192,7 +8228,2669 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "jbvlzhkb"
+      "url_token": "703hspe6",
+      "developers": []
+    },
+    {
+      "id": "utansjo",
+      "name": "Utansjö",
+      "country": "Sweden",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "62.771293;-17.930392",
+      "plots_identified": "1",
+      "plots_secured": "Negotiations Ongoing - Struggling to progress",
+      "initial_mw": 50,
+      "max_capacity_mw": 50,
+      "extra_data": "ProjectID: SWE017\nPotential FID Date: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nPotential RFS Dates: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nProject Lead: Thomas Beaton\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: peter.elmlund@utansjoverken.se\nPlot Name: Utansjö Verken\nPlot Priority: 1\nSite Address: Timmervägen 5, 871 97, Härnösand\nLocation Link: https://maps.app.goo.gl/Sj56hTri9Yskcg1x8\nNot Required: 62.771293, 17.930392\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 50\nDescription: Levelled brownfield plot on the site of an old paper mill next to a harbour.\nSite Drainage: The brownfield site has two points of access, one to the north and the other to the west. The western access point connects directly to the E04 main coastal highway running right the way up and down the Swedish coast. Along the E04 main coastal highway, the nearest large town is Härnösand, 20 minutes drive from the site. Regarding drainage, there is currently exsiting infrastructure to manage drainage, however additional ground surveys might be needed due to the age of the brownfield site.\nSite Access: The brownfield site has two points of access, one to the north and the other to the west. The western access point connects directly to the E04 main coastal highway running right the way up and down the Swedish coast. Along the E04 main coastal highway, the nearest large town is Härnösand, 20 minutes drive from the site. Regarding drainage, there is currently exsiting infrastructure to manage drainage, however additional ground surveys might be needed due to the age of the brownfield site.\nOwnership: Private Landowner\nZoning Status: 50% approx of plot zoned for the existing sawmill. The zoned area should be more than sufficient\nHeat Off-Take: None\nFibre Connectivity: Investigations continue, primary focus on commerical negotiations with landowner.\nPower Connection Methods: Switchyard on the plot for simple connection.\nPower Connection Timelines: Should be quick given the existing switchyard on site\nPower Procurement Status: Sent a request for another 30MW within 12 months but not yet confirmed. Beyond 30MW likely to join a queue To be confirmed should land negotiations progress\nPower Availability Confirmation: Agent has seen regional grid confirmation supplied by site owner\nAcquisition Strategy: Continue negotiations if progress can be made or otherwise break off negotiations and periodically check in with landowner to see if expectations become more reasonable.\nZoning Strategy: Should not be required\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.\nPower Procurement Strategy: To be confirmed should land negotiations progress\nPower Provider: Eon\nPrice / sqm: 2mil EUR approx (pay off landowners loan) maybe more. Wanted 2k SEK per MWh initially\nLease Rate (per annum): Subject to negotiation\nPurchase Price: Subject to negotiation\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Continue negotiations",
+      "lat": 62.78,
+      "lng": 17.92,
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "utansjo.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Utansjö, Sweden",
+      "nearest_airport_public": "Kramfors-Sollefteå Höga Kusten Airport (KRF)",
+      "nearest_airport_km": 31,
+      "nearest_seaport": "Sundsvall",
+      "nearest_seaport_km": 53,
+      "avg_temp_c": 5.3,
+      "free_cooling_hours": 8119,
+      "hub_distances_km": "Frankfurt: 1515 km · Stockholm: 384 km · London: 1649 km · Amsterdam: 1388 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 3
+        },
+        {
+          "ym": "2023-05",
+          "t": 9.4
+        },
+        {
+          "ym": "2023-06",
+          "t": 15.8
+        },
+        {
+          "ym": "2023-07",
+          "t": 15.9
+        },
+        {
+          "ym": "2023-08",
+          "t": 15.5
+        },
+        {
+          "ym": "2023-09",
+          "t": 13.2
+        },
+        {
+          "ym": "2023-10",
+          "t": 3.1
+        },
+        {
+          "ym": "2023-11",
+          "t": -3.7
+        },
+        {
+          "ym": "2023-12",
+          "t": -6
+        },
+        {
+          "ym": "2024-01",
+          "t": -6.1
+        },
+        {
+          "ym": "2024-02",
+          "t": -4.5
+        },
+        {
+          "ym": "2024-03",
+          "t": -1.3
+        },
+        {
+          "ym": "2024-04",
+          "t": 0.8
+        },
+        {
+          "ym": "2024-05",
+          "t": 11.4
+        },
+        {
+          "ym": "2024-06",
+          "t": 14.5
+        },
+        {
+          "ym": "2024-07",
+          "t": 16.4
+        },
+        {
+          "ym": "2024-08",
+          "t": 16.5
+        },
+        {
+          "ym": "2024-09",
+          "t": 12
+        },
+        {
+          "ym": "2024-10",
+          "t": 6.7
+        },
+        {
+          "ym": "2024-11",
+          "t": 1.5
+        },
+        {
+          "ym": "2024-12",
+          "t": -2.3
+        },
+        {
+          "ym": "2025-01",
+          "t": -3
+        },
+        {
+          "ym": "2025-02",
+          "t": -2.7
+        },
+        {
+          "ym": "2025-03",
+          "t": 1.8
+        },
+        {
+          "ym": "2025-04",
+          "t": 5.1
+        },
+        {
+          "ym": "2025-05",
+          "t": 7.7
+        },
+        {
+          "ym": "2025-06",
+          "t": 12.9
+        },
+        {
+          "ym": "2025-07",
+          "t": 18.2
+        },
+        {
+          "ym": "2025-08",
+          "t": 14.6
+        },
+        {
+          "ym": "2025-09",
+          "t": 12.5
+        },
+        {
+          "ym": "2025-10",
+          "t": 6.9
+        },
+        {
+          "ym": "2025-11",
+          "t": -0.3
+        },
+        {
+          "ym": "2025-12",
+          "t": 0.4
+        },
+        {
+          "ym": "2026-01",
+          "t": -7.2
+        },
+        {
+          "ym": "2026-02",
+          "t": -10.4
+        },
+        {
+          "ym": "2026-03",
+          "t": 2.8
+        },
+        {
+          "ym": "2026-04",
+          "t": 4.1
+        }
+      ],
+      "population_50km": 65720,
+      "population": null,
+      "area_overview": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "zroyaik7",
+      "developers": []
+    },
+    {
+      "id": "kalix",
+      "name": "Kalix",
+      "country": "Sweden",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "65.875672;-23.157467",
+      "plots_identified": "1",
+      "plots_secured": "Negotiations Ongoing",
+      "initial_mw": 200,
+      "max_capacity_mw": 500,
+      "extra_data": "ProjectID: SWE018\nPotential FID Date: Try and convince municipality to reserve site Apply to TSO for power allocation Zoning work ongoing, requires ground samples this summer with zoning concluded shortly after (early 2026) Building permit FID - Date currently unknown\nPotential RFS Dates: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nProject Lead: Thomas Beaton\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Peder Nilsson / peder.nilsson@kalix.se\nPlot Name: \"Kalix 1\"\nPlot Priority: 1\nSite Address: Vitvattenvägen, 952 41 Kälsjärv, Sweden\nLocation Link: https://maps.app.goo.gl/Ja7ripvG1hqv8QVe6\nNot Required: 65.875672, 23.157467\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 30\nDescription: Flat, densly forested plot adjacent to both industrial and residential buildings on the outskirts of Kalix, Sweden.\nSite Drainage: Site had good access via the main road that leads to the centre of Kalix proper. Kalix having good access to the E4 main highway, with drive times <1hr to Lulea and Kemi (Finland). In addition, with exisiting small roads/ tracks, it could be possible to easily increase access via other entry points. Regarding drainage, currently the site is covered in natural woodland, however there are a number of small streams that would need to be redirected. In addition there is some boggy ground the plot, so hydrological engineers will need to be employed to assess the impact and mitigations of this terrain.\nSite Access: Site had good access via the main road that leads to the centre of Kalix proper. Kalix having good access to the E4 main highway, with drive times <1hr to Lulea and Kemi (Finland). In addition, with exisiting small roads/ tracks, it could be possible to easily increase access via other entry points. Regarding drainage, currently the site is covered in natural woodland, however there are a number of small streams that would need to be redirected. In addition there is some boggy ground the plot, so hydrological engineers will need to be employed to assess the impact and mitigations of this terrain.\nBuilding Rights (%) - Primary Plot: TBC Subject to completion of zoning work\nOwnership: Municapality\nZoning Status: Decision on zoning to be completed in 2026.\nHeat Off-Take: District heating opportunities available with close proximity to large town.\nFibre Connectivity: Investigations continue\nPower Connection Methods: Substation adjoining land plot - 130kV & 220kV\nPower Procurement Status: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Availability Confirmation: Agent has sent a request to FinGrid to confirm power availability directly. Expecting a confirmation within the next 2 months.\nAcquisition Strategy: Pressure the municipality to accept us as the chosen DC developer for the project. Conclude negotiations with Municipality to allow for a reservation agreement. Following the reservation period a lease can commence with options to purchase the site which can be triggered at any time.\nZoning Strategy: Decision on zoning to be completed in 2026. only then will they decide who gets the project\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.\nPower Procurement Strategy: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Provider: Vattenfall\nPrice / sqm: TBC - Expecting up to 5EUR psm (normal pricing in North Sweden 2.5 Eur psm)\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Await the opening of the land reservation proceedure, currently being developed by the Kalix Municipality. Pressure municipality to provide an immidiate allocation of the land reservation to us.",
+      "lat": 65.85,
+      "lng": 23.16,
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "kalix.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Kalix, Sweden",
+      "area_overview": "Kalix is a locality and the seat of the Kalix Municipality in Norrbotten County, Sweden. The name Kalix is believed to originate from the Sami word Gáláseatnu, or \"Kalasätno\", meaning \"The cold river\" the ancient name of the Kalix River. It had 7,299 inhabitants in 2005, out of 17,300 inhabitants in the municipality of Kalix.",
+      "population": 8226,
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Kalix",
+      "nearest_airport_public": "Luleå Airport (LLA)",
+      "nearest_airport_km": 58,
+      "nearest_seaport": "Luleå",
+      "nearest_seaport_km": 55,
+      "avg_temp_c": 3,
+      "free_cooling_hours": 8107,
+      "hub_distances_km": "Frankfurt: 1936 km · Stockholm: 770 km · London: 2062 km · Amsterdam: 1811 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 0.8
+        },
+        {
+          "ym": "2023-05",
+          "t": 7.1
+        },
+        {
+          "ym": "2023-06",
+          "t": 14.7
+        },
+        {
+          "ym": "2023-07",
+          "t": 15.7
+        },
+        {
+          "ym": "2023-08",
+          "t": 15.9
+        },
+        {
+          "ym": "2023-09",
+          "t": 11.5
+        },
+        {
+          "ym": "2023-10",
+          "t": -0.5
+        },
+        {
+          "ym": "2023-11",
+          "t": -6.4
+        },
+        {
+          "ym": "2023-12",
+          "t": -8
+        },
+        {
+          "ym": "2024-01",
+          "t": -11.7
+        },
+        {
+          "ym": "2024-02",
+          "t": -8.1
+        },
+        {
+          "ym": "2024-03",
+          "t": -3.4
+        },
+        {
+          "ym": "2024-04",
+          "t": -1.6
+        },
+        {
+          "ym": "2024-05",
+          "t": 9
+        },
+        {
+          "ym": "2024-06",
+          "t": 15.6
+        },
+        {
+          "ym": "2024-07",
+          "t": 17.2
+        },
+        {
+          "ym": "2024-08",
+          "t": 16.2
+        },
+        {
+          "ym": "2024-09",
+          "t": 12
+        },
+        {
+          "ym": "2024-10",
+          "t": 4.2
+        },
+        {
+          "ym": "2024-11",
+          "t": -2.3
+        },
+        {
+          "ym": "2024-12",
+          "t": -6.1
+        },
+        {
+          "ym": "2025-01",
+          "t": -9.6
+        },
+        {
+          "ym": "2025-02",
+          "t": -4.5
+        },
+        {
+          "ym": "2025-03",
+          "t": -2.5
+        },
+        {
+          "ym": "2025-04",
+          "t": 1.4
+        },
+        {
+          "ym": "2025-05",
+          "t": 7.2
+        },
+        {
+          "ym": "2025-06",
+          "t": 12.3
+        },
+        {
+          "ym": "2025-07",
+          "t": 19.6
+        },
+        {
+          "ym": "2025-08",
+          "t": 14.2
+        },
+        {
+          "ym": "2025-09",
+          "t": 11.7
+        },
+        {
+          "ym": "2025-10",
+          "t": 5.3
+        },
+        {
+          "ym": "2025-11",
+          "t": -5.9
+        },
+        {
+          "ym": "2025-12",
+          "t": -5.8
+        },
+        {
+          "ym": "2026-01",
+          "t": -17.9
+        },
+        {
+          "ym": "2026-02",
+          "t": -15.8
+        },
+        {
+          "ym": "2026-03",
+          "t": -0.1
+        },
+        {
+          "ym": "2026-04",
+          "t": 2.5
+        }
+      ],
+      "population_50km": 43412,
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "4oyqxcwb",
+      "developers": []
+    },
+    {
+      "id": "reydarfjordur",
+      "name": "Reyðarfjörður",
+      "country": "Iceland",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "65.022834;--14.283983",
+      "plots_identified": "0",
+      "plots_secured": "Identifying Suitable Plots",
+      "initial_mw": 50,
+      "max_capacity_mw": 100,
+      "extra_data": "ProjectID: ICE020\nPrimary Project Partner: GIG\nPotential FID Date: 2028 Eastern Iceland power is constrained and must run a great deal of slack in the system to deal with seasonal usage and events where power needs to be exported to other parts of Iceland. The connection of Flotsdalslina 3 and 4 to Hyyggstekkur substation in 2026-2028 would be a potential catalyst for looking again at this part of Iceland.\nProject Lead: Jamie Stewart\nAgent: GIGA-Scale\nKey Project Contacts: Fridjon Fridjonsson Amelia Henning\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/6kfuZ1Eiz65SUi8m8\nNot Required: 65.022834, -14.283983\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nFibre Connectivity: Icelandic National telecoms company Farice is the main provider of International connectivity in and out of Iceland. Farice is owned by the Arion Bank, Landsvirkjun the national power company of Iceland and the Icelandic state. Farice ehf owns two submarine cables, named DANICE and FARICE-1. GIGA-Scale42 are trying to engage with Farice to build a replacement or additional fibre line using the GIG ASC HVDC route.\nPower Connection Methods: In conversation with Landsirkjun the national power company and Landsnet the national transmission operator. Guidance received from Landsirkjun that greater availability in the North East of Iceland, possibly in the East. There is significant congestion in the Iceland system but less in the East than the South West. Deal directly with the TSO and be very clear what we are looking for. The more details we give and the more detailed the question the better answers we can receive. 2x expansions of geothermal plant, options for wind and hydroplants in the North east.\nPower Connection Timelines: on 10.07.2025 we werer told by Gunnar at Landsvirkjun that the two 220kv lines are planned to be put through the substation Hryggstekkur in the next couple of years. This will greatly increase flexibility and ability to take power off the lines.\nAcquisition Strategy: TBD\nZoning Strategy: Political led approach starting with possitive discussions and support from the Icelanding Ministry of Finance.\nNext Steps: -16/06 (WT) , upcoming call in next 2 weeks with Landsnet/Landsgrovek? on potential site locations. still need to identify land area. isolated down to 4 locations. matt and Jamie have the names of the locations",
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "lat": null,
+      "lng": null,
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "reydarfjordur.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Reyðarfjörður, Iceland",
+      "nearest_seaport": "",
+      "nearest_seaport_km": null,
+      "nearest_airport_public": "",
+      "nearest_airport_km": null,
+      "population": null,
+      "area_overview": "",
+      "avg_temp_c": null,
+      "free_cooling_hours": null,
+      "population_50km": null,
+      "hub_distances_km": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "cgio5k9b",
+      "developers": []
+    },
+    {
+      "id": "akureyri",
+      "name": "Akureyri",
+      "country": "Iceland",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "65.683612;--18.152289",
+      "initial_mw": 50,
+      "max_capacity_mw": 70,
+      "extra_data": "ProjectID: ICE022\nPrimary Project Partner: GIG\nPotential FID Date: 2027 Back up location in Iceland\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/LDAoSoMoPVMBRZdQ6\nNot Required: 65.683612, -18.152289\nSize (ha) - Primary Plot: 30\nDescription: Urban site with proximity to existing infrastructure\nSite Drainage: Road access, urban site\nSite Access: Road access, urban site\nZoning Status: Requires Zoning\nHeat Off-Take: Yes\nPower Connection Methods: Two 132KV lines + 220KV line",
+      "lat": 65.68,
+      "lng": -18.1,
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "plots_identified": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "akureyri.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Akureyri, Iceland",
+      "area_overview": "Akureyri is a town in northern Iceland, the country's fifth most populous municipality and the largest outside the Capital Region. The municipality includes the town's neighbourhood at the head of Eyjafjörður and two farther islands: Hrísey at the mouth of Eyjafjörður and Grímsey off the coast.",
+      "population": 20050,
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Akureyri",
+      "nearest_airport_public": "Akureyri International Airport (AEY)",
+      "nearest_airport_km": 3,
+      "nearest_seaport": "Akureyri",
+      "nearest_seaport_km": 1,
+      "avg_temp_c": 3.1,
+      "free_cooling_hours": 8631,
+      "hub_distances_km": "Frankfurt: 2310 km · Stockholm: 1953 km · London: 1874 km · Amsterdam: 1958 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": -3
+        },
+        {
+          "ym": "2023-05",
+          "t": 5.5
+        },
+        {
+          "ym": "2023-06",
+          "t": 12.5
+        },
+        {
+          "ym": "2023-07",
+          "t": 9.6
+        },
+        {
+          "ym": "2023-08",
+          "t": 11.4
+        },
+        {
+          "ym": "2023-09",
+          "t": 7.4
+        },
+        {
+          "ym": "2023-10",
+          "t": 1.3
+        },
+        {
+          "ym": "2023-11",
+          "t": -1.6
+        },
+        {
+          "ym": "2023-12",
+          "t": -5.8
+        },
+        {
+          "ym": "2024-01",
+          "t": -3.8
+        },
+        {
+          "ym": "2024-02",
+          "t": -5.1
+        },
+        {
+          "ym": "2024-03",
+          "t": -2.5
+        },
+        {
+          "ym": "2024-04",
+          "t": -1
+        },
+        {
+          "ym": "2024-05",
+          "t": 5.2
+        },
+        {
+          "ym": "2024-06",
+          "t": 7.6
+        },
+        {
+          "ym": "2024-07",
+          "t": 12.4
+        },
+        {
+          "ym": "2024-08",
+          "t": 9.2
+        },
+        {
+          "ym": "2024-09",
+          "t": 4.8
+        },
+        {
+          "ym": "2024-10",
+          "t": 0.8
+        },
+        {
+          "ym": "2024-11",
+          "t": -0.9
+        },
+        {
+          "ym": "2024-12",
+          "t": -4.1
+        },
+        {
+          "ym": "2025-01",
+          "t": -4.6
+        },
+        {
+          "ym": "2025-02",
+          "t": 0.5
+        },
+        {
+          "ym": "2025-03",
+          "t": 0.1
+        },
+        {
+          "ym": "2025-04",
+          "t": 1.6
+        },
+        {
+          "ym": "2025-05",
+          "t": 8.7
+        },
+        {
+          "ym": "2025-06",
+          "t": 7.6
+        },
+        {
+          "ym": "2025-07",
+          "t": 13.5
+        },
+        {
+          "ym": "2025-08",
+          "t": 12.1
+        },
+        {
+          "ym": "2025-09",
+          "t": 8.3
+        },
+        {
+          "ym": "2025-10",
+          "t": 2.6
+        },
+        {
+          "ym": "2025-11",
+          "t": -2
+        },
+        {
+          "ym": "2025-12",
+          "t": 0.8
+        },
+        {
+          "ym": "2026-01",
+          "t": -2.3
+        },
+        {
+          "ym": "2026-02",
+          "t": -4.1
+        },
+        {
+          "ym": "2026-03",
+          "t": -1.7
+        },
+        {
+          "ym": "2026-04",
+          "t": 2.1
+        }
+      ],
+      "population_50km": 22364,
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "vwfkceo4",
+      "developers": []
+    },
+    {
+      "id": "valaiscanton",
+      "name": "Valais Canton",
+      "country": "Switzerland",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "Valais Canton",
+      "plots_identified": "1",
+      "plots_secured": "Identifying Suitable Plots",
+      "initial_mw": null,
+      "extra_data": "ProjectID: SWI021\nPrimary Project Partner: GIG\nProject Lead: Jamie Stewart\nAgent: GIGA-Scale\nKey Project Contacts: Edmund Truell Amelia Henning\nPlot Priority: 1\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPower Procurement Status: Edmund Truell has extensive connections and land holdings in Valais Canton which has multiple hydroelectic dams supplied by several dams including Grande Dixence Dam which is the tallest gravity dam in the world supplying pressurised water to four power stations totalling installed capacity of 2,069MW.\nAcquisition Strategy: Look to E. Truell's existing land interests in the first instance. Switzerland allows private wire agreements with power distributors. Valais Canton is an exporter of electricity to more populated areas. There are several strategies that could be deployed to access power. 1.On-Grid Access - Swissgrid for high-voltage access above 100MW. Regional operators for smaller amounts. 2. Off-Grid Access - Approach power generators for access to power. Off-grid opportunities could be done in conjunction with financing generation capacity expansion.",
+      "lat": 46.2,
+      "lng": 7.62,
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "max_capacity_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "valaiscanton.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Valais Canton, Switzerland",
+      "power_notes": "Initial: TBC MW",
+      "nearest_airport_public": "Bern Airport (BRN)",
+      "nearest_airport_km": 80,
+      "nearest_seaport": "Copenhagen",
+      "nearest_seaport_km": 1112,
+      "avg_temp_c": -0.1,
+      "free_cooling_hours": 8707,
+      "hub_distances_km": "Frankfurt: 442 km · Stockholm: 1616 km · London: 817 km · Amsterdam: 714 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 0.5
+        },
+        {
+          "ym": "2023-05",
+          "t": 0.7
+        },
+        {
+          "ym": "2023-06",
+          "t": 6.5
+        },
+        {
+          "ym": "2023-07",
+          "t": 9.1
+        },
+        {
+          "ym": "2023-08",
+          "t": 8.5
+        },
+        {
+          "ym": "2023-09",
+          "t": 7.6
+        },
+        {
+          "ym": "2023-10",
+          "t": 3.5
+        },
+        {
+          "ym": "2023-11",
+          "t": -6
+        },
+        {
+          "ym": "2023-12",
+          "t": -5.5
+        },
+        {
+          "ym": "2024-01",
+          "t": -6.1
+        },
+        {
+          "ym": "2024-02",
+          "t": -4.5
+        },
+        {
+          "ym": "2024-03",
+          "t": -4.7
+        },
+        {
+          "ym": "2024-04",
+          "t": -3.4
+        },
+        {
+          "ym": "2024-05",
+          "t": 0.4
+        },
+        {
+          "ym": "2024-06",
+          "t": 6.2
+        },
+        {
+          "ym": "2024-07",
+          "t": 9.7
+        },
+        {
+          "ym": "2024-08",
+          "t": 10.2
+        },
+        {
+          "ym": "2024-09",
+          "t": 3.2
+        },
+        {
+          "ym": "2024-10",
+          "t": 2.8
+        },
+        {
+          "ym": "2024-11",
+          "t": -2.7
+        },
+        {
+          "ym": "2024-12",
+          "t": -7.6
+        },
+        {
+          "ym": "2025-01",
+          "t": -7.5
+        },
+        {
+          "ym": "2025-02",
+          "t": -6.7
+        },
+        {
+          "ym": "2025-03",
+          "t": -4.9
+        },
+        {
+          "ym": "2025-04",
+          "t": -1
+        },
+        {
+          "ym": "2025-05",
+          "t": 0.7
+        },
+        {
+          "ym": "2025-06",
+          "t": 10.5
+        },
+        {
+          "ym": "2025-07",
+          "t": 7
+        },
+        {
+          "ym": "2025-08",
+          "t": 9.6
+        },
+        {
+          "ym": "2025-09",
+          "t": 5.3
+        },
+        {
+          "ym": "2025-10",
+          "t": 0.5
+        },
+        {
+          "ym": "2025-11",
+          "t": -5.8
+        },
+        {
+          "ym": "2025-12",
+          "t": -5.6
+        },
+        {
+          "ym": "2026-01",
+          "t": -10
+        },
+        {
+          "ym": "2026-02",
+          "t": -6.2
+        },
+        {
+          "ym": "2026-03",
+          "t": -6.4
+        },
+        {
+          "ym": "2026-04",
+          "t": -0.9
+        }
+      ],
+      "population_50km": 319643,
+      "population": null,
+      "area_overview": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "cqfkof4d",
+      "developers": []
+    },
+    {
+      "id": "tbcnorthernengland",
+      "name": "TBC (Northern England)",
+      "country": "UK",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "TBC (Northern England)",
+      "plots_identified": "1",
+      "initial_mw": 50,
+      "extra_data": "ProjectID: UK022\nPrimary Project Partner: GIG\nProject Lead: Jamie Stewart\nAgent: GIGA-Scale\nKey Project Contacts: Amelia Henning Identified Key Hire who cannont be disclosed to Scale42\nPlot Priority: 1\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPower Connection Methods: Gas supply identifed for own generation of electricity.\n\nProjectID: UK024\nPrimary Project Partner: GIG\nProject Lead: Jamie Stewart\nAgent: GIGA-Scale\nKey Project Contacts: Amelia Henning\nPlot Priority: 1\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link",
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "lat": null,
+      "lng": null,
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "max_capacity_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "tbcnorthernengland.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "TBC (Northern England), UK",
+      "nearest_seaport": "",
+      "nearest_seaport_km": null,
+      "nearest_airport_public": "",
+      "nearest_airport_km": null,
+      "population": null,
+      "area_overview": "",
+      "avg_temp_c": null,
+      "free_cooling_hours": null,
+      "population_50km": null,
+      "hub_distances_km": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "ofmoj3u8",
+      "developers": []
+    },
+    {
+      "id": "icelandrunofriver",
+      "name": "Iceland Run of River",
+      "country": "Iceland",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "Iceland Run of River",
+      "plots_identified": "1",
+      "initial_mw": 10,
+      "extra_data": "ProjectID: ICE023\nPrimary Project Partner: GIG\nProject Lead: Jamie Stewart\nAgent: GIGA-Scale\nKey Project Contacts: Fridjon Fridjonsson Amelia Henning\nPlot Priority: 1\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link",
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "lat": null,
+      "lng": null,
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "max_capacity_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "icelandrunofriver.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Iceland Run of River, Iceland",
+      "nearest_seaport": "",
+      "nearest_seaport_km": null,
+      "nearest_airport_public": "",
+      "nearest_airport_km": null,
+      "population": null,
+      "area_overview": "",
+      "avg_temp_c": null,
+      "free_cooling_hours": null,
+      "population_50km": null,
+      "hub_distances_km": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "7cbremub",
+      "developers": []
+    },
+    {
+      "id": "moiranamoindustrialpark",
+      "name": "Mo I Rana, Mo Industrial Park",
+      "country": "Norway",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "66.308681;-14.169722",
+      "plots_identified": "1",
+      "plots_secured": "Clarify current status of termsheet discussions from T1 Energy",
+      "initial_mw": 190,
+      "max_capacity_mw": 396,
+      "extra_data": "ProjectID: NOR027\nPrimary Project Partner: Biforst Prioritised 8\nPotential FID Date: Zoning Complete Power availability in que, no delivery date Trigger Land Purchase - ?? Expected FID Date = Q3 2025\nPotential RFS Dates: Assuming 18 month construction commencing Q3 2025 RFS Phase 1 = Q1 2027\nProject Lead: Vidar Saltkjel\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/EKQvgkV4LaqwaCUq7\nNot Required: 66.308681, 14.169722\nPhysical Inspection Conducted: yes\nSize (ha) - Primary Plot: 8.6\nDescription: Green field\nOwnership: FREYR Battery Giga Arctic AS (Norwegian Org. No. 926 089 862)\nZoning Status: Zoning Complete for battery factory - check if rezoning is required for data centre\nHeat Off-Take: Zoning Complete for battery factory - check if rezoning is required for data centre\nPower Connection Methods: 132kV\nPower Connection Timelines: NO confirmed timeline\nPower Procurement Status: No, 60MW in conflict, 396MW in queue\nPower Availability Confirmation: 396MW confirmed in queue\nAcquisition Strategy: Term sheet describes purchase of 80% of the property SPV for $20m cash from T1 Energy. The SPV owns the lease. Details of the lease to be clarified including, duration, costs, rights and other potential liabilities.\nPurchase Price: $20m",
+      "lat": 66.31,
+      "lng": 14.14,
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "moiranamoindustrialpark.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Mo I Rana, Mo Industrial Park, Norway",
+      "nearest_airport_public": "Mo i Rana Airport, Røssvoll (MQN)",
+      "nearest_airport_km": 9,
+      "nearest_seaport": "Mo i Rana",
+      "nearest_seaport_km": 1,
+      "avg_temp_c": 4.4,
+      "free_cooling_hours": 8163,
+      "hub_distances_km": "Frankfurt: 1828 km · Stockholm: 801 km · London: 1829 km · Amsterdam: 1632 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 2.3
+        },
+        {
+          "ym": "2023-05",
+          "t": 7
+        },
+        {
+          "ym": "2023-06",
+          "t": 13.8
+        },
+        {
+          "ym": "2023-07",
+          "t": 16.6
+        },
+        {
+          "ym": "2023-08",
+          "t": 16
+        },
+        {
+          "ym": "2023-09",
+          "t": 11.1
+        },
+        {
+          "ym": "2023-10",
+          "t": 1.9
+        },
+        {
+          "ym": "2023-11",
+          "t": -6.2
+        },
+        {
+          "ym": "2023-12",
+          "t": -7.8
+        },
+        {
+          "ym": "2024-01",
+          "t": -5.9
+        },
+        {
+          "ym": "2024-02",
+          "t": -4.2
+        },
+        {
+          "ym": "2024-03",
+          "t": -1.9
+        },
+        {
+          "ym": "2024-04",
+          "t": 0.2
+        },
+        {
+          "ym": "2024-05",
+          "t": 11
+        },
+        {
+          "ym": "2024-06",
+          "t": 14.1
+        },
+        {
+          "ym": "2024-07",
+          "t": 16.9
+        },
+        {
+          "ym": "2024-08",
+          "t": 15.9
+        },
+        {
+          "ym": "2024-09",
+          "t": 11.2
+        },
+        {
+          "ym": "2024-10",
+          "t": 5.3
+        },
+        {
+          "ym": "2024-11",
+          "t": 0.6
+        },
+        {
+          "ym": "2024-12",
+          "t": -3.2
+        },
+        {
+          "ym": "2025-01",
+          "t": -4.7
+        },
+        {
+          "ym": "2025-02",
+          "t": -2.1
+        },
+        {
+          "ym": "2025-03",
+          "t": -0.5
+        },
+        {
+          "ym": "2025-04",
+          "t": 3.4
+        },
+        {
+          "ym": "2025-05",
+          "t": 7.4
+        },
+        {
+          "ym": "2025-06",
+          "t": 12.1
+        },
+        {
+          "ym": "2025-07",
+          "t": 19.2
+        },
+        {
+          "ym": "2025-08",
+          "t": 14.2
+        },
+        {
+          "ym": "2025-09",
+          "t": 12.5
+        },
+        {
+          "ym": "2025-10",
+          "t": 5.8
+        },
+        {
+          "ym": "2025-11",
+          "t": -2.1
+        },
+        {
+          "ym": "2025-12",
+          "t": -0.8
+        },
+        {
+          "ym": "2026-01",
+          "t": -10
+        },
+        {
+          "ym": "2026-02",
+          "t": -10.4
+        },
+        {
+          "ym": "2026-03",
+          "t": 2.7
+        },
+        {
+          "ym": "2026-04",
+          "t": 4.2
+        }
+      ],
+      "population_50km": 23879,
+      "population": null,
+      "area_overview": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "kzabgj80",
+      "developers": []
+    },
+    {
+      "id": "andoya",
+      "name": "Andøya",
+      "country": "Norway",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "69.239551;-16.041031",
+      "plots_identified": "1",
+      "plots_secured": "Ongoing - TBC",
+      "initial_mw": 10,
+      "max_capacity_mw": 25,
+      "extra_data": "ProjectID: NOR028\nPrimary Project Partner: Biforst Prioritised 8\nPotential FID Date: Zoning complete Special defence security location\nKey FID Costs: Site purchase 150 Mill NOK Details to be confirmed by PM\nProject Lead: Vidar Saltkjel\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/zZfzPdmr8KEqRD1q6\nNot Required: 69.239551, 16.041031\nPhysical Inspection Conducted: Yes\nSize (ha) - Primary Plot: 1\nDescription: Tucked inside a secure mountain hall on Andøya—the northernmost island of Norway’s Vesterålen archipelago\nBuilding Rights (%) - Primary Plot: 100%\nOwnership: NorthSafe AS\nZoning Status: Zoning complete for mountainhall\nHeat Off-Take: Air Cooling\nPower Connection Methods: 22kV\nPower Connection Timelines: 10MW available at site, internal 22kV cable upgrade needed. 12month leadtime.\nPower Availability Confirmation: No\nAcquisition Strategy: Details to be provided by PM\nBuilding Permit Strategy: Infrastructure permit in place. Refurbished and prepared for DC development\nPower Procurement Strategy: 25 MW National Défense interest could FastTrack power expansion. Internal 22kV cable upgrade needed with a 6-12month lead time\nFibre Provider: Connection available, no dark fiber currently",
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "lat": 69.0658,
+      "lng": 15.1688,
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "andoya.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Andøya, Norway",
+      "area_overview": "Anden is a small island in Øksnes Municipality in Nordland county, Norway. It lies in the Vesterålen archipelago, about 5 kilometres (3.1 mi) north of the village of Stø on the northern tip of the large island of Langøya, and about 14 kilometres (8.7 mi) west of the large island of Andøya. It is home to the Anda Lighthouse, which was the last lighthouse in Norway to be automated.",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Anden%2C_Norway",
+      "nearest_airport_public": "Andøya Airport, Andenes (ANX)",
+      "nearest_airport_km": 46,
+      "nearest_seaport": "Narvik",
+      "nearest_seaport_km": 115,
+      "avg_temp_c": 5.7,
+      "free_cooling_hours": 8742,
+      "hub_distances_km": "Frankfurt: 2136 km · Stockholm: 1091 km · London: 2112 km · Amsterdam: 1933 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 3.5
+        },
+        {
+          "ym": "2023-05",
+          "t": 5.5
+        },
+        {
+          "ym": "2023-06",
+          "t": 8.1
+        },
+        {
+          "ym": "2023-07",
+          "t": 11.4
+        },
+        {
+          "ym": "2023-08",
+          "t": 13
+        },
+        {
+          "ym": "2023-09",
+          "t": 10.3
+        },
+        {
+          "ym": "2023-10",
+          "t": 5.2
+        },
+        {
+          "ym": "2023-11",
+          "t": 2.6
+        },
+        {
+          "ym": "2023-12",
+          "t": 1
+        },
+        {
+          "ym": "2024-01",
+          "t": 0.2
+        },
+        {
+          "ym": "2024-02",
+          "t": 1.2
+        },
+        {
+          "ym": "2024-03",
+          "t": 2.2
+        },
+        {
+          "ym": "2024-04",
+          "t": 2.4
+        },
+        {
+          "ym": "2024-05",
+          "t": 6.4
+        },
+        {
+          "ym": "2024-06",
+          "t": 10.3
+        },
+        {
+          "ym": "2024-07",
+          "t": 12.6
+        },
+        {
+          "ym": "2024-08",
+          "t": 15.2
+        },
+        {
+          "ym": "2024-09",
+          "t": 11.2
+        },
+        {
+          "ym": "2024-10",
+          "t": 7.1
+        },
+        {
+          "ym": "2024-11",
+          "t": 4.7
+        },
+        {
+          "ym": "2024-12",
+          "t": 2.1
+        },
+        {
+          "ym": "2025-01",
+          "t": 1.2
+        },
+        {
+          "ym": "2025-02",
+          "t": 3.3
+        },
+        {
+          "ym": "2025-03",
+          "t": 2.1
+        },
+        {
+          "ym": "2025-04",
+          "t": 2.5
+        },
+        {
+          "ym": "2025-05",
+          "t": 5.9
+        },
+        {
+          "ym": "2025-06",
+          "t": 8.8
+        },
+        {
+          "ym": "2025-07",
+          "t": 12.1
+        },
+        {
+          "ym": "2025-08",
+          "t": 13.3
+        },
+        {
+          "ym": "2025-09",
+          "t": 12.4
+        },
+        {
+          "ym": "2025-10",
+          "t": 8.1
+        },
+        {
+          "ym": "2025-11",
+          "t": 3.6
+        },
+        {
+          "ym": "2025-12",
+          "t": 3.4
+        },
+        {
+          "ym": "2026-01",
+          "t": -0.4
+        },
+        {
+          "ym": "2026-02",
+          "t": 0.6
+        },
+        {
+          "ym": "2026-03",
+          "t": 4.6
+        },
+        {
+          "ym": "2026-04",
+          "t": 5.3
+        }
+      ],
+      "population_50km": 18599,
+      "population": null,
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "slhrdya2",
+      "developers": []
+    },
+    {
+      "id": "sognlustersognekraftsognutvikling",
+      "name": "Sogn (Luster, Sognekraft Sogn Utvikling)",
+      "country": "Norway",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "61.396989;-7.293033",
+      "plots_identified": "1",
+      "initial_mw": 50,
+      "max_capacity_mw": 120,
+      "extra_data": "ProjectID: NOR030\nPrimary Project Partner: Bifrost\nPotential FID Date: Zoning in progress, expected - Q2 26 Grid Consession application Q3 25 Grid Consession preapproval Q2 26 Trigger Land Purchase - Q4 25 Expected FID Date = Q2 2026\nKey FID Costs: Detaild design of grid supply, providing estimated grid connection cost: 1mill NOK Connection Fee: Will be provided as soon as site is granted consession and detail design of grid supply is completed. Connection fee will be paid as expenses occur. est 60mill NOK Land Purchase: ?? Enviromental permit 0,5mill NOK Building Permit: 1mill NOK Geological survey 0,5mill MOK\nPotential RFS Dates: Assuming 24 month construction commencing Q2 2026 RFS Phase 1 = Q2 2028 Long 24month build mainly caused by 6km Grid construction\nProject Lead: ?\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/JPz48Zmg7HqPWzFa9\nNot Required: 61.396989, 7.293033\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 6\nDescription: Green field\nOwnership: Luster Municipality\nZoning Status: Zoning in progress\nHeat Off-Take: Primary seawater heatexchange\nFibre Connectivity: Connection available, no dark fiber currently\nPower Connection Methods: 132kV\nPower Connection Timelines: Q1 2028\nPower Procurement Status: No current confirmation, application in progress\nPower Availability Confirmation: No",
+      "lat": 61.4,
+      "lng": 7.4,
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "sognlustersognekraftsognutvikling.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Sogn (Luster, Sognekraft Sogn Utvikling), Norway",
+      "nearest_airport_public": "Ørsta-Volda Airport, Hovden (HOV)",
+      "nearest_airport_km": 111,
+      "nearest_seaport": "Ålesund",
+      "nearest_seaport_km": 136,
+      "avg_temp_c": 6.6,
+      "free_cooling_hours": 7875,
+      "hub_distances_km": "Frankfurt: 1258 km · Stockholm: 629 km · London: 1192 km · Amsterdam: 1015 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 3.5
+        },
+        {
+          "ym": "2023-05",
+          "t": 9.6
+        },
+        {
+          "ym": "2023-06",
+          "t": 18.5
+        },
+        {
+          "ym": "2023-07",
+          "t": 15.8
+        },
+        {
+          "ym": "2023-08",
+          "t": 15.6
+        },
+        {
+          "ym": "2023-09",
+          "t": 13.1
+        },
+        {
+          "ym": "2023-10",
+          "t": 4.3
+        },
+        {
+          "ym": "2023-11",
+          "t": -2.1
+        },
+        {
+          "ym": "2023-12",
+          "t": -5.7
+        },
+        {
+          "ym": "2024-01",
+          "t": -6.5
+        },
+        {
+          "ym": "2024-02",
+          "t": -2.6
+        },
+        {
+          "ym": "2024-03",
+          "t": 1.5
+        },
+        {
+          "ym": "2024-04",
+          "t": 4.1
+        },
+        {
+          "ym": "2024-05",
+          "t": 15.2
+        },
+        {
+          "ym": "2024-06",
+          "t": 14.2
+        },
+        {
+          "ym": "2024-07",
+          "t": 16.4
+        },
+        {
+          "ym": "2024-08",
+          "t": 15.3
+        },
+        {
+          "ym": "2024-09",
+          "t": 12.4
+        },
+        {
+          "ym": "2024-10",
+          "t": 7.7
+        },
+        {
+          "ym": "2024-11",
+          "t": 1
+        },
+        {
+          "ym": "2024-12",
+          "t": -0.4
+        },
+        {
+          "ym": "2025-01",
+          "t": -3.9
+        },
+        {
+          "ym": "2025-02",
+          "t": -3.5
+        },
+        {
+          "ym": "2025-03",
+          "t": 2.5
+        },
+        {
+          "ym": "2025-04",
+          "t": 7.5
+        },
+        {
+          "ym": "2025-05",
+          "t": 11.1
+        },
+        {
+          "ym": "2025-06",
+          "t": 13.5
+        },
+        {
+          "ym": "2025-07",
+          "t": 20.3
+        },
+        {
+          "ym": "2025-08",
+          "t": 15
+        },
+        {
+          "ym": "2025-09",
+          "t": 12.6
+        },
+        {
+          "ym": "2025-10",
+          "t": 8
+        },
+        {
+          "ym": "2025-11",
+          "t": 1.9
+        },
+        {
+          "ym": "2025-12",
+          "t": 0.3
+        },
+        {
+          "ym": "2026-01",
+          "t": -10.7
+        },
+        {
+          "ym": "2026-02",
+          "t": -6.3
+        },
+        {
+          "ym": "2026-03",
+          "t": 3.3
+        },
+        {
+          "ym": "2026-04",
+          "t": 5.8
+        }
+      ],
+      "population_50km": 19565,
+      "population": null,
+      "area_overview": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "vjnz9q88",
+      "developers": []
+    },
+    {
+      "id": "ostersundspikboderna",
+      "name": "Östersund (Spikboderna)",
+      "country": "Sweden",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "63.168358;-14.749073",
+      "plots_identified": "1",
+      "plots_secured": "Ongoing",
+      "initial_mw": 60,
+      "max_capacity_mw": 2004,
+      "extra_data": "ProjectID: SWE033\nPrimary Project Partner: Bifrost\nPotential FID Date: Zoning is complete Trigger Land Purchase - Q4 25 Building Permit Approved - Q1 26 Connection fee secured for Q4 27delivery, Q4 25 Expected FID Date = Q1 2026 09-25 updated\nFID Risks: Environmental permit - EcoDC just received it. Should be faster and cheaper for us to get now but does take time. to get environmental permit on site. Gotta be understanding that signing connection fee will result in available power. Grid reinforcement works required for town regardless. Our load should make this cheaper/easier for the town as a hall.\nKey FID Costs: Enviromental permit 3mill SEK Building Permit 2mill SEK Geological survey 4mill SEK Connectiuon Fee and purchase neccesary for enabling plot and start establish the connection, FID is very early in the process with high amout. Plot Price - Can we get an option - Landowner not most adventurous company. EcoDC pulling out will reduce their flexibility Connection Fee - 3mil SEK / MW (bank Guarantee)\nPotential RFS Dates: Assuming 18 month construction commencing Q1 2026 RFS Phase 1 = Q3 2027 Likely more time for full FID readiness causing slippage Entry - 09/25\nProject Lead: Vidar Saltkjel\nKey Project Contacts: DSO & Landowner - Jämtkraft\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/6rjhjyvCzr25h7at7\nNot Required: 63.168358, 14.749073\nPhotos & Drone Footage: Nothing outside of presentation\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 15ha\nDescription: Greenfield\nSite Drainage: Flat area and will require some drainage to be operational. Surrounded by industry on multiple sides so don't expect anything challenging.\nSite Access: Access through narrow strip connecting to main road.\nBuilding Rights (%) - Primary Plot: 50%\nOwnership: Jämtkraft\nZoning Status: Zoning Complete\nHeat Off-Take: Air cooling, possible heat reuse by greenhouse facility. Should check in with Warm and MSE\nFibre Connectivity: Connection available, no dark fiber currently on site but nearby telia or Jamkraft\nPower Connection Methods: Power confirmed by local grid provider\nPower Connection Timelines: 60MW Q4 2027, 200MW Q4 2028\nPower Procurement Status: Power confirmed by local grid provider\nPower Availability Confirmation: Yes reserved 500MW with national grid for this area\nAcquisition Strategy: Seek to have an option or initial agreement with landowner. Potentially negotiate payment plans. Landowner cautious of exclusivity due to EcoDC. Otherwise purchase site and proceed.\nBuilding Permit Strategy: Work with local partner to prepare and submit building permit & environmental permit. For environmental permit use the one which ecoDC used. Municipality mentioned the company EcoDC used locally. Be good to identify and use them.\nPower Procurement Strategy: Submit connection fee Ideal would be to buy or get options to more power. Potentially the EcoDC power. Concern is that EcoDC sells their site to someone who takes that power and more.\nPower Provider: Jämtkraft\nPower Connection Costs: 3mil SEK / MW\nFibre Provider: Telia or Jämtkraft\nFibre Connection Costs: TBC - Estimate something like 1mil SEK\nPrice / sqm: 1000 NOk psm\nNext Steps: Getting a good dialogue with Jämtkraft who is the key player in the area. Struggling a little bit with the sales guy there. Dialogue key considering EcoDC changes.",
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "lat": null,
+      "lng": null,
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "ostersundspikboderna.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Östersund (Spikboderna), Sweden",
+      "nearest_seaport": "",
+      "nearest_seaport_km": null,
+      "nearest_airport_public": "",
+      "nearest_airport_km": null,
+      "population": null,
+      "area_overview": "",
+      "avg_temp_c": null,
+      "free_cooling_hours": null,
+      "population_50km": null,
+      "hub_distances_km": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "rkuyc4ac",
+      "developers": []
+    },
+    {
+      "id": "morsil",
+      "name": "Mörsil",
+      "country": "Sweden",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "63.297629;-13.694532",
+      "plots_identified": "1",
+      "initial_mw": 2,
+      "max_capacity_mw": 5,
+      "extra_data": "ProjectID: SWE035\nPrimary Project Partner: Bifrost\nPotential FID Date: Existing DC with 2MW in operation, promised 5MW. Should be able to get more as located very close to hydro power plant.\nKey FID Costs: Power scalability DD, 100 000 NOK Hopefullt reveal more power avaialable as located close to hydro powerplant. Site purchase 8Mill SEK, current owner most interested in selling the site.\nPotential RFS Dates: 2MW opertional 6months after FID. 5MW opertional 12 Months after FID.\nProject Lead: ?\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/6WsSYcFHLekzjPv96\nNot Required: 63.297629, 13.694532\nPhysical Inspection Conducted: No\nDescription: Brownfield\nZoning Status: Zoning Complete\nHeat Off-Take: None\nFibre Connectivity: Connection available, no dark fiber currently\nPower Connection Methods: 11kV\nPower Connection Timelines: 5MW currently avaialable, upgrade to 10MW 12Nonth Lead time\nPower Availability Confirmation: Power confirmed by local grid provider",
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "lat": 62.78333333,
+      "lng": 17.9,
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "morsil.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Mörsil, Sweden",
+      "area_overview": "Veda och Mörtsal is a smaller locality in Högsjö parish, Härnösand Municipality, Sweden. It had 61 inhabitants in 2015. It comprises two villages halfway between Kramfors and Härnösand. The ferry that served as transport to Nyadal, on the other side of the Ångerman River, before the Höga Kusten Bridge was built, was in Veda. The settlement lies less than 1 kilometer from Utansjö.",
+      "population": 60,
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Veda_och_M%C3%B6rtsal",
+      "nearest_airport_public": "Kramfors-Sollefteå Höga Kusten Airport (KRF)",
+      "nearest_airport_km": 30,
+      "nearest_seaport": "Sundsvall",
+      "nearest_seaport_km": 53,
+      "avg_temp_c": 5.3,
+      "free_cooling_hours": 8119,
+      "hub_distances_km": "Frankfurt: 1515 km · Stockholm: 384 km · London: 1648 km · Amsterdam: 1388 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 3
+        },
+        {
+          "ym": "2023-05",
+          "t": 9.4
+        },
+        {
+          "ym": "2023-06",
+          "t": 15.8
+        },
+        {
+          "ym": "2023-07",
+          "t": 15.9
+        },
+        {
+          "ym": "2023-08",
+          "t": 15.5
+        },
+        {
+          "ym": "2023-09",
+          "t": 13.2
+        },
+        {
+          "ym": "2023-10",
+          "t": 3.1
+        },
+        {
+          "ym": "2023-11",
+          "t": -3.7
+        },
+        {
+          "ym": "2023-12",
+          "t": -6
+        },
+        {
+          "ym": "2024-01",
+          "t": -6.1
+        },
+        {
+          "ym": "2024-02",
+          "t": -4.5
+        },
+        {
+          "ym": "2024-03",
+          "t": -1.3
+        },
+        {
+          "ym": "2024-04",
+          "t": 0.8
+        },
+        {
+          "ym": "2024-05",
+          "t": 11.4
+        },
+        {
+          "ym": "2024-06",
+          "t": 14.5
+        },
+        {
+          "ym": "2024-07",
+          "t": 16.4
+        },
+        {
+          "ym": "2024-08",
+          "t": 16.5
+        },
+        {
+          "ym": "2024-09",
+          "t": 12
+        },
+        {
+          "ym": "2024-10",
+          "t": 6.7
+        },
+        {
+          "ym": "2024-11",
+          "t": 1.5
+        },
+        {
+          "ym": "2024-12",
+          "t": -2.3
+        },
+        {
+          "ym": "2025-01",
+          "t": -3
+        },
+        {
+          "ym": "2025-02",
+          "t": -2.7
+        },
+        {
+          "ym": "2025-03",
+          "t": 1.8
+        },
+        {
+          "ym": "2025-04",
+          "t": 5.1
+        },
+        {
+          "ym": "2025-05",
+          "t": 7.7
+        },
+        {
+          "ym": "2025-06",
+          "t": 12.9
+        },
+        {
+          "ym": "2025-07",
+          "t": 18.2
+        },
+        {
+          "ym": "2025-08",
+          "t": 14.6
+        },
+        {
+          "ym": "2025-09",
+          "t": 12.5
+        },
+        {
+          "ym": "2025-10",
+          "t": 6.9
+        },
+        {
+          "ym": "2025-11",
+          "t": -0.3
+        },
+        {
+          "ym": "2025-12",
+          "t": 0.4
+        },
+        {
+          "ym": "2026-01",
+          "t": -7.2
+        },
+        {
+          "ym": "2026-02",
+          "t": -10.4
+        },
+        {
+          "ym": "2026-03",
+          "t": 2.8
+        },
+        {
+          "ym": "2026-04",
+          "t": 4.1
+        }
+      ],
+      "population_50km": 65720,
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "fgdlzvw3",
+      "developers": []
+    },
+    {
+      "id": "milan",
+      "name": "Milan",
+      "country": "Italy",
+      "published": false,
+      "status": "tbd",
+      "desc_en": "",
+      "desc_no": "",
+      "address": "Milan",
+      "plots_identified": "1",
+      "initial_mw": 60,
+      "max_capacity_mw": 100,
+      "extra_data": "ProjectID: ITA036\nPrimary Project Partner: Bifrost\nPlot Priority: 1\nZoning Status: Urban/ Industrial TBD",
+      "lat": 45.47,
+      "lng": 9.19,
+      "site_type": "",
+      "site_link": "",
+      "internal_status": "",
+      "internal_category": "",
+      "jv_partner": "",
+      "project_owner": "",
+      "current_control": "",
+      "planned_ultimate_control": "",
+      "contractual_arrangement": "",
+      "land_paperwork_status": "",
+      "nbs_assessment": "",
+      "bid_status": "",
+      "category_rationale": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "strategic_status": "",
+      "short_status_label": "",
+      "size_ha": null,
+      "zoning_status": "",
+      "planning_status": "",
+      "eia_required": false,
+      "eia_status": "",
+      "restrictions": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power": "",
+      "target_mw": null,
+      "power_availability": "",
+      "connection_voltage": "",
+      "exact_power_status": "",
+      "power_paperwork": "",
+      "ppa_counterparty": "",
+      "ppa_status": "",
+      "dso": "",
+      "tso": "",
+      "heat_reuse": "",
+      "it_load_mw": "",
+      "dpue": "",
+      "ppue": "",
+      "racks": "",
+      "rack_density_kw": "",
+      "cooling": "",
+      "workload_mix": "",
+      "fibre_providers": [],
+      "fibre_strands": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "latency_summary": "",
+      "fibre_general_info": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "highway_access": "",
+      "airport_access": "",
+      "college_university": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "project_description": "",
+      "image": "milan.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Milan, Italy",
+      "area_overview": "Milan is the regional capital of Lombardy, in northern Italy, and the seat of the Metropolitan City of Milan. It is the second-most populous city in Italy after Rome, with a population of 1,362,863 in 2026. The city's wider metropolitan area is the largest in Italy, and the fourth-largest in the European Union, with an estimated population of 6.55 million. Milan is considered Italy's economic capital, and its metropolitan area accounts for about 20% of the country's GDP.",
+      "population": 1354196,
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Milan",
+      "nearest_airport_public": "Milano Linate Airport (LIN)",
+      "nearest_airport_km": 7,
+      "nearest_seaport": "Copenhagen",
+      "nearest_seaport_km": 1162,
+      "avg_temp_c": 14.5,
+      "free_cooling_hours": 5574,
+      "hub_distances_km": "Frankfurt: 517 km · Stockholm: 1651 km · London: 959 km · Amsterdam: 829 km",
+      "population_50km": 7406498,
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "svgvvna5",
+      "developers": []
     }
   ]
 }

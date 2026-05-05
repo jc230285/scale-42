@@ -86,6 +86,17 @@
   .dc-card .status.live { background: var(--accent); }
   .dc-card .status.tbd { background: var(--muted); }
   .dc-card .status.sold { background: #33752f; }
+  .dc-card .dc-developers {
+    position: absolute; top: 46px; right: 14px; z-index: 5;
+    display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end;
+    max-width: 180px;
+  }
+  .dc-card .dc-developers img {
+    height: 24px; width: auto; max-width: 80px;
+    background: rgba(255,255,255,0.92); border-radius: 4px;
+    padding: 3px 6px; object-fit: contain;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  }
   .dc-card > .loc { position: absolute; top: 16px; left: 18px; z-index: 3; margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
 
   .dc-card .body { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 22px 18px; display: flex; flex-direction: column; gap: 10px; z-index: 2; color: #fff; background: linear-gradient(180deg, rgba(15,25,35,0) 0%, rgba(15,25,35,0.85) 35%, rgba(15,25,35,0.96) 100%); }
@@ -229,11 +240,12 @@
 
     <div class="dc-grid"><!--cms:dc_cards-->
 
-      <article class="dc-card" id="bakki-whhehm45" data-country="iceland" data-strat="giga-42-responsibility">
-        <a class="dc-card-link" href="bakki-whhehm45/" aria-label="Bakki">view</a>
+      <article class="dc-card" id="bakki-lxjuczc3" data-country="iceland" data-strat="giga-42-responsibility">
+        <a class="dc-card-link" href="bakki-lxjuczc3/" aria-label="Bakki">view</a>
         <h3 class="dc-name-top">Bakki</h3>
         <p class="loc loc-top">Iceland</p>
         <span class="status live">In development</span>
+        <div class="dc-developers"><a href="https://giga-42.com" target="_blank" rel="noopener" title="GIGA-42" onclick="event.stopPropagation();"><img src="https://giga-42.com/assets/logo.png" alt="GIGA-42" title="GIGA-42" loading="lazy" /></a></div>
         <div class="img">
           <img src="../assets/sites/0a0d0e8b-252a-44c7-b386-9ddfb691b670.jpg" alt="Bakki" loading="lazy" />
         </div>
@@ -247,11 +259,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="skibotn-9qbowue4" data-country="norway" data-strat="giga-42-responsibility">
-        <a class="dc-card-link" href="skibotn-9qbowue4/" aria-label="Skibotn">view</a>
+      <article class="dc-card" id="skibotn-6xz9kqw5" data-country="norway" data-strat="giga-42-responsibility">
+        <a class="dc-card-link" href="skibotn-6xz9kqw5/" aria-label="Skibotn">view</a>
         <h3 class="dc-name-top">Skibotn</h3>
         <p class="loc loc-top">Norway</p>
         <span class="status live">In development</span>
+        <div class="dc-developers"><a href="https://giga-42.com" target="_blank" rel="noopener" title="GIGA-42" onclick="event.stopPropagation();"><img src="https://giga-42.com/assets/logo.png" alt="GIGA-42" title="GIGA-42" loading="lazy" /></a></div>
         <div class="img">
           <img src="/assets/sites/5fad338e-f35f-4884-aa6b-9b15209464e2.jpg" alt="Skibotn" loading="lazy" />
         </div>
@@ -265,11 +278,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="reykjavik-pfjoyy32" data-country="iceland" data-strat="giga-42-responsibility">
-        <a class="dc-card-link" href="reykjavik-pfjoyy32/" aria-label="Reykjavík">view</a>
+      <article class="dc-card" id="reykjavik-ieg70x00" data-country="iceland" data-strat="giga-42-responsibility">
+        <a class="dc-card-link" href="reykjavik-ieg70x00/" aria-label="Reykjavík">view</a>
         <h3 class="dc-name-top">Reykjavík</h3>
         <p class="loc loc-top">Iceland</p>
         <span class="status live">In development</span>
+        <div class="dc-developers"><a href="https://giga-42.com" target="_blank" rel="noopener" title="GIGA-42" onclick="event.stopPropagation();"><img src="https://giga-42.com/assets/logo.png" alt="GIGA-42" title="GIGA-42" loading="lazy" /></a></div>
         <div class="img">
           <img src="../assets/sites/2bf7bc15-88be-444a-a217-f69e9dc04a0c.avif" alt="Reykjavík" loading="lazy" />
         </div>
@@ -283,11 +297,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kristinestad-rhblpucf" data-country="finland" data-strat="development-focus">
-        <a class="dc-card-link" href="kristinestad-rhblpucf/" aria-label="Kristinestad">view</a>
+      <article class="dc-card" id="kristinestad-ujpucb0c" data-country="finland" data-strat="development-focus">
+        <a class="dc-card-link" href="kristinestad-ujpucb0c/" aria-label="Kristinestad">view</a>
         <h3 class="dc-name-top">Kristinestad</h3>
         <p class="loc loc-top">Finland</p>
         <span class="status live">In development</span>
+        
         <div class="img">
           <img src="../assets/sites/94ac614c-1c1c-4e77-bfa7-5d9efbd51111.webp" alt="Kristinestad" loading="lazy" />
         </div>
@@ -301,11 +316,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="jokkmokk-fqu3smud" data-country="sweden" data-strat="development-focus">
-        <a class="dc-card-link" href="jokkmokk-fqu3smud/" aria-label="Jokkmokk">view</a>
+      <article class="dc-card" id="jokkmokk-mndmdlk3" data-country="sweden" data-strat="development-focus">
+        <a class="dc-card-link" href="jokkmokk-mndmdlk3/" aria-label="Jokkmokk">view</a>
         <h3 class="dc-name-top">Jokkmokk</h3>
         <p class="loc loc-top">Sweden</p>
         <span class="status live">In development</span>
+        
         <div class="img">
           <img src="../assets/sites/f6637c09-4cf2-441e-9049-0f0e54da9ccd.jpg" alt="Jokkmokk" loading="lazy" />
         </div>
@@ -319,11 +335,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="liperi-yn6xxf88" data-country="finland" data-strat="going-to-3rd-party">
-        <a class="dc-card-link" href="liperi-yn6xxf88/" aria-label="Liperi">view</a>
+      <article class="dc-card" id="liperi-7u32bym4" data-country="finland" data-strat="going-to-3rd-party">
+        <a class="dc-card-link" href="liperi-7u32bym4/" aria-label="Liperi">view</a>
         <h3 class="dc-name-top">Liperi</h3>
         <p class="loc loc-top">Finland</p>
         <span class="status live">In development</span>
+        
         <div class="img">
           <img src="../assets/sites/dc203ea6-b661-4a2c-a98c-d8e75542cb47.jpg" alt="Liperi" loading="lazy" />
         </div>
@@ -337,11 +354,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kitee-e6ypvc4a" data-country="finland" data-strat="going-to-3rd-party">
-        <a class="dc-card-link" href="kitee-e6ypvc4a/" aria-label="Kitee">view</a>
+      <article class="dc-card" id="kitee-uw3yqvc4" data-country="finland" data-strat="going-to-3rd-party">
+        <a class="dc-card-link" href="kitee-uw3yqvc4/" aria-label="Kitee">view</a>
         <h3 class="dc-name-top">Kitee</h3>
         <p class="loc loc-top">Finland</p>
         <span class="status live">In development</span>
+        
         <div class="img">
           <img src="../assets/sites/5a6d825a-4799-4d63-8cc8-b2f6eed93352.webp" alt="Kitee" loading="lazy" />
         </div>
@@ -355,29 +373,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sorfold-kbhu37ec" data-country="norway" data-strat="going-to-3rd-party">
-        <a class="dc-card-link" href="sorfold-kbhu37ec/" aria-label="Sørfold">view</a>
-        <h3 class="dc-name-top">Sørfold</h3>
-        <p class="loc loc-top">Norway</p>
-        <span class="status live">In development</span>
-        <div class="img">
-          <img src="../assets/sites/dd21e1fb-c7df-422e-9f20-666217d2e7d1.jpg" alt="Sørfold" loading="lazy" />
-        </div>
-        <div class="body">
-          <p class="desc"></p>
-          <dl class="dc-stats">
-            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
-            <div class="stat"><dt>Mål</dt><dd>100 MW</dd></div>
-            <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
-          </dl>
-        </div>
-      </article>
-
-      <article class="dc-card" id="torsboda-hkeyka1c" data-country="sweden" data-strat="development-focus">
-        <a class="dc-card-link" href="torsboda-hkeyka1c/" aria-label="Torsboda">view</a>
+      <article class="dc-card" id="torsboda-vssrnom0" data-country="sweden" data-strat="development-focus">
+        <a class="dc-card-link" href="torsboda-vssrnom0/" aria-label="Torsboda">view</a>
         <h3 class="dc-name-top">Torsboda</h3>
         <p class="loc loc-top">Sweden</p>
         <span class="status tbd">Coming soon</span>
+        
         <div class="img">
           <img src="../assets/sites/torsboda.svg" alt="Torsboda" loading="lazy" />
         </div>
@@ -391,11 +392,31 @@
         </div>
       </article>
 
-      <article class="dc-card" id="robertsfors-ort5geu4" data-country="sweden" data-strat="later-stage-project">
-        <a class="dc-card-link" href="robertsfors-ort5geu4/" aria-label="Robertsfors">view</a>
+      <article class="dc-card" id="sorfold-0j5hdxoa" data-country="norway" data-strat="going-to-3rd-party">
+        <a class="dc-card-link" href="sorfold-0j5hdxoa/" aria-label="Sørfold">view</a>
+        <h3 class="dc-name-top">Sørfold</h3>
+        <p class="loc loc-top">Norway</p>
+        <span class="status live">In development</span>
+        
+        <div class="img">
+          <img src="../assets/sites/dd21e1fb-c7df-422e-9f20-666217d2e7d1.jpg" alt="Sørfold" loading="lazy" />
+        </div>
+        <div class="body">
+          <p class="desc"></p>
+          <dl class="dc-stats">
+            <div class="stat"><dt>Oppstart</dt><dd>50 MW</dd></div>
+            <div class="stat"><dt>Mål</dt><dd>100 MW</dd></div>
+            <div class="stat"><dt>Kraft</dt><dd>Hydro</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="dc-card" id="robertsfors-acyuki06" data-country="sweden" data-strat="later-stage-project">
+        <a class="dc-card-link" href="robertsfors-acyuki06/" aria-label="Robertsfors">view</a>
         <h3 class="dc-name-top">Robertsfors</h3>
         <p class="loc loc-top">Sweden</p>
         <span class="status tbd">Coming soon</span>
+        
         <div class="img">
           <img src="../assets/sites/robertsfors.svg" alt="Robertsfors" loading="lazy" />
         </div>
@@ -409,11 +430,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nuuk-cxvgvza4" data-country="greenland" data-strat="later-stage-project">
-        <a class="dc-card-link" href="nuuk-cxvgvza4/" aria-label="Nuuk">view</a>
+      <article class="dc-card" id="nuuk-lv9ge3w8" data-country="greenland" data-strat="later-stage-project">
+        <a class="dc-card-link" href="nuuk-lv9ge3w8/" aria-label="Nuuk">view</a>
         <h3 class="dc-name-top">Nuuk</h3>
         <p class="loc loc-top">Greenland</p>
         <span class="status tbd">Coming soon</span>
+        
         <div class="img">
           <img src="../assets/sites/nuuk.svg" alt="Nuuk" loading="lazy" />
         </div>
@@ -427,11 +449,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tjeldbergodden-tnmdl9ed" data-country="norway" data-strat="who-the-fuck-knows">
-        <a class="dc-card-link" href="tjeldbergodden-tnmdl9ed/" aria-label="Tjeldbergodden">view</a>
+      <article class="dc-card" id="tjeldbergodden-5iufahy3" data-country="norway" data-strat="who-the-fuck-knows">
+        <a class="dc-card-link" href="tjeldbergodden-5iufahy3/" aria-label="Tjeldbergodden">view</a>
         <h3 class="dc-name-top">Tjeldbergodden</h3>
         <p class="loc loc-top">Norway</p>
         <span class="status tbd">Coming soon</span>
+        
         <div class="img">
           <img src="../assets/sites/tjeldbergodden.svg" alt="Tjeldbergodden" loading="lazy" />
         </div>
@@ -445,11 +468,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="honningsvag-rlfan6qb" data-country="norway" data-strat="bin-the-project">
-        <a class="dc-card-link" href="honningsvag-rlfan6qb/" aria-label="Honningsvåg">view</a>
+      <article class="dc-card" id="honningsvag-u40glxe0" data-country="norway" data-strat="bin-the-project">
+        <a class="dc-card-link" href="honningsvag-u40glxe0/" aria-label="Honningsvåg">view</a>
         <h3 class="dc-name-top">Honningsvåg</h3>
         <p class="loc loc-top">Norway</p>
         <span class="status tbd">Coming soon</span>
+        
         <div class="img">
           <img src="../assets/sites/honningsvag.svg" alt="Honningsvåg" loading="lazy" />
         </div>
@@ -463,11 +487,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kemi-mctamtkc" data-country="finland" data-strat="bin-the-project">
-        <a class="dc-card-link" href="kemi-mctamtkc/" aria-label="Kemi">view</a>
+      <article class="dc-card" id="kemi-tzqbelob" data-country="finland" data-strat="bin-the-project">
+        <a class="dc-card-link" href="kemi-tzqbelob/" aria-label="Kemi">view</a>
         <h3 class="dc-name-top">Kemi</h3>
         <p class="loc loc-top">Finland</p>
         <span class="status tbd">Coming soon</span>
+        
         <div class="img">
           <img src="../assets/sites/kemi.svg" alt="Kemi" loading="lazy" />
         </div>
@@ -481,11 +506,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="mikkeli-pjocoxcc" data-country="finland" data-strat="bin-the-project">
-        <a class="dc-card-link" href="mikkeli-pjocoxcc/" aria-label="Mikkeli">view</a>
+      <article class="dc-card" id="mikkeli-tlqpsl84" data-country="finland" data-strat="bin-the-project">
+        <a class="dc-card-link" href="mikkeli-tlqpsl84/" aria-label="Mikkeli">view</a>
         <h3 class="dc-name-top">Mikkeli</h3>
         <p class="loc loc-top">Finland</p>
         <span class="status tbd">Coming soon</span>
+        
         <div class="img">
           <img src="../assets/sites/mikkeli.svg" alt="Mikkeli" loading="lazy" />
         </div>
@@ -499,11 +525,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="rovaniemi-ln8aauk3" data-country="finland" data-strat="bin-the-project">
-        <a class="dc-card-link" href="rovaniemi-ln8aauk3/" aria-label="Rovaniemi">view</a>
+      <article class="dc-card" id="rovaniemi-ce0uxjya" data-country="finland" data-strat="bin-the-project">
+        <a class="dc-card-link" href="rovaniemi-ce0uxjya/" aria-label="Rovaniemi">view</a>
         <h3 class="dc-name-top">Rovaniemi</h3>
         <p class="loc loc-top">Finland</p>
         <span class="status tbd">Coming soon</span>
+        
         <div class="img">
           <img src="../assets/sites/rovaniemi.svg" alt="Rovaniemi" loading="lazy" />
         </div>
@@ -517,11 +544,12 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tornio-wlpsfrmd" data-country="finland">
-        <a class="dc-card-link" href="tornio-wlpsfrmd/" aria-label="Tornio">view</a>
+      <article class="dc-card" id="tornio-tup9nec7" data-country="finland">
+        <a class="dc-card-link" href="tornio-tup9nec7/" aria-label="Tornio">view</a>
         <h3 class="dc-name-top">Tornio</h3>
         <p class="loc loc-top">Finland</p>
         <span class="status tbd">Coming soon</span>
+        
         <div class="img">
           <img src="../assets/sites/tornio.svg" alt="Tornio" loading="lazy" />
         </div>
@@ -598,8 +626,8 @@
     { name: "Jokkmokk", country: "Sweden", status: "live", location: "Jokkmokk, Sweden", lat: 66.6, lng: 19.8, power: "Hydro", target: "400 MW", desc: "Vannkraftbeltet i Lappland — samlokalisert med Sveriges største vannkraftregion." },
     { name: "Liperi", country: "Finland", status: "live", location: "Liperi, Finland", lat: 62.5, lng: 29.4, power: "Mixed renewable", target: "100 MW", desc: "" },
     { name: "Kitee", country: "Finland", status: "live", location: "Kitee, Finland", lat: 62.1, lng: 30.2, power: "Mixed renewable", target: "60 MW", desc: "" },
-    { name: "Sørfold", country: "Norway", status: "live", location: "Sørfold, Norway", lat: 67.5, lng: 15.4, power: "Hydro", target: "100 MW", desc: "" },
     { name: "Torsboda", country: "Sweden", status: "tbd", location: "Torsboda, Sweden", lat: 62.6, lng: 17.4, power: "Hydro / wind", target: "1200 MW", desc: "" },
+    { name: "Sørfold", country: "Norway", status: "live", location: "Sørfold, Norway", lat: 67.5, lng: 15.4, power: "Hydro", target: "100 MW", desc: "" },
     { name: "Robertsfors", country: "Sweden", status: "tbd", location: "Robertsfors, Sweden", lat: 64.2, lng: 20.9, power: "Hydro / wind", target: "1000 MW", desc: "" },
     { name: "Nuuk", country: "Greenland", status: "tbd", location: "Nuuk, Greenland", lat: 64.2, lng: -51.7, power: "Hydro", target: "55 MW", desc: "" },
     { name: "Tjeldbergodden", country: "Norway", status: "tbd", location: "Tjeldbergodden, Norway", lat: 63.4, lng: 8.6, power: "Hydro / gas", target: "190 MW", desc: "" },
