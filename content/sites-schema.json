@@ -220,8 +220,8 @@
     },
     {
       "key": "short_status_label",
-      "label": "Public status label",
-      "group": "public_status",
+      "label": "Internal status detail",
+      "group": "status_ownership",
       "type": "select",
       "options": [
         "Operational",
@@ -234,8 +234,22 @@
         "Under review",
         "Sold"
       ],
+      "public": false,
+      "help": "Detailed internal state — not shown publicly."
+    },
+    {
+      "key": "public_status_label",
+      "label": "Public status",
+      "group": "public_status",
+      "type": "select",
+      "options": [
+        "Operational",
+        "In development",
+        "Coming soon",
+        "Sold"
+      ],
       "public": true,
-      "help": "Shown as the badge on each site card."
+      "help": "Shown as the badge on each public site card."
     },
     {
       "key": "lat",

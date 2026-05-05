@@ -80,7 +80,7 @@ function cardHtml(sites, lang) {
       : `<span class="image-placeholder">[ ${escHtml(s.name)} ]</span>`;
     const imgClass = s.image ? '' : (s.status === 'tbd' ? ' tbd' : '');
     const statusClass = s.status === 'tbd' ? 'tbd' : s.status === 'sold' ? 'sold' : 'live';
-    const statusLabel = escHtml(s.short_status_label || labels[s.status] || labels.live);
+    const statusLabel = escHtml(s.public_status_label || labels[s.status] || labels.live);
     const stratKey = (s.strategic_status || '').replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().replace(/^-+|-+$/g, '');
     const stratAttr = stratKey ? ` data-strat="${escHtml(stratKey)}"` : (s.status === 'sold' ? ' data-strat="sold"' : '');
     return `      <article class="dc-card" id="${escHtml(slug)}" data-country="${escHtml(ckey)}"${stratAttr}>
@@ -120,7 +120,7 @@ function buildSiteDetailPage(s, schema, lang) {
   const slug = siteSlug(s);
   const desc = isNo ? s.desc_no : s.desc_en;
   const status = s.status || 'tbd';
-  const statusLabel = escHtml(s.short_status_label || labels[status] || labels.live);
+  const statusLabel = escHtml(s.public_status_label || labels[status] || labels.live);
   const statusClass = status === 'tbd' ? 'tbd' : status === 'sold' ? 'sold' : 'live';
   const COUNTRY_GRAD = {
     Norway: 'linear-gradient(135deg, #1c2e3f 0%, #2f6675 55%, #e8b87a 100%)',
@@ -137,7 +137,7 @@ function buildSiteDetailPage(s, schema, lang) {
   // Public-only fields, grouped by schema group. Render every public field
   // (empty values shown as "—") so the structure is visible and editors can
   // see what's still to populate.
-  const SKIP = new Set(['name', 'country', 'image', 'status', 'desc_en', 'desc_no', 'published', 'short_status_label']);
+  const SKIP = new Set(['name', 'country', 'image', 'status', 'desc_en', 'desc_no', 'published', 'short_status_label', 'public_status_label']);
   const publicFields = schema.fields.filter(f => f.public && !SKIP.has(f.key));
   const groupOrder = schema.groups.filter(g => !g.internalOnly).map(g => g.key);
   const byGroup = {};

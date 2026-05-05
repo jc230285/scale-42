@@ -213,14 +213,10 @@
   <div class="dc-map-wrap">
     <div id="dc-map" class="dc-map" aria-label="Map of Scale42 Nordic data centre sites"></div>
     <div class="dc-map-legend">
-      <strong>Pipeline status</strong>
-      <div class="row"><span class="dot sold" style="background:#33752f"></span> Sold</div>
-      <div class="row"><span class="dot" style="background:#2f6675"></span> GIGA-42 priority</div>
-      <div class="row"><span class="dot" style="background:#2e7d32"></span> Development focus</div>
-      <div class="row"><span class="dot" style="background:#b9923a"></span> Partner-led</div>
-      <div class="row"><span class="dot" style="background:#5b6e7d"></span> Later stage</div>
-      <div class="row"><span class="dot" style="background:#7e57c2"></span> Under review</div>
-      <div class="row"><span class="dot" style="background:#b3261e"></span> Deprioritised</div>
+      <strong>Status</strong>
+      <div class="row"><span class="dot live"></span> Operational / In development</div>
+      <div class="row"><span class="dot tbd"></span> Coming soon</div>
+      <div class="row"><span class="dot sold"></span> Sold</div>
     </div>
   </div>
 </section>
@@ -241,13 +237,14 @@
 
     <div class="dc-grid"><!--cms:dc_cards-->
 
-      <article class="dc-card" id="glomfjord" data-country="norway" data-strat="sold"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Glomfjord</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="glomfjord" data-country="norway" data-strat="sold">
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status sold">Sold</span>
           <img src="../assets/sites/glomfjord.webp" alt="Glomfjord" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Glomfjord</h3>
           <p class="desc">Hydropower-rich coastal site, 12.5 MW modules to 50 MW+ campus.</p>
           <dl class="dc-stats">
@@ -259,13 +256,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="bakki" data-country="iceland" data-strat="giga-42-responsibility"><p class="loc loc-top">Iceland</p><h3 class="dc-name-top">Bakki</h3><p class="loc">Iceland</p>
+      <article class="dc-card" id="bakki" data-country="iceland" data-strat="giga-42-responsibility">
         <div class="img">
           <span class="country-flag">Iceland</span>
-          <span class="status live">JV announced</span>
+          <span class="status live">In development</span>
           <img src="../assets/sites/bakki.jpg" alt="Bakki" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Iceland</p>
           <h3>Bakki</h3>
           <p class="desc">Geothermal baseload, 50 MW initial 2027, scaling to 200 MW.</p>
           <dl class="dc-stats">
@@ -277,13 +275,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="skibotn" data-country="norway" data-strat="giga-42-responsibility"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Skibotn</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="skibotn" data-country="norway" data-strat="giga-42-responsibility">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status live">Power-secured</span>
+          <span class="status live">In development</span>
           <img src="/assets/sites/5fad338e-f35f-4884-aa6b-9b15209464e2.jpg" alt="Skibotn" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Skibotn</h3>
           <p class="desc">Sub-Arctic Norwegian site with hydropower headroom and free-air cooling at 69° N.</p>
           <dl class="dc-stats">
@@ -295,13 +294,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="reykjavik" data-country="iceland" data-strat="giga-42-responsibility"><p class="loc loc-top">Iceland</p><h3 class="dc-name-top">Reykjavík</h3><p class="loc">Iceland</p>
+      <article class="dc-card" id="reykjavik" data-country="iceland" data-strat="giga-42-responsibility">
         <div class="img">
           <span class="country-flag">Iceland</span>
-          <span class="status live">Permitting</span>
+          <span class="status live">In development</span>
           <img src="../assets/sites/reykjavik.svg" alt="Reykjavík" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Iceland</p>
           <h3>Reykjavík</h3>
           <p class="desc">Greater Reykjavík capacity adjacent to existing fibre — low-latency to North America.</p>
           <dl class="dc-stats">
@@ -313,13 +313,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kristinestad" data-country="finland" data-strat="development-focus"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Kristinestad</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="kristinestad" data-country="finland" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status live">Power-secured</span>
+          <span class="status live">In development</span>
           <img src="../assets/sites/kristinestad.svg" alt="Kristinestad" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Kristinestad</h3>
           <p class="desc">Coastal Finnish site at the wind-power heartland with deep grid capacity.</p>
           <dl class="dc-stats">
@@ -331,13 +332,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nivala" data-country="finland" data-strat="development-focus"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Nivala</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="nivala" data-country="finland" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status live">Permitting</span>
+          <span class="status live">In development</span>
           <img src="../assets/sites/nivala.svg" alt="Nivala" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Nivala</h3>
           <p class="desc">North Ostrobothnia site with strong onshore wind and existing 110 kV connection.</p>
           <dl class="dc-stats">
@@ -349,13 +351,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="jokkmokk" data-country="sweden" data-strat="development-focus"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Jokkmokk</h3><p class="loc">Sweden</p>
+      <article class="dc-card" id="jokkmokk" data-country="sweden" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Sweden</span>
-          <span class="status live">Power-secured</span>
+          <span class="status live">In development</span>
           <img src="../assets/sites/jokkmokk.svg" alt="Jokkmokk" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Sweden</p>
           <h3>Jokkmokk</h3>
           <p class="desc">Lapland hydropower belt — co-located with Sweden's largest hydropower production region.</p>
           <dl class="dc-stats">
@@ -367,13 +370,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kronoby" data-country="finland" data-strat="development-focus"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Kronoby</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="kronoby" data-country="finland" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status live">Permitting</span>
+          <span class="status live">In development</span>
           <img src="../assets/sites/kronoby.svg" alt="Kronoby" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Kronoby</h3>
           <p class="desc">Bilingual coastal Finnish site with wind and hydro complementary supply.</p>
           <dl class="dc-stats">
@@ -385,13 +389,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="torsboda" data-country="sweden" data-strat="development-focus"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Torsboda</h3><p class="loc">Sweden</p>
+      <article class="dc-card" id="torsboda" data-country="sweden" data-strat="development-focus">
         <div class="img">
           <span class="country-flag">Sweden</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/torsboda.svg" alt="Torsboda" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Sweden</p>
           <h3>Torsboda</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -403,13 +408,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="liperi" data-country="finland" data-strat="going-to-3rd-party"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Liperi</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="liperi" data-country="finland" data-strat="going-to-3rd-party">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/liperi.svg" alt="Liperi" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Liperi</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -421,13 +427,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kitee" data-country="finland" data-strat="going-to-3rd-party"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Kitee</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="kitee" data-country="finland" data-strat="going-to-3rd-party">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/kitee.svg" alt="Kitee" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Kitee</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -439,13 +446,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sorfold" data-country="norway" data-strat="going-to-3rd-party"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Sørfold</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="sorfold" data-country="norway" data-strat="going-to-3rd-party">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/sorfold.svg" alt="Sørfold" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Sørfold</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -457,13 +465,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="alajarvi" data-country="finland" data-strat="later-stage-project"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Alajärvi</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="alajarvi" data-country="finland" data-strat="later-stage-project">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/alajarvi.svg" alt="Alajärvi" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Alajärvi</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -475,13 +484,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="robertsfors" data-country="sweden" data-strat="later-stage-project"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Robertsfors</h3><p class="loc">Sweden</p>
+      <article class="dc-card" id="robertsfors" data-country="sweden" data-strat="later-stage-project">
         <div class="img">
           <span class="country-flag">Sweden</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/robertsfors.svg" alt="Robertsfors" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Sweden</p>
           <h3>Robertsfors</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -493,13 +503,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nuuk" data-country="greenland" data-strat="later-stage-project"><p class="loc loc-top">Greenland</p><h3 class="dc-name-top">Nuuk</h3><p class="loc">Greenland</p>
+      <article class="dc-card" id="nuuk" data-country="greenland" data-strat="later-stage-project">
         <div class="img">
           <span class="country-flag">Greenland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/nuuk.svg" alt="Nuuk" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Greenland</p>
           <h3>Nuuk</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -511,13 +522,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tjeldbergodden" data-country="norway" data-strat="who-the-fuck-knows"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Tjeldbergodden</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="tjeldbergodden" data-country="norway" data-strat="who-the-fuck-knows">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/tjeldbergodden.svg" alt="Tjeldbergodden" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Tjeldbergodden</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -529,13 +541,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="honningsvag" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Honningsvåg</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="honningsvag" data-country="norway" data-strat="bin-the-project">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/honningsvag.svg" alt="Honningsvåg" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Honningsvåg</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -547,13 +560,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kemi" data-country="finland" data-strat="bin-the-project"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Kemi</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="kemi" data-country="finland" data-strat="bin-the-project">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/kemi.svg" alt="Kemi" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Kemi</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -565,13 +579,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="mikkeli" data-country="finland" data-strat="bin-the-project"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Mikkeli</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="mikkeli" data-country="finland" data-strat="bin-the-project">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/mikkeli.svg" alt="Mikkeli" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Mikkeli</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -583,13 +598,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="boden" data-country="sweden" data-strat="bin-the-project"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Boden</h3><p class="loc">Sweden</p>
+      <article class="dc-card" id="boden" data-country="sweden" data-strat="bin-the-project">
         <div class="img">
           <span class="country-flag">Sweden</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/boden.svg" alt="Boden" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Sweden</p>
           <h3>Boden</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -601,13 +617,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="hadsel" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Hadsel</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="hadsel" data-country="norway" data-strat="bin-the-project">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/hadsel.svg" alt="Hadsel" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Hadsel</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -619,13 +636,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sortland" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Sortland</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="sortland" data-country="norway" data-strat="bin-the-project">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/sortland.svg" alt="Sortland" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Sortland</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -637,13 +655,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="salsbruket" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Salsbruket</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="salsbruket" data-country="norway" data-strat="bin-the-project">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/salsbruket.svg" alt="Salsbruket" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Salsbruket</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -655,13 +674,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="rovaniemi" data-country="finland" data-strat="bin-the-project"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Rovaniemi</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="rovaniemi" data-country="finland" data-strat="bin-the-project">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/rovaniemi.svg" alt="Rovaniemi" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Rovaniemi</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -673,13 +693,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="varkaus" data-country="finland"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Varkaus</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="varkaus" data-country="finland">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status live">Permitting</span>
+          <span class="status live">In development</span>
           <img src="../assets/sites/varkaus.jpg" alt="Varkaus" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Varkaus</h3>
           <p class="desc">Industrial-ready Finnish site with strong municipal backing.</p>
           <dl class="dc-stats">
@@ -691,13 +712,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="bo" data-country="norway"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Bo</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="bo" data-country="norway">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/bo.svg" alt="Bo" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Bo</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -709,13 +731,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kontiolahti" data-country="finland"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Kontiolahti</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="kontiolahti" data-country="finland">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/kontiolahti.svg" alt="Kontiolahti" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Kontiolahti</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -727,13 +750,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="keminmaa" data-country="finland"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Keminmaa</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="keminmaa" data-country="finland">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/keminmaa.svg" alt="Keminmaa" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Keminmaa</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -745,13 +769,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tornio" data-country="finland"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Tornio</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="tornio" data-country="finland">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/tornio.svg" alt="Tornio" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Tornio</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -763,13 +788,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="oulu" data-country="finland"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Oulu</h3><p class="loc">Finland</p>
+      <article class="dc-card" id="oulu" data-country="finland">
         <div class="img">
           <span class="country-flag">Finland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/oulu.svg" alt="Oulu" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Finland</p>
           <h3>Oulu</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -781,13 +807,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="skelleftea" data-country="sweden"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Skelleftea</h3><p class="loc">Sweden</p>
+      <article class="dc-card" id="skelleftea" data-country="sweden">
         <div class="img">
           <span class="country-flag">Sweden</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/skelleftea.svg" alt="Skelleftea" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Sweden</p>
           <h3>Skelleftea</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -799,13 +826,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="utansjo" data-country="sweden"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Utansjö</h3><p class="loc">Sweden</p>
+      <article class="dc-card" id="utansjo" data-country="sweden">
         <div class="img">
           <span class="country-flag">Sweden</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/utansjo.svg" alt="Utansjö" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Sweden</p>
           <h3>Utansjö</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -817,13 +845,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kalix" data-country="sweden"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Kalix</h3><p class="loc">Sweden</p>
+      <article class="dc-card" id="kalix" data-country="sweden">
         <div class="img">
           <span class="country-flag">Sweden</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/kalix.svg" alt="Kalix" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Sweden</p>
           <h3>Kalix</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -835,13 +864,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="reydarfjordur" data-country="iceland"><p class="loc loc-top">Iceland</p><h3 class="dc-name-top">Reyðarfjörður</h3><p class="loc">Iceland</p>
+      <article class="dc-card" id="reydarfjordur" data-country="iceland">
         <div class="img">
           <span class="country-flag">Iceland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/reydarfjordur.svg" alt="Reyðarfjörður" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Iceland</p>
           <h3>Reyðarfjörður</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -853,13 +883,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="akureyri" data-country="iceland"><p class="loc loc-top">Iceland</p><h3 class="dc-name-top">Akureyri</h3><p class="loc">Iceland</p>
+      <article class="dc-card" id="akureyri" data-country="iceland">
         <div class="img">
           <span class="country-flag">Iceland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/akureyri.svg" alt="Akureyri" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Iceland</p>
           <h3>Akureyri</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -871,13 +902,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="valaiscanton" data-country="switzerland"><p class="loc loc-top">Switzerland</p><h3 class="dc-name-top">Valais Canton</h3><p class="loc">Switzerland</p>
+      <article class="dc-card" id="valaiscanton" data-country="switzerland">
         <div class="img">
           <span class="country-flag">Switzerland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/valaiscanton.svg" alt="Valais Canton" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Switzerland</p>
           <h3>Valais Canton</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -889,13 +921,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tbcnorthernengland" data-country="uk"><p class="loc loc-top">UK</p><h3 class="dc-name-top">TBC (Northern England)</h3><p class="loc">UK</p>
+      <article class="dc-card" id="tbcnorthernengland" data-country="uk">
         <div class="img">
           <span class="country-flag">UK</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/tbcnorthernengland.svg" alt="TBC (Northern England)" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">UK</p>
           <h3>TBC (Northern England)</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -907,13 +940,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="icelandrunofriver" data-country="iceland"><p class="loc loc-top">Iceland</p><h3 class="dc-name-top">Iceland Run of River</h3><p class="loc">Iceland</p>
+      <article class="dc-card" id="icelandrunofriver" data-country="iceland">
         <div class="img">
           <span class="country-flag">Iceland</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/icelandrunofriver.svg" alt="Iceland Run of River" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Iceland</p>
           <h3>Iceland Run of River</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -925,13 +959,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="moiranamoindustrialpark" data-country="norway"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Mo I Rana, Mo Industrial Park</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="moiranamoindustrialpark" data-country="norway">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/moiranamoindustrialpark.svg" alt="Mo I Rana, Mo Industrial Park" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Mo I Rana, Mo Industrial Park</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -943,13 +978,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="andoya" data-country="norway"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Andøya</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="andoya" data-country="norway">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/andoya.svg" alt="Andøya" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Andøya</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -961,13 +997,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sognlustersognekraftsognutvikling" data-country="norway"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Sogn (Luster, Sognekraft Sogn Utvikling)</h3><p class="loc">Norway</p>
+      <article class="dc-card" id="sognlustersognekraftsognutvikling" data-country="norway">
         <div class="img">
           <span class="country-flag">Norway</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/sognlustersognekraftsognutvikling.svg" alt="Sogn (Luster, Sognekraft Sogn Utvikling)" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Norway</p>
           <h3>Sogn (Luster, Sognekraft Sogn Utvikling)</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -979,13 +1016,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="ostersundspikboderna" data-country="sweden"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Östersund (Spikboderna)</h3><p class="loc">Sweden</p>
+      <article class="dc-card" id="ostersundspikboderna" data-country="sweden">
         <div class="img">
           <span class="country-flag">Sweden</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/ostersundspikboderna.svg" alt="Östersund (Spikboderna)" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Sweden</p>
           <h3>Östersund (Spikboderna)</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -997,13 +1035,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="morsil" data-country="sweden"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Mörsil</h3><p class="loc">Sweden</p>
+      <article class="dc-card" id="morsil" data-country="sweden">
         <div class="img">
           <span class="country-flag">Sweden</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/morsil.svg" alt="Mörsil" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Sweden</p>
           <h3>Mörsil</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -1015,13 +1054,14 @@
         </div>
       </article>
 
-      <article class="dc-card" id="milan" data-country="italy"><p class="loc loc-top">Italy</p><h3 class="dc-name-top">Milan</h3><p class="loc">Italy</p>
+      <article class="dc-card" id="milan" data-country="italy">
         <div class="img">
           <span class="country-flag">Italy</span>
-          <span class="status tbd">In planning</span>
+          <span class="status tbd">Coming soon</span>
           <img src="../assets/sites/milan.svg" alt="Milan" loading="lazy" />
         </div>
         <div class="body">
+          <p class="loc">Italy</p>
           <h3>Milan</h3>
           <p class="desc"></p>
           <dl class="dc-stats">
@@ -1142,7 +1182,7 @@
   sites.forEach(s => {
     const icon = L.divIcon({
       className: '', iconSize: [28, 28], iconAnchor: [14, 14],
-      html: `<div class="dc-pin ${s.status === 'sold' ? 'sold' : (({ 'GIGA-42 Responsibility':'strat-giga','Development focus':'strat-dev','Going to 3rd party':'strat-3p','Later stage project':'strat-later','Bin the project':'strat-bin','Who the fuck knows':'strat-review' })[s.strat] || (s.status === 'tbd' ? 'tbd' : ''))}" title="${s.name}"></div>`
+      html: `<div class="dc-pin ${s.status === 'sold' ? 'sold' : (s.status === 'tbd' ? 'tbd' : '')}" title="${s.name}"></div>`
     });
     const popup = `
       <h4>${s.name}</h4>

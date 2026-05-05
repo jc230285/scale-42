@@ -92,7 +92,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "extra_data": ""
+      "extra_data": "",
+      "public_status_label": "Sold"
     },
     {
       "id": "bakki",
@@ -186,7 +187,8 @@
       "dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "public_status_label": "In development"
     },
     {
       "id": "skibotn",
@@ -278,7 +280,8 @@
       "dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "public_status_label": "In development"
     },
     {
       "id": "reykjavik",
@@ -372,7 +375,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "extra_data": ""
+      "extra_data": "",
+      "public_status_label": "In development"
     },
     {
       "id": "kristinestad",
@@ -462,7 +466,8 @@
       "dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "public_status_label": "In development"
     },
     {
       "id": "nivala",
@@ -553,7 +558,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "extra_data": ""
+      "extra_data": "",
+      "public_status_label": "In development"
     },
     {
       "id": "jokkmokk",
@@ -646,7 +652,8 @@
       "key_risks_dependencies": "",
       "site_rationale": "",
       "strategy_notes": "",
-      "internal_comments": ""
+      "internal_comments": "",
+      "public_status_label": "In development"
     },
     {
       "id": "kronoby",
@@ -736,7 +743,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "extra_data": ""
+      "extra_data": "",
+      "public_status_label": "In development"
     },
     {
       "id": "torsboda",
@@ -828,7 +836,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "extra_data": "",
-      "image": "torsboda.svg"
+      "image": "torsboda.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "liperi",
@@ -919,7 +928,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "liperi.svg"
+      "image": "liperi.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "kitee",
@@ -1010,7 +1020,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "kitee.svg"
+      "image": "kitee.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "sorfold",
@@ -1103,7 +1114,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "sorfold.svg"
+      "image": "sorfold.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "alajarvi",
@@ -1194,7 +1206,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "extra_data": "",
-      "image": "alajarvi.svg"
+      "image": "alajarvi.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "robertsfors",
@@ -1285,7 +1298,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "extra_data": "",
-      "image": "robertsfors.svg"
+      "image": "robertsfors.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "nuuk",
@@ -1375,7 +1389,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "extra_data": "",
-      "image": "nuuk.svg"
+      "image": "nuuk.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "tjeldbergodden",
@@ -1468,7 +1483,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "extra_data": "",
-      "image": "tjeldbergodden.svg"
+      "image": "tjeldbergodden.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "honningsvag",
@@ -1559,7 +1575,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "honningsvag.svg"
+      "image": "honningsvag.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "kemi",
@@ -1651,7 +1668,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "kemi.svg"
+      "image": "kemi.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "mikkeli",
@@ -1742,7 +1760,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "mikkeli.svg"
+      "image": "mikkeli.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "boden",
@@ -1834,7 +1853,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "extra_data": "",
-      "image": "boden.svg"
+      "image": "boden.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "hadsel",
@@ -1925,7 +1945,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "hadsel.svg"
+      "image": "hadsel.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "sortland",
@@ -2016,7 +2037,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "sortland.svg"
+      "image": "sortland.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "salsbruket",
@@ -2107,7 +2129,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "salsbruket.svg"
+      "image": "salsbruket.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "rovaniemi",
@@ -2198,7 +2221,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "rovaniemi.svg"
+      "image": "rovaniemi.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "varkaus",
@@ -2286,7 +2310,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "project_description": ""
+      "project_description": "",
+      "public_status_label": "In development"
     },
     {
       "id": "bo",
@@ -2374,7 +2399,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "bo.svg"
+      "image": "bo.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "kontiolahti",
@@ -2462,7 +2488,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "kontiolahti.svg"
+      "image": "kontiolahti.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "keminmaa",
@@ -2550,7 +2577,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "keminmaa.svg"
+      "image": "keminmaa.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "tornio",
@@ -2638,7 +2666,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "tornio.svg"
+      "image": "tornio.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "oulu",
@@ -2726,7 +2755,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "oulu.svg"
+      "image": "oulu.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "skelleftea",
@@ -2814,7 +2844,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "skelleftea.svg"
+      "image": "skelleftea.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "utansjo",
@@ -2902,7 +2933,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "utansjo.svg"
+      "image": "utansjo.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "kalix",
@@ -2990,7 +3022,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "kalix.svg"
+      "image": "kalix.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "reydarfjordur",
@@ -3078,7 +3111,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "reydarfjordur.svg"
+      "image": "reydarfjordur.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "akureyri",
@@ -3166,7 +3200,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "akureyri.svg"
+      "image": "akureyri.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "valaiscanton",
@@ -3254,7 +3289,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "valaiscanton.svg"
+      "image": "valaiscanton.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "tbcnorthernengland",
@@ -3342,7 +3378,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "tbcnorthernengland.svg"
+      "image": "tbcnorthernengland.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "icelandrunofriver",
@@ -3430,7 +3467,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "icelandrunofriver.svg"
+      "image": "icelandrunofriver.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "moiranamoindustrialpark",
@@ -3518,7 +3556,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "moiranamoindustrialpark.svg"
+      "image": "moiranamoindustrialpark.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "andoya",
@@ -3606,7 +3645,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "andoya.svg"
+      "image": "andoya.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "sognlustersognekraftsognutvikling",
@@ -3694,7 +3734,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "sognlustersognekraftsognutvikling.svg"
+      "image": "sognlustersognekraftsognutvikling.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "ostersundspikboderna",
@@ -3782,7 +3823,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "ostersundspikboderna.svg"
+      "image": "ostersundspikboderna.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "morsil",
@@ -3870,7 +3912,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "morsil.svg"
+      "image": "morsil.svg",
+      "public_status_label": "Coming soon"
     },
     {
       "id": "milan",
@@ -3958,7 +4001,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "image": "milan.svg"
+      "image": "milan.svg",
+      "public_status_label": "Coming soon"
     }
   ]
 }
