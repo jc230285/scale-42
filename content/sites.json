@@ -265,7 +265,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "m1ypqw61"
+      "url_token": "m1ypqw61",
+      "developers": []
     },
     {
       "id": "bakki",
@@ -533,7 +534,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "lxjuczc3"
+      "url_token": "lxjuczc3",
+      "developers": []
     },
     {
       "id": "skibotn",
@@ -798,7 +800,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "6xz9kqw5"
+      "url_token": "6xz9kqw5",
+      "developers": []
     },
     {
       "id": "reykjavik",
@@ -1066,7 +1069,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "ieg70x00"
+      "url_token": "ieg70x00",
+      "developers": []
     },
     {
       "id": "kristinestad",
@@ -1329,7 +1333,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "ujpucb0c"
+      "url_token": "ujpucb0c",
+      "developers": []
     },
     {
       "id": "jokkmokk",
@@ -1595,7 +1600,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "mndmdlk3"
+      "url_token": "mndmdlk3",
+      "developers": []
     },
     {
       "id": "liperi",
@@ -1859,7 +1865,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "7u32bym4"
+      "url_token": "7u32bym4",
+      "developers": []
     },
     {
       "id": "kitee",
@@ -2124,7 +2131,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "uw3yqvc4"
+      "url_token": "uw3yqvc4",
+      "developers": []
     },
     {
       "id": "sorfold",
@@ -2390,7 +2398,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "0j5hdxoa"
+      "url_token": "0j5hdxoa",
+      "developers": []
     },
     {
       "id": "torsboda",
@@ -2655,7 +2664,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "vssrnom0"
+      "url_token": "vssrnom0",
+      "developers": []
     },
     {
       "id": "nivala",
@@ -2919,7 +2929,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "lhh9msy4"
+      "url_token": "lhh9msy4",
+      "developers": []
     },
     {
       "id": "kronoby",
@@ -3182,7 +3193,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "ruo2k2g8"
+      "url_token": "ruo2k2g8",
+      "developers": []
     },
     {
       "id": "alajarvi",
@@ -3446,7 +3458,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "av3im5od"
+      "url_token": "av3im5od",
+      "developers": []
     },
     {
       "id": "robertsfors",
@@ -3710,7 +3723,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "acyuki06"
+      "url_token": "acyuki06",
+      "developers": []
     },
     {
       "id": "nuuk",
@@ -3974,7 +3988,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "lv9ge3w8"
+      "url_token": "lv9ge3w8",
+      "developers": []
     },
     {
       "id": "tjeldbergodden",
@@ -4240,7 +4255,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "5iufahy3"
+      "url_token": "5iufahy3",
+      "developers": []
     },
     {
       "id": "honningsvag",
@@ -4249,7 +4265,7 @@
       "site_type": "greenfield",
       "internal_status": "Watch list",
       "internal_category": "Speculative",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "lat": 70.9821,
       "lng": 25.9704,
@@ -4505,7 +4521,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "u40glxe0"
+      "url_token": "u40glxe0",
+      "developers": []
     },
     {
       "id": "kemi",
@@ -4771,7 +4788,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "tzqbelob"
+      "url_token": "tzqbelob",
+      "developers": []
     },
     {
       "id": "mikkeli",
@@ -5036,7 +5054,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "tlqpsl84"
+      "url_token": "tlqpsl84",
+      "developers": []
     },
     {
       "id": "boden",
@@ -5302,7 +5321,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "3shjqiy0"
+      "url_token": "3shjqiy0",
+      "developers": []
     },
     {
       "id": "hadsel",
@@ -5567,7 +5587,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "kkcg0ac5"
+      "url_token": "kkcg0ac5",
+      "developers": []
     },
     {
       "id": "sortland",
@@ -5832,7 +5853,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "vei5gpm2"
+      "url_token": "vei5gpm2",
+      "developers": []
     },
     {
       "id": "salsbruket",
@@ -6096,7 +6118,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "cpxf6v80"
+      "url_token": "cpxf6v80",
+      "developers": []
     },
     {
       "id": "rovaniemi",
@@ -6361,7 +6384,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "ce0uxjya"
+      "url_token": "ce0uxjya",
+      "developers": []
     },
     {
       "id": "varkaus",
@@ -6622,7 +6646,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "rotme8wf"
+      "url_token": "rotme8wf",
+      "developers": []
     },
     {
       "id": "bo",
@@ -6884,7 +6909,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "h2jckju9"
+      "url_token": "h2jckju9",
+      "developers": []
     },
     {
       "id": "kontiolahti",
@@ -7145,7 +7171,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "4xvql18e"
+      "url_token": "4xvql18e",
+      "developers": []
     },
     {
       "id": "keminmaa",
@@ -7406,7 +7433,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "yjw0arc5"
+      "url_token": "yjw0arc5",
+      "developers": []
     },
     {
       "id": "tornio",
@@ -7668,7 +7696,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "tup9nec7"
+      "url_token": "tup9nec7",
+      "developers": []
     },
     {
       "id": "oulu",
@@ -7930,7 +7959,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "9k41dtcf"
+      "url_token": "9k41dtcf",
+      "developers": []
     },
     {
       "id": "skelleftea",
@@ -8192,7 +8222,8 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "703hspe6"
+      "url_token": "703hspe6",
+      "developers": []
     }
   ]
 }
