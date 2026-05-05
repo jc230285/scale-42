@@ -12,3 +12,4 @@
 {"ts":"2026-05-05T07:53:29.944Z","user":"james@scale-42.com","user_name":"James Collins","section":"sections","action":"publish","changes":[]}
 {"ts":"2026-05-05T07:53:38.679Z","user":"james@scale-42.com","user_name":"James Collins","section":"sections","action":"save","changes":[{"entity":"sections:en","path":"hero_title","before":"Building large-scale AI data centres across the Nordics.","after":"Delivering large-scale AI data centre capacity across the Nordics\n"}]}
 {"ts":"2026-05-05T07:54:23.649Z","user":"james@scale-42.com","user_name":"James Collins","section":"sections","action":"save","changes":[{"entity":"sections:no","path":"hero_title","before":"Bygger storskala KI-datasentre i Norden.","after":"Levering av storskala AI datasenterkapasitet i Norden"}]}
+{"ts":"2026-05-05T07:54:30.706Z","user":"james@scale-42.com","user_name":"James Collins","section":"sections","action":"publish","changes":[]}
