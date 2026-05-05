@@ -3,7 +3,19 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>GIGA-42 — Scale42</title>
+<title>Partnere — Scale42</title>
+<style>
+  .partners-hero { padding: 110px 0 30px; }
+  .partners-hero h1 { font-family: var(--font-display); font-size: clamp(40px, 5.4vw, 60px); letter-spacing: -0.02em; line-height: 1.05; margin: 12px 0 14px; font-weight: 600; }
+  .partners-hero p.lede { font-size: 18px; color: var(--ink-2); max-width: 720px; margin: 0; }
+  .partners-list { padding: 30px 0 80px; display: grid; gap: 28px; }
+  .partner-card { display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: center; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+  .partner-logo { width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; background: #f4f6f8; border-radius: 8px; padding: 14px; }
+  .partner-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .partner-tagline { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -0.015em; line-height: 1.15; margin: 0 0 12px; font-weight: 600; }
+  .partner-desc { font-size: 16px; color: var(--ink-2); margin: 0 0 16px; max-width: 720px; line-height: 1.55; }
+  @media (max-width: 760px) { .partner-card { grid-template-columns: 1fr; gap: 18px; } }
+</style>
 <meta name="description" content="GIGA-42 er joint venture-en mellom Scale42 og Global Interconnection Group — en integrert energi- og digital infrastrukturplattform for Norden." />
 <meta name="theme-color" content="#1c2e3f" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
@@ -33,7 +45,7 @@
       <a href="/no/datacenters/">Datasentre</a>
       <a href="/no/solutions/">Løsninger</a>
       <a href="/no/sustainability/">Bærekraft</a>
-      <a href="/no/giga-42/" class="active">GIGA-42</a>
+      <a href="/no/giga-42/" class="active">Partnere</a>
       <a href="/no/team/">Team</a>
       <a href="/no/news/">Nyheter</a>
       <a href="/no/contact/" class="btn btn-sm">Kontakt</a>
@@ -46,13 +58,34 @@
   </div>
 </header>
 
-<section id="top" class="hero" style="padding:120px 0 60px;">
-  <div class="hero-bg" aria-hidden="true"></div>
+<section class="partners-hero">
   <div class="container">
-    <p class="eyebrow">GIGA-42</p>
-    <h1 style="font-family:var(--font-display);font-size:clamp(40px,5.5vw,64px);letter-spacing:-0.02em;line-height:1.05;margin:12px 0 18px;font-weight:600;">Kraft og compute, i felles selskap.</h1>
-    <p class="lede" style="font-size:18px;color:var(--ink-2);max-width:760px;margin:0 0 20px;">GIGA-42 er joint venture-en mellom <strong>Scale42</strong> og <strong>Global Interconnection Group (GIG)</strong> — som kobler Scale42 sin datasenterutvikling med GIG sine energirelasjoner og kapital. Én plattform, fra trafostasjonen til racket.</p>
-    <p style="margin:0;"><a href="https://giga-42.com/" class="btn btn-primary" target="_blank" rel="noopener">Besøk GIGA-42-hjemmesiden →</a></p>
+    <p class="eyebrow">Partnere</p>
+    <h1>De vi bygger sammen med.</h1>
+    <p class="lede">Joint ventures og driftspartnere på tvers av nordisk energi- og datainfrastruktur.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container partners-list">
+    <!--cms:partners-->
+    <article class="partner-card">
+      <div class="partner-logo"><img src="https://giga-42.com/assets/logo.png" alt="GIGA-42" loading="lazy" /></div>
+      <div class="partner-body">
+        <h2 class="partner-tagline">Power and compute, jointly venturing.</h2>
+        <p class="partner-desc">GIGA-42 is the joint venture between Scale42 and Global Interconnection Group (GIG) — pairing Scale42's data-centre development capability with GIG's energy-sector relationships and capital. One platform, from the substation to the rack.</p>
+        <p style="margin:0;"><a href="https://giga-42.com" class="btn btn-primary" target="_blank" rel="noopener">Visit GIGA-42 home →</a></p>
+      </div>
+    </article>
+    <article class="partner-card">
+      <div class="partner-logo"><img src="/assets/developers/norsk-datakraft.png" alt="Norsk Datakraft AS" loading="lazy" /></div>
+      <div class="partner-body">
+        <h2 class="partner-tagline">Norwegian data infrastructure operator.</h2>
+        <p class="partner-desc">Norsk Datakraft operates in data infrastructure, data processing, hosting, and related cloud services.</p>
+        
+      </div>
+    </article>
+    <!--/cms:partners-->
   </div>
 </section>
 
@@ -70,7 +103,7 @@
         <a href="/no/solutions/">Løsninger</a>
         <a href="/no/datacenters/">Datasentre</a>
         <a href="/no/sustainability/">Bærekraft</a>
-        <a href="/no/giga-42/">GIGA-42</a>
+        <a href="/no/giga-42/">Partnere</a>
       </div>
       <div class="footer-col">
         <h5>Selskap</h5>

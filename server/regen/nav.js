@@ -15,7 +15,7 @@ const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src
       <a href="/datacenters/"${active==='datacenters'?' class="active"':''}>Data centres</a>
       <a href="/solutions/"${active==='solutions'?' class="active"':''}>Solutions</a>
       <a href="/sustainability/"${active==='sustainability'?' class="active"':''}>Sustainability</a>
-      <a href="/giga-42/"${active==='giga42'?' class="active"':''}>GIGA-42</a>
+      <a href="/giga-42/"${active==='giga42'?' class="active"':''}>Partners</a>
       <a href="/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/news/"${active==='news'?' class="active"':''}>News</a>
       <a href="/contact/"${active==='contact'?' class="btn btn-sm active"':' class="btn btn-sm"'}>Contact</a>
@@ -32,7 +32,7 @@ const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img 
       <a href="/no/datacenters/"${active==='datacenters'?' class="active"':''}>Datasentre</a>
       <a href="/no/solutions/"${active==='solutions'?' class="active"':''}>Løsninger</a>
       <a href="/no/sustainability/"${active==='sustainability'?' class="active"':''}>Bærekraft</a>
-      <a href="/no/giga-42/"${active==='giga42'?' class="active"':''}>GIGA-42</a>
+      <a href="/no/giga-42/"${active==='giga42'?' class="active"':''}>Partnere</a>
       <a href="/no/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/no/news/"${active==='news'?' class="active"':''}>Nyheter</a>
       <a href="/no/contact/"${active==='contact'?' class="btn btn-sm active"':' class="btn btn-sm"'}>Kontakt</a>

@@ -4,7 +4,21 @@
       "id": "giga-42",
       "name": "GIGA-42",
       "logo": "https://giga-42.com/assets/logo.png",
-      "url": "https://giga-42.com"
+      "url": "https://giga-42.com",
+      "tagline": "Power and compute, jointly venturing.",
+      "description": "GIGA-42 is the joint venture between Scale42 and Global Interconnection Group (GIG) — pairing Scale42's data-centre development capability with GIG's energy-sector relationships and capital. One platform, from the substation to the rack.",
+      "cta": "Visit GIGA-42 home →",
+      "order": 1
+    },
+    {
+      "id": "norsk-datakraft",
+      "name": "Norsk Datakraft AS",
+      "logo": "/assets/developers/norsk-datakraft.png",
+      "url": "",
+      "tagline": "Norwegian data infrastructure operator.",
+      "description": "Norsk Datakraft operates in data infrastructure, data processing, hosting, and related cloud services.",
+      "cta": "",
+      "order": 2
     }
   ]
 }

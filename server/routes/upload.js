@@ -6,7 +6,7 @@ const { commitFiles, BRANCH, PUBLIC_BRANCH } = require('../github');
 const router = express.Router();
 const ROOT = path.resolve(__dirname, '..', '..');
 
-const ALLOWED_FOLDERS = new Set(['team', 'sites', 'news', 'journey']);
+const ALLOWED_FOLDERS = new Set(['team', 'sites', 'news', 'journey', 'developers']);
 const ALLOWED_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif', '.svg']);
 const MAX_BYTES = 8 * 1024 * 1024;
 
