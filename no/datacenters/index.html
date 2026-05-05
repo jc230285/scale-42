@@ -93,7 +93,10 @@
   .dc-card h3 { font-family: var(--font-display); font-size: 22px; margin: 0; font-weight: 600; color: #fff; }
   .dc-card p.desc { font-size: 13.5px; color: rgba(255,255,255,0.88); margin: 0; }
   .dc-card .dc-link { display: none; }
-  .dc-card-link { display: none; }
+  .dc-card-link { position: absolute; inset: 0; z-index: 4; text-indent: -9999px; overflow: hidden; }
+  .dc-card .dc-name-top { position: absolute; top: 14px; left: 18px; z-index: 3; margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,0.55); }
+  .dc-card > .loc.loc-top { top: 44px; font-weight: 600; }
+  .dc-card .body h3 { display: none; }
 
   .dc-stats {
     display: grid; grid-template-columns: repeat(3, 1fr);
@@ -230,7 +233,7 @@
 
     <div class="dc-grid"><!--cms:dc_cards-->
 
-      <article class="dc-card" id="glomfjord" data-country="norway" data-strat="sold"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="glomfjord" data-country="norway" data-strat="sold"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Glomfjord</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status sold">Sold</span>
@@ -248,7 +251,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="bakki" data-country="iceland" data-strat="giga-42-responsibility"><p class="loc loc-top">Iceland</p><p class="loc">Iceland</p>
+      <article class="dc-card" id="bakki" data-country="iceland" data-strat="giga-42-responsibility"><p class="loc loc-top">Iceland</p><h3 class="dc-name-top">Bakki</h3><p class="loc">Iceland</p>
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status live">JV announced</span>
@@ -266,7 +269,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="skibotn" data-country="norway" data-strat="giga-42-responsibility"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="skibotn" data-country="norway" data-strat="giga-42-responsibility"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Skibotn</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status live">Power-secured</span>
@@ -284,7 +287,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="reykjavik" data-country="iceland" data-strat="giga-42-responsibility"><p class="loc loc-top">Iceland</p><p class="loc">Iceland</p>
+      <article class="dc-card" id="reykjavik" data-country="iceland" data-strat="giga-42-responsibility"><p class="loc loc-top">Iceland</p><h3 class="dc-name-top">Reykjavík</h3><p class="loc">Iceland</p>
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status live">Permitting</span>
@@ -302,7 +305,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kristinestad" data-country="finland" data-strat="development-focus"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="kristinestad" data-country="finland" data-strat="development-focus"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Kristinestad</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Power-secured</span>
@@ -320,7 +323,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nivala" data-country="finland" data-strat="development-focus"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="nivala" data-country="finland" data-strat="development-focus"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Nivala</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -338,7 +341,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="jokkmokk" data-country="sweden" data-strat="development-focus"><p class="loc loc-top">Sweden</p><p class="loc">Sweden</p>
+      <article class="dc-card" id="jokkmokk" data-country="sweden" data-strat="development-focus"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Jokkmokk</h3><p class="loc">Sweden</p>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status live">Power-secured</span>
@@ -356,7 +359,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kronoby" data-country="finland" data-strat="development-focus"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="kronoby" data-country="finland" data-strat="development-focus"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Kronoby</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -374,7 +377,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="torsboda" data-country="sweden" data-strat="development-focus"><p class="loc loc-top">Sweden</p><p class="loc">Sweden</p>
+      <article class="dc-card" id="torsboda" data-country="sweden" data-strat="development-focus"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Torsboda</h3><p class="loc">Sweden</p>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -392,7 +395,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="liperi" data-country="finland" data-strat="going-to-3rd-party"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="liperi" data-country="finland" data-strat="going-to-3rd-party"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Liperi</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -410,7 +413,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kitee" data-country="finland" data-strat="going-to-3rd-party"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="kitee" data-country="finland" data-strat="going-to-3rd-party"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Kitee</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -428,7 +431,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sorfold" data-country="norway" data-strat="going-to-3rd-party"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="sorfold" data-country="norway" data-strat="going-to-3rd-party"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Sørfold</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -446,7 +449,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="alajarvi" data-country="finland" data-strat="later-stage-project"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="alajarvi" data-country="finland" data-strat="later-stage-project"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Alajärvi</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -464,7 +467,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="robertsfors" data-country="sweden" data-strat="later-stage-project"><p class="loc loc-top">Sweden</p><p class="loc">Sweden</p>
+      <article class="dc-card" id="robertsfors" data-country="sweden" data-strat="later-stage-project"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Robertsfors</h3><p class="loc">Sweden</p>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -482,7 +485,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="nuuk" data-country="greenland" data-strat="later-stage-project"><p class="loc loc-top">Greenland</p><p class="loc">Greenland</p>
+      <article class="dc-card" id="nuuk" data-country="greenland" data-strat="later-stage-project"><p class="loc loc-top">Greenland</p><h3 class="dc-name-top">Nuuk</h3><p class="loc">Greenland</p>
         <div class="img">
           <span class="country-flag">Greenland</span>
           <span class="status tbd">I planlegging</span>
@@ -500,7 +503,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tjeldbergodden" data-country="norway" data-strat="who-the-fuck-knows"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="tjeldbergodden" data-country="norway" data-strat="who-the-fuck-knows"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Tjeldbergodden</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -518,7 +521,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="honningsvag" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="honningsvag" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Honningsvåg</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -536,7 +539,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kemi" data-country="finland" data-strat="bin-the-project"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="kemi" data-country="finland" data-strat="bin-the-project"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Kemi</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -554,7 +557,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="mikkeli" data-country="finland" data-strat="bin-the-project"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="mikkeli" data-country="finland" data-strat="bin-the-project"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Mikkeli</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -572,7 +575,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="boden" data-country="sweden" data-strat="bin-the-project"><p class="loc loc-top">Sweden</p><p class="loc">Sweden</p>
+      <article class="dc-card" id="boden" data-country="sweden" data-strat="bin-the-project"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Boden</h3><p class="loc">Sweden</p>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -590,7 +593,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="hadsel" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="hadsel" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Hadsel</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -608,7 +611,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sortland" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="sortland" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Sortland</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -626,7 +629,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="salsbruket" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="salsbruket" data-country="norway" data-strat="bin-the-project"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Salsbruket</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -644,7 +647,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="rovaniemi" data-country="finland" data-strat="bin-the-project"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="rovaniemi" data-country="finland" data-strat="bin-the-project"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Rovaniemi</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -662,7 +665,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="varkaus" data-country="finland"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="varkaus" data-country="finland"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Varkaus</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status live">Permitting</span>
@@ -680,7 +683,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="bo" data-country="norway"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="bo" data-country="norway"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Bo</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -698,7 +701,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kontiolahti" data-country="finland"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="kontiolahti" data-country="finland"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Kontiolahti</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -716,7 +719,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="keminmaa" data-country="finland"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="keminmaa" data-country="finland"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Keminmaa</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -734,7 +737,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tornio" data-country="finland"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="tornio" data-country="finland"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Tornio</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -752,7 +755,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="oulu" data-country="finland"><p class="loc loc-top">Finland</p><p class="loc">Finland</p>
+      <article class="dc-card" id="oulu" data-country="finland"><p class="loc loc-top">Finland</p><h3 class="dc-name-top">Oulu</h3><p class="loc">Finland</p>
         <div class="img">
           <span class="country-flag">Finland</span>
           <span class="status tbd">I planlegging</span>
@@ -770,7 +773,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="skelleftea" data-country="sweden"><p class="loc loc-top">Sweden</p><p class="loc">Sweden</p>
+      <article class="dc-card" id="skelleftea" data-country="sweden"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Skelleftea</h3><p class="loc">Sweden</p>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -788,7 +791,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="utansjo" data-country="sweden"><p class="loc loc-top">Sweden</p><p class="loc">Sweden</p>
+      <article class="dc-card" id="utansjo" data-country="sweden"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Utansjö</h3><p class="loc">Sweden</p>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -806,7 +809,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="kalix" data-country="sweden"><p class="loc loc-top">Sweden</p><p class="loc">Sweden</p>
+      <article class="dc-card" id="kalix" data-country="sweden"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Kalix</h3><p class="loc">Sweden</p>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -824,7 +827,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="reydarfjordur" data-country="iceland"><p class="loc loc-top">Iceland</p><p class="loc">Iceland</p>
+      <article class="dc-card" id="reydarfjordur" data-country="iceland"><p class="loc loc-top">Iceland</p><h3 class="dc-name-top">Reyðarfjörður</h3><p class="loc">Iceland</p>
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status tbd">I planlegging</span>
@@ -842,7 +845,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="akureyri" data-country="iceland"><p class="loc loc-top">Iceland</p><p class="loc">Iceland</p>
+      <article class="dc-card" id="akureyri" data-country="iceland"><p class="loc loc-top">Iceland</p><h3 class="dc-name-top">Akureyri</h3><p class="loc">Iceland</p>
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status tbd">I planlegging</span>
@@ -860,7 +863,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="valaiscanton" data-country="switzerland"><p class="loc loc-top">Switzerland</p><p class="loc">Switzerland</p>
+      <article class="dc-card" id="valaiscanton" data-country="switzerland"><p class="loc loc-top">Switzerland</p><h3 class="dc-name-top">Valais Canton</h3><p class="loc">Switzerland</p>
         <div class="img">
           <span class="country-flag">Switzerland</span>
           <span class="status tbd">I planlegging</span>
@@ -878,7 +881,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="tbcnorthernengland" data-country="uk"><p class="loc loc-top">UK</p><p class="loc">UK</p>
+      <article class="dc-card" id="tbcnorthernengland" data-country="uk"><p class="loc loc-top">UK</p><h3 class="dc-name-top">TBC (Northern England)</h3><p class="loc">UK</p>
         <div class="img">
           <span class="country-flag">UK</span>
           <span class="status tbd">I planlegging</span>
@@ -896,7 +899,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="icelandrunofriver" data-country="iceland"><p class="loc loc-top">Iceland</p><p class="loc">Iceland</p>
+      <article class="dc-card" id="icelandrunofriver" data-country="iceland"><p class="loc loc-top">Iceland</p><h3 class="dc-name-top">Iceland Run of River</h3><p class="loc">Iceland</p>
         <div class="img">
           <span class="country-flag">Iceland</span>
           <span class="status tbd">I planlegging</span>
@@ -914,7 +917,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="moiranamoindustrialpark" data-country="norway"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="moiranamoindustrialpark" data-country="norway"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Mo I Rana, Mo Industrial Park</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -932,7 +935,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="andoya" data-country="norway"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="andoya" data-country="norway"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Andøya</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -950,7 +953,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="sognlustersognekraftsognutvikling" data-country="norway"><p class="loc loc-top">Norway</p><p class="loc">Norway</p>
+      <article class="dc-card" id="sognlustersognekraftsognutvikling" data-country="norway"><p class="loc loc-top">Norway</p><h3 class="dc-name-top">Sogn (Luster, Sognekraft Sogn Utvikling)</h3><p class="loc">Norway</p>
         <div class="img">
           <span class="country-flag">Norway</span>
           <span class="status tbd">I planlegging</span>
@@ -968,7 +971,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="ostersundspikboderna" data-country="sweden"><p class="loc loc-top">Sweden</p><p class="loc">Sweden</p>
+      <article class="dc-card" id="ostersundspikboderna" data-country="sweden"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Östersund (Spikboderna)</h3><p class="loc">Sweden</p>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -986,7 +989,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="morsil" data-country="sweden"><p class="loc loc-top">Sweden</p><p class="loc">Sweden</p>
+      <article class="dc-card" id="morsil" data-country="sweden"><p class="loc loc-top">Sweden</p><h3 class="dc-name-top">Mörsil</h3><p class="loc">Sweden</p>
         <div class="img">
           <span class="country-flag">Sweden</span>
           <span class="status tbd">I planlegging</span>
@@ -1004,7 +1007,7 @@
         </div>
       </article>
 
-      <article class="dc-card" id="milan" data-country="italy"><p class="loc loc-top">Italy</p><p class="loc">Italy</p>
+      <article class="dc-card" id="milan" data-country="italy"><p class="loc loc-top">Italy</p><h3 class="dc-name-top">Milan</h3><p class="loc">Italy</p>
         <div class="img">
           <span class="country-flag">Italy</span>
           <span class="status tbd">I planlegging</span>
