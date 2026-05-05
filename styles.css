@@ -218,6 +218,8 @@ img { max-width: 100%; display: block; }
 }
 .card h3 { margin: 0 0 8px; font-family: var(--font-display); font-size: 18px; font-weight: 600; }
 .card p { margin: 0; color: var(--ink-2); font-size: 15px; }
+a.card.card-link { display: block; text-decoration: none; color: inherit; cursor: pointer; }
+a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); }
 
 /* Portfolio feature */
 .portfolio-feature {
