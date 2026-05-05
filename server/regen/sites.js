@@ -178,13 +178,54 @@ function buildSiteDetailPage(s, schema, lang) {
   const pubLat = hasCoords ? round1(s.lat) : null;
   const pubLng = hasCoords ? round1(s.lng) : null;
   const pubLoc = s.public_location || [s.name, s.country].filter(Boolean).join(', ');
-  const mapBlock = (g) => {
-    if (g !== 'location' || !pubLoc) return '';
-    const q = encodeURIComponent(pubLoc);
-    return `<div class="site-map-embed"><iframe src="https://www.google.com/maps?q=${q}&output=embed&z=10" width="100%" height="320" style="border:0;border-radius:12px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>`;
-  };
+  // Map embed is now a hero banner below the image, so disable per-section embed
+  const mapBlock = () => '';
+  const heroMapBanner = pubLoc
+    ? `<section class="site-map-banner"><iframe src="https://www.google.com/maps?q=${encodeURIComponent(pubLoc)}&output=embed&z=9" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></section>`
+    : '';
 
-  const groupSections = groupOrder.filter(g => byGroup[g] && byGroup[g].length).map(g => {
+  // Power-source icons
+  const POWER_ICON = { hydro: '💧', wind: '🌬️', geothermal: '♨️', solar: '☀️', nuclear: '⚛️', gas: '🔥', mixed: '⚡' };
+  const powerIcons = (() => {
+    const p = String(s.power || '').toLowerCase();
+    const tokens = [];
+    for (const key of Object.keys(POWER_ICON)) if (p.includes(key)) tokens.push({ key, icon: POWER_ICON[key] });
+    if (!tokens.length && p) tokens.push({ key: p, icon: '⚡' });
+    return tokens;
+  })();
+  const powerStrip = powerIcons.length
+    ? `<div class="power-strip">${powerIcons.map(t => `<span class="power-chip"><span class="ico">${t.icon}</span> ${escHtml(t.key.charAt(0).toUpperCase() + t.key.slice(1))}</span>`).join('')}</div>`
+    : '';
+
+  // Hero KPI strip
+  const fmtPop = s.population ? Number(s.population).toLocaleString() : null;
+  const kpis = [
+    { l: isNo ? 'Oppstart' : 'Initial', v: s.initial_mw },
+    { l: isNo ? 'Mål' : 'Target', v: s.target_mw || s.max_capacity_mw },
+    { l: isNo ? 'Kraft' : 'Power', v: s.power },
+    { l: isNo ? 'Befolkning' : 'Population', v: fmtPop },
+  ].filter(k => k.v);
+  const heroStrip = kpis.length
+    ? `<dl class="hero-stats">${kpis.map(k => `<div><dt>${escHtml(k.l)}</dt><dd>${escHtml(k.v)}</dd></div>`).join('')}</dl>`
+    : '';
+
+  // Climate block (if any climate signal present)
+  const climateBits = [];
+  if (s.avg_temp_c != null && s.avg_temp_c !== '') climateBits.push(`<div><dt>${isNo ? 'Snitt-temp' : 'Avg temp'}</dt><dd>${escHtml(s.avg_temp_c)} °C</dd></div>`);
+  if (s.free_cooling_hours) climateBits.push(`<div><dt>${isNo ? 'Frikjøling' : 'Free cooling'}</dt><dd>${escHtml(Number(s.free_cooling_hours).toLocaleString())} h/yr</dd></div>`);
+  if (hasCoords) climateBits.push(`<div><dt>${isNo ? 'Breddegrad' : 'Latitude'}</dt><dd>${Math.floor(Math.abs(s.lat))}° ${s.lat >= 0 ? 'N' : 'S'}</dd></div>`);
+  const climateBlock = climateBits.length
+    ? `<section class="climate-block"><h2>${isNo ? 'Klima og kjøling' : 'Climate & cooling'}</h2><dl class="climate-grid">${climateBits.join('')}</dl></section>`
+    : '';
+
+  const visibleGroups = groupOrder.filter(g => byGroup[g] && byGroup[g].length);
+  const tocHtml = visibleGroups.length
+    ? `<nav class="site-toc" aria-label="${isNo ? 'På denne siden' : 'On this page'}"><ul>${visibleGroups.map(g => {
+        const m = schema.groups.find(x => x.key === g);
+        return `<li><a href="#sec-${g}">${escHtml(m.label)}</a></li>`;
+      }).join('')}</ul></nav>`
+    : '';
+  const groupSections = visibleGroups.map(g => {
     const groupMeta = schema.groups.find(x => x.key === g);
     const fields = byGroup[g];
     let rows = '';
@@ -222,7 +263,7 @@ function buildSiteDetailPage(s, schema, lang) {
     } else {
       rows = fields.map(f => `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`).join('');
     }
-    return `<section class="kv-section"><h2>${escHtml(groupMeta.label)}</h2>${mapBlock(g)}<dl class="kv-grid">${rows}</dl></section>`;
+    return `<section id="sec-${g}" class="kv-section"><h2>${escHtml(groupMeta.label)}</h2>${mapBlock(g)}<dl class="kv-grid">${rows}</dl></section>`;
   }).join('\n');
 
   const backLink = isNo ? '../' : '../';
@@ -239,6 +280,12 @@ function buildSiteDetailPage(s, schema, lang) {
 <meta name="theme-color" content="#1c2e3f" />
 <link rel="icon" type="image/svg+xml" href="${isNo ? '../../../assets/favicon.svg' : '../../assets/favicon.svg'}" />
 <link rel="canonical" href="https://www.scale-42.com/${isNo ? 'no/' : ''}datacenters/${escHtml(slug)}/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="${escHtml(s.name)} — Scale42" />
+<meta property="og:description" content="${escHtml((desc || '').slice(0, 200))}" />
+<meta property="og:url" content="https://www.scale-42.com/${isNo ? 'no/' : ''}datacenters/${escHtml(slug)}/" />
+${s.image ? `<meta property="og:image" content="https://www.scale-42.com${resolveImg(s.image, '/assets/sites/')}" />` : ''}
+<meta name="twitter:card" content="summary_large_image" />
 <script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Place',
@@ -248,7 +295,12 @@ function buildSiteDetailPage(s, schema, lang) {
   ...(s.lat && s.lng ? { geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng } } : {}),
   ...(s.country ? { address: { '@type': 'PostalAddress', addressCountry: s.country, ...(s.address ? { streetAddress: s.address } : {}) } } : {}),
   ...(s.image ? { image: `https://www.scale-42.com${resolveImg(s.image, '/assets/sites/')}` } : {}),
+  ...(s.population ? { isAccessibleForFree: false, slogan: `Near population of ${Number(s.population).toLocaleString()}` } : {}),
   containedInPlace: { '@type': 'Country', name: s.country || '' },
+  ...(s.power || s.free_cooling_hours ? { amenityFeature: [
+    ...(s.power ? [{ '@type': 'LocationFeatureSpecification', name: 'Power source', value: String(s.power) }] : []),
+    ...(s.free_cooling_hours ? [{ '@type': 'LocationFeatureSpecification', name: 'Free-cooling hours/yr', value: Number(s.free_cooling_hours) }] : []),
+  ] } : {}),
   provider: { '@type': 'Organization', name: 'Scale42', url: 'https://www.scale-42.com/' }
 })}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -282,6 +334,35 @@ ${hasCoords ? '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist
   .site-map .dc-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(28,46,63,0.25); }
   .site-map .dc-pin.tbd { background: var(--muted); }
   .site-map .dc-pin.sold { background: #33752f; }
+  .hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px 28px; margin: 22px 0 0; max-width: 760px; }
+  .hero-stats > div { border-left: 2px solid var(--accent); padding-left: 14px; }
+  .hero-stats dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 4px; font-weight: 600; }
+  .hero-stats dd { margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .power-strip { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; }
+  .power-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(47,102,117,0.08); color: var(--accent); border: 1px solid rgba(47,102,117,0.2); padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+  .power-chip .ico { font-size: 15px; }
+  .site-map-banner { padding: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .site-map-banner iframe { display: block; width: 100%; height: 360px; border: 0; }
+  .site-toc { position: sticky; top: 70px; background: #fff; border-bottom: 1px solid var(--line); z-index: 10; padding: 10px 0; margin: 0 0 8px; }
+  .site-toc ul { display: flex; gap: 18px; flex-wrap: wrap; list-style: none; padding: 0 24px; margin: 0; max-width: 1200px; margin: 0 auto; }
+  .site-toc a { color: var(--ink-2); font-size: 13px; font-weight: 500; text-decoration: none; }
+  .site-toc a:hover { color: var(--accent); }
+  .climate-block { padding: 32px 0; border-top: 1px solid var(--line); }
+  .climate-block h2 { font-family: var(--font-display); font-size: 22px; margin: 0 0 16px; font-weight: 600; }
+  .climate-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px 28px; margin: 0; }
+  .climate-grid > div { background: #f6f8fa; border-radius: 10px; padding: 16px; }
+  .climate-grid dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 6px; font-weight: 600; }
+  .climate-grid dd { margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .site-map-embed iframe { display: block; width: 100%; height: 320px; border: 0; border-radius: 12px; margin: 8px 0 4px; }
+  @media print {
+    .nav, .footer, .site-toc, .dc-cta, .site-map-banner { display: none !important; }
+    body { color: #000; }
+    .site-hero { padding: 0 0 16px; }
+    .site-body { padding: 0; }
+    .kv-section { page-break-inside: avoid; padding: 16px 0; border-top: 1px solid #ddd; }
+    a { color: #000; text-decoration: none; }
+    .hero-frame img { max-height: 280px; }
+  }
 </style>
 </head>
 <body>

@@ -354,6 +354,21 @@
       "help": "Short blurb about the area — economy, climate, infrastructure context."
     },
     {
+      "key": "avg_temp_c",
+      "label": "Avg annual temp (°C)",
+      "group": "location",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "free_cooling_hours",
+      "label": "Free-cooling hours / yr",
+      "group": "location",
+      "type": "number",
+      "public": true,
+      "help": "Hours per year with ambient cool enough for direct-to-air cooling."
+    },
+    {
       "key": "zoning_status",
       "label": "Zoning status",
       "group": "location",
