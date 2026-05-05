@@ -157,7 +157,16 @@
     }
     if (f.type === 'combo') {
       const listId = `dl-${f.key}`;
-      const opts = (f.options || []).map(o => `<option value="${escAttr(o)}"></option>`).join('');
+      let options = f.options || [];
+      if (f.sortByUsage) {
+        const usage = new Map();
+        for (const s of data.sites) { const x = s[f.key]; if (x) usage.set(x, (usage.get(x) || 0) + 1); }
+        const used = [...usage.entries()].sort((a, b) => b[1] - a[1]).map(e => e[0]);
+        const rest = options.filter(o => !usage.has(o));
+        const extras = used.filter(u => !options.includes(u));
+        options = [...used, ...extras, ...rest];
+      }
+      const opts = options.map(o => `<option value="${escAttr(o)}"></option>`).join('');
       return `<input type="text" list="${listId}" ${dataAttrs} value="${escAttr(v)}" /><datalist id="${listId}">${opts}</datalist>`;
     }
     if (f.type === 'toggle') {

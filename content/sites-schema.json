@@ -279,18 +279,26 @@
       "help": "Shown as the badge on each public site card."
     },
     {
+      "key": "public_location",
+      "label": "Public location (town/city)",
+      "group": "location",
+      "type": "text",
+      "public": true,
+      "help": "Shown publicly. Drives the public Google Maps link."
+    },
+    {
       "key": "lat",
-      "label": "Latitude",
+      "label": "Latitude (internal)",
       "group": "location",
       "type": "number",
-      "public": true
+      "public": false
     },
     {
       "key": "lng",
-      "label": "Longitude",
+      "label": "Longitude (internal)",
       "group": "location",
       "type": "number",
-      "public": true
+      "public": false
     },
     {
       "key": "size_ha",

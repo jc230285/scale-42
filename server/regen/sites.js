@@ -45,9 +45,11 @@ function updateMarker(html, key, value) {
   return html.replace(re, `$1${value}$3`);
 }
 
+const round1 = (n) => Math.round(parseFloat(n) * 10) / 10;
+
 function homeArrayLiteral(sites) {
   const lines = sites.filter(s => s.published && s.lat != null && s.lng != null).map(s =>
-    `      { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, lat: ${s.lat}, lng: ${s.lng} }`
+    `      { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, lat: ${round1(s.lat)}, lng: ${round1(s.lng)} }`
   );
   return `[\n${lines.join(',\n')},\n    ]`;
 }
@@ -55,7 +57,8 @@ function homeArrayLiteral(sites) {
 function fullArrayLiteral(sites, lang) {
   const lines = sites.filter(s => s.published && s.lat != null && s.lng != null).map(s => {
     const desc = lang === 'no' ? s.desc_no : s.desc_en;
-    return `    { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, strat: ${JSON.stringify(s.strategic_status || '')}, lat: ${s.lat}, lng: ${s.lng}, power: ${JSON.stringify(s.power || '')}, target: ${JSON.stringify(s.max_capacity_mw || s.target_mw || '')}, desc: ${JSON.stringify(desc || '')} }`;
+    const loc = s.public_location || [s.name, s.country].filter(Boolean).join(', ');
+    return `    { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, location: ${JSON.stringify(loc)}, lat: ${round1(s.lat)}, lng: ${round1(s.lng)}, power: ${JSON.stringify(s.power || '')}, target: ${JSON.stringify(s.max_capacity_mw || s.target_mw || '')}, desc: ${JSON.stringify(desc || '')} }`;
   });
   return `[\n${lines.join(',\n')},\n  ]`;
 }
@@ -171,28 +174,32 @@ function buildSiteDetailPage(s, schema, lang) {
   };
 
   const hasCoords = s.lat !== undefined && s.lat !== null && s.lat !== '' && s.lng !== undefined && s.lng !== null && s.lng !== '';
+  const round1 = (n) => Math.round(parseFloat(n) * 10) / 10;
+  const pubLat = hasCoords ? round1(s.lat) : null;
+  const pubLng = hasCoords ? round1(s.lng) : null;
+  const pubLoc = s.public_location || [s.name, s.country].filter(Boolean).join(', ');
   const mapBlock = (g) => {
     if (g !== 'location' || !hasCoords) return '';
-    return `<div class="site-map" id="site-map-${escHtml(slug)}" data-lat="${escHtml(s.lat)}" data-lng="${escHtml(s.lng)}" data-status="${escHtml(statusClass)}" data-name="${escHtml(s.name)}"></div>`;
+    return `<div class="site-map" id="site-map-${escHtml(slug)}" data-lat="${escHtml(pubLat)}" data-lng="${escHtml(pubLng)}" data-status="${escHtml(statusClass)}" data-name="${escHtml(s.name)}"></div>`;
   };
 
   const groupSections = groupOrder.filter(g => byGroup[g] && byGroup[g].length).map(g => {
     const groupMeta = schema.groups.find(x => x.key === g);
     const fields = byGroup[g];
     let rows = '';
-    if (g === 'location' && fields.some(f => f.key === 'lat') && fields.some(f => f.key === 'lng')) {
-      const coordCell = hasCoords
-        ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.lat + ',' + s.lng)}" target="_blank" rel="noopener">${escHtml(s.lat)}, ${escHtml(s.lng)} ↗</a>`
+    if (g === 'location') {
+      const locCell = pubLoc
+        ? `<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(pubLoc)}" target="_blank" rel="noopener">${escHtml(pubLoc)} ↗</a>`
         : '<span class="empty">—</span>';
-      rows += `<div class="kv"><dt>${isNo ? 'Koordinater' : 'Coordinates'}</dt><dd>${coordCell}</dd></div>`;
-      rows += fields.filter(f => f.key !== 'lat' && f.key !== 'lng').map(f =>
+      rows += `<div class="kv"><dt>${isNo ? 'Sted' : 'Location'}</dt><dd>${locCell}</dd></div>`;
+      rows += fields.filter(f => !['lat', 'lng', 'public_location'].includes(f.key)).map(f =>
         `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`).join('');
     } else if (g === 'access' && fields.some(f => f.key === 'nearest_airport')) {
       rows = fields.map(f => {
         if (f.key === 'nearest_airport') {
           const ap = s.nearest_airport;
           if (!ap) return `<div class="kv"><dt>${escHtml(f.label)}</dt><dd><span class="empty">—</span></dd></div>`;
-          const dest = hasCoords ? s.lat + ',' + s.lng : escHtml(s.name);
+          const dest = pubLoc;
           const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(ap)}&destination=${encodeURIComponent(dest)}`;
           return `<div class="kv"><dt>${escHtml(f.label)}</dt><dd><a href="${url}" target="_blank" rel="noopener">${escHtml(ap)} ↗</a></dd></div>`;
         }

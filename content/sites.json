@@ -93,7 +93,8 @@
       "internal_comments": "",
       "project_description": "",
       "extra_data": "",
-      "public_status_label": "Operational"
+      "public_status_label": "Operational",
+      "public_location": "Glomfjord, Norway"
     },
     {
       "id": "bakki",
@@ -188,7 +189,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "public_status_label": "In development"
+      "public_status_label": "In development",
+      "public_location": "Bakki, Iceland"
     },
     {
       "id": "skibotn",
@@ -281,7 +283,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "public_status_label": "In development"
+      "public_status_label": "In development",
+      "public_location": "Skibotn, Norway"
     },
     {
       "id": "reykjavik",
@@ -376,7 +379,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "extra_data": "",
-      "public_status_label": "In development"
+      "public_status_label": "In development",
+      "public_location": "Reykjavík, Iceland"
     },
     {
       "id": "kristinestad",
@@ -467,7 +471,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "public_status_label": "In development"
+      "public_status_label": "In development",
+      "public_location": "Kristinestad, Finland"
     },
     {
       "id": "nivala",
@@ -559,7 +564,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "extra_data": "",
-      "public_status_label": "In development"
+      "public_status_label": "In development",
+      "public_location": "Nivala, Finland"
     },
     {
       "id": "jokkmokk",
@@ -653,7 +659,8 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "public_status_label": "In development"
+      "public_status_label": "In development",
+      "public_location": "Jokkmokk, Sweden"
     },
     {
       "id": "kronoby",
@@ -744,7 +751,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "extra_data": "",
-      "public_status_label": "In development"
+      "public_status_label": "In development",
+      "public_location": "Kronoby, Finland"
     },
     {
       "id": "torsboda",
@@ -837,7 +845,8 @@
       "internal_comments": "",
       "extra_data": "",
       "image": "torsboda.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Torsboda, Sweden"
     },
     {
       "id": "liperi",
@@ -929,7 +938,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "image": "liperi.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Liperi, Finland"
     },
     {
       "id": "kitee",
@@ -1021,7 +1031,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "image": "kitee.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Kitee, Finland"
     },
     {
       "id": "sorfold",
@@ -1115,7 +1126,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "image": "sorfold.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Sørfold, Norway"
     },
     {
       "id": "alajarvi",
@@ -1207,7 +1219,8 @@
       "internal_comments": "",
       "extra_data": "",
       "image": "alajarvi.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Alajärvi, Finland"
     },
     {
       "id": "robertsfors",
@@ -1299,7 +1312,8 @@
       "internal_comments": "",
       "extra_data": "",
       "image": "robertsfors.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Robertsfors, Sweden"
     },
     {
       "id": "nuuk",
@@ -1390,7 +1404,8 @@
       "internal_comments": "",
       "extra_data": "",
       "image": "nuuk.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Nuuk, Greenland"
     },
     {
       "id": "tjeldbergodden",
@@ -1484,7 +1499,8 @@
       "internal_comments": "",
       "extra_data": "",
       "image": "tjeldbergodden.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Tjeldbergodden, Norway"
     },
     {
       "id": "honningsvag",
@@ -1576,7 +1592,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "image": "honningsvag.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Honningsvåg, Norway"
     },
     {
       "id": "kemi",
@@ -1669,7 +1686,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "image": "kemi.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Kemi, Finland"
     },
     {
       "id": "mikkeli",
@@ -1761,7 +1779,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "image": "mikkeli.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Mikkeli, Finland"
     },
     {
       "id": "boden",
@@ -1854,7 +1873,8 @@
       "internal_comments": "",
       "extra_data": "",
       "image": "boden.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Boden, Sweden"
     },
     {
       "id": "hadsel",
@@ -1946,7 +1966,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "image": "hadsel.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Hadsel, Norway"
     },
     {
       "id": "sortland",
@@ -2038,7 +2059,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "image": "sortland.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Sortland, Norway"
     },
     {
       "id": "salsbruket",
@@ -2130,7 +2152,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "image": "salsbruket.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Salsbruket, Norway"
     },
     {
       "id": "rovaniemi",
@@ -2222,7 +2245,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "image": "rovaniemi.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Rovaniemi, Finland"
     },
     {
       "id": "varkaus",
@@ -2311,7 +2335,8 @@
       "strategy_notes": "",
       "internal_comments": "",
       "project_description": "",
-      "public_status_label": "In development"
+      "public_status_label": "In development",
+      "public_location": "Varkaus, Finland"
     },
     {
       "id": "bo",
@@ -2400,7 +2425,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "bo.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Bo, Norway"
     },
     {
       "id": "kontiolahti",
@@ -2489,7 +2515,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "kontiolahti.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Kontiolahti, Finland"
     },
     {
       "id": "keminmaa",
@@ -2578,7 +2605,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "keminmaa.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Keminmaa, Finland"
     },
     {
       "id": "tornio",
@@ -2667,7 +2695,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "tornio.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Tornio, Finland"
     },
     {
       "id": "oulu",
@@ -2756,7 +2785,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "oulu.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Oulu, Finland"
     },
     {
       "id": "skelleftea",
@@ -2845,7 +2875,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "skelleftea.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Skelleftea, Sweden"
     },
     {
       "id": "utansjo",
@@ -2934,7 +2965,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "utansjo.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Utansjö, Sweden"
     },
     {
       "id": "kalix",
@@ -3023,7 +3055,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "kalix.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Kalix, Sweden"
     },
     {
       "id": "reydarfjordur",
@@ -3112,7 +3145,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "reydarfjordur.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Reyðarfjörður, Iceland"
     },
     {
       "id": "akureyri",
@@ -3201,7 +3235,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "akureyri.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Akureyri, Iceland"
     },
     {
       "id": "valaiscanton",
@@ -3290,7 +3325,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "valaiscanton.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Valais Canton, Switzerland"
     },
     {
       "id": "tbcnorthernengland",
@@ -3379,7 +3415,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "tbcnorthernengland.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "TBC (Northern England), UK"
     },
     {
       "id": "icelandrunofriver",
@@ -3468,7 +3505,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "icelandrunofriver.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Iceland Run of River, Iceland"
     },
     {
       "id": "moiranamoindustrialpark",
@@ -3557,7 +3595,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "moiranamoindustrialpark.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Mo I Rana, Mo Industrial Park, Norway"
     },
     {
       "id": "andoya",
@@ -3646,7 +3685,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "andoya.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Andøya, Norway"
     },
     {
       "id": "sognlustersognekraftsognutvikling",
@@ -3735,7 +3775,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "sognlustersognekraftsognutvikling.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Sogn (Luster, Sognekraft Sogn Utvikling), Norway"
     },
     {
       "id": "ostersundspikboderna",
@@ -3824,7 +3865,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "ostersundspikboderna.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Östersund (Spikboderna), Sweden"
     },
     {
       "id": "morsil",
@@ -3913,7 +3955,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "morsil.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Mörsil, Sweden"
     },
     {
       "id": "milan",
@@ -4002,7 +4045,8 @@
       "internal_comments": "",
       "project_description": "",
       "image": "milan.svg",
-      "public_status_label": "Coming soon"
+      "public_status_label": "Coming soon",
+      "public_location": "Milan, Italy"
     }
   ]
 }
