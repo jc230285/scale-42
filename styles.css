@@ -564,9 +564,9 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
 .journey-pin .heading { padding: 0 24px 8px; }
 .journey-pin .heading .eyebrow { color: var(--accent); margin: 0; }
 .journey-pin .heading h2 { font-family: var(--font-display); font-size: clamp(22px,2.6vw,30px); margin: 6px 0 0; font-weight: 600; letter-spacing: -0.01em; }
-.journey { list-style: none; margin: 0; padding: 8px 4vw 8px; position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 150px; grid-template-rows: auto 60px auto; gap: 0; }
+.journey { list-style: none; margin: 0; padding: 8px 4vw 8px; position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 150px; grid-template-rows: minmax(160px, auto) 60px minmax(160px, auto); gap: 0; justify-content: center; }
 .journey-node { padding-left: 8px; padding-right: 8px; }
-.journey::before { content: ""; position: absolute; left: 4vw; right: 4vw; top: 50%; height: 2px; background: linear-gradient(90deg, var(--accent) 0%, rgba(47,102,117,0.4) 100%); pointer-events: none; transform: translateY(-50%); z-index: 0; }
+.journey::before { content: ""; grid-row: 2; grid-column: 1 / -1; align-self: center; height: 2px; background: linear-gradient(90deg, var(--accent) 0%, rgba(47,102,117,0.4) 100%); pointer-events: none; z-index: 0; }
 .journey-node:first-child .journey-marker::before,
 .journey-node:last-child .journey-marker::after { content: ""; position: absolute; top: 50%; height: 2px; background: var(--accent); transform: translateY(-50%); }
 .journey-node:first-child .journey-marker::before { display: none; }
