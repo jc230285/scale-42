@@ -152,6 +152,23 @@ function buildSiteDetailPage(s, schema, lang) {
   // see what's still to populate.
   const SKIP = new Set(['name', 'country', 'image', 'status', 'desc_en', 'desc_no', 'published', 'short_status_label', 'public_status_label']);
   const publicFields = schema.fields.filter(f => f.public && !SKIP.has(f.key));
+  const buildTempChart = (series) => {
+    if (!series || series.length < 2) return '';
+    const w = 320, h = 80, pad = 4;
+    const ts = series.map(p => p.t);
+    const lo = Math.min(...ts), hi = Math.max(...ts);
+    const span = (hi - lo) || 1;
+    const step = (w - pad * 2) / (series.length - 1);
+    const pts = series.map((p, i) => {
+      const x = pad + i * step;
+      const y = h - pad - ((p.t - lo) / span) * (h - pad * 2);
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    });
+    const path = `M ${pts.join(' L ')}`;
+    const area = `M ${pts[0].split(',')[0]},${h - pad} L ${pts.join(' L ')} L ${pts[pts.length - 1].split(',')[0]},${h - pad} Z`;
+    return `<div class="temp-chart"><svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="3-year monthly mean temperature"><path d="${area}" fill="rgba(47,102,117,0.12)"/><path d="${path}" stroke="var(--accent)" stroke-width="1.5" fill="none"/></svg><div class="temp-chart-meta"><span>${series[0].ym}</span><span>${hi.toFixed(0)} °C max · ${lo.toFixed(0)} °C min</span><span>${series[series.length - 1].ym}</span></div></div>`;
+  };
+
   const groupOrder = schema.groups.filter(g => !g.internalOnly).map(g => g.key);
   const byGroup = {};
   for (const f of publicFields) {
@@ -182,7 +199,7 @@ function buildSiteDetailPage(s, schema, lang) {
   const pubLng = hasCoords ? round1(s.lng) : null;
   const pubLoc = s.public_location || [s.name, s.country].filter(Boolean).join(', ');
   const mapBlock = (g) => (g === 'location' && pubLoc)
-    ? `<div class="site-map-embed"><iframe src="https://www.google.com/maps?q=${encodeURIComponent(pubLoc)}&output=embed&z=9" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>`
+    ? `<div class="site-map-embed"><iframe src="https://www.google.com/maps?q=${encodeURIComponent(pubLoc)}&output=embed&z=11" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>`
     : '';
   const heroMapBanner = '';
 
@@ -215,7 +232,6 @@ function buildSiteDetailPage(s, schema, lang) {
   const climateBits = [];
   if (s.avg_temp_c != null && s.avg_temp_c !== '') climateBits.push(`<div><dt>${isNo ? 'Snitt-temp' : 'Avg temp'}</dt><dd>${escHtml(s.avg_temp_c)} °C</dd></div>`);
   if (s.free_cooling_hours) climateBits.push(`<div><dt>${isNo ? 'Frikjøling' : 'Free cooling'}</dt><dd>${escHtml(Number(s.free_cooling_hours).toLocaleString())} h/yr</dd></div>`);
-  if (hasCoords) climateBits.push(`<div><dt>${isNo ? 'Breddegrad' : 'Latitude'}</dt><dd>${Math.floor(Math.abs(s.lat))}° ${s.lat >= 0 ? 'N' : 'S'}</dd></div>`);
   const climateBlock = climateBits.length
     ? `<section class="climate-block"><h2>${isNo ? 'Klima og kjøling' : 'Climate & cooling'}</h2><dl class="climate-grid">${climateBits.join('')}</dl></section>`
     : '';
@@ -239,7 +255,7 @@ function buildSiteDetailPage(s, schema, lang) {
         ? `<a href="${searchLink(pubLoc)}" target="_blank" rel="noopener">${escHtml(pubLoc)} ↗</a> · <a href="${wikiLink(pubLoc)}" target="_blank" rel="noopener">Wikipedia ↗</a>`
         : '<span class="empty">—</span>';
       rows += `<div class="kv"><dt>${isNo ? 'Sted' : 'Location'}</dt><dd>${locCell}</dd></div>`;
-      const handled = new Set(['lat', 'lng', 'public_location', 'nearest_seaport', 'nearest_seaport_km', 'nearest_airport_public', 'nearest_airport_km']);
+      const handled = new Set(['lat', 'lng', 'public_location', 'nearest_seaport', 'nearest_seaport_km', 'nearest_airport_public', 'nearest_airport_km', 'temp_chart', 'avg_temp_c']);
       // Combined seaport/airport rows with Google directions links
       if (s.nearest_seaport) {
         const km = s.nearest_seaport_km ? ` · ${escHtml(s.nearest_seaport_km)} km` : '';
@@ -264,6 +280,14 @@ function buildSiteDetailPage(s, schema, lang) {
       }).join('');
     } else {
       rows = fields.map(f => `<div class="kv"><dt>${escHtml(f.label)}</dt><dd>${fmt(s[f.key], f.type)}</dd></div>`).join('');
+    }
+    if (g === 'location') {
+      let chartBlock = '';
+      if (s.avg_temp_c != null && s.avg_temp_c !== '') {
+        const chart = Array.isArray(s.temp_chart) ? buildTempChart(s.temp_chart) : '';
+        chartBlock = `<div class="temp-row"><div class="temp-row-head"><span class="dt-label">${isNo ? 'Snitt-temp (3 år)' : 'Avg annual temp (3 yr)'}</span><span class="dt-val">${escHtml(String(s.avg_temp_c))} °C</span></div>${chart}</div>`;
+      }
+      return `<section id="sec-${g}" class="kv-section"><h2>${escHtml(groupMeta.label)}</h2><div class="loc-split">${mapBlock(g)}<dl class="kv-grid">${rows}</dl></div>${chartBlock}</section>`;
     }
     return `<section id="sec-${g}" class="kv-section"><h2>${escHtml(groupMeta.label)}</h2>${mapBlock(g)}<dl class="kv-grid">${rows}</dl></section>`;
   }).join('\n');
@@ -294,8 +318,7 @@ ${s.image ? `<meta property="og:image" content="https://www.scale-42.com${resolv
   name: s.name + ' Data Centre',
   description: desc || '',
   url: `https://www.scale-42.com/${isNo ? 'no/' : ''}datacenters/${slug}/`,
-  ...(s.lat && s.lng ? { geo: { '@type': 'GeoCoordinates', latitude: s.lat, longitude: s.lng } } : {}),
-  ...(s.country ? { address: { '@type': 'PostalAddress', addressCountry: s.country, ...(s.address ? { streetAddress: s.address } : {}) } } : {}),
+  ...(s.country ? { address: { '@type': 'PostalAddress', addressCountry: s.country, ...(s.public_location ? { addressLocality: s.public_location } : {}) } } : {}),
   ...(s.image ? { image: `https://www.scale-42.com${resolveImg(s.image, '/assets/sites/')}` } : {}),
   ...(s.population ? { isAccessibleForFree: false, slogan: `Near population of ${Number(s.population).toLocaleString()}` } : {}),
   containedInPlace: { '@type': 'Country', name: s.country || '' },
@@ -309,7 +332,6 @@ ${s.image ? `<meta property="og:image" content="https://www.scale-42.com${resolv
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${isNo ? '../../../styles.css' : '../../styles.css'}" />
-${hasCoords ? '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />' : ''}
 <style>
   .site-hero { padding: 56px 0 32px; }
   .site-hero .crumb a { color: var(--accent); font-weight: 600; font-size: 13px; }
@@ -355,7 +377,17 @@ ${hasCoords ? '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist
   .climate-grid > div { background: #f6f8fa; border-radius: 10px; padding: 16px; }
   .climate-grid dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 6px; font-weight: 600; }
   .climate-grid dd { margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
-  .site-map-embed iframe { display: block; width: 100%; height: 320px; border: 0; border-radius: 12px; margin: 8px 0 4px; }
+  .site-map-embed iframe { display: block; width: 100%; height: 100%; min-height: 320px; border: 0; border-radius: 12px; }
+  .kv-wide { grid-column: 1 / -1; }
+  .temp-row { margin: 24px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); }
+  .temp-row-head { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 8px; }
+  .temp-row-head .dt-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+  .temp-row-head .dt-val { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .temp-chart svg { width: 100%; height: 120px; display: block; }
+  .temp-chart-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .loc-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .loc-split .site-map-embed { position: sticky; top: 80px; height: 420px; }
+  @media (max-width: 800px) { .loc-split { grid-template-columns: 1fr; } .loc-split .site-map-embed { position: static; height: 280px; } }
   @media print {
     .nav, .footer, .site-toc, .dc-cta, .site-map-banner { display: none !important; }
     body { color: #000; }
@@ -405,21 +437,6 @@ ${heroMapBanner}
     <!--/cms:footer-->
   </div>
 </footer>
-${hasCoords ? `<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-(function(){
-  var el = document.getElementById('site-map-${slug}'); if (!el) return;
-  var lat = parseFloat(el.dataset.lat), lng = parseFloat(el.dataset.lng);
-  var map = L.map(el, { zoomControl: true, scrollWheelZoom: false, dragging: true, attributionControl: true })
-    .setView([lat, lng], 9);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 19
-  }).addTo(map);
-  var status = el.dataset.status;
-  L.marker([lat, lng], { icon: L.divIcon({ className: '', html: '<div class="dc-pin ' + status + '"></div>', iconSize: [14,14], iconAnchor: [7,7] }) })
-    .addTo(map).bindPopup(el.dataset.name);
-})();
-</script>` : ''}
 </body>
 </html>
 `;

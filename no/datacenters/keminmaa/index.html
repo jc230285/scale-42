@@ -14,12 +14,11 @@
 <meta property="og:url" content="https://www.scale-42.com/no/datacenters/keminmaa/" />
 <meta property="og:image" content="https://www.scale-42.com/assets/sites/keminmaa.svg" />
 <meta name="twitter:card" content="summary_large_image" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Keminmaa Data Centre","description":"","url":"https://www.scale-42.com/no/datacenters/keminmaa/","geo":{"@type":"GeoCoordinates","latitude":65.8,"longitude":24.55},"address":{"@type":"PostalAddress","addressCountry":"Finland","streetAddress":"65.812264;-24.513434"},"image":"https://www.scale-42.com/assets/sites/keminmaa.svg","containedInPlace":{"@type":"Country","name":"Finland"},"provider":{"@type":"Organization","name":"Scale42","url":"https://www.scale-42.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Keminmaa Data Centre","description":"","url":"https://www.scale-42.com/no/datacenters/keminmaa/","address":{"@type":"PostalAddress","addressCountry":"Finland","addressLocality":"Keminmaa, Finland"},"image":"https://www.scale-42.com/assets/sites/keminmaa.svg","containedInPlace":{"@type":"Country","name":"Finland"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Free-cooling hours/yr","value":8109}],"provider":{"@type":"Organization","name":"Scale42","url":"https://www.scale-42.com/"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../styles.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <style>
   .site-hero { padding: 56px 0 32px; }
   .site-hero .crumb a { color: var(--accent); font-weight: 600; font-size: 13px; }
@@ -65,7 +64,17 @@
   .climate-grid > div { background: #f6f8fa; border-radius: 10px; padding: 16px; }
   .climate-grid dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 6px; font-weight: 600; }
   .climate-grid dd { margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
-  .site-map-embed iframe { display: block; width: 100%; height: 320px; border: 0; border-radius: 12px; margin: 8px 0 4px; }
+  .site-map-embed iframe { display: block; width: 100%; height: 100%; min-height: 320px; border: 0; border-radius: 12px; }
+  .kv-wide { grid-column: 1 / -1; }
+  .temp-row { margin: 24px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); }
+  .temp-row-head { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 8px; }
+  .temp-row-head .dt-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+  .temp-row-head .dt-val { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .temp-chart svg { width: 100%; height: 120px; display: block; }
+  .temp-chart-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .loc-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .loc-split .site-map-embed { position: sticky; top: 80px; height: 420px; }
+  @media (max-width: 800px) { .loc-split { grid-template-columns: 1fr; } .loc-split .site-map-embed { position: static; height: 280px; } }
   @media print {
     .nav, .footer, .site-toc, .dc-cta, .site-map-banner { display: none !important; }
     body { color: #000; }
@@ -114,7 +123,7 @@
   <div class="container">
     
     <section id="sec-identity" class="kv-section"><h2>Identity</h2><dl class="kv-grid"><div class="kv"><dt>Type</dt><dd><span class="empty">—</span></dd></div></dl></section>
-<section id="sec-location" class="kv-section"><h2>Location</h2><div class="site-map-embed"><iframe src="https://www.google.com/maps?q=Keminmaa%2C%20Finland&output=embed&z=9" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><dl class="kv-grid"><div class="kv"><dt>Sted</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Keminmaa%2C%20Finland" target="_blank" rel="noopener">Keminmaa, Finland ↗</a> · <a href="https://en.wikipedia.org/wiki/Special:Search?search=Keminmaa%2C%20Finland" target="_blank" rel="noopener">Wikipedia ↗</a></dd></div><div class="kv"><dt>Nærmeste havn</dt><dd><a href="https://www.google.com/maps/dir/?api=1&origin=Keminmaa%2C%20Finland&destination=Kemi%20(Ajos)" target="_blank" rel="noopener">Kemi (Ajos) ↗</a> · 15 km</dd></div><div class="kv"><dt>Nærmeste flyplass</dt><dd><a href="https://www.google.com/maps/dir/?api=1&origin=Keminmaa%2C%20Finland&destination=Kemi-Tornio%20Airport%20(KEM)" target="_blank" rel="noopener">Kemi-Tornio Airport (KEM) ↗</a> · 3 km</dd></div><div class="kv"><dt>Site size (ha)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Local population</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Area overview</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Avg annual temp (°C)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Free-cooling hours / yr</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Zoning status</dt><dd><span class="empty">—</span></dd></div></dl></section>
+<section id="sec-location" class="kv-section"><h2>Location</h2><div class="loc-split"><div class="site-map-embed"><iframe src="https://www.google.com/maps?q=Keminmaa%2C%20Finland&output=embed&z=11" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><dl class="kv-grid"><div class="kv"><dt>Sted</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Keminmaa%2C%20Finland" target="_blank" rel="noopener">Keminmaa, Finland ↗</a> · <a href="https://en.wikipedia.org/wiki/Special:Search?search=Keminmaa%2C%20Finland" target="_blank" rel="noopener">Wikipedia ↗</a></dd></div><div class="kv"><dt>Nærmeste havn</dt><dd><a href="https://www.google.com/maps/dir/?api=1&origin=Keminmaa%2C%20Finland&destination=Kemi%20(Ajos)" target="_blank" rel="noopener">Kemi (Ajos) ↗</a> · 15 km</dd></div><div class="kv"><dt>Nærmeste flyplass</dt><dd><a href="https://www.google.com/maps/dir/?api=1&origin=Keminmaa%2C%20Finland&destination=Kemi-Tornio%20Airport%20(KEM)" target="_blank" rel="noopener">Kemi-Tornio Airport (KEM) ↗</a> · 3 km</dd></div><div class="kv"><dt>Site size (ha)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Local population</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Area overview</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Free-cooling hours / yr</dt><dd>8109</dd></div><div class="kv"><dt>Population within 50 km</dt><dd>66055</dd></div><div class="kv"><dt>Distance to peering hubs</dt><dd>Frankfurt: 1967 km · Stockholm: 791 km · London: 2108 km · Amsterdam: 1851 km</dd></div><div class="kv"><dt>Zoning status</dt><dd><span class="empty">—</span></dd></div></dl></div><div class="temp-row"><div class="temp-row-head"><span class="dt-label">Snitt-temp (3 år)</span><span class="dt-val">3.0 °C</span></div><div class="temp-chart"><svg viewBox="0 0 320 80" preserveAspectRatio="none" role="img" aria-label="3-year monthly mean temperature"><path d="M 4.0,76 L 4.0,39.8 L 12.7,29.0 L 21.3,13.6 L 30.0,10.7 L 38.7,9.7 L 47.3,18.6 L 56.0,42.8 L 64.7,53.6 L 73.3,56.7 L 82.0,64.0 L 90.7,57.7 L 99.3,47.9 L 108.0,44.7 L 116.7,27.2 L 125.3,11.5 L 134.0,7.5 L 142.7,9.3 L 151.3,18.0 L 160.0,32.9 L 168.7,45.3 L 177.3,54.0 L 186.0,59.5 L 194.7,52.2 L 203.3,48.5 L 212.0,41.2 L 220.7,28.2 L 229.3,18.4 L 238.0,4.0 L 246.7,13.4 L 255.3,18.2 L 264.0,30.6 L 272.7,50.6 L 281.3,51.8 L 290.0,76.0 L 298.7,70.9 L 307.3,42.4 L 316.0,37.4 L 316.0,76 Z" fill="rgba(47,102,117,0.12)"/><path d="M 4.0,39.8 L 12.7,29.0 L 21.3,13.6 L 30.0,10.7 L 38.7,9.7 L 47.3,18.6 L 56.0,42.8 L 64.7,53.6 L 73.3,56.7 L 82.0,64.0 L 90.7,57.7 L 99.3,47.9 L 108.0,44.7 L 116.7,27.2 L 125.3,11.5 L 134.0,7.5 L 142.7,9.3 L 151.3,18.0 L 160.0,32.9 L 168.7,45.3 L 177.3,54.0 L 186.0,59.5 L 194.7,52.2 L 203.3,48.5 L 212.0,41.2 L 220.7,28.2 L 229.3,18.4 L 238.0,4.0 L 246.7,13.4 L 255.3,18.2 L 264.0,30.6 L 272.7,50.6 L 281.3,51.8 L 290.0,76.0 L 298.7,70.9 L 307.3,42.4 L 316.0,37.4" stroke="var(--accent)" stroke-width="1.5" fill="none"/></svg><div class="temp-chart-meta"><span>2023-04</span><span>19 °C max · -17 °C min</span><span>2026-04</span></div></div></div></section>
 <section id="sec-power" class="kv-section"><h2>Power</h2><dl class="kv-grid"><div class="kv"><dt>Power source</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Initial MW</dt><dd>60</dd></div><div class="kv"><dt>Target MW</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Max capacity (MW)</dt><dd>200</dd></div><div class="kv"><dt>Power notes</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Power availability (public text)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Connection voltage</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>PPA status (public)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Heat reuse</dt><dd><span class="empty">—</span></dd></div></dl></section>
 <section id="sec-design" class="kv-section"><h2>Design</h2><dl class="kv-grid"><div class="kv"><dt>IT load (MW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Design PUE</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Rack density (kW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Cooling</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Workload mix</dt><dd><span class="empty">—</span></dd></div></dl></section>
 <section id="sec-connectivity" class="kv-section"><h2>Connectivity</h2><dl class="kv-grid"><div class="kv"><dt>Fibre providers</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Fibre speeds (Gbps)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Latency to key markets</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Fibre commentary</dt><dd><span class="empty">—</span></dd></div></dl></section>
@@ -136,20 +145,5 @@
     <!--/cms:footer-->
   </div>
 </footer>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-(function(){
-  var el = document.getElementById('site-map-keminmaa'); if (!el) return;
-  var lat = parseFloat(el.dataset.lat), lng = parseFloat(el.dataset.lng);
-  var map = L.map(el, { zoomControl: true, scrollWheelZoom: false, dragging: true, attributionControl: true })
-    .setView([lat, lng], 9);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 19
-  }).addTo(map);
-  var status = el.dataset.status;
-  L.marker([lat, lng], { icon: L.divIcon({ className: '', html: '<div class="dc-pin ' + status + '"></div>', iconSize: [14,14], iconAnchor: [7,7] }) })
-    .addTo(map).bindPopup(el.dataset.name);
-})();
-</script>
 </body>
 </html>

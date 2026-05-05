@@ -369,6 +369,30 @@
       "help": "Hours per year with ambient cool enough for direct-to-air cooling."
     },
     {
+      "key": "population_50km",
+      "label": "Population within 50 km",
+      "group": "location",
+      "type": "number",
+      "public": true,
+      "help": "Sum of GeoNames cities >500 within 50 km radius."
+    },
+    {
+      "key": "temp_chart",
+      "label": "Temp chart data (auto)",
+      "group": "location",
+      "type": "text",
+      "public": false,
+      "help": "Monthly mean temperature series (3 yrs) — internal, drives the chart."
+    },
+    {
+      "key": "hub_distances_km",
+      "label": "Distance to peering hubs",
+      "group": "location",
+      "type": "text",
+      "public": true,
+      "help": "Auto-computed great-circle distance to FRA/STO/LON/AMS."
+    },
+    {
       "key": "zoning_status",
       "label": "Zoning status",
       "group": "location",

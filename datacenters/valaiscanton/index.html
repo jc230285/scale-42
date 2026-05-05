@@ -14,12 +14,11 @@
 <meta property="og:url" content="https://www.scale-42.com/datacenters/valaiscanton/" />
 <meta property="og:image" content="https://www.scale-42.com/assets/sites/valaiscanton.svg" />
 <meta name="twitter:card" content="summary_large_image" />
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Valais Canton Data Centre","description":"","url":"https://www.scale-42.com/datacenters/valaiscanton/","geo":{"@type":"GeoCoordinates","latitude":46.2,"longitude":7.62},"address":{"@type":"PostalAddress","addressCountry":"Switzerland","streetAddress":"Valais Canton"},"image":"https://www.scale-42.com/assets/sites/valaiscanton.svg","containedInPlace":{"@type":"Country","name":"Switzerland"},"provider":{"@type":"Organization","name":"Scale42","url":"https://www.scale-42.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Place","name":"Valais Canton Data Centre","description":"","url":"https://www.scale-42.com/datacenters/valaiscanton/","address":{"@type":"PostalAddress","addressCountry":"Switzerland","addressLocality":"Valais Canton, Switzerland"},"image":"https://www.scale-42.com/assets/sites/valaiscanton.svg","containedInPlace":{"@type":"Country","name":"Switzerland"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Free-cooling hours/yr","value":8707}],"provider":{"@type":"Organization","name":"Scale42","url":"https://www.scale-42.com/"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <style>
   .site-hero { padding: 56px 0 32px; }
   .site-hero .crumb a { color: var(--accent); font-weight: 600; font-size: 13px; }
@@ -65,7 +64,17 @@
   .climate-grid > div { background: #f6f8fa; border-radius: 10px; padding: 16px; }
   .climate-grid dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 6px; font-weight: 600; }
   .climate-grid dd { margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
-  .site-map-embed iframe { display: block; width: 100%; height: 320px; border: 0; border-radius: 12px; margin: 8px 0 4px; }
+  .site-map-embed iframe { display: block; width: 100%; height: 100%; min-height: 320px; border: 0; border-radius: 12px; }
+  .kv-wide { grid-column: 1 / -1; }
+  .temp-row { margin: 24px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); }
+  .temp-row-head { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 8px; }
+  .temp-row-head .dt-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+  .temp-row-head .dt-val { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .temp-chart svg { width: 100%; height: 120px; display: block; }
+  .temp-chart-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .loc-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .loc-split .site-map-embed { position: sticky; top: 80px; height: 420px; }
+  @media (max-width: 800px) { .loc-split { grid-template-columns: 1fr; } .loc-split .site-map-embed { position: static; height: 280px; } }
   @media print {
     .nav, .footer, .site-toc, .dc-cta, .site-map-banner { display: none !important; }
     body { color: #000; }
@@ -114,7 +123,7 @@
   <div class="container">
     
     <section id="sec-identity" class="kv-section"><h2>Identity</h2><dl class="kv-grid"><div class="kv"><dt>Type</dt><dd><span class="empty">—</span></dd></div></dl></section>
-<section id="sec-location" class="kv-section"><h2>Location</h2><div class="site-map-embed"><iframe src="https://www.google.com/maps?q=Valais%20Canton%2C%20Switzerland&output=embed&z=9" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><dl class="kv-grid"><div class="kv"><dt>Location</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Valais%20Canton%2C%20Switzerland" target="_blank" rel="noopener">Valais Canton, Switzerland ↗</a> · <a href="https://en.wikipedia.org/wiki/Special:Search?search=Valais%20Canton%2C%20Switzerland" target="_blank" rel="noopener">Wikipedia ↗</a></dd></div><div class="kv"><dt>Nearest seaport</dt><dd><a href="https://www.google.com/maps/dir/?api=1&origin=Valais%20Canton%2C%20Switzerland&destination=Copenhagen" target="_blank" rel="noopener">Copenhagen ↗</a> · 1112 km</dd></div><div class="kv"><dt>Nearest airport</dt><dd><a href="https://www.google.com/maps/dir/?api=1&origin=Valais%20Canton%2C%20Switzerland&destination=Bern%20Airport%20(BRN)" target="_blank" rel="noopener">Bern Airport (BRN) ↗</a> · 80 km</dd></div><div class="kv"><dt>Site size (ha)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Local population</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Area overview</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Avg annual temp (°C)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Free-cooling hours / yr</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Zoning status</dt><dd><span class="empty">—</span></dd></div></dl></section>
+<section id="sec-location" class="kv-section"><h2>Location</h2><div class="loc-split"><div class="site-map-embed"><iframe src="https://www.google.com/maps?q=Valais%20Canton%2C%20Switzerland&output=embed&z=11" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><dl class="kv-grid"><div class="kv"><dt>Location</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Valais%20Canton%2C%20Switzerland" target="_blank" rel="noopener">Valais Canton, Switzerland ↗</a> · <a href="https://en.wikipedia.org/wiki/Special:Search?search=Valais%20Canton%2C%20Switzerland" target="_blank" rel="noopener">Wikipedia ↗</a></dd></div><div class="kv"><dt>Nearest seaport</dt><dd><a href="https://www.google.com/maps/dir/?api=1&origin=Valais%20Canton%2C%20Switzerland&destination=Copenhagen" target="_blank" rel="noopener">Copenhagen ↗</a> · 1112 km</dd></div><div class="kv"><dt>Nearest airport</dt><dd><a href="https://www.google.com/maps/dir/?api=1&origin=Valais%20Canton%2C%20Switzerland&destination=Bern%20Airport%20(BRN)" target="_blank" rel="noopener">Bern Airport (BRN) ↗</a> · 80 km</dd></div><div class="kv"><dt>Site size (ha)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Local population</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Area overview</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Free-cooling hours / yr</dt><dd>8707</dd></div><div class="kv"><dt>Population within 50 km</dt><dd>319643</dd></div><div class="kv"><dt>Distance to peering hubs</dt><dd>Frankfurt: 442 km · Stockholm: 1616 km · London: 817 km · Amsterdam: 714 km</dd></div><div class="kv"><dt>Zoning status</dt><dd><span class="empty">—</span></dd></div></dl></div><div class="temp-row"><div class="temp-row-head"><span class="dt-label">Avg annual temp (3 yr)</span><span class="dt-val">-0.1 °C</span></div><div class="temp-chart"><svg viewBox="0 0 320 80" preserveAspectRatio="none" role="img" aria-label="3-year monthly mean temperature"><path d="M 4.0,76 L 4.0,39.1 L 12.7,38.4 L 21.3,18.0 L 30.0,8.9 L 38.7,11.0 L 47.3,14.2 L 56.0,28.6 L 64.7,62.0 L 73.3,60.2 L 82.0,62.3 L 90.7,56.7 L 99.3,57.4 L 108.0,52.8 L 116.7,39.5 L 125.3,19.1 L 134.0,6.8 L 142.7,5.1 L 151.3,29.6 L 160.0,31.0 L 168.7,50.4 L 177.3,67.6 L 186.0,67.2 L 194.7,64.4 L 203.3,58.1 L 212.0,44.4 L 220.7,38.4 L 229.3,4.0 L 238.0,16.3 L 246.7,7.2 L 255.3,22.3 L 264.0,39.1 L 272.7,61.2 L 281.3,60.5 L 290.0,76.0 L 298.7,62.7 L 307.3,63.4 L 316.0,44.0 L 316.0,76 Z" fill="rgba(47,102,117,0.12)"/><path d="M 4.0,39.1 L 12.7,38.4 L 21.3,18.0 L 30.0,8.9 L 38.7,11.0 L 47.3,14.2 L 56.0,28.6 L 64.7,62.0 L 73.3,60.2 L 82.0,62.3 L 90.7,56.7 L 99.3,57.4 L 108.0,52.8 L 116.7,39.5 L 125.3,19.1 L 134.0,6.8 L 142.7,5.1 L 151.3,29.6 L 160.0,31.0 L 168.7,50.4 L 177.3,67.6 L 186.0,67.2 L 194.7,64.4 L 203.3,58.1 L 212.0,44.4 L 220.7,38.4 L 229.3,4.0 L 238.0,16.3 L 246.7,7.2 L 255.3,22.3 L 264.0,39.1 L 272.7,61.2 L 281.3,60.5 L 290.0,76.0 L 298.7,62.7 L 307.3,63.4 L 316.0,44.0" stroke="var(--accent)" stroke-width="1.5" fill="none"/></svg><div class="temp-chart-meta"><span>2023-04</span><span>11 °C max · -10 °C min</span><span>2026-04</span></div></div></div></section>
 <section id="sec-power" class="kv-section"><h2>Power</h2><dl class="kv-grid"><div class="kv"><dt>Power source</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Initial MW</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Target MW</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Max capacity (MW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Power notes</dt><dd>Initial: TBC MW</dd></div><div class="kv"><dt>Power availability (public text)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Connection voltage</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>PPA status (public)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Heat reuse</dt><dd><span class="empty">—</span></dd></div></dl></section>
 <section id="sec-design" class="kv-section"><h2>Design</h2><dl class="kv-grid"><div class="kv"><dt>IT load (MW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Design PUE</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Rack density (kW)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Cooling</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Workload mix</dt><dd><span class="empty">—</span></dd></div></dl></section>
 <section id="sec-connectivity" class="kv-section"><h2>Connectivity</h2><dl class="kv-grid"><div class="kv"><dt>Fibre providers</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Fibre speeds (Gbps)</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Latency to key markets</dt><dd><span class="empty">—</span></dd></div><div class="kv"><dt>Fibre commentary</dt><dd><span class="empty">—</span></dd></div></dl></section>
@@ -136,20 +145,5 @@
     <!--/cms:footer-->
   </div>
 </footer>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-(function(){
-  var el = document.getElementById('site-map-valaiscanton'); if (!el) return;
-  var lat = parseFloat(el.dataset.lat), lng = parseFloat(el.dataset.lng);
-  var map = L.map(el, { zoomControl: true, scrollWheelZoom: false, dragging: true, attributionControl: true })
-    .setView([lat, lng], 9);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 19
-  }).addTo(map);
-  var status = el.dataset.status;
-  L.marker([lat, lng], { icon: L.divIcon({ className: '', html: '<div class="dc-pin ' + status + '"></div>', iconSize: [14,14], iconAnchor: [7,7] }) })
-    .addTo(map).bindPopup(el.dataset.name);
-})();
-</script>
 </body>
 </html>

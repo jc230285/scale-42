@@ -59,11 +59,24 @@ const SEAPORTS = [
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function fetchJson(url) {
+const API_CACHE_DIR = path.join(CACHE_DIR, 'api');
+if (!fs.existsSync(API_CACHE_DIR)) fs.mkdirSync(API_CACHE_DIR, { recursive: true });
+function cacheKey(url) {
+  return require('crypto').createHash('sha1').update(url).digest('hex') + '.json';
+}
+async function fetchJsonCached(url, ttlDays = 30) {
+  const file = path.join(API_CACHE_DIR, cacheKey(url));
+  if (fs.existsSync(file) && (Date.now() - fs.statSync(file).mtimeMs) < ttlDays * 86400e3) {
+    try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch {}
+  }
   const res = await fetch(url, { headers: { 'User-Agent': UA, 'Accept': 'application/json' } });
   if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
-  return res.json();
+  const j = await res.json();
+  fs.writeFileSync(file, JSON.stringify(j));
+  return j;
 }
+
+async function fetchJson(url) { return fetchJsonCached(url, 30); }
 
 async function fetchText(url) {
   const res = await fetch(url, { headers: { 'User-Agent': UA } });
@@ -102,6 +115,42 @@ async function wikidataPopulation(qid) {
     }
     return best ? best.n : null;
   } catch { return null; }
+}
+
+// GeoNames cities500 — all populated places >500. Used for radius-population.
+async function loadCities() {
+  const cache = path.join(CACHE_DIR, 'cities500.txt');
+  if (!fs.existsSync(cache) || (Date.now() - fs.statSync(cache).mtimeMs) > 90 * 86400e3) {
+    console.log('Downloading GeoNames cities500 (zip)…');
+    const buf = Buffer.from(await (await fetch('https://download.geonames.org/export/dump/cities500.zip', { headers: { 'User-Agent': UA } })).arrayBuffer());
+    const zipPath = path.join(CACHE_DIR, 'cities500.zip');
+    fs.writeFileSync(zipPath, buf);
+    const { execSync } = require('child_process');
+    execSync(`powershell -NoProfile -Command "Expand-Archive -Force -Path '${zipPath}' -DestinationPath '${CACHE_DIR}'"`);
+  }
+  const txt = fs.readFileSync(cache, 'utf8');
+  const cities = [];
+  for (const line of txt.split(/\r?\n/)) {
+    if (!line) continue;
+    const f = line.split('\t');
+    const lat = parseFloat(f[4]), lng = parseFloat(f[5]), pop = parseInt(f[14], 10);
+    if (!isFinite(lat) || !isFinite(lng) || !isFinite(pop)) continue;
+    cities.push({ lat, lng, pop });
+  }
+  return cities;
+}
+
+function populationWithin(coord, cities, km) {
+  // crude bbox prefilter to skip haversine on far points
+  const dLat = km / 111;
+  const dLng = km / (111 * Math.cos(coord.lat * Math.PI / 180) || 1);
+  let total = 0;
+  for (const c of cities) {
+    if (Math.abs(c.lat - coord.lat) > dLat) continue;
+    if (Math.abs(c.lng - coord.lng) > dLng) continue;
+    if (haversineKm(coord, c) <= km) total += c.pop;
+  }
+  return total;
 }
 
 // OurAirports — cached
@@ -152,6 +201,50 @@ function parseCsvLine(line) {
   return out;
 }
 
+// Latency-proxy hubs (great-circle km)
+const HUBS = [
+  { name: 'Frankfurt', lat: 50.110, lng: 8.682 },
+  { name: 'Stockholm', lat: 59.330, lng: 18.065 },
+  { name: 'London', lat: 51.507, lng: -0.128 },
+  { name: 'Amsterdam', lat: 52.370, lng: 4.895 },
+];
+
+// Open-Meteo ERA5 archive: daily mean temp → avg temp, free-cooling hours, monthly series
+async function climateFor(lat, lng, years = 3) {
+  const end = new Date(); end.setDate(end.getDate() - 7);
+  const start = new Date(end); start.setFullYear(end.getFullYear() - years);
+  const fmt = (d) => d.toISOString().slice(0, 10);
+  const url = `https://archive-api.open-meteo.com/v1/era5?latitude=${lat.toFixed(2)}&longitude=${lng.toFixed(2)}` +
+    `&start_date=${fmt(start)}&end_date=${fmt(end)}` +
+    `&daily=temperature_2m_mean,temperature_2m_max&timezone=UTC`;
+  try {
+    const j = await fetchJsonCached(url, 180);
+    const days = j?.daily?.time || [];
+    const tmean = j?.daily?.temperature_2m_mean || [];
+    const tmax = j?.daily?.temperature_2m_max || [];
+    if (!days.length) return null;
+    let sum = 0, n = 0, fcHours = 0;
+    const monthly = {}; // 'YYYY-MM' → { sum, n }
+    for (let i = 0; i < days.length; i++) {
+      const t = tmean[i]; if (t == null) continue;
+      sum += t; n++;
+      // free-cooling proxy: hours/day with max < 18 °C
+      if (tmax[i] != null && tmax[i] < 18) fcHours += 24;
+      else if (t < 18) fcHours += 12;
+      const ym = days[i].slice(0, 7);
+      (monthly[ym] = monthly[ym] || { sum: 0, n: 0 }).sum += t;
+      monthly[ym].n++;
+    }
+    if (!n) return null;
+    const series = Object.keys(monthly).sort().map(k => ({ ym: k, t: +(monthly[k].sum / monthly[k].n).toFixed(1) }));
+    return {
+      avg_temp_c: (sum / n).toFixed(1),
+      free_cooling_hours: String(Math.round(fcHours / years)),
+      temp_chart: series,
+    };
+  } catch { return null; }
+}
+
 function haversineKm(a, b) {
   const R = 6371;
   const toRad = (d) => d * Math.PI / 180;
@@ -174,7 +267,8 @@ function nearest(point, list) {
   const data = JSON.parse(fs.readFileSync(SITES_PATH, 'utf8'));
   const sites = data.sites;
   const airports = await loadAirports();
-  console.log(`Loaded ${airports.length} airports, ${SEAPORTS.length} seaports.`);
+  const cities = await loadCities();
+  console.log(`Loaded ${airports.length} airports, ${SEAPORTS.length} seaports, ${cities.length} cities.`);
 
   let changed = 0;
   for (const s of sites) {
@@ -217,6 +311,20 @@ function nearest(point, list) {
           if (!s.nearest_seaport) s.nearest_seaport = p.name;
           if (!s.nearest_seaport_km) s.nearest_seaport_km = String(Math.round(p.km));
         }
+      }
+      if (!s.avg_temp_c || !s.free_cooling_hours || !s.temp_chart) {
+        const c = await climateFor(coord.lat, coord.lng);
+        if (c) {
+          if (!s.avg_temp_c) s.avg_temp_c = c.avg_temp_c;
+          if (!s.free_cooling_hours) s.free_cooling_hours = c.free_cooling_hours;
+          if (!s.temp_chart) s.temp_chart = c.temp_chart;
+        }
+      }
+      if (!s.population_50km) {
+        s.population_50km = String(populationWithin(coord, cities, 50));
+      }
+      if (!s.hub_distances_km) {
+        s.hub_distances_km = HUBS.map(h => `${h.name}: ${Math.round(haversineKm(coord, h))} km`).join(' · ');
       }
     }
 
