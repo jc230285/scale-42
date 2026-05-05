@@ -27,15 +27,33 @@ function rateLimit(req, res, next) {
 let transporter = null;
 function getTransporter() {
   if (transporter) return transporter;
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } = process.env;
-  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) return null;
-  transporter = nodemailer.createTransport({
-    host: SMTP_HOST,
-    port: parseInt(SMTP_PORT || '587', 10),
-    secure: parseInt(SMTP_PORT || '587', 10) === 465,
-    auth: { user: SMTP_USER, pass: SMTP_PASS },
-  });
-  return transporter;
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS,
+          GMAIL_CLIENT_ID, GMAIL_CLIENT_SECRET, GMAIL_REFRESH_TOKEN, GMAIL_USER } = process.env;
+  // Path 1: SMTP with app password
+  if (SMTP_HOST && SMTP_USER && SMTP_PASS) {
+    transporter = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port: parseInt(SMTP_PORT || '587', 10),
+      secure: parseInt(SMTP_PORT || '587', 10) === 465,
+      auth: { user: SMTP_USER, pass: SMTP_PASS },
+    });
+    return transporter;
+  }
+  // Path 2: Gmail OAuth2 (XOAUTH2) — user is the Workspace mailbox to send from
+  if (GMAIL_CLIENT_ID && GMAIL_CLIENT_SECRET && GMAIL_REFRESH_TOKEN && GMAIL_USER) {
+    transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        type: 'OAuth2',
+        user: GMAIL_USER,
+        clientId: GMAIL_CLIENT_ID,
+        clientSecret: GMAIL_CLIENT_SECRET,
+        refreshToken: GMAIL_REFRESH_TOKEN,
+      },
+    });
+    return transporter;
+  }
+  return null;
 }
 
 function appendInquiry(entry) {
@@ -114,8 +132,11 @@ router.post('/contact',
           <tr><td><b>Submitted</b></td><td>${escHtml(ts)} (IP ${escHtml(ip)})</td></tr>
         </table>`;
         try {
+          const fromUser = process.env.GMAIL_USER || process.env.SMTP_USER;
+          const fromAlias = process.env.MAIL_FROM || fromUser;
           await t.sendMail({
-            from: `"Scale42 website" <${process.env.SMTP_USER}>`,
+            from: `"Scale42 website" <${fromAlias}>`,
+            envelope: { from: fromUser, to: to.split(',').map(s => s.trim()) },
             to,
             replyTo: `"${name}" <${email}>`,
             subject,
