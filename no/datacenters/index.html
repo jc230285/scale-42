@@ -34,6 +34,7 @@
     display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 24px; margin: 40px 0 0;
     padding: 28px 0 0; border-top: 1px solid var(--line);
+    text-align: center; justify-items: center;
   }
   .dc-summary .item dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
   .dc-summary .item dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; }
@@ -218,14 +219,19 @@
 
 <section id="dc-list" class="dc-list">
   <div class="container">
-    <div class="dc-toolbar">
-      <button class="dc-filter active" data-filter="all">Alle</button>
-      <button class="dc-filter" data-filter="norway">Norge</button>
-      <button class="dc-filter" data-filter="finland">Finland</button>
-      <button class="dc-filter" data-filter="sweden">Sverige</button>
-      <button class="dc-filter" data-filter="iceland">Island</button>
-      <button class="dc-filter" data-filter="greenland">Grønland</button>
-    </div>
+    <div class="dc-toolbar"><!--cms:dc_filters-->
+
+
+      <strong style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-right:8px;">Land</strong>
+      <button class="dc-filter active" data-axis="country" data-filter="all">Alle</button>
+      <button class="dc-filter" data-axis="country" data-filter="finland">Finland</button>
+      <button class="dc-filter" data-axis="country" data-filter="greenland">Grønland</button>
+      <button class="dc-filter" data-axis="country" data-filter="iceland">Island</button>
+      <button class="dc-filter" data-axis="country" data-filter="norway">Norge</button>
+      <button class="dc-filter" data-axis="country" data-filter="sweden">Sverige</button>
+    
+
+    <!--/cms:dc_filters--></div>
 
     <div class="dc-grid"><!--cms:dc_cards-->
 

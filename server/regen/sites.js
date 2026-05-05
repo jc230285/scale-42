@@ -23,6 +23,20 @@ function deriveStatus(label) {
   return 'tbd';
 }
 
+const COUNTRY_LABEL_NO = { norway: 'Norge', sweden: 'Sverige', finland: 'Finland', iceland: 'Island', greenland: 'Grønland', denmark: 'Danmark', faroeislands: 'Færøyene' };
+function countryLabel(slug, lang) {
+  if (lang === 'no' && COUNTRY_LABEL_NO[slug]) return COUNTRY_LABEL_NO[slug];
+  return slug.charAt(0).toUpperCase() + slug.slice(1);
+}
+function dcFiltersHtml(sites, lang) {
+  const slugs = [...new Set(sites.filter(s => s.published && s.country).map(s => String(s.country).toLowerCase().replace(/\s+/g, '')))].sort();
+  const heading = lang === 'no' ? 'Land' : 'Country';
+  const allLabel = lang === 'no' ? 'Alle' : 'All';
+  const buttons = [`<button class="dc-filter active" data-axis="country" data-filter="all">${allLabel}</button>`]
+    .concat(slugs.map(s => `<button class="dc-filter" data-axis="country" data-filter="${s}">${countryLabel(s, lang)}</button>`));
+  return `\n      <strong style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-right:8px;">${heading}</strong>\n      ${buttons.join('\n      ')}\n    `;
+}
+
 function computeStats(sites) {
   const live = sites.filter(s => s.published);
   // pipeline excludes sold
@@ -828,6 +842,7 @@ function run() {
       html = updateMarker(html, 'dc_hero_lede', `${stats.projects} prosjekter i ${stats.countries} nordiske land — samlokalisert med rimelig fornybar kraft, spesialbygget for høytetthetsberegning. Skalerer fra 50 MW-campus til 500 MW+ flaggskipssteder.`);
     }
     html = replaceHtmlBlock(html, 'dc_cards', cardHtml(data.sites, lang));
+    html = replaceHtmlBlock(html, 'dc_filters', dcFiltersHtml(data.sites, lang));
     fs.writeFileSync(p, html, 'utf-8');
   }
 
