@@ -264,8 +264,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "hyh7n2ab"
+      "grid_mix": ""
     },
     {
       "id": "bakki",
@@ -532,8 +531,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "s8lyvaie"
+      "grid_mix": ""
     },
     {
       "id": "skibotn",
@@ -797,8 +795,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "fcn0t882"
+      "grid_mix": ""
     },
     {
       "id": "reykjavik",
@@ -815,7 +812,7 @@
       "power": "Geothermal / hydro",
       "initial_mw": 30,
       "target_mw": 200,
-      "image": "reykjavik.svg",
+      "image": "2bf7bc15-88be-444a-a217-f69e9dc04a0c.avif",
       "desc_en": "Greater Reykjavík capacity adjacent to existing fibre — low-latency to North America.",
       "desc_no": "Kapasitet i Stor-Reykjavík ved siden av eksisterende fiber — lav latency til Nord-Amerika.",
       "bid_status": "Lead",
@@ -1065,8 +1062,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "phvjnla0"
+      "grid_mix": ""
     },
     {
       "id": "kristinestad",
@@ -1083,7 +1079,7 @@
       "power": "Wind",
       "initial_mw": 60,
       "target_mw": 500,
-      "image": "kristinestad.svg",
+      "image": "94ac614c-1c1c-4e77-bfa7-5d9efbd51111.webp",
       "desc_en": "Coastal Finnish site at the wind-power heartland with deep grid capacity.",
       "desc_no": "Finsk kystlokasjon i vindkraftens kjerneområde med stor nettkapasitet.",
       "bid_status": "Project",
@@ -1328,8 +1324,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "w7z60o82"
+      "grid_mix": ""
     },
     {
       "id": "nivala",
@@ -1592,8 +1587,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "k3ufou4d"
+      "grid_mix": ""
     },
     {
       "id": "jokkmokk",
@@ -1858,8 +1852,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "vd9sxfa4"
+      "grid_mix": ""
     },
     {
       "id": "kronoby",
@@ -2121,8 +2114,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "jzyfaqs4"
+      "grid_mix": ""
     },
     {
       "id": "torsboda",
@@ -2386,8 +2378,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ntik8a92"
+      "grid_mix": ""
     },
     {
       "id": "liperi",
@@ -2650,8 +2641,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "38btd9ue"
+      "grid_mix": ""
     },
     {
       "id": "kitee",
@@ -2915,8 +2905,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "itby2ao3"
+      "grid_mix": ""
     },
     {
       "id": "sorfold",
@@ -3181,8 +3170,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "n1hlhfw1"
+      "grid_mix": ""
     },
     {
       "id": "alajarvi",
@@ -3445,8 +3433,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "gcm9trg2"
+      "grid_mix": ""
     },
     {
       "id": "robertsfors",
@@ -3709,8 +3696,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ca3d36s5"
+      "grid_mix": ""
     },
     {
       "id": "nuuk",
@@ -3973,8 +3959,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "pkhckgw2"
+      "grid_mix": ""
     },
     {
       "id": "tjeldbergodden",
@@ -4239,8 +4224,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "py9yb846"
+      "grid_mix": ""
     },
     {
       "id": "honningsvag",
@@ -4504,8 +4488,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "p8ywko03"
+      "grid_mix": ""
     },
     {
       "id": "kemi",
@@ -4770,8 +4753,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "v3hkqidc"
+      "grid_mix": ""
     },
     {
       "id": "mikkeli",
@@ -5035,8 +5017,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ltjk5pm3"
+      "grid_mix": ""
     },
     {
       "id": "boden",
@@ -5301,8 +5282,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "kdpckam0"
+      "grid_mix": ""
     },
     {
       "id": "hadsel",
@@ -5566,8 +5546,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "5vjro8w1"
+      "grid_mix": ""
     },
     {
       "id": "sortland",
@@ -5831,8 +5810,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "mhip9q2a"
+      "grid_mix": ""
     },
     {
       "id": "salsbruket",
@@ -6095,8 +6073,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "atndo40e"
+      "grid_mix": ""
     },
     {
       "id": "rovaniemi",
@@ -6360,8 +6337,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "wul1im12"
+      "grid_mix": ""
     },
     {
       "id": "varkaus",
@@ -6621,8 +6597,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ry6pk0qe"
+      "grid_mix": ""
     },
     {
       "id": "bo",
@@ -6883,8 +6858,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "0p2b93g2"
+      "grid_mix": ""
     },
     {
       "id": "kontiolahti",
@@ -7144,8 +7118,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "3wpuld88"
+      "grid_mix": ""
     },
     {
       "id": "keminmaa",
@@ -7405,8 +7378,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "wf9cmgbd"
+      "grid_mix": ""
     },
     {
       "id": "tornio",
@@ -7667,8 +7639,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "mupcfif5"
+      "grid_mix": ""
     },
     {
       "id": "oulu",
@@ -7929,8 +7900,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "zlnwyuye"
+      "grid_mix": ""
     },
     {
       "id": "skelleftea",
@@ -8191,8 +8161,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "mjdsttc0"
+      "grid_mix": ""
     },
     {
       "id": "utansjo",
@@ -8452,8 +8421,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "gnmkw846"
+      "grid_mix": ""
     },
     {
       "id": "kalix",
@@ -8714,8 +8682,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "glvh2m13"
+      "grid_mix": ""
     },
     {
       "id": "reydarfjordur",
@@ -8825,8 +8792,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "sbc3jgk0"
+      "grid_mix": ""
     },
     {
       "id": "akureyri",
@@ -9087,8 +9053,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "zdmfxlk5"
+      "grid_mix": ""
     },
     {
       "id": "valaiscanton",
@@ -9348,8 +9313,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "qnvgfyd3"
+      "grid_mix": ""
     },
     {
       "id": "tbcnorthernengland",
@@ -9459,8 +9423,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "hlnipxcf"
+      "grid_mix": ""
     },
     {
       "id": "icelandrunofriver",
@@ -9570,8 +9533,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ke4jboi7"
+      "grid_mix": ""
     },
     {
       "id": "moiranamoindustrialpark",
@@ -9831,8 +9793,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "j0picjo1"
+      "grid_mix": ""
     },
     {
       "id": "andoya",
@@ -10093,8 +10054,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "dqqolsi2"
+      "grid_mix": ""
     },
     {
       "id": "sognlustersognekraftsognutvikling",
@@ -10354,8 +10314,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "vnqf1xcb"
+      "grid_mix": ""
     },
     {
       "id": "ostersundspikboderna",
@@ -10465,8 +10424,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "i3p6qu40"
+      "grid_mix": ""
     },
     {
       "id": "morsil",
@@ -10727,8 +10685,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ogy7xic6"
+      "grid_mix": ""
     },
     {
       "id": "milan",
@@ -10839,8 +10796,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ifwflua1"
+      "grid_mix": ""
     }
   ]
 }
