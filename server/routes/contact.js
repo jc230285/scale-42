@@ -70,6 +70,79 @@ function escHtml(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
+const BRAND = { ink: '#1c2e3f', accent: '#2f6675', gold: '#e8b87a', muted: '#6b7a87', line: '#e3e8ec', bgSoft: '#f6f8fa' };
+
+function emailShell(innerHtml, preheader) {
+  return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Scale42</title></head>
+<body style="margin:0;padding:0;background:${BRAND.bgSoft};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:${BRAND.ink};">
+<div style="display:none;max-height:0;overflow:hidden;color:transparent;opacity:0;">${escHtml(preheader || '')}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${BRAND.bgSoft};padding:32px 16px;">
+  <tr><td align="center">
+    <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;background:#ffffff;border:1px solid ${BRAND.line};border-radius:12px;overflow:hidden;">
+      <tr><td style="background:${BRAND.ink};padding:24px 32px;">
+        <table width="100%" role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td style="color:#ffffff;font-size:20px;font-weight:600;letter-spacing:-0.01em;">Scale42</td>
+          <td align="right" style="color:rgba(255,255,255,0.6);font-size:11px;text-transform:uppercase;letter-spacing:0.12em;">Pan-Nordic AI infrastructure</td>
+        </tr></table>
+      </td></tr>
+      <tr><td style="padding:32px;">${innerHtml}</td></tr>
+      <tr><td style="background:${BRAND.bgSoft};padding:18px 32px;border-top:1px solid ${BRAND.line};color:${BRAND.muted};font-size:12px;line-height:1.5;">
+        Scale42 AS · <a href="https://www.scale-42.com/" style="color:${BRAND.accent};text-decoration:none;">scale-42.com</a> · <a href="mailto:info@scale-42.com" style="color:${BRAND.accent};text-decoration:none;">info@scale-42.com</a>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
+}
+
+function renderInquiryEmail({ name, company, email, phone, message, niceTs }) {
+  const row = (label, value, isLink, linkPrefix) => {
+    if (!value) value = '<span style="color:' + BRAND.muted + ';">—</span>';
+    else if (isLink) value = `<a href="${linkPrefix}${escHtml(value)}" style="color:${BRAND.accent};text-decoration:none;">${escHtml(value)}</a>`;
+    else value = escHtml(value);
+    return `<tr>
+      <td style="padding:8px 0;width:90px;color:${BRAND.muted};font-size:12px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;vertical-align:top;">${label}</td>
+      <td style="padding:8px 0;font-size:15px;color:${BRAND.ink};">${value}</td>
+    </tr>`;
+  };
+  const inner = `
+    <p style="margin:0 0 4px;color:${BRAND.muted};font-size:12px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;">New website inquiry</p>
+    <h1 style="margin:0 0 24px;font-size:24px;font-weight:600;letter-spacing:-0.01em;color:${BRAND.ink};">${escHtml(name)}${company ? ` <span style="color:${BRAND.muted};font-weight:400;">· ${escHtml(company)}</span>` : ''}</h1>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid ${BRAND.line};margin:0 0 24px;">
+      ${row('From', name)}
+      ${row('Company', company)}
+      ${row('Email', email, true, 'mailto:')}
+      ${row('Phone', phone, !!phone, 'tel:')}
+    </table>
+    <div style="background:${BRAND.bgSoft};border-left:3px solid ${BRAND.accent};padding:20px 24px;border-radius:0 8px 8px 0;margin:0 0 24px;">
+      <p style="margin:0 0 8px;color:${BRAND.muted};font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">Message</p>
+      <p style="margin:0;font-size:15px;line-height:1.55;color:${BRAND.ink};white-space:pre-wrap;">${escHtml(message)}</p>
+    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 8px;">
+      <tr>
+        <td style="padding:14px 20px;background:${BRAND.ink};border-radius:8px;text-align:center;">
+          <a href="mailto:${escHtml(email)}?subject=Re%3A%20your%20Scale42%20inquiry" style="color:#ffffff;text-decoration:none;font-weight:600;font-size:14px;">Reply to ${escHtml(name)} →</a>
+        </td>
+      </tr>
+    </table>
+    <p style="margin:16px 0 0;color:${BRAND.muted};font-size:12px;">Submitted ${escHtml(niceTs)} (Oslo time). Replying to this email goes directly to the sender.</p>
+  `;
+  return emailShell(inner, `New inquiry from ${name}${company ? ' at ' + company : ''}`);
+}
+
+function renderAutoReply({ name }) {
+  const inner = `
+    <p style="margin:0 0 4px;color:${BRAND.muted};font-size:12px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;">Thanks for reaching out</p>
+    <h1 style="margin:0 0 16px;font-size:24px;font-weight:600;letter-spacing:-0.01em;color:${BRAND.ink};">We've received your message, ${escHtml((name || '').split(' ')[0] || 'there')}.</h1>
+    <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:${BRAND.ink};">A member of the Scale42 team will be in touch within one working day.</p>
+    <p style="margin:0 0 24px;font-size:15px;line-height:1.6;color:${BRAND.ink};">In the meantime, you can browse our pan-Nordic <a href="https://www.scale-42.com/datacenters/" style="color:${BRAND.accent};text-decoration:none;font-weight:600;">site portfolio</a> or read about our <a href="https://www.scale-42.com/solutions/" style="color:${BRAND.accent};text-decoration:none;font-weight:600;">solutions</a>.</p>
+    <div style="background:${BRAND.bgSoft};padding:18px 22px;border-radius:8px;margin:0 0 0;">
+      <p style="margin:0;color:${BRAND.muted};font-size:13px;line-height:1.55;">For urgent matters, email <a href="mailto:info@scale-42.com" style="color:${BRAND.accent};text-decoration:none;">info@scale-42.com</a> directly.</p>
+    </div>
+  `;
+  return emailShell(inner, `Thanks — we'll be in touch within one working day.`);
+}
+
 router.post('/contact',
   express.urlencoded({ extended: false, limit: '64kb' }),
   rateLimit,
@@ -100,37 +173,26 @@ router.post('/contact',
       const ts = new Date().toISOString();
 
       const entry = { ts, inquiry_type, name, company, email, phone, mw, message, ip, ua };
-      try { appendInquiry(entry); } catch (e) { console.error('inquiry append failed', e); }
 
       const t = getTransporter();
       if (t) {
         const to = process.env.CONTACT_TO || 'info@scale-42.com';
-        const subject = `[Scale42 contact · ${inquiry_type}] ${name}${company ? ' — ' + company : ''}`;
+        const subject = `New website inquiry — ${name}${company ? ' (' + company + ')' : ''}`;
+        const niceTs = new Date(ts).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Oslo' });
         const text = [
-          `Inquiry type: ${inquiry_type}`,
-          `Name:    ${name}`,
-          `Company: ${company || '—'}`,
+          `New inquiry from the Scale42 website`,
+          ``,
+          `From:    ${name}${company ? ' (' + company + ')' : ''}`,
           `Email:   ${email}`,
           `Phone:   ${phone || '—'}`,
-          `MW:      ${mw || '—'}`,
-          '',
-          'Message:',
+          ``,
+          `Message:`,
           message,
-          '',
-          `--`,
-          `Submitted: ${ts}`,
-          `IP: ${ip}`,
+          ``,
+          `Submitted ${niceTs} from ${ip}`,
+          `Reply directly to this email — it goes to ${name}.`,
         ].join('\n');
-        const html = `<table cellpadding="6" style="font-family:sans-serif;font-size:14px;border-collapse:collapse">
-          <tr><td><b>Inquiry type</b></td><td>${escHtml(inquiry_type)}</td></tr>
-          <tr><td><b>Name</b></td><td>${escHtml(name)}</td></tr>
-          <tr><td><b>Company</b></td><td>${escHtml(company) || '—'}</td></tr>
-          <tr><td><b>Email</b></td><td><a href="mailto:${escHtml(email)}">${escHtml(email)}</a></td></tr>
-          <tr><td><b>Phone</b></td><td>${escHtml(phone) || '—'}</td></tr>
-          <tr><td><b>MW</b></td><td>${escHtml(mw) || '—'}</td></tr>
-          <tr><td valign="top"><b>Message</b></td><td><pre style="white-space:pre-wrap;font-family:inherit;margin:0">${escHtml(message)}</pre></td></tr>
-          <tr><td><b>Submitted</b></td><td>${escHtml(ts)} (IP ${escHtml(ip)})</td></tr>
-        </table>`;
+        const html = renderInquiryEmail({ name, company, email, phone, message, niceTs });
         try {
           const fromUser = process.env.GMAIL_USER || process.env.SMTP_USER;
           const fromAlias = process.env.MAIL_FROM || fromUser;
@@ -147,6 +209,27 @@ router.post('/contact',
           entry.message_id = info.messageId;
           entry.smtp_response = info.response;
           console.log(`[contact] email OK to=${to} msgId=${info.messageId} resp=${info.response}`);
+
+          // Auto-reply to the submitter
+          try {
+            const replyHtml = renderAutoReply({ name });
+            const replyText = `Hi ${(name || '').split(' ')[0] || 'there'},\n\nThanks for reaching out to Scale42. A member of our team will be in touch within one working day.\n\nFor urgent matters, email info@scale-42.com directly.\n\n— The Scale42 team`;
+            await t.sendMail({
+              from: `"Scale42" <${fromAlias}>`,
+              envelope: { from: fromUser, to: [email] },
+              to: email,
+              replyTo: 'info@scale-42.com',
+              subject: 'We received your message — Scale42',
+              text: replyText,
+              html: replyHtml,
+            });
+            entry.autoreply_sent = true;
+            console.log(`[contact] auto-reply OK to=${email}`);
+          } catch (e) {
+            entry.autoreply_sent = false;
+            entry.autoreply_error = String((e && e.message) || e);
+            console.warn('[contact] auto-reply FAILED:', (e && e.message) || e);
+          }
           try { appendInquiry(entry); } catch {}
         } catch (e) {
           entry.email_sent = false;
@@ -156,6 +239,7 @@ router.post('/contact',
         }
       } else {
         console.warn('[contact] submission received but SMTP not configured');
+        try { appendInquiry(entry); } catch {}
       }
 
       res.redirect(303, '/contact/sent/');
