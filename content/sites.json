@@ -264,8 +264,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "fkiiyrm9"
+      "grid_mix": ""
     },
     {
       "id": "bakki",
@@ -532,8 +531,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "6u2q8qmf"
+      "grid_mix": ""
     },
     {
       "id": "skibotn",
@@ -797,8 +795,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "uz8gn7ca"
+      "grid_mix": ""
     },
     {
       "id": "reykjavik",
@@ -1065,8 +1062,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "gzgflj4b"
+      "grid_mix": ""
     },
     {
       "id": "kristinestad",
@@ -1328,272 +1324,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "th11qba2"
-    },
-    {
-      "id": "nivala",
-      "name": "Nivala",
-      "country": "Finland",
-      "site_type": "greenfield",
-      "internal_status": "Development focus",
-      "internal_category": "GIGA-42",
-      "published": false,
-      "status": "live",
-      "short_status_label": "Permitting",
-      "lat": 63.9333,
-      "lng": 24.9667,
-      "power": "Wind",
-      "initial_mw": 50,
-      "target_mw": 500,
-      "image": "nivala.svg",
-      "desc_en": "North Ostrobothnia site with strong onshore wind and existing 110 kV connection.",
-      "desc_no": "Lokasjon i Nord-Österbotten med sterk landvind og eksisterende 110 kV-tilknytning.",
-      "bid_status": "Project",
-      "category_rationale": "Develop* or Dispose — shovel-ready in near term.",
-      "nbs_assessment": "Reservation negotiations with municipality. Scale42 LOI submitted to secure negotiations. Backing for removal of nearby road-bound airstrip.",
-      "project_description": "Identified by Scale42 October 2025. LOI submitted Jan 2026 for plot near a 400 kV substation; potential to grow to >500 MW. Flat land with slight undulation, mostly managed woodland.",
-      "address": "Takanevantie 159, 85500 Nivala, Finland",
-      "site_link": "https://maps.app.goo.gl/G21rXQEFEGMBjgix5",
-      "size_ha": null,
-      "eia_required": true,
-      "eia_status": "Required above 100 MW",
-      "restrictions": "No Chinese/Russian end customers / funders.",
-      "max_capacity_mw": 800,
-      "connection_voltage": "110kV & 400kV",
-      "dso": "Elenia Verkko Oyj",
-      "tso": "Fingrid",
-      "ppa_counterparty": "Nordpool",
-      "exact_power_status": "Available subject to permits",
-      "heat_reuse": "Planned",
-      "it_load_mw": "640",
-      "dpue": "1.15",
-      "ppue": "1.25",
-      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
-      "cooling": "Air — perimeter; DLC — room-level CDU",
-      "workload_mix": "Training & possibly inference",
-      "fibre_providers": [
-        "Elisa",
-        "Telia"
-      ],
-      "fibre_strands": "Dark fibre available, strands TBC",
-      "fibre_general_info": "Within Finland's national fibre network; site-specific connectivity TBC. Regional utility fibre with access to long-haul routes south.",
-      "latency_summary": "Frankfurt ~17–31 ms · London ~31–35 ms · NY ~95–105 ms.",
-      "highway_access": "1 km to Highway 27",
-      "airport_access": "2 hr to domestic",
-      "college_university": "2 hr to college & university",
-      "zoning_status": "Outline zoning required. Industrial zoning (with DC permission) expected by Q4 2026. Sweco commissioned for environmental study.",
-      "project_owner": "100%",
-      "current_control": "Reservation negotiations",
-      "planned_ultimate_control": "Own freehold",
-      "contractual_arrangement": "DLA Piper Finland; Permitting: Ramboll, AINS, Granlund.",
-      "strategic_status": "Development focus",
-      "jv_partner": "",
-      "land_paperwork_status": "",
-      "fingrid_map_link": "",
-      "connection_enquiry_link": "",
-      "investment_memo_link": "",
-      "planning_status": "",
-      "plots_identified": "",
-      "plots_secured": "",
-      "water_availability": "",
-      "power_availability": "",
-      "power_paperwork": "",
-      "ppa_status": "",
-      "racks": "",
-      "fibre_speeds_gbps": "",
-      "subsea_cables": [],
-      "isp_check_status": "",
-      "highway_km": null,
-      "nearest_airport": "",
-      "airport_km": null,
-      "university_km": null,
-      "labour_availability": "",
-      "other_access_notes": "",
-      "rtb_date": "",
-      "energisation_date": "",
-      "project_budget_musd": null,
-      "offtakers": [],
-      "risks": "",
-      "dependencies": "",
-      "key_risks_dependencies": "",
-      "site_rationale": "",
-      "strategy_notes": "",
-      "internal_comments": "",
-      "extra_data": "",
-      "public_status_label": "In development",
-      "public_location": "Nivala, Finland",
-      "nearest_airport_public": "Kokkola-Pietarsaari Airport (KOK)",
-      "nearest_airport_km": 92,
-      "nearest_seaport": "Raahe",
-      "nearest_seaport_km": 87,
-      "avg_temp_c": 4.3,
-      "free_cooling_hours": 7926,
-      "hub_distances_km": "Frankfurt: 1814 km · Stockholm: 628 km · London: 2008 km · Amsterdam: 1729 km",
-      "temp_chart": [
-        {
-          "ym": "2023-04",
-          "t": 1.5
-        },
-        {
-          "ym": "2023-05",
-          "t": 9.5
-        },
-        {
-          "ym": "2023-06",
-          "t": 15.1
-        },
-        {
-          "ym": "2023-07",
-          "t": 15.6
-        },
-        {
-          "ym": "2023-08",
-          "t": 16.4
-        },
-        {
-          "ym": "2023-09",
-          "t": 13
-        },
-        {
-          "ym": "2023-10",
-          "t": 0.6
-        },
-        {
-          "ym": "2023-11",
-          "t": -4.3
-        },
-        {
-          "ym": "2023-12",
-          "t": -6.7
-        },
-        {
-          "ym": "2024-01",
-          "t": -11.1
-        },
-        {
-          "ym": "2024-02",
-          "t": -6.7
-        },
-        {
-          "ym": "2024-03",
-          "t": -2.1
-        },
-        {
-          "ym": "2024-04",
-          "t": -0.3
-        },
-        {
-          "ym": "2024-05",
-          "t": 11.2
-        },
-        {
-          "ym": "2024-06",
-          "t": 16
-        },
-        {
-          "ym": "2024-07",
-          "t": 17.5
-        },
-        {
-          "ym": "2024-08",
-          "t": 16.5
-        },
-        {
-          "ym": "2024-09",
-          "t": 12.7
-        },
-        {
-          "ym": "2024-10",
-          "t": 5.2
-        },
-        {
-          "ym": "2024-11",
-          "t": 0
-        },
-        {
-          "ym": "2024-12",
-          "t": -4.2
-        },
-        {
-          "ym": "2025-01",
-          "t": -5.8
-        },
-        {
-          "ym": "2025-02",
-          "t": -4.6
-        },
-        {
-          "ym": "2025-03",
-          "t": -1.7
-        },
-        {
-          "ym": "2025-04",
-          "t": 3
-        },
-        {
-          "ym": "2025-05",
-          "t": 7.9
-        },
-        {
-          "ym": "2025-06",
-          "t": 12.7
-        },
-        {
-          "ym": "2025-07",
-          "t": 19.1
-        },
-        {
-          "ym": "2025-08",
-          "t": 14.4
-        },
-        {
-          "ym": "2025-09",
-          "t": 12.3
-        },
-        {
-          "ym": "2025-10",
-          "t": 5.6
-        },
-        {
-          "ym": "2025-11",
-          "t": -0.3
-        },
-        {
-          "ym": "2025-12",
-          "t": -2.2
-        },
-        {
-          "ym": "2026-01",
-          "t": -12.7
-        },
-        {
-          "ym": "2026-02",
-          "t": -13
-        },
-        {
-          "ym": "2026-03",
-          "t": 1.7
-        },
-        {
-          "ym": "2026-04",
-          "t": 3.7
-        }
-      ],
-      "population_50km": 61905,
-      "population": null,
-      "area_overview": "",
-      "power_notes": "",
-      "hot_days_per_year": null,
-      "cold_days_per_year": null,
-      "daylight_hours": "",
-      "tz_offset": "",
-      "nearest_substation": "",
-      "nearest_substation_km": null,
-      "grid_co2": null,
-      "grid_price": null,
-      "grid_mix": "",
-      "url_token": "jjs6w0f3"
+      "grid_mix": ""
     },
     {
       "id": "jokkmokk",
@@ -1858,536 +1589,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ieo30xc8"
-    },
-    {
-      "id": "kronoby",
-      "name": "Kronoby",
-      "country": "Finland",
-      "site_type": "greenfield",
-      "internal_status": "Development focus",
-      "internal_category": "GIGA-42",
-      "published": false,
-      "status": "live",
-      "short_status_label": "Permitting",
-      "lat": 63.7333,
-      "lng": 23.0167,
-      "power": "Wind / hydro",
-      "initial_mw": 50,
-      "target_mw": 400,
-      "image": "kronoby.svg",
-      "desc_en": "Bilingual coastal Finnish site with wind and hydro complementary supply.",
-      "desc_no": "Tospråklig finsk kystlokasjon med komplementær vind- og vannkraftforsyning.",
-      "bid_status": "Lead",
-      "category_rationale": "Develop — shovel-ready in near term subject to validating municipal power infrastructure timelines.",
-      "nbs_assessment": "Currently negotiating lease agreement with Kronoby municipality to reserve the site.",
-      "project_description": "Identified by Peter Sladey November 2025. West coast of Finland, just south of Kokkola (regional hub). Engaging with municipality to reserve plot during general then detailed zoning. Flat coastal land, mix of agricultural and forestry use.",
-      "address": "Boholmsvägen, 68500 Kronoby, Finland",
-      "site_link": "https://maps.app.goo.gl/HmftWB5ydEDa97MK7",
-      "size_ha": 350,
-      "eia_required": true,
-      "eia_status": "Required above 100 MW",
-      "restrictions": "No Chinese/Russian end customers / funders. No crypto.",
-      "max_capacity_mw": 800,
-      "connection_voltage": "110kV & 400kV",
-      "dso": "Oy Herrfors Ab",
-      "tso": "Fingrid",
-      "ppa_counterparty": "Nordpool",
-      "exact_power_status": "Available subject to permits",
-      "heat_reuse": "Planned",
-      "it_load_mw": "0",
-      "dpue": "1.15",
-      "ppue": "1.25",
-      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
-      "cooling": "Air — perimeter; DLC — room-level CDU",
-      "workload_mix": "Training & possibly inference",
-      "fibre_providers": [
-        "Elisa"
-      ],
-      "fibre_strands": "Dark fibre available, strands TBC",
-      "fibre_speeds_gbps": "400G DWDM (dual/protected)",
-      "fibre_general_info": "Telia 400G DWDM proposal: OTC €395k, MRC €6,780/mo.",
-      "latency_summary": "Frankfurt ~17–31 ms · London ~31–35 ms · NY ~95–105 ms.",
-      "highway_access": "500 m to E8 Highway",
-      "airport_access": "9 km to domestic",
-      "college_university": "15 min to college & university",
-      "other_access_notes": "10 km to commercial port.",
-      "zoning_status": "Detailed planning expected to finish summer 2026.",
-      "project_owner": "100%",
-      "current_control": "Reservation negotiations",
-      "planned_ultimate_control": "Own freehold",
-      "contractual_arrangement": "Peter Sladey (land agent)",
-      "strategic_status": "Development focus",
-      "jv_partner": "",
-      "land_paperwork_status": "",
-      "fingrid_map_link": "",
-      "connection_enquiry_link": "",
-      "investment_memo_link": "",
-      "planning_status": "",
-      "plots_identified": "",
-      "plots_secured": "",
-      "water_availability": "",
-      "power_availability": "",
-      "power_paperwork": "",
-      "ppa_status": "",
-      "racks": "",
-      "subsea_cables": [],
-      "isp_check_status": "",
-      "highway_km": null,
-      "nearest_airport": "",
-      "airport_km": null,
-      "university_km": null,
-      "labour_availability": "",
-      "rtb_date": "",
-      "energisation_date": "",
-      "project_budget_musd": null,
-      "offtakers": [],
-      "risks": "",
-      "dependencies": "",
-      "key_risks_dependencies": "",
-      "site_rationale": "",
-      "strategy_notes": "",
-      "internal_comments": "",
-      "extra_data": "",
-      "public_status_label": "Coming soon",
-      "public_location": "Kronoby, Finland",
-      "nearest_airport_public": "Kokkola-Pietarsaari Airport (KOK)",
-      "nearest_airport_km": 6,
-      "nearest_seaport": "Kokkola",
-      "nearest_seaport_km": 13,
-      "avg_temp_c": 4.9,
-      "free_cooling_hours": 7962,
-      "hub_distances_km": "Frankfurt: 1738 km · Stockholm: 555 km · London: 1915 km · Amsterdam: 1641 km",
-      "temp_chart": [
-        {
-          "ym": "2023-04",
-          "t": 2.2
-        },
-        {
-          "ym": "2023-05",
-          "t": 9.2
-        },
-        {
-          "ym": "2023-06",
-          "t": 15.2
-        },
-        {
-          "ym": "2023-07",
-          "t": 15.9
-        },
-        {
-          "ym": "2023-08",
-          "t": 16.5
-        },
-        {
-          "ym": "2023-09",
-          "t": 13.5
-        },
-        {
-          "ym": "2023-10",
-          "t": 1.6
-        },
-        {
-          "ym": "2023-11",
-          "t": -3.7
-        },
-        {
-          "ym": "2023-12",
-          "t": -6.4
-        },
-        {
-          "ym": "2024-01",
-          "t": -10.3
-        },
-        {
-          "ym": "2024-02",
-          "t": -6
-        },
-        {
-          "ym": "2024-03",
-          "t": -1.6
-        },
-        {
-          "ym": "2024-04",
-          "t": 0.6
-        },
-        {
-          "ym": "2024-05",
-          "t": 11.1
-        },
-        {
-          "ym": "2024-06",
-          "t": 15.6
-        },
-        {
-          "ym": "2024-07",
-          "t": 17.7
-        },
-        {
-          "ym": "2024-08",
-          "t": 16.8
-        },
-        {
-          "ym": "2024-09",
-          "t": 13.1
-        },
-        {
-          "ym": "2024-10",
-          "t": 6.5
-        },
-        {
-          "ym": "2024-11",
-          "t": 1
-        },
-        {
-          "ym": "2024-12",
-          "t": -2.8
-        },
-        {
-          "ym": "2025-01",
-          "t": -4.2
-        },
-        {
-          "ym": "2025-02",
-          "t": -3.8
-        },
-        {
-          "ym": "2025-03",
-          "t": -0.4
-        },
-        {
-          "ym": "2025-04",
-          "t": 3.4
-        },
-        {
-          "ym": "2025-05",
-          "t": 7.4
-        },
-        {
-          "ym": "2025-06",
-          "t": 12.9
-        },
-        {
-          "ym": "2025-07",
-          "t": 19.2
-        },
-        {
-          "ym": "2025-08",
-          "t": 14.9
-        },
-        {
-          "ym": "2025-09",
-          "t": 12.9
-        },
-        {
-          "ym": "2025-10",
-          "t": 6.6
-        },
-        {
-          "ym": "2025-11",
-          "t": 0.8
-        },
-        {
-          "ym": "2025-12",
-          "t": -0.3
-        },
-        {
-          "ym": "2026-01",
-          "t": -10.9
-        },
-        {
-          "ym": "2026-02",
-          "t": -12.2
-        },
-        {
-          "ym": "2026-03",
-          "t": 2.1
-        },
-        {
-          "ym": "2026-04",
-          "t": 4
-        }
-      ],
-      "population_50km": 134245,
-      "population": null,
-      "area_overview": "",
-      "power_notes": "",
-      "hot_days_per_year": null,
-      "cold_days_per_year": null,
-      "daylight_hours": "",
-      "tz_offset": "",
-      "nearest_substation": "",
-      "nearest_substation_km": null,
-      "grid_co2": null,
-      "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ymfl3g0e"
-    },
-    {
-      "id": "torsboda",
-      "name": "Torsboda",
-      "country": "Sweden",
-      "site_type": "greenfield",
-      "internal_status": "Watch list",
-      "internal_category": "Partner-led",
-      "published": true,
-      "status": "tbd",
-      "lat": 62.5667,
-      "lng": 17.4167,
-      "power": "Hydro / wind",
-      "target_mw": 1200,
-      "desc_en": "",
-      "desc_no": "",
-      "bid_status": "Lead *hot* (was Project, changed by TB & WT 19/02)",
-      "category_rationale": "Close / Dispose — shovel-ready 2028 with ~400 MW potential. Power connection 2029-2030 so RFS much longer. Strategic location with proximity to multiple hydropower projects.",
-      "nbs_assessment": "Bid submitted Jan 2026 against several other DC companies. Result expected Feb 2026. Early feedback indicated front-runner status.",
-      "project_description": "Brought to Scale42 January 2026 by Peter Sladey. Zoned land near Sundsvall, SE2 Sweden, with ~1,200 MW of power and an electrification timeline. ~15% slope on the westward side of a hill; managed woodland cleared for industrial use.",
-      "address": "E4, 861 95 Svarvarböle, Sweden",
-      "site_link": "https://maps.app.goo.gl/hQ3sxiokwWGPTHSNA",
-      "size_ha": null,
-      "eia_required": true,
-      "eia_status": "Required above 100 MW",
-      "max_capacity_mw": 1200,
-      "initial_mw": 250,
-      "connection_voltage": "110kV & 400kV",
-      "dso": "Skelleftea Kraft",
-      "tso": "Svenska kraftnät",
-      "ppa_counterparty": "Nordpool",
-      "exact_power_status": "Power becomes available and allocated to site owner in 2028.",
-      "heat_reuse": "Planned",
-      "it_load_mw": "960",
-      "dpue": "1.15",
-      "ppue": "1.25",
-      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
-      "cooling": "Air — perimeter; DLC — room-level CDU",
-      "workload_mix": "Training, inference, hyperscale cloud",
-      "fibre_providers": [
-        "GlobalConnect",
-        "Telia Carrier",
-        "Arelion"
-      ],
-      "fibre_strands": "Available (high-capacity backbone routes)",
-      "fibre_speeds_gbps": "400G DWDM, upgradeable",
-      "fibre_general_info": "Strategic central-eastern Sweden location with dense carrier presence and short routes to continental Europe. Strong for latency-sensitive workloads.",
-      "latency_summary": "Stockholm ~5–8 ms · Frankfurt ~18–22 ms · Amsterdam ~18–22 ms · London ~22–25 ms.",
-      "highway_access": "Adjacent to Highway E4",
-      "airport_access": "2.5 km to international",
-      "college_university": "30 min to college & university",
-      "other_access_notes": "2.6 km to commercial port.",
-      "zoning_status": "Already zoned (190 ha, 30% building rights). Power connection target 2027.",
-      "key_risks_dependencies": "Currently in competition with other bidders; Scale42 has strong municipal track record.",
-      "project_owner": "100%",
-      "current_control": "Purchase negotiations",
-      "planned_ultimate_control": "Own freehold",
-      "contractual_arrangement": "Peter Sladey (land agent)",
-      "strategic_status": "Development focus",
-      "jv_partner": "",
-      "land_paperwork_status": "",
-      "fingrid_map_link": "",
-      "connection_enquiry_link": "",
-      "investment_memo_link": "",
-      "short_status_label": "",
-      "planning_status": "",
-      "restrictions": "",
-      "plots_identified": "",
-      "plots_secured": "",
-      "water_availability": "",
-      "power_availability": "",
-      "power_paperwork": "",
-      "ppa_status": "",
-      "racks": "",
-      "subsea_cables": [],
-      "isp_check_status": "",
-      "highway_km": null,
-      "nearest_airport": "",
-      "airport_km": null,
-      "university_km": null,
-      "labour_availability": "",
-      "rtb_date": "",
-      "energisation_date": "",
-      "project_budget_musd": null,
-      "offtakers": [],
-      "risks": "",
-      "dependencies": "",
-      "site_rationale": "",
-      "strategy_notes": "",
-      "internal_comments": "",
-      "extra_data": "",
-      "image": "torsboda.svg",
-      "public_status_label": "Coming soon",
-      "public_location": "Torsboda, Sweden",
-      "nearest_airport_public": "Sundsvall-Härnösand Airport (SDL)",
-      "nearest_airport_km": 5,
-      "nearest_seaport": "Sundsvall",
-      "nearest_seaport_km": 20,
-      "avg_temp_c": 5.5,
-      "free_cooling_hours": 7965,
-      "hub_distances_km": "Frankfurt: 1483 km · Stockholm: 362 km · London: 1614 km · Amsterdam: 1354 km",
-      "temp_chart": [
-        {
-          "ym": "2023-04",
-          "t": 2.6
-        },
-        {
-          "ym": "2023-05",
-          "t": 9.9
-        },
-        {
-          "ym": "2023-06",
-          "t": 15.9
-        },
-        {
-          "ym": "2023-07",
-          "t": 15.5
-        },
-        {
-          "ym": "2023-08",
-          "t": 14.9
-        },
-        {
-          "ym": "2023-09",
-          "t": 12.6
-        },
-        {
-          "ym": "2023-10",
-          "t": 2.3
-        },
-        {
-          "ym": "2023-11",
-          "t": -4.4
-        },
-        {
-          "ym": "2023-12",
-          "t": -6.8
-        },
-        {
-          "ym": "2024-01",
-          "t": -6.9
-        },
-        {
-          "ym": "2024-02",
-          "t": -4.8
-        },
-        {
-          "ym": "2024-03",
-          "t": -1.5
-        },
-        {
-          "ym": "2024-04",
-          "t": 0.7
-        },
-        {
-          "ym": "2024-05",
-          "t": 12.3
-        },
-        {
-          "ym": "2024-06",
-          "t": 14.4
-        },
-        {
-          "ym": "2024-07",
-          "t": 16.1
-        },
-        {
-          "ym": "2024-08",
-          "t": 15.9
-        },
-        {
-          "ym": "2024-09",
-          "t": 11.3
-        },
-        {
-          "ym": "2024-10",
-          "t": 5.7
-        },
-        {
-          "ym": "2024-11",
-          "t": 0.2
-        },
-        {
-          "ym": "2024-12",
-          "t": -3.7
-        },
-        {
-          "ym": "2025-01",
-          "t": -3.8
-        },
-        {
-          "ym": "2025-02",
-          "t": -3.5
-        },
-        {
-          "ym": "2025-03",
-          "t": 0.8
-        },
-        {
-          "ym": "2025-04",
-          "t": 4.7
-        },
-        {
-          "ym": "2025-05",
-          "t": 7.5
-        },
-        {
-          "ym": "2025-06",
-          "t": 12.9
-        },
-        {
-          "ym": "2025-07",
-          "t": 18.5
-        },
-        {
-          "ym": "2025-08",
-          "t": 14.1
-        },
-        {
-          "ym": "2025-09",
-          "t": 12
-        },
-        {
-          "ym": "2025-10",
-          "t": 6
-        },
-        {
-          "ym": "2025-11",
-          "t": -1.1
-        },
-        {
-          "ym": "2025-12",
-          "t": -0.5
-        },
-        {
-          "ym": "2026-01",
-          "t": -8.1
-        },
-        {
-          "ym": "2026-02",
-          "t": -10.9
-        },
-        {
-          "ym": "2026-03",
-          "t": 1.9
-        },
-        {
-          "ym": "2026-04",
-          "t": 3.8
-        }
-      ],
-      "population_50km": 150824,
-      "population": null,
-      "area_overview": "",
-      "power_notes": "",
-      "hot_days_per_year": null,
-      "cold_days_per_year": null,
-      "daylight_hours": "",
-      "tz_offset": "",
-      "nearest_substation": "",
-      "nearest_substation_km": null,
-      "grid_co2": null,
-      "grid_price": null,
-      "grid_mix": "",
-      "url_token": "xklu7y40"
+      "grid_mix": ""
     },
     {
       "id": "liperi",
@@ -2650,8 +1852,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "j81vyz08"
+      "grid_mix": ""
     },
     {
       "id": "kitee",
@@ -2915,8 +2116,271 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "m8k9v4w0"
+      "grid_mix": ""
+    },
+    {
+      "id": "torsboda",
+      "name": "Torsboda",
+      "country": "Sweden",
+      "site_type": "greenfield",
+      "internal_status": "Watch list",
+      "internal_category": "Partner-led",
+      "published": true,
+      "status": "tbd",
+      "lat": 62.5667,
+      "lng": 17.4167,
+      "power": "Hydro / wind",
+      "target_mw": 1200,
+      "desc_en": "",
+      "desc_no": "",
+      "bid_status": "Lead *hot* (was Project, changed by TB & WT 19/02)",
+      "category_rationale": "Close / Dispose — shovel-ready 2028 with ~400 MW potential. Power connection 2029-2030 so RFS much longer. Strategic location with proximity to multiple hydropower projects.",
+      "nbs_assessment": "Bid submitted Jan 2026 against several other DC companies. Result expected Feb 2026. Early feedback indicated front-runner status.",
+      "project_description": "Brought to Scale42 January 2026 by Peter Sladey. Zoned land near Sundsvall, SE2 Sweden, with ~1,200 MW of power and an electrification timeline. ~15% slope on the westward side of a hill; managed woodland cleared for industrial use.",
+      "address": "E4, 861 95 Svarvarböle, Sweden",
+      "site_link": "https://maps.app.goo.gl/hQ3sxiokwWGPTHSNA",
+      "size_ha": null,
+      "eia_required": true,
+      "eia_status": "Required above 100 MW",
+      "max_capacity_mw": 1200,
+      "initial_mw": 250,
+      "connection_voltage": "110kV & 400kV",
+      "dso": "Skelleftea Kraft",
+      "tso": "Svenska kraftnät",
+      "ppa_counterparty": "Nordpool",
+      "exact_power_status": "Power becomes available and allocated to site owner in 2028.",
+      "heat_reuse": "Planned",
+      "it_load_mw": "960",
+      "dpue": "1.15",
+      "ppue": "1.25",
+      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
+      "cooling": "Air — perimeter; DLC — room-level CDU",
+      "workload_mix": "Training, inference, hyperscale cloud",
+      "fibre_providers": [
+        "GlobalConnect",
+        "Telia Carrier",
+        "Arelion"
+      ],
+      "fibre_strands": "Available (high-capacity backbone routes)",
+      "fibre_speeds_gbps": "400G DWDM, upgradeable",
+      "fibre_general_info": "Strategic central-eastern Sweden location with dense carrier presence and short routes to continental Europe. Strong for latency-sensitive workloads.",
+      "latency_summary": "Stockholm ~5–8 ms · Frankfurt ~18–22 ms · Amsterdam ~18–22 ms · London ~22–25 ms.",
+      "highway_access": "Adjacent to Highway E4",
+      "airport_access": "2.5 km to international",
+      "college_university": "30 min to college & university",
+      "other_access_notes": "2.6 km to commercial port.",
+      "zoning_status": "Already zoned (190 ha, 30% building rights). Power connection target 2027.",
+      "key_risks_dependencies": "Currently in competition with other bidders; Scale42 has strong municipal track record.",
+      "project_owner": "100%",
+      "current_control": "Purchase negotiations",
+      "planned_ultimate_control": "Own freehold",
+      "contractual_arrangement": "Peter Sladey (land agent)",
+      "strategic_status": "Development focus",
+      "jv_partner": "",
+      "land_paperwork_status": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "short_status_label": "",
+      "planning_status": "",
+      "restrictions": "",
+      "plots_identified": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power_availability": "",
+      "power_paperwork": "",
+      "ppa_status": "",
+      "racks": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "extra_data": "",
+      "image": "torsboda.svg",
+      "public_status_label": "Coming soon",
+      "public_location": "Torsboda, Sweden",
+      "nearest_airport_public": "Sundsvall-Härnösand Airport (SDL)",
+      "nearest_airport_km": 5,
+      "nearest_seaport": "Sundsvall",
+      "nearest_seaport_km": 20,
+      "avg_temp_c": 5.5,
+      "free_cooling_hours": 7965,
+      "hub_distances_km": "Frankfurt: 1483 km · Stockholm: 362 km · London: 1614 km · Amsterdam: 1354 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 2.6
+        },
+        {
+          "ym": "2023-05",
+          "t": 9.9
+        },
+        {
+          "ym": "2023-06",
+          "t": 15.9
+        },
+        {
+          "ym": "2023-07",
+          "t": 15.5
+        },
+        {
+          "ym": "2023-08",
+          "t": 14.9
+        },
+        {
+          "ym": "2023-09",
+          "t": 12.6
+        },
+        {
+          "ym": "2023-10",
+          "t": 2.3
+        },
+        {
+          "ym": "2023-11",
+          "t": -4.4
+        },
+        {
+          "ym": "2023-12",
+          "t": -6.8
+        },
+        {
+          "ym": "2024-01",
+          "t": -6.9
+        },
+        {
+          "ym": "2024-02",
+          "t": -4.8
+        },
+        {
+          "ym": "2024-03",
+          "t": -1.5
+        },
+        {
+          "ym": "2024-04",
+          "t": 0.7
+        },
+        {
+          "ym": "2024-05",
+          "t": 12.3
+        },
+        {
+          "ym": "2024-06",
+          "t": 14.4
+        },
+        {
+          "ym": "2024-07",
+          "t": 16.1
+        },
+        {
+          "ym": "2024-08",
+          "t": 15.9
+        },
+        {
+          "ym": "2024-09",
+          "t": 11.3
+        },
+        {
+          "ym": "2024-10",
+          "t": 5.7
+        },
+        {
+          "ym": "2024-11",
+          "t": 0.2
+        },
+        {
+          "ym": "2024-12",
+          "t": -3.7
+        },
+        {
+          "ym": "2025-01",
+          "t": -3.8
+        },
+        {
+          "ym": "2025-02",
+          "t": -3.5
+        },
+        {
+          "ym": "2025-03",
+          "t": 0.8
+        },
+        {
+          "ym": "2025-04",
+          "t": 4.7
+        },
+        {
+          "ym": "2025-05",
+          "t": 7.5
+        },
+        {
+          "ym": "2025-06",
+          "t": 12.9
+        },
+        {
+          "ym": "2025-07",
+          "t": 18.5
+        },
+        {
+          "ym": "2025-08",
+          "t": 14.1
+        },
+        {
+          "ym": "2025-09",
+          "t": 12
+        },
+        {
+          "ym": "2025-10",
+          "t": 6
+        },
+        {
+          "ym": "2025-11",
+          "t": -1.1
+        },
+        {
+          "ym": "2025-12",
+          "t": -0.5
+        },
+        {
+          "ym": "2026-01",
+          "t": -8.1
+        },
+        {
+          "ym": "2026-02",
+          "t": -10.9
+        },
+        {
+          "ym": "2026-03",
+          "t": 1.9
+        },
+        {
+          "ym": "2026-04",
+          "t": 3.8
+        }
+      ],
+      "population_50km": 150824,
+      "population": null,
+      "area_overview": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "sorfold",
@@ -3181,8 +2645,532 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ehgtecqb"
+      "grid_mix": ""
+    },
+    {
+      "id": "nivala",
+      "name": "Nivala",
+      "country": "Finland",
+      "site_type": "greenfield",
+      "internal_status": "Development focus",
+      "internal_category": "GIGA-42",
+      "published": false,
+      "status": "live",
+      "short_status_label": "Permitting",
+      "lat": 63.9333,
+      "lng": 24.9667,
+      "power": "Wind",
+      "initial_mw": 50,
+      "target_mw": 500,
+      "image": "nivala.svg",
+      "desc_en": "North Ostrobothnia site with strong onshore wind and existing 110 kV connection.",
+      "desc_no": "Lokasjon i Nord-Österbotten med sterk landvind og eksisterende 110 kV-tilknytning.",
+      "bid_status": "Project",
+      "category_rationale": "Develop* or Dispose — shovel-ready in near term.",
+      "nbs_assessment": "Reservation negotiations with municipality. Scale42 LOI submitted to secure negotiations. Backing for removal of nearby road-bound airstrip.",
+      "project_description": "Identified by Scale42 October 2025. LOI submitted Jan 2026 for plot near a 400 kV substation; potential to grow to >500 MW. Flat land with slight undulation, mostly managed woodland.",
+      "address": "Takanevantie 159, 85500 Nivala, Finland",
+      "site_link": "https://maps.app.goo.gl/G21rXQEFEGMBjgix5",
+      "size_ha": null,
+      "eia_required": true,
+      "eia_status": "Required above 100 MW",
+      "restrictions": "No Chinese/Russian end customers / funders.",
+      "max_capacity_mw": 800,
+      "connection_voltage": "110kV & 400kV",
+      "dso": "Elenia Verkko Oyj",
+      "tso": "Fingrid",
+      "ppa_counterparty": "Nordpool",
+      "exact_power_status": "Available subject to permits",
+      "heat_reuse": "Planned",
+      "it_load_mw": "640",
+      "dpue": "1.15",
+      "ppue": "1.25",
+      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
+      "cooling": "Air — perimeter; DLC — room-level CDU",
+      "workload_mix": "Training & possibly inference",
+      "fibre_providers": [
+        "Elisa",
+        "Telia"
+      ],
+      "fibre_strands": "Dark fibre available, strands TBC",
+      "fibre_general_info": "Within Finland's national fibre network; site-specific connectivity TBC. Regional utility fibre with access to long-haul routes south.",
+      "latency_summary": "Frankfurt ~17–31 ms · London ~31–35 ms · NY ~95–105 ms.",
+      "highway_access": "1 km to Highway 27",
+      "airport_access": "2 hr to domestic",
+      "college_university": "2 hr to college & university",
+      "zoning_status": "Outline zoning required. Industrial zoning (with DC permission) expected by Q4 2026. Sweco commissioned for environmental study.",
+      "project_owner": "100%",
+      "current_control": "Reservation negotiations",
+      "planned_ultimate_control": "Own freehold",
+      "contractual_arrangement": "DLA Piper Finland; Permitting: Ramboll, AINS, Granlund.",
+      "strategic_status": "Development focus",
+      "jv_partner": "",
+      "land_paperwork_status": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "planning_status": "",
+      "plots_identified": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power_availability": "",
+      "power_paperwork": "",
+      "ppa_status": "",
+      "racks": "",
+      "fibre_speeds_gbps": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "other_access_notes": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "extra_data": "",
+      "public_status_label": "In development",
+      "public_location": "Nivala, Finland",
+      "nearest_airport_public": "Kokkola-Pietarsaari Airport (KOK)",
+      "nearest_airport_km": 92,
+      "nearest_seaport": "Raahe",
+      "nearest_seaport_km": 87,
+      "avg_temp_c": 4.3,
+      "free_cooling_hours": 7926,
+      "hub_distances_km": "Frankfurt: 1814 km · Stockholm: 628 km · London: 2008 km · Amsterdam: 1729 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 1.5
+        },
+        {
+          "ym": "2023-05",
+          "t": 9.5
+        },
+        {
+          "ym": "2023-06",
+          "t": 15.1
+        },
+        {
+          "ym": "2023-07",
+          "t": 15.6
+        },
+        {
+          "ym": "2023-08",
+          "t": 16.4
+        },
+        {
+          "ym": "2023-09",
+          "t": 13
+        },
+        {
+          "ym": "2023-10",
+          "t": 0.6
+        },
+        {
+          "ym": "2023-11",
+          "t": -4.3
+        },
+        {
+          "ym": "2023-12",
+          "t": -6.7
+        },
+        {
+          "ym": "2024-01",
+          "t": -11.1
+        },
+        {
+          "ym": "2024-02",
+          "t": -6.7
+        },
+        {
+          "ym": "2024-03",
+          "t": -2.1
+        },
+        {
+          "ym": "2024-04",
+          "t": -0.3
+        },
+        {
+          "ym": "2024-05",
+          "t": 11.2
+        },
+        {
+          "ym": "2024-06",
+          "t": 16
+        },
+        {
+          "ym": "2024-07",
+          "t": 17.5
+        },
+        {
+          "ym": "2024-08",
+          "t": 16.5
+        },
+        {
+          "ym": "2024-09",
+          "t": 12.7
+        },
+        {
+          "ym": "2024-10",
+          "t": 5.2
+        },
+        {
+          "ym": "2024-11",
+          "t": 0
+        },
+        {
+          "ym": "2024-12",
+          "t": -4.2
+        },
+        {
+          "ym": "2025-01",
+          "t": -5.8
+        },
+        {
+          "ym": "2025-02",
+          "t": -4.6
+        },
+        {
+          "ym": "2025-03",
+          "t": -1.7
+        },
+        {
+          "ym": "2025-04",
+          "t": 3
+        },
+        {
+          "ym": "2025-05",
+          "t": 7.9
+        },
+        {
+          "ym": "2025-06",
+          "t": 12.7
+        },
+        {
+          "ym": "2025-07",
+          "t": 19.1
+        },
+        {
+          "ym": "2025-08",
+          "t": 14.4
+        },
+        {
+          "ym": "2025-09",
+          "t": 12.3
+        },
+        {
+          "ym": "2025-10",
+          "t": 5.6
+        },
+        {
+          "ym": "2025-11",
+          "t": -0.3
+        },
+        {
+          "ym": "2025-12",
+          "t": -2.2
+        },
+        {
+          "ym": "2026-01",
+          "t": -12.7
+        },
+        {
+          "ym": "2026-02",
+          "t": -13
+        },
+        {
+          "ym": "2026-03",
+          "t": 1.7
+        },
+        {
+          "ym": "2026-04",
+          "t": 3.7
+        }
+      ],
+      "population_50km": 61905,
+      "population": null,
+      "area_overview": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
+    },
+    {
+      "id": "kronoby",
+      "name": "Kronoby",
+      "country": "Finland",
+      "site_type": "greenfield",
+      "internal_status": "Development focus",
+      "internal_category": "GIGA-42",
+      "published": false,
+      "status": "live",
+      "short_status_label": "Permitting",
+      "lat": 63.7333,
+      "lng": 23.0167,
+      "power": "Wind / hydro",
+      "initial_mw": 50,
+      "target_mw": 400,
+      "image": "kronoby.svg",
+      "desc_en": "Bilingual coastal Finnish site with wind and hydro complementary supply.",
+      "desc_no": "Tospråklig finsk kystlokasjon med komplementær vind- og vannkraftforsyning.",
+      "bid_status": "Lead",
+      "category_rationale": "Develop — shovel-ready in near term subject to validating municipal power infrastructure timelines.",
+      "nbs_assessment": "Currently negotiating lease agreement with Kronoby municipality to reserve the site.",
+      "project_description": "Identified by Peter Sladey November 2025. West coast of Finland, just south of Kokkola (regional hub). Engaging with municipality to reserve plot during general then detailed zoning. Flat coastal land, mix of agricultural and forestry use.",
+      "address": "Boholmsvägen, 68500 Kronoby, Finland",
+      "site_link": "https://maps.app.goo.gl/HmftWB5ydEDa97MK7",
+      "size_ha": 350,
+      "eia_required": true,
+      "eia_status": "Required above 100 MW",
+      "restrictions": "No Chinese/Russian end customers / funders. No crypto.",
+      "max_capacity_mw": 800,
+      "connection_voltage": "110kV & 400kV",
+      "dso": "Oy Herrfors Ab",
+      "tso": "Fingrid",
+      "ppa_counterparty": "Nordpool",
+      "exact_power_status": "Available subject to permits",
+      "heat_reuse": "Planned",
+      "it_load_mw": "0",
+      "dpue": "1.15",
+      "ppue": "1.25",
+      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
+      "cooling": "Air — perimeter; DLC — room-level CDU",
+      "workload_mix": "Training & possibly inference",
+      "fibre_providers": [
+        "Elisa"
+      ],
+      "fibre_strands": "Dark fibre available, strands TBC",
+      "fibre_speeds_gbps": "400G DWDM (dual/protected)",
+      "fibre_general_info": "Telia 400G DWDM proposal: OTC €395k, MRC €6,780/mo.",
+      "latency_summary": "Frankfurt ~17–31 ms · London ~31–35 ms · NY ~95–105 ms.",
+      "highway_access": "500 m to E8 Highway",
+      "airport_access": "9 km to domestic",
+      "college_university": "15 min to college & university",
+      "other_access_notes": "10 km to commercial port.",
+      "zoning_status": "Detailed planning expected to finish summer 2026.",
+      "project_owner": "100%",
+      "current_control": "Reservation negotiations",
+      "planned_ultimate_control": "Own freehold",
+      "contractual_arrangement": "Peter Sladey (land agent)",
+      "strategic_status": "Development focus",
+      "jv_partner": "",
+      "land_paperwork_status": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "planning_status": "",
+      "plots_identified": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power_availability": "",
+      "power_paperwork": "",
+      "ppa_status": "",
+      "racks": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "extra_data": "",
+      "public_status_label": "Coming soon",
+      "public_location": "Kronoby, Finland",
+      "nearest_airport_public": "Kokkola-Pietarsaari Airport (KOK)",
+      "nearest_airport_km": 6,
+      "nearest_seaport": "Kokkola",
+      "nearest_seaport_km": 13,
+      "avg_temp_c": 4.9,
+      "free_cooling_hours": 7962,
+      "hub_distances_km": "Frankfurt: 1738 km · Stockholm: 555 km · London: 1915 km · Amsterdam: 1641 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 2.2
+        },
+        {
+          "ym": "2023-05",
+          "t": 9.2
+        },
+        {
+          "ym": "2023-06",
+          "t": 15.2
+        },
+        {
+          "ym": "2023-07",
+          "t": 15.9
+        },
+        {
+          "ym": "2023-08",
+          "t": 16.5
+        },
+        {
+          "ym": "2023-09",
+          "t": 13.5
+        },
+        {
+          "ym": "2023-10",
+          "t": 1.6
+        },
+        {
+          "ym": "2023-11",
+          "t": -3.7
+        },
+        {
+          "ym": "2023-12",
+          "t": -6.4
+        },
+        {
+          "ym": "2024-01",
+          "t": -10.3
+        },
+        {
+          "ym": "2024-02",
+          "t": -6
+        },
+        {
+          "ym": "2024-03",
+          "t": -1.6
+        },
+        {
+          "ym": "2024-04",
+          "t": 0.6
+        },
+        {
+          "ym": "2024-05",
+          "t": 11.1
+        },
+        {
+          "ym": "2024-06",
+          "t": 15.6
+        },
+        {
+          "ym": "2024-07",
+          "t": 17.7
+        },
+        {
+          "ym": "2024-08",
+          "t": 16.8
+        },
+        {
+          "ym": "2024-09",
+          "t": 13.1
+        },
+        {
+          "ym": "2024-10",
+          "t": 6.5
+        },
+        {
+          "ym": "2024-11",
+          "t": 1
+        },
+        {
+          "ym": "2024-12",
+          "t": -2.8
+        },
+        {
+          "ym": "2025-01",
+          "t": -4.2
+        },
+        {
+          "ym": "2025-02",
+          "t": -3.8
+        },
+        {
+          "ym": "2025-03",
+          "t": -0.4
+        },
+        {
+          "ym": "2025-04",
+          "t": 3.4
+        },
+        {
+          "ym": "2025-05",
+          "t": 7.4
+        },
+        {
+          "ym": "2025-06",
+          "t": 12.9
+        },
+        {
+          "ym": "2025-07",
+          "t": 19.2
+        },
+        {
+          "ym": "2025-08",
+          "t": 14.9
+        },
+        {
+          "ym": "2025-09",
+          "t": 12.9
+        },
+        {
+          "ym": "2025-10",
+          "t": 6.6
+        },
+        {
+          "ym": "2025-11",
+          "t": 0.8
+        },
+        {
+          "ym": "2025-12",
+          "t": -0.3
+        },
+        {
+          "ym": "2026-01",
+          "t": -10.9
+        },
+        {
+          "ym": "2026-02",
+          "t": -12.2
+        },
+        {
+          "ym": "2026-03",
+          "t": 2.1
+        },
+        {
+          "ym": "2026-04",
+          "t": 4
+        }
+      ],
+      "population_50km": 134245,
+      "population": null,
+      "area_overview": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "alajarvi",
@@ -3445,8 +3433,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "czw6ete1"
+      "grid_mix": ""
     },
     {
       "id": "robertsfors",
@@ -3709,8 +3696,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "plfyyg80"
+      "grid_mix": ""
     },
     {
       "id": "nuuk",
@@ -3973,8 +3959,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "vsnwaxa0"
+      "grid_mix": ""
     },
     {
       "id": "tjeldbergodden",
@@ -4239,8 +4224,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "d6cbw8bb"
+      "grid_mix": ""
     },
     {
       "id": "honningsvag",
@@ -4504,8 +4488,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "xsbi81a8"
+      "grid_mix": ""
     },
     {
       "id": "kemi",
@@ -4770,8 +4753,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "me8fntec"
+      "grid_mix": ""
     },
     {
       "id": "mikkeli",
@@ -5035,8 +5017,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "jfwcqg81"
+      "grid_mix": ""
     },
     {
       "id": "boden",
@@ -5301,8 +5282,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "31b4cf43"
+      "grid_mix": ""
     },
     {
       "id": "hadsel",
@@ -5566,8 +5546,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "cmqxpr4f"
+      "grid_mix": ""
     },
     {
       "id": "sortland",
@@ -5831,8 +5810,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ulm7aqsd"
+      "grid_mix": ""
     },
     {
       "id": "salsbruket",
@@ -6095,8 +6073,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "9x0bw865"
+      "grid_mix": ""
     },
     {
       "id": "rovaniemi",
@@ -6360,8 +6337,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "a2gmt3u2"
+      "grid_mix": ""
     },
     {
       "id": "varkaus",
@@ -6621,8 +6597,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "bi0tklk6"
+      "grid_mix": ""
     },
     {
       "id": "bo",
@@ -6883,8 +6858,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "1kknopu0"
+      "grid_mix": ""
     },
     {
       "id": "kontiolahti",
@@ -7144,8 +7118,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "us1uzcke"
+      "grid_mix": ""
     },
     {
       "id": "keminmaa",
@@ -7405,8 +7378,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "nifjy799"
+      "grid_mix": ""
     },
     {
       "id": "tornio",
@@ -7667,8 +7639,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "vh2ddqy6"
+      "grid_mix": ""
     },
     {
       "id": "oulu",
@@ -7929,8 +7900,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "px6pa4c2"
+      "grid_mix": ""
     },
     {
       "id": "skelleftea",
@@ -8191,8 +8161,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "jzm4np47"
+      "grid_mix": ""
     },
     {
       "id": "utansjo",
@@ -8452,8 +8421,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "zelw5he7"
+      "grid_mix": ""
     },
     {
       "id": "kalix",
@@ -8714,8 +8682,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "s6danxg3"
+      "grid_mix": ""
     },
     {
       "id": "reydarfjordur",
@@ -8825,8 +8792,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "f9nrsmc1"
+      "grid_mix": ""
     },
     {
       "id": "akureyri",
@@ -9087,8 +9053,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "gdk6xny4"
+      "grid_mix": ""
     },
     {
       "id": "valaiscanton",
@@ -9348,8 +9313,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ya4pibi2"
+      "grid_mix": ""
     },
     {
       "id": "tbcnorthernengland",
@@ -9459,8 +9423,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "lyd9y54d"
+      "grid_mix": ""
     },
     {
       "id": "icelandrunofriver",
@@ -9570,8 +9533,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "xhanqts0"
+      "grid_mix": ""
     },
     {
       "id": "moiranamoindustrialpark",
@@ -9831,8 +9793,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "18toy2af"
+      "grid_mix": ""
     },
     {
       "id": "andoya",
@@ -10093,8 +10054,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "eqi916o2"
+      "grid_mix": ""
     },
     {
       "id": "sognlustersognekraftsognutvikling",
@@ -10354,8 +10314,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "yh1f9bwb"
+      "grid_mix": ""
     },
     {
       "id": "ostersundspikboderna",
@@ -10465,8 +10424,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "01lwekef"
+      "grid_mix": ""
     },
     {
       "id": "morsil",
@@ -10727,8 +10685,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "i3ktxpw3"
+      "grid_mix": ""
     },
     {
       "id": "milan",
@@ -10839,8 +10796,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "cpn4zjac"
+      "grid_mix": ""
     }
   ]
 }
