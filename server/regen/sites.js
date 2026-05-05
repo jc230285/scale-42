@@ -379,12 +379,13 @@ ${hasCoords ? '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist
 <section class="site-hero">
   <div class="container">
     <p class="crumb"><a href="${backLink}">${backText}</a></p>
-    <p class="eyebrow">${heroLede} · ${COUNTRY_FLAG[s.country] || ''} ${escHtml(s.country)}</p>
+    <p class="eyebrow">${heroLede} · ${escHtml(s.country)}</p>
     <h1>${escHtml(s.name)}</h1>
     <p class="meta"><span class="pill ${statusClass}">${statusLabel}</span></p>
     ${heroImg}
   </div>
 </section>
+${heroMapBanner}
 <section class="site-body">
   <div class="container">
     ${desc ? `<p class="lede">${escHtml(desc)}</p>` : ''}
