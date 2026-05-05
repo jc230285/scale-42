@@ -535,7 +535,9 @@
       "grid_price": null,
       "grid_mix": "",
       "url_token": "lxjuczc3",
-      "developers": []
+      "developers": [
+        "giga-42"
+      ]
     },
     {
       "id": "skibotn",
@@ -801,7 +803,9 @@
       "grid_price": null,
       "grid_mix": "",
       "url_token": "6xz9kqw5",
-      "developers": []
+      "developers": [
+        "giga-42"
+      ]
     },
     {
       "id": "reykjavik",
@@ -1070,7 +1074,9 @@
       "grid_price": null,
       "grid_mix": "",
       "url_token": "ieg70x00",
-      "developers": []
+      "developers": [
+        "giga-42"
+      ]
     },
     {
       "id": "kristinestad",
