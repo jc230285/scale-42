@@ -34,7 +34,6 @@
     display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 24px; margin: 40px 0 0;
     padding: 28px 0 0; border-top: 1px solid var(--line);
-    text-align: center; justify-items: center;
   }
   .dc-summary .item dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
   .dc-summary .item dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; }
@@ -212,12 +211,12 @@
 <section class="dc-hero">
   <div class="container">
     <p class="eyebrow">Data centres</p>
-    <h1><!--cms:dc_hero_title-->6,485 MW of Nordic AI-ready capacity.<!--/cms:dc_hero_title--></h1>
-    <p class="lede"><!--cms:dc_hero_lede-->17 Data Centres across 5 Nordic countries, co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 30 MW to 500 MW.<!--/cms:dc_hero_lede--></p>
+    <h1><!--cms:dc_hero_title-->6,470 MW of Nordic AI-ready capacity.<!--/cms:dc_hero_title--></h1>
+    <p class="lede"><!--cms:dc_hero_lede-->16 Data Centres across 5 Nordic countries, co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 50 MW campus deployments to 500 MW+ flagship sites.<!--/cms:dc_hero_lede--></p>
 
     <dl class="dc-summary">
-      <div class="item"><dt>Total Capacity Pipeline</dt><dd><!--cms:dc_pipeline-->6,485 MW<!--/cms:dc_pipeline--></dd></div>
-      <div class="item"><dt>Active Developments</dt><dd><!--cms:dc_projects-->17<!--/cms:dc_projects--></dd></div>
+      <div class="item"><dt>Total Capacity Pipeline</dt><dd><!--cms:dc_pipeline-->6,470 MW<!--/cms:dc_pipeline--></dd></div>
+      <div class="item"><dt>Active Developments</dt><dd><!--cms:dc_projects-->16<!--/cms:dc_projects--></dd></div>
       <div class="item"><dt>Countries</dt><dd><!--cms:dc_countries-->5<!--/cms:dc_countries--></dd></div>
       <div class="item"><dt>Minimum Deployment Unit</dt><dd>12.5 MW IT</dd></div>
     </dl>
@@ -258,7 +257,7 @@
         <h3 class="dc-name-top">Bakki</h3>
         <p class="loc loc-top">Iceland</p>
         <span class="status live">In development</span>
-        
+        <div class="dc-developers"><a href="https://giga-42.com" target="_blank" rel="noopener" title="GIGA-42" onclick="event.stopPropagation();"><img src="https://giga-42.com/assets/logo.png" alt="GIGA-42" title="GIGA-42" loading="lazy" /></a></div>
         <div class="img">
           <img src="../assets/sites/0a0d0e8b-252a-44c7-b386-9ddfb691b670.jpg" alt="Bakki" loading="lazy" />
         </div>
@@ -277,7 +276,7 @@
         <h3 class="dc-name-top">Skibotn</h3>
         <p class="loc loc-top">Norway</p>
         <span class="status live">In development</span>
-        
+        <div class="dc-developers"><a href="https://giga-42.com" target="_blank" rel="noopener" title="GIGA-42" onclick="event.stopPropagation();"><img src="https://giga-42.com/assets/logo.png" alt="GIGA-42" title="GIGA-42" loading="lazy" /></a></div>
         <div class="img">
           <img src="/assets/sites/5fad338e-f35f-4884-aa6b-9b15209464e2.jpg" alt="Skibotn" loading="lazy" />
         </div>
@@ -296,7 +295,7 @@
         <h3 class="dc-name-top">Reykjavík</h3>
         <p class="loc loc-top">Iceland</p>
         <span class="status live">In development</span>
-        
+        <div class="dc-developers"><a href="https://giga-42.com" target="_blank" rel="noopener" title="GIGA-42" onclick="event.stopPropagation();"><img src="https://giga-42.com/assets/logo.png" alt="GIGA-42" title="GIGA-42" loading="lazy" /></a></div>
         <div class="img">
           <img src="../assets/sites/2bf7bc15-88be-444a-a217-f69e9dc04a0c.avif" alt="Reykjavík" loading="lazy" />
         </div>
@@ -481,25 +480,6 @@
         </div>
       </article>
 
-      <article class="dc-card" id="honningsvag-u40glxe0" data-country="norway" data-strat="bin-the-project">
-        <a class="dc-card-link" href="honningsvag-u40glxe0/" aria-label="Honningsvåg">view</a>
-        <h3 class="dc-name-top">Honningsvåg</h3>
-        <p class="loc loc-top">Norway</p>
-        <span class="status tbd">Coming soon</span>
-        
-        <div class="img">
-          <img src="../assets/sites/honningsvag.svg" alt="Honningsvåg" loading="lazy" />
-        </div>
-        <div class="body">
-          <p class="desc"></p>
-          <dl class="dc-stats">
-            <div class="stat"><dt>Initial</dt><dd>8 MW</dd></div>
-            <div class="stat"><dt>Target</dt><dd>15 MW</dd></div>
-            <div class="stat"><dt>Power</dt><dd>Wind / hydro</dd></div>
-          </dl>
-        </div>
-      </article>
-
       <article class="dc-card" id="kemi-tzqbelob" data-country="finland" data-strat="bin-the-project">
         <a class="dc-card-link" href="kemi-tzqbelob/" aria-label="Kemi">view</a>
         <h3 class="dc-name-top">Kemi</h3>
@@ -641,7 +621,6 @@
     { name: "Robertsfors", country: "Sweden", status: "tbd", location: "Robertsfors, Sweden", lat: 64.2, lng: 20.9, power: "Hydro / wind", target: "500 MW", desc: "" },
     { name: "Nuuk", country: "Greenland", status: "tbd", location: "Nuuk, Greenland", lat: 64.2, lng: -51.7, power: "Hydro", target: "55 MW", desc: "" },
     { name: "Tjeldbergodden", country: "Norway", status: "tbd", location: "Tjeldbergodden, Norway", lat: 63.4, lng: 8.6, power: "Hydro / gas", target: "190 MW", desc: "" },
-    { name: "Honningsvåg", country: "Norway", status: "tbd", location: "Honningsvåg, Norway", lat: 71, lng: 26, power: "Wind / hydro", target: "15 MW", desc: "" },
     { name: "Kemi", country: "Finland", status: "tbd", location: "Kemi, Finland", lat: 65.7, lng: 24.6, power: "Mixed renewable", target: "1000 MW", desc: "" },
     { name: "Mikkeli", country: "Finland", status: "tbd", location: "Mikkeli, Finland", lat: 61.7, lng: 27.3, power: "Mixed renewable", target: "250 MW", desc: "" },
     { name: "Rovaniemi", country: "Finland", status: "tbd", location: "Rovaniemi, Finland", lat: 66.5, lng: 25.7, power: "Hydro", target: "800 MW", desc: "" },
