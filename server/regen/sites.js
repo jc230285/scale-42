@@ -459,13 +459,13 @@ function run() {
     fs.writeFileSync(p, replaceJs(html, t.marker, t.literal), 'utf-8');
   }
 
-  // Home hero stat markers
+  // Home hero stat markers — stat3 (campus scale) is editor-controlled / static.
+  // stat1 (pipeline) and stat2 (active developments) auto-derive.
   for (const file of ['index.html', 'no/index.html']) {
     const p = path.join(ROOT, file);
     let html = fs.readFileSync(p, 'utf-8');
     html = updateMarker(html, 'stat1_value', stats.pipeline);
     html = updateMarker(html, 'stat2_value', stats.projects);
-    html = updateMarker(html, 'stat3_value', stats.capacity);
     fs.writeFileSync(p, html, 'utf-8');
   }
 
