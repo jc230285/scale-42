@@ -265,7 +265,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "fodsaee0"
+      "url_token": "dej4bwib"
     },
     {
       "id": "bakki",
@@ -533,7 +533,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "du5fhhia"
+      "url_token": "fydqws81"
     },
     {
       "id": "skibotn",
@@ -798,7 +798,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "mac0ims5"
+      "url_token": "ttybc649"
     },
     {
       "id": "reykjavik",
@@ -1066,7 +1066,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "1fboqa06"
+      "url_token": "iq1zo827"
     },
     {
       "id": "kristinestad",
@@ -1329,7 +1329,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "zok2opy3"
+      "url_token": "ihow7ea4"
     },
     {
       "id": "nivala",
@@ -1593,7 +1593,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "ab5svy68"
+      "url_token": "pl3p9e84"
     },
     {
       "id": "jokkmokk",
@@ -1859,7 +1859,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "tboxyns4"
+      "url_token": "zfof4u66"
     },
     {
       "id": "kronoby",
@@ -2122,7 +2122,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "yclfso49"
+      "url_token": "t8ozwb84"
     },
     {
       "id": "torsboda",
@@ -2387,7 +2387,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "dqvazlgb"
+      "url_token": "thojyde4"
     },
     {
       "id": "liperi",
@@ -2651,7 +2651,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "zton14qe"
+      "url_token": "v8vhnbqc"
     },
     {
       "id": "kitee",
@@ -2916,7 +2916,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "tz3ei8c2"
+      "url_token": "8lyrojeb"
     },
     {
       "id": "sorfold",
@@ -3182,7 +3182,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "tsv5g9g6"
+      "url_token": "cwggyy53"
     },
     {
       "id": "alajarvi",
@@ -3446,7 +3446,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "udkkuaaf"
+      "url_token": "shifyk77"
     },
     {
       "id": "robertsfors",
@@ -3460,7 +3460,7 @@
       "lat": 64.2,
       "lng": 20.85,
       "power": "Hydro / wind",
-      "target_mw": 1000,
+      "target_mw": 250,
       "desc_en": "",
       "desc_no": "",
       "bid_status": "Lead",
@@ -3710,7 +3710,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "edqhulk3"
+      "url_token": "spwcii53"
     },
     {
       "id": "nuuk",
@@ -3974,7 +3974,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "gfg488cb"
+      "url_token": "jeymqne2"
     },
     {
       "id": "tjeldbergodden",
@@ -4240,7 +4240,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "dfypo9ma"
+      "url_token": "zdcpcuc5"
     },
     {
       "id": "honningsvag",
@@ -4505,7 +4505,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "xbrlty7d"
+      "url_token": "vyeftgu8"
     },
     {
       "id": "kemi",
@@ -4519,7 +4519,7 @@
       "lat": 65.7333,
       "lng": 24.5667,
       "power": "Mixed renewable",
-      "target_mw": 1000,
+      "target_mw": 800,
       "desc_en": "",
       "desc_no": "",
       "bid_status": "Project",
@@ -4771,7 +4771,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "scokgma6"
+      "url_token": "swkpwwu8"
     },
     {
       "id": "mikkeli",
@@ -5036,7 +5036,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "kocroim8"
+      "url_token": "aumv0kkf"
     },
     {
       "id": "boden",
@@ -5302,7 +5302,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "crav3581"
+      "url_token": "5a54z416"
     },
     {
       "id": "hadsel",
@@ -5567,7 +5567,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "f9ozj0ac"
+      "url_token": "toflynyb"
     },
     {
       "id": "sortland",
@@ -5832,7 +5832,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "tbyotou1"
+      "url_token": "kusb9xy7"
     },
     {
       "id": "salsbruket",
@@ -6096,7 +6096,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "bejwskqd"
+      "url_token": "ztw3hymc"
     },
     {
       "id": "rovaniemi",
@@ -6361,7 +6361,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "ucak4aa4"
+      "url_token": "yswome39"
     },
     {
       "id": "varkaus",
@@ -6622,7 +6622,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "aqwevj42"
+      "url_token": "wfjzt801"
     },
     {
       "id": "bo",
@@ -6884,7 +6884,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "c8a9hvm7"
+      "url_token": "y5wlwhq0"
     },
     {
       "id": "kontiolahti",
@@ -7145,7 +7145,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "sngpdh00"
+      "url_token": "ema42oqc"
     },
     {
       "id": "keminmaa",
@@ -7406,7 +7406,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "4uk5hkea"
+      "url_token": "taav7gc7"
     },
     {
       "id": "tornio",
@@ -7420,7 +7420,7 @@
       "plots_identified": "Still searching for landplot - Municipality looking",
       "plots_secured": "0",
       "initial_mw": 200,
-      "max_capacity_mw": 2000,
+      "max_capacity_mw": 600,
       "extra_data": "ProjectID: FIN017\nPotential FID Date: Pending Site Identification\nPotential RFS Dates: Pending Site Identification\nProject Lead: Thomas Beaton\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Miikka.laitinen@tornio.fi Tero.siivola@tornio.fi\nPlot Name: Pending Site Identification\nPlot Priority: 1\nSite Address: Pending Site Identification\nLocation Link: https://maps.app.goo.gl/L5BtTDkKnBAkPCR29\nNot Required: 65.807664, 24.184217\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: Requested 50ha but muncipality is struggling to find this size so may reduce requirement to 20ha to speed up process and satisfy a first phase.\nDescription: Pending Site Identification\nSite Drainage: Pending Site Identification\nSite Access: Pending Site Identification\nBuilding Rights (%) - Primary Plot: Pending Site Identification\nOwnership: City of Tornio\nZoning Status: Likely to be unzoned land\nHeat Off-Take: District heating requests from City of Tornio and Haparanda\nFibre Connectivity: Pending Site Identification\nPower Connection Methods: Targetting locations with connectivity to Keminmaa substation which has 2000MW of available capacity\nPower Connection Timelines: Pending Site Identification\nPower Procurement Status: Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.\nPower Availability Confirmation: By agent\nAcquisition Strategy: To be confirmed upon identification of landplot. Conclude negotiations with Municipality to allow for a reservation agreement. We would aim to negotiate rent-free to support the zoning process which with a clean transition permit could be completed in as little as 6 months. Following completion of zoning work, a lease can commence with options to purchase the site which can be triggered at any time.\nZoning Strategy: We expect this site would be eligible for a green transition permit which would satisfy zoning requirements in an estimated 6 months. Should a clean transition permit not be possible we would anticipate a full zoning process likely to take 24 months. A zoning consultant will be engaged to investigate and advise on these points.\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated.\nPower Provider: FinGrid\nPower Connection Costs: 900k EUR per 110kV connection plus the cost of construction. 2.3mil EUR per 400kV connection plus cost of construction.\nFibre Provider: Global Connect - Confirm\nPrice / sqm: Pending Site Identification\nLease Rate (per annum): Pending Site Identification\nPurchase Price: Pending Site Identification\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Identify a suitable plot",
       "lat": 65.85,
       "lng": 24.15,
@@ -7668,7 +7668,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "lbe6ao3b"
+      "url_token": "glhffd82"
     },
     {
       "id": "oulu",
@@ -7930,7 +7930,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "mfetg0c4"
+      "url_token": "xnkn2tu0"
     },
     {
       "id": "skelleftea",
@@ -8192,7 +8192,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "5jxxxx4d"
+      "url_token": "c6beefa0"
     },
     {
       "id": "utansjo",
@@ -8453,7 +8453,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "hjjiy20e"
+      "url_token": "urhzde4c"
     },
     {
       "id": "kalix",
@@ -8715,7 +8715,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "hfthwikd"
+      "url_token": "34zzsnw5"
     },
     {
       "id": "reydarfjordur",
@@ -8826,7 +8826,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "mtmsogq4"
+      "url_token": "kf38rhs0"
     },
     {
       "id": "akureyri",
@@ -9088,7 +9088,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "4q0yjwa9"
+      "url_token": "h4t8wnid"
     },
     {
       "id": "valaiscanton",
@@ -9349,7 +9349,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "za1zvqyf"
+      "url_token": "mmxwygqe"
     },
     {
       "id": "tbcnorthernengland",
@@ -9460,7 +9460,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "cngxdxe3"
+      "url_token": "hhqyqkkf"
     },
     {
       "id": "icelandrunofriver",
@@ -9571,7 +9571,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "29a1t2k0"
+      "url_token": "l1slchc5"
     },
     {
       "id": "moiranamoindustrialpark",
@@ -9832,7 +9832,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "q0nyn3a2"
+      "url_token": "uv3r60fe"
     },
     {
       "id": "andoya",
@@ -10094,7 +10094,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "4hwom0be"
+      "url_token": "02pqrjw5"
     },
     {
       "id": "sognlustersognekraftsognutvikling",
@@ -10355,7 +10355,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "rqqbjikd"
+      "url_token": "eq8flga6"
     },
     {
       "id": "ostersundspikboderna",
@@ -10466,7 +10466,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "7azlyid4"
+      "url_token": "ttp0bxad"
     },
     {
       "id": "morsil",
@@ -10728,7 +10728,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "ae2yau4c"
+      "url_token": "gpwkim07"
     },
     {
       "id": "milan",
@@ -10840,7 +10840,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "eo3etpm7"
+      "url_token": "suygwn0d"
     }
   ]
 }
