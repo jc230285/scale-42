@@ -34,7 +34,9 @@
     display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 24px; margin: 40px 0 0;
     padding: 28px 0 0; border-top: 1px solid var(--line);
+    text-align: center; justify-items: center;
   }
+  .dc-summary .item { text-align: center; }
   .dc-summary .item dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
   .dc-summary .item dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; }
 
@@ -123,8 +125,9 @@
   .dc-stats {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 12px; padding: 10px 0 0; border-top: 1px solid rgba(255,255,255,0.18);
-    margin-top: 4px;
+    margin-top: 4px; text-align: center; justify-items: center;
   }
+  .dc-stats .stat { text-align: center; }
   .dc-stats .stat dt { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); margin: 0 0 2px; }
   .dc-stats .stat dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #fff; }
 
