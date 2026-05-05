@@ -385,6 +385,71 @@
       "help": "Monthly mean temperature series (3 yrs) — internal, drives the chart."
     },
     {
+      "key": "hot_days_per_year",
+      "label": "Hot days / yr (>25 °C)",
+      "group": "location",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "cold_days_per_year",
+      "label": "Cold days / yr (<-10 °C)",
+      "group": "location",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "daylight_hours",
+      "label": "Daylight (solstice)",
+      "group": "location",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "tz_offset",
+      "label": "Time zone",
+      "group": "location",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "nearest_substation",
+      "label": "Nearest HV substation",
+      "group": "location",
+      "type": "text",
+      "public": true
+    },
+    {
+      "key": "nearest_substation_km",
+      "label": "Substation distance (km)",
+      "group": "location",
+      "type": "number",
+      "public": true
+    },
+    {
+      "key": "grid_co2",
+      "label": "Grid carbon (gCO₂/kWh)",
+      "group": "location",
+      "type": "number",
+      "public": true,
+      "help": "Country annual average — Ember 2024."
+    },
+    {
+      "key": "grid_price",
+      "label": "Industrial elec. price (€/MWh)",
+      "group": "location",
+      "type": "number",
+      "public": true,
+      "help": "Eurostat 2024-H2 non-household band IC."
+    },
+    {
+      "key": "grid_mix",
+      "label": "Grid mix",
+      "group": "location",
+      "type": "text",
+      "public": true
+    },
+    {
       "key": "hub_distances_km",
       "label": "Distance to peering hubs",
       "group": "location",

@@ -255,7 +255,16 @@
       "population_50km": 3362,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "bakki",
@@ -513,7 +522,16 @@
         }
       ],
       "population_50km": 3229,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "skibotn",
@@ -768,7 +786,16 @@
       "population_50km": 2758,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "reykjavik",
@@ -1026,7 +1053,16 @@
         }
       ],
       "population_50km": 276519,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "kristinestad",
@@ -1042,7 +1078,7 @@
       "lng": 21.3781,
       "power": "Wind",
       "initial_mw": 60,
-      "target_mw": 800,
+      "target_mw": 500,
       "image": "kristinestad.svg",
       "desc_en": "Coastal Finnish site at the wind-power heartland with deep grid capacity.",
       "desc_no": "Finsk kystlokasjon i vindkraftens kjerneområde med stor nettkapasitet.",
@@ -1279,7 +1315,16 @@
       "population_50km": 41133,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "nivala",
@@ -1295,7 +1340,7 @@
       "lng": 24.9667,
       "power": "Wind",
       "initial_mw": 50,
-      "target_mw": 800,
+      "target_mw": 500,
       "image": "nivala.svg",
       "desc_en": "North Ostrobothnia site with strong onshore wind and existing 110 kV connection.",
       "desc_no": "Lokasjon i Nord-Österbotten med sterk landvind og eksisterende 110 kV-tilknytning.",
@@ -1533,7 +1578,16 @@
       "population_50km": 61905,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "jokkmokk",
@@ -1789,7 +1843,16 @@
       "population_50km": 3477,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "kronoby",
@@ -1805,7 +1868,7 @@
       "lng": 23.0167,
       "power": "Wind / hydro",
       "initial_mw": 50,
-      "target_mw": 800,
+      "target_mw": 400,
       "image": "kronoby.svg",
       "desc_en": "Bilingual coastal Finnish site with wind and hydro complementary supply.",
       "desc_no": "Tospråklig finsk kystlokasjon med komplementær vind- og vannkraftforsyning.",
@@ -2042,7 +2105,16 @@
       "population_50km": 134245,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "torsboda",
@@ -2297,7 +2369,16 @@
       "population_50km": 150824,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "liperi",
@@ -2551,7 +2632,16 @@
       "population_50km": 131733,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "kitee",
@@ -2578,7 +2668,7 @@
       "eia_required": false,
       "restrictions": "No Chinese/Russian end customers or funders. Do not want APL Europe (UK) Ltd as part of project.",
       "max_capacity_mw": 60,
-      "initial_mw": 50,
+      "initial_mw": 30,
       "connection_voltage": "110kV",
       "dso": "PKS Sähkönsiirto Oy",
       "tso": "Fingrid",
@@ -2806,7 +2896,16 @@
       ],
       "population_50km": 48534,
       "population": null,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "sorfold",
@@ -3062,7 +3161,16 @@
       "population_50km": 48645,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "alajarvi",
@@ -3076,7 +3184,7 @@
       "lat": 63,
       "lng": 23.8167,
       "power": "Wind",
-      "target_mw": 1000,
+      "target_mw": 800,
       "desc_en": "",
       "desc_no": "",
       "bid_status": "Lead",
@@ -3089,7 +3197,7 @@
       "eia_required": true,
       "eia_status": "Required above 100 MW",
       "restrictions": "No Chinese/Russian end customers / funders.",
-      "max_capacity_mw": 1000,
+      "max_capacity_mw": 800,
       "initial_mw": 50,
       "connection_voltage": "110kV & 400kV",
       "dso": "Elenia Verkko Oyj & EPV Energia Oy",
@@ -3316,7 +3424,16 @@
       "population_50km": 81632,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "robertsfors",
@@ -3570,7 +3687,16 @@
       "population_50km": 15301,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "nuuk",
@@ -3824,7 +3950,16 @@
         }
       ],
       "population_50km": 14798,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "tjeldbergodden",
@@ -4080,7 +4215,16 @@
       "population_50km": 7050,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "honningsvag",
@@ -4335,7 +4479,16 @@
         }
       ],
       "population_50km": 3622,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "kemi",
@@ -4591,7 +4744,16 @@
         }
       ],
       "population_50km": 65512,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "mikkeli",
@@ -4846,7 +5008,16 @@
         }
       ],
       "population_50km": 82948,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "boden",
@@ -4855,7 +5026,7 @@
       "site_type": "brownfield",
       "internal_status": "Watch list",
       "internal_category": "Partner-led",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "lat": 65.825,
       "lng": 21.6889,
@@ -5102,7 +5273,16 @@
         }
       ],
       "population_50km": 129487,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "hadsel",
@@ -5111,7 +5291,7 @@
       "site_type": "brownfield",
       "internal_status": "Watch list",
       "internal_category": "Speculative",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "lat": 68.55,
       "lng": 14.85,
@@ -5357,7 +5537,16 @@
       ],
       "population_50km": 28854,
       "population": null,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "sortland",
@@ -5366,7 +5555,7 @@
       "site_type": "greenfield",
       "internal_status": "Watch list",
       "internal_category": "Speculative",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "lat": 68.7,
       "lng": 15.4,
@@ -5612,7 +5801,16 @@
         }
       ],
       "population_50km": 44905,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "salsbruket",
@@ -5621,7 +5819,7 @@
       "site_type": "greenfield",
       "internal_status": "Watch list",
       "internal_category": "Speculative",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "lat": 64.7,
       "lng": 11.6,
@@ -5866,7 +6064,16 @@
       ],
       "population_50km": 16018,
       "population": null,
-      "area_overview": ""
+      "area_overview": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "rovaniemi",
@@ -6121,7 +6328,16 @@
         }
       ],
       "population_50km": 75864,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "varkaus",
@@ -6130,7 +6346,7 @@
       "site_type": "brownfield",
       "internal_status": "Development focus",
       "internal_category": "GIGA-42",
-      "published": true,
+      "published": false,
       "status": "live",
       "short_status_label": "Permitting",
       "lat": 62.3167,
@@ -6372,13 +6588,22 @@
       "population_50km": 70512,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "bo",
       "name": "Bo",
       "country": "Norway",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -6624,13 +6849,22 @@
         }
       ],
       "population_50km": 29005,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "kontiolahti",
       "name": "Kontiolahti",
       "country": "Finland",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -6875,13 +7109,22 @@
       "population_50km": 136519,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "keminmaa",
       "name": "Keminmaa",
       "country": "Finland",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -7126,7 +7369,16 @@
       "population_50km": 66055,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "tornio",
@@ -7378,13 +7630,22 @@
         }
       ],
       "population_50km": 73989,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "oulu",
       "name": "Oulu",
       "country": "Finland",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -7630,13 +7891,22 @@
         }
       ],
       "population_50km": 465545,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "skelleftea",
       "name": "Skelleftea",
       "country": "Sweden",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -7882,13 +8152,22 @@
         }
       ],
       "population_50km": 68916,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "utansjo",
       "name": "Utansjö",
       "country": "Sweden",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -8133,13 +8412,22 @@
       "population_50km": 65720,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "kalix",
       "name": "Kalix",
       "country": "Sweden",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -8385,13 +8673,22 @@
         }
       ],
       "population_50km": 43412,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "reydarfjordur",
       "name": "Reyðarfjörður",
       "country": "Iceland",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -8486,13 +8783,22 @@
       "free_cooling_hours": null,
       "population_50km": null,
       "hub_distances_km": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "akureyri",
       "name": "Akureyri",
       "country": "Iceland",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -8738,13 +9044,22 @@
         }
       ],
       "population_50km": 22364,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "valaiscanton",
       "name": "Valais Canton",
       "country": "Switzerland",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -8989,13 +9304,22 @@
       ],
       "population_50km": 319643,
       "population": null,
-      "area_overview": ""
+      "area_overview": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "tbcnorthernengland",
       "name": "TBC (Northern England)",
       "country": "UK",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -9090,13 +9414,22 @@
       "free_cooling_hours": null,
       "population_50km": null,
       "hub_distances_km": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "icelandrunofriver",
       "name": "Iceland Run of River",
       "country": "Iceland",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -9191,13 +9524,22 @@
       "free_cooling_hours": null,
       "population_50km": null,
       "hub_distances_km": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "moiranamoindustrialpark",
       "name": "Mo I Rana, Mo Industrial Park",
       "country": "Norway",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -9442,13 +9784,22 @@
       "population_50km": 23879,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "andoya",
       "name": "Andøya",
       "country": "Norway",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -9694,13 +10045,22 @@
       ],
       "population_50km": 18599,
       "population": null,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "sognlustersognekraftsognutvikling",
       "name": "Sogn (Luster, Sognekraft Sogn Utvikling)",
       "country": "Norway",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -9945,13 +10305,22 @@
       "population_50km": 19565,
       "population": null,
       "area_overview": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "ostersundspikboderna",
       "name": "Östersund (Spikboderna)",
       "country": "Sweden",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -10046,13 +10415,22 @@
       "free_cooling_hours": null,
       "population_50km": null,
       "hub_distances_km": "",
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "morsil",
       "name": "Mörsil",
       "country": "Sweden",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -10298,13 +10676,22 @@
         }
       ],
       "population_50km": 65720,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     },
     {
       "id": "milan",
       "name": "Milan",
       "country": "Italy",
-      "published": true,
+      "published": false,
       "status": "tbd",
       "desc_en": "",
       "desc_no": "",
@@ -10400,7 +10787,16 @@
       "free_cooling_hours": 5574,
       "hub_distances_km": "Frankfurt: 517 km · Stockholm: 1651 km · London: 959 km · Amsterdam: 829 km",
       "population_50km": 7406498,
-      "power_notes": ""
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": ""
     }
   ]
 }
