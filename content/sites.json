@@ -264,8 +264,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "fodsaee0"
+      "grid_mix": ""
     },
     {
       "id": "bakki",
@@ -532,8 +531,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "du5fhhia"
+      "grid_mix": ""
     },
     {
       "id": "skibotn",
@@ -797,8 +795,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "mac0ims5"
+      "grid_mix": ""
     },
     {
       "id": "reykjavik",
@@ -1065,8 +1062,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "1fboqa06"
+      "grid_mix": ""
     },
     {
       "id": "kristinestad",
@@ -1328,8 +1324,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "zok2opy3"
+      "grid_mix": ""
     },
     {
       "id": "nivala",
@@ -1592,8 +1587,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ab5svy68"
+      "grid_mix": ""
     },
     {
       "id": "jokkmokk",
@@ -1858,8 +1852,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "tboxyns4"
+      "grid_mix": ""
     },
     {
       "id": "kronoby",
@@ -2121,8 +2114,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "yclfso49"
+      "grid_mix": ""
     },
     {
       "id": "torsboda",
@@ -2386,8 +2378,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "dqvazlgb"
+      "grid_mix": ""
     },
     {
       "id": "liperi",
@@ -2650,8 +2641,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "zton14qe"
+      "grid_mix": ""
     },
     {
       "id": "kitee",
@@ -2915,8 +2905,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "tz3ei8c2"
+      "grid_mix": ""
     },
     {
       "id": "sorfold",
@@ -3181,8 +3170,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "tsv5g9g6"
+      "grid_mix": ""
     },
     {
       "id": "alajarvi",
@@ -3445,8 +3433,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "udkkuaaf"
+      "grid_mix": ""
     },
     {
       "id": "robertsfors",
@@ -3460,7 +3447,7 @@
       "lat": 64.2,
       "lng": 20.85,
       "power": "Hydro / wind",
-      "target_mw": 1000,
+      "target_mw": 250,
       "desc_en": "",
       "desc_no": "",
       "bid_status": "Lead",
@@ -3709,8 +3696,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "edqhulk3"
+      "grid_mix": ""
     },
     {
       "id": "nuuk",
@@ -3973,8 +3959,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "gfg488cb"
+      "grid_mix": ""
     },
     {
       "id": "tjeldbergodden",
@@ -4239,8 +4224,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "dfypo9ma"
+      "grid_mix": ""
     },
     {
       "id": "honningsvag",
@@ -4504,8 +4488,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "xbrlty7d"
+      "grid_mix": ""
     },
     {
       "id": "kemi",
@@ -4519,7 +4502,7 @@
       "lat": 65.7333,
       "lng": 24.5667,
       "power": "Mixed renewable",
-      "target_mw": 1000,
+      "target_mw": 800,
       "desc_en": "",
       "desc_no": "",
       "bid_status": "Project",
@@ -4770,8 +4753,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "scokgma6"
+      "grid_mix": ""
     },
     {
       "id": "mikkeli",
@@ -5035,8 +5017,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "kocroim8"
+      "grid_mix": ""
     },
     {
       "id": "boden",
@@ -5301,8 +5282,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "crav3581"
+      "grid_mix": ""
     },
     {
       "id": "hadsel",
@@ -5566,8 +5546,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "f9ozj0ac"
+      "grid_mix": ""
     },
     {
       "id": "sortland",
@@ -5831,8 +5810,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "tbyotou1"
+      "grid_mix": ""
     },
     {
       "id": "salsbruket",
@@ -6095,8 +6073,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "bejwskqd"
+      "grid_mix": ""
     },
     {
       "id": "rovaniemi",
@@ -6360,8 +6337,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ucak4aa4"
+      "grid_mix": ""
     },
     {
       "id": "varkaus",
@@ -6621,8 +6597,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "aqwevj42"
+      "grid_mix": ""
     },
     {
       "id": "bo",
@@ -6883,8 +6858,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "c8a9hvm7"
+      "grid_mix": ""
     },
     {
       "id": "kontiolahti",
@@ -7144,8 +7118,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "sngpdh00"
+      "grid_mix": ""
     },
     {
       "id": "keminmaa",
@@ -7405,8 +7378,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "4uk5hkea"
+      "grid_mix": ""
     },
     {
       "id": "tornio",
@@ -7420,7 +7392,7 @@
       "plots_identified": "Still searching for landplot - Municipality looking",
       "plots_secured": "0",
       "initial_mw": 200,
-      "max_capacity_mw": 2000,
+      "max_capacity_mw": 600,
       "extra_data": "ProjectID: FIN017\nPotential FID Date: Pending Site Identification\nPotential RFS Dates: Pending Site Identification\nProject Lead: Thomas Beaton\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Miikka.laitinen@tornio.fi Tero.siivola@tornio.fi\nPlot Name: Pending Site Identification\nPlot Priority: 1\nSite Address: Pending Site Identification\nLocation Link: https://maps.app.goo.gl/L5BtTDkKnBAkPCR29\nNot Required: 65.807664, 24.184217\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: Requested 50ha but muncipality is struggling to find this size so may reduce requirement to 20ha to speed up process and satisfy a first phase.\nDescription: Pending Site Identification\nSite Drainage: Pending Site Identification\nSite Access: Pending Site Identification\nBuilding Rights (%) - Primary Plot: Pending Site Identification\nOwnership: City of Tornio\nZoning Status: Likely to be unzoned land\nHeat Off-Take: District heating requests from City of Tornio and Haparanda\nFibre Connectivity: Pending Site Identification\nPower Connection Methods: Targetting locations with connectivity to Keminmaa substation which has 2000MW of available capacity\nPower Connection Timelines: Pending Site Identification\nPower Procurement Status: Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.\nPower Availability Confirmation: By agent\nAcquisition Strategy: To be confirmed upon identification of landplot. Conclude negotiations with Municipality to allow for a reservation agreement. We would aim to negotiate rent-free to support the zoning process which with a clean transition permit could be completed in as little as 6 months. Following completion of zoning work, a lease can commence with options to purchase the site which can be triggered at any time.\nZoning Strategy: We expect this site would be eligible for a green transition permit which would satisfy zoning requirements in an estimated 6 months. Should a clean transition permit not be possible we would anticipate a full zoning process likely to take 24 months. A zoning consultant will be engaged to investigate and advise on these points.\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated.\nPower Provider: FinGrid\nPower Connection Costs: 900k EUR per 110kV connection plus the cost of construction. 2.3mil EUR per 400kV connection plus cost of construction.\nFibre Provider: Global Connect - Confirm\nPrice / sqm: Pending Site Identification\nLease Rate (per annum): Pending Site Identification\nPurchase Price: Pending Site Identification\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Identify a suitable plot",
       "lat": 65.85,
       "lng": 24.15,
@@ -7667,8 +7639,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "lbe6ao3b"
+      "grid_mix": ""
     },
     {
       "id": "oulu",
@@ -7929,8 +7900,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "mfetg0c4"
+      "grid_mix": ""
     },
     {
       "id": "skelleftea",
@@ -8191,8 +8161,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "5jxxxx4d"
+      "grid_mix": ""
     },
     {
       "id": "utansjo",
@@ -8452,8 +8421,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "hjjiy20e"
+      "grid_mix": ""
     },
     {
       "id": "kalix",
@@ -8714,8 +8682,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "hfthwikd"
+      "grid_mix": ""
     },
     {
       "id": "reydarfjordur",
@@ -8825,8 +8792,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "mtmsogq4"
+      "grid_mix": ""
     },
     {
       "id": "akureyri",
@@ -9087,8 +9053,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "4q0yjwa9"
+      "grid_mix": ""
     },
     {
       "id": "valaiscanton",
@@ -9348,8 +9313,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "za1zvqyf"
+      "grid_mix": ""
     },
     {
       "id": "tbcnorthernengland",
@@ -9459,8 +9423,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "cngxdxe3"
+      "grid_mix": ""
     },
     {
       "id": "icelandrunofriver",
@@ -9570,8 +9533,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "29a1t2k0"
+      "grid_mix": ""
     },
     {
       "id": "moiranamoindustrialpark",
@@ -9831,8 +9793,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "q0nyn3a2"
+      "grid_mix": ""
     },
     {
       "id": "andoya",
@@ -10093,8 +10054,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "4hwom0be"
+      "grid_mix": ""
     },
     {
       "id": "sognlustersognekraftsognutvikling",
@@ -10354,8 +10314,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "rqqbjikd"
+      "grid_mix": ""
     },
     {
       "id": "ostersundspikboderna",
@@ -10465,8 +10424,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "7azlyid4"
+      "grid_mix": ""
     },
     {
       "id": "morsil",
@@ -10727,8 +10685,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ae2yau4c"
+      "grid_mix": ""
     },
     {
       "id": "milan",
@@ -10839,8 +10796,7 @@
       "nearest_substation_km": null,
       "grid_co2": null,
       "grid_price": null,
-      "grid_mix": "",
-      "url_token": "eo3etpm7"
+      "grid_mix": ""
     }
   ]
 }
