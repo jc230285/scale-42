@@ -465,6 +465,7 @@ function run() {
     let html = fs.readFileSync(p, 'utf-8');
     html = updateMarker(html, 'stat1_value', stats.pipeline);
     html = updateMarker(html, 'stat2_value', stats.projects);
+    html = updateMarker(html, 'lede_capacity', stats.pipeline);
     fs.writeFileSync(p, html, 'utf-8');
   }
 
