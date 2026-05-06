@@ -54,3 +54,4 @@
 {"ts":"2026-05-05T14:34:17.620Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:bakki","path":"developers","before":["giga-42"],"after":["giga-42","norsk-datakraft"]}]}
 {"ts":"2026-05-05T14:34:29.363Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
 {"ts":"2026-05-06T08:06:12.034Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:liperi","path":"image","before":"dc203ea6-b661-4a2c-a98c-d8e75542cb47.jpg","after":"c0559c39-6019-4321-a358-6a005c5249af.png"},{"entity":"site:honningsvag","path":"published","before":false,"after":true}]}
+{"ts":"2026-05-06T09:08:50.413Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
