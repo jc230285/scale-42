@@ -86,13 +86,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/skibotn/"/>
   </url>
   <url>
-    <loc>https://www.scale-42.com/datacenters/reykjavik/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/reykjavik/"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/reykjavik/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/reykjavik/"/>
-  </url>
-  <url>
     <loc>https://www.scale-42.com/datacenters/kristinestad/</loc>
     <lastmod>2026-05-06</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/kristinestad/"/>
@@ -126,69 +119,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/sorfold/"/>
     <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/sorfold/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/sorfold/"/>
-  </url>
-  <url>
-    <loc>https://www.scale-42.com/datacenters/torsboda/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/torsboda/"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/torsboda/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/torsboda/"/>
-  </url>
-  <url>
-    <loc>https://www.scale-42.com/datacenters/robertsfors/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/robertsfors/"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/robertsfors/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/robertsfors/"/>
-  </url>
-  <url>
-    <loc>https://www.scale-42.com/datacenters/nuuk/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/nuuk/"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/nuuk/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/nuuk/"/>
-  </url>
-  <url>
-    <loc>https://www.scale-42.com/datacenters/tjeldbergodden/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/tjeldbergodden/"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/tjeldbergodden/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/tjeldbergodden/"/>
-  </url>
-  <url>
-    <loc>https://www.scale-42.com/datacenters/honningsvag/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/honningsvag/"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/honningsvag/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/honningsvag/"/>
-  </url>
-  <url>
-    <loc>https://www.scale-42.com/datacenters/kemi/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/kemi/"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/kemi/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/kemi/"/>
-  </url>
-  <url>
-    <loc>https://www.scale-42.com/datacenters/mikkeli/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/mikkeli/"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/mikkeli/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/mikkeli/"/>
-  </url>
-  <url>
-    <loc>https://www.scale-42.com/datacenters/rovaniemi/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/rovaniemi/"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/rovaniemi/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/rovaniemi/"/>
-  </url>
-  <url>
-    <loc>https://www.scale-42.com/datacenters/tornio/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.scale-42.com/datacenters/tornio/"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/datacenters/tornio/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/datacenters/tornio/"/>
   </url>
   <url>
     <loc>https://www.scale-42.com/news/bakki-iceland-50mw/</loc>
