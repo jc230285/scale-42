@@ -8232,6 +8232,20 @@
       "grid_mix": "",
       "url_token": "703hspe6",
       "developers": []
+    },
+    {
+      "id": "new-1778141170650",
+      "name": "New site",
+      "country": "",
+      "status": "tbd",
+      "published": true,
+      "lat": 65,
+      "lng": 17,
+      "desc_en": "",
+      "desc_no": "",
+      "project_description": "",
+      "image": "1ce3b984-49d6-4f25-aff2-f5794a6d4d64.png",
+      "url_token": "yjufxso9"
     }
   ]
 }
