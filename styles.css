@@ -371,6 +371,9 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
 .cookie-banner button { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.35); padding: 4px 12px; border-radius: 5px; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
 .cookie-banner button:hover { background: rgba(255,255,255,0.08); }
 /* Mobile nav hamburger */
+.nav-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; cursor: pointer; color: #fff; margin-left: auto; padding: 0; }
+.nav-toggle:hover { background: rgba(255,255,255,0.16); }
+.nav-toggle svg { width: 24px; height: 24px; stroke: #fff; }
 @media (max-width: 1100px) {
   .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; align-items: stretch; padding: 14px 20px 18px; box-shadow: 0 12px 28px rgba(0,0,0,0.1); white-space: normal; }
   .nav-links.open { display: flex; }
@@ -380,9 +383,6 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
   .nav-links a:first-child { border-top: 0; }
   .nav-toggle { display: inline-flex; }
 }
-.nav-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; cursor: pointer; color: #fff; margin-left: auto; padding: 0; }
-.nav-toggle:hover { background: rgba(255,255,255,0.16); }
-.nav-toggle svg { width: 24px; height: 24px; stroke: #fff; }
 
 /* Site detail pages */
 .site-hero { padding: 36px 0 24px; }
