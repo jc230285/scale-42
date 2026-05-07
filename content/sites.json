@@ -1634,7 +1634,7 @@
       "eia_required": false,
       "restrictions": "Verbal client/funding restrictions: no Chinese or Russian end customers / funders.",
       "max_capacity_mw": 100,
-      "initial_mw": 30,
+      "initial_mw": 60,
       "connection_voltage": "110kV",
       "dso": "PKS Sähkönsiirto Oy",
       "tso": "Fingrid",
