@@ -381,6 +381,9 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
   .nav-links.open .lang-toggle { display: flex; }
   .nav-links a, .nav-links .lang-toggle { padding: 10px 0; border-top: 1px solid var(--line); }
   .nav-links a:first-child { border-top: 0; }
+  .nav-links a, .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .nav-links a.btn { color: #fff; }
+  .nav-links .lang-toggle a { color: var(--ink); }
   .nav-toggle { display: inline-flex; }
 }
 
