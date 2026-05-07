@@ -597,4 +597,6 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
   .journey-node:nth-child(odd) .journey-marker,
   .journey-node:nth-child(even) .journey-marker { left: -8px; top: 14px; bottom: auto; transform: none; }
   .journey-node::after { display: none !important; }
+  .journey-content { width: auto; }
+  .journey-pin .heading { padding: 0 24px; }
 }
