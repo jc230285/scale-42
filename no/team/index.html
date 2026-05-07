@@ -151,7 +151,9 @@
   function alignLine(){
     var marker = track.querySelector('.journey-marker');
     if (!marker) return;
-    var y = marker.offsetTop + marker.offsetHeight / 2;
+    var tr = track.getBoundingClientRect();
+    var mr = marker.getBoundingClientRect();
+    var y = (mr.top - tr.top) + mr.height / 2;
     track.style.setProperty('--journey-line-top', y + 'px');
   }
   function setHeight(){
