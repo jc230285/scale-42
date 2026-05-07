@@ -380,7 +380,7 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
   .nav-links a:first-child { border-top: 0; }
   .nav-toggle { display: inline-flex; }
 }
-.nav-toggle { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; background: transparent; border: 0; cursor: pointer; color: var(--ink); }
+.nav-toggle { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; background: transparent; border: 0; cursor: pointer; color: #fff; margin-left: auto; }
 .nav-toggle svg { width: 24px; height: 24px; }
 
 /* Site detail pages */
