@@ -118,6 +118,60 @@
   </div>
 </section>
 
+<style>
+  .opex-chart { display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px; align-items: end; height: 360px; padding: 32px 0 0; border-bottom: 1px solid rgba(255,255,255,0.18); }
+  .opex-bar { position: relative; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+  .opex-bar .bar-stack { width: 100%; max-width: 56px; display: flex; flex-direction: column-reverse; position: relative; }
+  .opex-bar .bar-host { background: #4b7384; }
+  .opex-bar .bar-elec { background: #e5e9ec; }
+  .opex-bar .bar-total { position: absolute; top: -22px; left: 0; right: 0; text-align: center; font-size: 12px; color: #fff; font-family: var(--font-display); font-weight: 600; }
+  .opex-bar .bar-label { margin-top: 10px; font-size: 11.5px; color: rgba(255,255,255,0.75); text-align: center; line-height: 1.25; }
+  .opex-bar .bar-pct { position: absolute; left: 50%; transform: translateX(-50%); width: 38px; height: 38px; border-radius: 50%; background: #2f7d4f; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; box-shadow: 0 0 0 2px rgba(15,25,35,0.45); }
+  .opex-legend { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 18px; font-size: 12.5px; color: rgba(255,255,255,0.75); }
+  .opex-legend .swatch { display: inline-block; width: 14px; height: 14px; vertical-align: middle; margin-right: 6px; border-radius: 2px; }
+  .opex-callout { background: rgba(196,140,80,0.18); border: 1px solid rgba(196,140,80,0.5); color: #fff; padding: 14px 18px; border-radius: 8px; font-size: 13.5px; line-height: 1.45; max-width: 360px; margin-top: 24px; }
+  @media (max-width: 760px) { .opex-chart { overflow-x: auto; min-width: 720px; } .opex-chart-wrap { overflow-x: auto; } }
+</style>
+
+<section class="section section-dark">
+  <div class="container">
+    <h2 class="section-title" style="color:#fff;margin:0 0 18px;">Unmatched Operating Cost Leadership</h2>
+    <ul style="color:rgba(255,255,255,0.85);margin:0 0 28px;padding-left:20px;line-height:1.7;font-size:16px;">
+      <li><strong style="color:#fff;">$3.5m</strong> per MW per annum in FLAP markets for Power + Hosting</li>
+      <li><strong style="color:#fff;">$1.9m</strong> per MW per annum in Scale42 Nordic locations (44% lower)</li>
+      <li>Scale42 portfolio <strong style="color:#fff;">96% Clean energy</strong> mix vs 67% for FLAP Markets</li>
+    </ul>
+
+    <div class="opex-chart-wrap">
+      <div class="opex-chart" role="img" aria-label="OPEX comparison: Tokyo $5.2m to Scale42 Norway $1.7m">
+        <div class="opex-bar"><div class="bar-stack" style="height:100%;"><div class="bar-elec" style="height:65%;"></div><div class="bar-host" style="height:35%;"></div><div class="bar-total">$5.2m</div><div class="bar-pct" style="bottom:18%;">35%</div></div><div class="bar-label">Tokyo</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:79%;"><div class="bar-elec" style="height:39%;"></div><div class="bar-host" style="height:61%;"></div><div class="bar-total">$4.1m</div><div class="bar-pct" style="bottom:38%;">62%</div></div><div class="bar-label">Frankfurt</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:71%;"><div class="bar-elec" style="height:43%;"></div><div class="bar-host" style="height:57%;"></div><div class="bar-total">$3.7m</div><div class="bar-pct" style="bottom:35%;">57%</div></div><div class="bar-label">London</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:65%;"><div class="bar-elec" style="height:44%;"></div><div class="bar-host" style="height:56%;"></div><div class="bar-total">$3.4m</div><div class="bar-pct" style="bottom:30%;">43%</div></div><div class="bar-label">North Virginia</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:60%;"><div class="bar-elec" style="height:42%;"></div><div class="bar-host" style="height:58%;"></div><div class="bar-total">$3.1m</div><div class="bar-pct" style="bottom:32%;">43%</div></div><div class="bar-label">Chicago</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:60%;"><div class="bar-elec" style="height:52%;"></div><div class="bar-host" style="height:48%;"></div><div class="bar-total">$3.1m</div><div class="bar-pct" style="bottom:24%;">53%</div></div><div class="bar-label">Amsterdam</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:56%;"><div class="bar-elec" style="height:45%;"></div><div class="bar-host" style="height:55%;"></div><div class="bar-total">$2.9m</div><div class="bar-pct" style="bottom:78%;">97%</div></div><div class="bar-label">Paris</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:54%;"><div class="bar-elec" style="height:39%;"></div><div class="bar-host" style="height:61%;"></div><div class="bar-total">$2.8m</div><div class="bar-pct" style="bottom:34%;">43%</div></div><div class="bar-label">Phoenix</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:42%;"><div class="bar-elec" style="height:36%;"></div><div class="bar-host" style="height:64%;"></div><div class="bar-total">$2.2m</div><div class="bar-pct" style="bottom:88%;">100%</div></div><div class="bar-label">GIGA-42<br>Iceland</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:40%;"><div class="bar-elec" style="height:30%;"></div><div class="bar-host" style="height:70%;"></div><div class="bar-total">$2.1m</div><div class="bar-pct" style="bottom:75%;">89%</div></div><div class="bar-label">Scale42<br>Finland</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:35%;"><div class="bar-elec" style="height:18%;"></div><div class="bar-host" style="height:82%;"></div><div class="bar-total">$1.8m</div><div class="bar-pct" style="bottom:88%;">97%</div></div><div class="bar-label">Scale42<br>Sweden</div></div>
+        <div class="opex-bar"><div class="bar-stack" style="height:33%;"><div class="bar-elec" style="height:6%;"></div><div class="bar-host" style="height:94%;"></div><div class="bar-total">$1.7m</div><div class="bar-pct" style="bottom:92%;">99%</div></div><div class="bar-label">Scale42<br>Norway</div></div>
+      </div>
+    </div>
+
+    <div class="opex-legend">
+      <span><span class="swatch" style="background:#4b7384;"></span>Hosting Cost</span>
+      <span><span class="swatch" style="background:#e5e9ec;"></span>Wholesale Electricity Cost</span>
+      <span><span class="swatch" style="background:#2f7d4f;border-radius:50%;"></span>Clean Energy Mix %</span>
+    </div>
+
+    <div class="opex-callout">
+      <strong>Scale42 can provide OPEX</strong><br>
+      Hosting + Power Opex 44% lower vs FLAP Locations
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container">
     <!--cms:footer-->
