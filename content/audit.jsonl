@@ -83,3 +83,5 @@
 {"ts":"2026-05-07T08:11:27.185Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
 {"ts":"2026-05-07T08:12:35.843Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:new-1778141170650","path":"power","before":"","after":"Renewable"},{"entity":"site:new-1778141170650","path":"initial_mw","before":null,"after":5000},{"entity":"site:new-1778141170650","path":"target_mw","before":null,"after":10000}]}
 {"ts":"2026-05-07T08:12:44.364Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
+{"ts":"2026-05-07T12:57:12.353Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:liperi","path":"initial_mw","before":30,"after":60}]}
+{"ts":"2026-05-07T12:57:17.723Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
