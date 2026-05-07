@@ -380,8 +380,9 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
   .nav-links a:first-child { border-top: 0; }
   .nav-toggle { display: inline-flex; }
 }
-.nav-toggle { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; background: transparent; border: 0; cursor: pointer; color: #fff; margin-left: auto; }
-.nav-toggle svg { width: 24px; height: 24px; }
+.nav-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; cursor: pointer; color: #fff; margin-left: auto; padding: 0; }
+.nav-toggle:hover { background: rgba(255,255,255,0.16); }
+.nav-toggle svg { width: 24px; height: 24px; stroke: #fff; }
 
 /* Site detail pages */
 .site-hero { padding: 36px 0 24px; }
