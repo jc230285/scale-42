@@ -148,10 +148,29 @@
 </section>
 <script>
 (function(){
-  var track = document.querySelector('[data-journey-track]');
+  var pin = document.querySelector('[data-journey-pin]');
+  if (!pin) return;
+  var track = pin.querySelector('[data-journey-track]');
   if (!track) return;
+  var sticky = pin.querySelector('.sticky');
+  function isMobile(){ return window.innerWidth <= 800; }
+  function setHeight(){
+    if (isMobile()) { pin.style.height = ''; track.style.transform = ''; return; }
+    var stickyH = sticky ? sticky.offsetHeight : window.innerHeight;
+    var extra = Math.max(0, track.scrollWidth - window.innerWidth);
+    pin.style.height = (stickyH + extra) + 'px';
+  }
+  function onScroll(){
+    if (isMobile()) { track.style.transform = ''; return; }
+    var rect = pin.getBoundingClientRect();
+    var max = pin.offsetHeight - window.innerHeight;
+    if (max <= 0) { track.style.transform = ''; return; }
+    var progress = Math.min(1, Math.max(0, -rect.top / max));
+    var distance = Math.max(0, track.scrollWidth - window.innerWidth);
+    track.style.transform = 'translateX(' + (-progress * distance) + 'px)';
+  }
   function positionLine(){
-    if (window.innerWidth <= 800) { track.style.removeProperty('--journey-line-left'); track.style.removeProperty('--journey-line-right'); track.style.removeProperty('--journey-line-top'); return; }
+    if (isMobile()) { track.style.removeProperty('--journey-line-left'); track.style.removeProperty('--journey-line-right'); track.style.removeProperty('--journey-line-top'); return; }
     var markers = track.querySelectorAll('.journey-marker');
     if (markers.length < 2) return;
     var trackRect = track.getBoundingClientRect();
@@ -165,9 +184,12 @@
     var midY = ((first.top + first.height/2) + (second.top + second.height/2)) / 2 - trackRect.top;
     track.style.setProperty('--journey-line-top', midY + 'px');
   }
+  setHeight();
+  onScroll();
   positionLine();
-  window.addEventListener('resize', positionLine);
-  window.addEventListener('load', positionLine);
+  window.addEventListener('resize', function(){ setHeight(); onScroll(); positionLine(); });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('load', function(){ setHeight(); positionLine(); });
 })();
 </script>
 <!--/cms:journey-->

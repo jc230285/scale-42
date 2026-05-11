@@ -567,14 +567,12 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
 /* Journey timeline */
 .journey-section { background: linear-gradient(180deg, #f8fafb 0%, #ffffff 100%); padding: 0; }
 .journey-pin { position: relative; }
-.journey-pin .sticky { position: static; padding: 24px 0 48px; }
+.journey-pin .sticky { position: sticky; top: 80px; overflow: hidden; padding: 24px 0 16px; }
 .journey-pin .heading { padding: 0 24px 8px; max-width: var(--maxw); margin: 0 auto; text-align: center; }
 .journey-pin .heading .eyebrow { color: var(--accent); margin: 0; }
 .journey-pin .heading h2 { font-family: var(--font-display); font-size: clamp(22px,2.6vw,30px); margin: 6px 0 0; font-weight: 600; letter-spacing: -0.01em; }
-.journey-scroll { overflow-x: auto; padding: 8px 24px; }
-.journey-scroll::-webkit-scrollbar { height: 6px; }
-.journey-scroll::-webkit-scrollbar-thumb { background: rgba(47,102,117,0.3); border-radius: 3px; }
-.journey { list-style: none; margin: 0 auto; padding: 8px 0; position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 150px; grid-template-rows: minmax(200px, auto) 60px minmax(200px, auto); gap: 0; width: fit-content; max-width: 100%; }
+.journey-scroll { overflow: hidden; padding: 8px 0; }
+.journey { list-style: none; margin: 0 auto; padding: 8px 4vw; position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 150px; grid-template-rows: minmax(200px, auto) 60px minmax(200px, auto); gap: 0; width: fit-content; will-change: transform; }
 .journey-node { padding-left: 8px; padding-right: 8px; }
 .journey::before { content: ""; position: absolute; left: var(--journey-line-left, 4vw); right: var(--journey-line-right, 4vw); top: var(--journey-line-top, 50%); height: 2px; background: linear-gradient(90deg, var(--accent) 0%, rgba(47,102,117,0.4) 100%); pointer-events: none; transform: translateY(-50%); z-index: 0; }
 .journey-node:first-child .journey-marker::before,
