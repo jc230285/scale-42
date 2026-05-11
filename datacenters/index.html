@@ -213,12 +213,12 @@
 <section class="dc-hero">
   <div class="container">
     <p class="eyebrow">Data centres</p>
-    <h1><!--cms:dc_hero_title-->1,300 MW of AI-ready capacity.<!--/cms:dc_hero_title--></h1>
-    <p class="lede"><!--cms:dc_hero_lede-->7 Data Centres across 4 countries, co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 30 MW to 500 MW.<!--/cms:dc_hero_lede--></p>
+    <h1><!--cms:dc_hero_title-->1,200 MW of AI-ready capacity.<!--/cms:dc_hero_title--></h1>
+    <p class="lede"><!--cms:dc_hero_lede-->6 Data Centres across 4 countries, co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 30 MW to 500 MW.<!--/cms:dc_hero_lede--></p>
 
     <dl class="dc-summary">
-      <div class="item"><dt>Total Capacity Pipeline</dt><dd><!--cms:dc_pipeline-->1,300 MW<!--/cms:dc_pipeline--></dd></div>
-      <div class="item"><dt>Active Developments</dt><dd><!--cms:dc_projects-->7<!--/cms:dc_projects--></dd></div>
+      <div class="item"><dt>Total Capacity Pipeline</dt><dd><!--cms:dc_pipeline-->1,200 MW<!--/cms:dc_pipeline--></dd></div>
+      <div class="item"><dt>Active Developments</dt><dd><!--cms:dc_projects-->6<!--/cms:dc_projects--></dd></div>
       <div class="item"><dt>Countries</dt><dd><!--cms:dc_countries-->4<!--/cms:dc_countries--></dd></div>
       <div class="item"><dt>Minimum Deployment Unit</dt><dd>12.5 MW IT</dd></div>
     </dl>
@@ -259,7 +259,7 @@
           <img src="../assets/sites/0a0d0e8b-252a-44c7-b386-9ddfb691b670.jpg" alt="GIGA-42 Bakki" loading="lazy" />
         </div>
         <div class="body">
-          <p class="desc">Industrial greenfield site with geothermal baseload, 50 MW initial deployment in 2027, scaling up to 150MW+ by 2030</p>
+          <p class="desc">Iceland's largest data centre development, with geothermal baseload, 50 MW initial deployment in 2027, scaling up to 150MW+ by 2030</p>
           <dl class="dc-stats">
             <div class="stat"><dt>Initial</dt><dd>50 MW</dd></div>
             <div class="stat"><dt>Target</dt><dd>150 MW</dd></div>
@@ -321,25 +321,6 @@
             <div class="stat"><dt>Initial</dt><dd>200 MW</dd></div>
             <div class="stat"><dt>Target</dt><dd>400 MW</dd></div>
             <div class="stat"><dt>Power</dt><dd>Primarily Hydro</dd></div>
-          </dl>
-        </div>
-      </article>
-
-      <article class="dc-card" id="liperi-7u32bym4" data-country="finland" data-strat="going-to-3rd-party">
-        <span class="dc-card-link" aria-hidden="true"></span>
-        <h3 class="dc-name-top">Liperi</h3>
-        <p class="loc loc-top">Finland</p>
-        <span class="status live">In development</span>
-        
-        <div class="img">
-          <img src="../assets/sites/c0559c39-6019-4321-a358-6a005c5249af.png" alt="Liperi" loading="lazy" />
-        </div>
-        <div class="body">
-          <p class="desc">Located next to Joensuu the Capital of Eastern Finland, benefits from fast access to power and ready to build 2026.</p>
-          <dl class="dc-stats">
-            <div class="stat"><dt>Initial</dt><dd>60 MW</dd></div>
-            <div class="stat"><dt>Target</dt><dd>100 MW</dd></div>
-            <div class="stat"><dt>Power</dt><dd>Mixed Clean</dd></div>
           </dl>
         </div>
       </article>
@@ -435,11 +416,10 @@
 <script>
   // Map: Nordic data centre sites
   const sites = /*cms:sites_full*/[
-    { name: "GIGA-42 Bakki", country: "Iceland", status: "live", location: "Húsavík, Iceland", lat: 66.1, lng: -17.3, power: "Primarily Geothermal", target: "150 MW", desc: "Industrial greenfield site with geothermal baseload, 50 MW initial deployment in 2027, scaling up to 150MW+ by 2030", developers: ["giga-42"] },
+    { name: "GIGA-42 Bakki", country: "Iceland", status: "live", location: "Húsavík, Iceland", lat: 66.1, lng: -17.3, power: "Primarily Geothermal", target: "150 MW", desc: "Iceland's largest data centre development, with geothermal baseload, 50 MW initial deployment in 2027, scaling up to 150MW+ by 2030", developers: ["giga-42"] },
     { name: "GIGA-42 Skibotn", country: "Norway", status: "live", location: "Skibotn, Norway", lat: 69.4, lng: 20.3, power: "Primarily Hydro", target: "15 MW", desc: "Sub-Arctic site and candidate for the Norwegian landing point of the Far North Fibre Project. ", developers: ["giga-42"] },
     { name: "Kristinestad", country: "Finland", status: "live", location: "Kristinestad, Finland", lat: 62.3, lng: 21.4, power: "Mixed Clean", target: "800 MW", desc: "Coastal site at the wind-power heartland of Finland with outstanding grid capacity, scaling to 500MW, ready to build Q1 2027", developers: [] },
     { name: "Jokkmokk", country: "Sweden", status: "live", location: "Jokkmokk, Sweden", lat: 66.6, lng: 19.8, power: "Primarily Hydro", target: "400 MW", desc: "Located in Lapland's hydropower belt and Sweden's largest hydropower production region, scaling to 400MW", developers: [] },
-    { name: "Liperi", country: "Finland", status: "live", location: "Liperi, Finland", lat: 62.5, lng: 29.4, power: "Mixed Clean", target: "100 MW", desc: "Located next to Joensuu the Capital of Eastern Finland, benefits from fast access to power and ready to build 2026.", developers: [] },
     { name: "Kitee", country: "Finland", status: "live", location: "Kitee, Finland", lat: 62.1, lng: 30.2, power: "Mixed Clean", target: "60 MW", desc: "10ha located in Eastern Finland ready to build 2026", developers: [] },
     { name: "Nordland", country: "Norway", status: "live", location: "Sørfold, Norway", lat: 67.5, lng: 15.4, power: "Primarily Hydro", target: "100 MW", desc: "Hydro-power dominant baseload region of Norway with initial 50MW ready to build Q1 2027", developers: ["norsk-datakraft"] },
   ]/*/cms:sites_full*/;
