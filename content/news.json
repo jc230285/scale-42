@@ -1,6 +1,26 @@
 {
   "posts": [
     {
+      "slug": "bakki-iceland-mou",
+      "title_en": "GIGA-42 signs MoU with Norðurþing for AI hyperscale campus at Bakki",
+      "title_no": "",
+      "type_en": "Announcement",
+      "type_no": "Kunngjøring",
+      "date_en": "Aug 27, 2025",
+      "date_no": "",
+      "read_time": "3 min read",
+      "image": "bakki-iceland-mou.jpg",
+      "alt": "Bakki, Húsavík - site of the GIGA-42 / Norðurþing AI hyperscale data centre",
+      "excerpt_en": "Non-binding framework with the Norðurþing Municipality on site allocation, zoning, permitting and infrastructure for a 50 MW first-phase campus on Iceland’s north coast.",
+      "excerpt_no": "",
+      "subtitle": "50 MW first phase next to Landsnet’s 220 kV transmission line and the Bakki substation; FID targeted 2026, first-phase operations 2027.",
+      "tags": "Bakki, Iceland, Norðurþing, GIGA-42, Geothermal",
+      "source_html": "Announcement: <a href=\"https://globalinterconnectiongroup.com/giga-42-signs-memorandum-of-understanding-with-nordurthing-municipality-for-ai-optimised-hyperscale-data-centre-at-bakki-iceland/\" target=\"_blank\" rel=\"noopener\">Global Interconnection Group</a> &middot; <a href=\"https://live.euronext.com/en/products/equities/company-news/2025-08-27-giga-42-signs-mou-hyperscale-ai-data-centre-iceland\" target=\"_blank\" rel=\"noopener\">Euronext company news</a>.",
+      "body_html": "<p class=\"lead\">GIGA-42 Holdings has signed a Memorandum of Understanding with Norðurþing Municipality to develop one of Iceland’s first AI-optimised hyperscale data centres at Bakki, Húsavík.</p>\n<p>The MoU establishes a non-binding framework covering <strong>site allocation, zoning, infrastructure development, and permitting</strong> for a phased, modular campus. The target first phase is <strong>50 MW</strong>, with the platform engineered to scale into a hyperscale build-out as anchor customer demand materialises.</p>\n<h2>Why Bakki</h2>\n<p>The site sits adjacent to <strong>Landsnet’s 220 kV transmission line</strong> and the <strong>Bakki electricity substation</strong>, with established fibre connectivity into the national backbone. Power delivery is dominated by clean geothermal generation, with co-location opportunities to recycle low-grade heat into adjacent industrial and community uses.</p>\n<h2>Timeline</h2>\n<ul>\n  <li><strong>27 August 2025</strong> &mdash; MoU signed with Norðurþing Municipality</li>\n  <li><strong>2026</strong> &mdash; Target Final Investment Decision (FID)</li>\n  <li><strong>2027</strong> &mdash; First-phase operations</li>\n</ul>\n<h2>Local impact</h2>\n<p>Construction is expected to support <strong>100+ construction jobs</strong> with <strong>50&ndash;80 permanent operational roles</strong> once the first phase is online. The project includes commitments to district heating reuse, potential co-location with aquaculture and greenhouse facilities, and vocational training programmes with local partners.</p>\n<p>For Scale42 and GIG’s GIGA-42 joint venture, Bakki anchors the Icelandic end of a Nordic pipeline targeting low-carbon, geothermally and hydro-powered AI compute at industrial scale.</p>",
+      "featured": false,
+      "published": false
+    },
+    {
       "slug": "kristinestad-finland",
       "title_en": "Scale42 CEO: 'I'd rather build in Kristinestad than Texas'",
       "title_no": "Scale42-sjefen: «Heller Kristinestad enn Texas»",
