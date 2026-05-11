@@ -565,7 +565,7 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
 }
 
 /* Journey timeline */
-.journey-section { background: linear-gradient(180deg, #f8fafb 0%, #ffffff 100%); padding: 0; max-width: var(--maxw); margin: 0 auto; }
+.journey-section { background: linear-gradient(180deg, #f8fafb 0%, #ffffff 100%); padding: 0; }
 .journey-pin { position: relative; }
 .journey-pin .sticky { position: sticky; top: 80px; overflow: hidden; padding: 24px 0 16px; }
 .journey-pin .heading { padding: 0 24px 8px; max-width: var(--maxw); margin: 0 auto; }
