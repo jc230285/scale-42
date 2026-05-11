@@ -14,7 +14,7 @@ function run() {
   const today = new Date().toISOString().slice(0, 10);
 
   const urls = [];
-  const topPages = ['', 'datacenters/', 'news/', 'solutions/', 'sustainability/', 'partners/', 'team/', 'privacy/'];
+  const topPages = ['', 'datacenters/', 'news/', 'solutions/', 'sustainability/', 'partners/', 'about-us/', 'privacy/'];
   for (const p of topPages) urls.push({ loc: `${BASE}/${p}` });
   for (const s of sites.filter(x => x.published)) {
     urls.push({ loc: `${BASE}/datacenters/${siteSlug(s)}/` });

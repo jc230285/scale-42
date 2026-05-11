@@ -16,7 +16,7 @@ const NAV_EN = ({ active }) => `<a class="brand" href="/"><img src="/assets/logo
       <a href="/solutions/"${active==='solutions'?' class="active"':''}>Solutions</a>
       <a href="/sustainability/"${active==='sustainability'?' class="active"':''}>Sustainability</a>
       <a href="/partners/"${active==='giga42'?' class="active"':''}>Partners</a>
-      <a href="/team/"${active==='team'?' class="active"':''}>Team</a>
+      <a href="/about-us/"${active==='team'?' class="active"':''}>About Us</a>
       <a href="/news/"${active==='news'?' class="active"':''}>News</a>
       <a href="/contact/"${active==='contact'?' class="btn btn-sm active"':' class="btn btn-sm"'}>Contact</a>
     </nav>`;
@@ -28,7 +28,7 @@ const PAGES = [
   { file: 'datacenters/index.html', lang: 'en', active: 'datacenters' },
   { file: 'sustainability/index.html', lang: 'en', active: 'sustainability' },
   { file: 'partners/index.html', lang: 'en', active: 'giga42' },
-  { file: 'team/index.html', lang: 'en', active: 'team' },
+  { file: 'about-us/index.html', lang: 'en', active: 'team' },
   { file: 'news/index.html', lang: 'en', active: 'news' },
   { file: 'brand/index.html', lang: 'en', active: null },
   { file: 'competitors/index.html', lang: 'en', active: null },

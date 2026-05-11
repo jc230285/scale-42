@@ -19,7 +19,7 @@ const FOOTER_EN = `<div class="footer-grid">
       </div>
       <div class="footer-col">
         <h5>Company</h5>
-        <a href="/team/">Team</a>
+        <a href="/about-us/">About Us</a>
         <a href="/news/">News</a>
       </div>
       <div class="footer-col">

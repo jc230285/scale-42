@@ -53,7 +53,7 @@ function run() {
   const team = data.people.filter(p => !p.is_founder);
 
   const lang = 'en';
-  const file = path.join(ROOT, 'team/index.html');
+  const file = path.join(ROOT, 'about-us/index.html');
   if (fs.existsSync(file)) {
     let html = fs.readFileSync(file, 'utf-8');
     html = replaceBlock(html, 'team founders', blockHtml(founders, 'team founders', lang));
@@ -66,6 +66,6 @@ function run() {
   console.log('regen people: done');
 }
 
-module.exports = { run, files: ['content/people.json', 'team/index.html', 'signatures/index.html'] };
+module.exports = { run, files: ['content/people.json', 'about-us/index.html', 'signatures/index.html'] };
 
 if (require.main === module) run();
