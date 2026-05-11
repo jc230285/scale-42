@@ -12,10 +12,6 @@
 <link rel="apple-touch-icon" href="assets/favicon-192.png" />
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="canonical" href="https://www.scale-42.com/" />
-<link rel="alternate" hreflang="en" href="https://www.scale-42.com/" />
-<link rel="alternate" hreflang="nb" href="https://www.scale-42.com/no/" />
-<link rel="alternate" hreflang="x-default" href="https://www.scale-42.com/" />
-
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Scale42 — Next-generation European Digital Infrastructure" />
 <meta property="og:description" content="1.7GW pipeline of AI-ready data centres across the Nordics, powered by low-cost renewable energy." />
@@ -44,11 +40,9 @@
   .home-map .dc-pin.tbd { background: var(--muted); }
   .home-map .dc-pin.sold { background: #33752f; }
   .home-map-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
-  .home-map-foot .legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); }
-  .home-map-foot .legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
-  .home-map-foot .legend .live::before { background: var(--accent); }
-  .home-map-foot .legend .tbd::before { background: var(--muted); }
-  .home-map-foot .legend .sold::before { background: #33752f; }
+  .home-map-foot .legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+  .home-map-foot .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .home-map-foot .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
   .home-map-foot a { font-weight: 600; color: var(--accent); font-size: 14px; }
 
   /* JV / capital callout */
@@ -89,13 +83,9 @@
       <a href="/solutions/">Solutions</a>
       <a href="/sustainability/">Sustainability</a>
       <a href="/partners/">Partners</a>
-      <a href="/team/">Team</a>
+      <a href="/about-us/">About Us</a>
       <a href="/news/">News</a>
       <a href="/contact/" class="btn btn-sm">Contact</a>
-      <div class="lang-toggle">
-        <a href="." data-lang="en" class="active">EN</a>
-        <a href="/no/" data-lang="no">NO</a>
-      </div>
     </nav>
     <!--/cms:nav-->
   </div>
@@ -110,23 +100,20 @@
       <img src="assets/hero-900.jpg" alt="" />
     </picture>
   </div>
-  <img class="hero-mosaic-svg" src="/assets/logo-mark.svg?v=2" alt="" aria-hidden="true" />
   <div class="container hero-inner">
     <p class="eyebrow"><!--cms:hero_eyebrow-->Next-generation European AI infrastructure<!--/cms:hero_eyebrow--></p>
     <h1><!--cms:hero_title-->Delivering large-scale AI data centre capacity across the Nordics<!--/cms:hero_title--></h1>
     <div class="hero-lede-row">
-      <p class="lede"><!--cms:hero_lede-->Cost-advantaged, renewable-powered infrastructure by design
-Rapid deployment with proven delivery capability
-Designed to meet real AI and hyperscale demand<!--/cms:hero_lede--></p>
+      <p class="lede"><!--cms:hero_lede--><!--/cms:hero_lede--></p>
       <div class="hero-cta">
         <a href="/contact/" class="btn btn-ghost">Get in touch →</a>
       </div>
     </div>
     <dl class="hero-stats">
-      <div><dt><!--cms:stat1_label-->Total Capacity Pipeline<!--/cms:stat1_label--></dt><dd><!--cms:stat1_value-->11,625 MW<!--/cms:stat1_value--></dd></div>
-      <div><dt><!--cms:stat2_label-->Active Developments<!--/cms:stat2_label--></dt><dd><!--cms:stat2_value-->8<!--/cms:stat2_value--></dd></div>
-      <div><dt><!--cms:stat3_label-->Campus Scale<!--/cms:stat3_label--></dt><dd><!--cms:stat3_value-->30 MW – 500 MW<!--/cms:stat3_value--></dd></div>
-      <div><dt><!--cms:stat4_label-->Minimum Deployment Unit<!--/cms:stat4_label--></dt><dd><!--cms:stat4_value-->12.5 MW IT<!--/cms:stat4_value--></dd></div>
+      <div><dt><!--cms:stat1_label-->Total Capacity Pipeline<!--/cms:stat1_label--></dt><dd><!--cms:stat1_value-->1,600 MW<!--/cms:stat1_value--></dd></div>
+      <div><dt><!--cms:stat2_label-->Active Developments<!--/cms:stat2_label--></dt><dd><!--cms:stat2_value-->7<!--/cms:stat2_value--></dd></div>
+      <div><dt><!--cms:stat3_label-->Campus Scale<!--/cms:stat3_label--></dt><dd><!--cms:stat3_value-->15 – 10000 MW<!--/cms:stat3_value--></dd></div>
+      <div><dt><!--cms:stat4_label-->Minimum Deployment Unit<!--/cms:stat4_label--></dt><dd><!--cms:stat4_value-->12.5 MW<!--/cms:stat4_value--></dd></div>
     </dl>
   </div>
 </section>
@@ -135,11 +122,11 @@ Designed to meet real AI and hyperscale demand<!--/cms:hero_lede--></p>
   <div class="container">
     <p class="eyebrow">Scale42 Pan-Nordic portfolio</p>
     <h2 class="section-title" style="margin-bottom: 8px;">The Nordics are the logical location for European AI infrastructure</h2>
-    <p class="section-lede" style="margin-bottom: 16px; max-width: none;">Scale42, together with its JV GIGA-42, is developing <!--cms:lede_capacity-->11,625 MW<!--/cms:lede_capacity--> of AI data centre capacity across four Nordic countries.</p>
-    <p class="section-lede" style="margin-bottom: 16px; max-width: none;">Abundant renewable power, structurally lower cost, and stable operating environments create the optimal conditions for large-scale AI infrastructure.</p>
-    <p class="section-lede" style="margin-bottom: 24px; max-width: none;">Our sites are positioned for strong fibre connectivity, near-term power availability, and integration with heat reuse applications.</p>
     <div id="home-map" class="home-map" aria-label="Map of Scale42 sites"></div>
-    
+    <div class="home-map-foot"><div class="legend"></div></div>
+    <p class="section-lede" style="margin: 24px 0 16px; max-width: none;">Scale42, together with its JV GIGA-42, is developing <!--cms:lede_capacity-->1,600 MW<!--/cms:lede_capacity--> of AI data centre capacity across four Nordic countries.</p>
+    <p class="section-lede" style="margin: 0 0 16px; max-width: none;">Abundant renewable power, structurally lower cost, and stable operating environments create the optimal conditions for large-scale AI infrastructure.</p>
+    <p class="section-lede" style="margin: 0 0 0; max-width: none;">Our sites are positioned for strong fibre connectivity, near-term power availability, and integration with heat reuse applications.</p>
   </div>
 </section>
 
@@ -180,7 +167,10 @@ Designed to meet real AI and hyperscale demand<!--/cms:hero_lede--></p>
     <p class="eyebrow">Solutions</p>
     <h2 class="section-title">AI infrastructure solutions, delivered to specification.</h2>
     <p class="section-lede">Capacity delivered at different stages of development, aligned to deployment timelines and control requirements.</p>
-    <p class="section-lede">Our modular approach enables customers to deploy at speed and scale in line with their infrastructure strategy.</p>
+    <p class="section-lede" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;">
+      <span style="flex:1 1 420px;margin:0;">Our modular approach enables customers to deploy at speed and scale in line with their infrastructure strategy.</span>
+      <a href="/solutions/" class="dc-link" style="white-space:nowrap;">Learn more →</a>
+    </p>
 
     <div class="grid grid-3">
       <a class="card card-link" href="/solutions/">
@@ -193,7 +183,7 @@ Designed to meet real AI and hyperscale demand<!--/cms:hero_lede--></p>
         </ul>
       </a>
       <a class="card card-link" href="/solutions/">
-        <h3>Wholesale Powered Shell</h3>
+        <h3>Powered Shell Delivery</h3>
         <p>Pre-developed data centre infrastructure enabling rapid deployment of customer-operated AI compute.</p>
         <ul>
           <li>Shell and core delivered with power and fibre infrastructure in place</li>
@@ -202,7 +192,7 @@ Designed to meet real AI and hyperscale demand<!--/cms:hero_lede--></p>
         </ul>
       </a>
       <a class="card card-link" href="/solutions/">
-        <h3>Turnkey Wholesale Capacity</h3>
+        <h3>Turnkey Data Center Capacity</h3>
         <p>Fully built and operational data centre infrastructure delivered and managed by Scale42.</p>
         <ul>
           <li>Ready-to-deploy environment with power, cooling, and operations in place</li>
@@ -299,7 +289,7 @@ Designed to meet real AI and hyperscale demand<!--/cms:hero_lede--></p>
       </div>
       <div class="footer-col">
         <h5>Company</h5>
-        <a href="/team/">Team</a>
+        <a href="/about-us/">About Us</a>
         <a href="/news/">News</a>
       </div>
       <div class="footer-col">
@@ -364,15 +354,16 @@ Designed to meet real AI and hyperscale demand<!--/cms:hero_lede--></p>
   (function(){
     const el = document.getElementById('home-map');
     if (!el || typeof L === 'undefined') return;
+    const developersMap = /*cms:developers_map*/{"giga-42":{"name":"GIGA-42","color":"#3a8a4a"},"norsk-datakraft":{"name":"Norsk Datakraft AS","color":"#5b9bd5"}}/*/cms:developers_map*/;
+    const SCALE42_BLUE = '#1c2e3f';
     const sites = /*cms:sites_array*/[
-      { name: "GIGA-42 Bakki", country: "Iceland", status: "live", lat: 66.1, lng: -17.3 },
-      { name: "GIGA-42 Skibotn", country: "Norway", status: "live", lat: 69.4, lng: 20.3 },
-      { name: "Kristinestad", country: "Finland", status: "live", lat: 62.3, lng: 21.4 },
-      { name: "Jokkmokk", country: "Sweden", status: "live", lat: 66.6, lng: 19.8 },
-      { name: "Liperi", country: "Finland", status: "live", lat: 62.5, lng: 29.4 },
-      { name: "Kitee", country: "Finland", status: "live", lat: 62.1, lng: 30.2 },
-      { name: "Sørfold", country: "Norway", status: "live", lat: 67.5, lng: 15.4 },
-      { name: "", country: "", status: "tbd", lat: 65, lng: 17 },
+      { name: "GIGA-42 Bakki", country: "Iceland", status: "live", lat: 66.1, lng: -17.3, developers: ["giga-42"] },
+      { name: "GIGA-42 Skibotn", country: "Norway", status: "live", lat: 69.4, lng: 20.3, developers: ["giga-42"] },
+      { name: "Kristinestad", country: "Finland", status: "live", lat: 62.3, lng: 21.4, developers: [] },
+      { name: "Jokkmokk", country: "Sweden", status: "live", lat: 66.6, lng: 19.8, developers: [] },
+      { name: "Liperi", country: "Finland", status: "live", lat: 62.5, lng: 29.4, developers: [] },
+      { name: "Kitee", country: "Finland", status: "live", lat: 62.1, lng: 30.2, developers: [] },
+      { name: "Sørfold", country: "Norway", status: "live", lat: 67.5, lng: 15.4, developers: ["norsk-datakraft"] },
     ]/*/cms:sites_array*/;
     const map = L.map('home-map', {
       zoomControl: false, scrollWheelZoom: false, doubleClickZoom: false,
@@ -387,10 +378,13 @@ Designed to meet real AI and hyperscale demand<!--/cms:hero_lede--></p>
       subdomains: 'abcd', maxZoom: 19, noWrap: true, opacity: 0.85
     }).addTo(map);
     sites.forEach(s => {
+      const devId = (s.developers && s.developers[0]) || null;
+      const dev = devId ? developersMap[devId] : null;
+      const color = dev?.color || SCALE42_BLUE;
       L.marker([s.lat, s.lng], {
         icon: L.divIcon({
           className: '', iconSize: [16, 16], iconAnchor: [8, 8],
-          html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : s.status === 'sold' ? 'sold' : ''}" title="${s.name}"></div>`
+          html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : ''}" style="background:${color};" title="${s.name}"></div>`
         }),
         interactive: false, keyboard: false
       }).addTo(map);

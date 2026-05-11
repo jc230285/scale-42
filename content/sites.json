@@ -8238,7 +8238,7 @@
       "name": "",
       "country": "",
       "status": "tbd",
-      "published": true,
+      "published": false,
       "lat": 65,
       "lng": 17,
       "desc_en": "",
