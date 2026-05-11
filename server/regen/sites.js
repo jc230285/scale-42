@@ -41,8 +41,8 @@ function computeStats(sites) {
   const live = sites.filter(s => s.published);
   // pipeline excludes sold
   const pipelineSites = live.filter(s => s.status !== 'sold');
-  const totalMax = pipelineSites.reduce((a, s) => a + parseMW(s.max_capacity_mw || s.target_mw || s.initial_mw), 0);
-  const caps = pipelineSites.map(s => parseMW(s.max_capacity_mw || s.target_mw || s.initial_mw)).filter(Boolean);
+  const totalMax = pipelineSites.reduce((a, s) => a + parseMW(s.target_mw || s.max_capacity_mw || s.initial_mw), 0);
+  const caps = pipelineSites.map(s => parseMW(s.target_mw || s.max_capacity_mw || s.initial_mw)).filter(Boolean);
   const min = caps.length ? Math.min(...caps) : 0;
   const max = caps.length ? Math.max(...caps) : 0;
   const countries = new Set(live.map(s => s.country).filter(Boolean));
