@@ -85,3 +85,4 @@
 {"ts":"2026-05-07T08:12:44.364Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
 {"ts":"2026-05-07T12:57:12.353Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:liperi","path":"initial_mw","before":30,"after":60}]}
 {"ts":"2026-05-07T12:57:17.723Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
+{"ts":"2026-05-11T09:00:43.986Z","user":"james@scale-42.com","user_name":"James Collins","section":"journey","action":"publish","changes":[]}
