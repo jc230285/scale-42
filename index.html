@@ -354,6 +354,8 @@
   (function(){
     const el = document.getElementById('home-map');
     if (!el || typeof L === 'undefined') return;
+    const developersMap = /*cms:developers_map*/{"giga-42":{"name":"GIGA-42","color":"#e8b87a"},"norsk-datakraft":{"name":"Norsk Datakraft AS","color":"#5b9bd5"}}/*/cms:developers_map*/;
+    const SCALE42_BLUE = '#1c2e3f';
     const sites = /*cms:sites_array*/[
       { name: "GIGA-42 Bakki", country: "Iceland", status: "live", lat: 66.1, lng: -17.3, developers: ["giga-42"] },
       { name: "GIGA-42 Skibotn", country: "Norway", status: "live", lat: 69.4, lng: 20.3, developers: ["giga-42"] },
@@ -377,10 +379,13 @@
       subdomains: 'abcd', maxZoom: 19, noWrap: true, opacity: 0.85
     }).addTo(map);
     sites.forEach(s => {
+      const devId = (s.developers && s.developers[0]) || null;
+      const dev = devId ? developersMap[devId] : null;
+      const color = dev?.color || SCALE42_BLUE;
       L.marker([s.lat, s.lng], {
         icon: L.divIcon({
           className: '', iconSize: [16, 16], iconAnchor: [8, 8],
-          html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : s.status === 'sold' ? 'sold' : ''}" title="${s.name}"></div>`
+          html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : ''}" style="background:${color};" title="${s.name}"></div>`
         }),
         interactive: false, keyboard: false
       }).addTo(map);
