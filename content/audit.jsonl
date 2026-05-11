@@ -95,3 +95,4 @@
 {"ts":"2026-05-11T10:20:29.528Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
 {"ts":"2026-05-11T10:41:31.742Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:sorfold","path":"name","before":"Sørfold","after":"Nordland"}]}
 {"ts":"2026-05-11T10:41:50.049Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
+{"ts":"2026-05-11T10:47:29.046Z","user":"james@scale-42.com","user_name":"James Collins","section":"people","action":"save","changes":[{"entity":"person:beaton","path":"role_en","before":"CIO","after":"COO"},{"entity":"person:beaton","path":"role_no","before":"CIO","after":"COO"},{"entity":"person:rahman","path":"role_en","before":"COO","after":"Business Development Manager"},{"entity":"person:rahman","path":"role_no","before":"COO","after":"Business Development Manager"}]}

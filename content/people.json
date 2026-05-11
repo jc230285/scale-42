@@ -59,8 +59,8 @@
     {
       "id": "beaton",
       "name": "Thomas Beaton",
-      "role_en": "CIO",
-      "role_no": "CIO",
+      "role_en": "COO",
+      "role_no": "COO",
       "bio_en": "Information, data, research & technical management. 8+ years in geospatial intelligence and innovation. ESA & UK Space Agency contractor.",
       "bio_no": "Informasjon, data, research og teknisk ledelse. 8+ år innen geospatial intelligence og innovasjon. Kontraktør for ESA og UK Space Agency.",
       "photo": "assets/team/beaton.jpg",
@@ -87,8 +87,8 @@
     {
       "id": "rahman",
       "name": "Zeehan Rahman",
-      "role_en": "COO",
-      "role_no": "COO",
+      "role_en": "Business Development Manager",
+      "role_no": "Business Development Manager",
       "bio_en": "4+ years in data centre operations & development. MEng petroleum engineer. AgriTech & circular economy subject matter expert.",
       "bio_no": "4+ år innen drift og utvikling av datasentre. MEng petroleumsingeniør. Fagekspert på AgriTech og sirkulær økonomi.",
       "photo": "assets/team/rahman.jpg",
