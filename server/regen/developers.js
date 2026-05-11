@@ -51,7 +51,6 @@ function rewritePage(file, lang) {
 
 function run() {
   rewritePage(path.join(ROOT, 'partners', 'index.html'), 'en');
-  rewritePage(path.join(ROOT, 'no', 'partners', 'index.html'), 'no');
   // Also refresh dc-card logos via sites regen
   try { require('./sites').run(); } catch (e) { console.warn('sites regen skipped:', e.message); }
   console.log('regen partners: done');
@@ -59,7 +58,7 @@ function run() {
 
 module.exports = {
   run,
-  files: ['content/developers.json', 'partners/index.html', 'no/partners/index.html', 'datacenters/index.html', 'no/datacenters/index.html', 'index.html', 'no/index.html'],
+  files: ['content/developers.json', 'partners/index.html', 'datacenters/index.html', 'index.html'],
 };
 
 if (require.main === module) run();

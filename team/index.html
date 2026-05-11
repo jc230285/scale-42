@@ -36,10 +36,6 @@
       <a href="/team/" class="active">Team</a>
       <a href="/news/">News</a>
       <a href="/contact/" class="btn btn-sm">Contact</a>
-      <div class="lang-toggle">
-        <a href="." data-lang="en" class="active">EN</a>
-        <a href="/no/team/" data-lang="no">NO</a>
-      </div>
     </nav>
     <!--/cms:nav-->
   </div>
@@ -156,27 +152,16 @@
   if (!track) return;
   var sticky = pin.querySelector('.sticky');
   function isMobile(){ return window.innerWidth <= 800; }
-  function alignLine(){
-    var marker = track.querySelector('.journey-marker');
-    if (!marker) return;
-    var tr = track.getBoundingClientRect();
-    var mr = marker.getBoundingClientRect();
-    var y = (mr.top - tr.top) + mr.height / 2;
-    track.style.setProperty('--journey-line-top', y + 'px');
-  }
   function setHeight(){
-    if (isMobile()) { pin.style.height = ''; track.style.transform = ''; track.style.justifyContent = ''; alignLine(); return; }
+    if (isMobile()) { pin.style.height = ''; track.style.transform = ''; return; }
     var stickyH = sticky ? sticky.offsetHeight : window.innerHeight;
     var extra = Math.max(0, track.scrollWidth - window.innerWidth);
     pin.style.height = (stickyH + extra) + 'px';
-    track.style.justifyContent = extra > 0 ? '' : 'center';
-    alignLine();
   }
   function onScroll(){
     if (isMobile()) { track.style.transform = ''; return; }
     var rect = pin.getBoundingClientRect();
-    var stickyH = sticky ? sticky.offsetHeight : window.innerHeight;
-    var max = pin.offsetHeight - stickyH;
+    var max = pin.offsetHeight - window.innerHeight;
     if (max <= 0) { track.style.transform = ''; return; }
     var progress = Math.min(1, Math.max(0, -rect.top / max));
     var distance = Math.max(0, track.scrollWidth - window.innerWidth);

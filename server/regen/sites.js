@@ -766,11 +766,9 @@ render();
 function regenSiteDetailPages(sites, schema) {
   for (const s of sites) {
     const slug = siteSlug(s);
-    for (const lang of ['en', 'no']) {
-      const dir = path.join(ROOT, lang === 'no' ? 'no/datacenters' : 'datacenters', slug);
-      fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(path.join(dir, 'index.html'), buildSiteDetailPage(s, schema, lang), 'utf-8');
-    }
+    const dir = path.join(ROOT, 'datacenters', slug);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), buildSiteDetailPage(s, schema, 'en'), 'utf-8');
   }
 }
 
@@ -790,7 +788,7 @@ function run() {
       (s.id || s.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')).replace(/^-+|-+$/g, '')
     )
   );
-  for (const base of ['datacenters', 'no/datacenters']) {
+  for (const base of ["datacenters"]) {
     const dir = path.join(ROOT, base);
     if (!fs.existsSync(dir)) continue;
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -807,7 +805,7 @@ function run() {
     const target = siteSlug(s);
     if (bare === target) continue;
     const redirectHtml = `<!doctype html><html><head><meta charset="utf-8"><title>${s.name} — Scale42</title><link rel="canonical" href="https://www.scale-42.com/datacenters/${target}/"><meta http-equiv="refresh" content="0; url=../${target}/"><meta name="robots" content="noindex,follow"></head><body><script>location.replace('../${target}/');</script><p>Redirecting to <a href="../${target}/">${s.name}</a>…</p></body></html>`;
-    for (const langDir of ['datacenters', 'no/datacenters']) {
+    for (const langDir of ["datacenters"]) {
       const d = path.join(ROOT, langDir, bare);
       fs.mkdirSync(d, { recursive: true });
       fs.writeFileSync(path.join(d, 'index.html'), redirectHtml, 'utf-8');
@@ -822,9 +820,7 @@ function run() {
   // Map array literals (JS)
   const jsTargets = [
     { file: 'index.html', marker: 'sites_array', literal: homeArrayLiteral(data.sites) },
-    { file: 'no/index.html', marker: 'sites_array', literal: homeArrayLiteral(data.sites) },
     { file: 'datacenters/index.html', marker: 'sites_full', literal: fullArrayLiteral(data.sites, 'en') },
-    { file: 'no/datacenters/index.html', marker: 'sites_full', literal: fullArrayLiteral(data.sites, 'no') },
   ];
   for (const t of jsTargets) {
     const p = path.join(ROOT, t.file);
@@ -834,7 +830,7 @@ function run() {
 
   // Home hero stat markers — stat3 (campus scale) is editor-controlled / static.
   // stat1 (pipeline) and stat2 (active developments) auto-derive.
-  for (const file of ['index.html', 'no/index.html']) {
+  for (const file of ["index.html"]) {
     const p = path.join(ROOT, file);
     let html = fs.readFileSync(p, 'utf-8');
     html = updateMarker(html, 'stat1_value', stats.pipeline);
@@ -844,23 +840,16 @@ function run() {
   }
 
   // Datacenters page hero stats + cards
-  const dcPages = [
-    { file: 'datacenters/index.html', lang: 'en' },
-    { file: 'no/datacenters/index.html', lang: 'no' },
-  ];
-  for (const { file, lang } of dcPages) {
+  {
+    const file = 'datacenters/index.html';
+    const lang = 'en';
     const p = path.join(ROOT, file);
     let html = fs.readFileSync(p, 'utf-8');
     html = updateMarker(html, 'dc_pipeline', stats.pipeline);
     html = updateMarker(html, 'dc_projects', stats.projects);
     html = updateMarker(html, 'dc_countries', stats.countries);
-    if (lang === 'en') {
-      html = updateMarker(html, 'dc_hero_title', `${stats.pipeline} of Nordic AI-ready capacity.`);
-      html = updateMarker(html, 'dc_hero_lede', `${stats.projects} Data Centres across ${stats.countries} countries, co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 30 MW to 500 MW.`);
-    } else {
-      html = updateMarker(html, 'dc_hero_title', `${stats.pipeline} KI-klar nordisk kapasitet.`);
-      html = updateMarker(html, 'dc_hero_lede', `${stats.projects} datasentre i ${stats.countries} land, samlokalisert med rimelig fornybar kraft, spesialbygget for høytetthetsberegning. Skalerer fra 30 MW til 500 MW.`);
-    }
+    html = updateMarker(html, 'dc_hero_title', `${stats.pipeline} of AI-ready capacity.`);
+    html = updateMarker(html, 'dc_hero_lede', `${stats.projects} Data Centres across ${stats.countries} countries, co-located with low-cost renewable power, purpose-built for high-density compute. Scaling from 30 MW to 500 MW.`);
     html = replaceHtmlBlock(html, 'dc_cards', cardHtml(data.sites, lang));
     html = replaceHtmlBlock(html, 'dc_filters', dcFiltersHtml(data.sites, lang));
     fs.writeFileSync(p, html, 'utf-8');
@@ -873,7 +862,7 @@ function run() {
   // Sync sections.json
   if (fs.existsSync(SECTIONS)) {
     const sec = JSON.parse(fs.readFileSync(SECTIONS, 'utf-8'));
-    for (const lang of ['en', 'no']) {
+    for (const lang of ["en"]) {
       if (!sec.values[lang]) sec.values[lang] = {};
       sec.values[lang].stat1_value = stats.pipeline;
       sec.values[lang].stat2_value = stats.projects;
@@ -896,7 +885,7 @@ function run() {
         try {
           const out = execSync(`git grep -l "datacenters/${slug}/" -- "*.html" "*.json" "content/" "*.md"`, { cwd: ROOT, encoding: 'utf8' }).trim();
           if (out) {
-            const files = out.split(/\r?\n/).filter(f => !f.startsWith('datacenters/' + slug) && !f.startsWith('no/datacenters/' + slug));
+            const files = out.split(/\r?\n/).filter(f => !f.startsWith('datacenters/' + slug));
             if (files.length) dead.push({ slug, files });
           }
         } catch {}
@@ -914,7 +903,7 @@ function run() {
 
 module.exports = {
   run,
-  files: ['content/sites.json', 'content/sites-schema.json', 'content/sections.json', 'index.html', 'no/index.html', 'datacenters/index.html', 'no/datacenters/index.html'],
+  files: ["content/sites.json","content/sites-schema.json","content/sections.json","index.html","datacenters/index.html"],
 };
 
 if (require.main === module) run();

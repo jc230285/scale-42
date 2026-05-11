@@ -52,9 +52,9 @@ function run() {
   const founders = data.people.filter(p => p.is_founder);
   const team = data.people.filter(p => !p.is_founder);
 
-  for (const lang of ['en', 'no']) {
-    const file = path.join(ROOT, lang === 'no' ? 'no/team/index.html' : 'team/index.html');
-    if (!fs.existsSync(file)) { console.warn('team page missing:', file); continue; }
+  const lang = 'en';
+  const file = path.join(ROOT, 'team/index.html');
+  if (fs.existsSync(file)) {
     let html = fs.readFileSync(file, 'utf-8');
     html = replaceBlock(html, 'team founders', blockHtml(founders, 'team founders', lang));
     html = replaceBlock(html, 'team', blockHtml(team, 'team', lang));
@@ -66,6 +66,6 @@ function run() {
   console.log('regen people: done');
 }
 
-module.exports = { run, files: ['content/people.json', 'team/index.html', 'no/team/index.html', 'signatures/index.html'] };
+module.exports = { run, files: ['content/people.json', 'team/index.html', 'signatures/index.html'] };
 
 if (require.main === module) run();

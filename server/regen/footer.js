@@ -35,39 +35,8 @@ const FOOTER_EN = `<div class="footer-grid">
     </div>
 `;
 
-const FOOTER_NO = `<div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
-        <p class="footer-tag">Pan-nordisk KI- og HPC-infrastruktur — bygget på vannkraft, geotermisk energi og frikjøling.</p>
-        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
-      </div>
-      <div class="footer-col">
-        <h5>Plattform</h5>
-        <a href="/no/solutions/">Løsninger</a>
-        <a href="/no/datacenters/">Datasentre</a>
-        <a href="/no/sustainability/">Bærekraft</a>
-        <a href="/no/partners/">Partnere</a>
-      </div>
-      <div class="footer-col">
-        <h5>Selskap</h5>
-        <a href="/no/team/">Team</a>
-        <a href="/no/news/">Nyheter</a>
-      </div>
-      <div class="footer-col">
-        <h5>Ressurser</h5>
-        <a href="/news/rss.xml">RSS</a>
-        <a href="/sitemap.xml">Områdekart</a>
-        <a href="/no/privacy/">Personvern</a>
-        <a href="/no/contact/">Kontakt</a>
-      </div>
-    </div>
-    <div class="footer-bottom" style="justify-content:flex-end;">
-      <p class="footer-legal" style="text-align:right;">Northern DC AS trading as Scale-42™ · Registrert i Norge · © 2026</p>
-    </div>
-`;
-
-function injectFooter(html, lang) {
-  const block = lang === 'no' ? FOOTER_NO : FOOTER_EN;
+function injectFooter(html) {
+  const block = FOOTER_EN;
   if (html.includes('<!--cms:footer-->')) {
     return html.replace(/<!--cms:footer-->[\s\S]*?<!--\/cms:footer-->/, `<!--cms:footer-->\n    ${block}\n    <!--/cms:footer-->`);
   }
@@ -97,10 +66,8 @@ function run() {
   const files = walk(ROOT);
   let ok = 0, miss = 0;
   for (const f of files) {
-    const rel = path.relative(ROOT, f).replace(/\\/g, '/');
-    const lang = rel.startsWith('no/') ? 'no' : 'en';
     let html = fs.readFileSync(f, 'utf-8');
-    const out = injectFooter(html, lang);
+    const out = injectFooter(html);
     if (out === null) { miss++; continue; }
     if (out !== html) fs.writeFileSync(f, out, 'utf-8');
     ok++;

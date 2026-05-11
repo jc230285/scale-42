@@ -64,20 +64,14 @@ function replaceBlock(html, replacement) {
 
 function run() {
   const data = JSON.parse(fs.readFileSync(DATA, 'utf-8'));
-  const targets = [
-    { file: 'news/index.html', lang: 'en', prefix: '../' },
-    { file: 'no/news/index.html', lang: 'no', prefix: '../../' },
-  ];
-  for (const t of targets) {
-    const p = path.join(ROOT, t.file);
-    let html = fs.readFileSync(p, 'utf-8');
-    html = replaceBlock(html, buildBlock(data.posts, t.lang, t.prefix));
-    fs.writeFileSync(p, html, 'utf-8');
-  }
+  const p = path.join(ROOT, 'news/index.html');
+  let html = fs.readFileSync(p, 'utf-8');
+  html = replaceBlock(html, buildBlock(data.posts, 'en', '../'));
+  fs.writeFileSync(p, html, 'utf-8');
   try { require('./nav').run(); } catch (e) { console.warn('nav regen skipped:', e.message); }
   console.log('regen news: done');
 }
 
-module.exports = { run, files: ['content/news.json', 'news/index.html', 'no/news/index.html'] };
+module.exports = { run, files: ['content/news.json', 'news/index.html'] };
 
 if (require.main === module) run();

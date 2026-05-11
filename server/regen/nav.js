@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..', '..');
 
-const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src="/assets/logo-wordmark-white.svg" alt="Scale42" class="brand-logo" /></a>
+const NAV_EN = ({ active }) => `<a class="brand" href="/"><img src="/assets/logo-wordmark-white.svg" alt="Scale42" class="brand-logo" /></a>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
       <a href="/"${active==='home'?' class="active"':''}>Home</a>
@@ -19,53 +19,20 @@ const NAV_EN = ({ active, lang_no_href }) => `<a class="brand" href="/"><img src
       <a href="/team/"${active==='team'?' class="active"':''}>Team</a>
       <a href="/news/"${active==='news'?' class="active"':''}>News</a>
       <a href="/contact/"${active==='contact'?' class="btn btn-sm active"':' class="btn btn-sm"'}>Contact</a>
-      <div class="lang-toggle">
-        <a href="." data-lang="en" class="active">EN</a>
-        <a href="${lang_no_href}" data-lang="no">NO</a>
-      </div>
-    </nav>`;
-
-const NAV_NO = ({ active, lang_en_href }) => `<a class="brand" href="/no/"><img src="/assets/logo-wordmark-white.svg" alt="Scale42" class="brand-logo" /></a>
-    <button class="nav-toggle" aria-label="Meny" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
-    <nav class="nav-links">
-      <a href="/no/"${active==='home'?' class="active"':''}>Hjem</a>
-      <a href="/no/datacenters/"${active==='datacenters'?' class="active"':''}>Datasentre</a>
-      <a href="/no/solutions/"${active==='solutions'?' class="active"':''}>Løsninger</a>
-      <a href="/no/sustainability/"${active==='sustainability'?' class="active"':''}>Bærekraft</a>
-      <a href="/no/partners/"${active==='giga42'?' class="active"':''}>Partnere</a>
-      <a href="/no/team/"${active==='team'?' class="active"':''}>Team</a>
-      <a href="/no/news/"${active==='news'?' class="active"':''}>Nyheter</a>
-      <a href="/no/contact/"${active==='contact'?' class="btn btn-sm active"':' class="btn btn-sm"'}>Kontakt</a>
-      <div class="lang-toggle">
-        <a href="${lang_en_href}" data-lang="en">EN</a>
-        <a href="." data-lang="no" class="active">NO</a>
-      </div>
     </nav>`;
 
 // (relative path from ROOT) -> { lang, active, langSwitch }
 const PAGES = [
-  { file: 'index.html', lang: 'en', active: 'home', noPath: '/no/' },
-  { file: 'solutions/index.html', lang: 'en', active: 'solutions', noPath: '/no/solutions/' },
-  { file: 'datacenters/index.html', lang: 'en', active: 'datacenters', noPath: '/no/datacenters/' },
-  { file: 'sustainability/index.html', lang: 'en', active: 'sustainability', noPath: '/no/sustainability/' },
-  { file: 'partners/index.html', lang: 'en', active: 'giga42', noPath: '/no/partners/' },
-  { file: 'team/index.html', lang: 'en', active: 'team', noPath: '/no/team/' },
-  { file: 'news/index.html', lang: 'en', active: 'news', noPath: '/no/news/' },
-  { file: 'careers/index.html', lang: 'en', active: null, noPath: '/no/careers/' },
-  { file: 'press/index.html', lang: 'en', active: null, noPath: '/no/press/' },
-  { file: 'brand/index.html', lang: 'en', active: null, noPath: '/no/' },
-  { file: 'competitors/index.html', lang: 'en', active: null, noPath: '/no/' },
-  { file: '404.html', lang: 'en', active: null, noPath: '/no/' },
-  { file: 'no/index.html', lang: 'no', active: 'home', enPath: '/' },
-  { file: 'no/solutions/index.html', lang: 'no', active: 'solutions', enPath: '/solutions/' },
-  { file: 'no/datacenters/index.html', lang: 'no', active: 'datacenters', enPath: '/datacenters/' },
-  { file: 'no/sustainability/index.html', lang: 'no', active: 'sustainability', enPath: '/sustainability/' },
-  { file: 'no/partners/index.html', lang: 'no', active: 'giga42', enPath: '/partners/' },
-  { file: 'no/team/index.html', lang: 'no', active: 'team', enPath: '/team/' },
-  { file: 'no/news/index.html', lang: 'no', active: 'news', enPath: '/news/' },
-  { file: 'no/careers/index.html', lang: 'no', active: null, enPath: '/careers/' },
-  { file: 'no/press/index.html', lang: 'no', active: null, enPath: '/press/' },
-  { file: 'no/404.html', lang: 'no', active: null, enPath: '/404.html' },
+  { file: 'index.html', lang: 'en', active: 'home' },
+  { file: 'solutions/index.html', lang: 'en', active: 'solutions' },
+  { file: 'datacenters/index.html', lang: 'en', active: 'datacenters' },
+  { file: 'sustainability/index.html', lang: 'en', active: 'sustainability' },
+  { file: 'partners/index.html', lang: 'en', active: 'giga42' },
+  { file: 'team/index.html', lang: 'en', active: 'team' },
+  { file: 'news/index.html', lang: 'en', active: 'news' },
+  { file: 'brand/index.html', lang: 'en', active: null },
+  { file: 'competitors/index.html', lang: 'en', active: null },
+  { file: '404.html', lang: 'en', active: null },
 ];
 
 // News article + datacenter detail pages too
@@ -73,32 +40,27 @@ function discoverDetailPages() {
   const out = [];
   // Signatures index + per-person pages.
   const sigIdx = path.join(ROOT, 'signatures', 'index.html');
-  if (fs.existsSync(sigIdx)) out.push({ file: 'signatures/index.html', lang: 'en', active: null, noPath: '/no/' });
+  if (fs.existsSync(sigIdx)) out.push({ file: 'signatures/index.html', lang: 'en', active: null });
   const sigDir = path.join(ROOT, 'signatures');
   if (fs.existsSync(sigDir)) {
     for (const e of fs.readdirSync(sigDir, { withFileTypes: true })) {
       if (!e.isDirectory()) continue;
       const f = path.join(sigDir, e.name, 'index.html');
-      if (fs.existsSync(f)) out.push({ file: 'signatures/' + e.name + '/index.html', lang: 'en', active: null, noPath: '/no/' });
+      if (fs.existsSync(f)) out.push({ file: 'signatures/' + e.name + '/index.html', lang: 'en', active: null });
     }
   }
-  for (const dir of ['news', 'no/news', 'datacenters', 'no/datacenters']) {
+  for (const dir of ['news', 'datacenters']) {
     const root = path.join(ROOT, dir);
     if (!fs.existsSync(root)) continue;
     for (const e of fs.readdirSync(root, { withFileTypes: true })) {
       if (!e.isDirectory()) continue;
       const f = path.join(root, e.name, 'index.html');
       if (!fs.existsSync(f)) continue;
-      const isNo = dir.startsWith('no/');
-      const isDc = dir.endsWith('datacenters');
-      const slug = e.name;
+      const isDc = dir === 'datacenters';
       out.push({
         file: path.relative(ROOT, f).replace(/\\/g, '/'),
-        lang: isNo ? 'no' : 'en',
+        lang: 'en',
         active: isDc ? 'datacenters' : 'news',
-        ...(isNo
-          ? { enPath: (isDc ? '/datacenters/' : '/news/') + slug + '/' }
-          : { noPath: '/no/' + (isDc ? 'datacenters/' : 'news/') + slug + '/' }),
       });
     }
   }
@@ -106,8 +68,7 @@ function discoverDetailPages() {
 }
 
 function buildNav(p) {
-  if (p.lang === 'no') return NAV_NO({ active: p.active, lang_en_href: p.enPath || '/' });
-  return NAV_EN({ active: p.active, lang_no_href: p.noPath || '/no/' });
+  return NAV_EN({ active: p.active });
 }
 
 function injectNav(html, navHtml) {
