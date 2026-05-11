@@ -64,7 +64,7 @@ const round1 = (n) => Math.round(parseFloat(n) * 10) / 10;
 
 function homeArrayLiteral(sites) {
   const lines = sites.filter(s => s.published && s.lat != null && s.lng != null).map(s =>
-    `      { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, lat: ${round1(s.lat)}, lng: ${round1(s.lng)} }`
+    `      { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, lat: ${round1(s.lat)}, lng: ${round1(s.lng)}, developers: ${JSON.stringify(s.developers || [])} }`
   );
   return `[\n${lines.join(',\n')},\n    ]`;
 }
@@ -75,9 +75,16 @@ function fullArrayLiteral(sites, lang) {
     const loc = s.public_location || [s.name, s.country].filter(Boolean).join(', ');
     const tgt = s.max_capacity_mw || s.target_mw;
     const tgtStr = tgt != null && tgt !== '' ? `${tgt} MW` : '';
-    return `    { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, location: ${JSON.stringify(loc)}, lat: ${round1(s.lat)}, lng: ${round1(s.lng)}, power: ${JSON.stringify(s.power || '')}, target: ${JSON.stringify(tgtStr)}, desc: ${JSON.stringify(desc || '')} }`;
+    return `    { name: ${JSON.stringify(s.name)}, country: ${JSON.stringify(s.country)}, status: ${JSON.stringify(s.status)}, location: ${JSON.stringify(loc)}, lat: ${round1(s.lat)}, lng: ${round1(s.lng)}, power: ${JSON.stringify(s.power || '')}, target: ${JSON.stringify(tgtStr)}, desc: ${JSON.stringify(desc || '')}, developers: ${JSON.stringify(s.developers || [])} }`;
   });
   return `[\n${lines.join(',\n')},\n  ]`;
+}
+
+function developersMapLiteral() {
+  const devs = loadDevelopers();
+  const obj = {};
+  for (const [id, d] of devs) obj[id] = { name: d.name, color: d.color || '' };
+  return JSON.stringify(obj);
 }
 
 function siteSlug(s) {
@@ -144,7 +151,7 @@ function cardHtml(sites, lang) {
     const stratKey = (s.strategic_status || '').replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().replace(/^-+|-+$/g, '');
     const stratAttr = stratKey ? ` data-strat="${escHtml(stratKey)}"` : (s.status === 'sold' ? ' data-strat="sold"' : '');
     return `      <article class="dc-card" id="${escHtml(slug)}" data-country="${escHtml(ckey)}"${stratAttr}>
-        <a class="dc-card-link" href="${escHtml(slug)}/" aria-label="${escHtml(s.name)}">view</a>
+        <span class="dc-card-link" aria-hidden="true"></span>
         <h3 class="dc-name-top">${escHtml(s.name)}</h3>
         <p class="loc loc-top">${country}</p>
         <span class="status ${statusClass}">${statusLabel}</span>
@@ -820,7 +827,9 @@ function run() {
   // Map array literals (JS)
   const jsTargets = [
     { file: 'index.html', marker: 'sites_array', literal: homeArrayLiteral(data.sites) },
+    { file: 'index.html', marker: 'developers_map', literal: developersMapLiteral() },
     { file: 'datacenters/index.html', marker: 'sites_full', literal: fullArrayLiteral(data.sites, 'en') },
+    { file: 'datacenters/index.html', marker: 'developers_map', literal: developersMapLiteral() },
   ];
   for (const t of jsTargets) {
     const p = path.join(ROOT, t.file);

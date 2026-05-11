@@ -149,31 +149,20 @@
     font-size: 12px; color: var(--ink-2); z-index: 500;
     backdrop-filter: blur(6px);
   }
-  .dc-map-legend strong { font-weight: 600; color: var(--ink); display: block; margin-bottom: 6px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
-  .dc-map-legend .row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
-  .dc-map-legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-  .dc-map-legend .dot.live { background: var(--accent); }
-  .dc-map-legend .dot.tbd { background: var(--muted); }
-  .dc-map-legend .dot.sold { background: #33752f; }
+  .dc-map-legend span { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+  .dc-map-legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
   .dc-map-wrap { position: relative; }
 
   /* Custom Leaflet pin */
   .dc-pin {
     width: 28px; height: 28px; border-radius: 50%;
-    background: var(--accent); border: 3px solid #fff;
+    background: #1c2e3f; border: 3px solid #fff;
     box-shadow: 0 4px 12px rgba(28,46,63,0.35);
     display: grid; place-items: center;
     color: #fff; font-weight: 600; font-size: 11px;
     transform: translate(-50%, -50%);
   }
-  .dc-pin.tbd { background: var(--muted); }
-  .dc-pin.sold { background: #33752f; }
-  .dc-pin.strat-giga { background: #2f6675; }
-  .dc-pin.strat-dev { background: #2e7d32; }
-  .dc-pin.strat-3p { background: #b9923a; }
-  .dc-pin.strat-later { background: #5b6e7d; }
-  .dc-pin.strat-bin { background: #b3261e; }
-  .dc-pin.strat-review { background: #7e57c2; }
+  .dc-pin.tbd { opacity: 0.55; }
   .leaflet-popup-content { font-family: var(--font-sans); font-size: 14px; line-height: 1.4; margin: 12px 14px; }
   .leaflet-popup-content h4 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
   .leaflet-popup-content .meta { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px; }
@@ -225,11 +214,7 @@
 <section class="dc-map-section">
   <div class="dc-map-wrap">
     <div id="dc-map" class="dc-map" aria-label="Map of Scale42 Nordic data centre sites"></div>
-    <div class="dc-map-legend">
-      <strong>Status</strong>
-      <div class="row"><span class="dot live"></span> Operational / In development</div>
-      <div class="row"><span class="dot tbd"></span> Coming soon</div>
-    </div>
+    <div class="dc-map-legend"></div>
   </div>
 </section>
 
@@ -251,7 +236,7 @@
     <div class="dc-grid"><!--cms:dc_cards-->
 
       <article class="dc-card" id="bakki-lxjuczc3" data-country="iceland" data-strat="giga-42-responsibility">
-        <a class="dc-card-link" href="bakki-lxjuczc3/" aria-label="GIGA-42 Bakki">view</a>
+        <span class="dc-card-link" aria-hidden="true"></span>
         <h3 class="dc-name-top">GIGA-42 Bakki</h3>
         <p class="loc loc-top">Iceland</p>
         <span class="status live">In development</span>
@@ -270,7 +255,7 @@
       </article>
 
       <article class="dc-card" id="skibotn-6xz9kqw5" data-country="norway" data-strat="giga-42-responsibility">
-        <a class="dc-card-link" href="skibotn-6xz9kqw5/" aria-label="GIGA-42 Skibotn">view</a>
+        <span class="dc-card-link" aria-hidden="true"></span>
         <h3 class="dc-name-top">GIGA-42 Skibotn</h3>
         <p class="loc loc-top">Norway</p>
         <span class="status live">In development</span>
@@ -289,7 +274,7 @@
       </article>
 
       <article class="dc-card" id="kristinestad-ujpucb0c" data-country="finland" data-strat="development-focus">
-        <a class="dc-card-link" href="kristinestad-ujpucb0c/" aria-label="Kristinestad">view</a>
+        <span class="dc-card-link" aria-hidden="true"></span>
         <h3 class="dc-name-top">Kristinestad</h3>
         <p class="loc loc-top">Finland</p>
         <span class="status live">In development</span>
@@ -308,7 +293,7 @@
       </article>
 
       <article class="dc-card" id="jokkmokk-mndmdlk3" data-country="sweden" data-strat="development-focus">
-        <a class="dc-card-link" href="jokkmokk-mndmdlk3/" aria-label="Jokkmokk">view</a>
+        <span class="dc-card-link" aria-hidden="true"></span>
         <h3 class="dc-name-top">Jokkmokk</h3>
         <p class="loc loc-top">Sweden</p>
         <span class="status live">In development</span>
@@ -327,7 +312,7 @@
       </article>
 
       <article class="dc-card" id="liperi-7u32bym4" data-country="finland" data-strat="going-to-3rd-party">
-        <a class="dc-card-link" href="liperi-7u32bym4/" aria-label="Liperi">view</a>
+        <span class="dc-card-link" aria-hidden="true"></span>
         <h3 class="dc-name-top">Liperi</h3>
         <p class="loc loc-top">Finland</p>
         <span class="status live">In development</span>
@@ -346,7 +331,7 @@
       </article>
 
       <article class="dc-card" id="kitee-uw3yqvc4" data-country="finland" data-strat="going-to-3rd-party">
-        <a class="dc-card-link" href="kitee-uw3yqvc4/" aria-label="Kitee">view</a>
+        <span class="dc-card-link" aria-hidden="true"></span>
         <h3 class="dc-name-top">Kitee</h3>
         <p class="loc loc-top">Finland</p>
         <span class="status live">In development</span>
@@ -365,7 +350,7 @@
       </article>
 
       <article class="dc-card" id="sorfold-0j5hdxoa" data-country="norway" data-strat="going-to-3rd-party">
-        <a class="dc-card-link" href="sorfold-0j5hdxoa/" aria-label="Sørfold">view</a>
+        <span class="dc-card-link" aria-hidden="true"></span>
         <h3 class="dc-name-top">Sørfold</h3>
         <p class="loc loc-top">Norway</p>
         <span class="status live">In development</span>
@@ -384,7 +369,7 @@
       </article>
 
       <article class="dc-card" id="new-1778141170650-yjufxso9" data-country="">
-        <a class="dc-card-link" href="new-1778141170650-yjufxso9/" aria-label="">view</a>
+        <span class="dc-card-link" aria-hidden="true"></span>
         <h3 class="dc-name-top"></h3>
         <p class="loc loc-top"></p>
         <span class="status tbd">Coming soon</span>
@@ -455,14 +440,14 @@
 <script>
   // Map: Nordic data centre sites
   const sites = /*cms:sites_full*/[
-    { name: "GIGA-42 Bakki", country: "Iceland", status: "live", location: "Húsavík, Iceland", lat: 66.1, lng: -17.3, power: "Primarily Geothermal", target: "150 MW", desc: "Industrial greenfield site with geothermal baseload, 50 MW initial deployment in 2027, scaling up to 150MW+ by 2030" },
-    { name: "GIGA-42 Skibotn", country: "Norway", status: "live", location: "Skibotn, Norway", lat: 69.4, lng: 20.3, power: "Primarily Hydro", target: "15 MW", desc: "Sub-Arctic site and candidate for the Norwegian landing point of the Far North Fibre Project. " },
-    { name: "Kristinestad", country: "Finland", status: "live", location: "Kristinestad, Finland", lat: 62.3, lng: 21.4, power: "Mixed Clean", target: "800 MW", desc: "Coastal site at the wind-power heartland of Finland with outstanding grid capacity, scaling to 500MW, ready to build Q1 2027" },
-    { name: "Jokkmokk", country: "Sweden", status: "live", location: "Jokkmokk, Sweden", lat: 66.6, lng: 19.8, power: "Primarily Hydro", target: "400 MW", desc: "Located in Lapland's hydropower belt and Sweden's largest hydropower production region, scaling to 400MW" },
-    { name: "Liperi", country: "Finland", status: "live", location: "Liperi, Finland", lat: 62.5, lng: 29.4, power: "Mixed Clean", target: "100 MW", desc: "Located next to Joensuu the Capital of Eastern Finland, benefits from fast access to power and ready to build 2026." },
-    { name: "Kitee", country: "Finland", status: "live", location: "Kitee, Finland", lat: 62.1, lng: 30.2, power: "Mixed Clean", target: "60 MW", desc: "10ha located in Eastern Finland ready to build 2026" },
-    { name: "Sørfold", country: "Norway", status: "live", location: "Sørfold, Norway", lat: 67.5, lng: 15.4, power: "Primarily Hydro", target: "100 MW", desc: "Hydro-power dominant baseload region of Norway with initial 50MW ready to build Q1 2027" },
-    { name: "", country: "", status: "tbd", location: "", lat: 65, lng: 17, power: "Renewable", target: "10000 MW", desc: "" },
+    { name: "GIGA-42 Bakki", country: "Iceland", status: "live", location: "Húsavík, Iceland", lat: 66.1, lng: -17.3, power: "Primarily Geothermal", target: "150 MW", desc: "Industrial greenfield site with geothermal baseload, 50 MW initial deployment in 2027, scaling up to 150MW+ by 2030", developers: ["giga-42"] },
+    { name: "GIGA-42 Skibotn", country: "Norway", status: "live", location: "Skibotn, Norway", lat: 69.4, lng: 20.3, power: "Primarily Hydro", target: "15 MW", desc: "Sub-Arctic site and candidate for the Norwegian landing point of the Far North Fibre Project. ", developers: ["giga-42"] },
+    { name: "Kristinestad", country: "Finland", status: "live", location: "Kristinestad, Finland", lat: 62.3, lng: 21.4, power: "Mixed Clean", target: "800 MW", desc: "Coastal site at the wind-power heartland of Finland with outstanding grid capacity, scaling to 500MW, ready to build Q1 2027", developers: [] },
+    { name: "Jokkmokk", country: "Sweden", status: "live", location: "Jokkmokk, Sweden", lat: 66.6, lng: 19.8, power: "Primarily Hydro", target: "400 MW", desc: "Located in Lapland's hydropower belt and Sweden's largest hydropower production region, scaling to 400MW", developers: [] },
+    { name: "Liperi", country: "Finland", status: "live", location: "Liperi, Finland", lat: 62.5, lng: 29.4, power: "Mixed Clean", target: "100 MW", desc: "Located next to Joensuu the Capital of Eastern Finland, benefits from fast access to power and ready to build 2026.", developers: [] },
+    { name: "Kitee", country: "Finland", status: "live", location: "Kitee, Finland", lat: 62.1, lng: 30.2, power: "Mixed Clean", target: "60 MW", desc: "10ha located in Eastern Finland ready to build 2026", developers: [] },
+    { name: "Sørfold", country: "Norway", status: "live", location: "Sørfold, Norway", lat: 67.5, lng: 15.4, power: "Primarily Hydro", target: "100 MW", desc: "Hydro-power dominant baseload region of Norway with initial 50MW ready to build Q1 2027", developers: ["norsk-datakraft"] },
+    { name: "", country: "", status: "tbd", location: "", lat: 65, lng: 17, power: "Renewable", target: "10000 MW", desc: "", developers: [] },
   ]/*/cms:sites_full*/;
 
   const map = L.map('dc-map', {
@@ -475,20 +460,36 @@
     subdomains: 'abcd', maxZoom: 19
   }).addTo(map);
 
+  const developersMap = /*cms:developers_map*/{"giga-42":{"name":"GIGA-42","color":"#e8b87a"},"norsk-datakraft":{"name":"Norsk Datakraft AS","color":"#1f4d8a"}}/*/cms:developers_map*/;
+  const SCALE42_BLUE = '#1c2e3f';
+  const usedDevs = new Set();
   sites.forEach(s => {
+    const devId = (s.developers && s.developers[0]) || null;
+    const dev = devId ? developersMap[devId] : null;
+    const color = dev?.color || SCALE42_BLUE;
+    if (devId) usedDevs.add(devId);
     const icon = L.divIcon({
       className: '', iconSize: [28, 28], iconAnchor: [14, 14],
-      html: `<div class="dc-pin ${s.status === 'sold' ? 'sold' : (s.status === 'tbd' ? 'tbd' : '')}" title="${s.name}"></div>`
+      html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : ''}" title="${s.name}" style="background:${color};"></div>`
     });
     const popup = `
       <h4>${s.name}</h4>
       <p class="meta">${s.location || (s.country + ' · ' + s.power)}</p>
       <p style="margin:0 0 8px">${s.desc}</p>
       <p style="margin:0 0 4px"><strong>Target:</strong> ${s.target}</p>
-      <a href="#${s.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}">View details ↓</a>
     `;
     L.marker([s.lat, s.lng], { icon }).addTo(map).bindPopup(popup);
   });
+  // Build dynamic legend
+  const dcLegend = document.querySelector('.dc-map-legend');
+  if (dcLegend) {
+    const items = [`<span><i style="background:${SCALE42_BLUE};"></i>Scale42</span>`];
+    for (const id of usedDevs) {
+      const d = developersMap[id];
+      if (d) items.push(`<span><i style="background:${d.color || SCALE42_BLUE};"></i>${d.name}</span>`);
+    }
+    dcLegend.innerHTML = items.join('');
+  }
 
   // Re-enable scroll-zoom only after user clicks the map
   map.once('focus', () => map.scrollWheelZoom.enable());

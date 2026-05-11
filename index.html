@@ -40,11 +40,9 @@
   .home-map .dc-pin.tbd { background: var(--muted); }
   .home-map .dc-pin.sold { background: #33752f; }
   .home-map-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
-  .home-map-foot .legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); }
-  .home-map-foot .legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
-  .home-map-foot .legend .live::before { background: var(--accent); }
-  .home-map-foot .legend .tbd::before { background: var(--muted); }
-  .home-map-foot .legend .sold::before { background: #33752f; }
+  .home-map-foot .legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+  .home-map-foot .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .home-map-foot .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
   .home-map-foot a { font-weight: 600; color: var(--accent); font-size: 14px; }
 
   /* JV / capital callout */
@@ -125,6 +123,7 @@
     <p class="eyebrow">Scale42 Pan-Nordic portfolio</p>
     <h2 class="section-title" style="margin-bottom: 8px;">The Nordics are the logical location for European AI infrastructure</h2>
     <div id="home-map" class="home-map" aria-label="Map of Scale42 sites"></div>
+    <div class="home-map-foot"><div class="legend"></div></div>
     <p class="section-lede" style="margin: 24px 0 16px; max-width: none;">Scale42, together with its JV GIGA-42, is developing <!--cms:lede_capacity-->11,625 MW<!--/cms:lede_capacity--> of AI data centre capacity across four Nordic countries.</p>
     <p class="section-lede" style="margin: 0 0 16px; max-width: none;">Abundant renewable power, structurally lower cost, and stable operating environments create the optimal conditions for large-scale AI infrastructure.</p>
     <p class="section-lede" style="margin: 0 0 0; max-width: none;">Our sites are positioned for strong fibre connectivity, near-term power availability, and integration with heat reuse applications.</p>
@@ -356,14 +355,14 @@
     const el = document.getElementById('home-map');
     if (!el || typeof L === 'undefined') return;
     const sites = /*cms:sites_array*/[
-      { name: "GIGA-42 Bakki", country: "Iceland", status: "live", lat: 66.1, lng: -17.3 },
-      { name: "GIGA-42 Skibotn", country: "Norway", status: "live", lat: 69.4, lng: 20.3 },
-      { name: "Kristinestad", country: "Finland", status: "live", lat: 62.3, lng: 21.4 },
-      { name: "Jokkmokk", country: "Sweden", status: "live", lat: 66.6, lng: 19.8 },
-      { name: "Liperi", country: "Finland", status: "live", lat: 62.5, lng: 29.4 },
-      { name: "Kitee", country: "Finland", status: "live", lat: 62.1, lng: 30.2 },
-      { name: "Sørfold", country: "Norway", status: "live", lat: 67.5, lng: 15.4 },
-      { name: "", country: "", status: "tbd", lat: 65, lng: 17 },
+      { name: "GIGA-42 Bakki", country: "Iceland", status: "live", lat: 66.1, lng: -17.3, developers: ["giga-42"] },
+      { name: "GIGA-42 Skibotn", country: "Norway", status: "live", lat: 69.4, lng: 20.3, developers: ["giga-42"] },
+      { name: "Kristinestad", country: "Finland", status: "live", lat: 62.3, lng: 21.4, developers: [] },
+      { name: "Jokkmokk", country: "Sweden", status: "live", lat: 66.6, lng: 19.8, developers: [] },
+      { name: "Liperi", country: "Finland", status: "live", lat: 62.5, lng: 29.4, developers: [] },
+      { name: "Kitee", country: "Finland", status: "live", lat: 62.1, lng: 30.2, developers: [] },
+      { name: "Sørfold", country: "Norway", status: "live", lat: 67.5, lng: 15.4, developers: ["norsk-datakraft"] },
+      { name: "", country: "", status: "tbd", lat: 65, lng: 17, developers: [] },
     ]/*/cms:sites_array*/;
     const map = L.map('home-map', {
       zoomControl: false, scrollWheelZoom: false, doubleClickZoom: false,

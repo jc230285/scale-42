@@ -16,12 +16,7 @@ function run() {
   const urls = [];
   const topPages = ['', 'datacenters/', 'news/', 'solutions/', 'sustainability/', 'partners/', 'about-us/', 'privacy/'];
   for (const p of topPages) urls.push({ loc: `${BASE}/${p}` });
-  for (const s of sites.filter(x => x.published)) {
-    urls.push({ loc: `${BASE}/datacenters/${siteSlug(s)}/` });
-  }
-  for (const n of news.filter(x => x.published)) {
-    urls.push({ loc: `${BASE}/news/${n.slug}/` });
-  }
+  // Per-site detail and per-news article pages intentionally omitted (kept noindex) until further notice.
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>

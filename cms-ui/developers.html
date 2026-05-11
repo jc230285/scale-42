@@ -92,6 +92,7 @@ function render() {
         <label>Name<input data-k="name" value="${escAttr(d.name)}" placeholder="GIGA-42" /></label>
         <label>Site URL<input data-k="url" value="${escAttr(d.url)}" placeholder="https://…" /></label>
         <label>Order<input data-k="order" type="number" value="${escAttr(d.order ?? '')}" placeholder="1" /></label>
+        <label>Map pin colour<input data-k="color" type="color" value="${escAttr(d.color || '#2f6675')}" style="height:36px;padding:2px;" /></label>
         <label class="full">Tagline (one line)<input data-k="tagline" value="${escAttr(d.tagline)}" placeholder="Power and compute, jointly venturing." /></label>
         <label class="full">Description<textarea data-k="description" placeholder="Longer write-up shown on the Partners page…">${escHtml(d.description)}</textarea></label>
         <label class="full">CTA button label (optional)<input data-k="cta" value="${escAttr(d.cta)}" placeholder="Visit GIGA-42 home →" /></label>
@@ -149,7 +150,7 @@ document.addEventListener('click', (e) => {
 
 $('add').onclick = () => {
   const nextOrder = state.developers.reduce((m, d) => Math.max(m, Number(d.order) || 0), 0) + 1;
-  state.developers.push({ id: '', name: '', logo: '', url: '', tagline: '', description: '', cta: '', order: nextOrder });
+  state.developers.push({ id: '', name: '', logo: '', url: '', tagline: '', description: '', cta: '', color: '#2f6675', order: nextOrder });
   render();
 };
 
