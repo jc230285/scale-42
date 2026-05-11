@@ -1,6 +1,38 @@
 {
   "posts": [
     {
+      "slug": "kristinestad-finland",
+      "title_en": "Scale42 CEO: 'I'd rather build in Kristinestad than Texas'",
+      "title_no": "Scale42-sjefen: «Heller Kristinestad enn Texas»",
+      "type_en": "Press coverage",
+      "type_no": "Pressedekning",
+      "date_en": "Apr 10, 2026",
+      "date_no": "10. apr 2026",
+      "read_time": "3 min read",
+      "image": "kristinestad-finland.jpg",
+      "alt": "Kristinestad, Finland - coastal site in the wind-power heartland",
+      "excerpt_en": "Vasabladet on Scale42's plan to develop a hyperscale data centre on the wind-rich Ostrobothnian coast.",
+      "excerpt_no": "Vasabladet om Scale42s plan om et hyperskala datasenter på den vindrike Österbottenskysten.",
+      "featured": true,
+      "published": true
+    },
+    {
+      "slug": "kitee-finland",
+      "title_en": "Scale42 plans AI data centre in Kitee, Finland",
+      "title_no": "Scale42 planlegger KI-datasenter i Kitee, Finland",
+      "type_en": "Press coverage",
+      "type_no": "Pressedekning",
+      "date_en": "Oct 10, 2025",
+      "date_no": "10. okt 2025",
+      "read_time": "3 min read",
+      "image": "kitee-finland.jpg",
+      "alt": "Kitee, Finland - Puhos industrial area site for the Scale42 data centre",
+      "excerpt_en": "Data Centre Dynamics on Scale42's 10-hectare Puhos site, with 10 MW available now scaling to 200 MW.",
+      "excerpt_no": "Data Centre Dynamics om Scale42s 10-hektar Puhos-tomt, med 10 MW tilgjengelig nå skalerbar til 200 MW.",
+      "featured": false,
+      "published": true
+    },
+    {
       "slug": "bakki-iceland-50mw",
       "title_en": "Scale42 and GIG plan 50 MW data centre in Iceland",
       "title_no": "Scale42 og GIG planlegger 50 MW datasenter på Island",
