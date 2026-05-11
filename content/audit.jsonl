@@ -94,3 +94,4 @@
 {"ts":"2026-05-11T10:20:07.240Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:new-1778141170650","path":"_removed","before":"new-1778141170650","after":null}]}
 {"ts":"2026-05-11T10:20:29.528Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
 {"ts":"2026-05-11T10:41:31.742Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:sorfold","path":"name","before":"Sørfold","after":"Nordland"}]}
+{"ts":"2026-05-11T10:41:50.049Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
