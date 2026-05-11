@@ -101,3 +101,4 @@
 {"ts":"2026-05-11T11:11:49.852Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
 {"ts":"2026-05-11T11:12:13.285Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"save","changes":[{"entity":"site:jokkmokk","path":"name","before":"Jokkmokk","after":"Lapland"}]}
 {"ts":"2026-05-11T11:12:34.438Z","user":"james@scale-42.com","user_name":"James Collins","section":"sites","action":"publish","changes":[]}
+{"ts":"2026-05-11T11:13:11.368Z","user":"james@scale-42.com","user_name":"James Collins","section":"people","action":"publish","changes":[]}
