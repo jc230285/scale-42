@@ -165,8 +165,8 @@ img { max-width: 100%; display: block; }
 .bg-grid {
   background-color: var(--bg-alt);
   background-image:
-    linear-gradient(rgba(28,46,63,0.10) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(28,46,63,0.10) 1px, transparent 1px);
+    linear-gradient(rgba(28,46,63,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28,46,63,0.04) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 .bg-diagonal {
