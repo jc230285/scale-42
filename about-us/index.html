@@ -167,10 +167,27 @@
     var distance = Math.max(0, track.scrollWidth - window.innerWidth);
     track.style.transform = 'translateX(' + (-progress * distance) + 'px)';
   }
+  function positionLine(){
+    if (isMobile()) { track.style.removeProperty('--journey-line-left'); track.style.removeProperty('--journey-line-right'); track.style.removeProperty('--journey-line-top'); return; }
+    var markers = track.querySelectorAll('.journey-marker');
+    if (markers.length < 2) return;
+    var trackRect = track.getBoundingClientRect();
+    var first = markers[0].getBoundingClientRect();
+    var last = markers[markers.length - 1].getBoundingClientRect();
+    var firstCenter = first.left + first.width/2 - trackRect.left;
+    var lastCenter = last.left + last.width/2 - trackRect.left;
+    track.style.setProperty('--journey-line-left', firstCenter + 'px');
+    track.style.setProperty('--journey-line-right', (trackRect.width - lastCenter) + 'px');
+    var second = markers.length > 1 ? markers[1].getBoundingClientRect() : first;
+    var midY = ((first.top + first.height/2) + (second.top + second.height/2)) / 2 - trackRect.top;
+    track.style.setProperty('--journey-line-top', midY + 'px');
+  }
   setHeight();
   onScroll();
-  window.addEventListener('resize', function(){ setHeight(); onScroll(); });
+  positionLine();
+  window.addEventListener('resize', function(){ setHeight(); onScroll(); positionLine(); });
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('load', positionLine);
 })();
 </script>
 <!--/cms:journey-->
