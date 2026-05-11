@@ -131,6 +131,20 @@
   .dc-stats .stat dt { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.7); margin: 0 0 2px; }
   .dc-stats .stat dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #fff; }
 
+  @media (max-width: 760px) {
+    .dc-card { aspect-ratio: 4/3; }
+    .dc-card .dc-name-top { font-size: 17px; top: 12px; left: 14px; right: 100px; line-height: 1.15; }
+    .dc-card > .loc.loc-top { top: 36px; left: 14px; font-size: 10px; }
+    .dc-card .status { font-size: 9.5px; padding: 4px 8px; letter-spacing: 0.08em; top: 12px; right: 12px; }
+    .dc-card .dc-developers { top: 44px; right: 12px; }
+    .dc-card .dc-developers img { width: 60px !important; height: auto; padding: 2px; }
+    .dc-card .body { padding: 14px 14px 12px; gap: 8px; }
+    .dc-card p.desc { font-size: 12px; line-height: 1.4; }
+    .dc-stats { gap: 8px; padding-top: 8px; }
+    .dc-stats .stat dt { font-size: 9px; }
+    .dc-stats .stat dd { font-size: 12.5px; }
+  }
+
   .dc-cta {
     background: var(--bg-dark); color: #e8ece9; padding: 64px 0;
     text-align: center;
