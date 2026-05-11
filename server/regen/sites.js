@@ -47,8 +47,9 @@ function computeStats(sites) {
   const max = caps.length ? Math.max(...caps) : 0;
   const countries = new Set(live.map(s => s.country).filter(Boolean));
   const fmt = (n) => Math.round(n).toLocaleString('en-US');
+  const rounded = Math.round(totalMax / 100) * 100;
   return {
-    pipeline: `${fmt(totalMax)} MW`,
+    pipeline: `${fmt(rounded)} MW`,
     projects: String(live.length),
     capacity: caps.length ? `${Math.round(min)} – ${Math.round(max)} MW` : '—',
     countries: String(countries.size),
