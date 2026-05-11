@@ -385,7 +385,7 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
   .nav-links a, .nav-links a:hover { color: var(--ink); }
   .nav-links.open a.active { color: var(--accent); }
   .nav-links.open a.active::after { display: none; }
-  .nav-links a.btn { color: #fff; margin: 6px 12px 4px; padding: 8px 14px; border-top: 0; text-align: center; border-radius: 6px; }
+  .nav-links a.btn { display: block; background: transparent; color: var(--ink); margin: 0; padding: 8px 16px; border-top: 1px solid var(--line); border-radius: 0; text-align: left; font-weight: 500; }
   .nav-links .lang-toggle a { color: var(--ink); }
   .nav-toggle { display: inline-flex; }
 }
