@@ -509,8 +509,6 @@ a.card.card-link:hover { border-color: var(--ink); transform: translateY(-2px); 
   .footer-links { justify-content: center; }
   .copyright { text-align: center; }
   .hero-stats { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .nav-links a:not(.btn) { display: none; }
-  .nav-links .lang { display: none; }
   .portfolio-feature { grid-template-columns: 1fr; }
   .eq-op { display: none; }
   .site-hero-grid { grid-template-columns: 1fr; }
