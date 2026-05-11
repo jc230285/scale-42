@@ -55,8 +55,8 @@
       "headline_no": "Glomfjord Phase 1",
       "body_en": "First Hyperscale deployment built, owned & operated.",
       "body_no": "First Hyperscale deployment built, owned & operated.",
-      "badge_en": "30 MW",
-      "badge_no": "30 MW",
+      "badge_en": "",
+      "badge_no": "",
       "image": ""
     },
     {
@@ -99,7 +99,7 @@
       "headline_no": "Platform Roll-out",
       "body_en": "Multi-GW pipeline deployed.",
       "body_no": "Multi-GW pipeline deployed.",
-      "badge_en": "MULTI-GW",
+      "badge_en": "MULTI-GW ",
       "badge_no": "MULTI-GW",
       "image": ""
     }
