@@ -124,6 +124,8 @@
         read_time: original.read_time || '',
         image: original.image || '', alt: original.alt || '',
         excerpt_en: original.excerpt_en || '', excerpt_no: original.excerpt_no || '',
+        subtitle: original.subtitle || '', tags: original.tags || '',
+        source_html: original.source_html || '', body_html: original.body_html || '',
         featured: get('featured'), published: get('published'),
       });
     });
@@ -166,6 +168,23 @@
               <label>Image alt text</label>
               <input type="text" id="m-alt" value="${escAttr(p.alt)}" />
             </div>
+            <div>
+              <label>Subtitle (shown under headline in hero)</label>
+              <input type="text" id="m-subtitle" value="${escAttr(p.subtitle || '')}" placeholder="One-line summary shown under H1" />
+            </div>
+            <div>
+              <label>Tags (comma-separated)</label>
+              <input type="text" id="m-tags" value="${escAttr(p.tags || '')}" placeholder="Kitee, Finland, North Karelia" />
+            </div>
+            <div>
+              <label>Source credit HTML (optional)</label>
+              <input type="text" id="m-source" value="${escAttr(p.source_html || '')}" placeholder='As reported by &lt;a href="..."&gt;Outlet&lt;/a&gt;' />
+            </div>
+            <div style="grid-column:1/-1">
+              <label>Article body HTML (paragraphs, &lt;p&gt;, &lt;blockquote&gt;, &lt;ul&gt;, &lt;strong&gt; allowed)</label>
+              <textarea id="m-body_html" style="min-height:300px;font-family:monospace;font-size:13px;">${escText(p.body_html || '')}</textarea>
+              <p style="font-size:12px;color:#666;margin:4px 0 0">Leave blank to keep the existing per-slug page untouched. When filled, regen rebuilds <code>/news/&lt;slug&gt;/index.html</code> from the template.</p>
+            </div>
           </div>
           <div class="modal-foot">
             <button class="btn" data-modal-close>Cancel</button>
@@ -185,6 +204,10 @@
       p2.date_no = document.getElementById('m-date_no').value;
       p2.read_time = document.getElementById('m-read_time').value;
       p2.alt = document.getElementById('m-alt').value;
+      p2.subtitle = document.getElementById('m-subtitle').value;
+      p2.tags = document.getElementById('m-tags').value;
+      p2.source_html = document.getElementById('m-source').value;
+      p2.body_html = document.getElementById('m-body_html').value;
       setDirty(true); render(); close();
     });
   }
