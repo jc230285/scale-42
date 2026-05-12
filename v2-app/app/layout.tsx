@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import { getMode } from "@/lib/mode";
 
 export const metadata: Metadata = {

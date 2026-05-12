@@ -68,6 +68,13 @@
     });
   }
 
+  function banner() {
+    const b = document.createElement("div");
+    b.id = "s42-cms-mode-banner";
+    b.textContent = "CMS mode · click any highlighted text to edit · changes auto-save and auto-publish in 10 min";
+    document.body.prepend(b);
+  }
+
   function toolbar() {
     const t = document.getElementById("s42-cms-toolbar");
     if (!t) return;
@@ -97,13 +104,14 @@
     });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      attach();
-      toolbar();
-    });
-  } else {
+  function init() {
+    banner();
     attach();
     toolbar();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
   }
 })();

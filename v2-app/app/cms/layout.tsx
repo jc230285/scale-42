@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase-server";
 import { redirect } from "next/navigation";
+import "../globals.css";
 
 const NAV = [
   { href: "/", label: "Site" },

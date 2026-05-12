@@ -1,29 +1,56 @@
-/* Visible chrome around editable regions, only present in CMS mode */
+/* CMS edit chrome — high-contrast so editable regions are obvious */
+
 .s42-edit[contenteditable="true"] {
-  outline: 1px dashed rgba(199, 125, 70, 0.55);
-  outline-offset: 2px;
-  border-radius: 2px;
+  outline: 2px solid rgba(199, 125, 70, 0.85);
+  outline-offset: 3px;
+  background: rgba(199, 125, 70, 0.08);
+  border-radius: 3px;
   cursor: text;
-  transition: outline-color .15s;
+  transition: outline-color .15s, background .15s, box-shadow .15s;
+  position: relative;
 }
 .s42-edit[contenteditable="true"]:hover {
-  outline-color: rgba(199, 125, 70, 0.95);
-  background: rgba(199, 125, 70, 0.06);
+  outline-color: #c77d46;
+  background: rgba(199, 125, 70, 0.18);
+  box-shadow: 0 0 0 4px rgba(199, 125, 70, 0.18);
 }
 .s42-edit[contenteditable="true"]:focus {
-  outline: 2px solid #c77d46;
-  background: #fff8f0;
+  outline: 2px solid #1c2e3f;
+  background: #fff7ec;
+  box-shadow: 0 0 0 4px rgba(28, 46, 63, 0.18);
 }
-.s42-edit[data-saving="1"] { opacity: .55; }
-.s42-edit[data-saved="1"] { outline-color: #33752f !important; }
+.s42-edit[data-saving="1"] { opacity: .6; }
+.s42-edit[data-saved="1"] { outline-color: #33752f !important; background: rgba(51,117,47,.15) !important; }
 .s42-edit[data-error="1"] { outline: 2px solid #c0392b !important; background:#fff0ee; }
 
+/* When the user marks an editable region with a small floating label */
+.s42-edit[contenteditable="true"]::before {
+  content: attr(data-cms-key);
+  position: absolute;
+  top: -10px;
+  left: 0;
+  background: #1c2e3f;
+  color: #fff;
+  font: 600 9px/1 system-ui, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity .12s;
+  pointer-events: none;
+  z-index: 100;
+}
+.s42-edit[contenteditable="true"]:hover::before,
+.s42-edit[contenteditable="true"]:focus::before { opacity: 1; }
+
+/* Floating toolbar */
 #s42-cms-toolbar {
-  position: fixed; bottom: 14px; right: 14px; z-index: 9999;
+  position: fixed; bottom: 14px; right: 14px; z-index: 99999;
   background: #1c2e3f; color: #fff; padding: 8px 12px; border-radius: 999px;
   font: 600 12px/1 system-ui, sans-serif; letter-spacing: .04em;
   display: flex; align-items: center; gap: 10px;
-  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+  box-shadow: 0 6px 24px rgba(0,0,0,.35);
 }
 #s42-cms-toolbar .badge {
   font-size: 10px; padding: 3px 7px; border-radius: 4px;
@@ -31,8 +58,17 @@
 }
 #s42-cms-toolbar a, #s42-cms-toolbar button {
   color: #fff; background: transparent; border: 0; cursor: pointer;
-  padding: 4px 8px; border-radius: 4px; font: inherit;
+  padding: 4px 8px; border-radius: 4px; font: inherit; text-decoration: none;
 }
-#s42-cms-toolbar a:hover, #s42-cms-toolbar button:hover { background: rgba(255,255,255,.1); }
+#s42-cms-toolbar a:hover, #s42-cms-toolbar button:hover { background: rgba(255,255,255,.12); }
 #s42-cms-toolbar .publish { background: #c77d46; padding: 6px 14px; border-radius: 999px; }
 #s42-cms-toolbar .publish:hover { background: #b66a35; }
+
+/* Persistent "you are in CMS mode" banner across the top, dismissible */
+#s42-cms-mode-banner {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 99998;
+  background: linear-gradient(90deg,#c77d46,#dba37c);
+  color: #1c2e3f; padding: 4px 12px; text-align: center;
+  font: 600 11px/1.3 system-ui, sans-serif; letter-spacing: .08em;
+  text-transform: uppercase;
+}

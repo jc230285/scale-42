@@ -15,6 +15,7 @@ const nextConfig = {
   experimental: {
     outputFileTracingIncludes: {
       "/": ["./lib/_*.html"],
+      "/[...slug]": ["./lib/_*.html"],
     },
   },
 };

@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Scale42 — Brand Guidelines</title>
+<meta name="description" content="Scale42 brand guidelines: logo, colour palette, typography, components." />
+<meta name="theme-color" content="#1c2e3f" />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png" />
+<link rel="apple-touch-icon" href="../assets/favicon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  /* Brand-page-only styles */
+  .brand-hero { padding: 80px 0 40px; }
+  .brand-hero h1 { font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); letter-spacing: -0.02em; line-height: 1.05; margin: 16px 0 18px; font-weight: 600; }
+  .brand-hero p { font-size: 18px; color: var(--ink-2); max-width: 680px; margin: 0; }
+
+  .brand-section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .brand-section h2 { font-family: var(--font-display); font-size: 28px; letter-spacing: -0.01em; margin: 0 0 8px; font-weight: 600; }
+  .brand-section .sub { color: var(--muted); margin: 0 0 32px; font-size: 15px; }
+
+  /* Logo block */
+  .logo-display {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px;
+  }
+  .logo-tile {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 48px; display: grid; place-items: center;
+    background: #fff;
+  }
+  .logo-tile.dark { background: var(--bg-dark); }
+  .logo-tile.warm { background: var(--warm); }
+  .logo-tile img { max-width: 260px; height: auto; }
+  .logo-meta { display: flex; flex-direction: column; gap: 12px; padding: 24px 0; }
+  .logo-meta .row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+  .logo-meta .row span:first-child { color: var(--muted); }
+  .logo-meta .row span:last-child { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; }
+
+  /* Palette */
+  .palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .swatch { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: #fff; }
+  .swatch .chip { aspect-ratio: 4/3; }
+  .swatch .info { padding: 14px 16px; }
+  .swatch .name { font-family: var(--font-display); font-weight: 600; font-size: 14.5px; margin: 0 0 4px; }
+  .swatch .hex { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--muted); margin: 0 0 2px; }
+  .swatch .role { font-size: 12px; color: var(--ink-2); margin: 0; }
+
+  /* Typography */
+  .type-row { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; padding: 24px 0; border-top: 1px solid var(--line); align-items: baseline; }
+  .type-row:first-child { border-top: 0; }
+  .type-row .meta { font-size: 13px; color: var(--muted); }
+  .type-row .meta strong { display: block; color: var(--ink); font-family: var(--font-display); font-size: 15px; margin-bottom: 4px; font-weight: 600; }
+  .type-h1 { font-family: var(--font-display); font-size: 56px; letter-spacing: -0.02em; line-height: 1.05; font-weight: 600; margin: 0; }
+  .type-h2 { font-family: var(--font-display); font-size: 36px; letter-spacing: -0.02em; line-height: 1.1; font-weight: 600; margin: 0; }
+  .type-h3 { font-family: var(--font-display); font-size: 22px; line-height: 1.2; font-weight: 600; margin: 0; }
+  .type-body { font-family: var(--font-sans); font-size: 17px; line-height: 1.55; color: var(--ink-2); margin: 0; max-width: 640px; }
+  .type-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; color: var(--accent); margin: 0; }
+
+  /* Components row */
+  .components { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .component-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; background: #fff; }
+  .component-card h3 { font-family: var(--font-display); font-size: 15px; margin: 0 0 16px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+  .component-card .demo { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+  /* Logo dos and donts */
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .rule { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; background: #fff; }
+  .rule .label { font-family: var(--font-display); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 16px; }
+  .rule.do .label { color: var(--accent); }
+  .rule.dont .label { color: #b04848; }
+  .rule ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: 14.5px; }
+  .rule li { margin: 6px 0; }
+
+  /* Voice */
+  .voice { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .voice-block { border-left: 3px solid var(--accent); padding: 8px 24px; }
+  .voice-block h4 { font-family: var(--font-display); font-size: 15px; margin: 0 0 8px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; }
+  .voice-block p { margin: 0; color: var(--ink-2); font-size: 15px; }
+
+  /* Pattern showcase */
+  .patterns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .pattern-tile {
+    aspect-ratio: 4/3; border: 1px solid var(--line);
+    border-radius: var(--radius); position: relative; overflow: hidden;
+  }
+  .pattern-tile .label {
+    position: absolute; bottom: 12px; left: 12px;
+    background: rgba(255,255,255,0.92); padding: 4px 10px;
+    border-radius: 4px; font-family: var(--font-display);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Iconography */
+  .icons { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .icon-tile {
+    aspect-ratio: 1/1; border: 1px solid var(--line);
+    border-radius: var(--radius); display: grid; place-items: center;
+    background: #fff; font-size: 28px; color: var(--accent);
+    position: relative; padding-bottom: 18px;
+  }
+  .icon-tile span { position: absolute; bottom: 8px; font-size: 11px; color: var(--muted); font-family: var(--font-display); }
+
+  /* Photography */
+  .photo-mood { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .photo-tile {
+    aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden;
+    background: linear-gradient(135deg, #1c2e3f, #2f6675);
+    display: grid; place-items: center;
+    color: rgba(255,255,255,0.5); font-family: var(--font-display);
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .photo-tile.warm { background: linear-gradient(135deg, #2c3a48, #c47a4a); }
+  .photo-tile.cool { background: linear-gradient(135deg, #406b6e, #a3bcc4); }
+  .photo-tile.deep { background: linear-gradient(135deg, #1c2e3f, #0b1410); }
+
+  /* Logo downloads */
+  .downloads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .download {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px; background: #fff;
+    display: grid; grid-template-columns: 80px 1fr;
+    align-items: center; gap: 16px;
+    transition: 0.15s ease;
+  }
+  .download:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .download .preview {
+    width: 80px; height: 80px; border-radius: var(--radius);
+    background: var(--bg-alt); border: 1px solid var(--line);
+    display: grid; place-items: center; padding: 8px;
+    overflow: hidden;
+  }
+  .download .preview.dark { background: var(--ink); border-color: var(--ink); }
+  .download .preview.warm { background: var(--warm); border-color: var(--warm); }
+  .download .preview img { max-width: 100%; max-height: 100%; display: block; object-fit: contain; }
+  .download .info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .download .meta { font-family: var(--font-display); font-weight: 600; font-size: 14px; line-height: 1.2; }
+  .download .meta span { display: block; font-size: 12px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+  .download .download-link { font-size: 13px; font-weight: 600; color: var(--accent); margin-top: 4px; }
+  .download .download-link:hover { text-decoration: underline; }
+  @media (max-width: 560px) { .downloads { grid-template-columns: 1fr; } }
+
+  /* Application mock */
+  .applications { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .app-card {
+    aspect-ratio: 5/3; border-radius: var(--radius);
+    display: grid; place-items: center; padding: 28px;
+    border: 1px solid var(--line);
+  }
+  .app-card.light { background: #fff; }
+  .app-card.dark { background: var(--ink); border-color: var(--ink); }
+  .app-card.warm { background: var(--warm); border-color: var(--warm); }
+  .app-card img { max-width: 70%; max-height: 70%; }
+
+  @media (max-width: 900px) {
+    .patterns { grid-template-columns: 1fr 1fr; }
+    .icons { grid-template-columns: repeat(3, 1fr); }
+    .photo-mood, .applications, .downloads { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 900px) {
+    .logo-display, .palette, .components, .rules, .voice, .type-row { grid-template-columns: 1fr 1fr; }
+    .palette { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .palette, .components, .rules, .voice, .type-row { grid-template-columns: 1fr; }
+  }
+</style>
+<link rel="canonical" href="https://www.scale-42.com/brand/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Scale42 — Brand Guidelines" />
+<meta property="og:description" content="Scale42 brand guidelines: logo, colour palette, typography, components." />
+<meta property="og:image" content="https://www.scale-42.com/assets/hero.jpg" />
+<meta property="og:url" content="https://www.scale-42.com/brand/" />
+<meta property="og:site_name" content="Scale42" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://www.scale-42.com/assets/hero.jpg" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <!--cms:nav-->
+    <a class="brand" href="/"><img src="/assets/logo-wordmark-white.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/datacenters/">Data centres</a>
+      <a href="/solutions/">Solutions</a>
+      <a href="/sustainability/">Sustainability</a>
+      <a href="/partners/">Partners</a>
+      <a href="/about-us/">About Us</a>
+      <a href="/news/">News</a>
+      <a href="/contact/" class="btn btn-sm">Contact</a>
+    </nav>
+    <!--/cms:nav-->
+  </div>
+</header>
+
+<section class="brand-hero">
+  <div class="container">
+    <p class="type-eyebrow">Brand guidelines</p>
+    <h1>The Scale42 design system.</h1>
+    <p>A reference for the logo, palette, typography, patterns, photography, voice and motion that define the Scale42 brand across every surface — site, decks, signage, and operating environments.</p>
+  </div>
+</section>
+
+<section class="brand-section">
+  <div class="container">
+    <h2>Brand position</h2>
+    <p class="sub">Who we are, in a paragraph.</p>
+    <p style="font-size: 19px; color: var(--ink-2); max-width: 760px; margin: 0;">
+      Scale42 is an energy-first developer and operator of next-generation AI data centres across the Nordics. We build the calmest, most credible wholesale infrastructure for hyperscalers, AI labs and HPC operators — co-located with abundant clean power, scaled in standardised 12.5 MW modules. We earn trust through specificity: megawatts, locations, dates, partners.
+    </p>
+  </div>
+</section>
+
+<section id="logo" class="brand-section">
+  <div class="container">
+    <h2>Logo</h2>
+    <p class="sub">The Scale42 wordmark sits inside a geometric block of brand colours. Use it with generous clear space — never less than the height of the "S".</p>
+
+    <div class="logo-display">
+      <div class="logo-tile">
+        <img src="../assets/logo.svg" alt="Scale42 logo on light" />
+      </div>
+      <div class="logo-meta">
+        <div class="row"><span>File</span><span>assets/logo.svg</span></div>
+        <div class="row"><span>Min height</span><span>32 px</span></div>
+        <div class="row"><span>Clear space</span><span>≥ 1× cap height</span></div>
+        <div class="row"><span>Preferred bg</span><span>White / navy</span></div>
+        <div class="row"><span>Format</span><span>PNG (SVG recommended)</span></div>
+      </div>
+    </div>
+
+    <div class="logo-display" style="margin-top: 24px;">
+      <div class="logo-tile dark">
+        <img src="../assets/logo.svg" alt="Scale42 on navy" />
+      </div>
+      <div class="logo-tile warm">
+        <img src="../assets/logo.svg" alt="Scale42 on sand" />
+      </div>
+    </div>
+
+    <h2 style="margin-top: 56px;">Logo variants</h2>
+    <p class="sub">Three formats: the wide horizontal wordmark, a square avatar, and a circle avatar. SVG is the master format — PNG is provided for surfaces that don't accept SVG.</p>
+    <div class="logo-display" style="grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+      <div class="logo-tile" style="padding: 24px;"><img src="../assets/logo.svg" alt="Wide wordmark" style="max-width: 100%;" /></div>
+      <div class="logo-tile" style="padding: 0;"><img src="../assets/logo-square.svg" alt="Square avatar" style="width: 100%; max-width: none;" /></div>
+      <div class="logo-tile" style="padding: 0; background: #fff;"><img src="../assets/logo-circle.svg" alt="Circle avatar" style="width: 100%; max-width: none;" /></div>
+    </div>
+
+    <h2 style="margin-top: 56px;">Downloads</h2>
+    <p class="sub">Drop straight into Figma, slide decks, social profiles or print. Each card previews the exact file you'll get.</p>
+    <div class="downloads">
+      <div class="download"><div class="preview"><img src="../assets/logo.svg" alt="Wide wordmark SVG" /></div><div class="info"><p class="meta">Wide wordmark<span>SVG · transparent · scalable</span></p><a class="download-link" href="../assets/logo.svg" download>Download SVG →</a></div></div>
+
+      <div class="download"><div class="preview" style="background:#1c2e3f;"><img src="../assets/logo-wordmark-white.svg?v=2" alt="Wordmark white" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — white<span>SVG · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-white.svg?v=2" download>SVG →</a></div></div>
+      <div class="download"><div class="preview" style="background:#1c2e3f;"><img src="../assets/logo-wordmark-white-1024.png" alt="Wordmark white PNG" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — white<span>PNG · 1024 px · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-white-1024.png" download>PNG 1024 →</a></div></div>
+      <div class="download"><div class="preview" style="background:#1c2e3f;"><img src="../assets/logo-wordmark-white-2048.png" alt="Wordmark white PNG 2048" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — white<span>PNG · 2048 px · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-white-2048.png" download>PNG 2048 →</a></div></div>
+
+      <div class="download"><div class="preview"><img src="../assets/logo-wordmark-navy.svg?v=2" alt="Wordmark navy" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — navy<span>SVG · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-navy.svg?v=2" download>SVG →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/logo-wordmark-navy-1024.png" alt="Wordmark navy PNG" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — navy<span>PNG · 1024 px · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-navy-1024.png" download>PNG 1024 →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/logo-wordmark-navy-2048.png" alt="Wordmark navy PNG 2048" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — navy<span>PNG · 2048 px · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-navy-2048.png" download>PNG 2048 →</a></div></div>
+
+      <div class="download"><div class="preview"><img src="../assets/logo-wordmark-teal.svg?v=2" alt="Wordmark teal" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — teal<span>SVG · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-teal.svg?v=2" download>SVG →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/logo-wordmark-teal-1024.png" alt="Wordmark teal PNG" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — teal<span>PNG · 1024 px · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-teal-1024.png" download>PNG 1024 →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/logo-wordmark-teal-2048.png" alt="Wordmark teal PNG 2048" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — teal<span>PNG · 2048 px · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-teal-2048.png" download>PNG 2048 →</a></div></div>
+
+      <div class="download"><div class="preview" style="background:#1c2e3f;"><img src="../assets/logo-wordmark-sand.svg?v=2" alt="Wordmark sand" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — sand<span>SVG · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-sand.svg?v=2" download>SVG →</a></div></div>
+      <div class="download"><div class="preview" style="background:#1c2e3f;"><img src="../assets/logo-wordmark-sand-1024.png" alt="Wordmark sand PNG" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — sand<span>PNG · 1024 px · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-sand-1024.png" download>PNG 1024 →</a></div></div>
+      <div class="download"><div class="preview" style="background:#1c2e3f;"><img src="../assets/logo-wordmark-sand-2048.png" alt="Wordmark sand PNG 2048" style="width:80%;" /></div><div class="info"><p class="meta">Wordmark — sand<span>PNG · 2048 px · transparent</span></p><a class="download-link" href="../assets/logo-wordmark-sand-2048.png" download>PNG 2048 →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/logo-1200.png" alt="Wide wordmark PNG 1200px" /></div><div class="info"><p class="meta">Wide wordmark<span>PNG · 1200 × ~715 px</span></p><a class="download-link" href="../assets/logo-1200.png" download>Download PNG →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/logo-512.png" alt="Wide wordmark PNG 512px" /></div><div class="info"><p class="meta">Wide wordmark<span>PNG · 512 × ~305 px</span></p><a class="download-link" href="../assets/logo-512.png" download>Download PNG →</a></div></div>
+
+      <div class="download"><div class="preview"><img src="../assets/logo-square.svg" alt="Square avatar SVG" /></div><div class="info"><p class="meta">Square avatar<span>SVG · 1:1 · scalable</span></p><a class="download-link" href="../assets/logo-square.svg" download>Download SVG →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/logo-square-1024.png" alt="Square avatar PNG 1024px" /></div><div class="info"><p class="meta">Square avatar<span>PNG · 1024 × 1024</span></p><a class="download-link" href="../assets/logo-square-1024.png" download>Download PNG →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/logo-square-512.png" alt="Square avatar PNG 512px" /></div><div class="info"><p class="meta">Square avatar<span>PNG · 512 × 512</span></p><a class="download-link" href="../assets/logo-square-512.png" download>Download PNG →</a></div></div>
+
+      <div class="download"><div class="preview"><img src="../assets/logo-circle.svg" alt="Circle avatar SVG" /></div><div class="info"><p class="meta">Circle avatar<span>SVG · transparent corners</span></p><a class="download-link" href="../assets/logo-circle.svg" download>Download SVG →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/logo-circle-1024.png" alt="Circle avatar PNG 1024px" /></div><div class="info"><p class="meta">Circle avatar<span>PNG · 1024 × 1024</span></p><a class="download-link" href="../assets/logo-circle-1024.png" download>Download PNG →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/logo-circle-512.png" alt="Circle avatar PNG 512px" /></div><div class="info"><p class="meta">Circle avatar<span>PNG · 512 × 512</span></p><a class="download-link" href="../assets/logo-circle-512.png" download>Download PNG →</a></div></div>
+
+      <div class="download"><div class="preview"><img src="../assets/logo.png" alt="Legacy rectangular logo PNG" /></div><div class="info"><p class="meta">Legacy rectangular<span>PNG · original 956 × 575</span></p><a class="download-link" href="../assets/logo.png" download>Download PNG →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/favicon-192.png" alt="Favicon 192" /></div><div class="info"><p class="meta">Favicon<span>PNG · 192 × 192</span></p><a class="download-link" href="../assets/favicon-192.png" download>Download PNG →</a></div></div>
+      <div class="download"><div class="preview"><img src="../assets/favicon-32.png" alt="Favicon 32" /></div><div class="info"><p class="meta">Favicon<span>PNG · 32 × 32</span></p><a class="download-link" href="../assets/favicon-32.png" download>Download PNG →</a></div></div>
+    </div>
+
+    <h2 style="margin-top: 56px;">Logo as a system</h2>
+    <p class="sub">The mark is built from simple geometric parts — triangles, the "42" number boxes, and the four-square tile — and that is its strength. Like the 2012 Olympic identity, individual fragments can be lifted out and used on their own as design elements: a corner accent on a slide, a watermark fill behind a section, a divider between blocks, the active step in a project timeline. <strong>Use the parts; they will always read as Scale42.</strong></p>
+
+    <h2 style="margin-top: 56px;">Multi-brand continuity</h2>
+    <p class="sub">Scale42 is the parent. Sub-brands and SPVs (Giga42, Norsecraft Data, and future vehicles) reuse the same geometric system with a slight palette or numeric variation — the family is recognisable at a glance, but each brand keeps its own identity. New SPV websites should start from the Scale42 layout and adjust only logo, colour accents, and copy.</p>
+
+    <h2 style="margin-top: 56px;">Application examples</h2>
+    <p class="sub">The logo across the brand's three primary surface treatments.</p>
+    <div class="applications">
+      <div class="app-card light"><img src="../assets/logo.svg" alt="On white" /></div>
+      <div class="app-card dark"><img src="../assets/logo.svg" alt="On navy" /></div>
+      <div class="app-card warm"><img src="../assets/logo.svg" alt="On sand" /></div>
+    </div>
+  </div>
+</section>
+
+<section class="brand-section">
+  <div class="container">
+    <h2>Logo usage</h2>
+    <p class="sub">Keep the mark recognisable across every context.</p>
+    <div class="rules">
+      <div class="rule do">
+        <p class="label">Do</p>
+        <ul>
+          <li>Use on white, navy, or sand backgrounds</li>
+          <li>Maintain clear space of at least 1× cap height</li>
+          <li>Scale proportionally — never stretch or skew</li>
+          <li>Use the full PNG/SVG asset, not a recreation</li>
+        </ul>
+      </div>
+      <div class="rule dont">
+        <p class="label">Don't</p>
+        <ul>
+          <li>Recolour the logo or swap palette tiles</li>
+          <li>Place over busy imagery without a backing block</li>
+          <li>Add drop shadows, glows or outlines</li>
+          <li>Rotate, crop, or rearrange the geometric tiles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="palette" class="brand-section">
+  <div class="container">
+    <h2>Colour palette</h2>
+    <p class="sub">Colours are drawn directly from the logo. Navy and teal carry the brand; sand provides warmth and emphasis.</p>
+
+    <div class="palette">
+      <div class="swatch">
+        <div class="chip" style="background: #1c2e3f"></div>
+        <div class="info"><p class="name">Navy</p><p class="hex">#1C2E3F</p><p class="role">Primary ink, dark sections</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #2f6675"></div>
+        <div class="info"><p class="name">Teal</p><p class="hex">#2F6675</p><p class="role">Accent, links, eyebrows</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #a3bcc4"></div>
+        <div class="info"><p class="name">Mist</p><p class="hex">#A3BCC4</p><p class="role">Soft accent, dark-bg text</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #e8b87a"></div>
+        <div class="info"><p class="name">Sand</p><p class="hex">#E8B87A</p><p class="role">Warm highlight, callouts</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #f3d6b3"></div>
+        <div class="info"><p class="name">Sand light</p><p class="hex">#F3D6B3</p><p class="role">Tints, hover states</p></div>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 56px;">Neutrals</h2>
+    <p class="sub">Used for surfaces, type, and structure.</p>
+    <div class="palette">
+      <div class="swatch">
+        <div class="chip" style="background: #ffffff; border-bottom: 1px solid var(--line)"></div>
+        <div class="info"><p class="name">White</p><p class="hex">#FFFFFF</p><p class="role">Base background</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #f4f6f7"></div>
+        <div class="info"><p class="name">Surface</p><p class="hex">#F4F6F7</p><p class="role">Alternate sections</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #e1e6ea"></div>
+        <div class="info"><p class="name">Line</p><p class="hex">#E1E6EA</p><p class="role">Borders, dividers</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #6b7a85"></div>
+        <div class="info"><p class="name">Muted</p><p class="hex">#6B7A85</p><p class="role">Captions, metadata</p></div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background: #3d4f60"></div>
+        <div class="info"><p class="name">Ink-2</p><p class="hex">#3D4F60</p><p class="role">Body copy</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="patterns" class="brand-section">
+  <div class="container">
+    <h2>Background patterns</h2>
+    <p class="sub">Decorative section backgrounds. Use sparingly to add texture without overwhelming the content.</p>
+    <div class="patterns">
+      <div class="pattern-tile bg-hex"><span class="label">Hex</span></div>
+      <div class="pattern-tile bg-grid"><span class="label">Grid</span></div>
+      <div class="pattern-tile bg-diagonal"><span class="label">Diagonal</span></div>
+      <div class="pattern-tile bg-topo"><span class="label">Topo</span></div>
+    </div>
+    <p class="sub" style="margin-top: 20px;">CSS classes: <code>.bg-hex</code>, <code>.bg-grid</code>, <code>.bg-diagonal</code>, <code>.bg-topo</code>. Combine with <code>.bg-fixed</code> for a subtle parallax effect on scroll.</p>
+  </div>
+</section>
+
+<section id="typography" class="brand-section">
+  <div class="container">
+    <h2>Typography</h2>
+    <p class="sub"><strong>Lexend</strong> for display (titles, stats, eyebrows). <strong>Commissioner Light (300)</strong> for body — this is the Scale42 voice in every deck and on every surface. Both open-source via Google Fonts. The Lexend / Commissioner pairing matches the master slide deck and platform investment presentation.</p>
+
+    <div class="type-row">
+      <div class="meta"><strong>Display H1</strong>Lexend · 500 · 56–68px · -0.02em</div>
+      <h1 class="type-h1">AI-ready data centres.</h1>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Display H2</strong>Lexend · 500 · 36–42px · -0.02em</div>
+      <h2 class="type-h2">A 1.7 GW Nordic pipeline.</h2>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Display H3</strong>Lexend · 600 · 22px</div>
+      <h3 class="type-h3">Standardised 12.5 MW modules.</h3>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Body</strong>Commissioner Light · 300 · 17px · 1.55 line-height</div>
+      <p class="type-body">Our data centres are located where renewable power is abundant. This energy-first strategy lets customers operate AI compute infrastructure at substantially lower cost while maintaining industry-leading sustainability credentials.</p>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Body emphasis</strong>Commissioner Medium · 500 · 17px</div>
+      <p class="type-body" style="font-weight:500;">Use Medium sparingly inside body copy to anchor a key phrase or figure.</p>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Eyebrow</strong>Lexend · 600 · 12px · uppercase · 0.14em tracking</div>
+      <p class="type-eyebrow">Pan-Nordic development portfolio</p>
+    </div>
+  </div>
+</section>
+
+<section id="iconography" class="brand-section">
+  <div class="container">
+    <h2>Iconography</h2>
+    <p class="sub">We use simple geometric Unicode glyphs as iconography — calm, neutral, and infinitely scalable. No custom icon font required.</p>
+    <div class="icons">
+      <div class="icon-tile">⚡<span>Power</span></div>
+      <div class="icon-tile">▦<span>Compute</span></div>
+      <div class="icon-tile">◇<span>Module</span></div>
+      <div class="icon-tile">⛰<span>Energy</span></div>
+      <div class="icon-tile">≋<span>Liquid</span></div>
+      <div class="icon-tile">⌗<span>Network</span></div>
+      <div class="icon-tile">▢<span>Site</span></div>
+      <div class="icon-tile">◆<span>Featured</span></div>
+      <div class="icon-tile">▣<span>Density</span></div>
+      <div class="icon-tile">○<span>Cycle</span></div>
+      <div class="icon-tile">◐<span>Phase</span></div>
+      <div class="icon-tile">⬡<span>Hex</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="photography" class="brand-section">
+  <div class="container">
+    <h2>Photography & imagery</h2>
+    <p class="sub">Calm, low-saturation, dramatic light. Cold ambient palettes for site shots — warm sand tones reserved for human moments.</p>
+    <div class="photo-mood">
+      <div>
+        <h3 style="font-family: var(--font-display); font-weight: 600; font-size: 18px; margin: 0 0 12px;">Mood</h3>
+        <ul style="padding-left: 18px; margin: 0; color: var(--ink-2); font-size: 15px;">
+          <li>Wide, atmospheric Nordic landscapes</li>
+          <li>Industrial heritage and infrastructure detail</li>
+          <li>Hard, natural light — no studio fill</li>
+          <li>Low-saturation editing; navy / teal / mist</li>
+          <li>People shown working — not posing</li>
+        </ul>
+        <h3 style="font-family: var(--font-display); font-weight: 600; font-size: 18px; margin: 24px 0 12px;">Avoid</h3>
+        <ul style="padding-left: 18px; margin: 0; color: var(--ink-2); font-size: 15px;">
+          <li>Generic stock data-centre rack shots</li>
+          <li>Glossy CGI server-room renders</li>
+          <li>Saturated sunsets, lens flares, cliché tech</li>
+          <li>Over-edited HDR or heavy filters</li>
+        </ul>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-tile">[ Fjord wide ]</div>
+        <div class="photo-tile cool">[ Hydropower ]</div>
+        <div class="photo-tile warm">[ Geothermal ]</div>
+        <div class="photo-tile deep">[ Industrial detail ]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="components" class="brand-section">
+  <div class="container">
+    <h2>Components</h2>
+    <p class="sub">Core UI primitives used across the site.</p>
+
+    <div class="components">
+      <div class="component-card">
+        <h3>Buttons</h3>
+        <div class="demo">
+          <a class="btn btn-primary" href="#">Primary</a>
+          <a class="btn btn-ghost" href="#">Ghost</a>
+          <a class="btn btn-sm btn-primary" href="#">Small</a>
+        </div>
+      </div>
+      <div class="component-card">
+        <h3>Tags</h3>
+        <div class="demo">
+          <span class="tag">Legacy</span>
+          <span class="tag tag-accent">Featured</span>
+        </div>
+      </div>
+      <div class="component-card">
+        <h3>Form input</h3>
+        <input type="email" placeholder="you@company.com" style="width: 100%; padding: 12px 14px; border-radius: var(--radius); border: 1px solid var(--line); font: inherit; font-size: 15px;" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="motion" class="brand-section">
+  <div class="container">
+    <h2>Motion</h2>
+    <p class="sub">Quiet, purposeful, never decorative. Motion confirms — it does not entertain.</p>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3 style="font-family: var(--font-display); margin: 0 0 8px;">Reveal on scroll</h3>
+        <p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">Sections fade in with a 16px upward translate as they enter the viewport. 600ms ease, once-only.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family: var(--font-display); margin: 0 0 8px;">Parallax</h3>
+        <p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">Hero decoration moves at 0.15× scroll rate. Background patterns use <code>background-attachment: fixed</code> for a subtle parallax effect.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family: var(--font-display); margin: 0 0 8px;">Reduced motion</h3>
+        <p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">All motion respects <code>prefers-reduced-motion</code>. No surprise animations — ever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="accessibility" class="brand-section">
+  <div class="container">
+    <h2>Accessibility</h2>
+    <p class="sub">Contrast, focus, navigability — non-negotiable.</p>
+    <div class="grid grid-3">
+      <div class="card"><h3 style="font-family: var(--font-display); margin: 0 0 8px;">Contrast</h3><p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">All body and headline copy meets WCAG AA against its background. Test before shipping new pairings.</p></div>
+      <div class="card"><h3 style="font-family: var(--font-display); margin: 0 0 8px;">Focus</h3><p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">Visible focus rings on every interactive element. 2px teal outline at 3px offset.</p></div>
+      <div class="card"><h3 style="font-family: var(--font-display); margin: 0 0 8px;">Skip links</h3><p style="margin: 0; font-size: 14.5px; color: var(--ink-2);">Every page exposes a keyboard-only skip-to-content link as the first focusable element.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="voice" class="brand-section">
+  <div class="container">
+    <h2>Voice & tone</h2>
+    <p class="sub">Confident, technical, and grounded. We earn trust through specificity.</p>
+
+    <div class="voice">
+      <div class="voice-block">
+        <h4>We are</h4>
+        <p>Direct. Quantitative. Operator-minded. We lead with capacity, location and economics — not adjectives.</p>
+      </div>
+      <div class="voice-block">
+        <h4>We aren't</h4>
+        <p>Hyperbolic. We avoid "revolutionary," "world-class," "cutting-edge" — the Nordics, the megawatts, and the customers do that work for us.</p>
+      </div>
+      <div class="voice-block">
+        <h4>Numbers, not claims</h4>
+        <p>"1.7 GW pipeline across ten projects" beats "massive portfolio." If a metric exists, lead with it.</p>
+      </div>
+      <div class="voice-block">
+        <h4>Plain English</h4>
+        <p>We use industry terms (CAPEX, OPEX, PPA, GPU/TPU/ASIC) but never jargon for its own sake. Sentences are short.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Social media</p>
+    <h2 class="section-title">Image specs &amp; aspect ratios.</h2>
+    <p class="section-lede">Reference dimensions for banners, posts and shares. Export at 2× retina where the platform compresses heavily.</p>
+
+    <style>
+      .social-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin-top: 28px; }
+      .social-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .15s, transform .15s; }
+      .social-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+      .social-card a.preview { display: block; position: relative; background: #1c2e3f; overflow: hidden; }
+      .social-card a.preview img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .social-card a.preview::after { content: '↓ ' attr(data-ratio); position: absolute; left: 10px; bottom: 8px; color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.35); padding: 3px 8px; border-radius: 4px; font: 600 10px/1 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; }
+      .social-card .body { padding: 12px 14px 14px; }
+      .social-card .label { font-weight: 600; font-size: 14px; margin: 0 0 4px; }
+      .social-card .dims { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--ink-2); margin: 0; }
+      .social-card .note { color: var(--muted); font-size: 11.5px; margin: 6px 0 0; }
+      .social-card .dl { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding: 6px 12px; border-radius: 6px; background: var(--ink); color: #fff; font-size: 12px; font-weight: 600; text-decoration: none; transition: background .15s; }
+      .social-card .dl:hover { background: var(--accent); }
+      .social-platform { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 600; margin: 0 0 6px; }
+    </style>
+
+    <p class="sub" style="margin-top:8px;">Click any preview to download the ready-to-post PNG at full export resolution.</p>
+    <div class="social-grid">
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:1128/191;" data-ratio="5.91 : 1" href="../assets/social/linkedin-company-banner.png" download><img src="../assets/social/linkedin-company-banner.png" alt="LinkedIn company banner 1128×191" /></a>
+        <div class="body"><p class="social-platform">LinkedIn</p><p class="label">Company page banner</p><p class="dims">1128 × 191 px</p><p class="note">Logo cropped on mobile — keep clear space.</p>
+          <a class="dl" href="../assets/social/linkedin-company-banner.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:1584/396;" data-ratio="4 : 1" href="../assets/social/linkedin-personal-banner.png" download><img src="../assets/social/linkedin-personal-banner.png" alt="LinkedIn personal banner 1584×396" /></a>
+        <div class="body"><p class="social-platform">LinkedIn</p><p class="label">Personal profile banner</p><p class="dims">1584 × 396 px</p>
+          <a class="dl" href="../assets/social/linkedin-personal-banner.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:1/1;" data-ratio="1 : 1" href="../assets/social/linkedin-square.png" download><img src="../assets/social/linkedin-square.png" alt="LinkedIn square 1200×1200" /></a>
+        <div class="body"><p class="social-platform">LinkedIn</p><p class="label">Square post</p><p class="dims">1200 × 1200 px</p>
+          <a class="dl" href="../assets/social/linkedin-square.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:4/5;" data-ratio="4 : 5" href="../assets/social/linkedin-portrait.png" download><img src="../assets/social/linkedin-portrait.png" alt="LinkedIn portrait 1080×1350" /></a>
+        <div class="body"><p class="social-platform">LinkedIn</p><p class="label">Portrait post</p><p class="dims">1080 × 1350 px</p>
+          <a class="dl" href="../assets/social/linkedin-portrait.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:1200/630;" data-ratio="1.91 : 1" href="../assets/social/og-share.png" download><img src="../assets/social/og-share.png" alt="Open Graph 1200×630" /></a>
+        <div class="body"><p class="social-platform">LinkedIn / Facebook share</p><p class="label">Open Graph image</p><p class="dims">1200 × 630 px</p><p class="note">Site-wide default for link previews.</p>
+          <a class="dl" href="../assets/social/og-share.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:1500/500;" data-ratio="3 : 1" href="../assets/social/x-profile-banner.png" download><img src="../assets/social/x-profile-banner.png" alt="X profile banner 1500×500" /></a>
+        <div class="body"><p class="social-platform">X / Twitter</p><p class="label">Profile banner</p><p class="dims">1500 × 500 px</p>
+          <a class="dl" href="../assets/social/x-profile-banner.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:16/9;" data-ratio="16 : 9" href="../assets/social/x-instream.png" download><img src="../assets/social/x-instream.png" alt="X in-stream 1600×900" /></a>
+        <div class="body"><p class="social-platform">X / Twitter</p><p class="label">In-stream post</p><p class="dims">1600 × 900 px</p>
+          <a class="dl" href="../assets/social/x-instream.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:820/312;" data-ratio="2.63 : 1" href="../assets/social/facebook-cover.png" download><img src="../assets/social/facebook-cover.png" alt="Facebook cover 820×312" /></a>
+        <div class="body"><p class="social-platform">Facebook</p><p class="label">Page cover</p><p class="dims">820 × 312 px (desktop)</p><p class="note">640 × 360 mobile-safe area.</p>
+          <a class="dl" href="../assets/social/facebook-cover.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:1/1;" data-ratio="1 : 1" href="../assets/social/instagram-square.png" download><img src="../assets/social/instagram-square.png" alt="Instagram square 1080×1080" /></a>
+        <div class="body"><p class="social-platform">Instagram</p><p class="label">Feed (square)</p><p class="dims">1080 × 1080 px</p>
+          <a class="dl" href="../assets/social/instagram-square.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:9/16;" data-ratio="9 : 16" href="../assets/social/instagram-story.png" download><img src="../assets/social/instagram-story.png" alt="Instagram story 1080×1920" /></a>
+        <div class="body"><p class="social-platform">Instagram</p><p class="label">Story / Reel</p><p class="dims">1080 × 1920 px</p>
+          <a class="dl" href="../assets/social/instagram-story.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:2560/1440;" data-ratio="16 : 9" href="../assets/social/youtube-channel.png" download><img src="../assets/social/youtube-channel.png" alt="YouTube channel banner 2560×1440" /></a>
+        <div class="body"><p class="social-platform">YouTube</p><p class="label">Channel banner</p><p class="dims">2560 × 1440 px</p><p class="note">Safe area 1546 × 423 (TV trim).</p>
+          <a class="dl" href="../assets/social/youtube-channel.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+      <div class="social-card">
+        <a class="preview" style="aspect-ratio:1280/720;" data-ratio="16 : 9" href="../assets/social/youtube-thumbnail.png" download><img src="../assets/social/youtube-thumbnail.png" alt="YouTube thumbnail 1280×720" /></a>
+        <div class="body"><p class="social-platform">YouTube</p><p class="label">Video thumbnail</p><p class="dims">1280 × 720 px</p>
+          <a class="dl" href="../assets/social/youtube-thumbnail.png" download>Download PNG ↓</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <!--cms:footer-->
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+        <p class="footer-tag">Pan-Nordic AI &amp; HPC infrastructure — built on hydropower, geothermal and free-air cooling.</p>
+        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="/solutions/">Solutions</a>
+        <a href="/datacenters/">Data centres</a>
+        <a href="/sustainability/">Sustainability</a>
+        <a href="/partners/">Partners</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="/about-us/">About Us</a>
+        <a href="/news/">News</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="/news/rss.xml">RSS feed</a>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="justify-content:flex-end;">
+      <p class="footer-legal" style="text-align:right;">Northern DC AS trading as Scale-42™ · Registered in Norway · © 2026</p>
+    </div>
+
+    <!--/cms:footer-->
+  </div>
+</footer>
+
+</body>
+</html>
