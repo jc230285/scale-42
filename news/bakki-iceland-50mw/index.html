@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="robots" content="noindex,nofollow" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Scale42 and GIG plan 50 MW data centre in Iceland &mdash; Scale42</title>
@@ -116,17 +117,20 @@
 <body>
 <header class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="../../"><img src="../../assets/logo.svg" alt="Scale42" class="brand-logo" /></a>
+    <!--cms:nav-->
+    <a class="brand" href="/"><img src="/assets/logo-wordmark-white.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     <nav class="nav-links">
-      <a href="../../">Home</a>
-      <a href="../../capabilities/">Capabilities</a>
-      <a href="../../news/" class="active">News</a>
-      <a href="../../#contact" class="btn btn-sm">Contact</a>
-      <div class="lang-toggle">
-        <a href="." data-lang="en" class="active">EN</a>
-        <a href="../../no/" data-lang="no">NO</a>
-      </div>
+      <a href="/">Home</a>
+      <a href="/datacenters/">Data centres</a>
+      <a href="/solutions/">Solutions</a>
+      <a href="/sustainability/">Sustainability</a>
+      <a href="/partners/">Partners</a>
+      <a href="/about-us/">About Us</a>
+      <a href="/news/" class="active">News</a>
+      <a href="/contact/" class="btn btn-sm">Contact</a>
     </nav>
+    <!--/cms:nav-->
   </div>
 </header>
 
@@ -196,9 +200,39 @@
 </section>
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <img src="../../assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
-    <p class="copyright">&copy; 2026 Scale42. All rights reserved.</p>
+  <div class="container">
+    <!--cms:footer-->
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+        <p class="footer-tag">Pan-Nordic AI &amp; HPC infrastructure — built on hydropower, geothermal and free-air cooling.</p>
+        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="/solutions/">Solutions</a>
+        <a href="/datacenters/">Data centres</a>
+        <a href="/sustainability/">Sustainability</a>
+        <a href="/partners/">Partners</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="/about-us/">About Us</a>
+        <a href="/news/">News</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="/news/rss.xml">RSS feed</a>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="justify-content:flex-end;">
+      <p class="footer-legal" style="text-align:right;">Northern DC AS trading as Scale-42™ · Registered in Norway · © 2026</p>
+    </div>
+
+    <!--/cms:footer-->
   </div>
 </footer>
 </body>

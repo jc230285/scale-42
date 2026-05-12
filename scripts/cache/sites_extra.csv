@@ -1,0 +1,1246 @@
+DB Table,DB Field,Notes on populating DB,,Summary,Source / Reference / Note,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Source / Reference / Note,,,,,,,,,,,,,,,,,,,,,,,,,,,
+populated columns,62,10,53,60,54,56,53,52,25,53,53,56,59,59,59,56,56,56,55,56,54,36,54,54,54,53,35,23,22,21,17,16,16,45,19,34,33,38,30,40,15,48,43,27,13,2,54,54,56,59,56,51,52,1,,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,,,,,
+Projects,None,Calculate,lookup,Lookup,Bo DC (NOR001) [Bo  Norway],Sorfold DC (NOR002) [Sorfold Norway],Skibotn DC (NOR003) [Skibotn Norway],Honningsvag DC (NOR004) [Honningsvag Norway],Salsbruket DC (NOR005) [Salsbruket Norway],Hadsel DC (NOR006) [Hadsel Norway],Sortland DC (NOR007) [Sortland Norway],Mikkeli DC (FIN008) [Mikkeli Finland],Lipiri DC (back-up for Kontiolahti) (FIN009) [Lipiri (back-up for Kontiolahti) Finland],Puhos DC (FIN010) [Puhos Finland],Kristenstad DC (FIN011) [Kristenstad Finland],Pirttikoski DC (FIN012) [Pirttikoski Finland],Kontiolahti DC (FIN013) [Kontiolahti Finland],Kemi DC (FIN014) [Kemi Finland],Keminmaa DC (FIN015) [Keminmaa Finland],Varkaus DC (FIN016) [Varkaus Finland],Tornio DC (FIN017) [Tornio Finland],Oulu DC (FIN018) [Oulu Finland],Skelleftea DC (SWE018) [Skelleftea Sweden],Utansjö DC (SWE017) [Utansjö Sweden],Kalix DC (SWE018) [Kalix Sweden],Jokkmokk DC (SWE019) [Jokkmokk Sweden],Iceland Option 1 DC (ICE020) [Reyðarfjörður Iceland],Bakki (ICE021) [Bakki Iceland],Akureyri (ICE022) [Akureyri Iceland],Switzerland DC (SWI021) [Valais Canton Switzerland],UK Gas DC (UK022) [TBC (Northern England) UK],Iceland Run of River DC (ICE023) [Iceland Run of River Iceland],HVDC Landing DC (UK024) [TBC (Northern England) UK],Longum (NOR025) [ Norway],Kollsnes (NOR026) [ Norway],"Giga Arctic (NOR027) [Mo I Rana, Mo Industrial Park Norway]",Northsafe (NOR028) [Andøya Norway],Vinje (NOR029) [ Norway],"Sogn (NOR030) [Sogn (Luster, Sognekraft Sogn Utvikling) Norway]",Florø (NOR031) [ Norway],Giga Vasa (FIN032) [ Finland],Östersund (Spikboderna) (SWE033) [Östersund (Spikboderna) Sweden],Östersund (Midskog) (SWE034) [ Sweden],Mörsil (SWE035) [Mörsil Sweden],Milan (ITA036) [Milan Italy],,lookup,Bo DC (NOR001) [Bo  Norway],#REF!,#REF!,#REF!,#REF!,#REF!,,,,,,,,,,,,,,,,,,,,,,
+Projects,ProjectID,,project-id,Project ID,NOR001,NOR002,NOR003,NOR004,NOR005,NOR006,NOR007,FIN008,FIN009,FIN010,FIN011,FIN012,FIN013,FIN014,FIN015,FIN016,FIN017,FIN018,SWE018,SWE017,SWE018,SWE019,ICE020,ICE021,ICE022,SWI021,UK022,ICE023,UK024,NOR025,NOR026,NOR027,NOR028,NOR029,NOR030,NOR031,FIN032,SWE033,SWE034,SWE035,ITA036,,project-id,NOR001,#REF!,#REF!,#REF!,#REF!,#REF!,,,,,,,,,,,,,,,,,,,,,,
+Projects,Project Name,,project-name,Project 'Name',Bo DC,Sorfold DC,Skibotn DC,Honningsvag DC,Salsbruket DC,Hadsel DC,Sortland DC,Mikkeli DC,Lipiri DC (back-up for Kontiolahti),Puhos DC,Kristenstad DC,Pirttikoski DC,Kontiolahti DC,Kemi DC,Keminmaa DC,Varkaus DC,Tornio DC,Oulu DC,Skelleftea DC,Utansjö DC,Kalix DC,Jokkmokk DC,Iceland Option 1 DC,Bakki,Akureyri,Switzerland DC,UK Gas DC,Iceland Run of River DC,HVDC Landing DC,Longum,Kollsnes,Giga Arctic,Northsafe,Vinje,Sogn,Florø,Giga Vasa,Östersund (Spikboderna),Östersund (Midskog),Mörsil,Milan,,project-name,Bo DC,Mikkeli DC,Lipiri DC (back-up for Kontiolahti),Kontiolahti DC,Skelleftea DC,Jokkmokk DC,,project_name,Northsafe (Andøya),Longum (Agder),Kollsnes (Øygarden),Giga Arctic (Mo i Rana),Vinje,Sørfold,Östersund (Spikboderna),Kemi,Mikkeli,Kitee,Liperi,Kristinestad,Vaasa (Giga Vaasa),Kristianstad,Milan,Dalsbruk,Kronoby ,Imatra ,Vivstavarv,Tjeldbergodden (Aure municipality) 
+Projects,Primary Project Partner,,project-partner,Project Partner,N/A,Biforst Prioritised 8,GIGA-42,N/A,N/A,N/A,N/A,N/A,Biforst Prioritised 8,N/A,Biforst Prioritised 8,N/A,N/A,GIGA-42,N/A,APL,N/A,GIGA-42,GIGA-42,N/A,N/A,N/A,GIG,GIGA-42,GIG,GIG,GIG,GIG,GIG,Biforst Prioritised 8,Biforst Prioritised 8,Biforst Prioritised 8,Biforst Prioritised 8,Bifrost,Bifrost,Bifrost,Bifrost - Lost,Bifrost,Biforst Prioritised 8,Bifrost,Bifrost,,#REF!,N/A,N/A,Biforst Prioritised 8,N/A,GIGA-42,N/A,,,,,,,,,,,,,,,,,,,,,,
+Projects,Location,,location,Location,Bo ,Sorfold,Skibotn,Honningsvag,Salsbruket,Hadsel,Sortland,Mikkeli,Lipiri (back-up for Kontiolahti),Puhos,Kristenstad,Pirttikoski,Kontiolahti,Kemi,Keminmaa,Varkaus,Tornio,Oulu,Skelleftea,Utansjö,Kalix,Jokkmokk,Reyðarfjörður,Bakki,Akureyri,Valais Canton,TBC (Northern England),Iceland Run of River,TBC (Northern England),,,"Mo I Rana, Mo Industrial Park",Andøya,,"Sogn (Luster, Sognekraft Sogn Utvikling)",,,Östersund (Spikboderna),,Mörsil,Milan,,location,Bo ,Mikkeli,Lipiri (back-up for Kontiolahti),Kontiolahti,Skelleftea,Jokkmokk,,location,"Andøya, Vesterålen","Arendal, Agder","Near Bergen, Øygarden","Mo i Rana, Nordland","Vinje, Telemark","Sørfold, Nordland","Östersund, Jämtland","Kemi, Norrbotten","Mikkeli, Southern Savonia","Kitee, North Karelia","Liperi, North Karelia",Kristianstad (docs: 'Kristenstad'),Vaasa region,"Kristinestad, Ostrobothnia",Milan metro,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Folder,https://drive.google.com/drive/folders/1dso14RiqJY-0QDFCZ6Izad46r4PzmHXh,https://drive.google.com/drive/folders/14MhDd2ixzEI93qmffoMK4ORpx2tccaOt,https://drive.google.com/drive/folders/1dObXiSqFsHs_LWvysudcIogceHec5zLg,https://drive.google.com/drive/folders/1tmVE-Wew9HYwBFb9X7Uogsv2x4GUYVKA,https://drive.google.com/drive/folders/1EQ_I_1bJDFhpwknWS4flYNMcScPyFiye,,,,,,,,,,,,,,,
+Projects,description,,,,,piri,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,description,Secure mountain-hall DC site,Hyperscaler-scale DC campus,Subsea hub,100 MVA transformer; queue secured,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,location__site_history,Former NATO facility,Industrial area,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,doc,https://docs.google.com/document/d/1ADVvZI_A7_vNkP955XUlbpqMNNrcAW7AOZFuYKtUYFI/edit?tab=t.0,https://docs.google.com/document/d/1_VfbRL-x66lUlhNuCICMAcy-5qt2hpVCw1ojPrs8xKo/edit?tab=t.0#heading=h.1hetemrnkeq6,https://docs.google.com/document/d/1QjaZJ5D0Fl8im2xHkU_dPxhN7cRsVu-Dsz0ddERG0k8/edit?tab=t.0,https://docs.google.com/document/d/1Egu27dGsqs0A93IJLRyK7HqlKyBpzEcP4QBGMgl8FKU/edit?tab=t.0,https://docs.google.com/document/d/1z_GLlmRoLGiVvjiM_C0cgynS4jmPkNDnKk_2VQ7wpFk/edit?tab=t.0,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,natural_disaster_risks,Low,Low,,,,,,,,,,,,,,,,,,
+Site,Water Availability,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,water_availability,Adequate,Available,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Model CAPEX / MW ($m),8.15,6.06,7.34,7.39,,5.72,5.72,,,,7.18,7.15,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Total CAPEX ($m),204,2365,983,1182,,572,686,,,,718,858,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Notable wins,Defence-grade secure mountain-hall; 10 MW now; potential fast-track to 25 MW; hydro-backed feeds,Scale 285–515 MW; priority in decks; FID target Q4-25,70 MW first tranche; path to ~300 MW; strategic energy/subsea hub,60–396 MW in scope; 60 MW Q4-25 target; transformer & zoning in place,On the 9-site factsheet list; early land leads,100 MW class; low-cost hydro region,60→180 MW; FID Q1-26 target,200 MW pipeline listing,60 MW pipeline listing,50 MW pipeline listing,60–100 MW range; listed Q1-26 FID,60 MW starter; up to 250 MW; Q1-26 FID noted,240 MW flagship in Finland cluster; staged 120 MW tranches,60–250 MW range; Q1-26 FID marker,Exploratory EU hub footprint; strong fibre & customers,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Viability,Medium (Sovereign/Specialty),High,High,High,Medium (Pipeline),Medium-High,Medium-High,Medium,Medium,Medium,Medium-High,Medium-High,High,High,Exploratory,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,site_adjacency_data,Andøya Space / defence,Equinor CCS hub proximity,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,fel_stagegate,FEL2 in progress,FEL2 by Dec-25,FEL2 by Dec-25,FEL2–3 in 2025,FEL2,FEL2,FEL2,Pre-FEL,Pre-FEL,Pre-FEL,FEL2,FEL2,Pre-FEL,Pre-FEL,FEL2,,,,,
+Projects,Country,,country,Country,Norway,Norway,Norway,Norway,Norway,Norway,Norway,Finland,Finland,Finland,Finland,Finland,Finland,Finland,Finland,Finland,Finland,Finland,Sweden,Sweden,Sweden,Sweden,Iceland,Iceland,Iceland,Switzerland,UK,Iceland,UK,Norway,Norway,Norway,Norway,Norway,Norway,Norway,Finland,Sweden,Sweden,Sweden,Italy,,country,Norway,Finland,Finland,Finland,Sweden,Sweden,,country,Norway,Norway,Norway,Norway,Norway,Norway,Sweden,Sweden,Finland,Finland,Finland,Sweden,Finland,Finland,Italy,Finland,Finland,Finland,Sweden,Norway
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,status,Pre-FID; FEL2 Q3-2025 target,Zoned; FEL2 Q4-2025,Zoning BI04/BI07 identified; FEL2 Q4-2025,Industrial zone; FEL2–3 in 2025,Early pipeline,50 MW allocated; expansion possible,Target FID Q1-2026,Pipeline,Pipeline,Pipeline,Q1-26 FID (starter 60 MW),Q1-26 FID (60 MW) with up to 250 MW,240 MW in pipeline,Q1-26 FID (starter 60 MW),Exploratory ~60 MW,,,,,
+Projects,NONE,Calculate Feild looking at Min Site power,power-availability-min,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,power-availability-min,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Projects,NONE,Calculate Feild looking at Max Site power,power-availability-max,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,power-availability-max,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Projects,Power Availability (Min),Move after to Site,power-availability-min,Power Availability (Min),5,50,7.5,15,5,40,40,50,60,50,60,50,60,180,60,60,200,100,100,50,200,200,50,50,50,TBC,50,10,500,285,74,190,10,40,50,50,60,60,400,2,60,,power-availability-min,5,50,60,60,100,200,,power_availability_min,10,10,70,60,,50,60,,,50,60,60,120,60,,100,100,50,100,70
+Projects,Power Availability (Max),Move after to Site,power-availability-max,Power Availability (Max),5,100,15,15,5,40,40,200,100,50,250,750,100,600,200,100,2000,400,100,50,500,200,100,70,70,,,,,"TBC - 515MW Deck says up to 1GW
+
+Vidar's view - New transformers and new grid at bigger traffo station North of the site providing power to new traffo station being built on the area. (planned for 800MW, but, also supplying some other areas such as Arndel) - 285MW rising to max 515MW if other users don't take up the power in the area. Rest of the 800MW is likely reserved",300,396,25,150,120,50,240,"200MW - Q4 28
+350MW available from Jenkraft - Uncertain
+Vidar to check with Jenkraft if more power now ECODC has pulled out",1500,5,100,,power-availability-max,5,200,100,100,100,200,,power_availability_max,25,285,300,396,40,100,180,200,100,50,100,250,240,250,60,"~200
+
+No maximum limit in connection contract",800 - 1000,100,100,100 (With borrowing/purschase of power it can be more) 
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ppa_considerations,Sovereign-style offtake,Potential CHP/CCS-linked PPA,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,labour_considerations,Small local market; specialty security cleared labour,Strong local labour market,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,local_sentiment_analysis,Positive (defence-aligned),Pro-industry municipality,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,gas_availability,N/A,CCGT/CCS adjacency,,,,,,,,,,,,,,,,,,
+Projects,Land Plots Identified,,land-plots-identified,Land Plots Identified,2,1,1,1,,0,0,2,2,1,1,1,4,1,Several. Land assembly ongoing and in discussion with private landowners,1,Still searching for landplot - Municipality looking,1,1,1,1,2,0,7,,1,1,1,1,1,,1,1,1,1,Multiple options,,1,1,1,1,,land-plots-identified,2,2,2,4,1,2,,,,,,,,,,,,,,,,,,,,,,Yes 
+Projects,Plots Secured,Calculate Feild looking at Site Count Sites where status live,plots-secured,Plots Secured,1,1,1,1,,Pending Site Identification,Pending Site Identification,1,On Hold (Kontiolahti as Primary Target),Lease Negotiations Ongoing,We have been told we will be able to secure the land in Sept/Oct 2025,Negotiations Ongoing,Negotiations Ongoing,Negotiations Ongoing,0,1,0,0,Negotiations Ongoing,Negotiations Ongoing - Struggling to progress,Negotiations Ongoing,Negotiating Commercials,Identifying Suitable Plots,,,Identifying Suitable Plots,,,,Secure,,Clarify current status of termsheet discussions from T1 Energy,Ongoing - TBC ,"Reinkraft have secured, we don't have contract yet with RK",,,,Ongoing,Been presented by municipality who are in final stages of zoning,,,,plots-secured,1,1,On Hold (Kontiolahti as Primary Target),Negotiations Ongoing,Negotiations Ongoing,Negotiating Commercials,,,,,,,,,,,,,,,,,,,,,,1
+Projects,None,Calculate Feild looking at Site Count Sites,land-plot-names,Land Plot Names,"Gnr: 17 Bnr: 320, Bø Municipality 
+Gnr: 17 Bnr: 319, Bø Municipality (possible expansion plot) ",Gjerelvmo,"Gnr: 45 Bnr: 179, Storfjord Municipality","Gnr: 9 Bnr: 70, Nordkapp Municipality",,Pending Site Identification,Pending Site Identification,"Primary - Karilla
+Backup - Konijärvenkatu","Sijaintikartta 1
+Sijaintikartta 2",Suorlahden,Lalby,"""Pirttikoski 1""","""Kontiolahti 1""
+""Kontiolahti 2""
+""Kontiolahti 3"" - New plot being investigated previously owned by Better Energy. Agent meeting this week.
+""Kontiolahti 4"" - Held as less suitable reserve option - Privately owned",Veitsiluoto - Specific DC site is on open area of land to the south of the island (possibility to use paper mill halls to the North),Pending Site Identification,Ranta-Luttila,Pending Site Identification,Kiinteistötunnus,Skelleftea 1,Utansjö Verken,Kalix 1,"Jokkmokk 1 - Municipal Owned
+River Bend - Privately Owned",N/A,,,N/A,,,,Longum,,,,,,,,Skogvaktaren 1,Midskog,,,,land-plot-names,"Gnr: 17 Bnr: 320, Bø Municipality 
+Gnr: 17 Bnr: 319, Bø Municipality (possible expansion plot) ","Primary - Karilla
+Backup - Konijärvenkatu","Sijaintikartta 1
+Sijaintikartta 2","""Kontiolahti 1""
+""Kontiolahti 2""
+""Kontiolahti 3"" - New plot being investigated previously owned by Better Energy. Agent meeting this week.
+""Kontiolahti 4"" - Held as less suitable reserve option - Privately owned",Skelleftea 1,"Jokkmokk 1 - Municipal Owned
+River Bend - Privately Owned",,,,,,,,,,,,,,,,,,,,,,Tjeldbergodden
+Site,Potential FID Date,,potential-fid-date,Potential FID Date,"Allocation of 5MW by Statnett - Estimated by January 2026
+
+Obtain Building Permit - May 2026
+
+FID = May 2026","Zoning Complete - Q1 27
+Trigger Land Purchase - Q1 27
+Building Permit Approved - Q1 27
+
+Expected FID Date = Q1 2027
+
+Possible opportunity to accelerate zoning process and FID by circa 12 months","Allocation of power by Statnett - Estimated by June 2026
+
+Obtain Building Permit - September 2026
+
+FID Phase I (7MW) = September 2026","Building permit approved - September25
+Fingrid Power Reservation Approved - September25
+FID Date = September 2025","Try and convince municipality to reserve site
+
+Apply to TSO for power allocation
+
+Zoning work ongoing, requires ground samples this summer with zoning concluded shortly after (early 2026)
+
+Building permit
+
+FID - Date currently unknown
+
+",Pending Site Identification,Pending Site Identification,"Primary Site: Karilla
+Zoning Complete - Dec25
+Building Permit Received - April26
+Fingrid Power Allocated - April26
+FID Date = April 2026","Land Reservation Agreed - July25
+Building Permit Received - November25
+Fingrid Power Allocated - November25
+FID Date = November 2025
+
+WT - Team please confirm due date of ongoing municipal zoning work to confirm it does not delay this FID process.
+TB- Only expansion plot is subject to zoning work (primary).","Lease completed - August 25
+Municipal Land preperation complete - Sep25
+Deviation Permit approved increasing building right % - Oct25
+Building Permit Received - Jan26
+Fingrid Power Allocated - Jan26
+FID Date = January 2026","Land Reservation Agreed - Oct25
+Zoning Complete - Nov25
+Building Permit Received - May26
+Fingrid Power Allocated - May26
+FID Date = May26","Zoning Complete - Nov26
+Building Permit Received - May27
+Fingrid Power Allocated - May27
+FID Date = May27","Reservation Agreement Concluded - Aug25
+Zoning Complete - Feb26
+Building Permit Received - June26
+Fingrid Power Allocated - June26
+FID Date = June 2026","Purchase Island - August 2025
+Select plot on Island for DC - August 2025
+Obtain building permit for construction - December 2025
+Apply for Power Connection - December 2025
+FID Date = December 2025",Pending Site Identification,"Building permit approved - September25
+Fingrid Power Reservation Approved - September25
+FID Date = September 2025",Pending Site Identification,"Land purchase - December 2025
+
+Obtain building permit for construction - April 2026
+
+Apply for additional power connection - April 2026
+
+FID Date = April 2026","Buy either the land or existing site SPV
+
+Get the existing power allocation of 350MW (if buying SPV)
+
+If buying land - apply for power allocation
+70MW fast allocation possible.
+Join waiting list in Sweeden for more above 70MW
+
+Upon power confirmation apply for building permit 
+Obtain building permit
+Power allocated - FID",Details TBC - Current focus upon progressing commercial negotiations for land acquisition.,"Try and convince municipality to reserve site
+
+Apply to TSO for power allocation
+
+Zoning work ongoing, requires ground samples this summer with zoning concluded shortly after (early 2026)
+
+Building permit
+
+FID - Date currently unknown
+
+",Details TBC - Current focus upon progressing commercial negotiations for land acquisition.,"2028
+Eastern Iceland power is constrained and must run a great deal of slack in the system to deal with seasonal usage and events where power needs to be exported to other parts of Iceland. The connection of Flotsdalslina 3 and 4 to Hyyggstekkur substation in 2026-2028 would be a potential catalyst for looking again at this part of Iceland.","2026
+First choice of location in Iceland. ","2027
+Back up location in Iceland",TBC,,,,"Terms in SPA which requires quick FID
+
+December 25 required",,"Zoning Complete
+Power availability in que, no delivery date Trigger Land Purchase - ??
+ 
+ Expected FID Date = Q3 2025",Zoning complete Special defence security location,"Q1-26 presented to municipality by RK
+
+Building permit should be easier
+
+40MW should be relatively simple environmental permit","Zoning in progress, expected - Q2 26 
+ Grid Consession application Q3 25 Grid Consession preapproval Q2 26 Trigger Land Purchase - Q4 25 Expected FID Date = Q2 2026","Zoning complete, within indistrial zone
+Uncertain if needs zoning change (might include business use in the industrial zoning)
+
+ Grid application in progress Grid queue Q2 26 Expected FID Date = Q2 2026","Zoning Complete 
+ Trigger Land Purchase - Q3 25
+ Building Permit Approved - Q3 25
+ Power allocated Q4 25
+ Expected FID Date = Q3 2025","Zoning is complete
+ Trigger Land Purchase - Q4 25
+ Building Permit Approved - Q1 26
+ Connection fee secured for Q4 27delivery, Q4 25
+ Expected FID Date = Q1 2026
+
+09-25 updated","Zoning in progress, expected complete Q1 27
+ Trigger Land Purchase - Q1 27
+ Building Permit Approved - Q1 27
+ 
+ Expected FID Date = Q1 2027","Existing DC with 2MW in operation, promised 5MW. Should be able to get more as located very close to hydro power plant.",,,potential-fid-date,"Allocation of 5MW by Statnett - Estimated by January 2026
+
+Obtain Building Permit - May 2026
+
+FID = May 2026","Primary Site: Karilla
+Zoning Complete - Dec25
+Building Permit Received - April26
+Fingrid Power Allocated - April26
+FID Date = April 2026","Land Reservation Agreed - July25
+Building Permit Received - November25
+Fingrid Power Allocated - November25
+FID Date = November 2025
+
+WT - Team please confirm due date of ongoing municipal zoning work to confirm it does not delay this FID process.
+TB- Only expansion plot is subject to zoning work (primary).","Reservation Agreement Concluded - Aug25
+Zoning Complete - Feb26
+Building Permit Received - June26
+Fingrid Power Allocated - June26
+FID Date = June 2026","Buy either the land or existing site SPV
+
+Get the existing power allocation of 350MW (if buying SPV)
+
+If buying land - apply for power allocation
+70MW fast allocation possible.
+Join waiting list in Sweeden for more above 70MW
+
+Upon power confirmation apply for building permit 
+Obtain building permit
+Power allocated - FID",Details TBC - Current focus upon progressing commercial negotiations for land acquisition.,,,,,,,,,,,,,,,,,,,,,,April 2028
+Site,FID Date Update,Remove,,FID Date Update 27/06,,,,,,,,,"If Undertaking building permit early (60k EUR - Jul25) & Reserving land (18.75k EUR - Jul25)
+Land Reservation Agreed - Late July25
+Building Permit Process Begins - Late Jul25
+Building Permit Received - November25
+Fingrid Power Allocated - November25
+FID Date = November 2025
+
+Alternative if delaying building permit work & Land reservation (Oct25)
+Land Reservation Agreed - Aug/Sept/Oct25
+Building Permit Process Begins - Oct25
+Building Permit Received - Jan26
+Fingrid Power Allocated - Jan26
+FID Date = January 2026","If Undertaking building permit early (60k EUR - Aug25)
+Lease completed - August 25
+Building Permit Process Begins - Aug25
+Municipal Land preperation complete - Sep25
+Building Permit Received - Nov25
+Fingrid Power Allocated - Nov25
+FID Date = November 2025
+
+Alternative if delaying building permit work (Oct25)
+Lease completed - August 25
+Building Permit Process Begins - Oct25
+Municipal Land preperation complete - Sep25
+Building Permit Received - Jan26
+Fingrid Power Allocated - Jan26
+FID Date = January 2026","Land Reservation Agreed - Dec25
+Zoning Complete - Nov25
+Building Permit Received - March26
+Fingrid Power Allocated - March26
+FID Date = March26","Is Zoning ongoing or yet to commence?
+
+Is a Nov26 zoning timeline achievable? Relies upon clean transition permit.","September general zoning
+December Building permit
+March detailed zoning",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"If Undertaking building permit early (60k EUR - Jul25) & Reserving land (18.75k EUR - Jul25)
+Land Reservation Agreed - Late July25
+Building Permit Process Begins - Late Jul25
+Building Permit Received - November25
+Fingrid Power Allocated - November25
+FID Date = November 2025
+
+Alternative if delaying building permit work & Land reservation (Oct25)
+Land Reservation Agreed - Aug/Sept/Oct25
+Building Permit Process Begins - Oct25
+Building Permit Received - Jan26
+Fingrid Power Allocated - Jan26
+FID Date = January 2026","September general zoning
+December Building permit
+March detailed zoning",,,,,,,,,,,,,,,,,,,,,,,,Power connection & Que not ready until 2028 
+Site,Secure Status,,,Secure Status,,,,,,,,"Primary land is not yet secure, however, we have reserved a less suitable backup plot.",Have held off on land reservation for cashflow purposes and whilst investigating sites in Kontiolahti which has better heat reuse potential.,Lease under negotiation with lawyers,"Land Reservation not secure until Dec25 - Held by https://www.redeve.fi/en/myllykoski-data-campus/
+
+Power Not secured until building permit received",Land not yet secured,,,,,,,,,,,,,,,,,,SPA signed,,,,,,Currently an offer to acquire,,,"Lobbying with municipality and work with gridprovider Jämtkraft. est 10 mill SEK.
+ 
+ 
+ This project will require long term work and lobbying. This is the result of a failed 2020 project. Midskog is a huge connection point in national grid. This connectionpoint was expanded/duplicated in 2021 and at the same time a large piece of land was planned for datacenter use. This is now getting close to regulated and is situated in colocation with multi gigawatt 420kV connection point.
+
+Power expected in 2030",,,,,,"Primary land is not yet secure, however, we have reserved a less suitable backup plot.",Have held off on land reservation for cashflow purposes and whilst investigating sites in Kontiolahti which has better heat reuse potential.,,,,,,,,,,,,,,,,,,,,,,,,,LOI currently being discussed 
+Site,FID Risks,,,FID Risks,,,,,,,,,"Building permit timeline - Can confirm in more detail with Ramboll
+
+Land reservation delays
+
+Another company reserving the power before us (requires building permit and no knowledge of competing projects in process)","Building permit timeline - Can confirm in more detail with Ramboll
+
+Land lease delays
+
+Another company reserving the power before us (requires building permit and no knowledge of competing projects in process)","Building permit timeline - Can confirm in more detail with Ramboll - Confirm that permit proces can begin before zoning complete - Indicated this can
+
+Land reservation delays 
+
+Another company reserving the power before us (requires building permit and no knowledge of competing projects in process)",,,,,,,,,,,,,,,,,,,"Power delivery - application in the queue
+
+No drawings yet prepared for maturity assessment
+
+Needs the feed from the north into Longum Nord. This has been planned and projected with concession. Started in 2021. Delayed to 22, then 23. 
+
+Are the transformers (420kV station) from 420-132 been ordered and lines started. If not FID timeline will be challenging if we have 3 years from FID to power delivery",,,,Short circuit issues,,"One of the sites available for sea-water cooling
+Could be heat reuse possibility for nearby on-land salmoln production",,"Environmental permit - EcoDC just received it. Should be faster and cheaper for us to get now but does take time. to get environmental permit on site.
+
+Gotta be understanding that signing connection fee will result in available power. Grid reinforcement works required for town regardless. Our load should make this cheaper/easier for the town as a hall. ",,,,,,,,"Building permit timeline - Can confirm in more detail with Ramboll
+
+Land reservation delays
+
+Another company reserving the power before us (requires building permit and no knowledge of competing projects in process)",,,,,Key risks / losses,Small scale; no dark fibre; remote labour; 22 kV upgrade 6–12 months,Staged grid + land lock-in; CCS/CCGT integration adds complexity,Expansion depends on additional grid awards; adjacency complexity,Grid/balancing dependencies; industrial integration,Sparse details; early pipeline uncertainties,Further allocation needed to grow; remote scheduling risks,Municipal/grid timing alignment; urban constraints possible,Pre-FEL; thin technical detail,Pre-FEL; needs grid/permit specifics,Early stage; grid and land to secure,Staged delivery likely; grid timetable to confirm,Docs inconsistent on naming/jurisdiction; confirm with municipality,Requires coordinated grid tie-in and land assembly,Ramp to upper range contingent on grid contract,No concrete site details in current pack; higher power costs; permitting complexity,,,,,
+Site,Key FID Costs,,,Potential Main FID Costs,,"Zoning Costs - TBC
+
+Extrernal DD report (elective) - 35k EUR (estimate based upon Ramboll elsewhere)
+
+Land Purchase Cost - 1,65m NOK (if purchasing whole plot 5.5ha)
+
+Building Application Cost - 60k EUR (estimate based upon Ramboll elsewhere)
+
+Grid Company Infrastructure Contribution - 15m USD (for 50MW)",,,,,,,"Land Reservation Signature - No cost (until municipal zoning work complete), or, circa 19k EUR for 1 year reservation on already zoned plot (5ha)
+
+Extrernal DD report (elective) - 35k EUR (estimate based upon Ramboll elsewhere)
+
+Completion of municipal zoning work - No cost (taken by municipality)
+
+Land Reservation Fee After Zoning - 52,5k EUR expected (1 year term)
+
+Building Application Cost - 60k EUR (estimate based upon Ramboll elsewhere)
+
+Fingrid Application Fee (110kV) - 900k EUR","Lease Signature - No cost (subject to lease deposit negotiations)
+
+Extrernal DD report (elective) - 35k EUR (estimate based upon Ramboll elsewhere)
+
+Completion of municipal zoning work - No cost (taken by municipality)
+
+Lease Rate (September onwards) - 11,25k EUR expected (per annum)
+
+Building Application Cost - 60k EUR (estimate based upon Ramboll elsewhere)
+
+Fingrid Application Fee (110kV) - 900k EUR","Land Reservation Signature - 30k EUR (1 year term)
+
+Extrernal DD report (elective) - 35k EUR (estimate based upon Ramboll elsewhere)
+
+Completion of municipal zoning work - No cost (taken by municipality)
+
+Building Application Cost - 60k EUR (estimate based upon Ramboll elsewhere)
+
+Fingrid Application Fee (110kV) - 900k-1.8mil EUR
+or
+Fingrid Application Fee (400kV) - 2.3mil EUR
+
+Land lease fee (After 1 year reservation term) - 1.2mil - 3.6mil per annum (540ha) (should FID process take longer than 1 year from signature of land reservation)",,,"Purchase of Island - Negotiations ongoing
+
+Extrernal DD report (elective) - 35k EUR (estimate based upon Ramboll elsewhere)
+
+Building Application Cost - 60k EUR (estimate based upon Ramboll elsewhere)
+
+Fingrid Application Fee (110kV) - 900k EUR
+and/or
+Fingrid Application Fee (400kV) - 2.3mil EUR
+
+Other operating and holding costs of the site along with revenue generated by existing tenants tbc.",,"Purchase of site from APL Europe - Subject to negotiation 
+
+Fingrid Application Fee (110kV) - 900k EUR
+
+Building permits submitted, zoning complete, land reservation fees paid (expiring May2026)",,"Purchase of site - EUR 6m (been up for sale for a long time)
+Peter talked them down to EUR 4.8m",,,,,,,,,,,,"Geo survey
+Site plot survey for groundworks
+
+Connection fee
+
+SPV acquisition
+
+Building and environmental permits",,,"Site purchase 150 Mill NOK
+Details to be confirmed by PM","Acquiring
+
+Building permit and environmental
+
+Ground & soil geo surveys (half brownfield)
+
+Connection fee","Detaild design of grid supply, providing estimated grid connection cost: 1mill NOK
+ Connection Fee: Will be provided as soon as site is granted consession and detail design of grid supply is completed. Connection fee will be paid as expenses occur. est 60mill NOK 
+ 
+ Land Purchase: ??
+ Enviromental permit 0,5mill NOK Building Permit: 1mill NOK Geological survey 0,5mill MOK","Exclusivity would have a cost
+
+Have to support this site on grid connection costs to expand the available power.",,"Enviromental permit 3mill SEK Building Permit 2mill SEK Geological survey 4mill SEK 
+  
+ Connectiuon Fee and purchase neccesary for enabling plot and start establish the connection, FID is very early in the process with high amout.
+
+Plot Price - Can we get an option - Landowner not most adventurous company. EcoDC pulling out will reduce their flexibility
+
+Connection Fee - 3mil SEK / MW (bank Guarantee)",,"Power scalability DD, 100 000 NOK Hopefullt reveal more power avaialable as located close to hydro powerplant.
+ 
+ Site purchase 8Mill SEK, current owner most interested in selling the site.",,,,,,"Land Reservation Signature - No cost (until municipal zoning work complete), or, circa 19k EUR for 1 year reservation on already zoned plot (5ha)
+
+Extrernal DD report (elective) - 35k EUR (estimate based upon Ramboll elsewhere)
+
+Completion of municipal zoning work - No cost (taken by municipality)
+
+Land Reservation Fee After Zoning - 52,5k EUR expected (1 year term)
+
+Building Application Cost - 60k EUR (estimate based upon Ramboll elsewhere)
+
+Fingrid Application Fee (110kV) - 900k EUR",,,,,,,,,,,,,,,,,,,,,,,,,
+Site,Potential RFS Dates,,potential-rfs-dates,Potential RFS Dates (Timelines expected to change subj. to construction meeting and input from Vidar),"Assuming 12 month construction commencing upon FID
+RFS Phase 1 = May 2027","Assuming 12 month construction commencing Q1 2027
+RFS Phase 1 = Q1 2028
+
+Could easily slip by 1xQ due to groundworks or accellerated by improved zoning process.","Assuming 12 month construction commencing upon FID
+RFS Phase 1 = September 2027","Assuming 9 month construction commencing upon FID
+RFS Phase 1 = FID + 9 months ",,Pending Site Identification,Pending Site Identification,"Assuming 9 month construction commencing April 2026
+RFS Phase 1 = January 2027","Assuming 9 month construction commencing November 2025
+RFS Phase 1 = August 2026","Assuming 9 month construction commencing January 2026
+RFS Phase 1 = October 2026","Assuming 9 month construction commencing May 2026
+RFS Phase 1 = December 2026","Assuming 9 month construction commencing May 2027
+RFS Phase 1 = December 2027
+This requires further investigation to confirm as this is a 400kV connection","Assuming 9 month construction commencing June 2026
+RFS Phase 1 = March 2027","Assuming 12 month construction commencing December 2025
+RFS Phase 1 = December 2026",Pending Site Identification,"Assuming 9 month construction commencing September 2025
+RFS Phase 1 = March 2026",Pending Site Identification,,"Regional grid will do the work once power is allocated by national grid
+
+Timelines to be investigated
+
+Believe there is an existing 350MW connection which can be used regardless of if acquiring land or the site SPV.",Details TBC - Current focus upon progressing commercial negotiations for land acquisition.,Details TBC - Current focus upon progressing commercial negotiations for land acquisition.,Details TBC - Current focus upon progressing commercial negotiations for land acquisition.,TBC,,,,,,,"Dependent on power delivery timeframe
+
+Soonest 2028",,"Assuming 18 month construction commencing Q3 2025
+ RFS Phase 1 = Q1 2027",,Q3/Q4 27,"Assuming 24 month construction commencing Q2 2026
+ RFS Phase 1 = Q2 2028
+ 
+ Long 24month build mainly caused by 6km Grid construction",Dependent on FID date,,"Assuming 18 month construction commencing Q1 2026
+ RFS Phase 1 = Q3 2027
+
+Likely more time for full FID readiness causing slippage
+
+Entry - 09/25","Assuming 24 month construction commencing Q1 2027
+ RFS Phase 1 = Q1 2029 (2030 for power to be ready)",2MW opertional 6months after FID. 5MW opertional 12 Months after FID.,,,potential-rfs-dates,"Assuming 12 month construction commencing upon FID
+RFS Phase 1 = May 2027","Assuming 9 month construction commencing April 2026
+RFS Phase 1 = January 2027","Assuming 9 month construction commencing November 2025
+RFS Phase 1 = August 2026","Assuming 9 month construction commencing June 2026
+RFS Phase 1 = March 2027","Regional grid will do the work once power is allocated by national grid
+
+Timelines to be investigated
+
+Believe there is an existing 350MW connection which can be used regardless of if acquiring land or the site SPV.",Details TBC - Current focus upon progressing commercial negotiations for land acquisition.,,,,,,,,,,,,,,,,,,,,,,
+Projects,,Can't be imported - do later,project-thumbnail,Project Thumbnail,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,project-thumbnail,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,Contact,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Projects,Project Lead,,project-lead,Project Lead,Daniel Gussias ,Bendik Fostervoll,Daniel Gussias ,Daniel Gussias ,Daniel Gussias ,Daniel Gussias ,Daniel Gussias ,William Tasney ,William Tasney ,William Tasney ,Thomas Beaton,Thomas Beaton,William Tasney ,Jamie Stewart,Thomas Beaton,William Tasney ,Thomas Beaton,Thomas Beaton,Thomas Beaton,Thomas Beaton,Thomas Beaton,,Jamie Stewart,,,Jamie Stewart,Jamie Stewart,Jamie Stewart,Jamie Stewart,Jens Naas-Bibow,Jens Naas-Bibow,Vidar Saltkjel,Vidar Saltkjel,Jens Naas-Bibow,?,?,?,Vidar Saltkjel,Vidar Saltkjel,?,,,project-lead,Daniel Gussias ,William Tasney ,William Tasney ,William Tasney ,Thomas Beaton,,,project_lead,Bifrost Edge AS,Bifrost Edge AS,Bifrost Edge AS,Bifrost Edge / T1 Energy JV,Bifrost Edge Norway,Bifrost Edge AS,Bifrost Edge Sweden,Bifrost Edge Sweden,Bifrost Edge Finland,Bifrost Edge Finland,Bifrost Edge Finland,Bifrost Edge Finland,Bifrost Edge Finland,Bifrost Edge,Bifrost Edge Europe,,,,,Daniel 
+Projects,Agent,,agent,Agent,No agent,No agent,No agent,No agent,No agent,No agent,No agent,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,GIGA-Scale,,,GIGA-Scale,GIGA-Scale,GIGA-Scale,GIGA-Scale,,,,,,,,,,,,,,agent,No agent,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,Peter Sladey - NMG Estonia,,,,,,,,,,,,,,,,,,,,,,N/A
+Site,Key Project Contacts,,key-project-contacts,Key Project Contacts,,,,,,,,"Jussi Heinimo / Mikkeli Development Miksei Ltd / Director of Investment Promotion / +358 40 544 0936
+
+Aikas Topiantti / Mikkeli Municipality / Expert Director / topiantti.aikas@mikkeli.fi
+
+Jarno Sederlund / Fingrid Oyj Grid Services / Customer Manager / Mobile +358 40 519 5071 , Jarno.sederlund@fingrid.fi
+
+Timo Paakki / Mikkeli Development Miksei Ltd / CEO
+
+Lauri Solin / Austa Consulting / lauri.solin@alustaconsulting.fi / Tel. +358 44 704 6281","Jukka Haltilahti / Liperi Municipaility
+
+Pentti Merilainen /  Liperi Municipaility / pentti.merilainen@liperi.fi
+
+Petri Nylund / Viherkaste / petri.nylund@viherkaste.fi","Pauliina Pikkujämsä / Manager for investments and guidance Business Joensuu (Business Joensuu) / pauliina.pikkujamsa@businessjoensuu.fi
+
+Pekka Hirvonen/ Mayor/City director of Kitee / pekka.hirvonen@kitee.fi
+ 
+Kari Siponen / Technical director of Kitee / kari.siponen@kitee.fi
+
+Timo Valkama / DLA Piper Finland / Counsel / M: +358 40 582 1955 timo.valkama@fi.dlapiper.com
+
+","Richard Lahteenmaki / richard.lahteenmaki@krs.fi
+
+Anton Ragnas / anton.ragnas@krs.fi
+
+Lauri Koskinen / lauri.koskinen@krs.fi
+
+Mila Segervall / mila.segervall@krs.fi
+
+Pertti Miettunen / pertti.miettunen@krs.fi
+","Johanna Inkeroinen / johanna.inkeroinen@kemijoki.fi
+
+Ismo Heikkila / ismo.heikkila@kemijoki.fi
+
+Mika Granath / mika.granath@rovaniemi.fi
+
+Pertti Onkalo / pertti.onkalo@rovaniemi.fi","Jarkko.peiponen@kontiolahti.fi
+
+Marja-liisa.sykko@kontiolahti.fi","Paivi Keisu / paivi.keisu@digipolis.fi
+
+Jaakko Mustajarvi / jaakko.mustajarvi@storaenso.com
+
+Jouni Salonen / jouni.salonen@businessfinland.fi
+
+Kimmo Heikka / kimmo.heikka@digipolis.fi
+
+Sami Kortelainen / sami.kortelainen@storaenso.com",Hannu.juopperi@keminmaa.fi,"Peng Zhang - APL Europe - CEO
+
+Miles Farlow - APL Europe - Associate
+
+Ville Leino - Ramboll - Main point of contact
+
+Jarno Sederlund / Fingrid Oyj Grid Services / Customer Manager / Mobile +358 40 519 5071 , Jarno.sederlund@fingrid.fi
+
+Joonas Hänninen / City of Varkaus / Mayor / joonas.hanninen@varkaus.fi +358 40 676 5544
+
+Juoko Laitinen / Navitas / Managing Director / jouko.laitinen@navitas.fi +358 407202401","Miikka.laitinen@tornio.fi
+
+Tero.siivola@tornio.fi",,Ulf.mansson@skelleftea.se,peter.elmlund@utansjoverken.se,Peder Nilsson / peder.nilsson@kalix.se,Erik.fagerstrom@jokkmokk.se,"Fridjon Fridjonsson
+
+Amelia Henning",,,"Edmund Truell
+
+Amelia Henning","Amelia Henning
+
+Identified Key Hire who cannont be disclosed to Scale42","Fridjon Fridjonsson
+
+Amelia Henning",Amelia Henning,,,,,,,Wis Gruppen,,DSO & Landowner - Jämtkraft,,,,,key-project-contacts,,"Jussi Heinimo / Mikkeli Development Miksei Ltd / Director of Investment Promotion / +358 40 544 0936
+
+Aikas Topiantti / Mikkeli Municipality / Expert Director / topiantti.aikas@mikkeli.fi
+
+Jarno Sederlund / Fingrid Oyj Grid Services / Customer Manager / Mobile +358 40 519 5071 , Jarno.sederlund@fingrid.fi
+
+Timo Paakki / Mikkeli Development Miksei Ltd / CEO
+
+Lauri Solin / Austa Consulting / lauri.solin@alustaconsulting.fi / Tel. +358 44 704 6281","Jukka Haltilahti / Liperi Municipaility
+
+Pentti Merilainen /  Liperi Municipaility / pentti.merilainen@liperi.fi
+
+Petri Nylund / Viherkaste / petri.nylund@viherkaste.fi","Jarkko.peiponen@kontiolahti.fi
+
+Marja-liisa.sykko@kontiolahti.fi",Ulf.mansson@skelleftea.se,Erik.fagerstrom@jokkmokk.se,,key_project_contacts,Sindre K.; Vidar S.,Derek W.; Tom J.,,,,,,,,,,,,,,,,,,
+,,,,Primary Land Plot,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Site,Plot Name,,plot-name,Plot Name,"Gnr: 17 Bnr: 320, Bø kommune ",Gjerelvmo,"Gnr: 45 Bnr: 179, Storfjord Municipality",,,Pending Site Identification,Pending Site Identification,Karilla,Sijaintikartta 1,Suorlahden,Lalby,"""Pirttikoski 1""","""Kontiolahti 1""",Veitsiluoto,Pending Site Identification,Ranta-Luttila,Pending Site Identification,,Northvolt Ett,Utansjö Verken,"""Kalix 1""","""Jokkmokk 1""",,,,,,,,Longum,,,,,,,,,,,,,plot-name2,"Gnr: 17 Bnr: 319, Bø Municipality (possible expansion plot) ",Konijärvenkatu,Sijaintikartta 2,"""Kontiolahti 2""",Skelleftea 1,River Bend,,plot_name,Northsafe Primary,Longum-Nord industrial park (MIP) Primary,Kollsnes (Øygarden) Primary,Giga Arctic (Mo i Rana) Primary,Vinje Primary,Sørfold Primary,Östersund (Spikboderna) Primary,Kemi Primary,Mikkeli Primary,Kitee Primary,Lipiri Primary,Kristinestad Primary,Vaasa (Giga Vaasa) Primary,Kristianstad Primary,Milan Primary,,,,,Tjeldbergodden
+Site,Plot Priority,,,Plot Priority,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,,2,2,2,2,2,2,2,2,priority,2,1,1,1,1,3,3,3,3,3,3,3,2,2,4,,,,,Low
+Site,Site Address,,site-address,Site Address,"Steinesjøveien 67, 8470 Bø, Norway","Kobbvassveien 90, 8264 Engan, Norway","Nordlysveien 3465, 9143 Skibotn, Norway","Valan 4, 9750 Honningsvåg, Norway",,Pending Site Identification,Pending Site Identification,"Lahdentie, 50130 Mikkeli, Finland","Puusepänpolku 6, 80400 Liperi, Finland","Teollisuustie 17, 82430 Kitee, Finland","Kristinestad, Finland 64100","Voimalaitostie 153, 97635 Rovaniemi, Finland","Parrutie 13, 80100 Joensuu, Finland","Päätie 50, 94800 Kemi, Finland",Pending Site Identification,"Block 915-6-6050, Ranta-Luttila, Varkaus, Finland",Pending Site Identification,"Laakeritie 22A, 90620 Oulu, Finland","Torsgatan 122, 931 36 Skellefteå, Sweden","Timmervägen 5, 871 97, Härnösand","Vitvattenvägen, 952 41 Kälsjärv, Sweden",Address TBC,,,,,,,,,,,,,,,,,,,,,site-address2,N/A,"EcoSairila
+491-419-1-344
+Konijärvenkatu",Adjoining Sijaintikartta 1,"Kontiolahti, Finland 80710",Newly Identified - Details TBC,"66°38'49.5""N 19°53'25.3""E",,location,"Andøya, Vesterålen","Arendal, Agder","Near Bergen, Øygarden","Mo i Rana, Nordland","Vinje, Telemark","Sørfold, Nordland","Östersund, Jämtland","Kemi, Norrbotten","Mikkeli, Southern Savonia","Kitee, North Karelia","Liperi, North Karelia",Kristianstad (docs: 'Kristenstad'),Vaasa region,"Kristinestad, Ostrobothnia",Milan metro,,,,,
+Site,Location Link,,location-link,Location Link,https://maps.app.goo.gl/oU9BBpJJ1hvxq58RA,https://maps.app.goo.gl/LnKqLDBreevj2ZUN6,https://maps.app.goo.gl/GRzBahhr5VMY3uLg6,https://maps.app.goo.gl/D5DucPUXQgncLpvF8,,Pending Site Identification,Pending Site Identification,https://maps.app.goo.gl/chv2dNNG6ymNGT8m6,https://maps.app.goo.gl/dz6EsgiMCrtSaUxT6,https://maps.app.goo.gl/aEvRjKpVegZfxfsy9,https://maps.app.goo.gl/xM4u7x8DMyR7Fw5D9,https://maps.app.goo.gl/HQEmmXhQ2sum14YP6,https://maps.app.goo.gl/2iQ4XJopEwUiL2Vf6,https://maps.app.goo.gl/5uy7R2vMHRn2Z3hJ7,https://maps.app.goo.gl/wm23kJ7vNPy6Z27A7,https://maps.app.goo.gl/Z1sEn6wZzQkCMqP46,https://maps.app.goo.gl/L5BtTDkKnBAkPCR29,https://maps.app.goo.gl/dMDx6D2py7UoCshS7,https://maps.app.goo.gl/TjdbabvtaQgU6HQU9,https://maps.app.goo.gl/Sj56hTri9Yskcg1x8,https://maps.app.goo.gl/Ja7ripvG1hqv8QVe6,https://maps.app.goo.gl/UvLqgCZwTqBnUQZe6,https://maps.app.goo.gl/6kfuZ1Eiz65SUi8m8,https://maps.app.goo.gl/fYYawXZfJxMPF5NH6,https://maps.app.goo.gl/LDAoSoMoPVMBRZdQ6,,,,,https://maps.app.goo.gl/ktEAL5jJDGnN3DhN6,https://maps.app.goo.gl/GxnEkncyZ3pvYtL88,https://maps.app.goo.gl/EKQvgkV4LaqwaCUq7,https://maps.app.goo.gl/zZfzPdmr8KEqRD1q6,https://maps.app.goo.gl/R7q51E9uPmN71NGv5,https://maps.app.goo.gl/JPz48Zmg7HqPWzFa9,,,https://maps.app.goo.gl/6rjhjyvCzr25h7at7,https://maps.app.goo.gl/VaEVs343FJticSuo8,https://maps.app.goo.gl/6WsSYcFHLekzjPv96,,,location-link2,https://maps.app.goo.gl/wEsL5dD8bNBYQKrV7,https://maps.app.goo.gl/wc9iRctKWdQuomPS6,https://maps.app.goo.gl/52TLk7LHdNtnxCju6,https://maps.app.goo.gl/SpGLzj1UyUYxctVh7,Newly Identified - Details TBC,https://maps.app.goo.gl/G5i74jqVpS6v99T79,,,,,,,,,,,,,,,,,,,,,,
+Projects,Location Link,,location-link,Location Link,https://maps.app.goo.gl/oU9BBpJJ1hvxq58RA,https://maps.app.goo.gl/LnKqLDBreevj2ZUN6,https://maps.app.goo.gl/GRzBahhr5VMY3uLg6,https://maps.app.goo.gl/D5DucPUXQgncLpvF8,,Pending Site Identification,Pending Site Identification,https://maps.app.goo.gl/chv2dNNG6ymNGT8m6,https://maps.app.goo.gl/dz6EsgiMCrtSaUxT6,https://maps.app.goo.gl/aEvRjKpVegZfxfsy9,https://maps.app.goo.gl/xM4u7x8DMyR7Fw5D9,https://maps.app.goo.gl/HQEmmXhQ2sum14YP6,https://maps.app.goo.gl/2iQ4XJopEwUiL2Vf6,https://maps.app.goo.gl/5uy7R2vMHRn2Z3hJ7,https://maps.app.goo.gl/wm23kJ7vNPy6Z27A7,https://maps.app.goo.gl/Z1sEn6wZzQkCMqP46,https://maps.app.goo.gl/L5BtTDkKnBAkPCR29,https://maps.app.goo.gl/dMDx6D2py7UoCshS7,https://maps.app.goo.gl/TjdbabvtaQgU6HQU9,https://maps.app.goo.gl/Sj56hTri9Yskcg1x8,https://maps.app.goo.gl/Ja7ripvG1hqv8QVe6,https://maps.app.goo.gl/UvLqgCZwTqBnUQZe6,https://maps.app.goo.gl/6kfuZ1Eiz65SUi8m8,https://maps.app.goo.gl/fYYawXZfJxMPF5NH6,https://maps.app.goo.gl/LDAoSoMoPVMBRZdQ6,,,,,https://maps.app.goo.gl/ktEAL5jJDGnN3DhN6,https://maps.app.goo.gl/GxnEkncyZ3pvYtL88,https://maps.app.goo.gl/EKQvgkV4LaqwaCUq7,https://maps.app.goo.gl/zZfzPdmr8KEqRD1q6,,https://maps.app.goo.gl/JPz48Zmg7HqPWzFa9,,,https://maps.app.goo.gl/6rjhjyvCzr25h7at7,https://maps.app.goo.gl/VaEVs343FJticSuo8,https://maps.app.goo.gl/6WsSYcFHLekzjPv96,,,location-link2,https://maps.app.goo.gl/wEsL5dD8bNBYQKrV7,https://maps.app.goo.gl/wc9iRctKWdQuomPS6,https://maps.app.goo.gl/52TLk7LHdNtnxCju6,https://maps.app.goo.gl/SpGLzj1UyUYxctVh7,Newly Identified - Details TBC,https://maps.app.goo.gl/G5i74jqVpS6v99T79,,,,,,,,,,,,,,,,,,https://maps.app.goo.gl/edafjwCE2hnp1Ftv8,https://maps.app.goo.gl/RGzMnregeW5duidA9,https://maps.app.goo.gl/QBq1goXn5qrotfMw9,https://maps.app.goo.gl/M2MvbUPQcnAL282w9,https://maps.app.goo.gl/JBLqByTRUFqCtCbK7
+Site,Not Required,,,Lat/ Lon,"68.607358, 14.461009","67.639736, 15.979230","69.337176, 20.350427","71.007008, 25.965891",,,,"61.675848, 27.231060","62.643378, 29.586347","62.097524, 29.928886","62.273057, 21.432200",,"66.336152, 27.143482","65.692448, 24.622775","65.812264, 24.513434","62.345260, 27.848729","65.807664, 24.184217","65.043733, 25.565690","64.740510, 21.095058","62.771293, 17.930392","65.875672, 23.157467","66.606137, 19.854224","65.022834, -14.283983","66.070228, -17.343472","65.683612, -18.152289",,,,,"58.499303352785745, 8.805245578054455","60.55688384731278, 4.883551706830472","66.308681, 14.169722","69.239551, 16.041031",,"61.396989, 7.293033",,,"63.168358, 14.749073","63.217095, 15.194925","63.297629, 13.694532",,,,"68.607427, 14.460597","61.667695, 27.374096","63.643777, 23.584374","62.636681, 29.794523",,"66.651348, 19.885838",,,,,,,,,,,,,,,,,,,,,,
+Site,Location,,,,68.607358;-14.461009,67.639736;-15.979230,69.337176;-20.350427,71.007008;-25.965891,,,,61.675848;-27.231060,62.643378;-29.586347,62.097524;-29.928886,62.273057;-21.432200,,66.336152;-27.143482,65.692448;-24.622775,65.812264;-24.513434,62.345260;-27.848729,65.807664;-24.184217,65.043733;-25.565690,64.740510;-21.095058,62.771293;-17.930392,65.875672;-23.157467,66.606137;-19.854224,65.022834;--14.283983,66.070228;--17.343472,65.683612;--18.152289,,,,,58.499303352785745;-8.805245578054455,60.55688384731278;-4.883551706830472,66.308681;-14.169722,69.239551;-16.041031,,61.396989;-7.293033,,,63.168358;-14.749073,63.217095;-15.194925,63.297629;-13.694532,,,,68.607427;-14.460597,61.667695;-27.374096,63.643777;-23.584374,62.636681;-29.794523,,66.651348;-19.885838,,,,,,,,,,,,,,,,,,,,,,
+Projects,Location,,,,68.607358;-14.461009,67.639736;-15.979230,69.337176;-20.350427,71.007008;-25.965891,,,,61.675848;-27.231060,62.643378;-29.586347,62.097524;-29.928886,62.273057;-21.432200,,66.336152;-27.143482,65.692448;-24.622775,65.812264;-24.513434,62.345260;-27.848729,65.807664;-24.184217,65.043733;-25.565690,64.740510;-21.095058,62.771293;-17.930392,65.875672;-23.157467,66.606137;-19.854224,65.022834;--14.283983,66.070228;--17.343472,65.683612;--18.152289,,,,,58.499303352785745;-8.805245578054455,60.55688384731278;-4.883551706830472,66.308681;-14.169722,69.239551;-16.041031,,61.396989;-7.293033,,,63.168358;-14.749073,63.217095;-15.194925,63.297629;-13.694532,,,,68.607427;-14.460597,61.667695;-27.374096,63.643777;-23.584374,62.636681;-29.794523,,66.651348;-19.885838,,,,,,,,,,,,,,,,,,,,,,
+Site,Maps & Drawings,,maps-&-drawings,Maps & Drawings,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Pending Site Identification,Pending Site Identification,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,,,Insert Link,Insert Link,Insert Link,Insert Link,,,,,,,,,,,,,,maps-&-drawings2,X,X,X,X,X,X,,,,,,,,,,,,,,,,,,,,,,
+Site,Photos & Drone Footage,,photos-&-drone-footage,Photos & Drone Footage,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Pending Site Identification,Pending Site Identification,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,,Insert Link,Insert Link,Insert Link,Insert Link,Insert Link,,,Insert Link,Insert Link,Insert Link,Insert Link,,,,,,,,,Nothing outside of presentation,,,,,photos-&-drone-footage2,X,X,X,X,X,X,,,,,,,,,,,,,,,,,,,,,,
+Site,Physical Inspection Conducted,,physical-inspection-conducted,Physical Inspection Conducted,Yes,Yes,,,,Pending Site Identification,Pending Site Identification,Yes,No,No,No,No,No,No,Pending Site Identification,Yes,No,No,No,No,No,No,,,,,,,,Yes,No,yes,Yes,Yes (Jens),No,No,Yes,No,Yes,No,,,physical-inspection-conducted2,Yes,Yes,No,No,No,No,,,,,,,,,,,,,,,,,,,,,,No
+Site,Size (ha) - Primary Plot,,size-ha,Size (ha) - Primary Plot,0.3,5.5,3,0.4,,Pending Site Identification,Pending Site Identification,26,14,10,240,55,12,190,Pending Site Identification,28,Requested 50ha but muncipality is struggling to find this size so may reduce requirement to 20ha to speed up process and satisfy a first phase.,"5ha, 15,000m2 building rights",117,50,30,50,,10,30,,,,,82 / 34ha easy,12,8.6,1,2.5,6,Estimate 10ha,12,15ha,50ha+ in the area,,,,size-ha2,"1 016,2 m2",12.8,5ha,8 - 15,50ha,100ha,,,,,,,,,,,,,,,,,,20ha,10ha,20ha ,25ha,14ha
+Site,Description,,description,Description,"Flat greenfield land, currently with excess building rubble, adjacent to industrial aquaculture buildings. ",Undulating greenfield site in the centre of a valley with a mix of grassland and natural woodland,"Located within the centre of the Skibotn Fjord, this is a brownfield site with exisiting industrial buildings, surrounded by natural woodland. ","Rough rocky arctic terrain, located on the outskirts of Honningsvag near the airport.",,Pending Site Identification,Pending Site Identification,Flat arable/ forestry mix with topographic differences ~2m ,"Very flat with sporadic woodland close to existing industrial zone, with main road ajacent to site. ","Undulating topography across the site, with sporadic woodland and existing groundworks/ rough ground. ","Large expanse of dense woodland with undulating topography, situated next to a main highway. ",Gently sloping site with sporadic woodland and multiple access roads running through it. Adjacent to 400kv substation & hydropower dam. ,"Flat cleared arable land, adjacent to exisiting industrial area with poor direct access to site, although Highway 6 is <1km from site. ","Flat industrial island sheltered by peninsulas either side, located in the north of Finland",Pending Site Identification,Relatively flat greenfield plot with slight elevations to Northern side. Previously forested but recently trees have all been removed by the city with some subsequent regrowth.,Pending Site Identification,"City based plot centred within industrial region of Oulu, adjacent to multiple 110kv substation. ","Brownfield site, pre-existing industrial building across flattened ground with main road access via multiple entry points, all within 5km of Skelleftea town centre. ",Levelled brownfield plot on the site of an old paper mill next to a harbour.,"Flat, densly forested plot adjacent to both industrial and residential buildings on the outskirts of Kalix, Sweden. ","Large undulating plot mostly covered in native woodland located on the peripherals of the industrial zone of Jokkmokk, with some exisiting clearance work. ",,Industrial site near PCC plant,Urban site with proximity to existing infrastructure,,,,,Green field site with potential to expand to an additional 40ha,Green field,Green field,Tucked inside a secure mountain hall on Andøya—the northernmost island of Norway’s Vesterålen archipelago,,Green field,Brownfield,,Greenfield,Greenfield,Brownfield,,,description2,"Flat plot next to main plot, the plot have a shed on it today",Forested with topographic differences greater than ~10m. ,"Very flat with sporadic woodland close to existing industrial zone, with main road ajacent to site. ","Mixture of dense forestry plantation woodland and arable fields, the site is located between and adjacent to both residential and industrial buildings. ",Newly Identified - Details TBC,"Forested greenfield area appearing relatively flat, but, topographical study and site visit still required.",,description1,“10 MW today; 25 MW with defence fast-track potential”,“285 MW secured for 2027; potential to 1 GW (incl. CCGT+CCS)”,“74 MW grid secured; pathway to ~300 MW”,“60–190 MW available today; 396 MW secure & in queue”,,“50 MW allocated; 50 MW+ expansion potential”,“60–200 MW available; +150 MW potential; strong muni/utility collaboration”,,,,“Temp 60 MW in 6–18 months; 100 MW transformer installed”,“+190 MW in 12–24 months; 500 MW transformer at substation today”,,,,Purchase of a company on brownfield site ,Ex-aluminium factory ,"Forest south west for existing Stora Enso factory, and North east of Hydropower dam",,"Greenfield site near aquaculture industry, strategically placed to utilise exisiting wind power, and future Nuclear power project. "
+Site,Site Drainage,,site-access-&-drainage,Site Access & Drainage,"The site has an exisiting track leading to the plot from the main road and Bo township ~1km away.
+
+A stream runs 100m away to the east of the plot, where water/ run-off may be directed. There existing drainage infrastructure surrounding the adjacent industrial buildings. ","~2.5km from the E6 highway, the site has good access and connections to Bodo. The single track road from the main road to the site is currently used for forestry and quarry machinery so would be suitable for construction phases, however this road may need upgrading to account for operational data centre traffic. 
+
+There are no streams running through the site, however the is a river to the south of the side, where run-off water from the site could be directed. ","The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. 
+
+Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. 
+
+Current brownfield infrastructure is sufficient for drainage concerns. 
+","Set back by ~100m from the main road connecting Honnginsvag town to its airport, the site has good access to the main road, airport and harbour on the island. 
+
+The track leading from the main road to the site is gravel, therefore this will need to be upgraded for traffic of an operational data centre. 
+
+Positioned on a sloping hill, the site doesn't suffer from drainage issues, but will need to be levelled accordingl, with considerations made for both drainage and permafrost regarding the sites Arctic positioning.  ",,Pending Site Identification,Pending Site Identification,"Site is accessed currently from small roads to the North East & South.
+
+The access to the North East would need to be improved and new access implemented from the West over Natural Resources Finland land. The municipality will arrange this. 
+
+The existing access to the South should be improved and used as an emergency access route.
+
+Debtate over who should pay for the Western road connection, us or municipality. Approximate cost is 1mil EUR / km and the distance would be 500m.
+
+There is currently drainage which collects stormwater North of the site and then runs through a channel toward the Western boundary of the site from North to South. This would need addressing.","Site can be accessed by main road adjacent to the South West of the plot.
+
+No upgrades required to exisiting road infastructure, with access easily granted by close proximity to road 505.
+
+There is an existing road access running through the southern portion of the site connecting road 505 to Lentoasemantie.
+
+No visible hydrological features on the site, with the closest drainage existing on the other side of the 505 from the site. 
+ ","Site can be accessed by wide main roads ~140m to the south and west of the plot, although work will need to be conducted to sufficiently connect the main roads to the plot.
+
+Consideration will be needed for the route of access roads regarding the topogaphy, i.e. it might not be suitable for a straight road to access the site from the main road. 
+
+Drainage can be easily managed alongside the levelling of the site, with run-off directed to the north of the site, where there's an existing low-point and drainage.  ","The site has potential for great access, with the 663 highway skirting the southern border of the plot. 
+
+An additional access point could be created to the main road adjacent to the north west of the property. 
+
+Due to the large expanse of this land plot, there are many stream and hydological considerations to be made before site plans can be made. ","The currently selected site has multiple access points, however all are single track (tarmac). Nearest main road is ~600m from the site, so investment into the local infrastructure could be necassary. 
+
+With a gentle slope in the direction of the nearby gorge, drainage/ run-off will not be an issue on site.
+
+",Current access is a concern with only a small one-track road ,"The existing brownfield site has perfect access via main roads at either end of the island, leaving little in terms of required infrastructure upgrades. 
+
+Being flat and adjacent to water bodies, the site has no issue with drainage. ",Pending Site Identification,"The existing brownfield site has access via road to the south of the landplot where utilities are currnetly supplied. A further access road is being developed to the North of the plot.
+
+
+Being flat and adjacent to water bodies, the site has no issue with drainage. ",Pending Site Identification,"The site is supplied with good connections to the city of Oulu, ~5km from the city centre. More locally, the site is adjacent to the main E8 and '20' highways. In addition, the proposed data centre site is less than a 20 minute drive from the regional airport, with good connections to Helsinki (1hr flight time). A large port is also located around 10 minute drive from the site, which also poses signigicant opportunities for subsea fibre cables. 
+
+Regarding drainage, the site has multiple drainage ditches surrounding the site. The site is slightly elevated above the surrounding area, demonstrating a low flood risk. ","Brownfield site with excellent access and connections, three access points, north, east and west. Access points into the site are connected to main roads that then quickly merge onto the main costal highway (E4).
+
+The site is also located ~5km from the centre of Skelleftea, therefore very good access/ connections to local ammenities.
+
+Drainage across the brownfield site is already provisioned for. Unless the site is redeveloped very little consideration is needed regarding site drainage. ","The brownfield site has two points of access, one to the north and the other to the west. The western access point connects directly to the E04 main coastal highway running right the way up and down the Swedish coast.
+
+Along the E04 main coastal highway, the nearest large town is Härnösand, 20 minutes drive from the site. 
+
+Regarding drainage, there is currently exsiting infrastructure to manage drainage, however additional ground surveys might be needed due to the age of the brownfield site. ","Site had good access via the main road that leads to the centre of Kalix proper. Kalix having good access to the E4 main highway, with drive times <1hr to Lulea and Kemi (Finland).
+
+In addition, with exisiting small roads/ tracks, it could be possible to easily increase access via other entry points. 
+
+Regarding drainage, currently the site is covered in natural woodland, however there are a number of small streams that would need to be redirected. In addition there is some boggy ground the plot, so hydrological engineers will need to be employed to assess the impact and mitigations of this terrain. ","The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. 
+
+In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points.
+
+The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks. ",,"Good access to road, port in town 1km. ","Road access, urban site",,,,,Can be challenging - Small lakes,,,,,,Part of an industrial park so should not be serious concern,,Flat area and will require some drainage to be operational. Surrounded by industry on multiple sides so don't expect anything challenging.,"Unprepared, nothing in the area right now",,,,site-access-drainage2,"The site has an exisiting track leading to the plot from the main road and Bo township ~1km away.
+
+A stream runs 100m away to the east of the plot, where water/ run-off may be directed. There existing drainage infrastructure surrounding the adjacent industrial buildings. ","The site is accessed via a hardstanding road which already supports large freight transport for the neighbouring business.
+
+Additional provisions for access roads have been accomodated within the zoning plan but would need to be constructed.
+
+Drainage has not been reviewed in detail as this remains a secondary site option.","Site can be accessed by main road adjacent to the North East of the plot.
+
+No upgrades required to exisiting road infastructure, with access easily granted by close proximity to road 505.
+
+Early preperations have been made to connect a new access road from the site directly to road 505.
+
+Access could be improved by adding an additional entry point into the existing industrial area on the southern boundary of the site.
+
+No visible hydrological features on the site, with the closest drainage existing on the other side of the 505 from the site. 
+ ","The site currently has good main road access points to the east and south of the land plot, with the main highway 6 to the west of the site.
+
+ With the forestry plantation, there are many small gulleys within the site leading to a valley to the north of the site. Groundworks will be able to level this land and install suitable drainage systems that divert run-off water from the site to the valley north of the site. ",Newly Identified - Details TBC,"Access to the plot is via the E45 and then along an access road that
+runs to the North of the site.
+
+Drainage to be investigated",,site_drainage,"Mountain hall, engineered drainage",Standard,,,,,,,,,,,,,,,,,,
+Site,Site Access,,site-access-&-drainage,Site Access & Drainage,"The site has an exisiting track leading to the plot from the main road and Bo township ~1km away.
+
+A stream runs 100m away to the east of the plot, where water/ run-off may be directed. There existing drainage infrastructure surrounding the adjacent industrial buildings. ","~2.5km from the E6 highway, the site has good access and connections to Bodo. The single track road from the main road to the site is currently used for forestry and quarry machinery so would be suitable for construction phases, however this road may need upgrading to account for operational data centre traffic. 
+
+There are no streams running through the site, however the is a river to the south of the side, where run-off water from the site could be directed. ","The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. 
+
+Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. 
+
+Current brownfield infrastructure is sufficient for drainage concerns. 
+","Set back by ~100m from the main road connecting Honnginsvag town to its airport, the site has good access to the main road, airport and harbour on the island. 
+
+The track leading from the main road to the site is gravel, therefore this will need to be upgraded for traffic of an operational data centre. 
+
+Positioned on a sloping hill, the site doesn't suffer from drainage issues, but will need to be levelled accordingl, with considerations made for both drainage and permafrost regarding the sites Arctic positioning.  ",,Pending Site Identification,Pending Site Identification,"Site is accessed currently from small roads to the North East & South.
+
+The access to the North East would need to be improved and new access implemented from the West over Natural Resources Finland land. The municipality will arrange this. 
+
+The existing access to the South should be improved and used as an emergency access route.
+
+Debtate over who should pay for the Western road connection, us or municipality. Approximate cost is 1mil EUR / km and the distance would be 500m.
+
+There is currently drainage which collects stormwater North of the site and then runs through a channel toward the Western boundary of the site from North to South. This would need addressing.","Site can be accessed by main road adjacent to the South West of the plot.
+
+No upgrades required to exisiting road infastructure, with access easily granted by close proximity to road 505.
+
+There is an existing road access running through the southern portion of the site connecting road 505 to Lentoasemantie.
+
+No visible hydrological features on the site, with the closest drainage existing on the other side of the 505 from the site. 
+ ","Site can be accessed by wide main roads ~140m to the south and west of the plot, although work will need to be conducted to sufficiently connect the main roads to the plot.
+
+Consideration will be needed for the route of access roads regarding the topogaphy, i.e. it might not be suitable for a straight road to access the site from the main road. 
+
+Drainage can be easily managed alongside the levelling of the site, with run-off directed to the north of the site, where there's an existing low-point and drainage.  ","The site has potential for great access, with the 663 highway skirting the southern border of the plot. 
+
+An additional access point could be created to the main road adjacent to the north west of the property. 
+
+Due to the large expanse of this land plot, there are many stream and hydological considerations to be made before site plans can be made. ","The currently selected site has multiple access points, however all are single track (tarmac). Nearest main road is ~600m from the site, so investment into the local infrastructure could be necassary. 
+
+With a gentle slope in the direction of the nearby gorge, drainage/ run-off will not be an issue on site.
+
+",Current access is a concern with only a small one-track road ,"The existing brownfield site has perfect access via main roads at either end of the island, leaving little in terms of required infrastructure upgrades. 
+
+Being flat and adjacent to water bodies, the site has no issue with drainage. ",Pending Site Identification,"The existing brownfield site has access via road to the south of the landplot where utilities are currnetly supplied. A further access road is being developed to the North of the plot.
+
+
+Being flat and adjacent to water bodies, the site has no issue with drainage. ",Pending Site Identification,"The site is supplied with good connections to the city of Oulu, ~5km from the city centre. More locally, the site is adjacent to the main E8 and '20' highways. In addition, the proposed data centre site is less than a 20 minute drive from the regional airport, with good connections to Helsinki (1hr flight time). A large port is also located around 10 minute drive from the site, which also poses signigicant opportunities for subsea fibre cables. 
+
+Regarding drainage, the site has multiple drainage ditches surrounding the site. The site is slightly elevated above the surrounding area, demonstrating a low flood risk. ","Brownfield site with excellent access and connections, three access points, north, east and west. Access points into the site are connected to main roads that then quickly merge onto the main costal highway (E4).
+
+The site is also located ~5km from the centre of Skelleftea, therefore very good access/ connections to local ammenities.
+
+Drainage across the brownfield site is already provisioned for. Unless the site is redeveloped very little consideration is needed regarding site drainage. ","The brownfield site has two points of access, one to the north and the other to the west. The western access point connects directly to the E04 main coastal highway running right the way up and down the Swedish coast.
+
+Along the E04 main coastal highway, the nearest large town is Härnösand, 20 minutes drive from the site. 
+
+Regarding drainage, there is currently exsiting infrastructure to manage drainage, however additional ground surveys might be needed due to the age of the brownfield site. ","Site had good access via the main road that leads to the centre of Kalix proper. Kalix having good access to the E4 main highway, with drive times <1hr to Lulea and Kemi (Finland).
+
+In addition, with exisiting small roads/ tracks, it could be possible to easily increase access via other entry points. 
+
+Regarding drainage, currently the site is covered in natural woodland, however there are a number of small streams that would need to be redirected. In addition there is some boggy ground the plot, so hydrological engineers will need to be employed to assess the impact and mitigations of this terrain. ","The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. 
+
+In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points.
+
+The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks. ",,"Good access to road, port in town 1km. ","Road access, urban site",,,,,,,,,,,Part of an industrial park so should not be serious concern,,Access through narrow strip connecting to main road.,Will need significant work to make access to the main roads. Grid/transformer plant from Swedish Statnett is the only road going near the site.,,,,site-access-drainage2,"The site has an exisiting track leading to the plot from the main road and Bo township ~1km away.
+
+A stream runs 100m away to the east of the plot, where water/ run-off may be directed. There existing drainage infrastructure surrounding the adjacent industrial buildings. ","The site is accessed via a hardstanding road which already supports large freight transport for the neighbouring business.
+
+Additional provisions for access roads have been accomodated within the zoning plan but would need to be constructed.
+
+Drainage has not been reviewed in detail as this remains a secondary site option.","Site can be accessed by main road adjacent to the North East of the plot.
+
+No upgrades required to exisiting road infastructure, with access easily granted by close proximity to road 505.
+
+Early preperations have been made to connect a new access road from the site directly to road 505.
+
+Access could be improved by adding an additional entry point into the existing industrial area on the southern boundary of the site.
+
+No visible hydrological features on the site, with the closest drainage existing on the other side of the 505 from the site. 
+ ","The site currently has good main road access points to the east and south of the land plot, with the main highway 6 to the west of the site.
+
+ With the forestry plantation, there are many small gulleys within the site leading to a valley to the north of the site. Groundworks will be able to level this land and install suitable drainage systems that divert run-off water from the site to the valley north of the site. ",Newly Identified - Details TBC,"Access to the plot is via the E45 and then along an access road that
+runs to the North of the site.
+
+Drainage to be investigated",,site_access,Road access; island airport nearby,E18 + port + rail,,,,,,,,,,,,,,,,,,
+Site,Building Rights (%) - Primary Plot,,building-rights,Building Rights (%) - Primary Plot,"25% and 12 meter height, possible to change ","Plot is not detailed regulated yet, % will be decided during regulation
+
+Detailed regulation is the last stage in the zoning process",% will be set under detailregulation to industry,% is selected during building application,,Pending Site Identification,Pending Site Identification,"TBC (somewhere between 50% - 70%). 
+
+If 50% rezoning to 70% would be a quick process","50%, can be raised to 70%",50% - Municipality working on raising this %,"TBC (somewhere between 50% - 70%). 
+
+If 50% rezoning to 70% would be a quick process",Estimated 70% - We can request this in zoning process,50% - 70% (70% can be proposed in the zoning process),TBC,Pending Site Identification,70,Pending Site Identification,~65% (e=0.65),45-50% to be confirmed,TBC,TBC Subject to completion of zoning work,70,,,,,,,,"Infrastructure permit granted 29 Jan 2025
+80%",,,100%,5ha buildable on larger plot - Clarify,,20m height restriction,,50%,,,,,building-rights2,25% and 12m height ,60,"50%, can be raised to 70%",50% - 70%,TBC Subject to completion of zoning work,"13ha ""Buildable"" (13%)",,building_rights___primary_plot,Existing structure,Industrial,,,,,,,,,,,,,,,,,,
+Site,Ownership,,ownership,Ownership,Bergersen Utleie AS (Company) ,Jan Steinar Johansen (Private) ,SKH EIENDOM & INVEST AS (Company) ,John Gunnar Broks (Private) ,,Pending Site Identification,Pending Site Identification,"20ha - Mikkeli Municipality
+6ha - Natural Resources Finland (State Owned)",Lipiri Municipality & Natural Resources Finland (State Owned),Kitee Municipality,Kristinestad Municipality,Hydropower Plant Operator,Municipality,Stora Enso Veitsiluoto Oy,Municipality,City of Varkaus,City of Tornio,Private - Three real estate investors in their late 70s minded to sell.,NorthVolt,Private Landowner,Municapality ,Municipal Owned,,,,,,,,Via Jens's consortium,,FREYR Battery Giga Arctic AS (Norwegian Org. No. 926 089 862),NorthSafe AS,Reinkraft (secured from owner municipality),Luster Municipality,Wis Gruppen,,Jämtkraft,Ostersund municipality,,,,ownership2,Bergersen Utleie AS ,Mikkeli Municipality ,Lipiri Municipality & Natural Resources Finland (State Owned),Municipality Owned,Municipality,Private Landowner,,ownership,Private (Northsafe AS),Option,,,,,,,,,,,,,,Private Landowner,Municipality Owned,Private land owner,Private land owner,Private land owner
+Site,Zoning Status,,zoning-status,Zoning Status,Zoned ,In progress with zoning projected to complete 2025,"Plot is not currently zoned for industry, but dispensation is confirmed in writing. This allows us up to 3 years to zone the plot and can be built upon and used as a datacentre during that time.",Zoned,,Pending Site Identification,Pending Site Identification,"Ongoing by municipality - Expected early 2026, or late 2025 if undertaken privately.",14ha zoning on-going.,"The land is already zoned, but, with a building right % of 50%. The municipality states this could be increased to 70% by way of a deviation permit which the Mayor expects would take 4 weeks.",Zoning ongoing led by the municipality and forecast for completion in November 2025,"Not zoned for DC and likley to take 18-24 months.
+
+Possibility some of the land is already zoned, which could be sufficient and currently investigating.","Not zoned, currently under zoning process with the municipality - Autumn 2025
+
+Alternatively, could be zoned in as little as 6 months if possible to progress under a clean transition permit process.",Zoned,Pending Site Identification,Zoned,Likely to be unzoned land,Zoned TY (industrial use),NorthVolt's land is zoned,50% approx of plot zoned for the existing sawmill. The zoned area should be more than sufficient,Decision on zoning to be completed in 2026.,Zoned,,Zoned,Requires Zoning,,,,,Industrial zoning - check if rezoning is required for data centre,Zoning Complete for industrial BI04 & BI07 - check if rezoning is required for data centre,Zoning Complete for battery factory - check if rezoning is required for data centre,Zoning complete for mountainhall,Zoned DC,Zoning in progress,"Zoning Complete - For industry, might include business which could allow DC",,Zoning Complete,Zoning in Progress,Zoning Complete,Urban/ Industrial TBD,,zoning-status2,Zoned ,Zoned ,Zoned,Underway by muncipality. Completion expected Autumn 2025,Not yet zoned,Zoned,,zoning_status,"Complete; Defence zone Complete; Defence zone,Maintain defence status",Industrial zoning complete Industrial zoning complete,In process In process,Industrial; secured Industrial; secured,TBD TBD,Industrial Industrial,Industrial park Industrial park,TBD TBD,TBD TBD,TBD TBD,Industrial Industrial,Industrial Industrial,Industrial Industrial,TBD TBD,Urban/industrial TBD Urban/industrial TBD,Zoned,Checking,Zoned,Zoned,"Not zoned, 6-12 months to zone to data centre use"
+Site,Heat Off-Take,,heat-off-take,Heat Off-Take,"Potential to collaborate with adjacent aquaculture businesses, or provide heated storage to nearby warehouses","Potential to bring in heat offtakers local to the DC site, or provide heated storage facilities. ","Potential to bring in heat offtakers local to the DC site, or provide heated storage facilities. ","Potential to bring in heat offtakers local to the DC site, or provide heated storage facilities. ",,Pending Site Identification,Pending Site Identification,"District Heating under investigation or direct supply of heat to commercial land being zoned and developed adjacent to the Karilla land plot.
+
+Municipality have offered to open negotiations with local district heating company (ESE) which is majority municipality owned. An LOI from ESE for heat use would improve public support for the project.","Direct supply of heat to the local district heating company or to the nearby greenhouse provider.
+
+Ready to commence detailed discussions with parties",None,"Small District Heating Network in Place, investigations not yet undertaken",None,"Nearby district heating supplying Joensuu has expressed interest to our agent to purchase 25GWh pa of heat.
+
+A district heating connection is relatively nearby owned by Savon Voima",Nearby district heating network and adjacent existing industrial buildings would likely take waste heat from the facility. ,Pending Site Identification,Local district heating company interested to acquire heat with district heating connections adjacent to the site.,District heating requests from City of Tornio and Haparanda,Local district heating company interested to acquire heat with district heating connections ~100m from the site.,"District heating opportunities available with close proximity to large town. 
+
+Additional heat offtaker opportunities could be brought to the exisitng brownfield site. ",None,District heating opportunities available with close proximity to large town. ,"Local district heating system for the town of 5000 inhabitants.
+
+Beginning discussion with local district heating company CEO",,Yes,Yes,,,,,"Waste heat export to Morrow Batteries & Arendal district heating
+
+Long shot but still opportunity",None,Zoning Complete for battery factory - check if rezoning is required for data centre,Air Cooling,None,Primary seawater heatexchange,"Primary seawater heatexchange
+
+Potential land based salmoln farming",None,"Air cooling, possible heat reuse by greenhouse facility. Should check in with Warm and MSE",None,None,,,heat-off-take2,"Potential to collaborate with adjacent aquaculture businesses, or provide heated storage to nearby warehouses",District Heating under investigation but not located closeby to local district heating connection.,Please see comments on Primary land plot as this will be the same.,"Nearby district heating supplying Joensuu has expressed interest to our agent to purchase 25GWh pa of heat.
+
+A district heating connection is relatively nearby owned by Savon Voima","District heating opportunities available with close proximity to large town. 
+
+Additional heat offtaker opportunities could be brought to the exisitng brownfield site. ","Further from local town, however, local district heating may still be possible.",,heat_offtake,Air cooling,Potential district heating,,,,,,,,,,,,,,,,District heating & adjacent factory ,,"Aquaculture company 'Salford', adjacent to site"
+Site,Fibre Connectivity,,fibre-connectivity,Fibre Connectivity,"Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway.
+
+Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. 
+
+James is continuing investigations directly with local fibre providers to obtain more detailed information.
+
+JC - Current State Summary
+Owner of local fibre network: Nord-Salten Kraft Ltd (NSK)
+Administered by: Trollfjord Bredbånd Ltd (TBB)
+Backhaul provider: Altibox (via Signal Bredbånd)
+Latency: ~15ms to Oslo
+Bandwidth Available: Up to 10G (standard), scalable via DWDM
+Redundancy risk: Limited; failover route via Narvik increases latency
+Please see my document for detailed fibre evaluation
+","Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway.
+
+Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. 
+
+James is continuing investigations directly with local fibre providers to obtain more detailed information.","Far North Arcitic Fibre Project is landing in Skibottn as the first connection in Europe.
+
+https://www.farnorthfiber.com/
+
+""Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway.
+
+Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. 
+
+James is continuing investigations directly with local fibre providers to obtain more detailed information.""","Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway.
+
+Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. 
+
+James is continuing investigations directly with local fibre providers to obtain more detailed information.","Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway.
+
+Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. 
+
+James is continuing investigations directly with local fibre providers to obtain more detailed information.",Pending Site Identification,Pending Site Identification,"Initial discussion with local Fibre provider (MPY) 
+
+""Site #2 seems to be built on a lot that currently already holds access to MPY's network. These assessments should be considered as initial and visual interpretations, which will be further defined ones more details on the sites are provided.""   ""The theoretical maximum bandwith is 1Tb (built with 10x100G connections).""
+
+See email 26th February 2025 ","Discussion opened with fibre provider Elisa
+
+Questions asked: 
+-What is the maximum dedicated bandwidth you can provide (e.g., 100
+Gbps, 400 Gbps, 1 Tbps)?
+-Do you offer dark fibre, wavelength services, or dedicated leased lines
+between Välikangas and Helskinki, Kotka, sub-sea interconnectors?
+-What are your latency metrics (ping times) from Välikangas to major hubs
+(Helsinki, Stockholm, Amsterdam, Frankfurt)?
+
+Answers:
+-100G
+-Yes, black fiber exists. WDM for wavelength services, and also dedicated leased lines. So
+it’s a yes for every question.
+-Latency (ping times) is 5-30ms.
+
+Further guidance:
+I received an answer from another fibre company, and they said that black fibre is available. The fibre trunk route goes along road number 502 to Polvijärvi, and a fibre cable junction needs to be made from this trunk route. The connection price depends on the distance between the trunk line and the data centre. When the accurate location of the centre is decided, the cost of the underground data cable can be calculated. Pricing principles are based on how much has to be dug. A rough estimate is for the plot beside the greenhouse, approx. 30 000 €.
+","Municipality contacted local fibre connectivity who confirmed no concerns over fibre availability for the site.
+
+Further investigations to be conducted","A brief report has been received from GlobalConnect which indicates Fibre connectivity is sufficient.
+
+Please reference report in system and meeting notes with GlobalConnect for more detailed information.","Fibre should not be an issue but investigations continue.
+
+Fingrid have stated that access to existing dark fibre connection at their substation should not be a problem. Also the existing Hydropower plant requires resiliant data connectivity for remote operations.",Less than 100m nearby university has redundant high-speed fibre. Also dark fibre availability at Fingrid Substation,"Existing fibre connectivity today sufficient to support data centre (ref existing development) and the existing industries.
+
+Otherwise investigations continue.
+
+Globalconnect has a route around Finland close to this location",Pending Site Identification,"Ranta-Luttila DC is in well positioned site from network connectivity perspective
+● Site would need more investments on the fiber infrastructure, but building the infrastructure should be relatively easy
+● Varkaus DC area has 3 diverse routes to the area:
+○ two by Fingrid OPGW (optical fibre composite overhead ground wires), Dark fiber possibility
+○ one by Telia terrestrial cable
+○ one via VT5
+● DNA and Elisa fiber infrastructures are not that close so additional investments would be required to get their networks connected to Ranta-Luttila
+● There are no network core PoPs close to Varkaus DC so the operators would need to invest to DWDM and MPLS equipment at the site
+● During discussions with the operators they indicated their willingness to invest in the fiber and equipment infra to the planned DC area
+
+See additional info provided by MPY",Pending Site Identification,,Fibre should not be an issue but investigations continue.,"Investigations continue, primary focus on commerical negotiations with landowner.",Investigations continue,Investigations continue,"Icelandic National telecoms company Farice is the main provider of International connectivity in and out of Iceland. Farice is owned by the Arion Bank, Landsvirkjun the national power company of Iceland and the Icelandic state. Farice ehf owns two submarine cables, named DANICE and FARICE-1.
+
+GIGA-Scale42 are trying to engage with Farice to build a replacement or additional fibre line using the GIG ASC HVDC route. ",,,,,,,Fibre Connectivity Existing close to site and capacity: Dual ducts along E-18; dark fibre & initial 2×400 G lit waves,,,,"TBC - Expecting could be challenging
+
+Will be larger connectivity challenges","Connection available, no dark fiber currently","Connection available, no dark fiber currently but available for industrial users in the park and will need strengthening last mile",,"Connection available, no dark fiber currently on site but nearby
+
+telia or Jamkraft","No Fibre currently
+
+Jamkraft / Swedish Statnet will have in the area.
+
+Needs investigation for works necessary","Connection available, no dark fiber currently",,,fibre-connectivity2,Please see comments on Primary land plot as this will be the same.,"Initial discussion with local Fibre provider (MPY) 
+
+""Site #2 seems to be built on a lot that currently already holds access to MPY's network. These assessments should be considered as initial and visual interpretations, which will be further defined ones more details on the sites are provided.""   ""The theoretical maximum bandwith is 1Tb (built with 10x100G connections).""",Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,Fibre should not be an issue but investigations continue.,TBC,,fibre_connectivity,"Available, no dark fibre yet",<5ms to Oslo; multiple providers,"Subsea cable proximity, metro fibre",<8ms to Stockholm; multiple operators,TBD,TBD,Good Nordic fibre routes,TBD,TBD,TBD,TBD,Strong regional fibre,"Strong fibre, <10ms to FLAP",TBD,Major European hub,,,,,"Dark fibre availability ""Nor5ke Viking"",  the site is right next to a subsea fibre landing point https://www.submarinecablemap.com/landing-point/tjeldbergodden-norway"
+Site,Power Connection Methods,,power-connection-methods,Power Connection Methods,"66kV line is running to local substation, Steine Trafostasjon, which is stepped down to 22kV.
+
+Substation is located 1,4 KM to the North East.
+
+There is an existing underground 22kV cable which runs across the site.
+
+We would tap into the existing 22kV cable.","The landplot is adjoining the Gjerelvmo substation directly to the South of the plot.
+
+This substation is fed 132kV and stepped down to 22kV
+
+The overhead lines currently running through the landplot from south to north are 22kV and will be buried. 
+
+We will plan a new 22kV connection connecting to 8xNew breakers at the local substation to supply the required load.","A 7 MW power draw is possible to be implemented in the regional grid without addiitonal measures.
+
+A new transformer will be installed to accommodate the remaining power draw above 7MW.
+
+This assumes a number of investments in the distribution network, such as the establishment of a new feeder from the existing Skibotn substation – dedicated to our consumption. 
+
+A suitable customer interface will be established at our connection point. 
+
+The network infrastructure we develop within the distribution grid will be considered a customer-specific installation. 
+","There is approximately 5,500 kVA of available capacity in the existing 22kV grid feeding the land plot.
+
+For any further increase in capacity beyond this, it will be necessary to replace the main transformers at the Storbukt substation. However, space within the existing building is limited, and cannot accommodate significantly larger transformers. 
+
+As a result, structural expansion of the facility would be required. 
+
+Additionally, the existing 66 kV lines limit the total allowable load, and the maximum feasible transformer size is estimated at approximately 2 x 30 MVA. Upgrades to the distribution network between the Storbukt substation and the project site will also be necessary.","There are currently 110kV overhead lines running through the middle of the landplot. These are to be moved to run along the Eastern Boundary of the site in a new ""power corridor"". Ramboll is conducting a construction feasibility study for this work which will be available in August.
+
+Fingrid have told the municipality that there is up to 250MW of capacity on the 110kV lines. Question whether Fingrid would allocate more than100MW for a single connection on 110kV lines.
+
+Option 1: Direct overhead connection to the 110kV lines which will be adjacent to the site
+
+Option 2: Connect to nearby 110kV substation (750m to North) - ESE Verkko (50MW to 100MW)
+
+Option 3: Construct 1 or 2 x 110kV lines from site to Visulahti substation from the site along the existing powercorridor and overhead lines. Each supporting max 250MW. 
+Visuhlati substation has over 1000MW available with planned upgrades in the next 24 months",Pending Site Identification,Pending Site Identification,"There are currently 110kV overhead lines running through the middle of the landplot. These are to be moved to run along the Eastern Boundary of the site in a new ""power corridor"". Ramboll is conducting a construction feasibility study for this work which will be available in August.
+
+Fingrid have told the municipality that there is up to 250MW of capacity on the 110kV lines. Question whether Fingrid would allocate more than100MW for a single connection on 110kV lines.
+
+Option 1: Direct overhead connection to the 110kV lines which will be adjacent to the site
+
+Option 2: Connect to nearby 110kV substation (750m to North) - ESE Verkko (50MW to 100MW)
+
+Option 3: Construct 1 or 2 x 110kV lines from site to Visulahti substation from the site along the existing powercorridor and overhead lines. Each supporting max 250MW. 
+Visuhlati substation has over 1000MW available with planned upgrades in the next 24 months","110kV substation located adjoining the landplot which can facilitate a 100MW connection.
+
+This can be provided by way of a 60MW temporary overhead cable connection and subsequent underground cable providing a permenant 100MW connection to the local substation.","400m from substation located to the south.
+
+The nearby lines & substation connection can support a 50MW connection at 110kV.
+
+This is likely to be possible via a short time overhead cable connection along the existing 110kV lines.","110kV lines run over the site across the Northern boundary making for an easy connection.
+
+It is suggested that 2 x 110kV connections are planned following the existing power corridor north and connecting to the 110kV substation
+
+Alternative ability to run a single 400kV line along the same power corridor to the same substation.
+
+Substation has an expected capacity of over 1000MW",Direct 400kV or 110kV connection to substation adjoining the land plot and neighbouring hydropower plant.,"110kV substation located adjoining the landplot which we understand can facilitate a 100MW connection.
+
+This can be provided by way of a 60MW temporary overhead cable connection and subsequent underground cable providing a permenant 100MW connection to the local substation.","Existing main grid connection at Fingrid’s Isohaara switch yard (2 x 110 kV)
+
+One of these connections is reserved and the other can support up to 310MW.  much of this capacity is already reserved, clarifying what is available on this line. maybe 50-60MW
+
+Phase 1 would utilise the existing available 110kV connection at the site.
+
+Phase 2 would require an application to connect a new 400kV cable 20km to the Simojoki substation which is likely to take 3-4 years and could supply an additional 600MW.
+
+See detailed report from Ramboll for further information - if building a new 110kV line would be connecting to a much closer substation ",Targetting locations with connectivity to Keminmaa substation which has 2000MW of available capacity,"Existing 110kV substation located 750m to the south of the site with the existing 110kV lines running adjacent to the site.
+
+Fingrid have confirmed capacity is available for a 100MW connection.
+
+This would begin with a temporary overhead connection ready in approximately 6 months and supporting 60MW. This would be replaced by a later underground cable connection directly to the substation supporting the full 100MW load.",Targetting locations with connectivity to Keminmaa substation which has 2000MW of available capacity,,Existing 350MW connection at 130kV is available on site and ready to be used.,Switchyard on the plot for simple connection.,Substation adjoining land plot - 130kV & 220kV,"HV power lines run adjacent to the plot. Project can begin with a powerline connection to the HV power lines which can operate during main connection to substation being constructed approx 3km away to the North
+
+Being confirmed but believe substantial power (>1000MW) available at substation.
+
+Porjus substation","In conversation with Landsirkjun the national power company and Landsnet the national transmission operator.
+
+Guidance received from Landsirkjun that greater availability in the North East of Iceland, possibly in the East. There is significant congestion in the Iceland system but less in the East than the South West.
+
+Deal directly with the TSO and be very clear what we are looking for. The more details we give and the more detailed the question the better answers we can receive.
+
+2x expansions of geothermal plant, options for wind and hydroplants in the North east.",Single 220kv line to substation,Two 132KV lines + 220KV line,,Gas supply identifed for own generation of electricity. ,,,"2 independent grid connections of 132kV
+Substation transformers, 2×400 MVA 132/22 kV yard (expandable to 4)",,132kV,22kV,"22kV - See Pre-FID risks
+
+Close to powerplant with 300MW of generation. 22kV connection and transformers up to 300kV. If we connect directly to 22kV we don't need transformers. So much short circuit capacity being close to generators. Way beyond normal 22kV short circuit capacity. 60kA vs 25kA normal capacity for short circuit protection in switchgear. ",132kV,66kV - 500m from the upgraded substation industrial park has had,,Power confirmed by local grid provider,300kv or 420kV connection,11kV,,,power-connection-methods2,"Tap into the nearby existing 22kV line on the primary land plot.
+
+Further investigation required","New 110kV substation live in 2027 - 1.433km from site to West
+
+Direct 110kV connection to Vishulati substation several km to North along existing overhead line corridor. This can be undertaken by local power provider ESE who are currently planning to upgrade these lines.
+
+New 110kV switchstation live in 2026 - 1 to 2km from site to East which could be connected to when ready
+
+Alternatively 400kV lines run closeby to the site connecting to Visuhlati substation and new 400kV lines could be run from the site to the substation along the existing power corridor enabling connections well above 100MW
+
+Each connection can support a minimum of 50MW (total 100MW) with potential for up to 250MW subject to investigation.
+
+Visuhlati substation has over 1000MW available with planned upgrades in the next 24 months",Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,Newly Identified - Details TBC,"200 MW with Vattenfall. This will be a provided via a dual feed.
+
+Supplied via 2 x 130kV lines which will be installed 3.5km to Valkijaur 130kV substation.
+
+The connection infrastructure will be paid by Vattenfall and does not need to be paid by the incoming
+purchaser.
+
+Purchaser to build 130kV substation on site which will connect to Vattenfall electricity network with a nominal
+voltage of 150kV.
+",,substation_data,"Internal 22kV cable, upgrade 6–12 months","Multiple redundant feeds, 22–132kV",Access via Equinor/Northern Lights CCS hub,"100 MVA transformer, queue secured",TBD,Statnett allocation 50 MW,Planned grid 2027,TBD,TBD,TBD,100 MW transformer,500 MW transformer at substation,Grid secured for 240 MW,TBD,TBD,"Transformers & substation on site
+
+2-3x110kv lines coming into site
+
+",Next to 110 & 400kv power corridor ,"Hydro-dam & substation adjacent (100MW conneciton available)
+
+Uncertain if hydro-dam is running at full power or not
+
+","Transformer station not built, but building permit submitted",Concession to build new substation 132kV/22KV with 3x 50MW transformers. Substation will be connection to Equinors 132/22 Substation with their Transformers. Estimated Capacity total on line is 220MW  (recieved from Salfjord that have spoken to grid company)
+Site,Power Connection Timelines,,power-connection-timelines,Power Connection Timelines,"Subject to current delivery timelines of Switchgear and Transformers which was previously 6 months.
+
+","132kV line is existing and connected to the local substation. Needs a new main transformer at the local substation. New transformer/gas-insulated switchgear/component timeline is likely 2 years and timeline for concession is likely to be approximately 1 year.
+
+Therefore expecting a 3 year timeline but seeking to shorten this through discussions with NVE who give approvals for the concessions to speed up the concession process.
+
+Also connecting the DSO with suppliers we know who can supply transformers more quickly. Where those suppliers are not acceptable to the DSO we will engage domestic electrical engineering firms about recertifying and warranting transformers from alternative suppliers to the DSO.","Needs a new main transformer at the local substation. New transformer/gas-insulated switchgear/component timeline is likely 2 years and timeline for concession is likely to be approximately 1 year.
+
+Therefore expecting a 3 year timeline but seeking to shorten this through discussions with NVE who give approvals for the concessions to speed up the concession process.
+
+Also connecting the DSO with suppliers we know who can supply transformers more quickly. Where those suppliers are not acceptable to the DSO we will engage domestic electrical engineering firms about recertifying and warranting transformers from alternative suppliers to the DSO.","60MW overhead line connections - 6 months
+100MW direct connections -18 to 24 months","We understand that no permits are required by Fingrid for this form of direct connection which should enable a fast process. 
+
+Investigations ongoing as to whether additional bays would need to be constructed at the substation.",Pending Site Identification,Pending Site Identification,"60MW overhead line connections - 6 months
+100MW direct connections -18 to 24 months","60MW overhead line connections - 6 months
+100MW direct connections -18 to 24 months",50MW overhead line connection - 6 months,"60MW overhead line connections - 6 months
+100MW direct connections -18 to 24 months
+
+400kV connection could be subject to different timelines","We understand that no permits are required by Fingrid for this form of direct connection which should enable a fast process. 
+
+Investigations ongoing as to whether additional bays would need to be constructed at the substation.","60MW overhead line connections - 6 months
+100MW direct connections -18 to 24 months","Existing 110kV connection would be near immidiate.
+
+An additional 400kV connection to substation is estimated at 3-4 years.",Pending Site Identification,"60MW overhead line connections - 6 months
+100MW direct connections -18 to 24 months",Pending Site Identification,,Immidiate using existing infrastructure,Should be quick given the existing switchyard on site,TBC,TBC,on 10.07.2025 we werer told by Gunnar at Landsvirkjun that the two 220kv lines are planned to be put through the substation Hryggstekkur in the next couple of years. This will greatly increase flexibility and ability to take power off the lines. ,,,,,,,"Available today: 10 MW temporary 22 kV (2025-27)
+285 MW available 2027; Max expandable: 230 - 400 MW 2030
+
+Lead time for transformers is ~30 months - Need to confirm if these have been ordered.",,NO confirmed timeline,"10MW available at site, internal 22kV cable upgrade needed. 12month leadtime.",If going 22kV could have within Q1-27. Short cirecuit mitigation will require more time,Q1 2028,"No current timeline. Likely 2028 tbc.
+
+2.5yr timeline after connection fee expected",,"60MW Q4 2027, 200MW Q4 2028",2030,"5MW currently avaialable, upgrade to 10MW 12Nonth Lead time",,,power-connection-timelines2,Please see comments on Primary land plot as this will be the same.,TBC - Site remains a secondary option,Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,Newly Identified - Details TBC,Late 2026 - Early 2027,,,,,,,,,,,,,,,,,,,,,,"Currently predicted connection timeline is 2028. Substation need to be connected when Equinor have planned shutdown, this is estimated 2028 and can only happen every second year.  Also dependent on how fast the que would move"
+Site,Power Procurement Status,,power-procurement-status,Power Procurement Status,"Have applied to local grid company
+Passed the maturity test process
+Been placed in Statnet queue
+First in queue for local susbtation
+Awaiting to reach front of queue for main transmission substation ",Have a full power allocation for 50MW approved by Statnet,"Submitted 2x applications splitting capacity to the local grid company
+Passed the maturity test process
+Been placed in Statnet queue
+First in queue for local susbtation
+Awaiting to reach front of queue for main transmission substation","Have applied to local grid company
+Passed the maturity test process
+Been placed in Statnet queue
+First in queue for local susbtation
+Awaiting to reach front of queue for main transmission substation","Seeking direct supply agreement with hydropower plant owner.
+
+Discussions ongoing",Pending Site Identification,Pending Site Identification,Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.,Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.,Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.,Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.,Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.,Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.,Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.,Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.,Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.,Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.,No (needs confirmation with Fingrid and or DSO.,"Dependent upon whether the site SPV or the land is acquired
+
+Subject to further negotiation and investigation","Sent a request for another 30MW within 12 months but not yet confirmed. 
+
+Beyond 30MW likely to join a queue
+
+To be confirmed should land negotiations progress",Once land is secured applications can be made to the TSO for power allocation to be reserved to the project. ,Once land is secured applications can be made to the TSO for power allocation to be reserved to the project. ,,,,"Edmund Truell has extensive connections and land holdings in Valais Canton which has multiple hydroelectic dams supplied by several dams including Grande Dixence Dam which is the tallest gravity dam in the world supplying pressurised water to four power stations totalling installed capacity of 2,069MW. ",,,,285MW in queue currently,,"No, 60MW in conflict, 396MW in queue",,"Been applied for, not yet seen in the queue. No comments from Statnett on maturity requirements as yet","No current confirmation, application in progress","No current confirmation, application in progress by the industrial owners.",,Power confirmed by local grid provider,Power confirmed by local grid provider,,,,power-procurement-status2,Please see comments on Primary land plot as this will be the same.,Not yet being progressed whilst investigations continue on primary site option.,Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,Newly Identified - Details TBC,"Once land is secured applications can be made to the TSO for power allocation to be reserved to the project. 
+
+Otherwise existing application for 200MW may still be valid and actionable if land is acquired with site SPV.",,,,,,,,,,,,,,,,,,,,,,
+Site,Power Availability Confirmation,,power-availability-confirmed-by-fingrid,Power Availability Confirmed By National Operator?,Yes,Yes,Yes,Yes,No - confirmed by local hydropower plant owner.,Pending Site Identification,Pending Site Identification,"No, via municipality and agent",Yes - verbally by Fingrid,"No, via municipality and agent","No, via municipality and agent",Verbally by local Hydropower plant operator,"No, via agent","No, via municipality and agent",Pending Site Identification,Yes,By agent,,By agent and municipality,Agent has seen regional grid confirmation supplied by site owner,Agent has sent a request to FinGrid to confirm power availability directly. Expecting a confirmation within the next 2 months.,Agent sent request (expect response in July/August),,,,,,,,Pending,,396MW confirmed in queue,No,No,No,NO,,Yes reserved 500MW with national grid for this area,No,Power confirmed by local grid provider,,,power-availability-confirmed-by-fingrid2,Please see comments on Primary land plot as this will be the same.,"No, via municipality and agent",Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,By agent and municipality,Agent sent request (expect response in July/August),,power_availability_confirmation,From site profile,From deck,,,,,,,,,,,,,,,,,,"Rough estimates recieved from grid company, required a more detailed conversation to get exact numbers. "
+Site,Acquisition Strategy,,acquisition-strategy,Acquisition Strategy,"We have secured an option agreement for the land which expires on 1st November 2025
+
+This can be renewed for a further 6 months at a cost of 100,000 NOK
+
+At any time during the option we can commence a lease of the site which will include options for us to purchase the site during that lease.","We have a secured option agreement for the land which remains in effect until all zoning and regulatory work is complete.
+
+Upon complete of zoning work we would need to purchase the land which is provisioned for within the option agreement.","We have secured an option agreement for the land which expires on 26th August 2027
+
+At any time during the option we can commence a lease of the site which will include options for us to purchase the site during that lease.",Land already acquired by project partner under a reservation agreement. ,We are currently negotiating the terms of an option agreement and subsequent lease with option to purchase.,Pending Site Identification,Pending Site Identification,"Option 1: Do Nothing - Land will go to public auction in 2026 and we could participate in the public process or use the backup land plot identified.
+
+Option 2: Make a proposal to the municipality to reserve the land for us today. This proposal should include:
+- That we continue the zoning process privately.
+- That the purchase price would be 11.6 EUR - 23 EUR per square metre
+- The site can be rented for up to 30 years at 7.5% of the purchase price with right to purchase at any time
+- Consider whether we wish to pay for the Western Access Road
+- Who would be our zoning consultant
+- Who would be our legal counsel
+- What kind of data centre
+- Who will be the owners
+- What activities will take place at the data centre
+- How much employment will be created
+- Any other considerations
+
+We should engage a zoning consultant prior to the proposal to understand the zoning cost and for additional guidance on the land price proposal. One has been identified
+
+The proposal would then be reviwewed by the city board and then if improved is reffered to the city council for final decision. Once reaching city council this becomes a political decision and public process.","Currently held under informal exclusivity by the municipality for 12 months.
+
+To sercure more formally we should conclude the landplot we wish to acquire and negotiate a land reservation agreeement with the municipality.
+
+This is expected to be at no cost where any zoning work is required. Following completion of zoning work, 7.5% of the purchase price of the site should be paid as a 1 year ""lease/reservation"" fee.
+
+Upon expiry of the 1 year (or earlier if desired) the reservation agreement can be converted into a full secure lease agreement with flexible options to purchase the site at any time included.","Currently negotating a lease agreement.
+
+This would provide for a rent-free period until finalisation of municipal works to prepare and flatten the land plot (September 2025).
+
+This lease will then continue for 10 years with options to purchase the site which can be triggered at any time.","The municipality is finalising internal procedures to allocate the site to Scale42. 
+
+Thiis would be offered at a low cost of 30,000 EUR. This would secure the site until zoning is complete or up to a maximum of 1 year (with possibility to extend by 6 months with municipality consent).
+
+Upon expiry of the 1 year (or earlier if desired) the reservation agreement can be converted into a full secure lease agreement with flexible options to purchase the site at any time included.","Direct agreement is required between Scale42 and the hydropower plant operator.
+
+We are currently answering their questions to satisfy any concerns that a DC could pose risk to the nearby hydropower plant operations.
+
+Once satisfied we would seek to agree a purchase and lease price for the land.
+
+Then aim to agree a lease/option with a rent-free period to cover zoning time. Followed by a paid lease period with options to purchase the land at any time during the lease.","Select a land plot and conclude negotiations with Municipality to allow for a reservation agreement. 
+
+We would aim to negotiate rent-free to support the zoning process which with a clean transition permit could be completed in as little as 6 months.
+
+Full reservation fee: 10% of the selling price €/year
+
+Following completion of zoning work, a lease can commence with options to purchase the site which can be triggered at any time.","Receive all information about the Island and industrial park
+
+Identify preffered plot in Industrial park for data centre development
+
+Undertake detailed DD
+
+Negotiate with StorEnso an agreement to purchase the island and industrial park
+
+Otherwise negotiate to acquire the desired land plot in isolation for DC development.",Pending Site Identification,Land already acquired by project partner under a reservation agreement. ,"To be confirmed upon identification of landplot.
+
+Conclude negotiations with Municipality to allow for a reservation agreement. 
+
+We would aim to negotiate rent-free to support the zoning process which with a clean transition permit could be completed in as little as 6 months.
+
+Following completion of zoning work, a lease can commence with options to purchase the site which can be triggered at any time.","Real Estate and corporate acquisition deal to acquire the site through the GIGA-42 programme. Merge existing data centre operations. Remove non-DC tenant, plan new AI data centre upgrade. ",Commencing investigations and negotiations with administrator and local municipality,Continue negotiations if progress can be made or otherwise break off negotiations and periodically check in with landowner to see if expectations become more reasonable.,"Pressure the municipality to accept us as the chosen DC developer for the project.
+
+Conclude negotiations with Municipality to allow for a reservation agreement. 
+
+Following the reservation period a lease can commence with options to purchase the site which can be triggered at any time.",Negotiate a lease with options to purchase,TBD,,,"Look to E. Truell's existing land interests in the first instance.
+Switzerland allows private wire agreements with power distributors. Valais Canton is an exporter of electricity to more populated areas. 
+
+There are several strategies that could be deployed to access power. 
+1.On-Grid Access - Swissgrid for high-voltage access above 100MW. Regional operators for smaller amounts.
+2. Off-Grid Access - Approach power generators for access to power. 
+
+Off-grid opportunities could be done in conjunction with financing generation capacity expansion. ",,,,Freehold or 50-year ground lease,,"Term sheet describes purchase of 80% of the property SPV for $20m cash from T1 Energy. The SPV owns the lease. Details of the lease to be clarified including, duration, costs, rights and other potential liabilities.",Details to be provided by PM,"Agree terms to acquire from Reinkraft
+
+Is there a planning phase style acquisition lease/option",,Continue negotiations based upon the offer we have received. Probably possible to negotiate a lease or option.,,"Seek to have an option or initial agreement with landowner. Potentially negotiate payment plans. Landowner cautious of exclusivity due to EcoDC.
+
+Otherwise purchase site and proceed.",Succceed in Spikboderna or building there will get support for this site from the municipality.,,,,acquisition-strategy2,Decide if this is required in addition to or instead of the primary land plot before proceeding to an option agreement,"Currently held under a reservation agreement.
+Valid with about 4 months remaining before renewal required for a further 6 months.
+After expiry, must progress a lease or purchase of the site",Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,"Continue discussions to establish if the site is desired. 
+
+If desired seek to negotiate a reservation agreement with the municipality to cover the zoning timeline.
+
+Following zoning process reservation agreement can convert into a lease with options to purchase the site.",Negotiate cost of acquisition with the current private landowner,,,,,,,,,,,,,,,,,,,,,,Partnership with Salford (aquaculture company) to deliver an AI data centre that provides waste heat to Salford at a discounted rate.  
+Site,Zoning Strategy,,zoning-strategy,Zoning Strategy,"The land is already zoned for the correct use.
+
+We have understood the application process to increase the building right % and are investigating the timeline to do so.","The land is currently regulated for LNF and is being rezoned to allow data centre use. 
+
+We have been previously guided by the municipality that zoning is likely to be completed in Q1 27. This is being undertaken with assistance from ABO Plan & Arkitektur.
+
+Due to engagement of new lobbying partners and positive meetings between them and the mayor we expect that the zoning could be resolved in a faster process (possibly up to 12 months faster).",DISP inplace (with full political support). Zoning will take about 1 year from when the process starts. Zoning needs to be complete before new election (2027),Zoned,,Pending Site Identification,Pending Site Identification,"It is suggested to engage a zoning consultant. A well-reputed zoning consultant with good ties to the local municipality has been identified. ""Austa Consulting"". We will be reaching out to them shortly to discuss a scope of work and fees.","Area plan has been prepared but zoning would need to be done
+
+We would seek to engage a zoning consultant familiar with working on commercial projects in this municipality.
+
+We would look to confirm the zoning costs and timeline prior to instructing that work to proceed.","The land is already zoned, but, with a building right % of 50%. The municipality states this could be increased to 70% by way of a deviation permit which the Mayor expects would take 4 weeks.",Underway by the municipality with completion of zoning work forecast for November 2025.,"We would seek to engage a zoning consultant familiar with working on commercial projects in this municipality.
+
+We would look to confirm the zoning costs and timeline prior to instructing that work to proceed.","Await the municipality to finish their current zoning process
+
+Amend the zoning as required using a clean transition permit",Site has correct zoning,Pending Site Identification,Site has correct zoning,"We expect this site would be eligible for a green transition permit which would satisfy zoning requirements in an estimated 6 months.
+
+Should a clean transition permit not be possible we would anticipate a full zoning process likely to take 24 months.
+
+A zoning consultant will be engaged to investigate and advise on these points.",,Site has correct zoning,Should not be required,Decision on zoning to be completed in 2026. only then will they decide who gets the project,Zoned,Political led approach starting with possitive discussions and support from the Icelanding Ministry of Finance.,,,,,,,Check industrial zoning sufficient for DC,,,,N/A,,Check the industrial zoning status for DC,,N/A,Wait for municipality to complete zoning,,,,zoning-strategy2,Please see comments on Primary land plot as this will be the same.,Currently zoned for correct use,Not Required - Already Zoned,The existing zoning process set for completion in Autumn 2025 can still be amended if required. Otherwise awaiting completion of the ongoing muncipal zoning works.,Fresh zoning process required. Perhaps less than 12 months with municipal support (as specified by municipality),Zoned for DC use,,,,,,,,,,,,,,,,,,,,,,To be discussed with Salfjord if they will take on the process of regulation or if this will be done by S42. 
+Site,Building Permit Strategy,,building-permit-strategy,Building Permit Strategy,"We would look to use ABO Plan & Arkitektur or Boarch to prepare and submit building permits prior to construction beginning.
+
+Commencing investigations into the time and cost of this. Expect building permits to take a couple of months.","We have been guided by the municipality that building permits can be submitted early to be approved at the same time as the zoning is completed.
+
+We would look to use ABO Plan & Arkitektur or Boarch to prepare and submit building permits prior to construction beginning.
+
+Commencing investigations into the time and cost of this. Expect building permits to take a couple of months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.",Technical consultant Ramboll has been instructed to prepare and submit the building permits. Including technical design at a cost of 60k EUR. Short form building permits are being submitted at the end of June with approval expected by municipality end of September 2025.,,Pending Site Identification,Pending Site Identification,"A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.",Technical consultant Ramboll has been instructed to prepare and submit the building permits. Including technical design at a cost of 60k EUR. Short form building permits are being submitted at the end of June with approval expected by municipality end of September 2025.,"A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.",,"A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.",,,,,,,,Local consultant/parnter and prepare/submit,,, Infrastructure permit in place. Refurbished and prepared for DC development, Infrastructure permit in place. Refurbished and prepared for DC development,,Find a local consultant and submit,,Work with local partner to prepare and submit building permit & environmental permit. For environmental permit use the one which ecoDC used. Municipality mentioned the company EcoDC used locally. Be good to identify and use them.,Work with local partner to prepare and submit building permit & environmental permit. For environmental permit use the one which ecoDC used. Municipality mentioned the company EcoDC used locally. Be good to identify and use them.,,,,building-permit-strategy2,Please see comments on Primary land plot as this will be the same.,"To be prepared by a consultant and submitted should we proceed with the site over Karilla. 
+
+Possibility to use a short-form building permit if acceptable to Fingrid
+
+Estimated timeframe 4 months",Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,"A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.","A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.",,building_permit_strategy,Refurbishment permits in place,Standard municipal,,,,,,,,,,,,,,,,,,
+Site,Power Procurement Strategy,,power-procurement-strategy,Power Procurement Strategy,"Awaiting to reach front of queue for main transmission substation 
+
+Maintain contact with the local municipality and grid company.
+
+Followed by KVU & KPU study and payment of infrastructure contribution.","50MW has been secured for the site, with an additional 50MW in the que.","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated for a new 400kV line. 
+
+The existing line 110kV line would not require a connection application.","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated. ",,Pending Site Identification,Pending Site Identification,"Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated. ","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated. ","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated. ","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated. ","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated. ","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated. ","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated for a new 400kV line. 
+
+The existing line 110kV line would not require a connection application.","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated. ","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated. ","Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated. ",,"Dependent upon whether the site SPV or the land is acquired
+
+Subject to further negotiation and investigation",To be confirmed should land negotiations progress,Once land is secured applications can be made to the TSO for power allocation to be reserved to the project. ,Once land is secured applications can be made to the TSO for power allocation to be reserved to the project. ,,,,,,,,"Chase up the 285MW application. 
+
+When to submit for the 515MW? (+230MW) ",,,"25 MW National Défense interest could FastTrack power expansion.
+
+Internal 22kV cable upgrade needed with a 6-12month lead time",Chase up current application for queue position and maturity test,,"Make application to owners (acting as DSO) to receive power from their allocation.
+
+Not sure if they have an area concession.",,"Submit connection fee
+
+Ideal would be to buy or get options to more power. Potentially the EcoDC power. Concern is that EcoDC sells their site to someone who takes that power and more.",Submit connection application. Direct connection to Swedish statnet,,,,power-procurement-strategy2,Please see comments on Primary land plot as this will be the same.,"Upon reciept of a building permit we can submit a connection application to Fingrid for immidiate reservation of power.
+
+During building permit process our team or consultants should engage Fingrid to plan the site connection.",Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,"Upon securing the land, apply for power allocation
+
+70MW fast allocation possible
+
+Join waiting list in Sweeden for capacity above 70MW",Dependent on whether a new application is required or if the existing 200MW agreement with Vatenfall can be revived by acquiring the site SPV.,,power_procurement_strategy,Sovereign offtake + grid allocations,Statnett + CHP/CCS optional,,,,,,,,,,,,,,,,,,
+Site,Power Provider,,power-provider,Power Provider,Vestall AS ,Kystnett AS ,Arva AS ,Area Nett AS ,,Pending Site Identification,Pending Site Identification,FinGrid / ESE Verkko,FinGrid,FinGrid,FinGrid,FinGrid,FinGrid,FinGrid,FinGrid,FinGrid,FinGrid,Fingrid (TSO) and Oulun Energia Sähköverkko Oy (DSO),Skellefteå Kraft,Eon,Vattenfall,Vattenfall,,,,,,,,Glittranet,,,,"Vinje Kraftwerks - Powerplant, connection partner
+Maybe municipality tbc for direct connection.",,"Wis Gruppen as connection
+Vatten as power company",,Jämtkraft,"Swedish TSO
+Power provider still likely to be Jamkraft",,,,power-provider2,Please see comments on Primary land plot as this will be the same.,FinGrid possible option to go through ESEVarko (local grid co) - Depending on route chosen,Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,Skellefteå Kraft,Vattenfall,,,,,,,,,,,,,,,,,,,,,,Mellom AS
+Site,Power Connection Costs,,power-connection-costs,Power Connection Costs,Estimated cost of 7.075m NOK for infrastructure contribution plus our costs involved in the connection,Latest estimate received from our advisors was approx 15m USD for a 50MW infrastructure contribution toward a 22kV connection plus our costs involved in the connection.,"2.3mil EUR per 400kV connection plus cost of construction.
+
+No cost expected to use the existing 110kV connection.","2 585 000 NOK (2,28MW) ",,Pending Site Identification,Pending Site Identification,900k EUR per 110kV connection plus the cost of construction.,900k EUR per 110kV connection plus the cost of construction.,900k EUR per 110kV connection plus the cost of construction.,"900k EUR per 110kV connection plus the cost of construction.
+
+2.3mil EUR per 400kV connection plus cost of construction.",2.3mil EUR per 400kV connection plus cost of construction.,900k EUR per 110kV connection plus the cost of construction.,"2.3mil EUR per 400kV connection plus cost of construction.
+
+No cost expected to use the existing 110kV connection.",Pending Site Identification,900k EUR per 110kV connection plus the cost of construction.,"900k EUR per 110kV connection plus the cost of construction.
+
+2.3mil EUR per 400kV connection plus cost of construction.",,TBC,TBC,TBC,TBC,,,,,,,,800mil NOK expected for 285MW,,,,TBC,,TBC,,3mil SEK / MW,Too early,,,,power-connection-costs2,Please see comments on Primary land plot as this will be the same.,900k EUR per 110kV connection plus the cost of construction.,Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,Newly Identified - Details TBC,TBC,,,,,,,,,,,,,,,,,,,,,,Nothing yet recieved
+Site,Fibre Provider ,,fibre-provider,Fibre Provider ,"Telenor
+Altibox",Nord-Salten Kraft AS,Global Connect likely best positioned to provide,"MPY
+Telia
+VT5
+DNA
+Elisa
+Fiber Highway Finland Oy
+GlobalConnect
+Suomen Erillisverkot
+Valoo",,Pending Site Identification,Pending Site Identification,MPY,Elisa,Elisa,Global Connect,TBC,TBC,Global Connect likely best positioned to provide,Pending Site Identification,"MPY
+Telia
+VT5
+DNA
+Elisa
+Fiber Highway Finland Oy
+GlobalConnect
+Suomen Erillisverkot
+Valoo",Global Connect - Confirm,,"Skellefteå kraft fibernät AB
+Global connect AB
+Tele2 AB
+Telia Company AB",TBC,TBC,TBC,TBC,,,,,,,"Telenor, GlobalConnect, Sikt, Altibox Telecommunications, Telia, Telenor",,,"Connection available, no dark fiber currently",TBC,,"Norske likely provider
+Telinor
+GlobalConnect",,Telia or Jämtkraft,Telia or Jämtkraft,,,,fibre-provider2,Please see comments on Primary land plot as this will be the same.,MPY,Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,Newly Identified - Details TBC,TBC,,,,,,,,,,,,,,,,,,,,,,Probably a good start to talk to this company https://www.n0r5kefibre.com/
+Site,Fibre Connection Costs,,fibre-connection-costs,Fibre Connection Costs,TBC,TBC,TBC,TBC,,Pending Site Identification,Pending Site Identification,TBC,TBC,TBC,TBC,TBC,TBC,TBC,TBC,TBC,TBC,,TBC,TBC,TBC,TBC,TBC,,,,,,,TBC,,,,TBC,,,,TBC - Estimate something like 1mil SEK,TBC - Estimate something like 10mil SEK,,,,fibre-connection-costs2,Please see comments on Primary land plot as this will be the same.,TBC,Please see comments on Primary land plot as this will be the same.,Please see comments on Primary land plot as this will be the same.,Newly Identified - Details TBC,TBC,,,,,,,,,,,,,,,,,,,,,,
+Site,Price / sqm,,price-sqm,Price / sqm,1800 NOK per sqm,30 NOK per sqm,1600 NOK per sqm ,150 NOK per sqm,,Pending Site Identification,Pending Site Identification,Expected in the range of 23 EUR psm subject to proposal from us, ,3 EUR,TBC upon completion of zoning. Expected in the range of 3EUR - 10EUR per square metre,Subject to negotiation,8-12 €/m2 is estimated. To be confirmed by municipality technical board.,TBC,TBC,5 EUR per square metre,Pending Site Identification,,Subject to negotiation,2mil EUR approx (pay off landowners loan) maybe more. Wanted 2k SEK per MWh initially,TBC - Expecting up to 5EUR psm (normal pricing in North Sweden 2.5 Eur psm),TBC - Expecting up to 5EUR psm (normal pricing in North Sweden 2.5 Eur psm),TBC,,,,,,,,,,,,,,,1000 NOk psm,TBD and depends on size of plot / work required,,,,price-sqm2,Expect same per square metre price as the primary plot,€4.61,Expected 5 EUR per square metre,8-12 €/m2 is estimated. To be confirmed by municipality technical board.,Newly Identified - Details TBC,Under negotiation,,,,,,,,,,,,,,,,,,,,,,
+Site,Lease Rate (per annum),,lease-rate-per-annum-per-sqm,Lease Rate (per annum),900 000 NOK ,NA,300 NOK per sqm ,NA,,Pending Site Identification,Pending Site Identification,"7.5% of purchase price annually - €412,500 pa",Expected 7.5% of purchase price,"11,250 EUR",7.5% of purchase price annually,Subject to negotiation,5% of purchase price,TBC,TBC,"105,000 EUR per annum",Pending Site Identification,"Current Lease Rate to 2 tenants: Empower Oy €4,200-€5,100/month, Aurora DC terms undisclosed",Subject to negotiation,Subject to negotiation,TBC,TBC,TBC,,,,,,,,,TBC,,,,,,,,,,,lease-rate-per-annum-per-sqm2,Expect same per square metre price as the primary plot,"€43,470.00",Expected 7.5% of purchase price,5% of purchase price,Newly Identified - Details TBC,To be discussed,,,,,,,,,,,,,,,,,,,,,,
+Site,Purchase Price,,purchase-price,Purchase Price,5 878 620 NOK (Groundwork included) ,1 650 000 NOK (Dont have to buy the whole plot) ,45 636 000 NOK (Dont have to buy whole plot) ,590 535 NOK,,Pending Site Identification,Pending Site Identification,"€5,500,000.00",TBC,"200,000 EUR",TBC subject to completion of zoning,Subject to negotiation,TBC,TBC,TBC,1.4mil EUR,Pending Site Identification,,Subject to negotiation,Subject to negotiation,TBC,TBC,TBC,,,,,,,,,$20m,,,,,,,,,,,purchase-price2,Expect same per square metre price as the primary plot,"€579,600.00",TBC,TBC,Newly Identified - Details TBC,15mil EUR - Under negotiation,,,,,,,,,,,,,,,,,,10m EUR - under negotiation ,3-10 EUR per m2 ,Land prices near Russian border have gone down a lot. ,,
+Site,Fees,,fees,Fees,None,"Lobbying partners: Upon successful completion of the zoning process
+- 2% SPV shares
+- 25k USD / MW in fees
+Payable upon the SPV receiving development capital",None,None,None,Pending Site Identification,Pending Site Identification,"Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)",,"Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)",,,,,,,,,,,,,,,,,,,,,fees2,Please see comments on Primary land plot as this will be the same.,"Agents fees: 
+10% of 1 year rent or 1% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees:
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+
+Plus 2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)",,,,,,,,,,,,,,,,,,"Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)","Agents fees: 
+10% of 1 year rent or 2% of land purchase price (on signing of land contract) 
+plus 
+2,500 EUR / MW (on signing of power contract)",,N/A
+Site,Outline Project Timeline,,outline-project-timeline,Outline Project Timeline,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,,N/A,N/A,N/A,N/A,,,,,,,,,,,,,,,,,,,,,outline-project-timeline2,N/A,N/A,N/A,N/A,N/A,,,,,,,,,,,,,,,,,,,,,,,
+Site,Next Steps,Updates feild?,next-steps,Next Steps,Awaiting to reach front of queue for main transmission substation,"Await progress within the zoning process. 
+
+Political meetings are expected to be held in June to better explain the project to local politicians.",Agree price for site with Stora Enso.,Await submission and approval of short form building permit in September 2025.,,Currently searching for suitable land plot,Currently searching for suitable land plot,"Engage zoning consultant
+Submit proposal to municipality",On hold whilst progressing more attractive site opportunity in Kontiolahti.,Continue to negotiate and agree lease agreement,"Awaiting
+
+-Confirmation we will reserve the landplot (June 25)
+-Zoning to be confirmed by municipality (Q4 25)",Continue to answer questions of the landowner before negotiating commercial terms.,"Conclude which is the desired landplot and if this project is desired over ""Lipiri DC"" which would compete for the same power.",Agree price for site with Stora Enso.,Find a suitable site within the area. ,Await submission and approval of short form building permit in September 2025.,Identify a suitable plot,"Grid capacity inquiry, geotechnical survey, legal due diligence, tenant engagement",Continue discussions with the municipality and bankruptcy lawyer,Continue negotiations,"Await the opening of the land reservation proceedure, currently being developed by the Kalix Municipality. 
+
+Pressure municipality to provide an immidiate allocation of the land reservation to us.",Continue negotiations with the local municipality for the land plot. Municipal board discussing our interest to purchase the whole land plot.,"-16/06 (WT) , upcoming call in next 2 weeks with Landsnet/Landsgrovek? on potential site locations. still need to identify land area. isolated down to 4 locations. matt and Jamie have the names of the locations",,,,,,,"Check industrial zoning
+follow up on 285MW application
+Understand 400kV transformer status or power delivery timeline.",,TBC,,"Acquisition structure
+Chase power application
+Surveys & studies
+Fibre investigations
+Short Circuit challenges",,"Clarify zoning
+Progress negotiations for landplot
+Clarify power application process",,"Getting a good dialogue with Jämtkraft who is the key player in the area. Struggling a little bit with the sales guy there.
+
+Dialogue key considering EcoDC changes.",Maintain dialogue and progress on Spikboderna,,,,next-steps2,Decide if this is required in addition to or instead of the primary land plot before proceeding to an option agreement,Conclude whether the primary site option is the target to be acquired.,On hold whilst progressing more attractive site opportunity in Kontiolahti.,"Conclude which is the desired landplot and if this project is desired over ""Lipiri DC"" which would compete for the same power.",Learn more information about this site and decide if we wish to progress with this plot over NorthVolt,Peter should get pricing week of 18/08/25 ,,next_project_steps,"Upgrade transformers, secure offtake, confirm defence fast-track","Secure further plots, FEED prep, integrate CCS/CCGT","Finalise BI04/BI07 land, secure power, marketing collaterals","Integration with T1 Energy, scale roadmap to 1 GW",Identify land & secure permits,FID prep 2026,"Secure land, permits, fibre commitments",Site diligence & power negotiation,Site diligence,Site diligence,FID prep 2026,"FID prep, secure long-term PPA","FID prep, grid tie-in with Fingrid",Site diligence,Feasibility and partner engagement,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,Design Component List,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

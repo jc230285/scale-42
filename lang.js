@@ -11,7 +11,6 @@
     '/':    '/no/',
     '/index.html':    '/no/index.html',
     '/capabilities/':    '/no/capabilities/',
-    '/careers/':    '/no/careers/',
     '/datacenters/':    '/no/datacenters/',
     '/datacenters/glomfjord/':    '/no/datacenters/glomfjord/',
     '/datacenters/bakki/':    '/no/datacenters/bakki/',

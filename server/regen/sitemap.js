@@ -14,30 +14,14 @@ function run() {
   const today = new Date().toISOString().slice(0, 10);
 
   const urls = [];
-  // Top-level pages
-  const topPages = ['', 'datacenters/', 'news/', 'capabilities/', 'team/'];
-  for (const p of topPages) {
-    urls.push({ loc: `${BASE}/${p}`, alt: `${BASE}/no/${p}` });
-  }
-  // Per-site detail
-  for (const s of sites.filter(x => x.published)) {
-    const slug = siteSlug(s);
-    urls.push({ loc: `${BASE}/datacenters/${slug}/`, alt: `${BASE}/no/datacenters/${slug}/` });
-  }
-  // Per-news post
-  for (const n of news.filter(x => x.published)) {
-    urls.push({ loc: `${BASE}/news/${n.slug}/`, alt: `${BASE}/no/news/${n.slug}/` });
-  }
+  const topPages = ['', 'datacenters/', 'news/', 'solutions/', 'sustainability/', 'partners/', 'about-us/', 'privacy/'];
+  for (const p of topPages) urls.push({ loc: `${BASE}/${p}` });
+  // Per-site detail and per-news article pages intentionally omitted (kept noindex) until further notice.
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${urls.map(u => `  <url>
-    <loc>${u.loc}</loc>
-    <lastmod>${today}</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="${u.loc}"/>
-    <xhtml:link rel="alternate" hreflang="nb" href="${u.alt}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${u.loc}"/>
-  </url>`).join('\n')}
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map(u => `  <url><loc>${u.loc}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
 </urlset>
 `;
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), xml, 'utf-8');

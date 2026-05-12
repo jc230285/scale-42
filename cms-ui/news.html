@@ -5,6 +5,31 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>News &mdash; Scale42 CMS</title>
 <link rel="stylesheet" href="cms.css" />
+<style>
+  .wysiwyg { border: 1px solid var(--line, #d6dde2); border-radius: 8px; overflow: hidden; background: #fff; }
+  .wysiwyg-toolbar { display: flex; flex-wrap: wrap; gap: 4px; padding: 6px 8px; background: #f4f6f8; border-bottom: 1px solid var(--line, #d6dde2); }
+  .wysiwyg-toolbar button { background: #fff; border: 1px solid transparent; border-radius: 4px; padding: 4px 9px; font-size: 13px; cursor: pointer; line-height: 1.4; color: #1c2e3f; font-family: inherit; min-width: 28px; }
+  .wysiwyg-toolbar button:hover { border-color: #1c2e3f; }
+  .wysiwyg-toolbar button.active { background: #1c2e3f; color: #fff; }
+  .wysiwyg-toolbar .sep { width: 1px; background: var(--line, #d6dde2); margin: 2px 4px; }
+  .wysiwyg-area { min-height: 320px; max-height: 520px; overflow-y: auto; padding: 22px 28px; font-family: 'Commissioner', system-ui, sans-serif; font-size: 17px; line-height: 1.7; color: #1c2e3f; outline: none; }
+  .wysiwyg-area:focus { outline: none; }
+  .wysiwyg-area p { font-size: 17px; line-height: 1.7; margin: 0 0 18px; }
+  .wysiwyg-area p.lead { font-size: 20px; line-height: 1.55; font-weight: 400; margin: 0 0 24px; padding: 0 0 18px; border-bottom: 1px solid #e6ecef; }
+  .wysiwyg-area h2 { font-family: 'Lexend', system-ui, sans-serif; font-size: 26px; letter-spacing: -0.015em; margin: 32px 0 14px; font-weight: 600; line-height: 1.2; }
+  .wysiwyg-area h3 { font-family: 'Lexend', system-ui, sans-serif; font-size: 20px; margin: 28px 0 10px; font-weight: 600; line-height: 1.25; }
+  .wysiwyg-area blockquote { margin: 24px 0; padding: 16px 22px; border-left: 4px solid #2f6675; background: #f4f6f8; font-family: 'Lexend', system-ui, sans-serif; font-size: 19px; line-height: 1.45; font-weight: 500; border-radius: 0 6px 6px 0; }
+  .wysiwyg-area ul, .wysiwyg-area ol { font-size: 17px; line-height: 1.65; padding-left: 22px; margin: 0 0 18px; }
+  .wysiwyg-area li { margin: 6px 0; }
+  .wysiwyg-area li::marker { color: #2f6675; }
+  .wysiwyg-area strong { font-weight: 600; }
+  .wysiwyg-area a { color: #2f6675; border-bottom: 1px solid rgba(47,102,117,0.35); text-decoration: none; }
+  .wysiwyg-area:empty::before { content: 'Write the article body…'; color: #99a4ad; pointer-events: none; }
+  .wysiwyg-source { width: 100%; min-height: 320px; padding: 14px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; border: 0; resize: vertical; outline: none; }
+  .wysiwyg.source-mode .wysiwyg-area { display: none; }
+  .wysiwyg.source-mode .wysiwyg-source { display: block !important; }
+  .wysiwyg.source-mode .wysiwyg-toolbar button:not([data-cmd="source"]) { opacity: 0.4; pointer-events: none; }
+</style>
 </head>
 <body>
 <header class="cms-nav">
@@ -12,8 +37,11 @@
   <nav>
     <a href="/cms/people.html">People</a>
     <a href="/cms/sites.html">Sites</a>
+    <a href="/cms/developers.html">Partners</a>
     <a href="/cms/news.html">News</a>
     <a href="/cms/sections.html">Sections</a>
+    <a href="/cms/journey.html">Journey</a>
+    <a href="/cms/audit.html">Audit</a>
     <a href="/signatures/" target="_blank">Signatures</a>
     <a href="/cms/account.html">Account</a>
     <a href="/" target="_blank">View site &rarr;</a>
@@ -121,6 +149,8 @@
         read_time: original.read_time || '',
         image: original.image || '', alt: original.alt || '',
         excerpt_en: original.excerpt_en || '', excerpt_no: original.excerpt_no || '',
+        subtitle: original.subtitle || '', tags: original.tags || '',
+        source_html: original.source_html || '', body_html: original.body_html || '',
         featured: get('featured'), published: get('published'),
       });
     });
@@ -163,6 +193,42 @@
               <label>Image alt text</label>
               <input type="text" id="m-alt" value="${escAttr(p.alt)}" />
             </div>
+            <div>
+              <label>Subtitle (shown under headline in hero)</label>
+              <input type="text" id="m-subtitle" value="${escAttr(p.subtitle || '')}" placeholder="One-line summary shown under H1" />
+            </div>
+            <div>
+              <label>Tags (comma-separated)</label>
+              <input type="text" id="m-tags" value="${escAttr(p.tags || '')}" placeholder="Kitee, Finland, North Karelia" />
+            </div>
+            <div>
+              <label>Source credit HTML (optional)</label>
+              <input type="text" id="m-source" value="${escAttr(p.source_html || '')}" placeholder='As reported by &lt;a href="..."&gt;Outlet&lt;/a&gt;' />
+            </div>
+            <div style="grid-column:1/-1">
+              <label>Article body</label>
+              <div class="wysiwyg" id="m-body-editor">
+                <div class="wysiwyg-toolbar">
+                  <button type="button" data-cmd="bold" title="Bold (Ctrl+B)"><strong>B</strong></button>
+                  <button type="button" data-cmd="italic" title="Italic (Ctrl+I)"><em>I</em></button>
+                  <span class="sep"></span>
+                  <button type="button" data-cmd="lead" title="Lead paragraph (large intro)">Lead</button>
+                  <button type="button" data-cmd="p" title="Paragraph">¶</button>
+                  <button type="button" data-cmd="h2" title="Heading">H2</button>
+                  <button type="button" data-cmd="h3" title="Subheading">H3</button>
+                  <span class="sep"></span>
+                  <button type="button" data-cmd="quote" title="Blockquote">❝</button>
+                  <button type="button" data-cmd="ul" title="Bulleted list">• List</button>
+                  <button type="button" data-cmd="link" title="Insert link (Ctrl+K)">🔗</button>
+                  <button type="button" data-cmd="unlink" title="Remove link">⌫</button>
+                  <span class="sep"></span>
+                  <button type="button" data-cmd="source" title="Toggle HTML source" id="m-body-source-toggle">&lt;/&gt;</button>
+                </div>
+                <div class="wysiwyg-area" id="m-body-rich" contenteditable="true"></div>
+                <textarea class="wysiwyg-source" id="m-body_html" style="display:none">${escText(p.body_html || '')}</textarea>
+              </div>
+              <p style="font-size:12px;color:#666;margin:6px 0 0">Leave blank to keep the existing per-slug page untouched. When filled, regen rebuilds <code>/news/&lt;slug&gt;/index.html</code> from the template.</p>
+            </div>
           </div>
           <div class="modal-foot">
             <button class="btn" data-modal-close>Cancel</button>
@@ -174,6 +240,87 @@
     const close = () => { root.innerHTML = ''; };
     root.querySelector('[data-modal-overlay]').addEventListener('click', (e) => { if (e.target === e.currentTarget) close(); });
     root.querySelectorAll('[data-modal-close]').forEach(b => b.addEventListener('click', close));
+
+    // ---- WYSIWYG ----
+    const wys = document.getElementById('m-body-editor');
+    const rich = document.getElementById('m-body-rich');
+    const src = document.getElementById('m-body_html');
+    rich.innerHTML = src.value || '';
+    const syncSourceFromRich = () => { src.value = rich.innerHTML; };
+    const syncRichFromSource = () => { rich.innerHTML = src.value || ''; };
+    rich.addEventListener('input', syncSourceFromRich);
+    src.addEventListener('input', () => {});
+
+    function wrapSelectionTag(tag, cls) {
+      document.execCommand('formatBlock', false, tag);
+      if (cls) {
+        const sel = window.getSelection();
+        if (!sel.rangeCount) return;
+        let node = sel.anchorNode;
+        while (node && node !== rich && node.nodeType !== 1) node = node.parentNode;
+        while (node && node !== rich && node.tagName && node.tagName.toLowerCase() !== tag) node = node.parentNode;
+        if (node && node !== rich) {
+          // Strip any existing class on sibling p/blockquote not matching
+          if (tag === 'p') {
+            // Clear lead class on others
+            rich.querySelectorAll('p.lead').forEach(p => p.classList.remove('lead'));
+          }
+          node.className = cls;
+        }
+      }
+    }
+
+    wys.querySelectorAll('.wysiwyg-toolbar button').forEach(btn => {
+      btn.addEventListener('mousedown', (e) => e.preventDefault()); // keep selection
+      btn.addEventListener('click', () => {
+        const cmd = btn.dataset.cmd;
+        if (cmd === 'source') {
+          if (wys.classList.contains('source-mode')) {
+            syncRichFromSource();
+            wys.classList.remove('source-mode');
+          } else {
+            syncSourceFromRich();
+            wys.classList.add('source-mode');
+          }
+          return;
+        }
+        rich.focus();
+        switch (cmd) {
+          case 'bold': document.execCommand('bold'); break;
+          case 'italic': document.execCommand('italic'); break;
+          case 'p': wrapSelectionTag('p'); break;
+          case 'h2': wrapSelectionTag('h2'); break;
+          case 'h3': wrapSelectionTag('h3'); break;
+          case 'quote': wrapSelectionTag('blockquote'); break;
+          case 'lead': wrapSelectionTag('p', 'lead'); break;
+          case 'ul': document.execCommand('insertUnorderedList'); break;
+          case 'link': {
+            const url = prompt('Link URL', 'https://');
+            if (url) document.execCommand('createLink', false, url);
+            // Apply target=_blank rel=noopener to last link
+            const links = rich.querySelectorAll('a');
+            const lastLink = links[links.length - 1];
+            if (lastLink && lastLink.getAttribute('href') === url) {
+              lastLink.setAttribute('target', '_blank');
+              lastLink.setAttribute('rel', 'noopener');
+            }
+            break;
+          }
+          case 'unlink': document.execCommand('unlink'); break;
+        }
+        syncSourceFromRich();
+      });
+    });
+
+    rich.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        const url = prompt('Link URL', 'https://');
+        if (url) document.execCommand('createLink', false, url);
+        syncSourceFromRich();
+      }
+    });
+
     document.getElementById('m-apply').addEventListener('click', () => {
       const p2 = data.posts[idx];
       p2.excerpt_en = document.getElementById('m-excerpt_en').value;
@@ -182,6 +329,12 @@
       p2.date_no = document.getElementById('m-date_no').value;
       p2.read_time = document.getElementById('m-read_time').value;
       p2.alt = document.getElementById('m-alt').value;
+      p2.subtitle = document.getElementById('m-subtitle').value;
+      p2.tags = document.getElementById('m-tags').value;
+      p2.source_html = document.getElementById('m-source').value;
+      // Sync rich → source one last time if we're in WYSIWYG mode
+      if (!wys.classList.contains('source-mode')) syncSourceFromRich();
+      p2.body_html = document.getElementById('m-body_html').value;
       setDirty(true); render(); close();
     });
   }

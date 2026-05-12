@@ -8,9 +8,7 @@
 <style>
   .toolbar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:12px; }
   .toolbar .grow { flex:1; }
-  #totals { display:flex; gap:18px; flex-wrap:wrap; background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px 16px; font-size:13px; }
-  #totals strong { color: var(--ink); }
-  .scroll-wrap { overflow:auto; border: 1px solid var(--line); border-radius: 10px; background: #fff; max-height: calc(100vh - 240px); }
+  .scroll-wrap { overflow:auto; background: #fff; }
   table.grid { border-collapse: separate; border-spacing: 0; }
   table.grid th, table.grid td { border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); padding: 0; vertical-align: top; background: #fff; }
   table.grid .label-col { background: #fafbfc; position: sticky; left: 0; z-index: 5; min-width: 200px; max-width: 200px; }
@@ -22,7 +20,19 @@
   table.grid .group-row td::before { content: '▾'; margin-right: 8px; display: inline-block; transition: transform 0.1s; }
   table.grid .group-row.collapsed td::before { transform: rotate(-90deg); }
   table.grid .group-row .group-internal-tag { background: #fef3e0; color: #a35c00; padding: 1px 7px; border-radius: 999px; font-size: 10px; margin-left: 8px; font-weight: 600; }
+  table.grid tr.internal-field td { background: #fdecec; }
+  table.grid tr.internal-field td.label-col { background: #fbdbdb; }
+  table.grid tr.internal-field td.label-col .field-label { color: #8a1c1c; }
+  .strat-pill { display: inline-block; margin-top: 6px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; background: #6b7780; }
+  .strat-going-to-3rd-party- { background: #b9923a; }
+  .strat-giga-42-responsibility { background: #2f6675; }
+  .strat-development-focus { background: #2e7d32; }
+  .strat-later-stage-project { background: #5b6e7d; }
+  .strat-bin-the-project { background: #b3261e; }
+  .strat-who-the-fuck-knows { background: #7e57c2; }
   table.grid .site-col { min-width: 240px; max-width: 280px; }
+  table.grid th.site-col.not-public, table.grid td.not-public { background: #fef2f2; }
+  table.grid th.site-col.not-public { box-shadow: inset 0 -3px 0 #dc2626; }
   table.grid thead .header-cell { padding: 8px; background: #fafbfc; position: sticky; top: 0; z-index: 6; }
   table.grid thead .header-cell .reorder { display: flex; gap: 2px; justify-content: center; margin-bottom: 4px; }
   table.grid thead .header-cell .reorder button { background: transparent; border: 1px solid var(--line); border-radius: 4px; cursor: pointer; padding: 1px 6px; font-size: 10px; color: var(--ink-2); }
@@ -54,14 +64,17 @@
   .ms-row:first-child { border-top: none; }
 </style>
 </head>
-<body>
+<body class="sites-fullscreen">
 <header class="cms-nav">
   <a class="cms-brand" href="/cms/">Scale42 CMS</a>
   <nav>
     <a href="/cms/people.html">People</a>
     <a href="/cms/sites.html" class="active">Sites</a>
+    <a href="/cms/developers.html">Partners</a>
     <a href="/cms/news.html">News</a>
     <a href="/cms/sections.html">Sections</a>
+    <a href="/cms/journey.html">Journey</a>
+    <a href="/cms/audit.html">Audit</a>
     <a href="/signatures/" target="_blank">Signatures</a>
     <a href="/cms/account.html">Account</a>
     <a href="/" target="_blank">View site &rarr;</a>
@@ -71,13 +84,8 @@
   <div class="editor-head">
     <h1>Sites</h1>
     <span class="meta" id="dirty-meta">No unsaved changes</span>
-    <span class="meta" id="last-published" style="margin-left:12px;color:var(--ink-2);font-size:12px;"></span>
-  </div>
-  <p class="lede">Sites along the top, fields down the left. Click a column image to upload. <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);vertical-align:middle"></span> blue dot = public field. Click a group header to collapse it.</p>
-
-  <div class="toolbar">
-    <div id="totals"></div>
-    <span class="grow"></span>
+    <span class="meta" id="last-published" style="color:var(--ink-2);font-size:12px;"></span>
+    <span class="grow" style="flex:1"></span>
     <label style="display:flex;gap:6px;align-items:center;font-size:13px;color:var(--ink-2);"><input type="checkbox" id="hide-internal"/> Hide internal fields</label>
     <button class="btn add" id="btn-add">+ Add site</button>
   </div>
@@ -89,6 +97,7 @@
 
 <div class="footer-bar">
   <button class="btn" id="btn-reload">Discard changes</button>
+  <div id="totals" class="footer-totals"></div>
   <span class="status-msg" id="status"></span>
   <span class="grow"></span>
   <button class="btn primary" id="btn-save">Save draft</button>
@@ -101,8 +110,8 @@
 <script>
 (async function() {
   const $ = (id) => document.getElementById(id);
-  let data = { sites: [] }, schema = null, dirty = false;
-  let hideInternal = localStorage.getItem('hideInternal') === '1';
+  let data = { sites: [] }, schema = null, dirty = false, developers = [];
+  let hideInternal = localStorage.getItem('hideInternal') === null ? true : (localStorage.getItem('hideInternal') === '1');
   let collapsedGroups = JSON.parse(localStorage.getItem('collapsedGroups') || '{}');
 
   const setDirty = (v) => { dirty = v; $('dirty-meta').textContent = v ? 'Unsaved changes' : 'No unsaved changes'; };
@@ -147,6 +156,20 @@
       const opts = (f.options || []).map(o => `<option value="${escAttr(o)}"${v === o ? ' selected' : ''}>${escText(o)}</option>`).join('');
       return `<select ${dataAttrs}><option value=""></option>${opts}</select>`;
     }
+    if (f.type === 'combo') {
+      const listId = `dl-${f.key}`;
+      let options = f.options || [];
+      if (f.sortByUsage) {
+        const usage = new Map();
+        for (const s of data.sites) { const x = s[f.key]; if (x) usage.set(x, (usage.get(x) || 0) + 1); }
+        const used = [...usage.entries()].sort((a, b) => b[1] - a[1]).map(e => e[0]);
+        const rest = options.filter(o => !usage.has(o));
+        const extras = used.filter(u => !options.includes(u));
+        options = [...used, ...extras, ...rest];
+      }
+      const opts = options.map(o => `<option value="${escAttr(o)}"></option>`).join('');
+      return `<input type="text" list="${listId}" ${dataAttrs} value="${escAttr(v)}" /><datalist id="${listId}">${opts}</datalist>`;
+    }
     if (f.type === 'toggle') {
       return `<div class="toggle-cell"><input type="checkbox" ${dataAttrs} ${v ? 'checked' : ''} /></div>`;
     }
@@ -157,6 +180,14 @@
       const arr = Array.isArray(v) ? v.join(', ') : (v || '');
       return `<input type="text" ${dataAttrs} value="${escAttr(arr)}" placeholder="comma, separated" />`;
     }
+    if (f.type === 'multiselect_developers') {
+      const selected = new Set(Array.isArray(v) ? v : []);
+      const opts = developers.map(d =>
+        `<label style="display:flex;gap:6px;align-items:center;font-size:12px;padding:2px 0;"><input type="checkbox" value="${escAttr(d.id)}"${selected.has(d.id) ? ' checked' : ''}> ${escText(d.name)}</label>`
+      ).join('');
+      const summary = [...selected].map(id => (developers.find(d => d.id === id) || {}).name || id).join(', ') || '— none';
+      return `<details ${dataAttrs} style="font-size:12px;"><summary style="cursor:pointer;color:var(--ink-2);">${escText(summary)}</summary><div style="padding:6px 0;">${opts || '<em>No developers configured. <a href="/cms/developers.html">Add some →</a></em>'}</div></details>`;
+    }
     if (f.type === 'study' || f.type === 'permit') {
       const summary = v && (v.status || v.date) ? `${v.status || ''} ${v.date ? '· ' + v.date : ''}` : '— click to edit';
       return `<div class="complex-cell" data-complex="${f.type}" data-cidx="${sIdx}" data-ckey="${f.key}"><span class="summary">${escText(summary)}</span></div>`;
@@ -164,6 +195,10 @@
     if (f.type === 'milestones') {
       const n = Array.isArray(v) ? v.length : 0;
       return `<div class="complex-cell" data-complex="milestones" data-cidx="${sIdx}" data-ckey="${f.key}"><span class="summary">${n} milestone${n === 1 ? '' : 's'} — click to edit</span></div>`;
+    }
+    if (f.type === 'links') {
+      const n = Array.isArray(v) ? v.length : 0;
+      return `<div class="complex-cell" data-complex="links" data-cidx="${sIdx}" data-ckey="${f.key}"><span class="summary">${n} link${n === 1 ? '' : 's'} — click to edit</span></div>`;
     }
     if (f.type === 'table') {
       const n = Array.isArray(v) ? v.length : 0;
@@ -179,9 +214,11 @@
     const status = site.status || 'tbd';
     const pillCls = site.published ? status : 'draft';
     const pillTxt = site.published ? status : 'draft';
-    const img = site.image
-      ? `<img src="/assets/sites/${escAttr(site.image)}" />`
-      : '+ image';
+    // Tolerate both bare filenames ("foo.jpg") and full paths ("assets/sites/foo.jpg" or "/assets/sites/foo.jpg")
+    const imgSrc = site.image
+      ? (/^\/?assets\//.test(site.image) ? '/' + site.image.replace(/^\/+/, '') : '/assets/sites/' + site.image)
+      : null;
+    const img = imgSrc ? `<img src="${escAttr(imgSrc)}" />` : '+ image';
     return `
       <div class="reorder">
         <button data-act="up" data-ridx="${idx}" title="Move left">◀</button>
@@ -191,6 +228,7 @@
       <div class="img-wrap" data-img-idx="${idx}">${img}</div>
       <div class="name">${escText(site.name || '(unnamed)')}</div>
       <div class="meta"><span class="pill ${pillCls}">${escText(pillTxt)}</span><span>${escText(site.country || '')}</span></div>
+      ${site.strategic_status ? `<div class="strat-pill strat-${escAttr(site.strategic_status.replace(/[^a-z0-9]/gi,'-').toLowerCase())}" title="Strategic status">${escText(site.strategic_status)}</div>` : ''}
     `;
   }
 
@@ -200,7 +238,8 @@
 
     let html = '<thead><tr><th class="label-col header-cell" style="z-index:7;"><div style="padding:8px;"><strong>Field</strong></div></th>';
     data.sites.forEach((s, i) => {
-      html += `<th class="site-col header-cell">${siteHeader(s, i)}</th>`;
+      const np = s.published ? '' : ' not-public';
+      html += `<th class="site-col header-cell${np}">${siteHeader(s, i)}</th>`;
     });
     html += '</tr></thead><tbody>';
 
@@ -222,7 +261,8 @@
       </tr>`;
       if (isCollapsed) continue;
       for (const f of fields) {
-        html += `<tr class="field-row">`;
+        const rowCls = f.public ? 'field-row' : 'field-row internal-field';
+        html += `<tr class="${rowCls}">`;
         html += `<td class="label-col"><div class="field-label">${fieldDot(f)} ${escText(f.label)}</div></td>`;
         data.sites.forEach((s, i) => {
           html += `<td>${renderCell(s, i, f)}</td>`;
@@ -242,7 +282,13 @@
       const t = el.dataset.type;
       if (!data.sites[i]) return;
       let v;
-      if (el.type === 'checkbox') v = el.checked;
+      if (t === 'multiselect_developers') {
+        // Guard: if the developers list hasn't loaded (no checkboxes rendered),
+        // don't overwrite the existing value — preserves saved selections on race.
+        if (el.querySelectorAll('input[type=checkbox]').length === 0) return;
+        v = Array.from(el.querySelectorAll('input[type=checkbox]:checked')).map(cb => cb.value);
+      }
+      else if (el.type === 'checkbox') v = el.checked;
       else if (t === 'tags') v = el.value.split(',').map(s => s.trim()).filter(Boolean);
       else if (el.type === 'number') v = el.value === '' ? null : parseFloat(el.value);
       else v = el.value;
@@ -267,6 +313,17 @@
             <button type="button" data-mrm="${i}" style="background:transparent;border:none;color:#b3261e;cursor:pointer;font-size:14px;">✕</button>
           </div>`).join('')}</div>
         <button class="btn" id="ms-add" style="margin-top:8px;">+ Add milestone</button>
+      </div>`;
+    } else if (type === 'links') {
+      const arr = Array.isArray(site[key]) ? site[key] : (site[key] = []);
+      body = `<div>
+        <div id="lk-rows">${arr.map((l, i) => `
+          <div class="lk-row" data-li="${i}" style="display:grid;grid-template-columns:1fr 2fr 30px;gap:8px;align-items:center;border-top:1px dashed #e5e8eb;padding-top:6px;">
+            <input data-lk="title" placeholder="Title" value="${escAttr(l.title)}" />
+            <input data-lk="url" placeholder="https://..." value="${escAttr(l.url)}" />
+            <button type="button" data-lrm="${i}" style="background:transparent;border:none;color:#b3261e;cursor:pointer;font-size:14px;">✕</button>
+          </div>`).join('')}</div>
+        <button class="btn" id="lk-add" style="margin-top:8px;">+ Add link</button>
       </div>`;
     } else if (type === 'study' || type === 'permit') {
       const o = (site[key] && typeof site[key] === 'object') ? site[key] : {};
@@ -302,6 +359,9 @@
     } else if (type === 'table') {
       $('t-add')?.addEventListener('click', () => { const o={}; JSON.parse(cols).forEach(c=>o[c]=''); site[key].push(o); openComplexModal(idx,key,type,cols); });
       root.querySelectorAll('[data-trm]').forEach(b => b.addEventListener('click', (e) => { site[key].splice(parseInt(e.currentTarget.dataset.trm),1); openComplexModal(idx,key,type,cols); }));
+    } else if (type === 'links') {
+      $('lk-add')?.addEventListener('click', () => { site[key].push({title:'',url:''}); openComplexModal(idx,key,type,cols); });
+      root.querySelectorAll('[data-lrm]').forEach(b => b.addEventListener('click', (e) => { site[key].splice(parseInt(e.currentTarget.dataset.lrm),1); openComplexModal(idx,key,type,cols); }));
     }
 
     $('cx-save').addEventListener('click', () => {
@@ -325,13 +385,49 @@
         const arr = [];
         rows.forEach(r => { const o = {}; colArr.forEach(c => o[c] = r.querySelector(`[data-tk="${c}"]`).value); arr.push(o); });
         site[key] = arr;
+      } else if (type === 'links') {
+        const rows = root.querySelectorAll('.lk-row');
+        const arr = [];
+        rows.forEach(r => arr.push({
+          title: r.querySelector('[data-lk=title]').value,
+          url: r.querySelector('[data-lk=url]').value,
+        }));
+        site[key] = arr.filter(l => l.title || l.url);
       }
       setDirty(true); close(); render();
     });
   }
 
   document.addEventListener('input', (e) => { if (e.target.closest('#grid [data-key]')) setDirty(true); });
-  document.addEventListener('change', (e) => { if (e.target.closest('#grid [data-key]')) setDirty(true); });
+  document.addEventListener('change', (e) => {
+    const cell = e.target.closest('#grid [data-key]');
+    if (!cell) return;
+    if (cell.dataset.key === 'published' && e.target.checked === false) {
+      const sIdx = parseInt(cell.dataset.s, 10);
+      const slug = (data.sites[sIdx]?.slug) || (data.sites[sIdx]?.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      checkInboundLinks(slug).then(refs => {
+        if (refs.length) {
+          const ok = confirm('⚠ This site is referenced in:\n\n' + refs.join('\n') + '\n\nUnpublishing will leave dead links. Continue?');
+          if (!ok) { e.target.checked = true; return; }
+        }
+        setDirty(true);
+      });
+    } else {
+      setDirty(true);
+    }
+  });
+  async function checkInboundLinks(slug) {
+    if (!slug) return [];
+    const refs = [];
+    try {
+      const news = await (await fetch('/content/news.json')).json();
+      for (const n of (news.items || news.posts || news)) {
+        const body = JSON.stringify(n);
+        if (body.includes('/datacenters/' + slug + '/')) refs.push('news: ' + (n.slug || n.title || n.id));
+      }
+    } catch {}
+    return refs;
+  }
 
   document.addEventListener('click', (e) => {
     const groupRow = e.target.closest('.group-row');
@@ -383,29 +479,37 @@
     }
   });
 
+  function fmtAgo(iso) {
+    const dt = new Date(iso);
+    const ago = Math.round((Date.now() - dt.getTime()) / 60000);
+    if (ago < 1) return 'just now';
+    if (ago < 60) return `${ago} min ago`;
+    if (ago < 1440) return `${Math.round(ago/60)} h ago`;
+    return dt.toLocaleDateString() + ' ' + dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
   async function loadMeta() {
     try {
       const r = await fetch('/api/published-meta');
       if (!r.ok) return;
       const m = await r.json();
-      const info = m.sites;
-      if (info?.at) {
-        const dt = new Date(info.at);
-        const ago = Math.round((Date.now() - dt.getTime()) / 60000);
-        const txt = ago < 60 ? `${ago} min ago` : ago < 1440 ? `${Math.round(ago/60)} h ago` : dt.toLocaleDateString();
-        $('last-published').textContent = `Last published: ${txt}${info.by ? ' by ' + info.by : ''}`;
-      } else {
-        $('last-published').textContent = 'Never published';
-      }
+      const draft = m.sites_draft;
+      const pub = m.sites;
+      const parts = [];
+      if (draft?.at) parts.push(`Draft: ${fmtAgo(draft.at)}${draft.by ? ' by ' + draft.by : ''}`);
+      else parts.push('No draft saved');
+      if (pub?.at) parts.push(`Published: ${fmtAgo(pub.at)}${pub.by ? ' by ' + pub.by : ''}`);
+      else parts.push('Never published');
+      $('last-published').textContent = parts.join(' · ');
     } catch {}
   }
 
   async function load() {
     setStatus('Loading…');
-    const [r1, r2] = await Promise.all([fetch('/api/sites'), fetch('/api/sites-schema')]);
+    const [r1, r2, r3] = await Promise.all([fetch('/api/sites'), fetch('/api/sites-schema'), fetch('/api/developers')]);
     if (!r1.ok || !r2.ok) { setStatus('Load failed', 'err'); return; }
     data = await r1.json();
     schema = await r2.json();
+    developers = (r3.ok ? (await r3.json()).developers : []) || [];
     loadMeta();
     render();
     setDirty(false); setStatus('');
@@ -420,6 +524,7 @@
     if (!r2.ok) { setStatus('Saved locally; draft commit failed', 'err'); setDirty(false); return true; }
     setDirty(false); setStatus('Saved to draft branch', 'ok');
     renderTotals();
+    loadMeta();
     return true;
   }
 

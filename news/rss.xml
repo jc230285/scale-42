@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scale42 — News</title>
+    <link>https://www.scale-42.com/news/</link>
+    <atom:link href="https://www.scale-42.com/news/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Updates from Scale42 — Nordic AI &amp; HPC data centre infrastructure.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 May 2026 10:53:24 GMT</lastBuildDate>
+    <item>
+      <title>Scale42 and GIG plan 50 MW data centre in Iceland</title>
+      <link>https://www.scale-42.com/news/bakki-iceland-50mw/</link>
+      <guid isPermaLink="true">https://www.scale-42.com/news/bakki-iceland-50mw/</guid>
+      <pubDate>Mon, 01 Sep 2025 23:00:00 GMT</pubDate>
+      <description>Coverage in Data Centre Dynamics on the Bakki joint venture and its initial capacity.</description>
+    </item>
+    <item>
+      <title>GIG forms strategic partnership with Scale-42 through GIGA Holdings</title>
+      <link>https://www.scale-42.com/news/gig-strategic-partnership/</link>
+      <guid isPermaLink="true">https://www.scale-42.com/news/gig-strategic-partnership/</guid>
+      <pubDate>Mon, 01 Sep 2025 23:00:00 GMT</pubDate>
+      <description>Joint venture creating an integrated energy and digital infrastructure platform across the Nordics.</description>
+    </item>
+    <item>
+      <title>Public statement on strategic partnership</title>
+      <link>https://www.scale-42.com/news/public-statement-partnership/</link>
+      <guid isPermaLink="true">https://www.scale-42.com/news/public-statement-partnership/</guid>
+      <pubDate>Mon, 28 Apr 2025 23:00:00 GMT</pubDate>
+      <description>GIG Ltd and Scale42 announce advanced discussions for a joint venture focused on integrated infrastructure.</description>
+    </item>
+    <item>
+      <title>Norwegian company plans data centre in Varkaus — Mayor: &quot;Confidence is high&quot;</title>
+      <link>https://www.scale-42.com/news/varkaus-finland/</link>
+      <guid isPermaLink="true">https://www.scale-42.com/news/varkaus-finland/</guid>
+      <pubDate>Thu, 27 Mar 2025 00:00:00 GMT</pubDate>
+      <description>Yle reports on Scale42's Finnish project; construction targeted for early 2026.</description>
+    </item>
+    <item>
+      <title>DeepSeek and the dispersion of AI compute demand</title>
+      <link>https://www.scale-42.com/news/deepseek-thought-piece/</link>
+      <guid isPermaLink="true">https://www.scale-42.com/news/deepseek-thought-piece/</guid>
+      <pubDate>Wed, 29 Jan 2025 00:00:00 GMT</pubDate>
+      <description>What algorithmic efficiency means for mid-scale data centre infrastructure.</description>
+    </item>
+  </channel>
+</rss>

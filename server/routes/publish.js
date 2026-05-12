@@ -14,6 +14,8 @@ const SECTION_RAW_FILES = {
   people: ['content/people.json', AUDIT],
   news: ['content/news.json', AUDIT],
   sections: ['content/sections.json', AUDIT],
+  journey: ['content/journey.json', AUDIT],
+  developers: ['content/developers.json', AUDIT],
 };
 
 function readMeta() {

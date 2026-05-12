@@ -1,0 +1,22 @@
+name: Dead-link check
+
+on:
+  pull_request:
+    branches: [draft, master, main]
+  push:
+    branches: [draft]
+    paths:
+      - 'content/sites.json'
+      - 'content/news.json'
+      - 'server/regen/**'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run regen with strict link check
+        run: STRICT_LINKS=1 node server/regen/sites.js

@@ -11,18 +11,17 @@ function replaceMarker(html, key, value) {
 
 function run() {
   const data = JSON.parse(fs.readFileSync(DATA, 'utf-8'));
-  for (const lang of ['en', 'no']) {
-    const file = path.join(ROOT, lang === 'no' ? 'no/index.html' : 'index.html');
-    let html = fs.readFileSync(file, 'utf-8');
-    const values = data.values[lang] || {};
-    for (const [key, value] of Object.entries(values)) {
-      html = replaceMarker(html, key, value);
-    }
-    fs.writeFileSync(file, html, 'utf-8');
+  const file = path.join(ROOT, 'index.html');
+  let html = fs.readFileSync(file, 'utf-8');
+  const values = data.values?.en || {};
+  for (const [key, value] of Object.entries(values)) {
+    html = replaceMarker(html, key, value);
   }
+  fs.writeFileSync(file, html, 'utf-8');
+  try { require('./nav').run(); } catch (e) { console.warn('nav regen skipped:', e.message); }
   console.log('regen sections: done');
 }
 
-module.exports = { run, files: ['content/sections.json', 'index.html', 'no/index.html'] };
+module.exports = { run, files: ['content/sections.json', 'index.html'] };
 
 if (require.main === module) run();
