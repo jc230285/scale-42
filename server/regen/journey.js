@@ -49,12 +49,15 @@ ${nodes}
   if (!track) return;
   var sticky = pin.querySelector('.sticky');
   function isMobile(){ return window.innerWidth <= 800; }
-  var SCROLL_SPEED = 2.2; // higher = less vertical scroll needed per px of horizontal travel
+  var SCROLL_SPEED = 1.5; // higher = less vertical scroll needed per px of horizontal travel
   function setHeight(){
     if (isMobile()) { pin.style.height = ''; track.style.transform = ''; return; }
     var stickyH = sticky ? sticky.offsetHeight : window.innerHeight;
     var extra = Math.max(0, track.scrollWidth - window.innerWidth);
-    pin.style.height = (stickyH + Math.ceil(extra / SCROLL_SPEED)) + 'px';
+    var scaled = Math.ceil(extra / SCROLL_SPEED);
+    // Guarantee enough vertical travel so the user feels the horizontal advance
+    var minExtra = Math.round(window.innerHeight * 0.8);
+    pin.style.height = (stickyH + Math.max(scaled, minExtra)) + 'px';
   }
   function onScroll(){
     if (isMobile()) { track.style.transform = ''; return; }
