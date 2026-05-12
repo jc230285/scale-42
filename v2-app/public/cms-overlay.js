@@ -57,13 +57,6 @@
     });
   }
 
-  function banner() {
-    const b = document.createElement("div");
-    b.id = "s42-cms-mode-banner";
-    b.textContent = "CMS mode · edits auto-save to Supabase and appear instantly on preview.scale-42.com · use the Publish button to push to live";
-    document.body.prepend(b);
-  }
-
   function toolbar() {
     const t = document.getElementById("s42-cms-toolbar");
     if (!t) return;
@@ -94,7 +87,6 @@
   }
 
   function init() {
-    banner();
     attach();
     toolbar();
   }

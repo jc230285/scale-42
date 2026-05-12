@@ -180,7 +180,7 @@ export function renderTemplate(
   // "{{sum_target_mw}} MW" render their computed value, including in CMS
   // mode — the user sees the live number and the underlying formula is
   // still saved in S42_sections).
-  html = evalFormulas(html, { sites, news, developers: developers as any });
+  html = evalFormulas(html, { sites: sites as any, news: news as any });
 
   if (mode === "cms") {
     html = html.replace(
