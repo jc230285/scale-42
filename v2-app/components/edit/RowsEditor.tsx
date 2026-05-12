@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import { getBrowserClient } from "@/lib/supabase-browser";
+import { scheduleAutoPublish } from "@/lib/autoPublish";
 
 export type Col = {
   key: string;
@@ -69,7 +70,9 @@ export default function RowsEditor({
     if (error) {
       alert(`Save failed: ${error.message}`);
       setRows((r) => r.slice());
+      return;
     }
+    scheduleAutoPublish();
   }
 
   function updateLocal(id: any, key: string, value: any) {

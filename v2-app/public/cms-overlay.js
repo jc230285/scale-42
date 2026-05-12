@@ -22,8 +22,22 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ page, key, value }),
     })
-      .then((r) => (r.ok ? fadeAck(el) : Promise.reject(r)))
+      .then((r) => {
+        if (!r.ok) return Promise.reject(r);
+        fadeAck(el);
+        scheduleAutoPublish();
+      })
       .catch(() => setState(el, "error"));
+  }
+
+  // Auto-publish: debounce a /api/publish/maybe call ~5s after the latest edit.
+  // The server honours a 10-min throttle, so call cost is cheap.
+  let autoPubTimer = null;
+  function scheduleAutoPublish() {
+    if (autoPubTimer) clearTimeout(autoPubTimer);
+    autoPubTimer = setTimeout(() => {
+      fetch("/api/publish/maybe", { method: "POST" }).catch(() => {});
+    }, 5000);
   }
 
   function attach() {

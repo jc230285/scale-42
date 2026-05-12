@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import { getBrowserClient } from "@/lib/supabase-browser";
+import { scheduleAutoPublish } from "@/lib/autoPublish";
 
 type Site = Record<string, any>;
 type SortKey = string;
@@ -52,9 +53,10 @@ export default function SitesTableClient({ initial }: { initial: Site[] }) {
     if (error) {
       console.error(error);
       alert(`Save failed: ${error.message}`);
-      // revert local
       setRows(r => r.slice());
+      return;
     }
+    scheduleAutoPublish();
   }
 
   function updateLocal(id: string, key: string, value: any) {
