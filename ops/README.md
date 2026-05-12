@@ -6,9 +6,12 @@ Self-healing VPS agent. Runs every 60s as a systemd timer on the Coolify host an
 
 | Symptom | Detection | Action |
 |---|---|---|
-| Sustained high load | 1-min loadavg per core > 3.0 for 3 consecutive checks | Identifies the worst CPU-consuming container via `docker stats` and `docker restart`s it |
-| Memory exhaustion | RAM used > 92% | Runs `docker system prune` (>24h dangling) + drops kernel page caches |
-| Disk pressure | Any partition > 85% full | `docker system prune -af` (>72h), `journalctl --vacuum-time=3d`, truncates container logs >500MB |
+| Sustained high load | 1-min loadavg per core > 2.0 for 2 consecutive checks | Identifies the worst CPU-consuming container via `docker stats` and `docker restart`s it |
+| **Pre-OOM memory pressure** | RAM used > 82% | Restarts the **biggest memory-hog container** (proactive, before kernel OOM fires) |
+| **Memory panic** | RAM used > 90% | Above + `docker system prune` + drops kernel page caches |
+| **Swap thrash** | Swap > 50% used | Restarts the top-memory container (system is about to lock up) |
+| **OOM kill event** | Kernel logs `Out of memory: Killed process` in last 3 min | Identifies victims, restarts any exited containers, emails alert with full kernel context |
+| Disk pressure | Any partition > 80% full | `docker system prune -af` (>72h), `journalctl --vacuum-time=3d`, truncates container logs >500MB |
 | Crashlooping container | RestartCount ≥ 5 | Disables auto-restart and stops the container, preserving the host |
 | Docker daemon down | `systemctl is-active docker` returns false | `systemctl restart docker` |
 
