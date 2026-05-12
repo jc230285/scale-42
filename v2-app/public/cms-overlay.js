@@ -11,16 +11,27 @@
   }
 
   function save(el) {
-    const page = el.getAttribute("data-cms-page");
-    const key = el.getAttribute("data-cms-key");
     const value = el.innerText;
     if (el.dataset.last === value) return;
     el.dataset.last = value;
     setState(el, "saving");
-    fetch("/api/cms/section", {
+
+    // Row mode: <span data-cms-table data-cms-id data-cms-field>
+    const table = el.getAttribute("data-cms-table");
+    const id = el.getAttribute("data-cms-id");
+    const field = el.getAttribute("data-cms-field");
+    // Section mode: <span data-cms-page data-cms-key>
+    const page = el.getAttribute("data-cms-page");
+    const key = el.getAttribute("data-cms-key");
+
+    const isRow = table && id && field;
+    const url = isRow ? "/api/cms/row" : "/api/cms/section";
+    const payload = isRow ? { table, id, field, value } : { page, key, value };
+
+    fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ page, key, value }),
+      body: JSON.stringify(payload),
     })
       .then((r) => {
         if (!r.ok) return Promise.reject(r);
@@ -62,6 +73,7 @@
     if (!t) return;
     t.innerHTML = `
       <span class="badge">CMS</span>
+      <a href="/cms/nav">Menu</a>
       <a href="/cms/sites">Sites</a>
       <a href="/cms/news">News</a>
       <a href="/cms/people">People</a>

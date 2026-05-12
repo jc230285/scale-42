@@ -3,6 +3,8 @@ import { createClient } from "@/lib/supabase-server";
 import { redirect } from "next/navigation";
 
 const NAV = [
+  { href: "/", label: "Site" },
+  { href: "/cms/nav", label: "Menu" },
   { href: "/cms/sites", label: "Sites" },
   { href: "/cms/news", label: "News" },
   { href: "/cms/people", label: "People" },

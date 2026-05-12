@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 
 export type SectionOverride = { key: string; value_en: string | null };
+export type NavItem = { id: string; label: string; href: string; is_cta?: boolean; order_idx?: number };
 
 const TEMPLATES: Record<string, string | undefined> = {};
 
@@ -21,10 +22,43 @@ function load(slug: string) {
  *  - rewriting "styles.css" path to "/styles.css" so the public-served copy
  *    is used regardless of which directory the page lives in.
  */
-export function renderTemplate(slug: string, overrides: SectionOverride[], mode: "cms" | "preview" | "live") {
+export function renderTemplate(
+  slug: string,
+  overrides: SectionOverride[],
+  mode: "cms" | "preview" | "live",
+  nav: NavItem[] = [],
+) {
   let html = load(slug);
 
   const map = new Map(overrides.map((o) => [o.key, o.value_en ?? ""]));
+
+  // Replace the entire nav marker with dynamically built anchors from S42_nav.
+  if (nav.length) {
+    const navHtml = nav
+      .sort((a, b) => (a.order_idx ?? 0) - (b.order_idx ?? 0))
+      .map((n) => {
+        const cls = n.is_cta ? "btn btn-sm" : "";
+        const active =
+          (slug === "home" && n.href === "/") ||
+          (slug !== "home" && n.href.startsWith(`/${slug}`))
+            ? " active"
+            : "";
+        if (mode === "cms") {
+          // Make each label inline-editable; URL is edited under /cms/nav.
+          return `<a href="${n.href}" class="${cls}${active}"><span class="s42-edit" data-cms-table="S42_nav" data-cms-id="${n.id}" data-cms-field="label" contenteditable="true">${n.label}</span></a>`;
+        }
+        return `<a href="${n.href}" class="${cls}${active}">${n.label}</a>`;
+      })
+      .join("\n      ");
+    html = html.replace(
+      /<!--cms:nav-->[\s\S]*?<!--\/cms:nav-->/,
+      `<a class="brand" href="/"><img src="/assets/logo-wordmark-white.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <nav class="nav-links" data-s42-nav-root>
+      ${navHtml}
+    </nav>`,
+    );
+  }
 
   // Replace each marker pair with a wrapper span carrying edit metadata.
   html = html.replace(

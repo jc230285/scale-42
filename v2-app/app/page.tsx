@@ -15,12 +15,12 @@ export default async function Home() {
     if (!user) redirect("/login?next=/");
   }
 
-  const { data: overrides } = await sb
-    .from("S42_sections")
-    .select("key,value_en")
-    .eq("page", "home");
+  const [{ data: overrides }, { data: nav }] = await Promise.all([
+    sb.from("S42_sections").select("key,value_en").eq("page", "home"),
+    sb.from("S42_nav").select("id,label,href,is_cta,order_idx").eq("published", true).order("order_idx"),
+  ]);
 
-  const html = renderTemplate("home", overrides ?? [], mode);
+  const html = renderTemplate("home", overrides ?? [], mode, nav ?? []);
 
   return <div dangerouslySetInnerHTML={{ __html: extractBody(html) }} />;
 }
