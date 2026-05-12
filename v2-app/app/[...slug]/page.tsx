@@ -47,7 +47,7 @@ export default async function CatchAll({ params }: { params: { slug: string[] } 
     sb.from("S42_nav").select("id,label,href,is_cta,order_idx").eq("published", true).order("order_idx"),
   ]);
 
-  const html = renderTemplate(mapped, overrides ?? [], mode, nav ?? []);
+  const html = renderTemplate(mapped, { overrides: overrides ?? [], nav: nav ?? [] }, mode);
   return <div dangerouslySetInnerHTML={{ __html: extractBody(html) }} />;
 }
 

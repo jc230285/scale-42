@@ -9,34 +9,32 @@ export default async function Home() {
   const mode = getMode();
   const sb = createClient();
 
-  // Both CMS and Preview require login; live is public.
   if (mode !== "live") {
     const { data: { user } } = await sb.auth.getUser();
     if (!user) redirect("/login?next=/");
   }
 
-  const [{ data: overrides }, { data: nav }] = await Promise.all([
+  const [{ data: overrides }, { data: nav }, { data: sites }, { data: news }, { data: developers }] = await Promise.all([
     sb.from("S42_sections").select("key,value_en").eq("page", "home"),
     sb.from("S42_nav").select("id,label,href,is_cta,order_idx").eq("published", true).order("order_idx"),
+    sb.from("S42_sites").select("id,name,country,status,lat,lng,developers").eq("published", true).order("order_idx"),
+    sb.from("S42_news").select("id,slug,title_en,date_en,image,excerpt_en,alt").eq("published", true).order("order_idx").limit(4),
+    sb.from("S42_developers").select("slug,name,color").eq("published", true),
   ]);
 
-  const html = renderTemplate("home", overrides ?? [], mode, nav ?? []);
+  const html = renderTemplate("home", {
+    overrides: overrides ?? [],
+    nav: nav ?? [],
+    sites: sites ?? [],
+    news: news ?? [],
+    developers: developers ?? [],
+  }, mode);
 
   return <div dangerouslySetInnerHTML={{ __html: extractBody(html) }} />;
 }
 
-/**
- * Pull the rendered <body>…</body> out — we keep Next.js's own <html><body>
- * shell from app/layout.tsx, but inject the site stylesheet for this route.
- *
- * Because the live HTML uses absolute /styles.css and /assets/* paths (after
- * renderTemplate normalises them), nothing in the body needs further fixup.
- */
 function extractBody(full: string) {
   const m = full.match(/<body[^>]*>([\s\S]*)<\/body>/);
-  // Hoist <link> and inline <style> tags from <head> by inlining them at the
-  // top of the body — Next will render them inside our own body and the
-  // browser still applies them.
   const headMatch = full.match(/<head[^>]*>([\s\S]*?)<\/head>/);
   const headStyles =
     headMatch
@@ -44,5 +42,7 @@ function extractBody(full: string) {
           .map((x) => x[0])
           .join("\n")
       : "";
+  // Re-extract any <script> tags from the original body so the leaflet map etc.
+  // still runs in our injected fragment.
   return headStyles + (m ? m[1] : full);
 }

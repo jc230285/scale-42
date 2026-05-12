@@ -3,6 +3,17 @@ import path from "path";
 
 export type SectionOverride = { key: string; value_en: string | null };
 export type NavItem = { id: string; label: string; href: string; is_cta?: boolean; order_idx?: number };
+export type Site = { name: string; country?: string | null; status?: string | null; lat?: number | null; lng?: number | null; developers?: any[] | null };
+export type NewsRow = { slug: string; title_en?: string; date_en?: string; image?: string; excerpt_en?: string; alt?: string };
+export type Developer = { slug: string; name: string; color?: string };
+
+export type RenderData = {
+  overrides?: SectionOverride[];
+  nav?: NavItem[];
+  sites?: Site[];
+  news?: NewsRow[];
+  developers?: Developer[];
+};
 
 const TEMPLATES: Record<string, string | undefined> = {};
 
@@ -13,26 +24,24 @@ function load(slug: string) {
   return TEMPLATES[slug]!;
 }
 
-/**
- * Render a live-site template by:
- *  - replacing <!--cms:KEY-->...<!--/cms:KEY--> regions with a span that carries
- *    edit metadata (data-cms-key, data-cms-page). Inner text is the override
- *    from S42_sections if present, otherwise the original baked-in text.
- *  - stripping the brand <script src="lang.js"> (handled differently in v2)
- *  - rewriting "styles.css" path to "/styles.css" so the public-served copy
- *    is used regardless of which directory the page lives in.
- */
+function escapeHtml(s: string) {
+  return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+}
+
 export function renderTemplate(
   slug: string,
-  overrides: SectionOverride[],
+  data: RenderData,
   mode: "cms" | "preview" | "live",
-  nav: NavItem[] = [],
 ) {
   let html = load(slug);
-
+  const overrides = data.overrides ?? [];
+  const nav = data.nav ?? [];
+  const sites = data.sites ?? [];
+  const news = data.news ?? [];
+  const developers = data.developers ?? [];
   const map = new Map(overrides.map((o) => [o.key, o.value_en ?? ""]));
 
-  // Replace the entire nav marker with dynamically built anchors from S42_nav.
+  // --- Nav: inject dynamic anchors from S42_nav ---
   if (nav.length) {
     const navHtml = nav
       .sort((a, b) => (a.order_idx ?? 0) - (b.order_idx ?? 0))
@@ -44,10 +53,9 @@ export function renderTemplate(
             ? " active"
             : "";
         if (mode === "cms") {
-          // Make each label inline-editable; URL is edited under /cms/nav.
-          return `<a href="${n.href}" class="${cls}${active}"><span class="s42-edit" data-cms-table="S42_nav" data-cms-id="${n.id}" data-cms-field="label" contenteditable="true">${n.label}</span></a>`;
+          return `<a href="${n.href}" class="${cls}${active}"><span class="s42-edit" data-cms-table="S42_nav" data-cms-id="${n.id}" data-cms-field="label" contenteditable="true">${escapeHtml(n.label)}</span></a>`;
         }
-        return `<a href="${n.href}" class="${cls}${active}">${n.label}</a>`;
+        return `<a href="${n.href}" class="${cls}${active}">${escapeHtml(n.label)}</a>`;
       })
       .join("\n      ");
     html = html.replace(
@@ -60,7 +68,49 @@ export function renderTemplate(
     );
   }
 
-  // Replace each marker pair with a wrapper span carrying edit metadata.
+  // --- News cards (home page only) ---
+  if (news.length && html.includes("<!--cms:home_news-->")) {
+    const cards = news
+      .slice(0, 4)
+      .map((p) => {
+        const img = p.image ? `<div class="post-img"><img src="${p.image}" alt="${escapeHtml(p.alt ?? "")}" loading="lazy"/></div>` : "";
+        const title = mode === "cms"
+          ? `<h3><span class="s42-edit" data-cms-table="S42_news" data-cms-id="${(p as any).id}" data-cms-field="title_en" contenteditable="true">${escapeHtml(p.title_en ?? "")}</span></h3>`
+          : `<h3>${escapeHtml(p.title_en ?? "")}</h3>`;
+        const excerpt = mode === "cms"
+          ? `<p><span class="s42-edit" data-cms-table="S42_news" data-cms-id="${(p as any).id}" data-cms-field="excerpt_en" contenteditable="true">${escapeHtml(p.excerpt_en ?? "")}</span></p>`
+          : `<p>${escapeHtml(p.excerpt_en ?? "")}</p>`;
+        return `<article class="post">${img}<p class="post-date">${escapeHtml(p.date_en ?? "")}</p>${title}${excerpt}<a href="/news/${p.slug}/">Read &rarr;</a></article>`;
+      })
+      .join("\n      ");
+    html = html.replace(/<!--cms:home_news-->[\s\S]*?<!--\/cms:home_news-->/, cards);
+  }
+
+  // --- Sites map array (home page only, inside a JS region) ---
+  if (sites.length && html.includes("/*cms:sites_array*/")) {
+    const arr = sites.map((s) => ({
+      name: s.name,
+      country: s.country,
+      status: s.status,
+      lat: s.lat,
+      lng: s.lng,
+      developers: Array.isArray(s.developers) ? s.developers : [],
+    }));
+    html = html.replace(
+      /\/\*cms:sites_array\*\/[\s\S]*?\/\*\/cms:sites_array\*\//,
+      JSON.stringify(arr),
+    );
+  }
+  if (developers.length && html.includes("/*cms:developers_map*/")) {
+    const m: Record<string, { name: string; color: string }> = {};
+    developers.forEach((d) => (m[d.slug] = { name: d.name, color: d.color || "#1c2e3f" }));
+    html = html.replace(
+      /\/\*cms:developers_map\*\/[\s\S]*?\/\*\/cms:developers_map\*\//,
+      JSON.stringify(m),
+    );
+  }
+
+  // --- Generic <!--cms:KEY-->...<!--/cms:KEY--> markers ---
   html = html.replace(
     /<!--cms:([a-z0-9_-]+)-->([\s\S]*?)<!--\/cms:\1-->/g,
     (_match, key: string, inner: string) => {
@@ -71,21 +121,14 @@ export function renderTemplate(
     },
   );
 
-  // In CMS mode, auto-wrap every visible text element (h1-h4, p, li, dt, dd,
-  // a inside .btn / .card) with an inline editor span so the user can edit
-  // anywhere — not just the explicitly marked regions. Stable position-based
-  // keys (auto_<tag>_<index>) let edits survive page reloads.
+  // --- Auto-wrap everything else in CMS mode ---
   if (mode === "cms") {
     const counters: Record<string, number> = {};
     const TAGS = ["h1", "h2", "h3", "h4", "p", "li", "dt", "dd"];
     const re = new RegExp(`<(${TAGS.join("|")})\\b([^>]*)>([\\s\\S]*?)</\\1>`, "g");
     html = html.replace(re, (full, tag: string, attrs: string, inner: string) => {
-      // Skip if already wrapped (carries s42-edit) or contains complex nested
-      // HTML (links, spans we want individually editable).
       if (inner.includes("s42-edit")) return full;
-      // Skip empty/whitespace-only
       if (!inner.trim()) return full;
-      // Skip elements that are pure containers (e.g. <p><a><img></a></p>)
       if (/^[\s]*<(a|img|svg|picture|button|video)\b/i.test(inner.trim()) && !inner.replace(/<[^>]+>/g, "").trim()) {
         return full;
       }
@@ -97,16 +140,14 @@ export function renderTemplate(
     });
   }
 
-  // Ensure absolute asset paths so nested routes still find /styles.css, /assets/*
+  // --- Path rewrites: serve assets and stylesheet from / ---
   html = html.replace(/href="styles\.css"/g, 'href="/styles.css"');
   html = html.replace(/src="assets\//g, 'src="/assets/');
   html = html.replace(/href="assets\//g, 'href="/assets/');
   html = html.replace(/srcset="assets\//g, 'srcset="/assets/');
 
-  // Strip lang.js (NO/EN switcher) — v2 is EN only for now
   html = html.replace(/<script src="lang\.js"[^>]*><\/script>/g, "");
 
-  // Insert overlay + supabase bridge in CMS mode, right before </body>
   if (mode === "cms") {
     html = html.replace(
       "</body>",
