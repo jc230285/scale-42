@@ -93,30 +93,34 @@
 #s42-cms-toolbar .publish { background: #c77d46; padding: 6px 14px; border-radius: 999px; }
 #s42-cms-toolbar .publish:hover { background: #b66a35; }
 
-/* Formula values — visually distinct, not editable inline */
+/* Formula values — calculated, NOT editable inline. Visually distinct from
+   editable regions (teal/blue, locked icon) so the author can't mistake one
+   for the other. */
 .s42-formula {
   display: inline-block;
   padding: 1px 6px;
   border-radius: 4px;
-  background: rgba(47, 102, 117, 0.15);
-  box-shadow: inset 0 0 0 1px rgba(47, 102, 117, 0.6);
-  color: inherit;
-  cursor: help;
+  background: rgba(47, 102, 117, 0.18);
+  box-shadow: inset 0 0 0 2px #2f6675;
+  color: #1c2e3f !important;
+  cursor: not-allowed !important;
   position: relative;
+  -webkit-user-select: none !important;
+  user-select: none !important;
 }
 .s42-formula::after {
-  content: "Σ";
+  content: "🔒 calc";
   position: absolute;
-  top: -7px;
-  right: -7px;
-  width: 16px;
-  height: 16px;
+  top: -10px;
+  right: -6px;
   background: #2f6675;
   color: #fff;
-  border-radius: 50%;
-  font: 700 10px/16px system-ui;
-  text-align: center;
+  border-radius: 4px;
+  font: 700 9px/1 system-ui;
+  letter-spacing: .04em;
+  padding: 2px 5px;
   pointer-events: none;
+  white-space: nowrap;
 }
 
 #s42-cms-mode-banner {
