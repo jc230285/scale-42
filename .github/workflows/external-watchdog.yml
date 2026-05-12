@@ -1,0 +1,111 @@
+name: External VPS Watchdog
+# Runs OFF the VPS so it works even when the VPS is completely unresponsive.
+# Probes every 5 min. After 3 consecutive failures, force-reboots via Hetzner API.
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # every 5 min
+  workflow_dispatch:         # manual run button
+
+permissions:
+  contents: read
+  actions: write             # needed to read previous run state
+
+concurrency:
+  group: external-watchdog
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      HETZNER_API_TOKEN: ${{ secrets.HETZNER_API_TOKEN }}
+      HETZNER_SERVER_ID: ${{ secrets.HETZNER_SERVER_ID }}
+      ALERT_WEBHOOK_URL:  ${{ secrets.ALERT_WEBHOOK_URL }}   # optional Slack/Discord/etc
+      TARGETS: "https://vps.sandstormlogic.com https://www.scale-42.com"
+      TIMEOUT_SECS: 15
+      FAIL_THRESHOLD: 3
+    steps:
+      - name: Restore failure counter from cache
+        id: cache-state
+        uses: actions/cache@v4
+        with:
+          path: .watchdog-state
+          key: watchdog-state-${{ github.run_id }}
+          restore-keys: |
+            watchdog-state-
+
+      - name: Probe targets
+        id: probe
+        run: |
+          mkdir -p .watchdog-state
+          STATE_FILE=.watchdog-state/fail_count
+          FAILS_PREV=$(cat "$STATE_FILE" 2>/dev/null || echo 0)
+
+          ALL_UP=true
+          for url in $TARGETS; do
+            CODE=$(curl -ksm $TIMEOUT_SECS -o /dev/null -w "%{http_code}" "$url" || echo 000)
+            echo "$url -> $CODE"
+            if [ "$CODE" = "000" ] || [ "$CODE" -ge 500 ] 2>/dev/null; then
+              ALL_UP=false
+            fi
+          done
+
+          if $ALL_UP; then
+            echo "0" > "$STATE_FILE"
+            echo "status=healthy" >> $GITHUB_OUTPUT
+            echo "fails=0" >> $GITHUB_OUTPUT
+            echo "✓ all targets responding"
+          else
+            NEW=$((FAILS_PREV + 1))
+            echo "$NEW" > "$STATE_FILE"
+            echo "status=failing" >> $GITHUB_OUTPUT
+            echo "fails=$NEW" >> $GITHUB_OUTPUT
+            echo "✗ probe failed ($NEW consecutive)"
+          fi
+
+      - name: Save state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .watchdog-state
+          key: watchdog-state-${{ github.run_id }}
+
+      - name: Reboot VPS if dead
+        if: steps.probe.outputs.status == 'failing' && steps.probe.outputs.fails >= env.FAIL_THRESHOLD
+        run: |
+          echo "Triggering Hetzner reboot of server ID $HETZNER_SERVER_ID"
+          if [ -z "$HETZNER_API_TOKEN" ] || [ -z "$HETZNER_SERVER_ID" ]; then
+            echo "::error::HETZNER_API_TOKEN or HETZNER_SERVER_ID secret is missing"; exit 1
+          fi
+
+          # Try graceful reboot first (sends ACPI). If that doesn't recover within
+          # the next 5-minute cycle, the next workflow run escalates to power-cycle.
+          STATE_FILE=.watchdog-state/reboot_stage
+          STAGE=$(cat "$STATE_FILE" 2>/dev/null || echo 0)
+
+          if [ "$STAGE" = "0" ]; then
+            echo "Stage 0 -> soft reboot"
+            curl -fsS -X POST \
+              "https://api.hetzner.cloud/v1/servers/${HETZNER_SERVER_ID}/actions/reboot" \
+              -H "Authorization: Bearer ${HETZNER_API_TOKEN}"
+            echo "1" > "$STATE_FILE"
+            REASON="soft reboot issued"
+          else
+            echo "Stage 1+ -> force power-cycle (reset)"
+            curl -fsS -X POST \
+              "https://api.hetzner.cloud/v1/servers/${HETZNER_SERVER_ID}/actions/reset" \
+              -H "Authorization: Bearer ${HETZNER_API_TOKEN}"
+            echo "0" > "$STATE_FILE"
+            REASON="hard power-cycle issued (soft reboot did not recover)"
+          fi
+
+          echo "::warning::VPS unresponsive — $REASON"
+
+          # Optional alert webhook (Slack/Discord/Generic)
+          if [ -n "$ALERT_WEBHOOK_URL" ]; then
+            curl -fsS -X POST "$ALERT_WEBHOOK_URL" \
+              -H 'Content-Type: application/json' \
+              -d "{\"text\":\":rotating_light: S42 VPS unresponsive — $REASON\"}" || true
+          fi

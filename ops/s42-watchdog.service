@@ -1,0 +1,15 @@
+[Unit]
+Description=S42 Watchdog — VPS auto-recovery agent
+Wants=docker.service
+After=docker.service network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/s42-watchdog.env
+ExecStart=/usr/local/bin/s42-watchdog.sh
+Nice=10
+IOSchedulingClass=idle
+# Don't let the watchdog itself become a load problem
+CPUQuota=50%
+MemoryMax=128M
+TimeoutStartSec=120
