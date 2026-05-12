@@ -18,14 +18,15 @@ SMTP_USER="${SMTP_USER:-}"
 SMTP_PASS="${SMTP_PASS:-}"
 MAIL_FROM="${MAIL_FROM:-$SMTP_USER}"
 
-# Thresholds
-LOAD_PER_CORE_LIMIT=3.0      # 1m load avg per core (3.0 = 300% per core) — sustained
-LOAD_TRIGGER_COUNT=3         # how many consecutive 60s ticks above threshold to act
-MEM_LIMIT_PCT=92             # used / total memory
-DISK_LIMIT_PCT=85            # any partition above this triggers prune
+# Thresholds — tuned aggressive so we act before the host becomes unresponsive
+LOAD_PER_CORE_LIMIT=2.0      # 1m load avg per core (2.0 = 200% per core) — sustained
+LOAD_TRIGGER_COUNT=2         # how many consecutive 60s ticks above threshold to act
+MEM_LIMIT_PCT=88             # used / total memory
+DISK_LIMIT_PCT=80            # any partition above this triggers prune
 CONTAINER_RESTART_LIMIT=5    # restart count over 10min window
 DOCKER_LOG_MAX_BYTES=$((500*1024*1024))  # rotate when >500MB
 COOLDOWN_SECONDS=600         # don't repeat the same action within this window
+DOCKER_CMD_TIMEOUT=10        # never let a docker call hang the watchdog
 
 mkdir -p "$STATE_DIR"
 touch "$LOG_FILE"
@@ -107,14 +108,14 @@ check_load() {
       log "LOAD high: ${load1} (${per_core}/core) for ${LOAD_TRIGGER_COUNT} ticks"
       if cooldown_ok load_action 900; then
         local hog
-        hog=$(docker stats --no-stream --format '{{.Container}} {{.Name}} {{.CPUPerc}}' \
+        hog=$(timeout "${DOCKER_CMD_TIMEOUT}s" docker stats --no-stream --format '{{.Container}} {{.Name}} {{.CPUPerc}}' \
               | sort -k3 -h -r | head -1)
         local hog_id; hog_id=$(echo "$hog" | awk '{print $1}')
         local hog_name; hog_name=$(echo "$hog" | awk '{print $2}')
         local hog_cpu; hog_cpu=$(echo "$hog" | awk '{print $3}')
         if [ -n "$hog_id" ]; then
           log "restarting hog container: $hog_name ($hog_id) using $hog_cpu"
-          docker restart "$hog_id" >/dev/null 2>&1 && \
+          timeout 30s docker restart "$hog_id" >/dev/null 2>&1 && \
             send_alert "Restarted runaway container" "Sustained load ${load1} (${per_core} per core). Top CPU consumer was $hog_name ($hog_id) at $hog_cpu. Container has been restarted."
         fi
       fi
@@ -133,7 +134,7 @@ check_memory() {
     if cooldown_ok mem_action 1800; then
       # First: try freeing Docker cruft (often the leak)
       local before; before=$(df --output=avail / | tail -1)
-      docker system prune -f --filter "until=24h" >/dev/null 2>&1
+      timeout 60s docker system prune -f --filter "until=24h" >/dev/null 2>&1
       sync; echo 3 > /proc/sys/vm/drop_caches 2>/dev/null || true
       local after; after=$(df --output=avail / | tail -1)
       send_alert "Memory pressure: pruned Docker + dropped caches" \
@@ -152,7 +153,7 @@ check_disk() {
         local actions=""
         if [ "$part" = "/" ]; then
           local before; before=$(df --output=avail / | tail -1)
-          docker system prune -af --filter "until=72h" >/dev/null 2>&1
+          timeout 120s docker system prune -af --filter "until=72h" >/dev/null 2>&1
           journalctl --vacuum-time=3d >/dev/null 2>&1 || true
           # Truncate runaway docker container logs
           find /var/lib/docker/containers -name "*-json.log" -size +"${DOCKER_LOG_MAX_BYTES}c" \
@@ -170,7 +171,7 @@ check_disk() {
 check_crashloop() {
   # Docker reports RestartCount via inspect. Stop any container restarting >N times.
   local id
-  for id in $(docker ps -aq); do
+  for id in $(timeout "${DOCKER_CMD_TIMEOUT}s" docker ps -aq 2>/dev/null); do
     local rc name state
     rc=$(docker inspect -f '{{.RestartCount}}' "$id" 2>/dev/null || echo 0)
     name=$(docker inspect -f '{{.Name}}' "$id" 2>/dev/null | sed 's|^/||')
@@ -180,8 +181,8 @@ check_crashloop() {
         # Capture last 50 log lines for the alert
         local tail_logs; tail_logs=$(docker logs --tail 50 "$id" 2>&1 | head -50)
         # Mark as stopped (not paused — paused still holds RAM)
-        docker update --restart=no "$id" >/dev/null 2>&1
-        docker stop "$id" >/dev/null 2>&1
+        timeout 10s docker update --restart=no "$id" >/dev/null 2>&1
+        timeout 30s docker stop "$id" >/dev/null 2>&1
         log "crashloop: stopped $name ($id) at restart_count=$rc"
         send_alert "Stopped crashlooping container: $name" \
                    "$name has restarted $rc times. Auto-restart disabled and container stopped to free resources. Manual investigation required. Last logs:\n\n$tail_logs"
