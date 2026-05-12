@@ -134,13 +134,13 @@ function renderAutoReply({ name }) {
   const inner = `
     <p style="margin:0 0 4px;color:${BRAND.muted};font-size:12px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;">Thanks for reaching out</p>
     <h1 style="margin:0 0 16px;font-size:24px;font-weight:600;letter-spacing:-0.01em;color:${BRAND.ink};">We've received your message, ${escHtml((name || '').split(' ')[0] || 'there')}.</h1>
-    <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:${BRAND.ink};">A member of the Scale42 team will be in touch within one working day.</p>
+    <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:${BRAND.ink};">A member of the Scale42 team will be in touch.</p>
     <p style="margin:0 0 24px;font-size:15px;line-height:1.6;color:${BRAND.ink};">In the meantime, you can browse our pan-Nordic <a href="https://www.scale-42.com/datacenters/" style="color:${BRAND.accent};text-decoration:none;font-weight:600;">site portfolio</a> or read about our <a href="https://www.scale-42.com/solutions/" style="color:${BRAND.accent};text-decoration:none;font-weight:600;">solutions</a>.</p>
     <div style="background:${BRAND.bgSoft};padding:18px 22px;border-radius:8px;margin:0 0 0;">
       <p style="margin:0;color:${BRAND.muted};font-size:13px;line-height:1.55;">For urgent matters, email <a href="mailto:info@scale-42.com" style="color:${BRAND.accent};text-decoration:none;">info@scale-42.com</a> directly.</p>
     </div>
   `;
-  return emailShell(inner, `Thanks — we'll be in touch within one working day.`);
+  return emailShell(inner, `Thanks — we'll be in touch.`);
 }
 
 router.post('/contact',
@@ -213,7 +213,7 @@ router.post('/contact',
           // Auto-reply to the submitter
           try {
             const replyHtml = renderAutoReply({ name });
-            const replyText = `Hi ${(name || '').split(' ')[0] || 'there'},\n\nThanks for reaching out to Scale42. A member of our team will be in touch within one working day.\n\nFor urgent matters, email info@scale-42.com directly.\n\n— The Scale42 team`;
+            const replyText = `Hi ${(name || '').split(' ')[0] || 'there'},\n\nThanks for reaching out to Scale42. A member of our team will be in touch.\n\nFor urgent matters, email info@scale-42.com directly.\n\n— The Scale42 team`;
             await t.sendMail({
               from: `"Scale42" <${fromAlias}>`,
               envelope: { from: fromUser, to: [email] },
