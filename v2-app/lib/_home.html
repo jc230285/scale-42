@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Scale42 — Next-generation European Digital Infrastructure</title>
+<meta name="description" content="Scale42 develops and operates next-generation AI data centres across the Nordics. 1.7GW pipeline of low-cost, renewable-powered, AI-ready capacity." />
+<meta name="theme-color" content="#1c2e3f" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="apple-touch-icon" href="assets/favicon-192.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="canonical" href="https://www.scale-42.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Scale42 — Next-generation European Digital Infrastructure" />
+<meta property="og:description" content="1.7GW pipeline of AI-ready data centres across the Nordics, powered by low-cost renewable energy." />
+<meta property="og:image" content="https://www.scale-42.com/assets/hero.jpg" />
+<meta property="og:url" content="https://www.scale-42.com/" />
+<meta property="og:site_name" content="Scale42" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Scale42 — Next-generation European Digital Infrastructure" />
+<meta name="twitter:description" content="1.7GW Nordic AI data centre pipeline, powered by renewables." />
+<meta name="twitter:image" content="https://www.scale-42.com/assets/hero.jpg" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/hero-900.webp" media="(max-width: 899px)">
+<link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 900px)">
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<style>
+  .home-map-section { padding: 20px 0 0; margin-bottom: 15px; }
+  .home-map { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: #d6e2e6; }
+  .home-map .leaflet-container { background: #d6e2e6; font-family: var(--font-sans); cursor: default; }
+  .home-map .leaflet-tile-pane { filter: saturate(0.6) hue-rotate(-12deg) contrast(0.96); }
+  .home-map .dc-pin { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(28,46,63,0.25); }
+  .home-map .dc-pin.tbd { background: var(--muted); }
+  .home-map .dc-pin.sold { background: #33752f; }
+  .home-map-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+  .home-map-foot .legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+  .home-map-foot .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .home-map-foot .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+  .home-map-foot a { font-weight: 600; color: var(--accent); font-size: 14px; }
+
+  /* JV / capital callout */
+  .jv-callout { background: var(--bg-alt); border-left: 3px solid var(--accent); padding: 18px 22px; border-radius: var(--radius); margin: 0 0 28px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .jv-callout .label { font-family: var(--font-display); font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); font-weight: 600; }
+  .jv-callout .text { margin: 0; font-size: 15.5px; color: var(--ink); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scale42",
+  "url": "https://www.scale-42.com/",
+  "logo": "https://www.scale-42.com/assets/logo.svg",
+  "image": "https://www.scale-42.com/assets/hero.jpg",
+  "email": "info@scale-42.com",
+  "description": "Scale42 develops and operates wholesale, AI-ready data centres in Norway, Finland, Sweden and Iceland.",
+  "areaServed": ["Norway", "Finland", "Sweden", "Iceland"],
+  "founders": [
+    {"@type": "Person", "name": "William Tasney", "jobTitle": "CEO"},
+    {"@type": "Person", "name": "Bendik Fostervoll", "jobTitle": "CDO"},
+    {"@type": "Person", "name": "James Collins", "jobTitle": "CTO"}
+  ]
+}
+</script>
+</head>
+<body><script src="lang.js"></script>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <!--cms:nav-->
+    <a class="brand" href="/"><img src="/assets/logo-wordmark-white.svg" alt="Scale42" class="brand-logo" /></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <nav class="nav-links">
+      <a href="/" class="active">Home</a>
+      <a href="/datacenters/">Data centres</a>
+      <a href="/solutions/">Solutions</a>
+      <a href="/sustainability/">Sustainability</a>
+      <a href="/partners/">Partners</a>
+      <a href="/about-us/">About Us</a>
+      <a href="/news/">News</a>
+      <a href="/contact/" class="btn btn-sm">Contact</a>
+    </nav>
+    <!--/cms:nav-->
+  </div>
+</header>
+
+<section id="top" class="hero hero-mosaic">
+  <div class="hero-bg" aria-hidden="true">
+    <picture>
+      <source media="(min-width: 900px)" srcset="assets/hero.webp" type="image/webp">
+      <source media="(min-width: 900px)" srcset="assets/hero.jpg">
+      <source srcset="assets/hero-900.webp" type="image/webp">
+      <img src="assets/hero-900.jpg" alt="" />
+    </picture>
+  </div>
+  <img class="hero-mosaic-svg" src="/assets/logo-mark.svg?v=2" alt="" aria-hidden="true" />
+  <div class="container hero-inner">
+    <p class="eyebrow"><!--cms:hero_eyebrow-->Next-generation European AI infrastructure<!--/cms:hero_eyebrow--></p>
+    <h1><!--cms:hero_title-->Delivering large-scale AI data centre capacity across the Nordics<!--/cms:hero_title--></h1>
+    <div class="hero-lede-row">
+      <p class="lede"><!--cms:hero_lede--><!--/cms:hero_lede--></p>
+      <div class="hero-cta">
+        <a href="/contact/" class="btn btn-ghost">Get in touch →</a>
+      </div>
+    </div>
+    <dl class="hero-stats">
+      <div><dt><!--cms:stat1_label-->Total In Development<!--/cms:stat1_label--></dt><dd><!--cms:stat1_value-->1,200 MW<!--/cms:stat1_value--></dd></div>
+      <div><dt><!--cms:stat2_label-->Active Developments<!--/cms:stat2_label--></dt><dd><!--cms:stat2_value-->6<!--/cms:stat2_value--></dd></div>
+      <div><dt><!--cms:stat3_label-->Campus Scale<!--/cms:stat3_label--></dt><dd><!--cms:stat3_value-->30 – 500 MW<!--/cms:stat3_value--></dd></div>
+      <div><dt><!--cms:stat4_label-->Minimum Deployment Unit<!--/cms:stat4_label--></dt><dd><!--cms:stat4_value-->12.5 MW<!--/cms:stat4_value--></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="home-map-section">
+  <div class="container">
+    <p class="eyebrow">Scale42 Pan-Nordic portfolio</p>
+    <h2 class="section-title" style="margin-bottom: 8px;">The Nordics are the logical location for European AI infrastructure</h2>
+    <div id="home-map" class="home-map" aria-label="Map of Scale42 sites"></div>
+    <div class="home-map-foot"><div class="legend"></div></div>
+    <p class="section-lede" style="margin: 24px 0 16px; max-width: none;">Scale42, together with its JV GIGA-42, is developing <!--cms:lede_capacity-->1,200 MW<!--/cms:lede_capacity--> of AI data centre capacity across four Nordic countries.</p>
+    <p class="section-lede" style="margin: 0 0 16px; max-width: none;">Abundant renewable power, structurally lower cost, and stable operating environments create the optimal conditions for large-scale AI infrastructure.</p>
+    <p class="section-lede" style="margin: 0 0 0; max-width: none;">Our sites are positioned for strong fibre connectivity, near-term power availability, and integration with heat reuse applications.</p>
+  </div>
+</section>
+
+<section class="equation">
+  <div class="container">
+    <div class="eq-pillars">
+      <div class="eq-pillar">
+        <h3>Sustainable</h3>
+        <ul>
+          <li>Renewable power at scale</li>
+          <li>Industry-leading energy efficiency (PUE)</li>
+          <li>Heat recovery as a reusable resource</li>
+        </ul>
+      </div>
+      <div class="eq-pillar">
+        <h3>European</h3>
+        <ul>
+          <li>Nordic infrastructure serving European demand</li>
+          <li>Located within GDPR jurisdiction</li>
+          <li>Strong fibre connectivity to key markets</li>
+        </ul>
+      </div>
+      <div class="eq-pillar">
+        <h3>AI Infrastructure</h3>
+        <ul>
+          <li>Purpose-built for high-density AI compute</li>
+          <li>Modular, scalable deployment model</li>
+          <li>Designed for next-generation workloads</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="solutions" class="section bg-grid">
+  <div class="container">
+    <p class="eyebrow">Solutions</p>
+    <h2 class="section-title">AI infrastructure solutions, delivered to specification.</h2>
+    <p class="section-lede">Capacity delivered at different stages of development, aligned to deployment timelines and control requirements.</p>
+    <p class="section-lede" style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;">
+      <span style="flex:1 1 420px;margin:0;">Our modular approach enables customers to deploy at speed and scale in line with their infrastructure strategy.</span>
+      <a href="/solutions/" class="dc-link" style="white-space:nowrap;">Learn more →</a>
+    </p>
+
+    <div class="grid grid-3">
+      <a class="card card-link" href="/solutions/">
+        <h3>Build-Ready Sites</h3>
+        <p>Land, power, zoning &amp; permitting secured to enable immediate execution.</p>
+        <ul>
+          <li>Power strategy, grid access, and site development progressed</li>
+          <li>Planning and technical groundwork completed</li>
+          <li>Enables customer-led build in partnership with Scale42</li>
+        </ul>
+      </a>
+      <a class="card card-link" href="/solutions/">
+        <h3>Powered Shell Delivery</h3>
+        <p>Pre-developed data centre infrastructure enabling rapid deployment of customer-operated AI compute.</p>
+        <ul>
+          <li>Shell and core delivered with power and fibre infrastructure in place</li>
+          <li>Designed for high-density AI workloads, including DLC-ready environments</li>
+          <li>Accelerated deployment in 12.5 MW IT blocks</li>
+        </ul>
+      </a>
+      <a class="card card-link" href="/solutions/">
+        <h3>Turnkey Data Center Capacity</h3>
+        <p>Fully built and operational data centre infrastructure delivered and managed by Scale42.</p>
+        <ul>
+          <li>Ready-to-deploy environment with power, cooling, and operations in place</li>
+          <li>Scale42 responsible for infrastructure management and performance</li>
+          <li>Long-term, scalable capacity aligned to customer demand</li>
+        </ul>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="working-with" class="section">
+  <div class="container">
+    <p class="eyebrow">Working with Scale42</p>
+    <h2 class="section-title">Supporting AI infrastructure deployment across the Nordics.</h2>
+    <p class="section-lede">Scale42 develops and delivers scalable AI data centre infrastructure across the Nordic region.</p>
+    <p class="section-lede">Explore available locations, deployment models, and the underlying characteristics that support efficient, long-term operation.</p>
+
+    <p style="margin: 32px 0 48px;"><a href="/contact/" class="btn btn-primary">Contact us to discuss your requirements →</a></p>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Explore Scale42 data centres</h3>
+        <p>View interactive map of our active sites across the Nordics.</p>
+        <p><a href="/datacenters/" class="dc-link">View data centres →</a></p>
+      </div>
+      <div class="card">
+        <h3>View solutions</h3>
+        <p>Review deployment models and technical approaches for delivering AI infrastructure.</p>
+        <p><a href="/solutions/" class="dc-link">View solutions →</a></p>
+      </div>
+      <div class="card">
+        <h3>Sustainability</h3>
+        <p>Learn more about Scale42's sustainable-by-design approach to integrated infrastructure.</p>
+        <p><a href="/sustainability/" class="dc-link">Learn more →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news" class="section">
+  <div class="container">
+    <p class="eyebrow">Posts</p>
+    <h2 class="section-title">News & thought leadership.</h2>
+    <div class="grid grid-4 posts">
+      <!--cms:home_news-->
+      <article class="post">
+        <div class="post-img"><img src="assets/news/ba940fe6-4310-4895-bb1a-78d9cd045984.jpeg" alt="Kristinestad, Finland - coastal site in the wind-power heartland" loading="lazy" /></div>
+        <p class="post-date">Apr 10, 2026</p>
+        <h3>Scale42 CEO: 'I'd rather build in Kristinestad than Texas'</h3>
+        <p>Vasabladet on Scale42's plan to develop a hyperscale data centre on the wind-rich Ostrobothnian coast.</p>
+        <a href="news/kristinestad-finland/">Read &rarr;</a>
+      </article>
+      <article class="post">
+        <div class="post-img"><img src="assets/news/71ef2155-23ea-4cf1-9533-ef557a626ce3.jpg" alt="Kitee, Finland - Puhos industrial area site for the Scale42 data centre" loading="lazy" /></div>
+        <p class="post-date">Oct 10, 2025</p>
+        <h3>Scale42 plans AI data centre in Kitee, Finland</h3>
+        <p>Data Centre Dynamics on Scale42's 10-hectare Puhos site, with 30 MW available now.</p>
+        <a href="news/kitee-finland/">Read &rarr;</a>
+      </article>
+      <article class="post">
+        <div class="post-img"><img src="assets/news/bakki-iceland-50mw.jpg" alt="Bakki, Iceland - site for the GIG / Scale42 50 MW data centre" loading="lazy" /></div>
+        <p class="post-date">Sep 2, 2025</p>
+        <h3>Scale42 and GIG plan 50 MW data centre in Iceland</h3>
+        <p>Coverage in Data Centre Dynamics on the Bakki joint venture and its initial capacity.</p>
+        <a href="news/bakki-iceland-50mw/">Read &rarr;</a>
+      </article>
+      <article class="post">
+        <div class="post-img"><img src="assets/news/gig.jpg" alt="GIG and Scale42 strategic partnership announcement" loading="lazy" /></div>
+        <p class="post-date">Sep 2, 2025</p>
+        <h3>GIG forms strategic partnership with Scale-42 through GIGA Holdings</h3>
+        <p>Joint venture creating an integrated energy and digital infrastructure platform across the Nordics.</p>
+        <a href="news/gig-strategic-partnership/">Read &rarr;</a>
+      </article>
+    <!--/cms:home_news-->
+    </div>
+    <p style="text-align:center;margin-top:32px;"><a href="news/" class="btn btn-primary">Read more news →</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <!--cms:footer-->
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="/assets/logo.svg" alt="Scale42" class="brand-logo brand-logo-footer" />
+        <p class="footer-tag">Pan-Nordic AI &amp; HPC infrastructure — built on hydropower, geothermal and free-air cooling.</p>
+        <p class="footer-contact"><a href="mailto:info@scale-42.com">info@scale-42.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="/solutions/">Solutions</a>
+        <a href="/datacenters/">Data centres</a>
+        <a href="/sustainability/">Sustainability</a>
+        <a href="/partners/">Partners</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="/about-us/">About Us</a>
+        <a href="/news/">News</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="/news/rss.xml">RSS feed</a>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="justify-content:flex-end;">
+      <p class="footer-legal" style="text-align:right;">Northern DC AS trading as Scale-42™ · Registered in Norway · © 2026</p>
+    </div>
+
+    <!--/cms:footer-->
+  </div>
+</footer>
+
+<script>
+  document.documentElement.style.scrollBehavior = 'smooth';
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => spy.observe(s));
+
+  const reveal = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); reveal.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.section, .equation, .hero').forEach(el => {
+    el.classList.add('reveal'); reveal.observe(el);
+  });
+
+  // Parallax: simple translateY based on scroll position
+  const parallaxItems = document.querySelectorAll('[data-parallax]');
+  if (parallaxItems.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY;
+      parallaxItems.forEach(el => {
+        const rate = parseFloat(el.dataset.parallax) || 0.2;
+        el.style.transform = `translateY(${y * rate}px)`;
+      });
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+  }
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  (function(){
+    const el = document.getElementById('home-map');
+    if (!el || typeof L === 'undefined') return;
+    const developersMap = /*cms:developers_map*/{"giga-42":{"name":"GIGA-42","color":"#3a8a4a"},"norsk-datakraft":{"name":"Norsk Datakraft AS","color":"#5b9bd5"}}/*/cms:developers_map*/;
+    const SCALE42_BLUE = '#1c2e3f';
+    const sites = /*cms:sites_array*/[
+      { name: "GIGA-42 Bakki", country: "Iceland", status: "live", lat: 66.1, lng: -17.3, developers: ["giga-42"] },
+      { name: "GIGA-42 Skibotn", country: "Norway", status: "live", lat: 69.4, lng: 20.3, developers: ["giga-42"] },
+      { name: "Kristinestad", country: "Finland", status: "live", lat: 62.3, lng: 21.4, developers: [] },
+      { name: "Lapland", country: "Sweden", status: "live", lat: 66.6, lng: 19.8, developers: [] },
+      { name: "Kitee", country: "Finland", status: "live", lat: 62.1, lng: 30.2, developers: [] },
+      { name: "Nordland", country: "Norway", status: "live", lat: 67.5, lng: 15.4, developers: ["norsk-datakraft"] },
+    ]/*/cms:sites_array*/;
+    const map = L.map('home-map', {
+      zoomControl: false, scrollWheelZoom: false, doubleClickZoom: false,
+      dragging: false, touchZoom: false, boxZoom: false, keyboard: false,
+      tap: false, attributionControl: true
+    });
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap, © CARTO', subdomains: 'abcd', maxZoom: 19, noWrap: true,
+      bounds: [[-90, -180], [90, 180]]
+    }).addTo(map);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd', maxZoom: 19, noWrap: true, opacity: 0.85
+    }).addTo(map);
+    sites.forEach(s => {
+      const devId = (s.developers && s.developers[0]) || null;
+      const dev = devId ? developersMap[devId] : null;
+      const color = dev?.color || SCALE42_BLUE;
+      L.marker([s.lat, s.lng], {
+        icon: L.divIcon({
+          className: '', iconSize: [16, 16], iconAnchor: [8, 8],
+          html: `<div class="dc-pin ${s.status === 'tbd' ? 'tbd' : ''}" style="background:${color};" title="${s.name}"></div>`
+        }),
+        interactive: false, keyboard: false
+      }).addTo(map);
+    });
+    const bounds = L.latLngBounds(sites.map(s => [s.lat, s.lng]));
+    const fit = () => map.fitBounds(bounds, { padding: [28, 28], maxZoom: 5, animate: false });
+    fit();
+    window.addEventListener('resize', () => { map.invalidateSize(); fit(); });
+  })();
+</script>
+
+</body>
+</html>

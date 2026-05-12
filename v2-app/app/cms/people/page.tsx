@@ -1,6 +1,17 @@
 import { createClient } from "@/lib/supabase-server";
+import RowsEditor, { type Col } from "@/components/edit/RowsEditor";
 
 export const dynamic = "force-dynamic";
+
+const COLS: Col[] = [
+  { key: "name", label: "Name", w: "200px" },
+  { key: "role", label: "Role", w: "200px" },
+  { key: "slug", label: "Slug", w: "140px" },
+  { key: "photo", label: "Photo", w: "200px" },
+  { key: "linkedin", label: "LinkedIn", w: "200px" },
+  { key: "bio", label: "Bio", type: "longtext", w: "220px" },
+  { key: "published", label: "Published", type: "bool", w: "90px" },
+];
 
 export default async function PeoplePage() {
   const sb = createClient();
@@ -8,16 +19,13 @@ export default async function PeoplePage() {
   return (
     <div className="container py-8">
       <h1 className="font-display text-3xl text-ink mb-4">People</h1>
-      <p className="text-muted mb-6">{data?.length ?? 0} people loaded. Table editor coming next.</p>
-      <ul className="bg-white border border-line rounded-md divide-y divide-line">
-        {(data ?? []).map(p => (
-          <li key={p.id} className="px-4 py-3 flex items-center gap-3">
-            <span className={`w-2 h-2 rounded-full ${p.published ? "bg-green-500" : "bg-warm"}`} />
-            <span className="font-semibold text-ink flex-1">{p.name}</span>
-            <span className="text-xs text-muted">{p.role}</span>
-          </li>
-        ))}
-      </ul>
+      <RowsEditor
+        table="S42_people"
+        initial={data ?? []}
+        cols={COLS}
+        filterKeys={["name", "role", "slug"]}
+        defaults={{ name: "New person", slug: `person-${Date.now()}`, published: false }}
+      />
     </div>
   );
 }

@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // We host CMS + Preview from the same image. The MODE env var (cms|preview)
-  // controls runtime behaviour; both read NEXT_PUBLIC_SUPABASE_* envs.
   poweredByHeader: false,
   images: {
     remotePatterns: [
@@ -11,6 +9,14 @@ const nextConfig = {
     ],
   },
   output: "standalone",
+  // The home/preview routes read live-site HTML templates from /lib at runtime.
+  // standalone tracing won't catch fs.readFileSync of constant-but-non-required
+  // paths, so include them explicitly.
+  experimental: {
+    outputFileTracingIncludes: {
+      "/": ["./lib/_*.html"],
+    },
+  },
 };
 
 module.exports = nextConfig;

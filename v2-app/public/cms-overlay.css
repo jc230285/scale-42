@@ -1,0 +1,38 @@
+/* Visible chrome around editable regions, only present in CMS mode */
+.s42-edit[contenteditable="true"] {
+  outline: 1px dashed rgba(199, 125, 70, 0.55);
+  outline-offset: 2px;
+  border-radius: 2px;
+  cursor: text;
+  transition: outline-color .15s;
+}
+.s42-edit[contenteditable="true"]:hover {
+  outline-color: rgba(199, 125, 70, 0.95);
+  background: rgba(199, 125, 70, 0.06);
+}
+.s42-edit[contenteditable="true"]:focus {
+  outline: 2px solid #c77d46;
+  background: #fff8f0;
+}
+.s42-edit[data-saving="1"] { opacity: .55; }
+.s42-edit[data-saved="1"] { outline-color: #33752f !important; }
+.s42-edit[data-error="1"] { outline: 2px solid #c0392b !important; background:#fff0ee; }
+
+#s42-cms-toolbar {
+  position: fixed; bottom: 14px; right: 14px; z-index: 9999;
+  background: #1c2e3f; color: #fff; padding: 8px 12px; border-radius: 999px;
+  font: 600 12px/1 system-ui, sans-serif; letter-spacing: .04em;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+}
+#s42-cms-toolbar .badge {
+  font-size: 10px; padding: 3px 7px; border-radius: 4px;
+  background:#c77d46; text-transform: uppercase; letter-spacing:.12em;
+}
+#s42-cms-toolbar a, #s42-cms-toolbar button {
+  color: #fff; background: transparent; border: 0; cursor: pointer;
+  padding: 4px 8px; border-radius: 4px; font: inherit;
+}
+#s42-cms-toolbar a:hover, #s42-cms-toolbar button:hover { background: rgba(255,255,255,.1); }
+#s42-cms-toolbar .publish { background: #c77d46; padding: 6px 14px; border-radius: 999px; }
+#s42-cms-toolbar .publish:hover { background: #b66a35; }

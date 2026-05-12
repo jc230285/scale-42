@@ -1,6 +1,19 @@
 import { createClient } from "@/lib/supabase-server";
+import RowsEditor, { type Col } from "@/components/edit/RowsEditor";
 
 export const dynamic = "force-dynamic";
+
+const COLS: Col[] = [
+  { key: "name", label: "Name", w: "180px" },
+  { key: "slug", label: "Slug", w: "130px" },
+  { key: "tagline", label: "Tagline", w: "220px" },
+  { key: "logo", label: "Logo URL", w: "200px" },
+  { key: "url", label: "Link", w: "180px" },
+  { key: "cta", label: "CTA", w: "120px" },
+  { key: "color", label: "Color", w: "100px" },
+  { key: "description", label: "Description", type: "longtext", w: "260px" },
+  { key: "published", label: "Published", type: "bool", w: "90px" },
+];
 
 export default async function DevelopersPage() {
   const sb = createClient();
@@ -8,15 +21,13 @@ export default async function DevelopersPage() {
   return (
     <div className="container py-8">
       <h1 className="font-display text-3xl text-ink mb-4">Partners</h1>
-      <ul className="bg-white border border-line rounded-md divide-y divide-line">
-        {(data ?? []).map(p => (
-          <li key={p.id} className="px-4 py-3 flex items-center gap-3">
-            {p.logo ? <img src={p.logo} alt="" className="h-8" /> : <span className="text-muted">[no logo]</span>}
-            <span className="font-semibold text-ink flex-1">{p.name}</span>
-            <span className="text-xs text-muted">{p.tagline}</span>
-          </li>
-        ))}
-      </ul>
+      <RowsEditor
+        table="S42_developers"
+        initial={data ?? []}
+        cols={COLS}
+        filterKeys={["name", "slug", "tagline"]}
+        defaults={{ name: "New partner", slug: `partner-${Date.now()}`, published: true }}
+      />
     </div>
   );
 }
