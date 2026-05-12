@@ -132,8 +132,9 @@ export function renderTemplate(
   // --- Auto-wrap everything else in CMS mode ---
   if (mode === "cms") {
     const counters: Record<string, number> = {};
-    const TAGS = ["h1", "h2", "h3", "h4", "p", "li", "dt", "dd"];
-    const re = new RegExp(`<(${TAGS.join("|")})\\b([^>]*)>([\\s\\S]*?)</\\1>`, "g");
+    // Regex literal — DO NOT use new RegExp(template-literal) here, SWC's
+    // minifier mishandles the embedded \b and silently breaks auto-wrap.
+    const re = /<(h1|h2|h3|h4|p|li|dt|dd)\b([^>]*)>([\s\S]*?)<\/\1>/g;
     const splitRe = /(<span class="s42-(?:edit|formula)"[\s\S]*?<\/span>)/;
     html = html.replace(re, (full, tag: string, attrs: string, inner: string) => {
       if (!inner.trim()) return full;
