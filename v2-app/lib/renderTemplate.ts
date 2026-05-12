@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { evalFormulas } from "./formulas";
 
 export type SectionOverride = { key: string; value_en: string | null };
 export type NavItem = { id: string; label: string; href: string; is_cta?: boolean; order_idx?: number };
@@ -116,6 +117,13 @@ export function renderTemplate(
     (_match, key: string, inner: string) => {
       const override = map.get(key);
       const value = override != null && override !== "" ? override : inner;
+      const hasFormula = /\{\{[a-z0-9_]+\}\}/.test(value);
+      // Formula-bearing fields are not inline-editable in CMS mode — the user
+      // edits them in /cms/sections so the formula text survives. A tooltip
+      // shows the source so they know it's calculated.
+      if (mode === "cms" && hasFormula) {
+        return `<span class="s42-formula" data-cms-page="${slug}" data-cms-key="${key}" title="Calculated: ${value.replace(/"/g,"&quot;")} — edit in /cms/sections">${value}</span>`;
+      }
       const editable = mode === "cms" ? ` contenteditable="true"` : "";
       return `<span class="s42-edit" data-cms-page="${slug}" data-cms-key="${key}"${editable}>${value}</span>`;
     },
@@ -147,6 +155,12 @@ export function renderTemplate(
   html = html.replace(/srcset="assets\//g, 'srcset="/assets/');
 
   html = html.replace(/<script src="lang\.js"[^>]*><\/script>/g, "");
+
+  // Evaluate {{token}} formulas LAST (so cms-edit values authored as
+  // "{{sum_target_mw}} MW" render their computed value, including in CMS
+  // mode — the user sees the live number and the underlying formula is
+  // still saved in S42_sections).
+  html = evalFormulas(html, { sites, news, developers: developers as any });
 
   if (mode === "cms") {
     html = html.replace(
