@@ -18,7 +18,9 @@
 }
 
 .s42-edit[contenteditable="true"]:hover {
-  background: rgba(255, 200, 140, 0.7) !important;
+  background: rgba(255, 200, 140, 0.85) !important;
+  color: #1c2e3f !important;
+  -webkit-text-fill-color: #1c2e3f !important;
   box-shadow:
     inset 0 0 0 2px #1c2e3f,
     0 0 0 2px #c77d46,
@@ -29,6 +31,9 @@
 .s42-edit[contenteditable="true"]:focus {
   outline: none;
   background: #fff7ec !important;
+  color: #1c2e3f !important;
+  -webkit-text-fill-color: #1c2e3f !important;
+  text-shadow: none !important;
   box-shadow:
     inset 0 0 0 2px #1c2e3f,
     0 0 0 3px #c77d46,
