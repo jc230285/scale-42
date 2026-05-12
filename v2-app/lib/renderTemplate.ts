@@ -134,17 +134,37 @@ export function renderTemplate(
     const counters: Record<string, number> = {};
     const TAGS = ["h1", "h2", "h3", "h4", "p", "li", "dt", "dd"];
     const re = new RegExp(`<(${TAGS.join("|")})\\b([^>]*)>([\\s\\S]*?)</\\1>`, "g");
+    const splitRe = /(<span class="s42-(?:edit|formula)"[\s\S]*?<\/span>)/;
     html = html.replace(re, (full, tag: string, attrs: string, inner: string) => {
-      if (inner.includes("s42-edit")) return full;
       if (!inner.trim()) return full;
+      // Pure-element wrappers (image-only, link-only) — leave alone
       if (/^[\s]*<(a|img|svg|picture|button|video)\b/i.test(inner.trim()) && !inner.replace(/<[^>]+>/g, "").trim()) {
         return full;
       }
+
       counters[tag] = (counters[tag] || 0) + 1;
-      const key = `auto_${tag}_${counters[tag]}`;
-      const override = map.get(key);
+      const baseKey = `auto_${tag}_${counters[tag]}`;
+
+      // If the paragraph already contains s42-* spans, split around them so
+      // the surrounding text segments are individually editable too.
+      if (splitRe.test(inner)) {
+        const parts = inner.split(splitRe);
+        const rebuilt = parts
+          .map((part, i) => {
+            if (i % 2 === 1) return part; // keep existing s42 span as-is
+            if (!part.trim()) return part;
+            const key = `${baseKey}_p${i >> 1}`;
+            const override = map.get(key);
+            const val = override != null && override !== "" ? override : part;
+            return `<span class="s42-edit" data-cms-page="${slug}" data-cms-key="${key}" contenteditable="true">${val}</span>`;
+          })
+          .join("");
+        return `<${tag}${attrs}>${rebuilt}</${tag}>`;
+      }
+
+      const override = map.get(baseKey);
       const value = override != null && override !== "" ? override : inner;
-      return `<${tag}${attrs}><span class="s42-edit" data-cms-page="${slug}" data-cms-key="${key}" contenteditable="true">${value}</span></${tag}>`;
+      return `<${tag}${attrs}><span class="s42-edit" data-cms-page="${slug}" data-cms-key="${baseKey}" contenteditable="true">${value}</span></${tag}>`;
     });
   }
 
