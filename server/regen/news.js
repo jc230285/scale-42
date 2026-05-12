@@ -6,6 +6,19 @@ const DATA = path.join(ROOT, 'content', 'news.json');
 
 const esc = (s = '') => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+// Placeholder when no image is set: a CSS gradient block that matches the brand.
+function imgTag(p, assetsPrefix, lazy) {
+  const imgPath = p.image ? path.join(ROOT, 'assets', 'news', p.image) : null;
+  const exists = imgPath && fs.existsSync(imgPath);
+  const lazyAttr = lazy ? ' loading="lazy"' : '';
+  if (exists) {
+    return `<img src="${assetsPrefix}assets/news/${esc(p.image)}" alt="${esc(p.alt || p.title_en || '')}"${lazyAttr} />`;
+  }
+  // Placeholder block — gradient, with the post type as faint text
+  const label = esc(p.type_en || 'News');
+  return `<div class="news-img-placeholder" role="img" aria-label="${esc(p.alt || p.title_en || '')}" style="width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(135deg,#1c2e3f 0%,#2f6675 60%,#4a8a6a 100%);color:rgba(255,255,255,0.55);font-family:Lexend,system-ui,sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;">${label}</div>`;
+}
+
 function featureHtml(p, lang, assetsPrefix) {
   const t = lang === 'no' ? p.type_no : p.type_en;
   const d = lang === 'no' ? p.date_no : p.date_en;
@@ -17,7 +30,7 @@ function featureHtml(p, lang, assetsPrefix) {
   const articleStyle = !p.published ? ' style="opacity:0.9;border-left:3px solid #e8b87a;padding-left:14px;"' : '';
   return `    <article class="news-feature"${articleStyle}>
       <a class="img" href="${esc(p.slug)}/" aria-label="${esc(title)}">
-        <img src="${assetsPrefix}assets/news/${esc(p.image)}" alt="${esc(p.alt || title)}" />
+        ${imgTag(p, assetsPrefix, false)}
       </a>
       <div>
         <p class="meta">${draftBadge}${meta}</p>
@@ -37,7 +50,7 @@ function cardHtml(p, lang, assetsPrefix) {
   const draftBadge = !p.published ? '<span style="background:#fef3e0;color:#a35c00;padding:1px 7px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-right:6px;">Draft</span>' : '';
   const cardStyle = !p.published ? ' style="opacity:0.9;border-left:3px solid #e8b87a;"' : '';
   return `      <a class="news-card" href="${esc(p.slug)}/"${cardStyle}>
-        <div class="img"><img src="${assetsPrefix}assets/news/${esc(p.image)}" alt="${esc(p.alt || title)}" loading="lazy" /></div>
+        <div class="img">${imgTag(p, assetsPrefix, true)}</div>
         <div class="body">
           <p class="meta">${draftBadge}<span>${esc(t)}</span><span class="dot">&bull;</span><span>${esc(d)}</span></p>
           <h3>${esc(title)}</h3>
@@ -68,7 +81,9 @@ function storyPage(p) {
   const date = p.date_en || '';
   const readTime = p.read_time || '';
   const type = p.type_en || 'Press coverage';
-  const image = p.image ? `<div class="bg"><img src="../../assets/news/${esc(p.image)}" alt="${esc(p.alt || title)}" /></div>` : '';
+  const imgPath = p.image ? path.join(ROOT, 'assets', 'news', p.image) : null;
+  const imgExists = imgPath && fs.existsSync(imgPath);
+  const image = imgExists ? `<div class="bg"><img src="../../assets/news/${esc(p.image)}" alt="${esc(p.alt || title)}" /></div>` : '';
   const tags = (p.tags || '').split(',').map(t => t.trim()).filter(Boolean).map(t => `<span class="post-tag">${esc(t)}</span>`).join('');
   const sourceCredit = p.source_html ? `<p class="meta-credit">${p.source_html}</p>` : '';
   return `<!doctype html>
