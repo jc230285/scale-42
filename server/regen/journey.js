@@ -26,7 +26,7 @@ function renderJourney(data, lang) {
       </li>`;
   }).join('\n');
 
-  return `<section class="journey-section">
+  return `<section class="journey-section bg-grid">
   <div class="journey-pin" data-journey-pin>
     <div class="sticky">
       <div class="heading">
@@ -49,11 +49,12 @@ ${nodes}
   if (!track) return;
   var sticky = pin.querySelector('.sticky');
   function isMobile(){ return window.innerWidth <= 800; }
+  var SCROLL_SPEED = 2.2; // higher = less vertical scroll needed per px of horizontal travel
   function setHeight(){
     if (isMobile()) { pin.style.height = ''; track.style.transform = ''; return; }
     var stickyH = sticky ? sticky.offsetHeight : window.innerHeight;
     var extra = Math.max(0, track.scrollWidth - window.innerWidth);
-    pin.style.height = (stickyH + extra) + 'px';
+    pin.style.height = (stickyH + Math.ceil(extra / SCROLL_SPEED)) + 'px';
   }
   function onScroll(){
     if (isMobile()) { track.style.transform = ''; return; }
