@@ -71,6 +71,32 @@ export function renderTemplate(
     },
   );
 
+  // In CMS mode, auto-wrap every visible text element (h1-h4, p, li, dt, dd,
+  // a inside .btn / .card) with an inline editor span so the user can edit
+  // anywhere — not just the explicitly marked regions. Stable position-based
+  // keys (auto_<tag>_<index>) let edits survive page reloads.
+  if (mode === "cms") {
+    const counters: Record<string, number> = {};
+    const TAGS = ["h1", "h2", "h3", "h4", "p", "li", "dt", "dd"];
+    const re = new RegExp(`<(${TAGS.join("|")})\\b([^>]*)>([\\s\\S]*?)</\\1>`, "g");
+    html = html.replace(re, (full, tag: string, attrs: string, inner: string) => {
+      // Skip if already wrapped (carries s42-edit) or contains complex nested
+      // HTML (links, spans we want individually editable).
+      if (inner.includes("s42-edit")) return full;
+      // Skip empty/whitespace-only
+      if (!inner.trim()) return full;
+      // Skip elements that are pure containers (e.g. <p><a><img></a></p>)
+      if (/^[\s]*<(a|img|svg|picture|button|video)\b/i.test(inner.trim()) && !inner.replace(/<[^>]+>/g, "").trim()) {
+        return full;
+      }
+      counters[tag] = (counters[tag] || 0) + 1;
+      const key = `auto_${tag}_${counters[tag]}`;
+      const override = map.get(key);
+      const value = override != null && override !== "" ? override : inner;
+      return `<${tag}${attrs}><span class="s42-edit" data-cms-page="${slug}" data-cms-key="${key}" contenteditable="true">${value}</span></${tag}>`;
+    });
+  }
+
   // Ensure absolute asset paths so nested routes still find /styles.css, /assets/*
   html = html.replace(/href="styles\.css"/g, 'href="/styles.css"');
   html = html.replace(/src="assets\//g, 'src="/assets/');
