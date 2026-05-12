@@ -59,16 +59,21 @@
   // and a link to /cms/sections where it can be changed.
   function attachFormulas() {
     document.querySelectorAll(".s42-formula").forEach((el) => {
+      // Hard-block any input that could land inside this span
+      el.setAttribute("contenteditable", "false");
+      el.setAttribute("tabindex", "-1");
+      ["beforeinput", "input", "keydown", "keypress", "paste", "drop"].forEach((ev) => {
+        el.addEventListener(ev, (e) => { e.preventDefault(); e.stopPropagation(); });
+      });
+      el.addEventListener("mousedown", (e) => {
+        // Prevent the caret from being placed inside the formula
+        e.preventDefault();
+      });
       el.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const key = el.getAttribute("data-cms-key");
-        const page = el.getAttribute("data-cms-page");
-        // Pop a confirm with the formula and offer to open /cms/sections
-        const msg = `This value is calculated automatically.\n\nKey: ${page}.${key}\n\nEdit the formula in /cms/sections.\nOpen it now?`;
-        if (window.confirm(msg)) {
-          window.location.href = "/cms/sections";
-        }
+        toast("Calculated value — edit formula in Sections");
+        setTimeout(() => { window.location.href = "/cms/sections"; }, 900);
       });
     });
   }
