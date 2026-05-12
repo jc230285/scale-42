@@ -36,19 +36,8 @@
       .then((r) => {
         if (!r.ok) return Promise.reject(r);
         fadeAck(el);
-        scheduleAutoPublish();
       })
       .catch(() => setState(el, "error"));
-  }
-
-  // Auto-publish: debounce a /api/publish/maybe call ~5s after the latest edit.
-  // The server honours a 10-min throttle, so call cost is cheap.
-  let autoPubTimer = null;
-  function scheduleAutoPublish() {
-    if (autoPubTimer) clearTimeout(autoPubTimer);
-    autoPubTimer = setTimeout(() => {
-      fetch("/api/publish/maybe", { method: "POST" }).catch(() => {});
-    }, 5000);
   }
 
   function attach() {
@@ -71,7 +60,7 @@
   function banner() {
     const b = document.createElement("div");
     b.id = "s42-cms-mode-banner";
-    b.textContent = "CMS mode · click any highlighted text to edit · changes auto-save and auto-publish in 10 min";
+    b.textContent = "CMS mode · edits auto-save to Supabase and appear instantly on preview.scale-42.com · use the Publish button to push to live";
     document.body.prepend(b);
   }
 

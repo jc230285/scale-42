@@ -1,12 +1,5 @@
 "use client";
 
-let timer: ReturnType<typeof setTimeout> | null = null;
-
-/** Debounced 10-min-throttled auto-publish — call after any CMS write. */
-export function scheduleAutoPublish() {
-  if (typeof window === "undefined") return;
-  if (timer) clearTimeout(timer);
-  timer = setTimeout(() => {
-    fetch("/api/publish/maybe", { method: "POST" }).catch(() => {});
-  }, 5000);
-}
+// Auto-publish removed — publish is manual via the Publish button.
+// Keep this exported no-op so existing call sites compile without churn.
+export function scheduleAutoPublish() {}
