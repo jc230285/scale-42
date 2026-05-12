@@ -6,6 +6,9 @@ export async function middleware(request: NextRequest) {
   const requiresAuth = mode !== "live";
 
   let response = NextResponse.next({ request: { headers: request.headers } });
+  // Disable any intermediary caching of HTML responses so CMS edits show on refresh.
+  response.headers.set("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0");
+  response.headers.set("Pragma", "no-cache");
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
