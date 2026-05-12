@@ -30,14 +30,25 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   // Public endpoints that must work even when not logged in
-  const publicPaths = [
+  const path = request.nextUrl.pathname;
+  const publicPrefixes = [
     "/login",
     "/api/auth/callback",
     "/_next",
     "/favicon",
     "/assets",
   ];
-  const isPublic = publicPaths.some((p) => request.nextUrl.pathname.startsWith(p));
+  const publicExact = [
+    "/styles.css",
+    "/cms-overlay.js",
+    "/cms-overlay.css",
+    "/robots.txt",
+    "/site.webmanifest",
+  ];
+  const isPublic =
+    publicPrefixes.some((p) => path.startsWith(p)) ||
+    publicExact.includes(path) ||
+    /\.(?:css|js|svg|png|jpg|jpeg|gif|webp|avif|ico|woff2?)$/i.test(path);
 
   if (requiresAuth && !user && !isPublic) {
     const url = request.nextUrl.clone();
