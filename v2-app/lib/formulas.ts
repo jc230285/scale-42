@@ -23,10 +23,22 @@ function fmt(n: number) {
   return n.toLocaleString("en-US");
 }
 
+function minOf(rows: SiteRow[] | undefined, key: "target_mw" | "initial_mw" | "max_capacity_mw") {
+  const vals = (rows ?? []).map((r) => Number(r[key])).filter((n) => n > 0);
+  return vals.length ? Math.min(...vals) : 0;
+}
+function maxOf(rows: SiteRow[] | undefined, key: "target_mw" | "initial_mw" | "max_capacity_mw") {
+  const vals = (rows ?? []).map((r) => Number(r[key])).filter((n) => n > 0);
+  return vals.length ? Math.max(...vals) : 0;
+}
+
 const TOKEN_HANDLERS: Record<string, (d: FormulaData) => string> = {
   sum_target_mw:        (d) => fmt(roundNice(sum(d.sites, "target_mw"))),
   sum_initial_mw:       (d) => fmt(roundNice(sum(d.sites, "initial_mw"))),
   sum_max_capacity_mw:  (d) => fmt(roundNice(sum(d.sites, "max_capacity_mw"))),
+  min_target_mw:        (d) => fmt(roundNice(minOf(d.sites, "target_mw"))),
+  max_target_mw:        (d) => fmt(roundNice(maxOf(d.sites, "target_mw"))),
+  min_initial_mw:       (d) => fmt(roundNice(minOf(d.sites, "initial_mw"))),
   count_sites:          (d) => String((d.sites ?? []).length),
   count_active_sites:   (d) => String((d.sites ?? []).filter((s) => (s.status || "").toLowerCase() === "live").length),
   count_countries:      (d) => String(new Set((d.sites ?? []).map((s) => (s.country || "").trim()).filter(Boolean)).size),
