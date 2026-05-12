@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase-server";
+import { createClient, createServiceClient } from "@/lib/supabase-server";
 
 export async function POST(req: Request) {
   const sb = createClient();
@@ -10,11 +10,17 @@ export async function POST(req: Request) {
   if (!body || !body.page || !body.key) {
     return NextResponse.json({ error: "missing_fields" }, { status: 400 });
   }
-  const { page, key, value } = body;
 
-  const { error } = await sb
+  // Use service role for the write so RLS doesn't silently drop edits
+  // (the user is already authenticated above; allowlist gate is enforced
+  // by the auth.users trigger).
+  const svc = createServiceClient();
+  const { error } = await svc
     .from("S42_sections")
-    .upsert({ page, key, value_en: value ?? "" }, { onConflict: "page,key" });
+    .upsert(
+      { page: body.page, key: body.key, value_en: body.value ?? "" },
+      { onConflict: "page,key" },
+    );
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
   return NextResponse.json({ ok: true });

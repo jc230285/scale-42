@@ -8,6 +8,21 @@
   function fadeAck(el) {
     setState(el, "saved");
     setTimeout(() => setState(el, null), 1200);
+    toast("Saved · preview.scale-42.com");
+  }
+
+  let toastTimer = null;
+  function toast(msg) {
+    let t = document.getElementById("s42-toast");
+    if (!t) {
+      t = document.createElement("div");
+      t.id = "s42-toast";
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.add("show");
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove("show"), 2200);
   }
 
   function save(el) {
@@ -38,6 +53,24 @@
         fadeAck(el);
       })
       .catch(() => setState(el, "error"));
+  }
+
+  // Formula spans — clicking opens a tiny popover showing the formula source
+  // and a link to /cms/sections where it can be changed.
+  function attachFormulas() {
+    document.querySelectorAll(".s42-formula").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const key = el.getAttribute("data-cms-key");
+        const page = el.getAttribute("data-cms-page");
+        // Pop a confirm with the formula and offer to open /cms/sections
+        const msg = `This value is calculated automatically.\n\nKey: ${page}.${key}\n\nEdit the formula in /cms/sections.\nOpen it now?`;
+        if (window.confirm(msg)) {
+          window.location.href = "/cms/sections";
+        }
+      });
+    });
   }
 
   function attach() {
@@ -88,6 +121,7 @@
 
   function init() {
     attach();
+    attachFormulas();
     toolbar();
   }
   if (document.readyState === "loading") {

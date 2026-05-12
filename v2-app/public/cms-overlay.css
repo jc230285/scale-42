@@ -123,6 +123,21 @@
   white-space: nowrap;
 }
 
+#s42-toast {
+  position: fixed; left: 50%; bottom: 60px;
+  transform: translate(-50%, 20px);
+  background: #33752f; color: #fff;
+  padding: 10px 20px; border-radius: 999px;
+  font: 600 13px/1 system-ui, sans-serif;
+  letter-spacing: .02em;
+  box-shadow: 0 8px 24px rgba(51,117,47,.45);
+  opacity: 0; pointer-events: none;
+  transition: opacity .18s, transform .18s;
+  z-index: 100000;
+}
+#s42-toast.show { opacity: 1; transform: translate(-50%, 0); }
+#s42-toast::before { content: "✓ "; }
+
 #s42-cms-mode-banner {
   position: fixed; top: 0; left: 0; right: 0; z-index: 99998;
   background: linear-gradient(90deg,#c77d46,#dba37c);

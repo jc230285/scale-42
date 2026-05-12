@@ -122,7 +122,7 @@ export function renderTemplate(
       // edits them in /cms/sections so the formula text survives. A tooltip
       // shows the source so they know it's calculated.
       if (mode === "cms" && hasFormula) {
-        return `<span class="s42-formula" data-cms-page="${slug}" data-cms-key="${key}" title="Calculated: ${value.replace(/"/g,"&quot;")} — edit in /cms/sections">${value}</span>`;
+        return `<span class="s42-formula" data-cms-page="${slug}" data-cms-key="${key}" contenteditable="false" title="Calculated value (formula in S42_sections) — click to view formula">${value}</span>`;
       }
       const editable = mode === "cms" ? ` contenteditable="true"` : "";
       return `<span class="s42-edit" data-cms-page="${slug}" data-cms-key="${key}"${editable}>${value}</span>`;

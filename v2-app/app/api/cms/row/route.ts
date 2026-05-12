@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase-server";
+import { createClient, createServiceClient } from "@/lib/supabase-server";
 
 const ALLOWED = new Set([
   "S42_nav",
@@ -23,7 +23,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "table_not_allowed" }, { status: 400 });
   }
 
-  const { error } = await sb
+  const svc = createServiceClient();
+  const { error } = await svc
     .from(body.table)
     .update({ [body.field]: body.value ?? null })
     .eq("id", body.id);
