@@ -40,6 +40,7 @@ export async function middleware(request: NextRequest) {
     "/_next",
     "/favicon",
     "/assets",
+    "/debug/",
   ];
   const publicExact = [
     "/styles.css",
