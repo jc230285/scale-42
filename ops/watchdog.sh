@@ -41,6 +41,41 @@ OOM_LOOKBACK_SECS=180        # check journal for OOM events within last N second
 mkdir -p "$STATE_DIR"
 touch "$LOG_FILE"
 
+# Friendly-name lookup. Maps Coolify UUID prefixes to human names so alerts say
+# "land" instead of "zr1w3kp57yeuli2jr5a3e5rq-182650946653".
+ALIAS_FILE=/etc/s42-app-aliases
+COOLIFY_API="${COOLIFY_API:-https://vps.sandstormlogic.com/api/v1}"
+COOLIFY_TOKEN="${COOLIFY_TOKEN:-}"
+
+friendly_name() {
+  local raw="$1"
+  [ -f "$ALIAS_FILE" ] || { echo "$raw"; return; }
+  local short="${raw%%-*}"   # strip the deploy-timestamp suffix
+  local nice
+  nice=$(awk -v k="$short" '$1==k{print $2; exit}' "$ALIAS_FILE")
+  if [ -n "$nice" ]; then echo "$nice ($short)"; else echo "$raw"; fi
+}
+
+# Refresh alias file from Coolify API once an hour (cheap, only on the VPS)
+refresh_aliases() {
+  [ -z "$COOLIFY_TOKEN" ] && return
+  local marker="$STATE_DIR/aliases_refreshed"
+  if [ -f "$marker" ] && [ $(($(date +%s) - $(stat -c %Y "$marker" 2>/dev/null || echo 0))) -lt 3600 ]; then
+    return
+  fi
+  local tmp
+  tmp=$(mktemp)
+  if timeout 10s curl -fsS "$COOLIFY_API/applications" -H "Authorization: Bearer $COOLIFY_TOKEN" \
+       | python3 -c 'import json,sys
+for a in json.load(sys.stdin): print(a.get("uuid",""), a.get("name",""))' > "$tmp" 2>/dev/null \
+       && [ -s "$tmp" ]; then
+    mv "$tmp" "$ALIAS_FILE"
+    touch "$marker"
+  else
+    rm -f "$tmp"
+  fi
+}
+
 # ---------- Helpers ----------
 log() {
   echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] $*" >> "$LOG_FILE"
@@ -124,9 +159,10 @@ check_load() {
         local hog_name; hog_name=$(echo "$hog" | awk '{print $2}')
         local hog_cpu; hog_cpu=$(echo "$hog" | awk '{print $3}')
         if [ -n "$hog_id" ]; then
-          log "restarting hog container: $hog_name ($hog_id) using $hog_cpu"
+          local nice; nice=$(friendly_name "$hog_name")
+          log "restarting hog container: $nice ($hog_id) using $hog_cpu"
           timeout 30s docker restart "$hog_id" >/dev/null 2>&1 && \
-            send_alert "Restarted runaway container" "Sustained load ${load1} (${per_core} per core). Top CPU consumer was $hog_name ($hog_id) at $hog_cpu. Container has been restarted."
+            send_alert "Restarted runaway container: $nice" "Sustained load ${load1} (${per_core} per core). Top CPU consumer was $nice (container $hog_id) at $hog_cpu. Container has been restarted."
         fi
       fi
       reset_counter load
@@ -175,10 +211,11 @@ check_memory() {
       hog_pct=$(echo "$hog" | awk '{print $4}')
 
       if [ -n "$hog_id" ]; then
-        log "restarting top mem container: $hog_name ($hog_id) using $hog_mem ($hog_pct)"
+        local nice; nice=$(friendly_name "$hog_name")
+        log "restarting top mem container: $nice ($hog_id) using $hog_mem ($hog_pct)"
         timeout 30s docker restart "$hog_id" >/dev/null 2>&1
-        send_alert "Pre-OOM: restarted memory-hog container" \
-                   "Memory was at ${used_pct}% used. Top container: $hog_name ($hog_id) using $hog_mem ($hog_pct). Restarted it to free RAM before OOM could fire. Investigate this app for a leak."
+        send_alert "Pre-OOM: restarted memory-hog container: $nice" \
+                   "Memory was at ${used_pct}% used. Top container: $nice (id $hog_id) using $hog_mem ($hog_pct). Restarted it to free RAM before OOM could fire. Investigate this app for a leak."
       fi
     fi
   fi
@@ -213,10 +250,11 @@ check_swap_pressure() {
       hog_id=$(echo "$hog" | awk '{print $1}')
       hog_name=$(echo "$hog" | awk '{print $2}')
       if [ -n "$hog_id" ]; then
-        log "swap-thrash: restarting $hog_name ($hog_id)"
+        local nice; nice=$(friendly_name "$hog_name")
+        log "swap-thrash: restarting $nice ($hog_id)"
         timeout 30s docker restart "$hog_id" >/dev/null 2>&1
-        send_alert "Swap pressure: restarted hog" \
-                   "Swap at ${pct}% used — system thrashing to disk. Restarted top memory consumer: $hog_name ($hog_id)."
+        send_alert "Swap pressure: restarted $nice" \
+                   "Swap at ${pct}% used — system thrashing to disk. Restarted top memory consumer: $nice (id $hog_id)."
       fi
     fi
   fi
@@ -261,8 +299,9 @@ check_oom_events() {
       finished_epoch=$(date -d "$finished_at" +%s 2>/dev/null || echo 0)
       now_epoch=$(date +%s)
       if [ $((now_epoch - finished_epoch)) -lt "$OOM_LOOKBACK_SECS" ]; then
-        log "restarting OOM victim container: $name ($id)"
-        timeout 30s docker start "$id" >/dev/null 2>&1 && restarted_list+="${name} "
+        local nice; nice=$(friendly_name "$name")
+        log "restarting OOM victim container: $nice ($id)"
+        timeout 30s docker start "$id" >/dev/null 2>&1 && restarted_list+="${nice} "
       fi
     done <<< "$stopped"
   fi
@@ -341,6 +380,7 @@ heartbeat() {
 
 # ---------- Run ----------
 heartbeat
+refresh_aliases       # keep friendly-name map in sync with Coolify
 check_oom_events      # FIRST — detect & recover from OOM that already happened
 check_memory          # proactive: act at 82%, panic at 90%
 check_swap_pressure   # catch swap-thrash before it locks the host
