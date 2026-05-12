@@ -195,12 +195,47 @@ ${sourceCredit}
 `;
 }
 
+function homePostHtml(p) {
+  const ex = p.excerpt_en || '';
+  const date = p.date_en || '';
+  const title = p.title_en || p.slug;
+  const imgPath = p.image ? path.join(ROOT, 'assets', 'news', p.image) : null;
+  const imgExists = imgPath && fs.existsSync(imgPath);
+  const imgInner = imgExists
+    ? `<img src="assets/news/${esc(p.image)}" alt="${esc(p.alt || title)}" loading="lazy" />`
+    : `<div role="img" aria-label="${esc(p.alt || title)}" style="width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(135deg,#1c2e3f 0%,#2f6675 60%,#4a8a6a 100%);color:rgba(255,255,255,0.55);font-family:Lexend,system-ui,sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;">${esc(p.type_en || 'News')}</div>`;
+  return `      <article class="post">
+        <div class="post-img">${imgInner}</div>
+        <p class="post-date">${esc(date)}</p>
+        <h3>${esc(title)}</h3>
+        <p>${esc(ex)}</p>
+        <a href="news/${esc(p.slug)}/">Read &rarr;</a>
+      </article>`;
+}
+
+function replaceHomeNews(html, posts) {
+  const includeDrafts = process.env.INCLUDE_DRAFTS === 'true' || process.env.INCLUDE_DRAFTS === '1';
+  const live = includeDrafts ? posts.slice() : posts.filter(p => p.published);
+  const top = live.slice(0, 4);
+  const block = '\n' + top.map(homePostHtml).join('\n') + '\n    ';
+  return html.replace(/(<!--cms:home_news-->)[\s\S]*?(<!--\/cms:home_news-->)/, `$1${block}$2`);
+}
+
 function run() {
   const data = JSON.parse(fs.readFileSync(DATA, 'utf-8'));
   const p = path.join(ROOT, 'news/index.html');
   let html = fs.readFileSync(p, 'utf-8');
   html = replaceBlock(html, buildBlock(data.posts, 'en', '../'));
   fs.writeFileSync(p, html, 'utf-8');
+  // Home page latest news block
+  const homePath = path.join(ROOT, 'index.html');
+  if (fs.existsSync(homePath)) {
+    let homeHtml = fs.readFileSync(homePath, 'utf-8');
+    if (homeHtml.includes('<!--cms:home_news-->')) {
+      homeHtml = replaceHomeNews(homeHtml, data.posts);
+      fs.writeFileSync(homePath, homeHtml, 'utf-8');
+    }
+  }
   // Per-slug pages: only regenerate when body_html is present in news.json
   let storyCount = 0;
   for (const post of data.posts) {
