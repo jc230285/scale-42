@@ -269,545 +269,6 @@
       "developers": []
     },
     {
-      "id": "bakki",
-      "name": "GIGA-42 Bakki",
-      "country": "Iceland",
-      "site_type": "greenfield",
-      "internal_status": "Responsibility",
-      "internal_category": "GIGA-42",
-      "published": true,
-      "status": "live",
-      "short_status_label": "JV announced",
-      "lat": 66.05,
-      "lng": -17.35,
-      "power": "Primarily Geothermal",
-      "initial_mw": 50,
-      "target_mw": 150,
-      "max_capacity_mw": 150,
-      "image": "0a0d0e8b-252a-44c7-b386-9ddfb691b670.jpg",
-      "desc_en": "Iceland's largest data centre development, with geothermal baseload, 50 MW initial deployment in 2027, scaling up to 150MW+ by 2030",
-      "desc_no": "Geotermisk grunnlast, 50 MW oppstart 2027, skalerer til 200 MW.",
-      "bid_status": "Project",
-      "category_rationale": "Develop / Dispose — develop if land and power can be secured near term; otherwise sell if a material offer is obtained from Meralyte or others.",
-      "nbs_assessment": "Support from PM's office and municipality. Land secured by MOU; lease under negotiation. Subsea cables being renewed with new connections to North America. Draft PPA terms received but utility/TSO want end-user interest before definitive contracts.",
-      "project_description": "Greenfield plot adjoining the (now ceased) PCC Silicon plant. Mostly flat, no trees, small stream to one side. Old pre-fabricated office buildings on part of the site. Substation across the road on the site boundary.",
-      "address": "Dvergabakki 4, 640 Húsavík, Iceland",
-      "site_link": "https://maps.app.goo.gl/CQKfjzKnBvGvY7Ub8",
-      "size_ha": null,
-      "eia_required": true,
-      "eia_status": "Required above 100 MW",
-      "connection_voltage": "11kV / 33kV / 220kV",
-      "dso": "N/A",
-      "tso": "Landsnet",
-      "ppa_counterparty": "Landsvirkjun",
-      "exact_power_status": "Under LOI with utility. Power & transmission available subject to PPA.",
-      "heat_reuse": "Planned — local offtakers available.",
-      "it_load_mw": "160",
-      "dpue": "1.15",
-      "ppue": "1.25",
-      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
-      "cooling": "Air — perimeter; DLC — room-level CDU",
-      "workload_mix": "AI training & inference or cloud",
-      "fibre_providers": [
-        "FARICE"
-      ],
-      "fibre_strands": "Dark fibre available (via FARICE extension); dedicated strands possible under future subsea scenario; allocation TBC.",
-      "fibre_speeds_gbps": "400G minimum per cable; 1Tb possible",
-      "subsea_cables": [
-        "IRIS",
-        "DANICE",
-        "FARICE"
-      ],
-      "fibre_general_info": "One of the strongest-connected sites in the Nordics. Three independent subsea systems land in Iceland (FARICE, DANICE, IRIS) with direct routes to UK, mainland Europe and North America. Systems being renewed and expanded with new/upgraded NA connectivity. Multiple technical and commercial discussions with FARICE via JLL.",
-      "latency_summary": "Dublin ~13.4 ms · Slough UK ~15.5–19.9 ms · Frankfurt ~19.9 ms · Amsterdam ~19.7 ms · Oslo ~22.2 ms · Paris ~22.7 ms · NY ~42.8 ms (IRIS).",
-      "highway_access": "Adjacent to Highway 85",
-      "airport_access": "1 hr to international",
-      "college_university": "1 hr to college & university",
-      "other_access_notes": "2.8 km to commercial port",
-      "zoning_status": "Parcel A zoned (one plot complete); Parcel B (expansion) zoning to be conducted by the municipality (~12 months estimated).",
-      "key_risks_dependencies": "Power procurement — Landsvirkjun's new process requires an end user prior to MOU signing (currently mitigated by an LOI from Solstice Data).",
-      "jv_partner": "Global Interconnection Group",
-      "project_owner": "50%",
-      "current_control": "Lease negotiations (extension to MOU agreed Feb-26)",
-      "planned_ultimate_control": "Effective freehold (long leasehold; freehold not possible in Iceland)",
-      "contractual_arrangement": "JLL — Advisors",
-      "investment_memo_link": "BAKKI IM",
-      "strategic_status": "GIGA-42 Responsibility",
-      "plots_identified": "7",
-      "extra_data": "ProjectID: ICE021\nPrimary Project Partner: GIGA-42\nPotential FID Date: 2026 First choice of location in Iceland.\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/fYYawXZfJxMPF5NH6\nNot Required: 66.070228, -17.343472\nSize (ha) - Primary Plot: 10\nDescription: Industrial site near PCC plant\nSite Drainage: Good access to road, port in town 1km.\nSite Access: Good access to road, port in town 1km.\nZoning Status: Zoned\nHeat Off-Take: Yes\nPower Connection Methods: Single 220kv line to substation\n\nProjectID: ICE021\nPrimary Project Partner: GIGA-42\nPotential FID Date: 2026 First choice of location in Iceland.\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/fYYawXZfJxMPF5NH6\nNot Required: 66.070228, -17.343472\nSize (ha) - Primary Plot: 10\nDescription: Industrial site near PCC plant\nSite Drainage: Good access to road, port in town 1km.\nSite Access: Good access to road, port in town 1km.\nZoning Status: Zoned\nHeat Off-Take: Yes\nPower Connection Methods: Single 220kv line to substation\n\nProjectID: ICE021\nPrimary Project Partner: GIGA-42\nPotential FID Date: 2026 First choice of location in Iceland.\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/fYYawXZfJxMPF5NH6\nNot Required: 66.070228, -17.343472\nSize (ha) - Primary Plot: 10\nDescription: Industrial site near PCC plant\nSite Drainage: Good access to road, port in town 1km.\nSite Access: Good access to road, port in town 1km.\nZoning Status: Zoned\nHeat Off-Take: Yes\nPower Connection Methods: Single 220kv line to substation",
-      "land_paperwork_status": "",
-      "fingrid_map_link": "",
-      "connection_enquiry_link": "",
-      "planning_status": "",
-      "restrictions": "",
-      "plots_secured": "",
-      "water_availability": "",
-      "power_availability": "",
-      "power_paperwork": "",
-      "ppa_status": "",
-      "racks": "",
-      "isp_check_status": "",
-      "highway_km": null,
-      "nearest_airport": "",
-      "airport_km": null,
-      "university_km": null,
-      "labour_availability": "",
-      "rtb_date": "",
-      "energisation_date": "",
-      "project_budget_musd": null,
-      "offtakers": [],
-      "risks": "",
-      "dependencies": "",
-      "site_rationale": "",
-      "strategy_notes": "",
-      "internal_comments": "",
-      "public_status_label": "In development",
-      "public_location": "Húsavík, Iceland",
-      "area_overview": "Húsavík is a town in Norðurþing municipality on the northeast coast of Iceland on the shores of Skjálfandi bay with 2,485 inhabitants. The most famous landmark of the town is the wooden church Húsavíkurkirkja, built in 1907. Húsavík is served by Húsavík Airport.",
-      "population": 2508,
-      "wikipedia_url": "https://en.wikipedia.org/wiki/H%C3%BAsav%C3%ADk",
-      "nearest_airport_public": "Akureyri International Airport (AEY)",
-      "nearest_airport_km": 55,
-      "nearest_seaport": "Húsavík",
-      "nearest_seaport_km": 1,
-      "avg_temp_c": 2.9,
-      "free_cooling_hours": 8722,
-      "hub_distances_km": "Frankfurt: 2307 km · Stockholm: 1922 km · London: 1883 km · Amsterdam: 1957 km",
-      "temp_chart": [
-        {
-          "ym": "2023-04",
-          "t": -3
-        },
-        {
-          "ym": "2023-05",
-          "t": 5.9
-        },
-        {
-          "ym": "2023-06",
-          "t": 10.5
-        },
-        {
-          "ym": "2023-07",
-          "t": 7.4
-        },
-        {
-          "ym": "2023-08",
-          "t": 9.6
-        },
-        {
-          "ym": "2023-09",
-          "t": 6.8
-        },
-        {
-          "ym": "2023-10",
-          "t": 2.1
-        },
-        {
-          "ym": "2023-11",
-          "t": 0.1
-        },
-        {
-          "ym": "2023-12",
-          "t": -4.7
-        },
-        {
-          "ym": "2024-01",
-          "t": -2.8
-        },
-        {
-          "ym": "2024-02",
-          "t": -3.9
-        },
-        {
-          "ym": "2024-03",
-          "t": -1.6
-        },
-        {
-          "ym": "2024-04",
-          "t": -1.5
-        },
-        {
-          "ym": "2024-05",
-          "t": 5.2
-        },
-        {
-          "ym": "2024-06",
-          "t": 6
-        },
-        {
-          "ym": "2024-07",
-          "t": 10.8
-        },
-        {
-          "ym": "2024-08",
-          "t": 7.9
-        },
-        {
-          "ym": "2024-09",
-          "t": 4.9
-        },
-        {
-          "ym": "2024-10",
-          "t": 0.4
-        },
-        {
-          "ym": "2024-11",
-          "t": -0.1
-        },
-        {
-          "ym": "2024-12",
-          "t": -3.3
-        },
-        {
-          "ym": "2025-01",
-          "t": -3.5
-        },
-        {
-          "ym": "2025-02",
-          "t": 0.5
-        },
-        {
-          "ym": "2025-03",
-          "t": 0.1
-        },
-        {
-          "ym": "2025-04",
-          "t": 2.9
-        },
-        {
-          "ym": "2025-05",
-          "t": 8.5
-        },
-        {
-          "ym": "2025-06",
-          "t": 6.7
-        },
-        {
-          "ym": "2025-07",
-          "t": 11.3
-        },
-        {
-          "ym": "2025-08",
-          "t": 10.9
-        },
-        {
-          "ym": "2025-09",
-          "t": 8.1
-        },
-        {
-          "ym": "2025-10",
-          "t": 2.3
-        },
-        {
-          "ym": "2025-11",
-          "t": -1.8
-        },
-        {
-          "ym": "2025-12",
-          "t": 1.4
-        },
-        {
-          "ym": "2026-01",
-          "t": -2.1
-        },
-        {
-          "ym": "2026-02",
-          "t": -3.5
-        },
-        {
-          "ym": "2026-03",
-          "t": -1.3
-        },
-        {
-          "ym": "2026-04",
-          "t": 2
-        }
-      ],
-      "population_50km": 3229,
-      "power_notes": "",
-      "hot_days_per_year": null,
-      "cold_days_per_year": null,
-      "daylight_hours": "",
-      "tz_offset": "",
-      "nearest_substation": "",
-      "nearest_substation_km": null,
-      "grid_co2": null,
-      "grid_price": null,
-      "grid_mix": "",
-      "url_token": "lxjuczc3",
-      "developers": [
-        "giga-42"
-      ]
-    },
-    {
-      "id": "skibotn",
-      "name": "GIGA-42 Skibotn",
-      "country": "Norway",
-      "site_type": "brownfield",
-      "internal_status": "Responsibility",
-      "internal_category": "GIGA-42",
-      "published": true,
-      "status": "live",
-      "short_status_label": "Power-secured",
-      "lat": 69.3833,
-      "lng": 20.2667,
-      "power": "Primarily Hydro",
-      "initial_mw": 7,
-      "target_mw": 15,
-      "image": "assets/sites/5fad338e-f35f-4884-aa6b-9b15209464e2.jpg",
-      "desc_en": "Sub-Arctic site and candidate for the Norwegian landing point of the Far North Fibre Project. ",
-      "desc_no": "Sub-arktisk norsk lokasjon med vannkraftkapasitet og frikjøling på 69° N.",
-      "bid_status": "Project",
-      "category_rationale": "Develop / Mining or Dispose — shovel-ready in medium term (Q1-27) subject to power. Only 15 MW so possibly more suited to mining; alternatively landowner not opposed to bitcoin mining.",
-      "nbs_assessment": "Secure but small. Close to new Arctic fibre project linking North Norway to North America/Canada/Japan. Municipality investigating concession power (2-3 MW est., not yet included). No employment tax in municipality.",
-      "project_description": "Identified by the Scale42 team in 2023 as a strong data-centre candidate at the Norwegian landing point of the Far North Fibre project. Backed by both the current landowner and the municipality. Brownfield site with existing industrial buildings; surrounding fjord sparsely populated with natural woodland. Greenfield development possible on areas within the plot.",
-      "address": "Nordlysveien 3465, 9143 Skibotn, Norway",
-      "site_link": "https://maps.app.goo.gl/c4vPVrLP4AFCdSQa9",
-      "size_ha": 3,
-      "eia_required": false,
-      "max_capacity_mw": 15,
-      "connection_voltage": "22kV",
-      "dso": "Arva",
-      "tso": "Statnett",
-      "ppa_counterparty": "Nordpool",
-      "exact_power_status": "In queue, awaiting allocation. 1st in local DSO queue, 2nd in regional TSO queue.",
-      "heat_reuse": "Municipal support for study engaging local businesses.",
-      "it_load_mw": "12",
-      "dpue": "1.15",
-      "ppue": "1.25",
-      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
-      "cooling": "Air — perimeter; DLC — room-level CDU",
-      "workload_mix": "Inference, cloud, edge workloads",
-      "fibre_providers": [
-        "Telenor",
-        "GlobalConnect",
-        "Telia"
-      ],
-      "fibre_strands": "Available via terrestrial backbone (allocation TBC)",
-      "fibre_speeds_gbps": "Up to 400G per wavelength (DWDM), scalable",
-      "fibre_general_info": "Carrier-diverse terrestrial fibre via the northern Norwegian backbone, with southbound routing into Sweden and continental Europe.",
-      "latency_summary": "Oslo ~10–15 ms · Stockholm ~15–20 ms · Frankfurt ~25–30 ms · London ~30–35 ms. Subsea: indirect via Sweden/Denmark (DANICE, IRIS).",
-      "highway_access": "Adjacent to E8 Highway",
-      "airport_access": "2 hr to international",
-      "college_university": "2 hr to college & university",
-      "other_access_notes": "Close proximity to Far North Fibre project.",
-      "zoning_status": "Plot zoned but not for data centre. Strong municipal political support; special dispensation granted (expires Q3 2028). Detailed zoning expected within 12 months.",
-      "key_risks_dependencies": "Mayor and landowner need consistent direction on local engagement.",
-      "jv_partner": "Global Interconnection Group",
-      "project_owner": "45% (can be 50%)",
-      "current_control": "Option signed",
-      "planned_ultimate_control": "Own freehold",
-      "contractual_arrangement": "Roald Normann Consulting (land agent). Ground works included within land purchase.",
-      "strategic_status": "GIGA-42 Responsibility",
-      "plots_identified": "1",
-      "plots_secured": "1",
-      "extra_data": "ProjectID: NOR003\nPrimary Project Partner: GIGA-42\nPotential FID Date: Allocation of power by Statnett - Estimated by June 2026 Obtain Building Permit - September 2026 FID Phase I (7MW) = September 2026\nPotential RFS Dates: Assuming 12 month construction commencing upon FID RFS Phase 1 = September 2027\nProject Lead: Daniel Gussias\nAgent: No agent\nPlot Name: Gnr: 45 Bnr: 179, Storfjord Municipality\nPlot Priority: 1\nSite Address: Nordlysveien 3465, 9143 Skibotn, Norway\nLocation Link: https://maps.app.goo.gl/GRzBahhr5VMY3uLg6\nNot Required: 69.337176, 20.350427\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nSize (ha) - Primary Plot: 3\nDescription: Located within the centre of the Skibotn Fjord, this is a brownfield site with exisiting industrial buildings, surrounded by natural woodland.\nSite Drainage: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nSite Access: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nBuilding Rights (%) - Primary Plot: % will be set under detailregulation to industry\nOwnership: SKH EIENDOM & INVEST AS (Company)\nZoning Status: Plot is not currently zoned for industry, but dispensation is confirmed in writing. This allows us up to 3 years to zone the plot and can be built upon and used as a datacentre during that time.\nHeat Off-Take: Potential to bring in heat offtakers local to the DC site, or provide heated storage facilities.\nFibre Connectivity: Far North Arcitic Fibre Project is landing in Skibottn as the first connection in Europe. https://www.farnorthfiber.com/ \"Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway. Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. James is continuing investigations directly with local fibre providers to obtain more detailed information.\"\nPower Connection Methods: A 7 MW power draw is possible to be implemented in the regional grid without addiitonal measures. A new transformer will be installed to accommodate the remaining power draw above 7MW. This assumes a number of investments in the distribution network, such as the establishment of a new feeder from the existing Skibotn substation – dedicated to our consumption. A suitable customer interface will be established at our connection point. The network infrastructure we develop within the distribution grid will be considered a customer-specific installation.\nPower Connection Timelines: Needs a new main transformer at the local substation. New transformer/gas-insulated switchgear/component timeline is likely 2 years and timeline for concession is likely to be approximately 1 year. Therefore expecting a 3 year timeline but seeking to shorten this through discussions with NVE who give approvals for the concessions to speed up the concession process. Also connecting the DSO with suppliers we know who can supply transformers more quickly. Where those suppliers are not acceptable to the DSO we will engage domestic electrical engineering firms about recertifying and warranting transformers from alternative suppliers to the DSO.\nPower Procurement Status: Submitted 2x applications splitting capacity to the local grid company Passed the maturity test process Been placed in Statnet queue First in queue for local susbtation Awaiting to reach front of queue for main transmission substation\nPower Availability Confirmation: Yes\nAcquisition Strategy: We have secured an option agreement for the land which expires on 26th August 2027 At any time during the option we can commence a lease of the site which will include options for us to purchase the site during that lease.\nZoning Strategy: DISP inplace (with full political support). Zoning will take about 1 year from when the process starts. Zoning needs to be complete before new election (2027)\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated for a new 400kV line. The existing line 110kV line would not require a connection application.\nPower Provider: Arva AS\nPower Connection Costs: 2.3mil EUR per 400kV connection plus cost of construction. No cost expected to use the existing 110kV connection.\nFibre Provider: Global Connect likely best positioned to provide\nPrice / sqm: 1600 NOK per sqm\nLease Rate (per annum): 300 NOK per sqm\nPurchase Price: 45 636 000 NOK (Dont have to buy whole plot)\nFees: None\nNext Steps: Agree price for site with Stora Enso.\n\nProjectID: NOR003\nPrimary Project Partner: GIGA-42\nPotential FID Date: Allocation of power by Statnett - Estimated by June 2026 Obtain Building Permit - September 2026 FID Phase I (7MW) = September 2026\nPotential RFS Dates: Assuming 12 month construction commencing upon FID RFS Phase 1 = September 2027\nProject Lead: Daniel Gussias\nAgent: No agent\nPlot Name: Gnr: 45 Bnr: 179, Storfjord Municipality\nPlot Priority: 1\nSite Address: Nordlysveien 3465, 9143 Skibotn, Norway\nLocation Link: https://maps.app.goo.gl/GRzBahhr5VMY3uLg6\nNot Required: 69.337176, 20.350427\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nSize (ha) - Primary Plot: 3\nDescription: Located within the centre of the Skibotn Fjord, this is a brownfield site with exisiting industrial buildings, surrounded by natural woodland.\nSite Drainage: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nSite Access: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nBuilding Rights (%) - Primary Plot: % will be set under detailregulation to industry\nOwnership: SKH EIENDOM & INVEST AS (Company)\nZoning Status: Plot is not currently zoned for industry, but dispensation is confirmed in writing. This allows us up to 3 years to zone the plot and can be built upon and used as a datacentre during that time.\nHeat Off-Take: Potential to bring in heat offtakers local to the DC site, or provide heated storage facilities.\nFibre Connectivity: Far North Arcitic Fibre Project is landing in Skibottn as the first connection in Europe. https://www.farnorthfiber.com/ \"Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway. Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. James is continuing investigations directly with local fibre providers to obtain more detailed information.\"\nPower Connection Methods: A 7 MW power draw is possible to be implemented in the regional grid without addiitonal measures. A new transformer will be installed to accommodate the remaining power draw above 7MW. This assumes a number of investments in the distribution network, such as the establishment of a new feeder from the existing Skibotn substation – dedicated to our consumption. A suitable customer interface will be established at our connection point. The network infrastructure we develop within the distribution grid will be considered a customer-specific installation.\nPower Connection Timelines: Needs a new main transformer at the local substation. New transformer/gas-insulated switchgear/component timeline is likely 2 years and timeline for concession is likely to be approximately 1 year. Therefore expecting a 3 year timeline but seeking to shorten this through discussions with NVE who give approvals for the concessions to speed up the concession process. Also connecting the DSO with suppliers we know who can supply transformers more quickly. Where those suppliers are not acceptable to the DSO we will engage domestic electrical engineering firms about recertifying and warranting transformers from alternative suppliers to the DSO.\nPower Procurement Status: Submitted 2x applications splitting capacity to the local grid company Passed the maturity test process Been placed in Statnet queue First in queue for local susbtation Awaiting to reach front of queue for main transmission substation\nPower Availability Confirmation: Yes\nAcquisition Strategy: We have secured an option agreement for the land which expires on 26th August 2027 At any time during the option we can commence a lease of the site which will include options for us to purchase the site during that lease.\nZoning Strategy: DISP inplace (with full political support). Zoning will take about 1 year from when the process starts. Zoning needs to be complete before new election (2027)\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated for a new 400kV line. The existing line 110kV line would not require a connection application.\nPower Provider: Arva AS\nPower Connection Costs: 2.3mil EUR per 400kV connection plus cost of construction. No cost expected to use the existing 110kV connection.\nFibre Provider: Global Connect likely best positioned to provide\nPrice / sqm: 1600 NOK per sqm\nLease Rate (per annum): 300 NOK per sqm\nPurchase Price: 45 636 000 NOK (Dont have to buy whole plot)\nFees: None\nNext Steps: Agree price for site with Stora Enso.\n\nProjectID: NOR003\nPrimary Project Partner: GIGA-42\nPotential FID Date: Allocation of power by Statnett - Estimated by June 2026 Obtain Building Permit - September 2026 FID Phase I (7MW) = September 2026\nPotential RFS Dates: Assuming 12 month construction commencing upon FID RFS Phase 1 = September 2027\nProject Lead: Daniel Gussias\nAgent: No agent\nPlot Name: Gnr: 45 Bnr: 179, Storfjord Municipality\nPlot Priority: 1\nSite Address: Nordlysveien 3465, 9143 Skibotn, Norway\nLocation Link: https://maps.app.goo.gl/GRzBahhr5VMY3uLg6\nNot Required: 69.337176, 20.350427\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nSize (ha) - Primary Plot: 3\nDescription: Located within the centre of the Skibotn Fjord, this is a brownfield site with exisiting industrial buildings, surrounded by natural woodland.\nSite Drainage: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nSite Access: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nBuilding Rights (%) - Primary Plot: % will be set under detailregulation to industry\nOwnership: SKH EIENDOM & INVEST AS (Company)\nZoning Status: Plot is not currently zoned for industry, but dispensation is confirmed in writing. This allows us up to 3 years to zone the plot and can be built upon and used as a datacentre during that time.\nHeat Off-Take: Potential to bring in heat offtakers local to the DC site, or provide heated storage facilities.\nFibre Connectivity: Far North Arcitic Fibre Project is landing in Skibottn as the first connection in Europe. https://www.farnorthfiber.com/ \"Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway. Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. James is continuing investigations directly with local fibre providers to obtain more detailed information.\"\nPower Connection Methods: A 7 MW power draw is possible to be implemented in the regional grid without addiitonal measures. A new transformer will be installed to accommodate the remaining power draw above 7MW. This assumes a number of investments in the distribution network, such as the establishment of a new feeder from the existing Skibotn substation – dedicated to our consumption. A suitable customer interface will be established at our connection point. The network infrastructure we develop within the distribution grid will be considered a customer-specific installation.\nPower Connection Timelines: Needs a new main transformer at the local substation. New transformer/gas-insulated switchgear/component timeline is likely 2 years and timeline for concession is likely to be approximately 1 year. Therefore expecting a 3 year timeline but seeking to shorten this through discussions with NVE who give approvals for the concessions to speed up the concession process. Also connecting the DSO with suppliers we know who can supply transformers more quickly. Where those suppliers are not acceptable to the DSO we will engage domestic electrical engineering firms about recertifying and warranting transformers from alternative suppliers to the DSO.\nPower Procurement Status: Submitted 2x applications splitting capacity to the local grid company Passed the maturity test process Been placed in Statnet queue First in queue for local susbtation Awaiting to reach front of queue for main transmission substation\nPower Availability Confirmation: Yes\nAcquisition Strategy: We have secured an option agreement for the land which expires on 26th August 2027 At any time during the option we can commence a lease of the site which will include options for us to purchase the site during that lease.\nZoning Strategy: DISP inplace (with full political support). Zoning will take about 1 year from when the process starts. Zoning needs to be complete before new election (2027)\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated for a new 400kV line. The existing line 110kV line would not require a connection application.\nPower Provider: Arva AS\nPower Connection Costs: 2.3mil EUR per 400kV connection plus cost of construction. No cost expected to use the existing 110kV connection.\nFibre Provider: Global Connect likely best positioned to provide\nPrice / sqm: 1600 NOK per sqm\nLease Rate (per annum): 300 NOK per sqm\nPurchase Price: 45 636 000 NOK (Dont have to buy whole plot)\nFees: None\nNext Steps: Agree price for site with Stora Enso.",
-      "land_paperwork_status": "",
-      "fingrid_map_link": "",
-      "connection_enquiry_link": "",
-      "investment_memo_link": "",
-      "planning_status": "",
-      "eia_status": "",
-      "restrictions": "",
-      "water_availability": "",
-      "power_availability": "",
-      "power_paperwork": "",
-      "ppa_status": "",
-      "racks": "",
-      "subsea_cables": [],
-      "isp_check_status": "",
-      "highway_km": null,
-      "nearest_airport": "",
-      "airport_km": null,
-      "university_km": null,
-      "labour_availability": "",
-      "rtb_date": "",
-      "energisation_date": "",
-      "project_budget_musd": null,
-      "offtakers": [],
-      "risks": "",
-      "dependencies": "",
-      "site_rationale": "",
-      "strategy_notes": "",
-      "internal_comments": "",
-      "public_status_label": "In development",
-      "public_location": "Skibotn, Norway",
-      "nearest_airport_public": "Sørkjosen Airport (SOJ)",
-      "nearest_airport_km": 52,
-      "nearest_seaport": "Tromsø",
-      "nearest_seaport_km": 59,
-      "avg_temp_c": 2.8,
-      "free_cooling_hours": 8201,
-      "hub_distances_km": "Frankfurt: 2230 km · Stockholm: 1123 km · London: 2256 km · Amsterdam: 2053 km",
-      "temp_chart": [
-        {
-          "ym": "2023-04",
-          "t": 3.1
-        },
-        {
-          "ym": "2023-05",
-          "t": 5.5
-        },
-        {
-          "ym": "2023-06",
-          "t": 12.7
-        },
-        {
-          "ym": "2023-07",
-          "t": 16.4
-        },
-        {
-          "ym": "2023-08",
-          "t": 15.8
-        },
-        {
-          "ym": "2023-09",
-          "t": 10.1
-        },
-        {
-          "ym": "2023-10",
-          "t": -1.1
-        },
-        {
-          "ym": "2023-11",
-          "t": -6.4
-        },
-        {
-          "ym": "2023-12",
-          "t": -9.6
-        },
-        {
-          "ym": "2024-01",
-          "t": -9
-        },
-        {
-          "ym": "2024-02",
-          "t": -7
-        },
-        {
-          "ym": "2024-03",
-          "t": -2.4
-        },
-        {
-          "ym": "2024-04",
-          "t": -1.9
-        },
-        {
-          "ym": "2024-05",
-          "t": 6.6
-        },
-        {
-          "ym": "2024-06",
-          "t": 14.6
-        },
-        {
-          "ym": "2024-07",
-          "t": 17.8
-        },
-        {
-          "ym": "2024-08",
-          "t": 17.1
-        },
-        {
-          "ym": "2024-09",
-          "t": 10
-        },
-        {
-          "ym": "2024-10",
-          "t": 2
-        },
-        {
-          "ym": "2024-11",
-          "t": -1.7
-        },
-        {
-          "ym": "2024-12",
-          "t": -6
-        },
-        {
-          "ym": "2025-01",
-          "t": -7.8
-        },
-        {
-          "ym": "2025-02",
-          "t": -2.3
-        },
-        {
-          "ym": "2025-03",
-          "t": -2.9
-        },
-        {
-          "ym": "2025-04",
-          "t": -1.1
-        },
-        {
-          "ym": "2025-05",
-          "t": 4.8
-        },
-        {
-          "ym": "2025-06",
-          "t": 8.7
-        },
-        {
-          "ym": "2025-07",
-          "t": 17.4
-        },
-        {
-          "ym": "2025-08",
-          "t": 13.9
-        },
-        {
-          "ym": "2025-09",
-          "t": 12
-        },
-        {
-          "ym": "2025-10",
-          "t": 3.9
-        },
-        {
-          "ym": "2025-11",
-          "t": -4.1
-        },
-        {
-          "ym": "2025-12",
-          "t": -4.7
-        },
-        {
-          "ym": "2026-01",
-          "t": -14
-        },
-        {
-          "ym": "2026-02",
-          "t": -9.5
-        },
-        {
-          "ym": "2026-03",
-          "t": 1
-        },
-        {
-          "ym": "2026-04",
-          "t": 2.3
-        }
-      ],
-      "population_50km": 2758,
-      "population": null,
-      "area_overview": "",
-      "power_notes": "",
-      "hot_days_per_year": null,
-      "cold_days_per_year": null,
-      "daylight_hours": "",
-      "tz_offset": "",
-      "nearest_substation": "",
-      "nearest_substation_km": null,
-      "grid_co2": null,
-      "grid_price": null,
-      "grid_mix": "",
-      "url_token": "6xz9kqw5",
-      "developers": [
-        "giga-42"
-      ]
-    },
-    {
       "id": "reykjavik",
       "name": "GIGA-42 Reykjavík",
       "country": "Iceland",
@@ -1079,73 +540,72 @@
       ]
     },
     {
-      "id": "kristinestad",
-      "name": "Kristinestad",
+      "id": "kitee",
+      "name": "Kitee",
       "country": "Finland",
       "site_type": "greenfield",
-      "internal_status": "Development focus",
-      "internal_category": "GIGA-42",
+      "internal_status": "Watch list",
+      "internal_category": "JV-candidate",
       "published": true,
-      "status": "live",
-      "short_status_label": "Power-secured",
-      "lat": 62.2745,
-      "lng": 21.3781,
+      "status": "tbd",
+      "lat": 62.1,
+      "lng": 30.15,
       "power": "Mixed Clean",
-      "initial_mw": 60,
-      "target_mw": 500,
-      "image": "94ac614c-1c1c-4e77-bfa7-5d9efbd51111.webp",
-      "desc_en": "Coastal site at the wind-power heartland of Finland with outstanding grid capacity, scaling to 500MW, ready to build Q1 2027",
-      "desc_no": "Finsk kystlokasjon i vindkraftens kjerneområde med stor nettkapasitet.",
+      "target_mw": 60,
+      "desc_en": "10ha located in Eastern Finland ready to build 2026",
+      "desc_no": "",
       "bid_status": "Project",
-      "category_rationale": "Develop — shovel-ready in ~12 months with ~500 MW of potential consumption. First 60 MW (6-9 mo); next 40 MW (12-24 mo); above 100 MW via 400 kV (24-36 mo).",
-      "nbs_assessment": "Municipality stated intent to issue a reservation agreement Feb 2026 — after which project can commence in earnest.",
-      "project_description": "Brought to Scale42 March 2025. Out-bid other developers for a 500 MW+ facility. Strong municipal backing through extensive stakeholder engagement and multiple site visits. Large expanse of dense woodland with undulating topography, situated next to a main highway.",
-      "address": "Ringvägen 27, 64100 Kristinestad, Finland",
-      "site_link": "https://maps.app.goo.gl/QJsPmX8m7ifAQAcx8",
-      "size_ha": 240,
-      "eia_required": true,
-      "eia_status": "Required above 100 MW",
-      "restrictions": "No Chinese/Russian end customers/funders. Prefer no Israeli funders or end customers. Do not want APL UK Ltd as part of project.",
-      "max_capacity_mw": 800,
-      "connection_voltage": "110kV & 400kV",
-      "dso": "Caruna Oy",
+      "category_rationale": "Develop — can be shovel-ready in near term.",
+      "nbs_assessment": "Secured by way of lease. Just needs capital to progress.",
+      "project_description": "Identified March 2025, located on the Puhos industrial park. 50 MW data centre with on-ward expansion potential, fully backed by Kitee municipality and Business Joensuu. Undulating topography on a moraine deposit currently being excavated.",
+      "address": "Teollisuustie 17, 82430 Kitee, Finland",
+      "site_link": "https://maps.app.goo.gl/gkqpFGpdZt96T88y8",
+      "size_ha": 10,
+      "eia_required": false,
+      "restrictions": "No Chinese/Russian end customers or funders. Do not want APL Europe (UK) Ltd as part of project.",
+      "max_capacity_mw": 60,
+      "initial_mw": 30,
+      "connection_voltage": "110kV",
+      "dso": "PKS Sähkönsiirto Oy",
       "tso": "Fingrid",
       "ppa_counterparty": "Nordpool",
       "exact_power_status": "Available subject to permits",
       "heat_reuse": "Planned",
-      "it_load_mw": "400-640",
+      "it_load_mw": "48",
       "dpue": "1.15",
       "ppue": "1.25",
       "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
       "cooling": "Air — perimeter; DLC — room-level CDU",
-      "workload_mix": "Training & later cloud / inference",
+      "workload_mix": "Training & possibly inference",
       "fibre_providers": [
-        "Elisa"
+        "Elisa",
+        "Telia"
       ],
       "fibre_strands": "Dark fibre available, strands TBC",
       "fibre_speeds_gbps": "400G DWDM (dual/protected)",
-      "fibre_general_info": "GlobalConnect brief report indicates fibre connectivity sufficient. Telia 400G DWDM proposal: OTC €385k, MRC €6,180/mo.",
-      "latency_summary": "Frankfurt ~17–31 ms · London ~31–35 ms · NY ~95–105 ms.",
-      "highway_access": "Adjacent to E8 Highway",
+      "fibre_general_info": "Municipality confirmed no fibre availability concerns. Telia 400G DWDM proposal: OTC €310k, MRC €6,180/mo.",
+      "latency_summary": "Frankfurt ~17–31 ms · London ~31–35 ms · Paris ~35 ms · NY ~95–105 ms.",
+      "highway_access": "1.7 km to Highway 6",
       "airport_access": "1 hr to domestic; 4 hr to international",
       "college_university": "1 hr to college & university",
-      "other_access_notes": "5 km to commercial port.",
-      "zoning_status": "Reservation agreement out for municipal signature (Feb 2026). Zoning approval targeted Nov/Dec 2026.",
-      "key_risks_dependencies": "Reservation agreement carries KPIs Scale42 must meet to progress to purchase/leasehold (Q1 2027); KPIs are easily met.",
+      "zoning_status": "Already zoned, building rights 50% (raisable to 70% via deviation permit, ~4 weeks per Mayor).",
+      "key_risks_dependencies": "Although low risk, proximity to Russian border may deter some clients.",
       "project_owner": "100%",
-      "current_control": "Reservation agreement out for municipal signature (Feb-11)",
+      "current_control": "Lease signed",
       "planned_ultimate_control": "Own freehold",
-      "contractual_arrangement": "DLA Piper Finland; Peter Sladey; Permitting: Ramboll, AINS, Granlund.",
-      "strategic_status": "Development focus",
+      "contractual_arrangement": "DLA Piper Finland; CFE (electrical engineering & infrastructure study); Peter Sladey (land agent); Permitting: Ramboll, AINS, Granlund.",
+      "investment_memo_link": "KITEE IM",
+      "strategic_status": "Going to 3rd party",
       "plots_identified": "1",
-      "plots_secured": "We have been told we will be able to secure the land in Sept/Oct 2025",
-      "extra_data": "ProjectID: FIN011\nPrimary Project Partner: Biforst Prioritised 8\nPotential FID Date: Land Reservation Agreed - Oct25 Zoning Complete - Nov25 Building Permit Received - May26 Fingrid Power Allocated - May26 FID Date = May26\nFID Date Update: Land Reservation Agreed - Dec25 Zoning Complete - Nov25 Building Permit Received - March26 Fingrid Power Allocated - March26 FID Date = March26\nSecure Status: Land Reservation not secure until Dec25 - Held by https://www.redeve.fi/en/myllykoski-data-campus/ Power Not secured until building permit received\nFID Risks: Building permit timeline - Can confirm in more detail with Ramboll - Confirm that permit proces can begin before zoning complete - Indicated this can Land reservation delays Another company reserving the power before us (requires building permit and no knowledge of competing projects in process)\nKey FID Costs: Land Reservation Signature - 30k EUR (1 year term) Extrernal DD report (elective) - 35k EUR (estimate based upon Ramboll elsewhere) Completion of municipal zoning work - No cost (taken by municipality) Building Application Cost - 60k EUR (estimate based upon Ramboll elsewhere) Fingrid Application Fee (110kV) - 900k-1.8mil EUR or Fingrid Application Fee (400kV) - 2.3mil EUR Land lease fee (After 1 year reservation term) - 1.2mil - 3.6mil per annum (540ha) (should FID process take longer than 1 year from signature of land reservation)\nPotential RFS Dates: Assuming 9 month construction commencing May 2026 RFS Phase 1 = December 2026\nProject Lead: Thomas Beaton\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Richard Lahteenmaki / richard.lahteenmaki@krs.fi Anton Ragnas / anton.ragnas@krs.fi Lauri Koskinen / lauri.koskinen@krs.fi Mila Segervall / mila.segervall@krs.fi Pertti Miettunen / pertti.miettunen@krs.fi\nPlot Name: Lalby\nPlot Priority: 1\nSite Address: Kristinestad, Finland 64100\nLocation Link: https://maps.app.goo.gl/xM4u7x8DMyR7Fw5D9\nNot Required: 62.273057, 21.432200\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 240\nDescription: Large expanse of dense woodland with undulating topography, situated next to a main highway.\nSite Drainage: The site has potential for great access, with the 663 highway skirting the southern border of the plot. An additional access point could be created to the main road adjacent to the north west of the property. Due to the large expanse of this land plot, there are many stream and hydological considerations to be made before site plans can be made.\nSite Access: The site has potential for great access, with the 663 highway skirting the southern border of the plot. An additional access point could be created to the main road adjacent to the north west of the property. Due to the large expanse of this land plot, there are many stream and hydological considerations to be made before site plans can be made.\nBuilding Rights (%) - Primary Plot: TBC (somewhere between 50% - 70%). If 50% rezoning to 70% would be a quick process\nOwnership: Kristinestad Municipality\nZoning Status: Zoning ongoing led by the municipality and forecast for completion in November 2025\nHeat Off-Take: Small District Heating Network in Place, investigations not yet undertaken\nFibre Connectivity: A brief report has been received from GlobalConnect which indicates Fibre connectivity is sufficient. Please reference report in system and meeting notes with GlobalConnect for more detailed information.\nPower Connection Methods: 110kV lines run over the site across the Northern boundary making for an easy connection. It is suggested that 2 x 110kV connections are planned following the existing power corridor north and connecting to the 110kV substation Alternative ability to run a single 400kV line along the same power corridor to the same substation. Substation has an expected capacity of over 1000MW\nPower Connection Timelines: 60MW overhead line connections - 6 months 100MW direct connections -18 to 24 months 400kV connection could be subject to different timelines\nPower Procurement Status: Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.\nPower Availability Confirmation: No, via municipality and agent\nAcquisition Strategy: The municipality is finalising internal procedures to allocate the site to Scale42. Thiis would be offered at a low cost of 30,000 EUR. This would secure the site until zoning is complete or up to a maximum of 1 year (with possibility to extend by 6 months with municipality consent). Upon expiry of the 1 year (or earlier if desired) the reservation agreement can be converted into a full secure lease agreement with flexible options to purchase the site at any time included.\nZoning Strategy: Underway by the municipality with completion of zoning work forecast for November 2025.\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated.\nPower Provider: FinGrid\nPower Connection Costs: 900k EUR per 110kV connection plus the cost of construction. 2.3mil EUR per 400kV connection plus cost of construction.\nFibre Provider: Global Connect\nPrice / sqm: TBC upon completion of zoning. Expected in the range of 3EUR - 10EUR per square metre\nLease Rate (per annum): 7.5% of purchase price annually\nPurchase Price: TBC subject to completion of zoning\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Awaiting -Confirmation we will reserve the landplot (June 25) -Zoning to be confirmed by municipality (Q4 25)",
+      "plots_secured": "Lease Negotiations Ongoing",
+      "extra_data": "ProjectID: FIN010\nPotential FID Date: Lease completed - August 25 Municipal Land preperation complete - Sep25 Deviation Permit approved increasing building right % - Oct25 Building Permit Received - Jan26 Fingrid Power Allocated - Jan26 FID Date = January 2026\nFID Date Update: If Undertaking building permit early (60k EUR - Aug25) Lease completed - August 25 Building Permit Process Begins - Aug25 Municipal Land preperation complete - Sep25 Building Permit Received - Nov25 Fingrid Power Allocated - Nov25 FID Date = November 2025 Alternative if delaying building permit work (Oct25) Lease completed - August 25 Building Permit Process Begins - Oct25 Municipal Land preperation complete - Sep25 Building Permit Received - Jan26 Fingrid Power Allocated - Jan26 FID Date = January 2026\nSecure Status: Lease under negotiation with lawyers\nFID Risks: Building permit timeline - Can confirm in more detail with Ramboll Land lease delays Another company reserving the power before us (requires building permit and no knowledge of competing projects in process)\nKey FID Costs: Lease Signature - No cost (subject to lease deposit negotiations) Extrernal DD report (elective) - 35k EUR (estimate based upon Ramboll elsewhere) Completion of municipal zoning work - No cost (taken by municipality) Lease Rate (September onwards) - 11,25k EUR expected (per annum) Building Application Cost - 60k EUR (estimate based upon Ramboll elsewhere) Fingrid Application Fee (110kV) - 900k EUR\nPotential RFS Dates: Assuming 9 month construction commencing January 2026 RFS Phase 1 = October 2026\nProject Lead: William Tasney\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Pauliina Pikkujämsä / Manager for investments and guidance Business Joensuu (Business Joensuu) / pauliina.pikkujamsa@businessjoensuu.fi Pekka Hirvonen/ Mayor/City director of Kitee / pekka.hirvonen@kitee.fi Kari Siponen / Technical director of Kitee / kari.siponen@kitee.fi Timo Valkama / DLA Piper Finland / Counsel / M: +358 40 582 1955 timo.valkama@fi.dlapiper.com\nPlot Name: Suorlahden\nPlot Priority: 1\nSite Address: Teollisuustie 17, 82430 Kitee, Finland\nLocation Link: https://maps.app.goo.gl/aEvRjKpVegZfxfsy9\nNot Required: 62.097524, 29.928886\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 10\nDescription: Undulating topography across the site, with sporadic woodland and existing groundworks/ rough ground.\nSite Drainage: Site can be accessed by wide main roads ~140m to the south and west of the plot, although work will need to be conducted to sufficiently connect the main roads to the plot. Consideration will be needed for the route of access roads regarding the topogaphy, i.e. it might not be suitable for a straight road to access the site from the main road. Drainage can be easily managed alongside the levelling of the site, with run-off directed to the north of the site, where there's an existing low-point and drainage.\nSite Access: Site can be accessed by wide main roads ~140m to the south and west of the plot, although work will need to be conducted to sufficiently connect the main roads to the plot. Consideration will be needed for the route of access roads regarding the topogaphy, i.e. it might not be suitable for a straight road to access the site from the main road. Drainage can be easily managed alongside the levelling of the site, with run-off directed to the north of the site, where there's an existing low-point and drainage.\nBuilding Rights (%) - Primary Plot: 50% - Municipality working on raising this %\nOwnership: Kitee Municipality\nZoning Status: The land is already zoned, but, with a building right % of 50%. The municipality states this could be increased to 70% by way of a deviation permit which the Mayor expects would take 4 weeks.\nHeat Off-Take: None\nFibre Connectivity: Municipality contacted local fibre connectivity who confirmed no concerns over fibre availability for the site. Further investigations to be conducted\nPower Connection Methods: 400m from substation located to the south. The nearby lines & substation connection can support a 50MW connection at 110kV. This is likely to be possible via a short time overhead cable connection along the existing 110kV lines.\nPower Connection Timelines: 50MW overhead line connection - 6 months\nPower Procurement Status: Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.\nPower Availability Confirmation: No, via municipality and agent\nAcquisition Strategy: Currently negotating a lease agreement. This would provide for a rent-free period until finalisation of municipal works to prepare and flatten the land plot (September 2025). This lease will then continue for 10 years with options to purchase the site which can be triggered at any time.\nZoning Strategy: The land is already zoned, but, with a building right % of 50%. The municipality states this could be increased to 70% by way of a deviation permit which the Mayor expects would take 4 weeks.\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated.\nPower Provider: FinGrid\nPower Connection Costs: 900k EUR per 110kV connection plus the cost of construction.\nFibre Provider: Elisa\nPrice / sqm: 3 EUR\nLease Rate (per annum): 11,250 EUR\nPurchase Price: 200,000 EUR\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Continue to negotiate and agree lease agreement",
       "jv_partner": "",
       "land_paperwork_status": "",
       "fingrid_map_link": "",
       "connection_enquiry_link": "",
-      "investment_memo_link": "",
+      "short_status_label": "",
       "planning_status": "",
+      "eia_status": "",
       "water_availability": "",
       "power_availability": "",
       "power_paperwork": "",
@@ -1158,6 +618,7 @@
       "airport_km": null,
       "university_km": null,
       "labour_availability": "",
+      "other_access_notes": "",
       "rtb_date": "",
       "energisation_date": "",
       "project_budget_musd": null,
@@ -1167,435 +628,170 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
+      "image": "5a6d825a-4799-4d63-8cc8-b2f6eed93352.webp",
       "public_status_label": "In development",
-      "public_location": "Kristinestad, Finland",
-      "nearest_airport_public": "Vaasa Airport (VAA)",
-      "nearest_airport_km": 88,
-      "nearest_seaport": "Pori",
-      "nearest_seaport_km": 76,
-      "avg_temp_c": 6,
-      "free_cooling_hours": 7955,
-      "hub_distances_km": "Frankfurt: 1558 km · Stockholm: 373 km · London: 1757 km · Amsterdam: 1472 km",
+      "public_location": "Kitee, Finland",
+      "area_overview": "The Kiteezi Landfill, also known as the Kiteezi Rubbish Dump, is a solid waste disposal site in Uganda. It is the main solid waste disposal site for the capital city of Kampala, with a projected metropolitan population of approximately 4 million people, as of 2024, serving the homes, businesses and industries of that metropolis.",
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Kiteezi_Landfill",
+      "nearest_airport_public": "Savonlinna Airport (SVL)",
+      "nearest_airport_km": 65,
+      "nearest_seaport": "Kotka",
+      "nearest_seaport_km": 250,
+      "avg_temp_c": 4.9,
+      "free_cooling_hours": 7775,
+      "hub_distances_km": "Frankfurt: 1867 km · Stockholm: 724 km · London: 2157 km · Amsterdam: 1846 km",
       "temp_chart": [
         {
           "ym": "2023-04",
-          "t": 3.1
-        },
-        {
-          "ym": "2023-05",
-          "t": 8.9
-        },
-        {
-          "ym": "2023-06",
-          "t": 15.6
-        },
-        {
-          "ym": "2023-07",
-          "t": 16.3
-        },
-        {
-          "ym": "2023-08",
-          "t": 16.6
-        },
-        {
-          "ym": "2023-09",
-          "t": 14.2
-        },
-        {
-          "ym": "2023-10",
-          "t": 3.5
-        },
-        {
-          "ym": "2023-11",
-          "t": -2
-        },
-        {
-          "ym": "2023-12",
-          "t": -5.5
-        },
-        {
-          "ym": "2024-01",
-          "t": -7.2
-        },
-        {
-          "ym": "2024-02",
-          "t": -3.9
-        },
-        {
-          "ym": "2024-03",
-          "t": -1.1
-        },
-        {
-          "ym": "2024-04",
-          "t": 1.9
-        },
-        {
-          "ym": "2024-05",
-          "t": 11.3
-        },
-        {
-          "ym": "2024-06",
-          "t": 15.3
-        },
-        {
-          "ym": "2024-07",
-          "t": 17.5
-        },
-        {
-          "ym": "2024-08",
-          "t": 16.8
-        },
-        {
-          "ym": "2024-09",
-          "t": 13.4
-        },
-        {
-          "ym": "2024-10",
-          "t": 8.1
-        },
-        {
-          "ym": "2024-11",
-          "t": 3.2
-        },
-        {
-          "ym": "2024-12",
-          "t": -0.6
-        },
-        {
-          "ym": "2025-01",
-          "t": -1.9
-        },
-        {
-          "ym": "2025-02",
-          "t": -2
-        },
-        {
-          "ym": "2025-03",
-          "t": 1.5
-        },
-        {
-          "ym": "2025-04",
-          "t": 4.7
-        },
-        {
-          "ym": "2025-05",
-          "t": 8.1
-        },
-        {
-          "ym": "2025-06",
-          "t": 12.8
-        },
-        {
-          "ym": "2025-07",
-          "t": 19.5
-        },
-        {
-          "ym": "2025-08",
-          "t": 15.1
-        },
-        {
-          "ym": "2025-09",
-          "t": 13.5
-        },
-        {
-          "ym": "2025-10",
-          "t": 7.6
-        },
-        {
-          "ym": "2025-11",
           "t": 2.9
         },
         {
-          "ym": "2025-12",
-          "t": 1.8
-        },
-        {
-          "ym": "2026-01",
-          "t": -8.4
-        },
-        {
-          "ym": "2026-02",
-          "t": -9.2
-        },
-        {
-          "ym": "2026-03",
-          "t": 2.3
-        },
-        {
-          "ym": "2026-04",
-          "t": 4.9
-        }
-      ],
-      "population_50km": 41133,
-      "population": null,
-      "area_overview": "",
-      "power_notes": "",
-      "hot_days_per_year": null,
-      "cold_days_per_year": null,
-      "daylight_hours": "",
-      "tz_offset": "",
-      "nearest_substation": "",
-      "nearest_substation_km": null,
-      "grid_co2": null,
-      "grid_price": null,
-      "grid_mix": "",
-      "url_token": "ujpucb0c",
-      "developers": []
-    },
-    {
-      "id": "jokkmokk",
-      "name": "Lapland",
-      "country": "Sweden",
-      "site_type": "greenfield",
-      "internal_status": "Development focus",
-      "internal_category": "GIGA-42",
-      "published": true,
-      "status": "live",
-      "short_status_label": "Power-secured",
-      "lat": 66.6066,
-      "lng": 19.8242,
-      "power": "Primarily Hydro",
-      "initial_mw": 200,
-      "target_mw": 400,
-      "image": "f6637c09-4cf2-441e-9049-0f0e54da9ccd.jpg",
-      "desc_en": "Located in Lapland's hydropower belt and Sweden's largest hydropower production region, scaling to 400MW",
-      "desc_no": "Vannkraftbeltet i Lappland — samlokalisert med Sveriges største vannkraftregion.",
-      "bid_status": "Lead *hot* (was Project, reclassified after discussion with Luke)",
-      "category_rationale": "Develop — shovel-ready <12 months with 60 MW RFS in 18-21 months. Near central Finnish (sic — Swedish) power corridor; strategically located for long-term expansion.",
-      "nbs_assessment": "Out-bid 5 other developers; partnership with Jokkmokk municipality near a 446 MW hydro dam.",
-      "project_description": "Brought to Scale42 October 2025 by the municipality. Through stakeholder engagement and capability demos, Scale42 out-bid 5 other developers. Partnership negotiations underway. Large undulating plot mostly native woodland near the Miessaure hydroelectric dam.",
-      "address": "Jokkmokks kommun, Norrbotten County, 962 94, Sweden",
-      "site_link": "https://maps.app.goo.gl/aQKY9UTANErwPTvx7",
-      "size_ha": 110,
-      "eia_required": true,
-      "eia_status": "Required above 100 MW",
-      "restrictions": "No Chinese/Russian end customers / funders.",
-      "max_capacity_mw": 400,
-      "connection_voltage": "132kV & 400kV",
-      "dso": "Stattkraft",
-      "tso": "Svenska kraftnät",
-      "ppa_counterparty": "Nordpool",
-      "exact_power_status": "Available capacity confirmed in email correspondence with Vattenfall",
-      "heat_reuse": "Planned",
-      "it_load_mw": "320",
-      "dpue": "1.15",
-      "ppue": "1.25",
-      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
-      "cooling": "Air — perimeter; DLC — room-level CDU",
-      "workload_mix": "AI training, inference, HPC",
-      "fibre_providers": [
-        "GlobalConnect",
-        "Telia Carrier",
-        "Vattenfall Stokab",
-        "Arelion"
-      ],
-      "fibre_strands": "Available (dark fibre possible, allocation TBC)",
-      "fibre_speeds_gbps": "400G per wavelength (DWDM), scalable",
-      "fibre_general_info": "Strong Swedish long-haul corridor. Multiple north–south backbones through Norrbotten with onward breakout to Stockholm and the European subsea/terrestrial systems. Genuine carrier diversity possible. DWDM scalability (400G class).",
-      "latency_summary": "Stockholm ~8–12 ms · Frankfurt ~20–25 ms · Amsterdam ~20–25 ms · London ~25–30 ms.",
-      "highway_access": "Adjacent to E45 Highway",
-      "airport_access": "1 hr to domestic",
-      "college_university": "1 hr to college & university",
-      "other_access_notes": "Close proximity to multiple hydro opportunities.",
-      "zoning_status": "Working with municipality on landplot identification and zoning strategy. Zoning consultant to be engaged.",
-      "project_owner": "100%",
-      "current_control": "Reservation negotiations (LOI; partnership being negotiated)",
-      "planned_ultimate_control": "Own freehold",
-      "contractual_arrangement": "DLA Piper Finland; Permitting: Ramboll, AINS, Granlund.",
-      "strategic_status": "Development focus",
-      "plots_identified": "2",
-      "plots_secured": "Negotiating Commercials",
-      "extra_data": "ProjectID: SWE019\nPotential FID Date: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nPotential RFS Dates: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Erik.fagerstrom@jokkmokk.se\nPlot Name: \"Jokkmokk 1\"\nPlot Priority: 1\nSite Address: Address TBC\nLocation Link: https://maps.app.goo.gl/UvLqgCZwTqBnUQZe6\nNot Required: 66.606137, 19.854224\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 50\nDescription: Large undulating plot mostly covered in native woodland located on the peripherals of the industrial zone of Jokkmokk, with some exisiting clearance work.\nSite Drainage: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nSite Access: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nBuilding Rights (%) - Primary Plot: 70\nOwnership: Municipal Owned\nZoning Status: Zoned\nHeat Off-Take: Local district heating system for the town of 5000 inhabitants. Beginning discussion with local district heating company CEO\nFibre Connectivity: Investigations continue\nPower Connection Methods: HV power lines run adjacent to the plot. Project can begin with a powerline connection to the HV power lines which can operate during main connection to substation being constructed approx 3km away to the North Being confirmed but believe substantial power (>1000MW) available at substation. Porjus substation\nPower Procurement Status: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Availability Confirmation: Agent sent request (expect response in July/August)\nAcquisition Strategy: Negotiate a lease with options to purchase\nZoning Strategy: Zoned\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.\nPower Procurement Strategy: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Provider: Vattenfall\nPrice / sqm: TBC - Expecting up to 5EUR psm (normal pricing in North Sweden 2.5 Eur psm)\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Continue negotiations with the local municipality for the land plot. Municipal board discussing our interest to purchase the whole land plot.\n\nProjectID: SWE019\nPotential FID Date: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nPotential RFS Dates: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Erik.fagerstrom@jokkmokk.se\nPlot Name: \"Jokkmokk 1\"\nPlot Priority: 1\nSite Address: Address TBC\nLocation Link: https://maps.app.goo.gl/UvLqgCZwTqBnUQZe6\nNot Required: 66.606137, 19.854224\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 50\nDescription: Large undulating plot mostly covered in native woodland located on the peripherals of the industrial zone of Jokkmokk, with some exisiting clearance work.\nSite Drainage: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nSite Access: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nBuilding Rights (%) - Primary Plot: 70\nOwnership: Municipal Owned\nZoning Status: Zoned\nHeat Off-Take: Local district heating system for the town of 5000 inhabitants. Beginning discussion with local district heating company CEO\nFibre Connectivity: Investigations continue\nPower Connection Methods: HV power lines run adjacent to the plot. Project can begin with a powerline connection to the HV power lines which can operate during main connection to substation being constructed approx 3km away to the North Being confirmed but believe substantial power (>1000MW) available at substation. Porjus substation\nPower Procurement Status: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Availability Confirmation: Agent sent request (expect response in July/August)\nAcquisition Strategy: Negotiate a lease with options to purchase\nZoning Strategy: Zoned\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.\nPower Procurement Strategy: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Provider: Vattenfall\nPrice / sqm: TBC - Expecting up to 5EUR psm (normal pricing in North Sweden 2.5 Eur psm)\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Continue negotiations with the local municipality for the land plot. Municipal board discussing our interest to purchase the whole land plot.\n\nProjectID: SWE019\nPotential FID Date: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nPotential RFS Dates: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Erik.fagerstrom@jokkmokk.se\nPlot Name: \"Jokkmokk 1\"\nPlot Priority: 1\nSite Address: Address TBC\nLocation Link: https://maps.app.goo.gl/UvLqgCZwTqBnUQZe6\nNot Required: 66.606137, 19.854224\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 50\nDescription: Large undulating plot mostly covered in native woodland located on the peripherals of the industrial zone of Jokkmokk, with some exisiting clearance work.\nSite Drainage: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nSite Access: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nBuilding Rights (%) - Primary Plot: 70\nOwnership: Municipal Owned\nZoning Status: Zoned\nHeat Off-Take: Local district heating system for the town of 5000 inhabitants. Beginning discussion with local district heating company CEO\nFibre Connectivity: Investigations continue\nPower Connection Methods: HV power lines run adjacent to the plot. Project can begin with a powerline connection to the HV power lines which can operate during main connection to substation being constructed approx 3km away to the North Being confirmed but believe substantial power (>1000MW) available at substation. Porjus substation\nPower Procurement Status: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Availability Confirmation: Agent sent request (expect response in July/August)\nAcquisition Strategy: Negotiate a lease with options to purchase\nZoning Strategy: Zoned\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.\nPower Procurement Strategy: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Provider: Vattenfall\nPrice / sqm: TBC - Expecting up to 5EUR psm (normal pricing in North Sweden 2.5 Eur psm)\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Continue negotiations with the local municipality for the land plot. Municipal board discussing our interest to purchase the whole land plot.",
-      "jv_partner": "",
-      "land_paperwork_status": "",
-      "fingrid_map_link": "",
-      "connection_enquiry_link": "",
-      "investment_memo_link": "",
-      "planning_status": "",
-      "water_availability": "",
-      "power_availability": "",
-      "power_paperwork": "",
-      "ppa_status": "",
-      "racks": "",
-      "subsea_cables": [],
-      "isp_check_status": "",
-      "highway_km": null,
-      "nearest_airport": "",
-      "airport_km": null,
-      "university_km": null,
-      "labour_availability": "",
-      "rtb_date": "",
-      "energisation_date": "",
-      "project_budget_musd": null,
-      "offtakers": [],
-      "risks": "",
-      "dependencies": "",
-      "key_risks_dependencies": "",
-      "site_rationale": "",
-      "strategy_notes": "",
-      "internal_comments": "",
-      "public_status_label": "In development",
-      "public_location": "Jokkmokk, Sweden",
-      "nearest_airport_public": "Gällivare Airport (GEV)",
-      "nearest_airport_km": 73,
-      "nearest_seaport": "Luleå",
-      "nearest_seaport_km": 155,
-      "avg_temp_c": 1.9,
-      "free_cooling_hours": 8268,
-      "hub_distances_km": "Frankfurt: 1939 km · Stockholm: 814 km · London: 2010 km · Amsterdam: 1783 km",
-      "temp_chart": [
-        {
-          "ym": "2023-04",
-          "t": 1.2
-        },
-        {
           "ym": "2023-05",
-          "t": 6.1
+          "t": 9.9
         },
         {
           "ym": "2023-06",
-          "t": 14
+          "t": 15.1
         },
         {
           "ym": "2023-07",
-          "t": 14.6
+          "t": 15.8
         },
         {
           "ym": "2023-08",
-          "t": 14.4
+          "t": 17.1
         },
         {
           "ym": "2023-09",
-          "t": 9.8
-        },
-        {
-          "ym": "2023-10",
-          "t": -1.9
-        },
-        {
-          "ym": "2023-11",
-          "t": -7.7
-        },
-        {
-          "ym": "2023-12",
-          "t": -11
-        },
-        {
-          "ym": "2024-01",
-          "t": -11.9
-        },
-        {
-          "ym": "2024-02",
-          "t": -9.3
-        },
-        {
-          "ym": "2024-03",
-          "t": -4.5
-        },
-        {
-          "ym": "2024-04",
-          "t": -2.7
-        },
-        {
-          "ym": "2024-05",
-          "t": 8.6
-        },
-        {
-          "ym": "2024-06",
           "t": 14
         },
         {
-          "ym": "2024-07",
-          "t": 15.9
+          "ym": "2023-10",
+          "t": 2.4
         },
         {
-          "ym": "2024-08",
-          "t": 14.8
+          "ym": "2023-11",
+          "t": -3.3
         },
         {
-          "ym": "2024-09",
-          "t": 10.4
+          "ym": "2023-12",
+          "t": -7.3
         },
         {
-          "ym": "2024-10",
-          "t": 3.2
+          "ym": "2024-01",
+          "t": -11.6
         },
         {
-          "ym": "2024-11",
-          "t": -2
+          "ym": "2024-02",
+          "t": -7.4
         },
         {
-          "ym": "2024-12",
-          "t": -6.9
+          "ym": "2024-03",
+          "t": -1.3
         },
         {
-          "ym": "2025-01",
-          "t": -10.6
+          "ym": "2024-04",
+          "t": 1.3
         },
         {
-          "ym": "2025-02",
-          "t": -5.1
-        },
-        {
-          "ym": "2025-03",
-          "t": -3
-        },
-        {
-          "ym": "2025-04",
-          "t": 0.8
-        },
-        {
-          "ym": "2025-05",
-          "t": 6.1
-        },
-        {
-          "ym": "2025-06",
-          "t": 11.3
-        },
-        {
-          "ym": "2025-07",
-          "t": 18.9
-        },
-        {
-          "ym": "2025-08",
-          "t": 13.1
-        },
-        {
-          "ym": "2025-09",
+          "ym": "2024-05",
           "t": 10.8
         },
         {
+          "ym": "2024-06",
+          "t": 17.4
+        },
+        {
+          "ym": "2024-07",
+          "t": 18.7
+        },
+        {
+          "ym": "2024-08",
+          "t": 17.1
+        },
+        {
+          "ym": "2024-09",
+          "t": 15.1
+        },
+        {
+          "ym": "2024-10",
+          "t": 6.2
+        },
+        {
+          "ym": "2024-11",
+          "t": 0.5
+        },
+        {
+          "ym": "2024-12",
+          "t": -4.1
+        },
+        {
+          "ym": "2025-01",
+          "t": -5.1
+        },
+        {
+          "ym": "2025-02",
+          "t": -5.4
+        },
+        {
+          "ym": "2025-03",
+          "t": -1.2
+        },
+        {
+          "ym": "2025-04",
+          "t": 2.9
+        },
+        {
+          "ym": "2025-05",
+          "t": 8.7
+        },
+        {
+          "ym": "2025-06",
+          "t": 13.9
+        },
+        {
+          "ym": "2025-07",
+          "t": 19.7
+        },
+        {
+          "ym": "2025-08",
+          "t": 15.5
+        },
+        {
+          "ym": "2025-09",
+          "t": 12.8
+        },
+        {
           "ym": "2025-10",
-          "t": 3.7
+          "t": 5.9
         },
         {
           "ym": "2025-11",
-          "t": -6.7
+          "t": 1.6
         },
         {
           "ym": "2025-12",
-          "t": -6.9
+          "t": -1.7
         },
         {
           "ym": "2026-01",
-          "t": -18.1
+          "t": -11.7
         },
         {
           "ym": "2026-02",
-          "t": -15.9
+          "t": -13.1
         },
         {
           "ym": "2026-03",
-          "t": 0.3
+          "t": 2
         },
         {
           "ym": "2026-04",
-          "t": 1.6
+          "t": 4
         }
       ],
-      "population_50km": 3477,
+      "population_50km": 48534,
       "population": null,
-      "area_overview": "",
       "power_notes": "",
       "hot_days_per_year": null,
       "cold_days_per_year": null,
@@ -1606,7 +802,7 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "mndmdlk3",
+      "url_token": "uw3yqvc4",
       "developers": []
     },
     {
@@ -1875,72 +1071,73 @@
       "developers": []
     },
     {
-      "id": "kitee",
-      "name": "Kitee",
+      "id": "kristinestad",
+      "name": "Kristinestad",
       "country": "Finland",
       "site_type": "greenfield",
-      "internal_status": "Watch list",
-      "internal_category": "JV-candidate",
+      "internal_status": "Development focus",
+      "internal_category": "GIGA-42",
       "published": true,
-      "status": "tbd",
-      "lat": 62.1,
-      "lng": 30.15,
+      "status": "live",
+      "short_status_label": "Power-secured",
+      "lat": 62.2745,
+      "lng": 21.3781,
       "power": "Mixed Clean",
-      "target_mw": 60,
-      "desc_en": "10ha located in Eastern Finland ready to build 2026",
-      "desc_no": "",
+      "initial_mw": 60,
+      "target_mw": 500,
+      "image": "94ac614c-1c1c-4e77-bfa7-5d9efbd51111.webp",
+      "desc_en": "Coastal site at the wind-power heartland of Finland with outstanding grid capacity, scaling to 500MW, ready to build Q1 2027",
+      "desc_no": "Finsk kystlokasjon i vindkraftens kjerneområde med stor nettkapasitet.",
       "bid_status": "Project",
-      "category_rationale": "Develop — can be shovel-ready in near term.",
-      "nbs_assessment": "Secured by way of lease. Just needs capital to progress.",
-      "project_description": "Identified March 2025, located on the Puhos industrial park. 50 MW data centre with on-ward expansion potential, fully backed by Kitee municipality and Business Joensuu. Undulating topography on a moraine deposit currently being excavated.",
-      "address": "Teollisuustie 17, 82430 Kitee, Finland",
-      "site_link": "https://maps.app.goo.gl/gkqpFGpdZt96T88y8",
-      "size_ha": 10,
-      "eia_required": false,
-      "restrictions": "No Chinese/Russian end customers or funders. Do not want APL Europe (UK) Ltd as part of project.",
-      "max_capacity_mw": 60,
-      "initial_mw": 30,
-      "connection_voltage": "110kV",
-      "dso": "PKS Sähkönsiirto Oy",
+      "category_rationale": "Develop — shovel-ready in ~12 months with ~500 MW of potential consumption. First 60 MW (6-9 mo); next 40 MW (12-24 mo); above 100 MW via 400 kV (24-36 mo).",
+      "nbs_assessment": "Municipality stated intent to issue a reservation agreement Feb 2026 — after which project can commence in earnest.",
+      "project_description": "Brought to Scale42 March 2025. Out-bid other developers for a 500 MW+ facility. Strong municipal backing through extensive stakeholder engagement and multiple site visits. Large expanse of dense woodland with undulating topography, situated next to a main highway.",
+      "address": "Ringvägen 27, 64100 Kristinestad, Finland",
+      "site_link": "https://maps.app.goo.gl/QJsPmX8m7ifAQAcx8",
+      "size_ha": 240,
+      "eia_required": true,
+      "eia_status": "Required above 100 MW",
+      "restrictions": "No Chinese/Russian end customers/funders. Prefer no Israeli funders or end customers. Do not want APL UK Ltd as part of project.",
+      "max_capacity_mw": 800,
+      "connection_voltage": "110kV & 400kV",
+      "dso": "Caruna Oy",
       "tso": "Fingrid",
       "ppa_counterparty": "Nordpool",
       "exact_power_status": "Available subject to permits",
       "heat_reuse": "Planned",
-      "it_load_mw": "48",
+      "it_load_mw": "400-640",
       "dpue": "1.15",
       "ppue": "1.25",
       "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
       "cooling": "Air — perimeter; DLC — room-level CDU",
-      "workload_mix": "Training & possibly inference",
+      "workload_mix": "Training & later cloud / inference",
       "fibre_providers": [
-        "Elisa",
-        "Telia"
+        "Elisa"
       ],
       "fibre_strands": "Dark fibre available, strands TBC",
       "fibre_speeds_gbps": "400G DWDM (dual/protected)",
-      "fibre_general_info": "Municipality confirmed no fibre availability concerns. Telia 400G DWDM proposal: OTC €310k, MRC €6,180/mo.",
-      "latency_summary": "Frankfurt ~17–31 ms · London ~31–35 ms · Paris ~35 ms · NY ~95–105 ms.",
-      "highway_access": "1.7 km to Highway 6",
+      "fibre_general_info": "GlobalConnect brief report indicates fibre connectivity sufficient. Telia 400G DWDM proposal: OTC €385k, MRC €6,180/mo.",
+      "latency_summary": "Frankfurt ~17–31 ms · London ~31–35 ms · NY ~95–105 ms.",
+      "highway_access": "Adjacent to E8 Highway",
       "airport_access": "1 hr to domestic; 4 hr to international",
       "college_university": "1 hr to college & university",
-      "zoning_status": "Already zoned, building rights 50% (raisable to 70% via deviation permit, ~4 weeks per Mayor).",
-      "key_risks_dependencies": "Although low risk, proximity to Russian border may deter some clients.",
+      "other_access_notes": "5 km to commercial port.",
+      "zoning_status": "Reservation agreement out for municipal signature (Feb 2026). Zoning approval targeted Nov/Dec 2026.",
+      "key_risks_dependencies": "Reservation agreement carries KPIs Scale42 must meet to progress to purchase/leasehold (Q1 2027); KPIs are easily met.",
       "project_owner": "100%",
-      "current_control": "Lease signed",
+      "current_control": "Reservation agreement out for municipal signature (Feb-11)",
       "planned_ultimate_control": "Own freehold",
-      "contractual_arrangement": "DLA Piper Finland; CFE (electrical engineering & infrastructure study); Peter Sladey (land agent); Permitting: Ramboll, AINS, Granlund.",
-      "investment_memo_link": "KITEE IM",
-      "strategic_status": "Going to 3rd party",
+      "contractual_arrangement": "DLA Piper Finland; Peter Sladey; Permitting: Ramboll, AINS, Granlund.",
+      "strategic_status": "Development focus",
       "plots_identified": "1",
-      "plots_secured": "Lease Negotiations Ongoing",
-      "extra_data": "ProjectID: FIN010\nPotential FID Date: Lease completed - August 25 Municipal Land preperation complete - Sep25 Deviation Permit approved increasing building right % - Oct25 Building Permit Received - Jan26 Fingrid Power Allocated - Jan26 FID Date = January 2026\nFID Date Update: If Undertaking building permit early (60k EUR - Aug25) Lease completed - August 25 Building Permit Process Begins - Aug25 Municipal Land preperation complete - Sep25 Building Permit Received - Nov25 Fingrid Power Allocated - Nov25 FID Date = November 2025 Alternative if delaying building permit work (Oct25) Lease completed - August 25 Building Permit Process Begins - Oct25 Municipal Land preperation complete - Sep25 Building Permit Received - Jan26 Fingrid Power Allocated - Jan26 FID Date = January 2026\nSecure Status: Lease under negotiation with lawyers\nFID Risks: Building permit timeline - Can confirm in more detail with Ramboll Land lease delays Another company reserving the power before us (requires building permit and no knowledge of competing projects in process)\nKey FID Costs: Lease Signature - No cost (subject to lease deposit negotiations) Extrernal DD report (elective) - 35k EUR (estimate based upon Ramboll elsewhere) Completion of municipal zoning work - No cost (taken by municipality) Lease Rate (September onwards) - 11,25k EUR expected (per annum) Building Application Cost - 60k EUR (estimate based upon Ramboll elsewhere) Fingrid Application Fee (110kV) - 900k EUR\nPotential RFS Dates: Assuming 9 month construction commencing January 2026 RFS Phase 1 = October 2026\nProject Lead: William Tasney\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Pauliina Pikkujämsä / Manager for investments and guidance Business Joensuu (Business Joensuu) / pauliina.pikkujamsa@businessjoensuu.fi Pekka Hirvonen/ Mayor/City director of Kitee / pekka.hirvonen@kitee.fi Kari Siponen / Technical director of Kitee / kari.siponen@kitee.fi Timo Valkama / DLA Piper Finland / Counsel / M: +358 40 582 1955 timo.valkama@fi.dlapiper.com\nPlot Name: Suorlahden\nPlot Priority: 1\nSite Address: Teollisuustie 17, 82430 Kitee, Finland\nLocation Link: https://maps.app.goo.gl/aEvRjKpVegZfxfsy9\nNot Required: 62.097524, 29.928886\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 10\nDescription: Undulating topography across the site, with sporadic woodland and existing groundworks/ rough ground.\nSite Drainage: Site can be accessed by wide main roads ~140m to the south and west of the plot, although work will need to be conducted to sufficiently connect the main roads to the plot. Consideration will be needed for the route of access roads regarding the topogaphy, i.e. it might not be suitable for a straight road to access the site from the main road. Drainage can be easily managed alongside the levelling of the site, with run-off directed to the north of the site, where there's an existing low-point and drainage.\nSite Access: Site can be accessed by wide main roads ~140m to the south and west of the plot, although work will need to be conducted to sufficiently connect the main roads to the plot. Consideration will be needed for the route of access roads regarding the topogaphy, i.e. it might not be suitable for a straight road to access the site from the main road. Drainage can be easily managed alongside the levelling of the site, with run-off directed to the north of the site, where there's an existing low-point and drainage.\nBuilding Rights (%) - Primary Plot: 50% - Municipality working on raising this %\nOwnership: Kitee Municipality\nZoning Status: The land is already zoned, but, with a building right % of 50%. The municipality states this could be increased to 70% by way of a deviation permit which the Mayor expects would take 4 weeks.\nHeat Off-Take: None\nFibre Connectivity: Municipality contacted local fibre connectivity who confirmed no concerns over fibre availability for the site. Further investigations to be conducted\nPower Connection Methods: 400m from substation located to the south. The nearby lines & substation connection can support a 50MW connection at 110kV. This is likely to be possible via a short time overhead cable connection along the existing 110kV lines.\nPower Connection Timelines: 50MW overhead line connection - 6 months\nPower Procurement Status: Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.\nPower Availability Confirmation: No, via municipality and agent\nAcquisition Strategy: Currently negotating a lease agreement. This would provide for a rent-free period until finalisation of municipal works to prepare and flatten the land plot (September 2025). This lease will then continue for 10 years with options to purchase the site which can be triggered at any time.\nZoning Strategy: The land is already zoned, but, with a building right % of 50%. The municipality states this could be increased to 70% by way of a deviation permit which the Mayor expects would take 4 weeks.\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated.\nPower Provider: FinGrid\nPower Connection Costs: 900k EUR per 110kV connection plus the cost of construction.\nFibre Provider: Elisa\nPrice / sqm: 3 EUR\nLease Rate (per annum): 11,250 EUR\nPurchase Price: 200,000 EUR\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Continue to negotiate and agree lease agreement",
+      "plots_secured": "We have been told we will be able to secure the land in Sept/Oct 2025",
+      "extra_data": "ProjectID: FIN011\nPrimary Project Partner: Biforst Prioritised 8\nPotential FID Date: Land Reservation Agreed - Oct25 Zoning Complete - Nov25 Building Permit Received - May26 Fingrid Power Allocated - May26 FID Date = May26\nFID Date Update: Land Reservation Agreed - Dec25 Zoning Complete - Nov25 Building Permit Received - March26 Fingrid Power Allocated - March26 FID Date = March26\nSecure Status: Land Reservation not secure until Dec25 - Held by https://www.redeve.fi/en/myllykoski-data-campus/ Power Not secured until building permit received\nFID Risks: Building permit timeline - Can confirm in more detail with Ramboll - Confirm that permit proces can begin before zoning complete - Indicated this can Land reservation delays Another company reserving the power before us (requires building permit and no knowledge of competing projects in process)\nKey FID Costs: Land Reservation Signature - 30k EUR (1 year term) Extrernal DD report (elective) - 35k EUR (estimate based upon Ramboll elsewhere) Completion of municipal zoning work - No cost (taken by municipality) Building Application Cost - 60k EUR (estimate based upon Ramboll elsewhere) Fingrid Application Fee (110kV) - 900k-1.8mil EUR or Fingrid Application Fee (400kV) - 2.3mil EUR Land lease fee (After 1 year reservation term) - 1.2mil - 3.6mil per annum (540ha) (should FID process take longer than 1 year from signature of land reservation)\nPotential RFS Dates: Assuming 9 month construction commencing May 2026 RFS Phase 1 = December 2026\nProject Lead: Thomas Beaton\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Richard Lahteenmaki / richard.lahteenmaki@krs.fi Anton Ragnas / anton.ragnas@krs.fi Lauri Koskinen / lauri.koskinen@krs.fi Mila Segervall / mila.segervall@krs.fi Pertti Miettunen / pertti.miettunen@krs.fi\nPlot Name: Lalby\nPlot Priority: 1\nSite Address: Kristinestad, Finland 64100\nLocation Link: https://maps.app.goo.gl/xM4u7x8DMyR7Fw5D9\nNot Required: 62.273057, 21.432200\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 240\nDescription: Large expanse of dense woodland with undulating topography, situated next to a main highway.\nSite Drainage: The site has potential for great access, with the 663 highway skirting the southern border of the plot. An additional access point could be created to the main road adjacent to the north west of the property. Due to the large expanse of this land plot, there are many stream and hydological considerations to be made before site plans can be made.\nSite Access: The site has potential for great access, with the 663 highway skirting the southern border of the plot. An additional access point could be created to the main road adjacent to the north west of the property. Due to the large expanse of this land plot, there are many stream and hydological considerations to be made before site plans can be made.\nBuilding Rights (%) - Primary Plot: TBC (somewhere between 50% - 70%). If 50% rezoning to 70% would be a quick process\nOwnership: Kristinestad Municipality\nZoning Status: Zoning ongoing led by the municipality and forecast for completion in November 2025\nHeat Off-Take: Small District Heating Network in Place, investigations not yet undertaken\nFibre Connectivity: A brief report has been received from GlobalConnect which indicates Fibre connectivity is sufficient. Please reference report in system and meeting notes with GlobalConnect for more detailed information.\nPower Connection Methods: 110kV lines run over the site across the Northern boundary making for an easy connection. It is suggested that 2 x 110kV connections are planned following the existing power corridor north and connecting to the 110kV substation Alternative ability to run a single 400kV line along the same power corridor to the same substation. Substation has an expected capacity of over 1000MW\nPower Connection Timelines: 60MW overhead line connections - 6 months 100MW direct connections -18 to 24 months 400kV connection could be subject to different timelines\nPower Procurement Status: Once a building permit is approved the power can be immidiately allocated by Fingrid by us submitting a simple application.\nPower Availability Confirmation: No, via municipality and agent\nAcquisition Strategy: The municipality is finalising internal procedures to allocate the site to Scale42. Thiis would be offered at a low cost of 30,000 EUR. This would secure the site until zoning is complete or up to a maximum of 1 year (with possibility to extend by 6 months with municipality consent). Upon expiry of the 1 year (or earlier if desired) the reservation agreement can be converted into a full secure lease agreement with flexible options to purchase the site at any time included.\nZoning Strategy: Underway by the municipality with completion of zoning work forecast for November 2025.\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated.\nPower Provider: FinGrid\nPower Connection Costs: 900k EUR per 110kV connection plus the cost of construction. 2.3mil EUR per 400kV connection plus cost of construction.\nFibre Provider: Global Connect\nPrice / sqm: TBC upon completion of zoning. Expected in the range of 3EUR - 10EUR per square metre\nLease Rate (per annum): 7.5% of purchase price annually\nPurchase Price: TBC subject to completion of zoning\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Awaiting -Confirmation we will reserve the landplot (June 25) -Zoning to be confirmed by municipality (Q4 25)",
       "jv_partner": "",
       "land_paperwork_status": "",
       "fingrid_map_link": "",
       "connection_enquiry_link": "",
-      "short_status_label": "",
+      "investment_memo_link": "",
       "planning_status": "",
-      "eia_status": "",
       "water_availability": "",
       "power_availability": "",
       "power_paperwork": "",
@@ -1953,7 +1150,6 @@
       "airport_km": null,
       "university_km": null,
       "labour_availability": "",
-      "other_access_notes": "",
       "rtb_date": "",
       "energisation_date": "",
       "project_budget_musd": null,
@@ -1963,170 +1159,168 @@
       "site_rationale": "",
       "strategy_notes": "",
       "internal_comments": "",
-      "image": "5a6d825a-4799-4d63-8cc8-b2f6eed93352.webp",
       "public_status_label": "In development",
-      "public_location": "Kitee, Finland",
-      "area_overview": "The Kiteezi Landfill, also known as the Kiteezi Rubbish Dump, is a solid waste disposal site in Uganda. It is the main solid waste disposal site for the capital city of Kampala, with a projected metropolitan population of approximately 4 million people, as of 2024, serving the homes, businesses and industries of that metropolis.",
-      "wikipedia_url": "https://en.wikipedia.org/wiki/Kiteezi_Landfill",
-      "nearest_airport_public": "Savonlinna Airport (SVL)",
-      "nearest_airport_km": 65,
-      "nearest_seaport": "Kotka",
-      "nearest_seaport_km": 250,
-      "avg_temp_c": 4.9,
-      "free_cooling_hours": 7775,
-      "hub_distances_km": "Frankfurt: 1867 km · Stockholm: 724 km · London: 2157 km · Amsterdam: 1846 km",
+      "public_location": "Kristinestad, Finland",
+      "nearest_airport_public": "Vaasa Airport (VAA)",
+      "nearest_airport_km": 88,
+      "nearest_seaport": "Pori",
+      "nearest_seaport_km": 76,
+      "avg_temp_c": 6,
+      "free_cooling_hours": 7955,
+      "hub_distances_km": "Frankfurt: 1558 km · Stockholm: 373 km · London: 1757 km · Amsterdam: 1472 km",
       "temp_chart": [
         {
           "ym": "2023-04",
-          "t": 2.9
+          "t": 3.1
         },
         {
           "ym": "2023-05",
-          "t": 9.9
+          "t": 8.9
         },
         {
           "ym": "2023-06",
-          "t": 15.1
+          "t": 15.6
         },
         {
           "ym": "2023-07",
-          "t": 15.8
+          "t": 16.3
         },
         {
           "ym": "2023-08",
-          "t": 17.1
+          "t": 16.6
         },
         {
           "ym": "2023-09",
-          "t": 14
+          "t": 14.2
         },
         {
           "ym": "2023-10",
-          "t": 2.4
+          "t": 3.5
         },
         {
           "ym": "2023-11",
-          "t": -3.3
+          "t": -2
         },
         {
           "ym": "2023-12",
-          "t": -7.3
+          "t": -5.5
         },
         {
           "ym": "2024-01",
-          "t": -11.6
+          "t": -7.2
         },
         {
           "ym": "2024-02",
-          "t": -7.4
+          "t": -3.9
         },
         {
           "ym": "2024-03",
-          "t": -1.3
+          "t": -1.1
         },
         {
           "ym": "2024-04",
-          "t": 1.3
+          "t": 1.9
         },
         {
           "ym": "2024-05",
-          "t": 10.8
+          "t": 11.3
         },
         {
           "ym": "2024-06",
-          "t": 17.4
+          "t": 15.3
         },
         {
           "ym": "2024-07",
-          "t": 18.7
+          "t": 17.5
         },
         {
           "ym": "2024-08",
-          "t": 17.1
+          "t": 16.8
         },
         {
           "ym": "2024-09",
-          "t": 15.1
+          "t": 13.4
         },
         {
           "ym": "2024-10",
-          "t": 6.2
+          "t": 8.1
         },
         {
           "ym": "2024-11",
-          "t": 0.5
+          "t": 3.2
         },
         {
           "ym": "2024-12",
-          "t": -4.1
+          "t": -0.6
         },
         {
           "ym": "2025-01",
-          "t": -5.1
+          "t": -1.9
         },
         {
           "ym": "2025-02",
-          "t": -5.4
+          "t": -2
         },
         {
           "ym": "2025-03",
-          "t": -1.2
+          "t": 1.5
         },
         {
           "ym": "2025-04",
-          "t": 2.9
+          "t": 4.7
         },
         {
           "ym": "2025-05",
-          "t": 8.7
+          "t": 8.1
         },
         {
           "ym": "2025-06",
-          "t": 13.9
-        },
-        {
-          "ym": "2025-07",
-          "t": 19.7
-        },
-        {
-          "ym": "2025-08",
-          "t": 15.5
-        },
-        {
-          "ym": "2025-09",
           "t": 12.8
         },
         {
+          "ym": "2025-07",
+          "t": 19.5
+        },
+        {
+          "ym": "2025-08",
+          "t": 15.1
+        },
+        {
+          "ym": "2025-09",
+          "t": 13.5
+        },
+        {
           "ym": "2025-10",
-          "t": 5.9
+          "t": 7.6
         },
         {
           "ym": "2025-11",
-          "t": 1.6
+          "t": 2.9
         },
         {
           "ym": "2025-12",
-          "t": -1.7
+          "t": 1.8
         },
         {
           "ym": "2026-01",
-          "t": -11.7
+          "t": -8.4
         },
         {
           "ym": "2026-02",
-          "t": -13.1
+          "t": -9.2
         },
         {
           "ym": "2026-03",
-          "t": 2
+          "t": 2.3
         },
         {
           "ym": "2026-04",
-          "t": 4
+          "t": 4.9
         }
       ],
-      "population_50km": 48534,
+      "population_50km": 41133,
       "population": null,
+      "area_overview": "",
       "power_notes": "",
       "hot_days_per_year": null,
       "cold_days_per_year": null,
@@ -2137,7 +1331,813 @@
       "grid_co2": null,
       "grid_price": null,
       "grid_mix": "",
-      "url_token": "uw3yqvc4",
+      "url_token": "ujpucb0c",
+      "developers": []
+    },
+    {
+      "id": "skibotn",
+      "name": "GIGA-42 Skibotn",
+      "country": "Norway",
+      "site_type": "brownfield",
+      "internal_status": "Responsibility",
+      "internal_category": "GIGA-42",
+      "published": true,
+      "status": "live",
+      "short_status_label": "Power-secured",
+      "lat": 69.3833,
+      "lng": 20.2667,
+      "power": "Primarily Hydro",
+      "initial_mw": 7,
+      "target_mw": 15,
+      "image": "assets/sites/5fad338e-f35f-4884-aa6b-9b15209464e2.jpg",
+      "desc_en": "Sub-Arctic site and candidate for the Norwegian landing point of the Far North Fibre Project. ",
+      "desc_no": "Sub-arktisk norsk lokasjon med vannkraftkapasitet og frikjøling på 69° N.",
+      "bid_status": "Project",
+      "category_rationale": "Develop / Mining or Dispose — shovel-ready in medium term (Q1-27) subject to power. Only 15 MW so possibly more suited to mining; alternatively landowner not opposed to bitcoin mining.",
+      "nbs_assessment": "Secure but small. Close to new Arctic fibre project linking North Norway to North America/Canada/Japan. Municipality investigating concession power (2-3 MW est., not yet included). No employment tax in municipality.",
+      "project_description": "Identified by the Scale42 team in 2023 as a strong data-centre candidate at the Norwegian landing point of the Far North Fibre project. Backed by both the current landowner and the municipality. Brownfield site with existing industrial buildings; surrounding fjord sparsely populated with natural woodland. Greenfield development possible on areas within the plot.",
+      "address": "Nordlysveien 3465, 9143 Skibotn, Norway",
+      "site_link": "https://maps.app.goo.gl/c4vPVrLP4AFCdSQa9",
+      "size_ha": 3,
+      "eia_required": false,
+      "max_capacity_mw": 15,
+      "connection_voltage": "22kV",
+      "dso": "Arva",
+      "tso": "Statnett",
+      "ppa_counterparty": "Nordpool",
+      "exact_power_status": "In queue, awaiting allocation. 1st in local DSO queue, 2nd in regional TSO queue.",
+      "heat_reuse": "Municipal support for study engaging local businesses.",
+      "it_load_mw": "12",
+      "dpue": "1.15",
+      "ppue": "1.25",
+      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
+      "cooling": "Air — perimeter; DLC — room-level CDU",
+      "workload_mix": "Inference, cloud, edge workloads",
+      "fibre_providers": [
+        "Telenor",
+        "GlobalConnect",
+        "Telia"
+      ],
+      "fibre_strands": "Available via terrestrial backbone (allocation TBC)",
+      "fibre_speeds_gbps": "Up to 400G per wavelength (DWDM), scalable",
+      "fibre_general_info": "Carrier-diverse terrestrial fibre via the northern Norwegian backbone, with southbound routing into Sweden and continental Europe.",
+      "latency_summary": "Oslo ~10–15 ms · Stockholm ~15–20 ms · Frankfurt ~25–30 ms · London ~30–35 ms. Subsea: indirect via Sweden/Denmark (DANICE, IRIS).",
+      "highway_access": "Adjacent to E8 Highway",
+      "airport_access": "2 hr to international",
+      "college_university": "2 hr to college & university",
+      "other_access_notes": "Close proximity to Far North Fibre project.",
+      "zoning_status": "Plot zoned but not for data centre. Strong municipal political support; special dispensation granted (expires Q3 2028). Detailed zoning expected within 12 months.",
+      "key_risks_dependencies": "Mayor and landowner need consistent direction on local engagement.",
+      "jv_partner": "Global Interconnection Group",
+      "project_owner": "45% (can be 50%)",
+      "current_control": "Option signed",
+      "planned_ultimate_control": "Own freehold",
+      "contractual_arrangement": "Roald Normann Consulting (land agent). Ground works included within land purchase.",
+      "strategic_status": "GIGA-42 Responsibility",
+      "plots_identified": "1",
+      "plots_secured": "1",
+      "extra_data": "ProjectID: NOR003\nPrimary Project Partner: GIGA-42\nPotential FID Date: Allocation of power by Statnett - Estimated by June 2026 Obtain Building Permit - September 2026 FID Phase I (7MW) = September 2026\nPotential RFS Dates: Assuming 12 month construction commencing upon FID RFS Phase 1 = September 2027\nProject Lead: Daniel Gussias\nAgent: No agent\nPlot Name: Gnr: 45 Bnr: 179, Storfjord Municipality\nPlot Priority: 1\nSite Address: Nordlysveien 3465, 9143 Skibotn, Norway\nLocation Link: https://maps.app.goo.gl/GRzBahhr5VMY3uLg6\nNot Required: 69.337176, 20.350427\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nSize (ha) - Primary Plot: 3\nDescription: Located within the centre of the Skibotn Fjord, this is a brownfield site with exisiting industrial buildings, surrounded by natural woodland.\nSite Drainage: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nSite Access: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nBuilding Rights (%) - Primary Plot: % will be set under detailregulation to industry\nOwnership: SKH EIENDOM & INVEST AS (Company)\nZoning Status: Plot is not currently zoned for industry, but dispensation is confirmed in writing. This allows us up to 3 years to zone the plot and can be built upon and used as a datacentre during that time.\nHeat Off-Take: Potential to bring in heat offtakers local to the DC site, or provide heated storage facilities.\nFibre Connectivity: Far North Arcitic Fibre Project is landing in Skibottn as the first connection in Europe. https://www.farnorthfiber.com/ \"Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway. Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. James is continuing investigations directly with local fibre providers to obtain more detailed information.\"\nPower Connection Methods: A 7 MW power draw is possible to be implemented in the regional grid without addiitonal measures. A new transformer will be installed to accommodate the remaining power draw above 7MW. This assumes a number of investments in the distribution network, such as the establishment of a new feeder from the existing Skibotn substation – dedicated to our consumption. A suitable customer interface will be established at our connection point. The network infrastructure we develop within the distribution grid will be considered a customer-specific installation.\nPower Connection Timelines: Needs a new main transformer at the local substation. New transformer/gas-insulated switchgear/component timeline is likely 2 years and timeline for concession is likely to be approximately 1 year. Therefore expecting a 3 year timeline but seeking to shorten this through discussions with NVE who give approvals for the concessions to speed up the concession process. Also connecting the DSO with suppliers we know who can supply transformers more quickly. Where those suppliers are not acceptable to the DSO we will engage domestic electrical engineering firms about recertifying and warranting transformers from alternative suppliers to the DSO.\nPower Procurement Status: Submitted 2x applications splitting capacity to the local grid company Passed the maturity test process Been placed in Statnet queue First in queue for local susbtation Awaiting to reach front of queue for main transmission substation\nPower Availability Confirmation: Yes\nAcquisition Strategy: We have secured an option agreement for the land which expires on 26th August 2027 At any time during the option we can commence a lease of the site which will include options for us to purchase the site during that lease.\nZoning Strategy: DISP inplace (with full political support). Zoning will take about 1 year from when the process starts. Zoning needs to be complete before new election (2027)\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated for a new 400kV line. The existing line 110kV line would not require a connection application.\nPower Provider: Arva AS\nPower Connection Costs: 2.3mil EUR per 400kV connection plus cost of construction. No cost expected to use the existing 110kV connection.\nFibre Provider: Global Connect likely best positioned to provide\nPrice / sqm: 1600 NOK per sqm\nLease Rate (per annum): 300 NOK per sqm\nPurchase Price: 45 636 000 NOK (Dont have to buy whole plot)\nFees: None\nNext Steps: Agree price for site with Stora Enso.\n\nProjectID: NOR003\nPrimary Project Partner: GIGA-42\nPotential FID Date: Allocation of power by Statnett - Estimated by June 2026 Obtain Building Permit - September 2026 FID Phase I (7MW) = September 2026\nPotential RFS Dates: Assuming 12 month construction commencing upon FID RFS Phase 1 = September 2027\nProject Lead: Daniel Gussias\nAgent: No agent\nPlot Name: Gnr: 45 Bnr: 179, Storfjord Municipality\nPlot Priority: 1\nSite Address: Nordlysveien 3465, 9143 Skibotn, Norway\nLocation Link: https://maps.app.goo.gl/GRzBahhr5VMY3uLg6\nNot Required: 69.337176, 20.350427\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nSize (ha) - Primary Plot: 3\nDescription: Located within the centre of the Skibotn Fjord, this is a brownfield site with exisiting industrial buildings, surrounded by natural woodland.\nSite Drainage: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nSite Access: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nBuilding Rights (%) - Primary Plot: % will be set under detailregulation to industry\nOwnership: SKH EIENDOM & INVEST AS (Company)\nZoning Status: Plot is not currently zoned for industry, but dispensation is confirmed in writing. This allows us up to 3 years to zone the plot and can be built upon and used as a datacentre during that time.\nHeat Off-Take: Potential to bring in heat offtakers local to the DC site, or provide heated storage facilities.\nFibre Connectivity: Far North Arcitic Fibre Project is landing in Skibottn as the first connection in Europe. https://www.farnorthfiber.com/ \"Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway. Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. James is continuing investigations directly with local fibre providers to obtain more detailed information.\"\nPower Connection Methods: A 7 MW power draw is possible to be implemented in the regional grid without addiitonal measures. A new transformer will be installed to accommodate the remaining power draw above 7MW. This assumes a number of investments in the distribution network, such as the establishment of a new feeder from the existing Skibotn substation – dedicated to our consumption. A suitable customer interface will be established at our connection point. The network infrastructure we develop within the distribution grid will be considered a customer-specific installation.\nPower Connection Timelines: Needs a new main transformer at the local substation. New transformer/gas-insulated switchgear/component timeline is likely 2 years and timeline for concession is likely to be approximately 1 year. Therefore expecting a 3 year timeline but seeking to shorten this through discussions with NVE who give approvals for the concessions to speed up the concession process. Also connecting the DSO with suppliers we know who can supply transformers more quickly. Where those suppliers are not acceptable to the DSO we will engage domestic electrical engineering firms about recertifying and warranting transformers from alternative suppliers to the DSO.\nPower Procurement Status: Submitted 2x applications splitting capacity to the local grid company Passed the maturity test process Been placed in Statnet queue First in queue for local susbtation Awaiting to reach front of queue for main transmission substation\nPower Availability Confirmation: Yes\nAcquisition Strategy: We have secured an option agreement for the land which expires on 26th August 2027 At any time during the option we can commence a lease of the site which will include options for us to purchase the site during that lease.\nZoning Strategy: DISP inplace (with full political support). Zoning will take about 1 year from when the process starts. Zoning needs to be complete before new election (2027)\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated for a new 400kV line. The existing line 110kV line would not require a connection application.\nPower Provider: Arva AS\nPower Connection Costs: 2.3mil EUR per 400kV connection plus cost of construction. No cost expected to use the existing 110kV connection.\nFibre Provider: Global Connect likely best positioned to provide\nPrice / sqm: 1600 NOK per sqm\nLease Rate (per annum): 300 NOK per sqm\nPurchase Price: 45 636 000 NOK (Dont have to buy whole plot)\nFees: None\nNext Steps: Agree price for site with Stora Enso.\n\nProjectID: NOR003\nPrimary Project Partner: GIGA-42\nPotential FID Date: Allocation of power by Statnett - Estimated by June 2026 Obtain Building Permit - September 2026 FID Phase I (7MW) = September 2026\nPotential RFS Dates: Assuming 12 month construction commencing upon FID RFS Phase 1 = September 2027\nProject Lead: Daniel Gussias\nAgent: No agent\nPlot Name: Gnr: 45 Bnr: 179, Storfjord Municipality\nPlot Priority: 1\nSite Address: Nordlysveien 3465, 9143 Skibotn, Norway\nLocation Link: https://maps.app.goo.gl/GRzBahhr5VMY3uLg6\nNot Required: 69.337176, 20.350427\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nSize (ha) - Primary Plot: 3\nDescription: Located within the centre of the Skibotn Fjord, this is a brownfield site with exisiting industrial buildings, surrounded by natural woodland.\nSite Drainage: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nSite Access: The site is adjacent to the E8 highway that connects northern Finland to Norway, located ~6km from the town of Skitbotn. Exisiting brownfield infrastructure sees this site having suitable access at two points from the main road. However the same access road is used for a holiday park, so additional roads/ security measures would need to be taken to ensure site security. Current brownfield infrastructure is sufficient for drainage concerns.\nBuilding Rights (%) - Primary Plot: % will be set under detailregulation to industry\nOwnership: SKH EIENDOM & INVEST AS (Company)\nZoning Status: Plot is not currently zoned for industry, but dispensation is confirmed in writing. This allows us up to 3 years to zone the plot and can be built upon and used as a datacentre during that time.\nHeat Off-Take: Potential to bring in heat offtakers local to the DC site, or provide heated storage facilities.\nFibre Connectivity: Far North Arcitic Fibre Project is landing in Skibottn as the first connection in Europe. https://www.farnorthfiber.com/ \"Expecting dark dibre availability and 2+ carriers available at most locations identified in Norway. Otherwise Stelia have confirmed across all Norway sites that sufficient dark fibre connectivity for AI data centres can be implemented. James is continuing investigations directly with local fibre providers to obtain more detailed information.\"\nPower Connection Methods: A 7 MW power draw is possible to be implemented in the regional grid without addiitonal measures. A new transformer will be installed to accommodate the remaining power draw above 7MW. This assumes a number of investments in the distribution network, such as the establishment of a new feeder from the existing Skibotn substation – dedicated to our consumption. A suitable customer interface will be established at our connection point. The network infrastructure we develop within the distribution grid will be considered a customer-specific installation.\nPower Connection Timelines: Needs a new main transformer at the local substation. New transformer/gas-insulated switchgear/component timeline is likely 2 years and timeline for concession is likely to be approximately 1 year. Therefore expecting a 3 year timeline but seeking to shorten this through discussions with NVE who give approvals for the concessions to speed up the concession process. Also connecting the DSO with suppliers we know who can supply transformers more quickly. Where those suppliers are not acceptable to the DSO we will engage domestic electrical engineering firms about recertifying and warranting transformers from alternative suppliers to the DSO.\nPower Procurement Status: Submitted 2x applications splitting capacity to the local grid company Passed the maturity test process Been placed in Statnet queue First in queue for local susbtation Awaiting to reach front of queue for main transmission substation\nPower Availability Confirmation: Yes\nAcquisition Strategy: We have secured an option agreement for the land which expires on 26th August 2027 At any time during the option we can commence a lease of the site which will include options for us to purchase the site during that lease.\nZoning Strategy: DISP inplace (with full political support). Zoning will take about 1 year from when the process starts. Zoning needs to be complete before new election (2027)\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in 2-4 months.\nPower Procurement Strategy: Once a short-form building permit is approved, an application can be made to Fingrid including ramp up plans and connection details. This would then be instantly approved and capacity allocated for a new 400kV line. The existing line 110kV line would not require a connection application.\nPower Provider: Arva AS\nPower Connection Costs: 2.3mil EUR per 400kV connection plus cost of construction. No cost expected to use the existing 110kV connection.\nFibre Provider: Global Connect likely best positioned to provide\nPrice / sqm: 1600 NOK per sqm\nLease Rate (per annum): 300 NOK per sqm\nPurchase Price: 45 636 000 NOK (Dont have to buy whole plot)\nFees: None\nNext Steps: Agree price for site with Stora Enso.",
+      "land_paperwork_status": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "planning_status": "",
+      "eia_status": "",
+      "restrictions": "",
+      "water_availability": "",
+      "power_availability": "",
+      "power_paperwork": "",
+      "ppa_status": "",
+      "racks": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "public_status_label": "In development",
+      "public_location": "Skibotn, Norway",
+      "nearest_airport_public": "Sørkjosen Airport (SOJ)",
+      "nearest_airport_km": 52,
+      "nearest_seaport": "Tromsø",
+      "nearest_seaport_km": 59,
+      "avg_temp_c": 2.8,
+      "free_cooling_hours": 8201,
+      "hub_distances_km": "Frankfurt: 2230 km · Stockholm: 1123 km · London: 2256 km · Amsterdam: 2053 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 3.1
+        },
+        {
+          "ym": "2023-05",
+          "t": 5.5
+        },
+        {
+          "ym": "2023-06",
+          "t": 12.7
+        },
+        {
+          "ym": "2023-07",
+          "t": 16.4
+        },
+        {
+          "ym": "2023-08",
+          "t": 15.8
+        },
+        {
+          "ym": "2023-09",
+          "t": 10.1
+        },
+        {
+          "ym": "2023-10",
+          "t": -1.1
+        },
+        {
+          "ym": "2023-11",
+          "t": -6.4
+        },
+        {
+          "ym": "2023-12",
+          "t": -9.6
+        },
+        {
+          "ym": "2024-01",
+          "t": -9
+        },
+        {
+          "ym": "2024-02",
+          "t": -7
+        },
+        {
+          "ym": "2024-03",
+          "t": -2.4
+        },
+        {
+          "ym": "2024-04",
+          "t": -1.9
+        },
+        {
+          "ym": "2024-05",
+          "t": 6.6
+        },
+        {
+          "ym": "2024-06",
+          "t": 14.6
+        },
+        {
+          "ym": "2024-07",
+          "t": 17.8
+        },
+        {
+          "ym": "2024-08",
+          "t": 17.1
+        },
+        {
+          "ym": "2024-09",
+          "t": 10
+        },
+        {
+          "ym": "2024-10",
+          "t": 2
+        },
+        {
+          "ym": "2024-11",
+          "t": -1.7
+        },
+        {
+          "ym": "2024-12",
+          "t": -6
+        },
+        {
+          "ym": "2025-01",
+          "t": -7.8
+        },
+        {
+          "ym": "2025-02",
+          "t": -2.3
+        },
+        {
+          "ym": "2025-03",
+          "t": -2.9
+        },
+        {
+          "ym": "2025-04",
+          "t": -1.1
+        },
+        {
+          "ym": "2025-05",
+          "t": 4.8
+        },
+        {
+          "ym": "2025-06",
+          "t": 8.7
+        },
+        {
+          "ym": "2025-07",
+          "t": 17.4
+        },
+        {
+          "ym": "2025-08",
+          "t": 13.9
+        },
+        {
+          "ym": "2025-09",
+          "t": 12
+        },
+        {
+          "ym": "2025-10",
+          "t": 3.9
+        },
+        {
+          "ym": "2025-11",
+          "t": -4.1
+        },
+        {
+          "ym": "2025-12",
+          "t": -4.7
+        },
+        {
+          "ym": "2026-01",
+          "t": -14
+        },
+        {
+          "ym": "2026-02",
+          "t": -9.5
+        },
+        {
+          "ym": "2026-03",
+          "t": 1
+        },
+        {
+          "ym": "2026-04",
+          "t": 2.3
+        }
+      ],
+      "population_50km": 2758,
+      "population": null,
+      "area_overview": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "6xz9kqw5",
+      "developers": [
+        "giga-42"
+      ]
+    },
+    {
+      "id": "bakki",
+      "name": "GIGA-42 Bakki",
+      "country": "Iceland",
+      "site_type": "greenfield",
+      "internal_status": "Responsibility",
+      "internal_category": "GIGA-42",
+      "published": true,
+      "status": "live",
+      "short_status_label": "JV announced",
+      "lat": 66.05,
+      "lng": -17.35,
+      "power": "Primarily Geothermal",
+      "initial_mw": 50,
+      "target_mw": 150,
+      "max_capacity_mw": 150,
+      "image": "0a0d0e8b-252a-44c7-b386-9ddfb691b670.jpg",
+      "desc_en": "Iceland's largest data centre development, with geothermal baseload, 50 MW initial deployment in 2027, scaling up to 150MW+ by 2030",
+      "desc_no": "Geotermisk grunnlast, 50 MW oppstart 2027, skalerer til 200 MW.",
+      "bid_status": "Project",
+      "category_rationale": "Develop / Dispose — develop if land and power can be secured near term; otherwise sell if a material offer is obtained from Meralyte or others.",
+      "nbs_assessment": "Support from PM's office and municipality. Land secured by MOU; lease under negotiation. Subsea cables being renewed with new connections to North America. Draft PPA terms received but utility/TSO want end-user interest before definitive contracts.",
+      "project_description": "Greenfield plot adjoining the (now ceased) PCC Silicon plant. Mostly flat, no trees, small stream to one side. Old pre-fabricated office buildings on part of the site. Substation across the road on the site boundary.",
+      "address": "Dvergabakki 4, 640 Húsavík, Iceland",
+      "site_link": "https://maps.app.goo.gl/CQKfjzKnBvGvY7Ub8",
+      "size_ha": null,
+      "eia_required": true,
+      "eia_status": "Required above 100 MW",
+      "connection_voltage": "11kV / 33kV / 220kV",
+      "dso": "N/A",
+      "tso": "Landsnet",
+      "ppa_counterparty": "Landsvirkjun",
+      "exact_power_status": "Under LOI with utility. Power & transmission available subject to PPA.",
+      "heat_reuse": "Planned — local offtakers available.",
+      "it_load_mw": "160",
+      "dpue": "1.15",
+      "ppue": "1.25",
+      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
+      "cooling": "Air — perimeter; DLC — room-level CDU",
+      "workload_mix": "AI training & inference or cloud",
+      "fibre_providers": [
+        "FARICE"
+      ],
+      "fibre_strands": "Dark fibre available (via FARICE extension); dedicated strands possible under future subsea scenario; allocation TBC.",
+      "fibre_speeds_gbps": "400G minimum per cable; 1Tb possible",
+      "subsea_cables": [
+        "IRIS",
+        "DANICE",
+        "FARICE"
+      ],
+      "fibre_general_info": "One of the strongest-connected sites in the Nordics. Three independent subsea systems land in Iceland (FARICE, DANICE, IRIS) with direct routes to UK, mainland Europe and North America. Systems being renewed and expanded with new/upgraded NA connectivity. Multiple technical and commercial discussions with FARICE via JLL.",
+      "latency_summary": "Dublin ~13.4 ms · Slough UK ~15.5–19.9 ms · Frankfurt ~19.9 ms · Amsterdam ~19.7 ms · Oslo ~22.2 ms · Paris ~22.7 ms · NY ~42.8 ms (IRIS).",
+      "highway_access": "Adjacent to Highway 85",
+      "airport_access": "1 hr to international",
+      "college_university": "1 hr to college & university",
+      "other_access_notes": "2.8 km to commercial port",
+      "zoning_status": "Parcel A zoned (one plot complete); Parcel B (expansion) zoning to be conducted by the municipality (~12 months estimated).",
+      "key_risks_dependencies": "Power procurement — Landsvirkjun's new process requires an end user prior to MOU signing (currently mitigated by an LOI from Solstice Data).",
+      "jv_partner": "Global Interconnection Group",
+      "project_owner": "50%",
+      "current_control": "Lease negotiations (extension to MOU agreed Feb-26)",
+      "planned_ultimate_control": "Effective freehold (long leasehold; freehold not possible in Iceland)",
+      "contractual_arrangement": "JLL — Advisors",
+      "investment_memo_link": "BAKKI IM",
+      "strategic_status": "GIGA-42 Responsibility",
+      "plots_identified": "7",
+      "extra_data": "ProjectID: ICE021\nPrimary Project Partner: GIGA-42\nPotential FID Date: 2026 First choice of location in Iceland.\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/fYYawXZfJxMPF5NH6\nNot Required: 66.070228, -17.343472\nSize (ha) - Primary Plot: 10\nDescription: Industrial site near PCC plant\nSite Drainage: Good access to road, port in town 1km.\nSite Access: Good access to road, port in town 1km.\nZoning Status: Zoned\nHeat Off-Take: Yes\nPower Connection Methods: Single 220kv line to substation\n\nProjectID: ICE021\nPrimary Project Partner: GIGA-42\nPotential FID Date: 2026 First choice of location in Iceland.\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/fYYawXZfJxMPF5NH6\nNot Required: 66.070228, -17.343472\nSize (ha) - Primary Plot: 10\nDescription: Industrial site near PCC plant\nSite Drainage: Good access to road, port in town 1km.\nSite Access: Good access to road, port in town 1km.\nZoning Status: Zoned\nHeat Off-Take: Yes\nPower Connection Methods: Single 220kv line to substation\n\nProjectID: ICE021\nPrimary Project Partner: GIGA-42\nPotential FID Date: 2026 First choice of location in Iceland.\nPlot Priority: 1\nLocation Link: https://maps.app.goo.gl/fYYawXZfJxMPF5NH6\nNot Required: 66.070228, -17.343472\nSize (ha) - Primary Plot: 10\nDescription: Industrial site near PCC plant\nSite Drainage: Good access to road, port in town 1km.\nSite Access: Good access to road, port in town 1km.\nZoning Status: Zoned\nHeat Off-Take: Yes\nPower Connection Methods: Single 220kv line to substation",
+      "land_paperwork_status": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "planning_status": "",
+      "restrictions": "",
+      "plots_secured": "",
+      "water_availability": "",
+      "power_availability": "",
+      "power_paperwork": "",
+      "ppa_status": "",
+      "racks": "",
+      "isp_check_status": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "public_status_label": "In development",
+      "public_location": "Húsavík, Iceland",
+      "area_overview": "Húsavík is a town in Norðurþing municipality on the northeast coast of Iceland on the shores of Skjálfandi bay with 2,485 inhabitants. The most famous landmark of the town is the wooden church Húsavíkurkirkja, built in 1907. Húsavík is served by Húsavík Airport.",
+      "population": 2508,
+      "wikipedia_url": "https://en.wikipedia.org/wiki/H%C3%BAsav%C3%ADk",
+      "nearest_airport_public": "Akureyri International Airport (AEY)",
+      "nearest_airport_km": 55,
+      "nearest_seaport": "Húsavík",
+      "nearest_seaport_km": 1,
+      "avg_temp_c": 2.9,
+      "free_cooling_hours": 8722,
+      "hub_distances_km": "Frankfurt: 2307 km · Stockholm: 1922 km · London: 1883 km · Amsterdam: 1957 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": -3
+        },
+        {
+          "ym": "2023-05",
+          "t": 5.9
+        },
+        {
+          "ym": "2023-06",
+          "t": 10.5
+        },
+        {
+          "ym": "2023-07",
+          "t": 7.4
+        },
+        {
+          "ym": "2023-08",
+          "t": 9.6
+        },
+        {
+          "ym": "2023-09",
+          "t": 6.8
+        },
+        {
+          "ym": "2023-10",
+          "t": 2.1
+        },
+        {
+          "ym": "2023-11",
+          "t": 0.1
+        },
+        {
+          "ym": "2023-12",
+          "t": -4.7
+        },
+        {
+          "ym": "2024-01",
+          "t": -2.8
+        },
+        {
+          "ym": "2024-02",
+          "t": -3.9
+        },
+        {
+          "ym": "2024-03",
+          "t": -1.6
+        },
+        {
+          "ym": "2024-04",
+          "t": -1.5
+        },
+        {
+          "ym": "2024-05",
+          "t": 5.2
+        },
+        {
+          "ym": "2024-06",
+          "t": 6
+        },
+        {
+          "ym": "2024-07",
+          "t": 10.8
+        },
+        {
+          "ym": "2024-08",
+          "t": 7.9
+        },
+        {
+          "ym": "2024-09",
+          "t": 4.9
+        },
+        {
+          "ym": "2024-10",
+          "t": 0.4
+        },
+        {
+          "ym": "2024-11",
+          "t": -0.1
+        },
+        {
+          "ym": "2024-12",
+          "t": -3.3
+        },
+        {
+          "ym": "2025-01",
+          "t": -3.5
+        },
+        {
+          "ym": "2025-02",
+          "t": 0.5
+        },
+        {
+          "ym": "2025-03",
+          "t": 0.1
+        },
+        {
+          "ym": "2025-04",
+          "t": 2.9
+        },
+        {
+          "ym": "2025-05",
+          "t": 8.5
+        },
+        {
+          "ym": "2025-06",
+          "t": 6.7
+        },
+        {
+          "ym": "2025-07",
+          "t": 11.3
+        },
+        {
+          "ym": "2025-08",
+          "t": 10.9
+        },
+        {
+          "ym": "2025-09",
+          "t": 8.1
+        },
+        {
+          "ym": "2025-10",
+          "t": 2.3
+        },
+        {
+          "ym": "2025-11",
+          "t": -1.8
+        },
+        {
+          "ym": "2025-12",
+          "t": 1.4
+        },
+        {
+          "ym": "2026-01",
+          "t": -2.1
+        },
+        {
+          "ym": "2026-02",
+          "t": -3.5
+        },
+        {
+          "ym": "2026-03",
+          "t": -1.3
+        },
+        {
+          "ym": "2026-04",
+          "t": 2
+        }
+      ],
+      "population_50km": 3229,
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "lxjuczc3",
+      "developers": [
+        "giga-42"
+      ]
+    },
+    {
+      "id": "jokkmokk",
+      "name": "Lapland",
+      "country": "Sweden",
+      "site_type": "greenfield",
+      "internal_status": "Development focus",
+      "internal_category": "GIGA-42",
+      "published": true,
+      "status": "live",
+      "short_status_label": "Power-secured",
+      "lat": 66.6066,
+      "lng": 19.8242,
+      "power": "Primarily Hydro",
+      "initial_mw": 200,
+      "target_mw": 400,
+      "image": "f6637c09-4cf2-441e-9049-0f0e54da9ccd.jpg",
+      "desc_en": "Located in Lapland's hydropower belt and Sweden's largest hydropower production region, scaling to 400MW",
+      "desc_no": "Vannkraftbeltet i Lappland — samlokalisert med Sveriges største vannkraftregion.",
+      "bid_status": "Lead *hot* (was Project, reclassified after discussion with Luke)",
+      "category_rationale": "Develop — shovel-ready <12 months with 60 MW RFS in 18-21 months. Near central Finnish (sic — Swedish) power corridor; strategically located for long-term expansion.",
+      "nbs_assessment": "Out-bid 5 other developers; partnership with Jokkmokk municipality near a 446 MW hydro dam.",
+      "project_description": "Brought to Scale42 October 2025 by the municipality. Through stakeholder engagement and capability demos, Scale42 out-bid 5 other developers. Partnership negotiations underway. Large undulating plot mostly native woodland near the Miessaure hydroelectric dam.",
+      "address": "Jokkmokks kommun, Norrbotten County, 962 94, Sweden",
+      "site_link": "https://maps.app.goo.gl/aQKY9UTANErwPTvx7",
+      "size_ha": 110,
+      "eia_required": true,
+      "eia_status": "Required above 100 MW",
+      "restrictions": "No Chinese/Russian end customers / funders.",
+      "max_capacity_mw": 400,
+      "connection_voltage": "132kV & 400kV",
+      "dso": "Stattkraft",
+      "tso": "Svenska kraftnät",
+      "ppa_counterparty": "Nordpool",
+      "exact_power_status": "Available capacity confirmed in email correspondence with Vattenfall",
+      "heat_reuse": "Planned",
+      "it_load_mw": "320",
+      "dpue": "1.15",
+      "ppue": "1.25",
+      "rack_density_kw": "40-70 kW (Air) / 132-400 kW (DLC)",
+      "cooling": "Air — perimeter; DLC — room-level CDU",
+      "workload_mix": "AI training, inference, HPC",
+      "fibre_providers": [
+        "GlobalConnect",
+        "Telia Carrier",
+        "Vattenfall Stokab",
+        "Arelion"
+      ],
+      "fibre_strands": "Available (dark fibre possible, allocation TBC)",
+      "fibre_speeds_gbps": "400G per wavelength (DWDM), scalable",
+      "fibre_general_info": "Strong Swedish long-haul corridor. Multiple north–south backbones through Norrbotten with onward breakout to Stockholm and the European subsea/terrestrial systems. Genuine carrier diversity possible. DWDM scalability (400G class).",
+      "latency_summary": "Stockholm ~8–12 ms · Frankfurt ~20–25 ms · Amsterdam ~20–25 ms · London ~25–30 ms.",
+      "highway_access": "Adjacent to E45 Highway",
+      "airport_access": "1 hr to domestic",
+      "college_university": "1 hr to college & university",
+      "other_access_notes": "Close proximity to multiple hydro opportunities.",
+      "zoning_status": "Working with municipality on landplot identification and zoning strategy. Zoning consultant to be engaged.",
+      "project_owner": "100%",
+      "current_control": "Reservation negotiations (LOI; partnership being negotiated)",
+      "planned_ultimate_control": "Own freehold",
+      "contractual_arrangement": "DLA Piper Finland; Permitting: Ramboll, AINS, Granlund.",
+      "strategic_status": "Development focus",
+      "plots_identified": "2",
+      "plots_secured": "Negotiating Commercials",
+      "extra_data": "ProjectID: SWE019\nPotential FID Date: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nPotential RFS Dates: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Erik.fagerstrom@jokkmokk.se\nPlot Name: \"Jokkmokk 1\"\nPlot Priority: 1\nSite Address: Address TBC\nLocation Link: https://maps.app.goo.gl/UvLqgCZwTqBnUQZe6\nNot Required: 66.606137, 19.854224\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 50\nDescription: Large undulating plot mostly covered in native woodland located on the peripherals of the industrial zone of Jokkmokk, with some exisiting clearance work.\nSite Drainage: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nSite Access: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nBuilding Rights (%) - Primary Plot: 70\nOwnership: Municipal Owned\nZoning Status: Zoned\nHeat Off-Take: Local district heating system for the town of 5000 inhabitants. Beginning discussion with local district heating company CEO\nFibre Connectivity: Investigations continue\nPower Connection Methods: HV power lines run adjacent to the plot. Project can begin with a powerline connection to the HV power lines which can operate during main connection to substation being constructed approx 3km away to the North Being confirmed but believe substantial power (>1000MW) available at substation. Porjus substation\nPower Procurement Status: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Availability Confirmation: Agent sent request (expect response in July/August)\nAcquisition Strategy: Negotiate a lease with options to purchase\nZoning Strategy: Zoned\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.\nPower Procurement Strategy: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Provider: Vattenfall\nPrice / sqm: TBC - Expecting up to 5EUR psm (normal pricing in North Sweden 2.5 Eur psm)\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Continue negotiations with the local municipality for the land plot. Municipal board discussing our interest to purchase the whole land plot.\n\nProjectID: SWE019\nPotential FID Date: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nPotential RFS Dates: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Erik.fagerstrom@jokkmokk.se\nPlot Name: \"Jokkmokk 1\"\nPlot Priority: 1\nSite Address: Address TBC\nLocation Link: https://maps.app.goo.gl/UvLqgCZwTqBnUQZe6\nNot Required: 66.606137, 19.854224\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 50\nDescription: Large undulating plot mostly covered in native woodland located on the peripherals of the industrial zone of Jokkmokk, with some exisiting clearance work.\nSite Drainage: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nSite Access: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nBuilding Rights (%) - Primary Plot: 70\nOwnership: Municipal Owned\nZoning Status: Zoned\nHeat Off-Take: Local district heating system for the town of 5000 inhabitants. Beginning discussion with local district heating company CEO\nFibre Connectivity: Investigations continue\nPower Connection Methods: HV power lines run adjacent to the plot. Project can begin with a powerline connection to the HV power lines which can operate during main connection to substation being constructed approx 3km away to the North Being confirmed but believe substantial power (>1000MW) available at substation. Porjus substation\nPower Procurement Status: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Availability Confirmation: Agent sent request (expect response in July/August)\nAcquisition Strategy: Negotiate a lease with options to purchase\nZoning Strategy: Zoned\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.\nPower Procurement Strategy: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Provider: Vattenfall\nPrice / sqm: TBC - Expecting up to 5EUR psm (normal pricing in North Sweden 2.5 Eur psm)\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Continue negotiations with the local municipality for the land plot. Municipal board discussing our interest to purchase the whole land plot.\n\nProjectID: SWE019\nPotential FID Date: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nPotential RFS Dates: Details TBC - Current focus upon progressing commercial negotiations for land acquisition.\nAgent: Peter Sladey - NMG Estonia\nKey Project Contacts: Erik.fagerstrom@jokkmokk.se\nPlot Name: \"Jokkmokk 1\"\nPlot Priority: 1\nSite Address: Address TBC\nLocation Link: https://maps.app.goo.gl/UvLqgCZwTqBnUQZe6\nNot Required: 66.606137, 19.854224\nMaps & Drawings: Insert Link\nPhotos & Drone Footage: Insert Link\nPhysical Inspection Conducted: No\nSize (ha) - Primary Plot: 50\nDescription: Large undulating plot mostly covered in native woodland located on the peripherals of the industrial zone of Jokkmokk, with some exisiting clearance work.\nSite Drainage: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nSite Access: The site has good access to the main road to the southern boarder of the plot, well connected to the town of Jokkmokk and it's highways to the rest of Sweden. In addition to main roads, there are also smaller tracks skirting the east and northern boundaries of the plot, highlighting the ease for mulitple entry points. The geological reports from the site indicate the ground is mostly built up from glacial sedimentary deposits, presenting good drainage ground. In addition the site slopes towards the river to the north of the site (10m height difference from site to river), therefore run-off and drainage will naturally be in good order, removing the need for substantial drainage groundworks.\nBuilding Rights (%) - Primary Plot: 70\nOwnership: Municipal Owned\nZoning Status: Zoned\nHeat Off-Take: Local district heating system for the town of 5000 inhabitants. Beginning discussion with local district heating company CEO\nFibre Connectivity: Investigations continue\nPower Connection Methods: HV power lines run adjacent to the plot. Project can begin with a powerline connection to the HV power lines which can operate during main connection to substation being constructed approx 3km away to the North Being confirmed but believe substantial power (>1000MW) available at substation. Porjus substation\nPower Procurement Status: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Availability Confirmation: Agent sent request (expect response in July/August)\nAcquisition Strategy: Negotiate a lease with options to purchase\nZoning Strategy: Zoned\nBuilding Permit Strategy: A technical consultant such as Ramboll can be instructed to prepare and submit the building permits. Including technical design this is forecast to cost circa 60k EUR. The strategy would be to submit short form building permits which can be prepared, submitted and approved in an estimated 2-4 months.\nPower Procurement Strategy: Once land is secured applications can be made to the TSO for power allocation to be reserved to the project.\nPower Provider: Vattenfall\nPrice / sqm: TBC - Expecting up to 5EUR psm (normal pricing in North Sweden 2.5 Eur psm)\nFees: Agents fees: 10% of 1 year rent or 2% of land purchase price (on signing of land contract) plus 2,500 EUR / MW (on signing of power contract)\nNext Steps: Continue negotiations with the local municipality for the land plot. Municipal board discussing our interest to purchase the whole land plot.",
+      "jv_partner": "",
+      "land_paperwork_status": "",
+      "fingrid_map_link": "",
+      "connection_enquiry_link": "",
+      "investment_memo_link": "",
+      "planning_status": "",
+      "water_availability": "",
+      "power_availability": "",
+      "power_paperwork": "",
+      "ppa_status": "",
+      "racks": "",
+      "subsea_cables": [],
+      "isp_check_status": "",
+      "highway_km": null,
+      "nearest_airport": "",
+      "airport_km": null,
+      "university_km": null,
+      "labour_availability": "",
+      "rtb_date": "",
+      "energisation_date": "",
+      "project_budget_musd": null,
+      "offtakers": [],
+      "risks": "",
+      "dependencies": "",
+      "key_risks_dependencies": "",
+      "site_rationale": "",
+      "strategy_notes": "",
+      "internal_comments": "",
+      "public_status_label": "In development",
+      "public_location": "Jokkmokk, Sweden",
+      "nearest_airport_public": "Gällivare Airport (GEV)",
+      "nearest_airport_km": 73,
+      "nearest_seaport": "Luleå",
+      "nearest_seaport_km": 155,
+      "avg_temp_c": 1.9,
+      "free_cooling_hours": 8268,
+      "hub_distances_km": "Frankfurt: 1939 km · Stockholm: 814 km · London: 2010 km · Amsterdam: 1783 km",
+      "temp_chart": [
+        {
+          "ym": "2023-04",
+          "t": 1.2
+        },
+        {
+          "ym": "2023-05",
+          "t": 6.1
+        },
+        {
+          "ym": "2023-06",
+          "t": 14
+        },
+        {
+          "ym": "2023-07",
+          "t": 14.6
+        },
+        {
+          "ym": "2023-08",
+          "t": 14.4
+        },
+        {
+          "ym": "2023-09",
+          "t": 9.8
+        },
+        {
+          "ym": "2023-10",
+          "t": -1.9
+        },
+        {
+          "ym": "2023-11",
+          "t": -7.7
+        },
+        {
+          "ym": "2023-12",
+          "t": -11
+        },
+        {
+          "ym": "2024-01",
+          "t": -11.9
+        },
+        {
+          "ym": "2024-02",
+          "t": -9.3
+        },
+        {
+          "ym": "2024-03",
+          "t": -4.5
+        },
+        {
+          "ym": "2024-04",
+          "t": -2.7
+        },
+        {
+          "ym": "2024-05",
+          "t": 8.6
+        },
+        {
+          "ym": "2024-06",
+          "t": 14
+        },
+        {
+          "ym": "2024-07",
+          "t": 15.9
+        },
+        {
+          "ym": "2024-08",
+          "t": 14.8
+        },
+        {
+          "ym": "2024-09",
+          "t": 10.4
+        },
+        {
+          "ym": "2024-10",
+          "t": 3.2
+        },
+        {
+          "ym": "2024-11",
+          "t": -2
+        },
+        {
+          "ym": "2024-12",
+          "t": -6.9
+        },
+        {
+          "ym": "2025-01",
+          "t": -10.6
+        },
+        {
+          "ym": "2025-02",
+          "t": -5.1
+        },
+        {
+          "ym": "2025-03",
+          "t": -3
+        },
+        {
+          "ym": "2025-04",
+          "t": 0.8
+        },
+        {
+          "ym": "2025-05",
+          "t": 6.1
+        },
+        {
+          "ym": "2025-06",
+          "t": 11.3
+        },
+        {
+          "ym": "2025-07",
+          "t": 18.9
+        },
+        {
+          "ym": "2025-08",
+          "t": 13.1
+        },
+        {
+          "ym": "2025-09",
+          "t": 10.8
+        },
+        {
+          "ym": "2025-10",
+          "t": 3.7
+        },
+        {
+          "ym": "2025-11",
+          "t": -6.7
+        },
+        {
+          "ym": "2025-12",
+          "t": -6.9
+        },
+        {
+          "ym": "2026-01",
+          "t": -18.1
+        },
+        {
+          "ym": "2026-02",
+          "t": -15.9
+        },
+        {
+          "ym": "2026-03",
+          "t": 0.3
+        },
+        {
+          "ym": "2026-04",
+          "t": 1.6
+        }
+      ],
+      "population_50km": 3477,
+      "population": null,
+      "area_overview": "",
+      "power_notes": "",
+      "hot_days_per_year": null,
+      "cold_days_per_year": null,
+      "daylight_hours": "",
+      "tz_offset": "",
+      "nearest_substation": "",
+      "nearest_substation_km": null,
+      "grid_co2": null,
+      "grid_price": null,
+      "grid_mix": "",
+      "url_token": "mndmdlk3",
       "developers": []
     },
     {
