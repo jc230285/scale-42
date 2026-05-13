@@ -118,3 +118,4 @@
 {"ts":"2026-05-12T10:28:45.818Z","user":"james@scale-42.com","user_name":"James Collins","section":"news","action":"publish","changes":[]}
 {"ts":"2026-05-13T17:56:20.772Z","user":"admin","user_name":"Admin","section":"news","action":"save","changes":[{"entity":"post:Liperi-Data-Centre-Press-Release","path":"_added","before":null,"after":"Municipality of Liperi Announces Scale42 Data Centre Development Project in Finland"},{"entity":"post:new-post","path":"_added","before":null,"after":"New post"},{"entity":"post:new-post","path":"_added","before":null,"after":"New post"}]}
 {"ts":"2026-05-13T17:56:24.958Z","user":"admin","user_name":"Admin","section":"news","action":"publish","changes":[]}
+{"ts":"2026-05-13T18:00:49.202Z","user":"admin","user_name":"Admin","section":"sites","action":"save","changes":[{"entity":"site:liperi","path":"published","before":false,"after":true}]}

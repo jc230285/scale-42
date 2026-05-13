@@ -1616,7 +1616,7 @@
       "site_type": "greenfield",
       "internal_status": "Watch list",
       "internal_category": "JV-candidate",
-      "published": false,
+      "published": true,
       "status": "tbd",
       "lat": 62.5333,
       "lng": 29.3667,
