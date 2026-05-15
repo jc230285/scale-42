@@ -125,3 +125,4 @@
 {"ts":"2026-05-15T10:34:52.475Z","user":"admin","user_name":"Admin","section":"news","action":"publish","changes":[]}
 {"ts":"2026-05-15T10:40:21.519Z","user":"admin","user_name":"Admin","section":"news","action":"save","changes":[{"entity":"post:finnish-media-reports-scale42-kristinestad-ai-data-centre-development","path":"image","before":"ba940fe6-4310-4895-bb1a-78d9cd045984.jpeg","after":"8cf7ac37-b958-4c11-928c-e28ba1391459.webp"}]}
 {"ts":"2026-05-15T10:40:24.856Z","user":"admin","user_name":"Admin","section":"news","action":"publish","changes":[]}
+{"ts":"2026-05-15T10:40:45.096Z","user":"admin","user_name":"Admin","section":"news","action":"publish","changes":[]}
