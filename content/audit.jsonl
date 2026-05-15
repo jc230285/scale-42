@@ -121,3 +121,4 @@
 {"ts":"2026-05-13T18:00:49.202Z","user":"admin","user_name":"Admin","section":"sites","action":"save","changes":[{"entity":"site:liperi","path":"published","before":false,"after":true}]}
 {"ts":"2026-05-13T18:00:54.413Z","user":"admin","user_name":"Admin","section":"sites","action":"publish","changes":[]}
 {"ts":"2026-05-13T18:02:30.265Z","user":"admin","user_name":"Admin","section":"sites","action":"publish","changes":[]}
+{"ts":"2026-05-15T10:34:48.884Z","user":"admin","user_name":"Admin","section":"news","action":"save","changes":[{"entity":"post:finnish-media-reports-scale42-kristinestad-ai-data-centre-development","path":"_added","before":null,"after":"Finnish Media Reports on Scale42’s Planned AI Data Centre Development in Kristinestad"},{"entity":"post:kristinestad-finland","path":"_removed","before":"Scale42 CEO: 'I'd rather build in Kristinestad than Texas'","after":null}]}
