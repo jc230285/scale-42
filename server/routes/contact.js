@@ -152,6 +152,21 @@ router.post('/contact',
       // Honeypot — bots fill any field; humans never see it
       if (b.website && String(b.website).trim() !== '') return res.redirect(303, '/contact/sent/');
 
+      // Origin/Referer check — real submissions come from the site itself
+      const origin = String(req.headers.origin || req.headers.referer || '');
+      const okOrigin = /^https?:\/\/(www\.)?scale-42\.com(\/|$)/i.test(origin) || /^https?:\/\/localhost(:|\/|$)/i.test(origin);
+      if (!okOrigin) {
+        console.warn(`[contact] blocked bad origin=${origin || '(none)'} ip=${(req.headers['x-forwarded-for']||req.ip||'').toString().split(',')[0].trim()}`);
+        return res.redirect(303, '/contact/sent/');
+      }
+
+      // Cyrillic block — audience is EN/NO; Cyrillic = spam pattern
+      const blob = `${b.name || ''} ${b.company || ''} ${b.message || ''}`;
+      if (/[Ѐ-ӿ]/.test(blob)) {
+        console.warn(`[contact] blocked cyrillic ip=${(req.headers['x-forwarded-for']||req.ip||'').toString().split(',')[0].trim()}`);
+        return res.redirect(303, '/contact/sent/');
+      }
+
       const inquiry_type = String(b.inquiry_type || 'general').slice(0, 40);
       const name = String(b.name || '').trim().slice(0, 200);
       const company = String(b.company || '').trim().slice(0, 200);
