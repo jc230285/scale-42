@@ -47,21 +47,32 @@
       <h2 class="section-title">Get in touch</h2>
       <p style="font-size:18px;margin:8px 0 28px;"><a href="mailto:info@scale-42.com" style="color:#fff;"><!--cms:contact_email-->info@scale-42.com<!--/cms:contact_email--></a></p>
 
-      <form method="POST" action="/api/contact" class="contact-form" autocomplete="on">
+      <form method="POST" action="/api/contact" class="contact-form" autocomplete="on" id="cf">
         <div class="cf-row cf-2">
-          <label>Name *<input type="text" name="name" required maxlength="200"></label>
-          <label>Company<input type="text" name="company" maxlength="200"></label>
+          <label>Name *<input type="text" name="full_name" autocomplete="name" required maxlength="200"></label>
+          <label>Company<input type="text" name="company" autocomplete="organization" maxlength="200"></label>
         </div>
         <div class="cf-row cf-2">
-          <label>Email *<input type="email" name="email" required maxlength="200"></label>
-          <label>Phone<input type="tel" name="phone" maxlength="60"></label>
+          <label>Email *<input type="email" name="email_addr" autocomplete="email" required maxlength="200"></label>
+          <label>Phone<input type="tel" name="phone" autocomplete="tel" maxlength="60"></label>
         </div>
         <div class="cf-row">
           <label>Message *<textarea name="message" required maxlength="5000" rows="6"></textarea></label>
         </div>
-        <div style="position:absolute;left:-9999px;" aria-hidden="true">
-          <label>Website (leave blank)<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
         </div>
+        <input type="hidden" name="_ts" value="">
+        <input type="hidden" name="_token" value="">
+        <input type="hidden" name="_tz" value="">
+        <script>
+          (function(){
+            var f=document.getElementById('cf');if(!f)return;
+            f.elements['_ts'].value=String(Date.now());
+            f.elements['_token'].value='ok';
+            try{f.elements['_tz'].value=String(new Date().getTimezoneOffset());}catch(e){}
+          })();
+        </script>
         <p style="font-size:12px;color:rgba(255,255,255,0.6);margin:4px 0 16px;">By submitting this form you consent to Scale42 contacting you about your inquiry. We do not share your details with third parties.</p>
         <button type="submit" class="btn btn-primary" style="background:#fff;color:var(--ink);">Send message →</button>
       </form>

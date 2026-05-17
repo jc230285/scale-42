@@ -10,6 +10,7 @@
     "bcryptjs": "^2.4.3",
     "express": "^4.21.0",
     "express-basic-auth": "^1.2.1",
+    "geoip-lite": "^1.4.10",
     "nodemailer": "^8.0.7",
     "pg": "^8.13.1"
   }

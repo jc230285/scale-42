@@ -4,6 +4,8 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
+let geoip = null;
+try { geoip = require('geoip-lite'); } catch { /* optional dep — country/region/city fall back to null */ }
 
 const router = express.Router();
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -149,45 +151,86 @@ router.post('/contact',
   async (req, res) => {
     try {
       const b = req.body || {};
-      // Honeypot — bots fill any field; humans never see it
-      if (b.website && String(b.website).trim() !== '') return res.redirect(303, '/contact/sent/');
+      const now = Date.now();
 
-      // Origin/Referer check — real submissions come from the site itself
-      const origin = String(req.headers.origin || req.headers.referer || '');
-      const okOrigin = /^https?:\/\/(www\.)?scale-42\.com(\/|$)/i.test(origin) || /^https?:\/\/localhost(:|\/|$)/i.test(origin);
-      if (!okOrigin) {
-        console.warn(`[contact] blocked bad origin=${origin || '(none)'} ip=${(req.headers['x-forwarded-for']||req.ip||'').toString().split(',')[0].trim()}`);
-        return res.redirect(303, '/contact/sent/');
-      }
-
-      // Cyrillic block — audience is EN/NO; Cyrillic = spam pattern
-      const blob = `${b.name || ''} ${b.company || ''} ${b.message || ''}`;
-      if (/[Ѐ-ӿ]/.test(blob)) {
-        console.warn(`[contact] blocked cyrillic ip=${(req.headers['x-forwarded-for']||req.ip||'').toString().split(',')[0].trim()}`);
-        return res.redirect(303, '/contact/sent/');
-      }
-
+      // Field rename: real fields are full_name / email_addr; literal "name"/"email" are not used (decoy-free in B).
       const inquiry_type = String(b.inquiry_type || 'general').slice(0, 40);
-      const name = String(b.name || '').trim().slice(0, 200);
+      const name = String(b.full_name || b.name || '').trim().slice(0, 200);
       const company = String(b.company || '').trim().slice(0, 200);
-      const email = String(b.email || '').trim().slice(0, 200);
+      const email = String(b.email_addr || b.email || '').trim().slice(0, 200);
       const phone = String(b.phone || '').trim().slice(0, 60);
       const mw = String(b.mw || '').trim().slice(0, 40);
       const message = String(b.message || '').trim().slice(0, 5000);
 
-      // Minimum viable fields
-      if (!name || !email || !message) {
+      // Request metadata
+      const xff = String(req.headers['x-forwarded-for'] || '').trim();
+      const ip = (xff || req.ip || '').split(',')[0].trim();
+      const ua = String(req.headers['user-agent'] || '').slice(0, 500);
+      const referer = String(req.headers.referer || '').slice(0, 500);
+      const origin = String(req.headers.origin || req.headers.referer || '');
+      let country = String(req.headers['cf-ipcountry'] || req.headers['x-vercel-ip-country'] || '').slice(0, 8) || null;
+      let region = null, city = null, timezone_geo = null, ip_lat = null, ip_lon = null;
+      if (geoip && ip) {
+        try {
+          const g = geoip.lookup(ip);
+          if (g) {
+            if (!country) country = g.country || null;
+            region = g.region || null;
+            city = g.city || null;
+            timezone_geo = g.timezone || null;
+            if (Array.isArray(g.ll) && g.ll.length === 2) { ip_lat = g.ll[0]; ip_lon = g.ll[1]; }
+          }
+        } catch {}
+      }
+      const accept_language = String(req.headers['accept-language'] || '').slice(0, 200);
+      const ts = new Date(now).toISOString();
+
+      // Form-supplied client signals
+      const tsClient = parseInt(String(b._ts || ''), 10);
+      const fill_ms = Number.isFinite(tsClient) && tsClient > 0 ? (now - tsClient) : null;
+      const js_ran = String(b._token || '') === 'ok';
+      const tz_offset = (() => { const n = parseInt(String(b._tz || ''), 10); return Number.isFinite(n) ? n : null; })();
+
+      // Derived signals
+      const email_domain = (email.split('@')[1] || '').toLowerCase().slice(0, 100);
+      const link_count = (message.match(/https?:\/\/|www\./gi) || []).length;
+      const honey_filled = [];
+      if (b.website && String(b.website).trim() !== '') honey_filled.push('website');
+
+      // Spam checks — set `blocked` instead of early-returning, so we always log.
+      let blocked = null;
+      if (honey_filled.length) blocked = 'honeypot';
+      else if (!js_ran) blocked = 'no_js';
+      else if (fill_ms !== null && fill_ms < 2500) blocked = 'too_fast';
+      else if (fill_ms !== null && fill_ms > 6 * 3600 * 1000) blocked = 'stale';
+      else if (!/^https?:\/\/(www\.)?scale-42\.com(\/|$)/i.test(origin) && !/^https?:\/\/localhost(:|\/|$)/i.test(origin)) blocked = 'bad_origin';
+      else if (/[Ѐ-ӿ]/.test(`${name} ${company} ${message}`)) blocked = 'cyrillic';
+
+      // Required-field check only applies if not already blocked — bots often omit fields.
+      if (!blocked && (!name || !email || !message)) {
         return res.status(400).send('Missing required fields. <a href="/contact/">Back</a>.');
       }
-      if (!/^\S+@\S+\.\S+$/.test(email)) {
+      if (!blocked && !/^\S+@\S+\.\S+$/.test(email)) {
         return res.status(400).send('Invalid email. <a href="/contact/">Back</a>.');
       }
 
-      const ip = (req.headers['x-forwarded-for'] || req.ip || '').split(',')[0].trim();
-      const ua = String(req.headers['user-agent'] || '').slice(0, 500);
-      const ts = new Date().toISOString();
+      const entry = {
+        ts, inquiry_type, name, company, email, phone, mw, message,
+        ip, xff, ua, referer, origin,
+        country, region, city, timezone_geo, ip_lat, ip_lon,
+        accept_language,
+        fill_ms, js_ran, tz_offset,
+        email_domain, link_count,
+        message_length: message.length, name_length: name.length, company_length: company.length,
+        honey_filled,
+        blocked,
+      };
 
-      const entry = { ts, inquiry_type, name, company, email, phone, mw, message, ip, ua };
+      if (blocked) {
+        console.warn(`[contact] BLOCKED reason=${blocked} ip=${ip} country=${country || '?'} email=${email || '(none)'} fill_ms=${fill_ms}`);
+        try { appendInquiry(entry); } catch {}
+        return res.redirect(303, '/contact/sent/');
+      }
 
       const t = getTransporter();
       if (t) {
