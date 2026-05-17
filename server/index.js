@@ -119,4 +119,6 @@ app.use((req, res) => {
   res.status(404).send('Not found');
 });
 
+try { require('./contact-summary').start(); } catch (e) { console.warn('[contact-summary] not started:', e.message); }
+
 app.listen(PORT, () => console.log(`Scale42 server on :${PORT}`));

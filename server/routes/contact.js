@@ -63,6 +63,13 @@ function appendInquiry(entry) {
   try { data = JSON.parse(fs.readFileSync(INQ_PATH, 'utf-8')); } catch {}
   data.items = data.items || [];
   data.items.unshift(entry);
+  // Auto-purge blocked/spam entries older than 30 days. Real (non-blocked) entries are kept forever.
+  const cutoff = Date.now() - 30 * 24 * 3600 * 1000;
+  data.items = data.items.filter(it => {
+    if (!it || !it.blocked) return true;
+    const t = Date.parse(it.ts || '');
+    return !(Number.isFinite(t) && t < cutoff);
+  });
   if (data.items.length > 5000) data.items.length = 5000;
   fs.mkdirSync(path.dirname(INQ_PATH), { recursive: true });
   fs.writeFileSync(INQ_PATH, JSON.stringify(data, null, 2) + '\n', 'utf-8');

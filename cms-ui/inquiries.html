@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Inquiries &mdash; Scale42 CMS</title>
+<link rel="stylesheet" href="cms.css" />
+<style>
+  .filter-bar { display:flex; gap:10px; margin:0 0 14px; align-items:center; flex-wrap:wrap; }
+  .filter-bar .chip { padding:6px 12px; border:1px solid var(--line); border-radius:999px; font-size:13px; cursor:pointer; background:#fff; color:var(--ink); }
+  .filter-bar .chip.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .filter-bar input { padding:7px 10px; border:1px solid var(--line); border-radius:6px; font:inherit; font-size:13px; min-width:220px; }
+  .filter-bar .count { color:var(--ink-2); font-size:13px; margin-left:auto; }
+  .summary { background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 18px; margin:0 0 16px; display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px; }
+  .summary .kpi { font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-2); }
+  .summary .kpi b { display:block; font-size:24px; font-weight:600; color:var(--ink); letter-spacing:-0.01em; margin-top:2px; text-transform:none; }
+  .inq-table { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+  .inq-table th, .inq-table td { padding:8px 12px; border-bottom:1px solid var(--line); font-size:13px; text-align:left; vertical-align:top; }
+  .inq-table th { background:#fafbfc; font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-2); font-weight:600; }
+  .inq-table tr:last-child td { border-bottom:none; }
+  .inq-table tr.spam { background:#fff8f6; }
+  .inq-table tr.spam td { color:var(--ink-2); }
+  .tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; }
+  .tag.real { background:#d8eadc; color:#1f6132; }
+  .tag.spam { background:#fde0dc; color:#a3261a; }
+  .msg-cell { max-width:380px; }
+  .msg-cell .msg { white-space:pre-wrap; max-height:80px; overflow:hidden; position:relative; }
+  .msg-cell .msg.open { max-height:none; }
+  .msg-cell .more { font-size:11px; color:var(--ink-2); cursor:pointer; }
+  .mono { font-family:ui-monospace,Menlo,monospace; font-size:12px; }
+</style>
+</head>
+<body>
+<header class="cms-nav">
+  <a class="cms-brand" href="/cms/">Scale42 CMS</a>
+  <nav>
+    <a href="/cms/people.html">People</a>
+    <a href="/cms/sites.html">Sites</a>
+    <a href="/cms/developers.html">Partners</a>
+    <a href="/cms/news.html">News</a>
+    <a href="/cms/sections.html">Sections</a>
+    <a href="/cms/journey.html">Journey</a>
+    <a href="/cms/audit.html">Audit</a>
+    <a href="/cms/inquiries.html">Inquiries</a>
+    <a href="/cms/account.html">Account</a>
+    <a href="/" target="_blank">View site &rarr;</a>
+  </nav>
+</header>
+<main class="cms-main">
+  <h1>Contact-form inquiries</h1>
+  <p class="lede">Every submission to the public contact form, including bot attempts that were blocked before email. Blocked entries auto-purge after 30 days; real inquiries are kept indefinitely.</p>
+
+  <div class="summary" id="summary"></div>
+
+  <div class="filter-bar" id="filters">
+    <span class="chip active" data-blocked="all">All</span>
+    <span class="chip" data-blocked="none">Real only</span>
+    <span class="chip" data-blocked="spam">Blocked only</span>
+    <span class="chip" data-blocked="honeypot">honeypot</span>
+    <span class="chip" data-blocked="no_js">no_js</span>
+    <span class="chip" data-blocked="too_fast">too_fast</span>
+    <span class="chip" data-blocked="bad_origin">bad_origin</span>
+    <span class="chip" data-blocked="cyrillic">cyrillic</span>
+    <input id="q" type="search" placeholder="search name/email/ip/message…">
+    <span class="count" id="count">…</span>
+  </div>
+
+  <table class="inq-table">
+    <thead><tr>
+      <th>When</th><th>Who</th><th>From</th><th>Network</th><th>Signals</th><th class="msg-cell">Message</th><th>Status</th>
+    </tr></thead>
+    <tbody id="rows"><tr><td colspan="7" style="padding:24px;color:#6b7a87;">Loading…</td></tr></tbody>
+  </table>
+</main>
+<script>
+  const $ = s => document.querySelector(s);
+  const $$ = s => document.querySelectorAll(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let state = { blocked: 'all', q: '' };
+
+  function fmtTs(ts) {
+    try { return new Date(ts).toLocaleString('en-GB', { dateStyle: 'short', timeStyle: 'short' }); } catch { return ts; }
+  }
+  function fmtMs(ms) {
+    if (ms == null) return '—';
+    if (ms < 1000) return ms + 'ms';
+    if (ms < 60000) return (ms/1000).toFixed(1) + 's';
+    return Math.round(ms/1000) + 's';
+  }
+
+  async function loadSummary() {
+    try {
+      const r = await fetch('/api/inquiries/summary?days=30');
+      const s = await r.json();
+      const k = (label, val) => `<div class="kpi">${esc(label)}<b>${val}</b></div>`;
+      $('#summary').innerHTML = [
+        k('Last 30 days', s.in_window),
+        k('Real', s.real),
+        k('Blocked', s.spam),
+        k('Top reason', s.by_reason[0] ? `${esc(s.by_reason[0][0])} (${s.by_reason[0][1]})` : '—'),
+        k('Top country', s.by_country[0] ? `${esc(s.by_country[0][0])} (${s.by_country[0][1]})` : '—'),
+        k('All-time total', s.total_all_time),
+      ].join('');
+    } catch (e) { $('#summary').innerHTML = '<div class="kpi" style="color:#a3261a;">summary failed</div>'; }
+  }
+
+  async function loadRows() {
+    const params = new URLSearchParams();
+    if (state.blocked && state.blocked !== 'all') params.set('blocked', state.blocked);
+    if (state.q) params.set('q', state.q);
+    params.set('limit', '500');
+    try {
+      const r = await fetch('/api/inquiries?' + params.toString());
+      const data = await r.json();
+      $('#count').textContent = `${data.matched} matched · ${data.total} total`;
+      if (!data.items.length) { $('#rows').innerHTML = '<tr><td colspan="7" style="padding:24px;color:#6b7a87;">No submissions match.</td></tr>'; return; }
+      $('#rows').innerHTML = data.items.map(it => {
+        const sig = [
+          it.fill_ms != null ? `fill ${fmtMs(it.fill_ms)}` : null,
+          it.js_ran ? 'js✓' : 'js✗',
+          it.link_count ? `${it.link_count} links` : null,
+          it.honey_filled && it.honey_filled.length ? `honey:${it.honey_filled.join(',')}` : null,
+          it.tz_offset != null ? `tz${it.tz_offset}` : null,
+        ].filter(Boolean).join(' · ');
+        const msg = esc(it.message || '');
+        const long = msg.length > 200;
+        const tag = it.blocked ? `<span class="tag spam" title="${esc(it.blocked)}">${esc(it.blocked)}</span>` : '<span class="tag real">real</span>';
+        const country = it.country ? esc(it.country) : '—';
+        const city = it.city ? ' · ' + esc(it.city) : '';
+        return `<tr class="${it.blocked ? 'spam' : ''}">
+          <td>${esc(fmtTs(it.ts))}</td>
+          <td><strong>${esc(it.name || '—')}</strong>${it.company ? '<br><span style="color:#6b7a87;font-size:12px;">' + esc(it.company) + '</span>' : ''}</td>
+          <td><a href="mailto:${esc(it.email)}">${esc(it.email || '—')}</a>${it.phone ? '<br><span style="color:#6b7a87;font-size:12px;">' + esc(it.phone) + '</span>' : ''}</td>
+          <td class="mono">${esc(it.ip || '—')}<br><span style="color:#6b7a87;">${country}${city}</span></td>
+          <td class="mono" style="color:#6b7a87;">${esc(sig || '—')}</td>
+          <td class="msg-cell"><div class="msg ${long?'':'open'}">${msg || '<span style="color:#6b7a87;">—</span>'}</div>${long?'<span class="more" onclick="this.previousElementSibling.classList.toggle(\'open\');this.textContent=this.previousElementSibling.classList.contains(\'open\')?\'less\':\'more…\';">more…</span>':''}</td>
+          <td>${tag}</td>
+        </tr>`;
+      }).join('');
+    } catch (e) {
+      $('#rows').innerHTML = `<tr><td colspan="7" style="padding:24px;color:#a3261a;">Load failed: ${esc(e.message)}</td></tr>`;
+    }
+  }
+
+  $$('#filters .chip').forEach(c => c.addEventListener('click', () => {
+    $$('#filters .chip').forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    state.blocked = c.dataset.blocked;
+    loadRows();
+  }));
+  let qTimer;
+  $('#q').addEventListener('input', e => { clearTimeout(qTimer); qTimer = setTimeout(() => { state.q = e.target.value; loadRows(); }, 250); });
+
+  loadSummary();
+  loadRows();
+</script>
+</body>
+</html>
