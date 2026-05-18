@@ -104,16 +104,30 @@ function emailShell(innerHtml, preheader) {
 </body></html>`;
 }
 
-function renderInquiryEmail({ name, company, email, phone, message, niceTs }) {
+function renderInquiryEmail({ name, company, email, phone, message, niceTs, meta }) {
   const row = (label, value, isLink, linkPrefix) => {
-    if (!value) value = '<span style="color:' + BRAND.muted + ';">—</span>';
+    if (!value && value !== 0) value = `<span style="color:${BRAND.muted};">—</span>`;
     else if (isLink) value = `<a href="${linkPrefix}${escHtml(value)}" style="color:${BRAND.accent};text-decoration:none;">${escHtml(value)}</a>`;
     else value = escHtml(value);
     return `<tr>
-      <td style="padding:8px 0;width:90px;color:${BRAND.muted};font-size:12px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;vertical-align:top;">${label}</td>
-      <td style="padding:8px 0;font-size:15px;color:${BRAND.ink};">${value}</td>
+      <td style="padding:6px 0;width:130px;color:${BRAND.muted};font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;vertical-align:top;">${label}</td>
+      <td style="padding:6px 0;font-size:14px;color:${BRAND.ink};word-break:break-word;">${value}</td>
     </tr>`;
   };
+  const m = meta || {};
+  const loc = [m.city, m.region, m.country].filter(Boolean).join(', ') || null;
+  const fillMs = m.fill_ms == null ? null
+    : m.fill_ms < 1000 ? `${m.fill_ms}ms`
+    : m.fill_ms < 60000 ? `${(m.fill_ms/1000).toFixed(1)}s`
+    : `${Math.round(m.fill_ms/1000)}s`;
+  const signals = [
+    m.js_ran ? 'js✓' : 'js✗',
+    fillMs ? `fill ${fillMs}` : null,
+    m.link_count ? `${m.link_count} link${m.link_count===1?'':'s'} in message` : null,
+    m.honey_filled && m.honey_filled.length ? `honeypot:${m.honey_filled.join(',')}` : null,
+    m.tz_offset != null ? `tz${m.tz_offset}` : null,
+  ].filter(Boolean).join(' · ') || null;
+
   const inner = `
     <p style="margin:0 0 4px;color:${BRAND.muted};font-size:12px;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;">New website inquiry</p>
     <h1 style="margin:0 0 24px;font-size:24px;font-weight:600;letter-spacing:-0.01em;color:${BRAND.ink};">${escHtml(name)}${company ? ` <span style="color:${BRAND.muted};font-weight:400;">· ${escHtml(company)}</span>` : ''}</h1>
@@ -127,6 +141,20 @@ function renderInquiryEmail({ name, company, email, phone, message, niceTs }) {
       <p style="margin:0 0 8px;color:${BRAND.muted};font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;">Message</p>
       <p style="margin:0;font-size:15px;line-height:1.55;color:${BRAND.ink};white-space:pre-wrap;">${escHtml(message)}</p>
     </div>
+    <p style="margin:0 0 8px;color:${BRAND.muted};font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600;border-top:1px solid ${BRAND.line};padding-top:18px;">Submission details</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 24px;">
+      ${row('Submitted', niceTs ? `${niceTs} (Oslo)` : null)}
+      ${row('IP', m.ip)}
+      ${row('Location', loc)}
+      ${row('Geo timezone', m.timezone_geo)}
+      ${row('Client tz offset', m.tz_offset == null ? null : String(m.tz_offset))}
+      ${row('Signals', signals)}
+      ${row('Email domain', m.email_domain)}
+      ${row('Origin', m.origin)}
+      ${row('Referer', m.referer)}
+      ${row('Accept-Language', m.accept_language)}
+      ${row('User agent', m.ua)}
+    </table>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 8px;">
       <tr>
         <td style="padding:14px 20px;background:${BRAND.ink};border-radius:8px;text-align:center;">
@@ -134,7 +162,7 @@ function renderInquiryEmail({ name, company, email, phone, message, niceTs }) {
         </td>
       </tr>
     </table>
-    <p style="margin:16px 0 0;color:${BRAND.muted};font-size:12px;">Submitted ${escHtml(niceTs)} (Oslo time). Replying to this email goes directly to the sender.</p>
+    <p style="margin:16px 0 0;color:${BRAND.muted};font-size:12px;">Replying goes directly to the sender. Full log: <a href="https://www.scale-42.com/cms/inquiries.html" style="color:${BRAND.accent};">/cms/inquiries.html</a></p>
   `;
   return emailShell(inner, `New inquiry from ${name}${company ? ' at ' + company : ''}`);
 }
@@ -257,7 +285,7 @@ router.post('/contact',
           `Submitted ${niceTs} from ${ip}`,
           `Reply directly to this email — it goes to ${name}.`,
         ].join('\n');
-        const html = renderInquiryEmail({ name, company, email, phone, message, niceTs });
+        const html = renderInquiryEmail({ name, company, email, phone, message, niceTs, meta: entry });
         try {
           const fromUser = process.env.GMAIL_USER || process.env.SMTP_USER;
           const fromAlias = process.env.MAIL_FROM || fromUser;

@@ -18,8 +18,11 @@
   .inq-table th, .inq-table td { padding:8px 12px; border-bottom:1px solid var(--line); font-size:13px; text-align:left; vertical-align:top; }
   .inq-table th { background:#fafbfc; font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-2); font-weight:600; }
   .inq-table tr:last-child td { border-bottom:none; }
-  .inq-table tr.spam { background:#fff8f6; }
+  .inq-table tr.spam { background:#fff1ee; }
   .inq-table tr.spam td { color:var(--ink-2); }
+  .inq-table tr.spam-hard { background:#ffd9d2 !important; }
+  .inq-table tr.spam-hard td { color:#7a1e10; }
+  .inq-table tr.spam-hard td strong { color:#7a1e10; }
   .tag { display:inline-block; padding:1px 8px; border-radius:999px; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; }
   .tag.real { background:#d8eadc; color:#1f6132; }
   .tag.spam { background:#fde0dc; color:#a3261a; }
@@ -127,7 +130,8 @@
         const tag = it.blocked ? `<span class="tag spam" title="${esc(it.blocked)}">${esc(it.blocked)}</span>` : '<span class="tag real">real</span>';
         const country = it.country ? esc(it.country) : '—';
         const city = it.city ? ' · ' + esc(it.city) : '';
-        return `<tr class="${it.blocked ? 'spam' : ''}">
+        const rowClass = it.blocked === 'honeypot' ? 'spam spam-hard' : (it.blocked ? 'spam' : '');
+        return `<tr class="${rowClass}">
           <td>${esc(fmtTs(it.ts))}</td>
           <td><strong>${esc(it.name || '—')}</strong>${it.company ? '<br><span style="color:#6b7a87;font-size:12px;">' + esc(it.company) + '</span>' : ''}</td>
           <td><a href="mailto:${esc(it.email)}">${esc(it.email || '—')}</a>${it.phone ? '<br><span style="color:#6b7a87;font-size:12px;">' + esc(it.phone) + '</span>' : ''}</td>
