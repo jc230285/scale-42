@@ -419,7 +419,7 @@
       if (mp4)  { var s2 = document.createElement('source'); s2.src = mp4;  s2.type = 'video/mp4';  v.appendChild(s2); }
       v.load();
       var shown = false;
-      var reveal = function () { if (shown) return; shown = true; v.classList.add('is-ready'); v.play().catch(function () {}); };
+      var reveal = function () { if (shown) return; shown = true; v.classList.add('is-ready'); var bg = v.closest('.hero-bg'); if (bg) bg.classList.add('video-active'); v.play().catch(function () {}); };
       v.addEventListener('canplaythrough', reveal, { once: true });
       // Safety net — some browsers don't fire canplaythrough for muted autoplay.
       setTimeout(reveal, 6000);
