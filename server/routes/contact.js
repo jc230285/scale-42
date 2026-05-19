@@ -48,11 +48,17 @@ function saveRateState() {
   } catch (e) { console.warn('[contact] saveRateState failed:', e.message); }
 }
 function clientIp(req) { return (req.headers['x-forwarded-for'] || req.ip || '').split(',')[0].trim(); }
+// Code-level permanent bans. These survive any state-file edit and are the
+// fastest way to nail a confirmed spammer without going through the UI.
+const HARDCODED_BANNED_SUBNETS = new Set(['80.94.95']); // Robertfup RO bot — repeated no_js submissions
+const HARDCODED_BANNED_IPS = new Set([]);
 function manualBanReason(ip) {
+  if (HARDCODED_BANNED_IPS.has(ip)) return 'hardcoded';
   if (rateState.manual.ips[ip]) return `manual: ${rateState.manual.ips[ip].reason || 'banned'}`;
   const parts = String(ip).split('.');
   if (parts.length === 4) {
     const s24 = `${parts[0]}.${parts[1]}.${parts[2]}`;
+    if (HARDCODED_BANNED_SUBNETS.has(s24)) return 'hardcoded /24';
     if (rateState.manual.subnets[s24]) return `manual: ${rateState.manual.subnets[s24].reason || 'banned /24'}`;
     const s16 = `${parts[0]}.${parts[1]}`;
     if (rateState.manual.subnets[s16]) return `manual: ${rateState.manual.subnets[s16].reason || 'banned /16'}`;
