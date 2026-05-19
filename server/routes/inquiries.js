@@ -106,4 +106,50 @@ router.delete('/inquiries/blocked', (req, res) => {
   res.json({ removed: before - kept.length, remaining: kept.length });
 });
 
+// Manual ban list — IPs and /24 or /16 prefixes that should be blocked indefinitely.
+const contact = require('./contact');
+router.get('/inquiries/manual-bans', (_req, res) => {
+  const s = contact.getRateState();
+  res.json({ ips: s.manual.ips, subnets: s.manual.subnets });
+});
+router.post('/inquiries/manual-bans', express.json(), (req, res) => {
+  const { target, reason } = req.body || {};
+  const t = String(target || '').trim();
+  if (!t) return res.status(400).json({ error: 'target required' });
+  const s = contact.getRateState();
+  const entry = { reason: String(reason || '').slice(0, 200), added: new Date().toISOString(), by: req.cmsUser?.username || '?' };
+  // /24 or /16 prefix detection: "1.2.3" or "1.2"
+  if (/^\d+\.\d+\.\d+$/.test(t) || /^\d+\.\d+$/.test(t)) s.manual.subnets[t] = entry;
+  else if (/^\d+\.\d+\.\d+\.\d+$/.test(t)) s.manual.ips[t] = entry;
+  else return res.status(400).json({ error: 'target must be an IPv4 address, /24 (a.b.c) or /16 (a.b)' });
+  contact.persistRateState();
+  res.json({ ok: true, manual: { ips: s.manual.ips, subnets: s.manual.subnets } });
+});
+router.delete('/inquiries/manual-bans/:target', (req, res) => {
+  const t = String(req.params.target || '').trim();
+  const s = contact.getRateState();
+  let removed = false;
+  if (s.manual.ips[t]) { delete s.manual.ips[t]; removed = true; }
+  if (s.manual.subnets[t]) { delete s.manual.subnets[t]; removed = true; }
+  contact.persistRateState();
+  res.json({ ok: true, removed });
+});
+
+// One-click ban from a row: ban the IP of a given inquiry, optionally also the /24.
+router.post('/inquiries/ban-ip', express.json(), (req, res) => {
+  const ip = String((req.body && req.body.ip) || '').trim();
+  const scope = String((req.body && req.body.scope) || 'ip').toLowerCase();
+  const reason = String((req.body && req.body.reason) || 'banned from CMS').slice(0, 200);
+  if (!/^\d+\.\d+\.\d+\.\d+$/.test(ip)) return res.status(400).json({ error: 'invalid ip' });
+  const s = contact.getRateState();
+  const entry = { reason, added: new Date().toISOString(), by: req.cmsUser?.username || '?' };
+  if (scope === 'subnet24' || scope === '/24') {
+    const m = ip.match(/^(\d+\.\d+\.\d+)\./); if (m) s.manual.subnets[m[1]] = entry;
+  } else {
+    s.manual.ips[ip] = entry;
+  }
+  contact.persistRateState();
+  res.json({ ok: true });
+});
+
 module.exports = router;

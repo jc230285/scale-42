@@ -94,6 +94,19 @@
     <span class="count" id="count">…</span>
   </div>
 
+  <div id="manual-bans" style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:0 0 16px;">
+    <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 10px;">
+      <strong style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-2);">Manual ban list</strong>
+      <span style="font-size:12px;color:var(--ink-2);">IPs / subnets blocked outright (no expiry)</span>
+    </div>
+    <form id="manual-ban-form" style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px;">
+      <input id="mb-target" type="text" placeholder="1.2.3.4   or   1.2.3 (/24)   or   1.2 (/16)" style="padding:6px 10px;border:1px solid var(--line);border-radius:6px;font:inherit;font-size:13px;min-width:280px;">
+      <input id="mb-reason" type="text" placeholder="reason (optional)" style="padding:6px 10px;border:1px solid var(--line);border-radius:6px;font:inherit;font-size:13px;flex:1;min-width:160px;">
+      <button type="submit" style="padding:6px 14px;border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:6px;font-size:13px;cursor:pointer;">Ban</button>
+    </form>
+    <div id="manual-bans-list" style="font-size:13px;color:var(--ink-2);">…</div>
+  </div>
+
   <table class="inq-table">
     <thead><tr>
       <th>When</th><th>Who</th><th>From</th><th>Network</th><th>Signals</th><th class="msg-cell">Message</th><th>Status</th>
@@ -197,7 +210,7 @@
           <td class="mono">${esc(it.ip || '—')}<br><span style="color:#6b7a87;">${country}${city}</span></td>
           <td class="mono" style="color:#6b7a87;">${esc(sig || '—')}</td>
           <td class="msg-cell"><div class="msg ${long?'':'open'}">${msg || '<span style="color:#6b7a87;">—</span>'}</div>${long?'<span class="more" onclick="event.stopPropagation();this.previousElementSibling.classList.toggle(\'open\');this.textContent=this.previousElementSibling.classList.contains(\'open\')?\'less\':\'more…\';">more…</span>':''}</td>
-          <td>${tag}</td>
+          <td>${tag}${it.ip ? `<br><button class="ban-btn" data-ip="${esc(it.ip)}" onclick="event.stopPropagation();banIp(this)" style="margin-top:4px;padding:2px 8px;border:1px solid #a3261a;background:#fff;color:#a3261a;border-radius:4px;font-size:11px;cursor:pointer;">Ban IP</button> <button class="ban-btn" data-ip="${esc(it.ip)}" data-scope="subnet24" onclick="event.stopPropagation();banIp(this)" style="margin-top:4px;padding:2px 8px;border:1px solid #7a1e10;background:#fff;color:#7a1e10;border-radius:4px;font-size:11px;cursor:pointer;">Ban /24</button>` : ''}</td>
         </tr>
         <tr class="detail-row hidden" data-idx="${i}"><td colspan="7">${detailHtml}</td></tr>`;
       }).join('');
@@ -263,8 +276,68 @@
     } catch (e) { alert('Delete failed: ' + e.message); }
   });
 
+  async function loadManualBans() {
+    try {
+      const r = await fetch('/api/inquiries/manual-bans');
+      const data = await r.json();
+      const rows = [];
+      for (const [ip, e] of Object.entries(data.ips || {})) {
+        rows.push({ kind: 'IP', target: ip, reason: e.reason || '', added: e.added, by: e.by });
+      }
+      for (const [sub, e] of Object.entries(data.subnets || {})) {
+        const kind = sub.split('.').length === 3 ? '/24' : '/16';
+        rows.push({ kind, target: sub, reason: e.reason || '', added: e.added, by: e.by });
+      }
+      if (!rows.length) { $('#manual-bans-list').innerHTML = '<span style="color:#6b7a87;">no manual bans</span>'; return; }
+      rows.sort((a, b) => (b.added || '').localeCompare(a.added || ''));
+      $('#manual-bans-list').innerHTML = rows.map(r =>
+        `<div style="display:flex;gap:10px;padding:4px 0;border-bottom:1px dashed var(--line);align-items:center;">
+          <span style="background:#fde0dc;color:#a3261a;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:600;">${esc(r.kind)}</span>
+          <code style="font-size:12.5px;color:var(--ink);">${esc(r.target)}</code>
+          <span style="flex:1;color:var(--ink-2);font-size:12px;">${esc(r.reason || '—')} <span style="opacity:0.6;">· ${esc((r.added || '').slice(0, 16).replace('T', ' '))} · ${esc(r.by || '?')}</span></span>
+          <button onclick="unban('${esc(r.target)}')" style="padding:2px 8px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:4px;font-size:11px;cursor:pointer;">unban</button>
+        </div>`
+      ).join('');
+    } catch (e) { $('#manual-bans-list').innerHTML = `<span style="color:#a3261a;">load failed: ${esc(e.message)}</span>`; }
+  }
+  window.unban = async function(target) {
+    if (!confirm(`Unban ${target}?`)) return;
+    await fetch('/api/inquiries/manual-bans/' + encodeURIComponent(target), { method: 'DELETE' });
+    loadManualBans();
+  };
+  window.banIp = async function(btn) {
+    const ip = btn.dataset.ip;
+    const scope = btn.dataset.scope || 'ip';
+    const label = scope === 'subnet24' ? `${ip.split('.').slice(0,3).join('.')}.0/24 (whole subnet)` : ip;
+    const reason = prompt(`Ban ${label}?  Enter a short reason (optional):`, 'spammer');
+    if (reason === null) return;
+    const r = await fetch('/api/inquiries/ban-ip', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ip, scope, reason }),
+    });
+    if (!r.ok) { alert('ban failed'); return; }
+    loadManualBans();
+  };
+  $('#manual-ban-form').addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const target = $('#mb-target').value.trim();
+    const reason = $('#mb-reason').value.trim();
+    if (!target) return;
+    const r = await fetch('/api/inquiries/manual-bans', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ target, reason }),
+    });
+    const data = await r.json();
+    if (!r.ok) { alert('ban failed: ' + (data.error || r.status)); return; }
+    $('#mb-target').value = ''; $('#mb-reason').value = '';
+    loadManualBans();
+  });
+
   loadSummary();
   loadSparkline();
+  loadManualBans();
   loadRows();
 </script>
 </body>

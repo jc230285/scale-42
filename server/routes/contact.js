@@ -21,8 +21,26 @@ const RATE_PATH = process.env.RATE_PATH
 const WEEK_MS = 7 * 24 * 3600_000;
 const BAN_MS = 30 * 24 * 3600_000;
 const MAX_PER_WEEK = 2;
-let rateState = { hits: {}, bans: {} }; // hits: ip->[ts,...]; bans: ip->banUntilMs
-try { rateState = JSON.parse(fs.readFileSync(RATE_PATH, 'utf-8')); } catch {}
+// hits: ip->[ts,...]; bans: ip->banUntilMs; manual: { ips:{ip:{reason,added}}, subnets:{prefix:{reason,added}} }
+let rateState = { hits: {}, bans: {}, manual: { ips: {}, subnets: {} } };
+try {
+  const loaded = JSON.parse(fs.readFileSync(RATE_PATH, 'utf-8'));
+  rateState = { hits: loaded.hits || {}, bans: loaded.bans || {}, manual: loaded.manual || { ips: {}, subnets: {} } };
+  if (!rateState.manual.ips) rateState.manual.ips = {};
+  if (!rateState.manual.subnets) rateState.manual.subnets = {};
+} catch {}
+// Expose for inquiries router (manual ban UI). Reload on each access so the two
+// modules can mutate the same file without one stomping the other.
+function reloadRateState() {
+  try {
+    const loaded = JSON.parse(fs.readFileSync(RATE_PATH, 'utf-8'));
+    rateState.hits = loaded.hits || {};
+    rateState.bans = loaded.bans || {};
+    rateState.manual = loaded.manual || { ips: {}, subnets: {} };
+    if (!rateState.manual.ips) rateState.manual.ips = {};
+    if (!rateState.manual.subnets) rateState.manual.subnets = {};
+  } catch {}
+}
 function saveRateState() {
   try {
     fs.mkdirSync(path.dirname(RATE_PATH), { recursive: true });
@@ -30,15 +48,33 @@ function saveRateState() {
   } catch (e) { console.warn('[contact] saveRateState failed:', e.message); }
 }
 function clientIp(req) { return (req.headers['x-forwarded-for'] || req.ip || '').split(',')[0].trim(); }
+function manualBanReason(ip) {
+  if (rateState.manual.ips[ip]) return `manual: ${rateState.manual.ips[ip].reason || 'banned'}`;
+  const parts = String(ip).split('.');
+  if (parts.length === 4) {
+    const s24 = `${parts[0]}.${parts[1]}.${parts[2]}`;
+    if (rateState.manual.subnets[s24]) return `manual: ${rateState.manual.subnets[s24].reason || 'banned /24'}`;
+    const s16 = `${parts[0]}.${parts[1]}`;
+    if (rateState.manual.subnets[s16]) return `manual: ${rateState.manual.subnets[s16].reason || 'banned /16'}`;
+  }
+  return null;
+}
 function rateLimit(req, res, next) {
   const ip = clientIp(req);
   if (!ip) return next();
   const now = Date.now();
-  // Sweep stale bans
+  reloadRateState();
+  // Manual ban list (no expiry — only removed via /api/inquiries/manual-bans DELETE)
+  const mReason = manualBanReason(ip);
+  if (mReason) {
+    console.warn(`[contact] manual-ban hit ip=${ip} (${mReason})`);
+    return res.status(429).send('This IP is blocked from submitting. Email info@scale-42.com directly.');
+  }
+  // Sweep stale auto-bans
   for (const [k, until] of Object.entries(rateState.bans)) {
     if (until < now) delete rateState.bans[k];
   }
-  // Banned?
+  // Auto-banned?
   const banUntil = rateState.bans[ip];
   if (banUntil && banUntil > now) {
     const days = Math.ceil((banUntil - now) / 86400_000);
@@ -423,3 +459,6 @@ router.post('/contact',
   });
 
 module.exports = router;
+module.exports.RATE_PATH = RATE_PATH;
+module.exports.getRateState = () => { reloadRateState(); return rateState; };
+module.exports.persistRateState = () => saveRateState();
