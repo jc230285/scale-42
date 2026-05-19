@@ -19,12 +19,42 @@ function rateLimit(req, res, next) {
   const last = lastByIp.get(ip) || 0;
   if (now - last < 60_000) return res.status(429).send('Too many requests. Try again in a minute.');
   lastByIp.set(ip, now);
-  // Garbage-collect old entries
   if (lastByIp.size > 5000) {
     for (const [k, t] of lastByIp) if (now - t > 3600_000) lastByIp.delete(k);
   }
   next();
 }
+
+// Per-/24 burst tracking: ≥3 blocked submissions in 10 min → ban that /24 for 24 h.
+const recentBlocksBySubnet = new Map();
+const bannedSubnets = new Map();
+function subnet24(ip) { const m = String(ip || '').match(/^(\d+)\.(\d+)\.(\d+)\./); return m ? `${m[1]}.${m[2]}.${m[3]}` : null; }
+function isSubnetBanned(ip) {
+  const s = subnet24(ip); if (!s) return false;
+  const until = bannedSubnets.get(s);
+  if (!until) return false;
+  if (Date.now() > until) { bannedSubnets.delete(s); return false; }
+  return true;
+}
+function noteBlock(ip) {
+  const s = subnet24(ip); if (!s) return;
+  const now = Date.now();
+  const arr = (recentBlocksBySubnet.get(s) || []).filter(t => now - t < 10 * 60_000);
+  arr.push(now);
+  recentBlocksBySubnet.set(s, arr);
+  if (arr.length >= 3) bannedSubnets.set(s, now + 24 * 3600_000);
+}
+
+// Disposable email providers — auto-blocked. Real users on these are vanishingly rare.
+const DISPOSABLE_DOMAINS = new Set([
+  'mailinator.com','guerrillamail.com','guerrillamail.net','guerrillamail.org','guerrillamail.biz',
+  'sharklasers.com','grr.la','spam4.me','tempmail.com','temp-mail.org','10minutemail.com','10minutemail.net',
+  'yopmail.com','yopmail.fr','trashmail.com','trashmail.de','maildrop.cc','getairmail.com','dispostable.com',
+  'mintemail.com','throwawaymail.com','fakeinbox.com','mailcatch.com','mailnesia.com','spamgourmet.com',
+  'tempr.email','tempinbox.com','emailondeck.com','mohmal.com','mvrht.com','spambox.us','byom.de',
+  'inboxbear.com','tempail.com','tempemail.net','tempmailaddress.com','jetable.org','spambog.com',
+  'discard.email','discardmail.com','mailtemp.info','mail-temp.com','tempmail.email','cock.li',
+]);
 
 let transporter = null;
 function getTransporter() {
@@ -234,7 +264,9 @@ router.post('/contact',
 
       // Spam checks — set `blocked` instead of early-returning, so we always log.
       let blocked = null;
-      if (honey_filled.length) blocked = 'honeypot';
+      if (isSubnetBanned(ip)) blocked = 'burst_subnet';
+      else if (DISPOSABLE_DOMAINS.has(email_domain)) blocked = 'disposable_email';
+      else if (honey_filled.length) blocked = 'honeypot';
       else if (!js_ran) blocked = 'no_js';
       else if (fill_ms !== null && fill_ms < 2500) blocked = 'too_fast';
       else if (fill_ms !== null && fill_ms > 6 * 3600 * 1000) blocked = 'stale';
@@ -269,6 +301,7 @@ router.post('/contact',
 
       if (blocked) {
         console.warn(`[contact] BLOCKED reason=${blocked} ip=${ip} country=${country || '?'} email=${email || '(none)'} fill_ms=${fill_ms}`);
+        try { noteBlock(ip); } catch {}
         try { appendInquiry(entry); } catch {}
         return res.redirect(303, '/contact/sent/');
       }

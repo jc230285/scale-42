@@ -65,6 +65,18 @@
 
   <div class="summary" id="summary"></div>
 
+  <div id="spark-wrap" style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:0 0 16px;">
+    <div style="display:flex;align-items:baseline;gap:12px;margin:0 0 8px;">
+      <strong style="font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-2);">Submissions / hour · last 48 h</strong>
+      <span style="font-size:12px;color:var(--ink-2);">
+        <span style="display:inline-block;width:10px;height:10px;background:#2f6675;border-radius:2px;vertical-align:middle;margin-right:4px;"></span>real
+        <span style="display:inline-block;width:10px;height:10px;background:#a3261a;border-radius:2px;vertical-align:middle;margin:0 4px 0 12px;"></span>blocked
+      </span>
+      <span id="spark-peak" style="margin-left:auto;font-size:12px;color:var(--ink-2);"></span>
+    </div>
+    <svg id="spark" viewBox="0 0 480 60" preserveAspectRatio="none" style="width:100%;height:60px;display:block;"></svg>
+  </div>
+
   <div class="filter-bar" id="filters">
     <span class="chip active" data-blocked="all">All</span>
     <span class="chip" data-blocked="none">Real only</span>
@@ -75,7 +87,10 @@
     <span class="chip" data-blocked="bad_origin">bad_origin</span>
     <span class="chip" data-blocked="cyrillic">cyrillic</span>
     <span class="chip" data-blocked="spam_pattern">spam_pattern</span>
+    <span class="chip" data-blocked="burst_subnet">burst_subnet</span>
+    <span class="chip" data-blocked="disposable_email">disposable_email</span>
     <input id="q" type="search" placeholder="search name/email/ip/message…">
+    <button id="purge-btn" type="button" style="padding:6px 12px;border:1px solid #a3261a;background:#fff;color:#a3261a;border-radius:999px;font-size:13px;cursor:pointer;">Delete all blocked…</button>
     <span class="count" id="count">…</span>
   </div>
 
@@ -205,7 +220,51 @@
   let qTimer;
   $('#q').addEventListener('input', e => { clearTimeout(qTimer); qTimer = setTimeout(() => { state.q = e.target.value; loadRows(); }, 250); });
 
+  async function loadSparkline() {
+    try {
+      const r = await fetch('/api/inquiries/hourly?hours=48');
+      const data = await r.json();
+      const W = 480, H = 60, n = data.buckets.length;
+      const colW = W / n;
+      const peak = data.buckets.reduce((m, b) => Math.max(m, b.real + b.blocked), 0) || 1;
+      const bars = data.buckets.map((b, i) => {
+        const total = b.real + b.blocked;
+        const realH = (b.real / peak) * H;
+        const blockedH = (b.blocked / peak) * H;
+        const x = i * colW;
+        const bw = Math.max(colW - 1, 1);
+        const blockedY = H - blockedH;
+        const realY = blockedY - realH;
+        const title = `${b.hour.replace('T', ' ')}  real:${b.real}  blocked:${b.blocked}`;
+        return `<g><title>${esc(title)}</title>`
+          + (b.blocked ? `<rect x="${x.toFixed(2)}" y="${blockedY.toFixed(2)}" width="${bw.toFixed(2)}" height="${blockedH.toFixed(2)}" fill="#a3261a"/>` : '')
+          + (b.real ? `<rect x="${x.toFixed(2)}" y="${realY.toFixed(2)}" width="${bw.toFixed(2)}" height="${realH.toFixed(2)}" fill="#2f6675"/>` : '')
+          + `</g>`;
+      }).join('');
+      $('#spark').innerHTML = bars || `<text x="240" y="34" text-anchor="middle" font-size="11" fill="#6b7a87">no submissions in window</text>`;
+      $('#spark-peak').textContent = `peak ${peak}/hr`;
+    } catch (e) {
+      $('#spark').innerHTML = `<text x="240" y="34" text-anchor="middle" font-size="11" fill="#a3261a">sparkline failed</text>`;
+    }
+  }
+
+  $('#purge-btn').addEventListener('click', async () => {
+    const activeChip = document.querySelector('#filters .chip.active');
+    const reason = activeChip ? activeChip.dataset.blocked : 'all';
+    const scope = (reason && reason !== 'all' && reason !== 'none' && reason !== 'spam') ? reason : null;
+    const label = scope ? `all blocked rows with reason "${scope}"` : 'ALL blocked rows';
+    if (!confirm(`Delete ${label}? Real inquiries are untouched. This cannot be undone.`)) return;
+    try {
+      const url = scope ? `/api/inquiries/blocked?reason=${encodeURIComponent(scope)}` : '/api/inquiries/blocked';
+      const r = await fetch(url, { method: 'DELETE' });
+      const data = await r.json();
+      alert(`Removed ${data.removed} row${data.removed === 1 ? '' : 's'}. ${data.remaining} remain.`);
+      loadSummary(); loadSparkline(); loadRows();
+    } catch (e) { alert('Delete failed: ' + e.message); }
+  });
+
   loadSummary();
+  loadSparkline();
   loadRows();
 </script>
 </body>

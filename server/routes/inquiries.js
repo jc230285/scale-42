@@ -9,6 +9,10 @@ const INQ_PATH = path.resolve(__dirname, '..', '..', 'content', 'inquiries.json'
 function loadAll() {
   try { return JSON.parse(fs.readFileSync(INQ_PATH, 'utf-8')).items || []; } catch { return []; }
 }
+function saveAll(items) {
+  fs.mkdirSync(path.dirname(INQ_PATH), { recursive: true });
+  fs.writeFileSync(INQ_PATH, JSON.stringify({ items }, null, 2) + '\n', 'utf-8');
+}
 
 router.get('/inquiries', (req, res) => {
   const items = loadAll();
@@ -65,6 +69,41 @@ router.get('/inquiries/summary', (req, res) => {
     by_country: by(recent, 'country'),
     by_domain_spam: by(spam, 'email_domain'),
   });
+});
+
+// Hourly buckets over the last N hours, separated by real vs blocked. Used by the
+// CMS sparkline so attack waves are visible at a glance.
+router.get('/inquiries/hourly', (req, res) => {
+  const hours = Math.min(Math.max(parseInt(req.query.hours, 10) || 48, 6), 24 * 14);
+  const now = Date.now();
+  const startMs = now - hours * 3600_000;
+  const buckets = Array.from({ length: hours }, (_, i) => ({
+    hour: new Date(startMs + i * 3600_000).toISOString().slice(0, 13) + ':00',
+    real: 0, blocked: 0,
+  }));
+  for (const it of loadAll()) {
+    const t = Date.parse(it.ts || '');
+    if (!Number.isFinite(t) || t < startMs || t > now) continue;
+    const idx = Math.floor((t - startMs) / 3600_000);
+    if (idx < 0 || idx >= hours) continue;
+    if (it.blocked) buckets[idx].blocked += 1; else buckets[idx].real += 1;
+  }
+  res.json({ hours, buckets });
+});
+
+// Bulk-delete blocked entries. Real (non-blocked) entries are never touched.
+// Optional ?reason= restricts deletion to a single block reason.
+router.delete('/inquiries/blocked', (req, res) => {
+  const reason = String(req.query.reason || '').toLowerCase();
+  const items = loadAll();
+  const before = items.length;
+  const kept = items.filter(it => {
+    if (!it.blocked) return true;
+    if (reason && (it.blocked || '').toLowerCase() !== reason) return true;
+    return false;
+  });
+  saveAll(kept);
+  res.json({ removed: before - kept.length, remaining: kept.length });
 });
 
 module.exports = router;
