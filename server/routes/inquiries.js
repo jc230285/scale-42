@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const router = express.Router();
-const INQ_PATH = path.resolve(__dirname, '..', '..', 'content', 'inquiries.json');
+const INQ_PATH = process.env.INQUIRIES_PATH || path.resolve(__dirname, '..', '..', 'content', 'inquiries.json');
 
 function loadAll() {
   try { return JSON.parse(fs.readFileSync(INQ_PATH, 'utf-8')).items || []; } catch { return []; }

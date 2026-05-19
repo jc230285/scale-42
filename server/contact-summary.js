@@ -5,7 +5,7 @@ const path = require('path');
 const nodemailer = require('nodemailer');
 
 const ROOT = path.resolve(__dirname, '..');
-const INQ_PATH = path.join(ROOT, 'content', 'inquiries.json');
+const INQ_PATH = process.env.INQUIRIES_PATH || path.join(ROOT, 'content', 'inquiries.json');
 const STATE_PATH = path.join(ROOT, 'content', 'contact-summary-state.json');
 
 function escHtml(s) {

@@ -9,19 +9,60 @@ try { geoip = require('geoip-lite'); } catch { /* optional dep — country/regio
 
 const router = express.Router();
 const ROOT = path.resolve(__dirname, '..', '..');
-const INQ_PATH = path.join(ROOT, 'content', 'inquiries.json');
+// Persistent across deploys when INQUIRIES_PATH points at a Coolify volume mount.
+// Falls back to repo-local path for local dev.
+const INQ_PATH = process.env.INQUIRIES_PATH || path.join(ROOT, 'content', 'inquiries.json');
 
-// Simple in-memory rate limit: 1 submission / 60 s / IP
-const lastByIp = new Map();
+// Rate limit: max 2 submissions / 7 days / IP. The 3rd attempt within the window
+// bans that IP for 30 days (returns 429 instantly, no work done).
+// State is persisted to the runtime volume so deploys don't reset bans.
+const RATE_PATH = process.env.RATE_PATH
+  || path.join(path.dirname(INQ_PATH), 'rate-limit.json');
+const WEEK_MS = 7 * 24 * 3600_000;
+const BAN_MS = 30 * 24 * 3600_000;
+const MAX_PER_WEEK = 2;
+let rateState = { hits: {}, bans: {} }; // hits: ip->[ts,...]; bans: ip->banUntilMs
+try { rateState = JSON.parse(fs.readFileSync(RATE_PATH, 'utf-8')); } catch {}
+function saveRateState() {
+  try {
+    fs.mkdirSync(path.dirname(RATE_PATH), { recursive: true });
+    fs.writeFileSync(RATE_PATH, JSON.stringify(rateState), 'utf-8');
+  } catch (e) { console.warn('[contact] saveRateState failed:', e.message); }
+}
+function clientIp(req) { return (req.headers['x-forwarded-for'] || req.ip || '').split(',')[0].trim(); }
 function rateLimit(req, res, next) {
-  const ip = (req.headers['x-forwarded-for'] || req.ip || '').split(',')[0].trim();
+  const ip = clientIp(req);
+  if (!ip) return next();
   const now = Date.now();
-  const last = lastByIp.get(ip) || 0;
-  if (now - last < 60_000) return res.status(429).send('Too many requests. Try again in a minute.');
-  lastByIp.set(ip, now);
-  if (lastByIp.size > 5000) {
-    for (const [k, t] of lastByIp) if (now - t > 3600_000) lastByIp.delete(k);
+  // Sweep stale bans
+  for (const [k, until] of Object.entries(rateState.bans)) {
+    if (until < now) delete rateState.bans[k];
   }
+  // Banned?
+  const banUntil = rateState.bans[ip];
+  if (banUntil && banUntil > now) {
+    const days = Math.ceil((banUntil - now) / 86400_000);
+    return res.status(429).send(`This IP is blocked from submitting (${days} day${days === 1 ? '' : 's'} remaining). If this is a mistake, email info@scale-42.com directly.`);
+  }
+  // Trim hits to the last week
+  const arr = (rateState.hits[ip] || []).filter(t => now - t < WEEK_MS);
+  if (arr.length >= MAX_PER_WEEK) {
+    rateState.bans[ip] = now + BAN_MS;
+    delete rateState.hits[ip];
+    saveRateState();
+    console.warn(`[contact] BANNED ip=${ip} for 30d (exceeded ${MAX_PER_WEEK}/week)`);
+    return res.status(429).send('This IP is blocked from submitting for 30 days. Email info@scale-42.com directly.');
+  }
+  arr.push(now);
+  rateState.hits[ip] = arr;
+  // GC: drop any ip whose hits all expired
+  if (Object.keys(rateState.hits).length > 5000) {
+    for (const [k, list] of Object.entries(rateState.hits)) {
+      const fresh = list.filter(t => now - t < WEEK_MS);
+      if (!fresh.length) delete rateState.hits[k]; else rateState.hits[k] = fresh;
+    }
+  }
+  saveRateState();
   next();
 }
 
