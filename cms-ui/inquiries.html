@@ -31,6 +31,16 @@
   .msg-cell .msg.open { max-height:none; }
   .msg-cell .more { font-size:11px; color:var(--ink-2); cursor:pointer; }
   .mono { font-family:ui-monospace,Menlo,monospace; font-size:12px; }
+  .inq-table tr.summary-row { cursor:pointer; }
+  .inq-table tr.summary-row:hover td { background:#f6f8fa; }
+  .inq-table tr.spam.summary-row:hover td { background:#ffe7e0; }
+  .inq-table tr.detail-row td { background:#fafbfc; padding:14px 18px; }
+  .inq-table tr.detail-row.hidden { display:none; }
+  .detail-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:6px 24px; font-size:12.5px; }
+  .detail-grid div { display:flex; gap:8px; padding:3px 0; border-bottom:1px dashed #e3e8ec; word-break:break-word; }
+  .detail-grid div span:first-child { color:#6b7a87; min-width:130px; text-transform:uppercase; letter-spacing:0.05em; font-size:10.5px; font-weight:600; padding-top:2px; }
+  .detail-grid div span:last-child { color:#1c2e3f; flex:1; font-family:ui-monospace,Menlo,monospace; }
+  .detail-grid div span.empty { color:#a8b3bd; font-style:italic; font-family:inherit; }
 </style>
 </head>
 <body>
@@ -64,6 +74,7 @@
     <span class="chip" data-blocked="too_fast">too_fast</span>
     <span class="chip" data-blocked="bad_origin">bad_origin</span>
     <span class="chip" data-blocked="cyrillic">cyrillic</span>
+    <span class="chip" data-blocked="spam_pattern">spam_pattern</span>
     <input id="q" type="search" placeholder="search name/email/ip/message…">
     <span class="count" id="count">…</span>
   </div>
@@ -89,6 +100,38 @@
     if (ms < 1000) return ms + 'ms';
     if (ms < 60000) return (ms/1000).toFixed(1) + 's';
     return Math.round(ms/1000) + 's';
+  }
+
+  // Ordered list of fields shown in detail. Any extra keys present on the entry
+  // are appended after this list so we never silently hide data.
+  const FIELD_ORDER = [
+    'ts','blocked','inquiry_type',
+    'name','company','email','phone','mw',
+    'message','message_length','name_length','company_length','link_count',
+    'email_domain','honey_filled',
+    'ip','xff','country','region','city','timezone_geo','ip_lat','ip_lon',
+    'fill_ms','js_ran','tz_offset',
+    'origin','referer','accept_language','ua',
+    'email_sent','message_id','smtp_response','email_error',
+    'autoreply_sent','autoreply_error',
+  ];
+  function renderDetail(it) {
+    const seen = new Set();
+    const cells = [];
+    const push = k => {
+      if (seen.has(k)) return; seen.add(k);
+      let v = it[k];
+      let html;
+      if (v == null || v === '' || (Array.isArray(v) && !v.length)) html = '<span class="empty">—</span>';
+      else if (Array.isArray(v)) html = esc(v.join(', '));
+      else if (typeof v === 'object') html = esc(JSON.stringify(v));
+      else if (typeof v === 'boolean') html = v ? 'true' : 'false';
+      else html = esc(String(v));
+      cells.push(`<div><span>${esc(k)}</span><span>${html}</span></div>`);
+    };
+    FIELD_ORDER.forEach(push);
+    Object.keys(it).forEach(push);
+    return `<div class="detail-grid">${cells.join('')}</div>`;
   }
 
   async function loadSummary() {
@@ -117,7 +160,7 @@
       const data = await r.json();
       $('#count').textContent = `${data.matched} matched · ${data.total} total`;
       if (!data.items.length) { $('#rows').innerHTML = '<tr><td colspan="7" style="padding:24px;color:#6b7a87;">No submissions match.</td></tr>'; return; }
-      $('#rows').innerHTML = data.items.map(it => {
+      $('#rows').innerHTML = data.items.map((it, i) => {
         const sig = [
           it.fill_ms != null ? `fill ${fmtMs(it.fill_ms)}` : null,
           it.js_ran ? 'js✓' : 'js✗',
@@ -131,16 +174,23 @@
         const country = it.country ? esc(it.country) : '—';
         const city = it.city ? ' · ' + esc(it.city) : '';
         const rowClass = it.blocked === 'honeypot' ? 'spam spam-hard' : (it.blocked ? 'spam' : '');
-        return `<tr class="${rowClass}">
+        const detailHtml = renderDetail(it);
+        return `<tr class="${rowClass} summary-row" data-idx="${i}">
           <td>${esc(fmtTs(it.ts))}</td>
           <td><strong>${esc(it.name || '—')}</strong>${it.company ? '<br><span style="color:#6b7a87;font-size:12px;">' + esc(it.company) + '</span>' : ''}</td>
-          <td><a href="mailto:${esc(it.email)}">${esc(it.email || '—')}</a>${it.phone ? '<br><span style="color:#6b7a87;font-size:12px;">' + esc(it.phone) + '</span>' : ''}</td>
+          <td><a href="mailto:${esc(it.email)}" onclick="event.stopPropagation()">${esc(it.email || '—')}</a>${it.phone ? '<br><span style="color:#6b7a87;font-size:12px;">' + esc(it.phone) + '</span>' : ''}</td>
           <td class="mono">${esc(it.ip || '—')}<br><span style="color:#6b7a87;">${country}${city}</span></td>
           <td class="mono" style="color:#6b7a87;">${esc(sig || '—')}</td>
-          <td class="msg-cell"><div class="msg ${long?'':'open'}">${msg || '<span style="color:#6b7a87;">—</span>'}</div>${long?'<span class="more" onclick="this.previousElementSibling.classList.toggle(\'open\');this.textContent=this.previousElementSibling.classList.contains(\'open\')?\'less\':\'more…\';">more…</span>':''}</td>
+          <td class="msg-cell"><div class="msg ${long?'':'open'}">${msg || '<span style="color:#6b7a87;">—</span>'}</div>${long?'<span class="more" onclick="event.stopPropagation();this.previousElementSibling.classList.toggle(\'open\');this.textContent=this.previousElementSibling.classList.contains(\'open\')?\'less\':\'more…\';">more…</span>':''}</td>
           <td>${tag}</td>
-        </tr>`;
+        </tr>
+        <tr class="detail-row hidden" data-idx="${i}"><td colspan="7">${detailHtml}</td></tr>`;
       }).join('');
+      $$('#rows tr.summary-row').forEach(tr => tr.addEventListener('click', () => {
+        const idx = tr.dataset.idx;
+        const det = document.querySelector(`#rows tr.detail-row[data-idx="${idx}"]`);
+        if (det) det.classList.toggle('hidden');
+      }));
     } catch (e) {
       $('#rows').innerHTML = `<tr><td colspan="7" style="padding:24px;color:#a3261a;">Load failed: ${esc(e.message)}</td></tr>`;
     }

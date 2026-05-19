@@ -240,6 +240,12 @@ router.post('/contact',
       else if (fill_ms !== null && fill_ms > 6 * 3600 * 1000) blocked = 'stale';
       else if (!/^https?:\/\/(www\.)?scale-42\.com(\/|$)/i.test(origin) && !/^https?:\/\/localhost(:|\/|$)/i.test(origin)) blocked = 'bad_origin';
       else if (/[Ѐ-ӿ]/.test(`${name} ${company} ${message}`)) blocked = 'cyrillic';
+      // "Robertfup / Williamfup / Jamesfup …" — known WP spambot name pattern.
+      else if (/^[A-Za-z]{3,20}(fup|kar|sib|jak|hib|gob|tek|met|mok|nuh|pak)$/i.test(name.replace(/\s+/g, ''))) blocked = 'spam_pattern';
+      // Single big-tech word as company when the email domain doesn't match it.
+      else if (company && /^(google|amazon|microsoft|apple|facebook|meta|openai|tesla|netflix|nvidia)$/i.test(company.trim()) && !email_domain.includes(company.trim().toLowerCase())) blocked = 'spam_pattern';
+      // Phone is 10-15 digits with no separators AND message is < 60 chars in a non-Nordic/EN language hint.
+      else if (/^\+?\d{10,15}$/.test(phone) && message.length < 80 && /[áéíóúñçàèìòù]/i.test(message)) blocked = 'spam_pattern';
 
       // Required-field check only applies if not already blocked — bots often omit fields.
       if (!blocked && (!name || !email || !message)) {
