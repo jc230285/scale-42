@@ -101,6 +101,8 @@
     </picture>
     <video class="hero-video" muted playsinline loop preload="none"
            data-src-webm="assets/video/hero.webm" data-src-mp4="assets/video/hero.mp4"
+           data-src-webm-lg="assets/video/hero-720.webm" data-src-mp4-lg="assets/video/hero-720.mp4"
+           data-lg-min="1100"
            poster="assets/hero-900.jpg" aria-hidden="true"></video>
   </div>
   <img class="hero-mosaic-svg" src="/assets/logo-mark.svg?v=2" alt="" aria-hidden="true" />
@@ -409,8 +411,10 @@
     if (!v) return;
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     function start() {
-      var mp4 = v.getAttribute('data-src-mp4');
-      var webm = v.getAttribute('data-src-webm');
+      var lgMin = parseInt(v.getAttribute('data-lg-min') || '0', 10);
+      var useLg = lgMin && window.innerWidth >= lgMin;
+      var mp4  = v.getAttribute(useLg ? 'data-src-mp4-lg'  : 'data-src-mp4');
+      var webm = v.getAttribute(useLg ? 'data-src-webm-lg' : 'data-src-webm');
       if (webm) { var s1 = document.createElement('source'); s1.src = webm; s1.type = 'video/webm'; v.appendChild(s1); }
       if (mp4)  { var s2 = document.createElement('source'); s2.src = mp4;  s2.type = 'video/mp4';  v.appendChild(s2); }
       v.load();
