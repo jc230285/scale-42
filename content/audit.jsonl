@@ -131,3 +131,4 @@
 {"ts":"2026-05-20T05:10:43.203Z","user":"admin","user_name":"Admin","section":"people","action":"save","changes":[{"entity":"person:rahman","path":"role_en","before":"Senior Business Development Manager","after":"Business Development Director"},{"entity":"person:rahman","path":"role_no","before":"Senior Business Development Manager","after":"Business Development Director"}]}
 {"ts":"2026-05-28T13:35:50.667Z","user":"admin","user_name":"Admin","section":"journey","action":"publish","changes":[]}
 {"ts":"2026-06-03T13:26:54.004Z","user":"admin","user_name":"Admin","section":"sites","action":"save","changes":[{"entity":"site:jokkmokk","path":"public_location","before":"Jokkmokk, Sweden","after":"Northern Sweden"}]}
+{"ts":"2026-06-03T13:27:01.316Z","user":"admin","user_name":"Admin","section":"sites","action":"publish","changes":[]}
