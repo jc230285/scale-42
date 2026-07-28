@@ -150,6 +150,8 @@ img { max-width: 100%; display: block; }
 
 /* Sections */
 .section { padding: 56px 0; border-top: 1px solid var(--line); }
+/* Sections with no content (e.g. no published people) are marked [hidden] by regen. */
+[hidden] { display: none !important; }
 /* Decorative patterns — subtle. Surface base is #F4F6F7, alternating with white. */
 .bg-hex {
   background-color: var(--bg-alt);

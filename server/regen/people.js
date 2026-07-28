@@ -31,6 +31,16 @@ function blockHtml(people, klass, lang) {
   return `<div class="grid grid-3 ${klass}">\n${inner}\n    </div>`;
 }
 
+// Hide a whole <section> (heading + eyebrow included) when it has no published
+// people — an empty "The founders" strip looks broken on the public page.
+function setSectionHidden(html, sectionId, hidden) {
+  const re = new RegExp(`<section id="${sectionId}"([^>]*)>`);
+  return html.replace(re, (full, attrs) => {
+    const clean = attrs.replace(/\s+hidden(?==|\b)/g, '');
+    return `<section id="${sectionId}"${clean}${hidden ? ' hidden' : ''}>`;
+  });
+}
+
 function replaceBlock(html, gridClass, replacement) {
   const opener = `<div class="grid grid-3 ${gridClass}">`;
   const start = html.indexOf(opener);
@@ -58,6 +68,8 @@ function run() {
     let html = fs.readFileSync(file, 'utf-8');
     html = replaceBlock(html, 'team founders', blockHtml(founders, 'team founders', lang));
     html = replaceBlock(html, 'team', blockHtml(team, 'team', lang));
+    html = setSectionHidden(html, 'founders', founders.filter(p => p.published).length === 0);
+    html = setSectionHidden(html, 'team', team.filter(p => p.published).length === 0);
     fs.writeFileSync(file, html, 'utf-8');
   }
   // Also regen public signatures pages
